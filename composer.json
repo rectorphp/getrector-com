@@ -1,0 +1,5 @@
+{
+    "require": {
+        "symplify/statie": "^5.2"
+    }
+}
