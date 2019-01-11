@@ -1,0 +1,89 @@
+* {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1em;
+}
+
+#main_logo {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+#main_logo img {
+    width: 4em;
+    float: right;
+    padding-top: .5em;
+    padding-left: 1.2em;
+}
+
+#main_logo h1 {
+    color: white;
+    font-weight: 600;
+    font-size: 2.5em;
+    padding-left: .7em;
+    letter-spacing: .05em;
+    float: right;
+    line-height: 1.8em;
+}
+
+
+.section-inverted {
+    background: #111;
+    color: white;
+}
+
+/* inspired by backers from https://nette.org/ */
+#projects {
+    transition: all .3s ease;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    opacity: .66;
+}
+
+#projects:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+#projects img:hover {
+    transform: scale(1.05);
+    transition: .2s;
+}
+
+.img-thumbnail {
+    max-width: 6em;
+}
+
+h2 {
+    font-size: 2em;
+    text-transform: uppercase;
+}
+
+footer {
+    padding-top: 1.8em;
+    padding-bottom: 1em;
+
+    background-color: #24292e;
+    color: #FFF;
+    font-size: 1.3em;
+}
+
+footer a {
+    color: #21c87a;
+}
+
+footer a:hover {
+    color: #20a55b;
+    text-decoration: underline !important;
+}
+
+footer #made_by {
+    font-size: .8em;
+}
+
+#client .reference-text {
+    font-size: 1.5em;
+}
+
+.btn {
+    font-size: 1.2em;
+}

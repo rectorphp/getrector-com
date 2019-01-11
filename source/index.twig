@@ -1,1 +1,53 @@
-it works Statie :)
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% include "_snippets/layout/head.twig" %}
+    </head>
+
+    <body>
+        <section class="home-bg-img h-100vh">
+            <div class="container">
+                <div class="row">
+                    <div class="col-6"></div>
+                    <div class="col-6">
+                        <br>
+                        <a href="/" id="main_logo">
+                            <img src="/assets/images/logo/rector-no_frame_vector.svg" alt="">
+                            <h1>Rector</h1>
+                        </a>
+
+                        <div class="clearfix"></div>
+
+                        <div class="text-white">
+                            <div class="home_divider mb-4"></div>
+
+                            <div class="clearfix"></div>
+
+                            <h1 class="header_title">
+                                {{ copy.killer_headline }}
+                            </h1>
+
+                            <a href="#show" class="btn btn-custom mt-5">
+                                Oh, Really?
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {% include "_snippets/section/projects.twig" %}
+
+        {% include "_snippets/section/left_and_right.twig" %}
+
+        {% include "_snippets/section/video.twig" %}
+
+        {% include "_snippets/section/references.twig" %}
+
+        <br><br>
+
+        {% include "_snippets/layout/footer.twig" %}
+
+        {% include "_snippets/layout/scripts.twig" %}
+    </body>
+</html>
