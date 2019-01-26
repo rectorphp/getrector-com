@@ -25,27 +25,6 @@ button:focus {
     background: rgba(166, 175, 189, 0.3);
 }
 
-.back_top {
-    text-align: center;
-    position: fixed;
-    bottom: 15px;
-    height: 35px;
-    width: 35px;
-    background-color: #21c87a;
-    display: none;
-    z-index: 10000;
-    border-radius: 3px;
-    right: 20px;
-    transition: all 0.5s;
-}
-
-.back_top i {
-    color: #fff;
-    line-height: 35px;
-    font-size: 32px;
-    display: block;
-}
-
 /*==========================
         2.HELPER
 ============================*/
@@ -127,17 +106,6 @@ button:focus {
     background: linear-gradient(to right, #182848, #3839c3);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     opacity: 0.9;
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.bg-overlay {
-    background: rgba(53, 58, 64, 0.89);
     position: absolute;
     top: 0;
     right: 0;
@@ -231,29 +199,12 @@ button:focus {
     background-position: top center;
 }
 
-.home-table-center {
-    display: table-cell;
-    vertical-align: middle;
-}
-
-.home-table {
-    display: table;
-    width: 100%;
-    height: 100%;
-}
-
-.header_title {
-    font-size: 62px;
-    line-height: 1.2;
-    max-width: 750px;
-}
-
 .home_divider {
-    height: 5px;
+    height: .4em;
     width: 20em;
     float: right;
     background-color: #fff;
-    border-radius: 50px;
+    border-radius: 5em;
 }
 
 .learn_more i {
@@ -457,151 +408,6 @@ button:focus {
     background-color: #e8e8e8;
 }
 
-/*==========================
-        18.CONTACT
-============================*/
-
-.contact_form {
-    border: 1px solid #e3e6f0;
-    padding: 40px;
-    max-width: 500px;
-}
-
-.contact_form .form-control {
-    box-shadow: none !important;
-    height: 44px;
-    border-radius: 0px;
-    border: 1px solid #e3e6f0;
-}
-
-.contact_form .form-control:focus {
-    border-color: #21c87a;
-}
-
-.contact_form textarea.form-control {
-    height: auto;
-}
-
-.contact_section {
-    padding-bottom: 0px;
-}
-
-.error {
-    margin: 8px 0px;
-    display: none;
-    color: red;
-}
-
-.error_msg {
-    margin-bottom: 20px;
-    text-align: center;
-    font-size: 18px;
-    color: red;
-    font-weight: 700;
-}
-
-.gig_loader {
-    display: none;
-}
-
-#success_msg {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-#success_msg h3 {
-    color: #0dba26;
-    font-size: 22px;
-}
-
-/*==========================
-        19.FOOTER
-============================*/
-
-.footer_detail {
-    background-color: #161821;
-}
-
-.subcribe-newslatter input {
-    padding: 15px 20px;
-    width: 100%;
-    font-size: 17px;
-    color: #fff !important;
-    border: none;
-    outline: none !important;
-    padding-right: 150px;
-    padding-left: 30px;
-    border-radius: 30px;
-    background-color: rgba(241, 241, 241, 0.05);
-}
-
-.subcribe-newslatter button {
-    position: absolute;
-    top: 4px;
-    right: 5px;
-    outline: none !important;
-    border-radius: 30px;
-    font-size: 17px;
-    padding: 9px 30px;
-}
-
-.subcribe-newslatter form {
-    max-width: 550px;
-}
-
-.footer_about p {
-    max-width: 680px;
-    color: #6c757d;
-}
-
-.footer_detail .about_oxcer {
-    color: #6c757d;
-    max-width: 420px;
-}
-
-.footer_detail ul.footer_menu_list li a:hover {
-    color: #21c87a;
-    transition: all 0.3s;
-}
-
-.footer_detail ul.footer_menu_list li a {
-    color: #6c757d;
-    display: inline-block;
-    padding: 5px 0;
-    font-size: 15px;
-    text-decoration: none !important;
-}
-
-.footer_detail .fot_social .social-icon {
-    border-radius: 50%;
-    background-color: rgba(241, 241, 241, 0.05);
-    transition: all 0.5s;
-    width: 42px;
-    height: 42px;
-    display: block;
-    font-size: 18px;
-    line-height: 42px;
-    text-align: center;
-}
-
-.footer_detail .fot_social .social-icon:hover {
-    color: #21c87a !important;
-}
-
-.footer_detail .footer_logo {
-    height: 34px;
-}
-
-.footer_detail .copy-rights {
-    color: #6c757d;
-    font-size: 14px;
-}
-
-.footer_detail .fot_bor {
-    height: 2px;
-    background: rgba(34, 36, 44, 0.65);
-    width: 100%;
-}
 
 /*==========================
         20.RESPONSIVE
@@ -701,4 +507,3 @@ button:focus {
         display: none;
     }
 }
-

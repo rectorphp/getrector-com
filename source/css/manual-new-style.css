@@ -54,8 +54,10 @@
 }
 
 h2 {
-    font-size: 2em;
+    font-size: 1.7em;
     text-transform: uppercase;
+    font-weight: 600;
+    color: #4b4b4b;
 }
 
 footer {
@@ -96,4 +98,35 @@ footer #made_by {
 
 .section:not(.bg-light) .container {
     background: white;
+}
+
+#video img {
+    max-width: 100%;
+    border: 1px solid #DDD;
+}
+
+.header_title {
+    font-size: 4em;
+    font-weight: 300;
+}
+
+/* responsive */
+@media (max-width: 1024px) {
+    .header_title {
+        font-size: 3em;
+    }
+
+    .home_divider {
+        width: 15em;
+    }
+}
+
+@media (max-width: 768px) {
+    .header_title {
+        font-size: 2.5em;
+    }
+
+    .home_divider {
+        width: 10em;
+    }
 }
