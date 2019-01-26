@@ -1,0 +1,12 @@
+parameters:
+    references:
+        -
+            text: |
+                Hey, I just used Rector on 2-years-old project to replace `Nette\Object` → `Nette\SmartObject`.
+                <br>
+                I used Docker and **it's fucking awesome**! Just created the config and everything worked as a charm.
+
+            name: "Jan Mikes"
+            photo: "jan_mikes.jpg"
+            link: "https://janmikes.cz"
+            position: "CTO"

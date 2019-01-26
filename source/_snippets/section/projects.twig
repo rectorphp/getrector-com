@@ -1,0 +1,17 @@
+<section class="section bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5">Projects with Instant Upgrade</h2>
+
+        <div class="row" id="projects">
+            {% for project in projects %}
+                <div class="col-lg-3">
+                    <div class="logo_img">
+                        <a href="{{ project.url }}">
+                            <img src="/assets/images/projects/{{ project.image }}" alt="logo-img" class="mx-auto img-fluid d-block">
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

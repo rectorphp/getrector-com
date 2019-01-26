@@ -1,0 +1,701 @@
+/*======================
+        1.BASIC
+========================*/
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    overflow-x: hidden;
+}
+
+a,
+a:hover,
+a:focus,
+button,
+button:focus {
+    text-decoration: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+::selection {
+    background: rgba(166, 175, 189, 0.3);
+}
+
+::-moz-selection {
+    background: rgba(166, 175, 189, 0.3);
+}
+
+.back_top {
+    text-align: center;
+    position: fixed;
+    bottom: 15px;
+    height: 35px;
+    width: 35px;
+    background-color: #21c87a;
+    display: none;
+    z-index: 10000;
+    border-radius: 3px;
+    right: 20px;
+    transition: all 0.5s;
+}
+
+.back_top i {
+    color: #fff;
+    line-height: 35px;
+    font-size: 32px;
+    display: block;
+}
+
+/*==========================
+        2.HELPER
+============================*/
+
+.section {
+    padding-top: 6em;
+    padding-bottom: 6em;
+    background-color: #fff;
+}
+
+.main-title-border::after,
+.main-title-border::before {
+    display: inline-block;
+    margin-top: -7px;
+    vertical-align: middle;
+    content: "";
+    background-color: #d0d0d0;
+    width: 30px;
+    height: 1px;
+}
+
+/*.main-title-border i {*/
+    /*font-size: 20px;*/
+/*}*/
+
+/*.sec_small_title {*/
+    /*font-size: 14px;*/
+/*}*/
+
+/*.sec_subtitle {*/
+    /*max-width: 520px;*/
+    /*font-size: 15px;*/
+/*}*/
+
+.bg-dark {
+    background-color: #000;
+}
+
+.bg-custom {
+    background-color: #21c87a;
+}
+
+.text-dark {
+    color: #000 !important;
+}
+
+.text-muted {
+    color: #646f79 !important;
+}
+
+.text-custom {
+    color: #21c87a !important;
+}
+
+.text-custom-blue {
+    color: #2f45c7;
+}
+
+.h-100vh {
+    height: 100vh;
+}
+
+.z-index {
+    z-index: 2;
+}
+
+.bg-custom {
+    background-color: #000;
+}
+
+.bg-overlay-gradient {
+    background: #3839c3;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #182848, #3839c3);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #182848, #3839c3);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    opacity: 0.9;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.bg-overlay {
+    background: rgba(53, 58, 64, 0.89);
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.btn {
+    padding: 10px 24px;
+}
+
+.btn-rounded {
+    border-radius: 30px !important;
+}
+
+.btn-outline-custom {
+    border: 2px solid #21c87a;
+    color: #21c87a;
+    letter-spacing: 1px;
+    transition: all 0.5s;
+    border-radius: 5px;
+}
+
+.btn-outline-custom:hover,
+.btn-outline-custom:focus,
+.btn-outline-custom:active,
+.btn-outline-custom.active,
+.btn-outline-custom.focus,
+.btn-outline-custom:active,
+.btn-outline-custom:focus,
+.btn-outline-custom:hover,
+.open>.dropdown-toggle.btn-outline-custom {
+    background: rgba(52, 78, 234, 0.17);
+    border-color: #21c87a !important;
+    color: #21c87a !important;
+}
+
+.btn-custom {
+    background-color: #21c87a;
+    border: 2px solid #21c87a;
+    color: #fff;
+    transition: all 0.5s;
+    border-radius: 5px;
+}
+
+.btn-custom:hover,
+.btn-custom:focus,
+.btn-custom:active,
+.btn-custom.active,
+.btn-custom.focus,
+.btn-custom:active,
+.btn-custom:focus,
+.btn-custom:hover,
+
+.btn-custom-blue:hover,
+.btn-custom-blue:focus,
+.btn-custom-blue:active,
+.btn-custom-blue.active,
+.btn-custom-blue.focus,
+.btn-custom-blue:active,
+.btn-custom-blue:focus,
+.btn-custom-blue:hover,
+.open>.dropdown-toggle.btn-custom-blue {
+    background-color: #20a761;
+    border-color: #1ca562;
+    color: #fff;
+}
+
+.vertical-content {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    -webkit-align-items: center;
+    justify-content: center;
+    -webkit-justify-content: center;
+    flex-direction: row;
+    -webkit-flex-direction: row;
+}
+
+/*==========================
+        4.HOME
+============================*/
+
+.home-bg-img {
+    background-image: url(../images/home-bg3.jpg);
+    background-size: cover;
+    background-position: top center;
+}
+
+.home-table-center {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.home-table {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+.header_title {
+    font-size: 62px;
+    line-height: 1.2;
+    max-width: 750px;
+}
+
+.home_divider {
+    height: 5px;
+    width: 20em;
+    float: right;
+    background-color: #fff;
+    border-radius: 50px;
+}
+
+.learn_more i {
+    position: relative;
+    font-size: 20px;
+    top: 3px;
+}
+
+.header_subtitle {
+    line-height: 1.8;
+    max-width: 450px;
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.play-btn {
+    border: 2px solid #fff;
+    border-radius: 50%;
+    color: #fff !important;
+    width: 70px;
+    height: 70px;
+    display: block;
+    font-size: 30px;
+    line-height: 66px;
+    margin-top: 10px;
+    text-align: center;
+    transition: all 0.5s;
+}
+
+.play-btn:hover {
+    background-color: #21c87a;
+    border-color: #21c87a;
+}
+
+
+
+/*==========================
+        6.SERVICES
+============================*/
+
+.services_boxes {
+    border: 1px solid #e3e6f0;
+}
+
+.services_boxes .services_icon i {
+    font-size: 190px;
+    color: #dedfe6;
+}
+
+.services_boxes .services_content p {
+    font-size: 1.1em;
+    line-height: 1.8em;
+}
+
+/*==========================
+        13.TESTIMONIAL
+============================*/
+
+.client_section {
+    padding-bottom: 0px !important;
+}
+
+.client_box .clients_content_box p {
+    font-size: 24px;
+}
+
+.client_box {
+    max-width: 600px;
+}
+
+.client_box .clients_detail p {
+    font-size: 13px;
+}
+
+.client_box .clients_detail h5 {
+    font-size: 15px;
+}
+
+/*===========================
+        14.PRICING
+=============================*/
+
+.price_box {
+    border: 1px solid #e3e6f0;
+}
+
+.price_box .price_divider {
+    width: 100%;
+    height: 2px;
+    background: #e3e6f0;
+    margin: 40px 0px;
+}
+
+.price_box .price_name p {
+    border-radius: 30px;
+    background-color: rgba(33, 200, 122, 0.13);
+    padding: 8px 15px;
+    display: inline-block;
+    font-size: 14px;
+}
+
+.price_box.active .price_name p {
+    border-radius: 30px;
+    background-color: rgba(47, 69, 199, 0.13);
+    padding: 8px 15px;
+    display: inline-block;
+}
+
+.price_box .plan_price h3 sub {
+    font-size: 14px;
+}
+
+.price_box .price_desc {
+    max-width: 250px;
+}
+
+.price_box .price_features p {
+    margin-bottom: 10px;
+}
+
+/*===========================
+        15.TEAM
+=============================*/
+
+.team_box {
+    border: 1px solid #e3e6f0;
+}
+
+.team_box .team_img img {
+    max-width: 120px;
+}
+
+.team_work {
+    font-size: 13px;
+}
+
+.team_social ul {
+    border-top: 1px solid #e3e6f0;
+}
+
+.team_social ul li:not(:last-child) {
+    margin-right: 0px;
+}
+
+.team_social_border {
+    border-right: 1px solid #e3e6f0;
+}
+
+.team_social ul li a {
+    color: #bbbbbb;
+    display: inline-block;
+    transition: all 0.5s;
+    padding: 6px 32px;
+    text-align: center;
+}
+
+.team_social ul li:hover a {
+    color: #21c87a;
+}
+
+/*===========================
+        16.FAQ
+=============================*/
+
+.faq_boxes {
+    border: 1px solid #e3e6f0;
+}
+
+.faq_boxes .faq_details .small_title {
+    font-size: 13px;
+}
+
+.faq_boxes .faq_details h5 {
+    font-size: 18px;
+}
+
+/*===========================
+        17.BLOG
+=============================*/
+
+.blog_box_contant {
+    border: 1px solid #e3e6f0;
+}
+
+.blog_box_detail h6 {
+    line-height: 1.6;
+}
+
+.blog_box_detail .blog_detail_badge {
+    padding: 5px 15px;
+    display: inline-block;
+    font-size: 12px;
+    background: rgba(33, 200, 122, 0.14);
+    color: #21c87a;
+    border-radius: 30px;
+    letter-spacing: 2px;
+}
+
+.blog_box_detail .blog_detail_devider {
+    height: 1px;
+    width: 100%;
+    background-color: #e8e8e8;
+}
+
+/*==========================
+        18.CONTACT
+============================*/
+
+.contact_form {
+    border: 1px solid #e3e6f0;
+    padding: 40px;
+    max-width: 500px;
+}
+
+.contact_form .form-control {
+    box-shadow: none !important;
+    height: 44px;
+    border-radius: 0px;
+    border: 1px solid #e3e6f0;
+}
+
+.contact_form .form-control:focus {
+    border-color: #21c87a;
+}
+
+.contact_form textarea.form-control {
+    height: auto;
+}
+
+.contact_section {
+    padding-bottom: 0px;
+}
+
+.error {
+    margin: 8px 0px;
+    display: none;
+    color: red;
+}
+
+.error_msg {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 18px;
+    color: red;
+    font-weight: 700;
+}
+
+.gig_loader {
+    display: none;
+}
+
+#success_msg {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#success_msg h3 {
+    color: #0dba26;
+    font-size: 22px;
+}
+
+/*==========================
+        19.FOOTER
+============================*/
+
+.footer_detail {
+    background-color: #161821;
+}
+
+.subcribe-newslatter input {
+    padding: 15px 20px;
+    width: 100%;
+    font-size: 17px;
+    color: #fff !important;
+    border: none;
+    outline: none !important;
+    padding-right: 150px;
+    padding-left: 30px;
+    border-radius: 30px;
+    background-color: rgba(241, 241, 241, 0.05);
+}
+
+.subcribe-newslatter button {
+    position: absolute;
+    top: 4px;
+    right: 5px;
+    outline: none !important;
+    border-radius: 30px;
+    font-size: 17px;
+    padding: 9px 30px;
+}
+
+.subcribe-newslatter form {
+    max-width: 550px;
+}
+
+.footer_about p {
+    max-width: 680px;
+    color: #6c757d;
+}
+
+.footer_detail .about_oxcer {
+    color: #6c757d;
+    max-width: 420px;
+}
+
+.footer_detail ul.footer_menu_list li a:hover {
+    color: #21c87a;
+    transition: all 0.3s;
+}
+
+.footer_detail ul.footer_menu_list li a {
+    color: #6c757d;
+    display: inline-block;
+    padding: 5px 0;
+    font-size: 15px;
+    text-decoration: none !important;
+}
+
+.footer_detail .fot_social .social-icon {
+    border-radius: 50%;
+    background-color: rgba(241, 241, 241, 0.05);
+    transition: all 0.5s;
+    width: 42px;
+    height: 42px;
+    display: block;
+    font-size: 18px;
+    line-height: 42px;
+    text-align: center;
+}
+
+.footer_detail .fot_social .social-icon:hover {
+    color: #21c87a !important;
+}
+
+.footer_detail .footer_logo {
+    height: 34px;
+}
+
+.footer_detail .copy-rights {
+    color: #6c757d;
+    font-size: 14px;
+}
+
+.footer_detail .fot_bor {
+    height: 2px;
+    background: rgba(34, 36, 44, 0.65);
+    width: 100%;
+}
+
+/*==========================
+        20.RESPONSIVE
+============================*/
+
+@media (max-width: 768px) {
+    .custom-nav {
+        margin-top: 0px;
+        padding: 10px 0px !important;
+        background-color: #fff !important;
+    }
+    .custom-nav .navbar-nav li a:before {
+        content: '';
+        display: none;
+    }
+    .custom-nav .navbar-nav li a {
+        margin: 0 0px;
+        padding: 6px 0;
+        color: #000;
+    }
+    .custom-nav .navbar-nav li.active a {
+        color: #21c87a;
+    }
+    .custom-nav>.container {
+        width: 90%;
+    }
+    .custom-nav .logo {
+        padding-top: 0px;
+    }
+
+    .navbar-nav {
+        margin-top: 0px;
+    }
+    .header_title {
+        font-size: 38px;
+        line-height: 1.2;
+    }
+    .header_subtitle {
+        font-size: 15px;
+        line-height: 1.8;
+    }
+    .h-100vh {
+        height: auto;
+    }
+    .clip-home {
+        clip-path: none;
+    }
+    .vertical-content {
+        display: inherit;
+    }
+    .home-bg-color,
+    .h-100vh.jarallax,
+    .home-bg-img,
+    .home-bg-color-gradient,
+    .h-100vh,
+    .home-half,
+    .half-slider {
+        padding: 125px 0 130px 0;
+    }
+    .copy-rights {
+        line-height: 26px;
+    }
+    .float_none.float-right,
+    .float_none.float-left {
+        float: none !important;
+        text-align: center;
+    }
+    .carousel-control-prev>span,
+    .carousel-control-next>span {
+        font-size: 30px;
+    }
+    .bg-home-slider .carousel-control-next,
+    .carousel-control-prev {
+        width: 10%;
+    }
+    .home-clip {
+        clip-path: none;
+    }
+    .contact_img {
+        display: none;
+    }
+    .contact_section {
+        padding-bottom: 80px;
+    }
+    .services_boxes .services_icon i {
+        font-size: 130px;
+    }
+    .services_icon,
+    .services_content {
+        margin-top: 15px;
+    }
+    .services_boxes {
+        margin-right: 7px !important;
+        margin-left: 7px !important;
+    }
+    .curv-img{
+        display: none;
+    }
+}
+

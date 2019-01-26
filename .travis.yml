@@ -6,7 +6,7 @@ install:
     - composer install
 
 script:
-    - vendor/bin/statie generate source
+    - vendor/bin/statie generate source -vvv
 
 # see docs: https://www.statie.org/docs/github-pages/
 deploy:
