@@ -1,2 +1,5 @@
 imports:
     - { resource: 'source/_data/*.yaml' }
+
+parameters:
+    google_analytics_tracking_id: 'UA-46082345-2'
