@@ -3,9 +3,6 @@ parameters:
         killer_headline: "You won't have to upgrade PHP code manually - ever again"
 
         # left and right
-        left_right:
-            title: "2 Ways to Make Legacy Code Gone"
-
         instant_upgrades:
             title: Instant Upgrades
             bullets:
