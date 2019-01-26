@@ -1,5 +1,10 @@
+# statie
 /output
+
+# npm
 node_modules
+package-lock.json
+
+# composer
 vendor
 composer.lock
-package-lock.json

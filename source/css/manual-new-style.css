@@ -87,3 +87,13 @@ footer #made_by {
 .btn {
     font-size: 1.2em;
 }
+
+.section:not(.bg-light) {
+    background-image: url('../assets/chars.png');
+    background-position: top left;
+    background-repeat: repeat;
+}
+
+.section:not(.bg-light) .container {
+    background: white;
+}

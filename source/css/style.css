@@ -51,9 +51,12 @@ button:focus {
 ============================*/
 
 .section {
+    background-color: #fff;
+}
+
+.section .container {
     padding-top: 6em;
     padding-bottom: 6em;
-    background-color: #fff;
 }
 
 .main-title-border::after,
