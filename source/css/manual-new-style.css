@@ -17,7 +17,8 @@
 
 #main_logo h1 {
     color: white;
-    font-weight: 600;
+    font-weight: 400;
+    text-transform: uppercase;
     font-size: 2.5em;
     padding-left: .7em;
     letter-spacing: .05em;
@@ -60,7 +61,7 @@ h2 {
     color: #4b4b4b;
 }
 
-footer {
+#footer {
     padding-top: 1.8em;
     padding-bottom: 1em;
 
@@ -69,16 +70,16 @@ footer {
     font-size: 1.3em;
 }
 
-footer a {
+#footer a {
     color: #21c87a;
 }
 
-footer a:hover {
+#footer a:hover {
     color: #20a55b;
     text-decoration: underline !important;
 }
 
-footer #made_by {
+#footer #made_by {
     font-size: .8em;
 }
 
@@ -129,4 +130,21 @@ footer #made_by {
     .home_divider {
         width: 10em;
     }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    #client .reference-text {
+        font-size: 1.2em;
+    }
+}
+
+.container {
+    max-width: 70em;
+}
+
+/* not sure why, but em in footer are bigger; this is to make the width the same size as rest */
+#footer .container {
+    max-width: 55em;
 }
