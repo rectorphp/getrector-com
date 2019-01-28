@@ -1,8 +1,6 @@
 {
     "require": {
         "php": "^7.3",
-        "symplify/statie": "dev-master"
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+        "symplify/statie": "^5.4"
+    }
 }
