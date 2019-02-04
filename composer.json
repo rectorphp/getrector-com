@@ -2,5 +2,8 @@
     "require": {
         "php": "^7.3",
         "symplify/statie": "^5.4"
+    },
+    "require-dev": {
+        "rector/rector": "^0.3.40"
     }
 }
