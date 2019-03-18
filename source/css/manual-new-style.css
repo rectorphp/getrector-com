@@ -80,7 +80,8 @@ h2 {
 }
 
 #footer #made_by {
-    font-size: .8em;
+    color: #DDD;
+    font-size: 1em;
 }
 
 #client .reference-text {
@@ -147,4 +148,8 @@ h2 {
 /* not sure why, but em in footer are bigger; this is to make the width the same size as rest */
 #footer .container {
     max-width: 55em;
+}
+
+#reference .name {
+    font-size: 1.5em;
 }

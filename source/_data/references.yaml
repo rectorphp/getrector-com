@@ -2,11 +2,15 @@ parameters:
     references:
         -
             text: |
-                Hey, I just used Rector on 2-years-old project to replace `Nette\Object` → `Nette\SmartObject`.
+                We wanted to migrate our Nette API application with 54 000 lines to Symfony.
                 <br>
-                I used Docker and **it's fucking awesome**! Just created the config and everything worked as a charm.
+                Everyone said it's not possible.
+                <br>
+                We reached out Tomas with Rector and **17 days later, it's in Symfony and on production!**
+            # @todo: complete https://www.tomasvotruba.cz/blog/2019/02/21/how-we-migrated-from-nette-to-symfony-in-3-weeks-part-1/ case-study
 
             name: "Jan Mikes"
             photo: "jan_mikes.jpg"
-            link: "https://janmikes.cz"
-            position: "CTO"
+            company_logo: "entrydo.png"
+            link: "https://entry.do"
+            position: "CTO at Entrydo"

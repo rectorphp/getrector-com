@@ -8,7 +8,7 @@
             </div>
         </div>
 
-        <div class="row mt-5 vertical-content">
+        <div class="row mt-5 vertical-content" id="reference">
             <div class="col-12">
                 {% for reference in references %}
                     <div class="mx-auto text-center">
@@ -21,10 +21,14 @@
                             </div>
 
                             <div class="mt-4">
-                                <p class="mb-0 font-weight-bold">{{ reference.position }}</p>
-                                <strong>
+                                <strong class="name">
                                     <a href="{{ reference.link }}">{{ reference.name }}</a>
                                 </strong>
+                                <p class="mb-0 font-weight-bold">{{ reference.position }}</p>
+
+                                <br>
+
+                                <img src="/assets/images/references/{{ reference.company_logo }}" alt="" class="img-fluid mx-auto">
                             </div>
                         </div>
                     </div>
