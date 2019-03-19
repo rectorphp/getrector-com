@@ -149,3 +149,7 @@ h2 {
 #reference .name {
     font-size: 1.5em;
 }
+
+.reference-company-logo {
+    max-width: 175px;
+}
