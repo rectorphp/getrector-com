@@ -55,13 +55,14 @@
 }
 
 h2 {
-    font-size: 1.7em;
+    font-size: 1.8em;
     text-transform: uppercase;
     font-weight: 600;
     color: #4b4b4b;
 }
 
 #footer {
+    margin-top: 60px;
     padding-top: 1.8em;
     padding-bottom: 1em;
 
@@ -152,4 +153,8 @@ h2 {
 
 #reference .name {
     font-size: 1.5em;
+}
+
+.reference-company-logo {
+    max-width: 175px;
 }
