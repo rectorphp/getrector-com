@@ -161,3 +161,7 @@ a, a:hover, a:focus, button, button:focus {
         margin-left: 7px !important;
     }
 }
+
+.object-fit {
+    object-fit: contain;
+}

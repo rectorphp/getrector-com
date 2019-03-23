@@ -3,3 +3,4 @@ imports:
 
 parameters:
     google_analytics_tracking_id: 'UA-46082345-2'
+    contact_link: 'https://www.tomasvotruba.cz/contact/'
