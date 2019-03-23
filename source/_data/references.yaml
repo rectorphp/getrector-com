@@ -2,15 +2,14 @@ parameters:
     references:
         -
             text: |
-                We wanted to migrate our Nette API application with 54 000 lines to Symfony.
+                Rector helped us to **get rid of our frustration** with Nette application by migrating it to Symfony.
                 <br>
-                Everyone said it's not possible.
+                Before, we could only dream of it. But **within nearly 17 days with Rector refactoring, we had our 55 000+ lines** app (150+ routes) running on Symfony 4.2 in production.
                 <br>
-                We reached out Tomas with Rector and **17 days later, it's in Symfony and on production!**
-            # @todo: complete https://www.tomasvotruba.cz/blog/2019/02/21/how-we-migrated-from-nette-to-symfony-in-3-weeks-part-1/ case-study
-
+                **What a joy**!
             name: "Jan Mikes"
             photo: "jan_mikes.jpg"
             company_logo: "entrydo.png"
             link: "https://entry.do"
             position: "CTO at Entrydo"
+            case_study: "https://www.tomasvotruba.cz/blog/2019/02/21/how-we-migrated-from-nette-to-symfony-in-3-weeks-part-1"

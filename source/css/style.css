@@ -34,7 +34,7 @@ a, a:hover, a:focus, button, button:focus {
     height: 100vh;
 }
 
-.btn {
+.btn:not(.btn-sm) {
     padding: .7em 1.5em;
 }
 
@@ -44,6 +44,7 @@ a, a:hover, a:focus, button, button:focus {
     color: #fff;
     transition: all 0.5s;
     border-radius: 5px;
+    font-size: 1.2em;
 }
 
 .btn-custom:hover,
@@ -53,17 +54,7 @@ a, a:hover, a:focus, button, button:focus {
 .btn-custom.focus,
 .btn-custom:active,
 .btn-custom:focus,
-.btn-custom:hover,
-
-.btn-custom-blue:hover,
-.btn-custom-blue:focus,
-.btn-custom-blue:active,
-.btn-custom-blue.active,
-.btn-custom-blue.focus,
-.btn-custom-blue:active,
-.btn-custom-blue:focus,
-.btn-custom-blue:hover,
-.open>.dropdown-toggle.btn-custom-blue {
+.btn-custom:hover {
     background-color: #1f9955;
     border-color: #1b9c5b;
     color: #fff;
@@ -82,6 +73,11 @@ a, a:hover, a:focus, button, button:focus {
     -webkit-flex-direction: row;
 }
 
+.btn-sm {
+    font-size: 1.1em;
+    padding: .4em .8em;
+}
+
 /*==========================
         4.HOME
 ============================*/
@@ -98,12 +94,6 @@ a, a:hover, a:focus, button, button:focus {
     float: right;
     background-color: #fff;
     border-radius: 5em;
-}
-
-.header_subtitle {
-    line-height: 1.8;
-    max-width: 450px;
-    color: rgba(255, 255, 255, 0.6) !important;
 }
 
 /*==========================
