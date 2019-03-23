@@ -138,7 +138,7 @@ h2 {
 }
 
 .container {
-    max-width: 70em;
+    max-width: 65em;
 }
 
 /* not sure why, but em in footer are bigger; this is to make the width the same size as rest */
