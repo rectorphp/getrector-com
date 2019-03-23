@@ -2,9 +2,9 @@ parameters:
     references:
         -
             text: |
-                With Rector, we were able to **get rid of our frustration** with Nette application by migrating it to Symfony.
+                Rector helped us to **get rid of our frustration** with Nette application by migrating it to Symfony.
                 <br>
-                We though we could only dream about it. But **in nearly 17 days with Rector refactoring, we had our 55 000+ lines** app (150+ routes) running on Symfony 4.2 in production.
+                Before, we could only dream of it. But **within nearly 17 days with Rector refactoring, we had our 55 000+ lines** app (150+ routes) running on Symfony 4.2 in production.
                 <br>
                 **What a joy**!
             name: "Jan Mikes"
