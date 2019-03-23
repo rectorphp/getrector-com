@@ -29,6 +29,18 @@
                                 <br>
 
                                 <img src="/assets/images/references/{{ reference.company_logo }}" alt="" class="img-fluid mx-auto">
+
+
+                                {% if reference.case_study is defined %}
+                                    <div class="clearfix"></div>
+                                    <br>
+
+                                    <a href="{{ reference.case_study }}" class="btn btn-warning btn-sm mt-3">
+                                        <em class="pe-7s-glasses pe-lg"></em>
+                                        &nbsp;
+                                        Read Case Study
+                                    </a>
+                                {% endif %}
                             </div>
                         </div>
                     </div>

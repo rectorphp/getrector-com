@@ -88,10 +88,6 @@ h2 {
     font-size: 1.5em;
 }
 
-.btn {
-    font-size: 1.2em;
-}
-
 .section:not(.bg-light) {
     background-image: url('../assets/chars.png');
     background-position: top left;
