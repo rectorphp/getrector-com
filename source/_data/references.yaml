@@ -12,4 +12,4 @@ parameters:
             company_logo: "entrydo.png"
             link: "https://entry.do"
             position: "CTO"
-            case_study: "https://www.tomasvotruba.cz/blog/2019/02/21/how-we-migrated-from-nette-to-symfony-in-3-weeks-part-1"
+            case_study: "https://pehapkari.cz/blog/2019/04/20/how-we-migrated-54-357-lines-of-code-nette-to-symfony-in-2-people-under-80-hours/"
