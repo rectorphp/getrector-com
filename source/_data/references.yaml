@@ -10,15 +10,15 @@ parameters:
             name: "Jan Mikes"
             photo: "jan_mikes.jpg"
             company_logo: "entrydo.png"
-            link: "https://entry.do"
             position: "CTO"
+            link: "https://janmikes.cz/"
             case_study: "https://pehapkari.cz/blog/2019/04/20/how-we-migrated-54-357-lines-of-code-nette-to-symfony-in-2-people-under-80-hours/"
 
     # https://joind.in/event/php-russia-2019/how-to-make-legacy-refactoring-fun-again---from-months-to-days:
         -
             text: "Very useful tool presented well. I'm sold :)"
             name: "Alexander Makarov"
-            photo: "https://joind.in/event/php-russia-2019/how-to-make-legacy-refactoring-fun-again---from-months-to-days"
+            photo: "https://avatars0.githubusercontent.com/u/47294?s=400&v=4"
             company_logo: "https://www.yiiframework.com/image/logo.svg"
             position: "Yii Framework Core Developer"
             link: "https://en.rmcreative.ru/"

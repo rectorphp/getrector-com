@@ -12,7 +12,12 @@
             {% for reference in references %}
                 <div class="col-md-2 col-sm-4">
                     <div class="mt-4 text-center">
-                        <img src="/assets/images/references/{{ reference.photo }}" alt="" class="img-fluid mx-auto rounded-circle img-thumbnail">
+                        {% if reference.photo starts with 'http' %}
+                            {% set reference_photo = reference.photo %}
+                        {% else %}
+                            {% set reference_photo %}/assets/images/references/{{ reference.photo }}{% endset %}
+                        {% endif %}
+                        <img src="{{ reference_photo }}" alt="" class="img-fluid mx-auto rounded-circle img-thumbnail">
 
                         <div class="mt-4">
                             <strong class="name">

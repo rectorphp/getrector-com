@@ -173,6 +173,29 @@ a, a:hover, a:focus, button, button:focus {
 
 h2 {
     margin-left: 0;
+    margin-bottom: 1em;
     padding-left: 0;
     padding-bottom: 1em;
+}
+
+.blockquote {
+    font-size: 1.3em;
+    line-height: 1.5em;
+}
+
+.blockquote strong {
+    font-size: 1em;
+}
+
+/* used from https://fontawesome.com/ */
+.text-green {
+    color: #51cf66;
+}
+
+.text-orange {
+    color: #ff922b;
+}
+
+.text-blue {
+    color: #339af0;
 }
