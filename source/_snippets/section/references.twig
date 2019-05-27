@@ -16,9 +16,15 @@
 
                         <div class="mt-4">
                             <strong class="name">
-                                <a href="{{ reference.link }}">{{ reference.name }}</a>
+                                {% if reference.link is defined %}<a href="{{ reference.link }}">{% endif %}
+
+                                {{ reference.name }}
+
+                                {% if reference.link is defined %}</a>{% endif %}
                             </strong>
-                            <p class="mb-0 font-weight-bold">{{ reference.position }}</p>
+                            {% if reference.position is defined %}
+                                <p class="mb-0 font-weight-bold">{{ reference.position }}</p>
+                            {% endif %}
 
                             <br>
 

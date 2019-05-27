@@ -4,3 +4,6 @@ imports:
 parameters:
     google_analytics_tracking_id: 'UA-46082345-2'
     contact_link: 'https://www.tomasvotruba.cz/contact/'
+
+    # get "Creator's Access Token" here: https://www.patreon.com/portal/registration/register-clients and put to statie.local.yaml
+    patreon_token: "..."
