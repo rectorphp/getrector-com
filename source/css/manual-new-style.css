@@ -141,15 +141,7 @@ h2 {
     max-width: 65em;
 }
 
-/* not sure why, but em in footer are bigger; this is to make the width the same size as rest */
-#footer .container {
-    max-width: 55em;
-}
-
-#reference .name {
-    font-size: 1.5em;
-}
-
-.reference-company-logo {
-    max-width: 175px;
-}
+/*!* not sure why, but em in footer are bigger; this is to make the width the same size as rest *!*/
+/*#footer .container {*/
+/*    max-width: 65em;*/
+/*}*/

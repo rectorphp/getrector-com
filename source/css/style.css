@@ -183,7 +183,7 @@ h2 {
     line-height: 1.5em;
 }
 
-.blockquote strong {
+.blockquote strong, nobr {
     font-size: 1em;
 }
 
@@ -198,4 +198,18 @@ h2 {
 
 .text-blue {
     color: #339af0;
+}
+
+.get_in_touch a, .get_in_touch a:active {
+    color: #BBB;
+    text-decoration: underline;
+}
+
+.get_in_touch a:hover {
+    color: #FFF;
+    text-decoration: none;
+}
+
+#reference strong {
+    font-size: 1em;
 }

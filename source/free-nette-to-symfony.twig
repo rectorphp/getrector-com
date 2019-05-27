@@ -1,31 +1,81 @@
-<h2>Looking for 2 Nette to Symfony projects</h2>
+---
+layout: "_layouts/default.twig"
+---
+
+<div class="container" xmlns="http://www.w3.org/1999/html">
+    <h2>Looking for 2 Nette to Symfony projects</h2>
 
 
-After we migrate from Nette to Symfony, we got feedback it's not possible and that API application is much easier and misses Components and Forms
+    After we migrate from Nette to Symfony, we got feedback it's not possible and that API application is much easier and misses Components and Forms
 
-We want to prove them wrong and show, that for Rector is as easy as running unit tests.
+    We want to prove them wrong and show, that for Rector is as easy as running unit tests.
 
-For that reason, we look for challange
+    For that reason, we look for challange
+
+    <table class="table table-bordered mt-5 mb-5">
+        <thead class="thead-dark">
+            <tr class="text-center">
+                <th class="w-25">Project</th>
+                <th class="w-25">Source Size</th>
+                <th>Workers</th>
+                <th>Hours of Work</th>
+                <th class="w-25">Case Study</th>
+            </tr>
+        </thead>
+
+        {% for case_study in case_studies_nette %}
+            <tr>
+                <td>
+                    <a href="{{ case_study.web }}">
+                        <img src="{{ case_study.image }}" style="max-height: 1.5em" alt="{{ case_study.name }}">
+                    </a>
+                </td>
+                <td class="text-right">{{ case_study.source_loc }} lines of code</td>
+                <td class="text-right">{{ case_study.people }} people</td>
+                <th class="text-right">{{ case_study.hours_of_work }} hours</th>
+                <td>
+                    {% if case_study.case_study_link is defined %}
+                        <a href="{{ case_study.case_study_link }}">Read Case Study</a>
+                    {% endif %}
+                </td>
+            </tr>
+            todo entrydo
+            lines
+            time of clear work
+            time with Rector now
+        {% endfor %}
+    </table>
+
+    <h3>What will we help you with?</h3>
+
+    <ul>
+        <li>migration of PHP code from Nette to Symfony conventions</li>
+        <li>Nette to Symfony mentoring</li>
+        <li>migrate Latte to Twig</li>
+        <li>migrate NEON to YAML</li>
+        <li>migrate Nette\Tester to YAML</li>
+    </ul>
+
+    <h3>What projects do we accept?</h3>
+
+    <ul>
+        <li>commercial project</li>
+        <li>at least 50 000 lines of PHP code (measured by <a href="https://github.com/sebastianbergmann/phploc">phploc</a>, without tests, fixtures, migrations and templates)</li>
+        <li>include Forms or Components</li>
+    </ul>
 
 
-<table>
-    <tr>
-        <thead></thead>
-    </tr>
-    todo entrydo
-    lines
-    time of clear work
-    time with Rector now
-</table>
+    <h3>What do we want from you?</h3>
 
+    <ul>
+        <li>NDA that allows us share anonymous data of migration in case study</li>
+        <li>cooperation and open mind</li>
+        <li>share "why" do you want to migrate in our form</li>
+    </ul>
 
-<h3>What your project shodul ook like?</h3>
+    @todo apply Google forms link
+    We'll meet with you, then pick 1 project according that best suits our criteria.
 
-- commercial project
-- at least 100 000 lines of code (phploc, without tests...)
+    Send us message and exlain <strong>why we choose you</strong>
 
-
-
-Send us message and exlain why we choose you
-
-deadline :)...
+</div>

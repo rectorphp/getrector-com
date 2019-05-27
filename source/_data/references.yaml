@@ -4,15 +4,13 @@ parameters:
             text: |
                 Rector helped us to **get rid of our frustration** with Nette application by migrating it to Symfony.
                 <br>
-                <br>
                 Before, we could only dream of it. But **within nearly 17 days with Rector refactoring, we had our 55 000+ lines** app (150+ routes) running on Symfony 4.2 in production.
                 **What a joy**!
             name: "Jan Mikes"
             photo: "jan_mikes.jpg"
             company_logo: "entrydo.png"
-            position: "CTO"
+            position: "CTO @ EntryDo"
             link: "https://janmikes.cz/"
-            case_study: "https://pehapkari.cz/blog/2019/04/20/how-we-migrated-54-357-lines-of-code-nette-to-symfony-in-2-people-under-80-hours/"
 
     # https://joind.in/event/php-russia-2019/how-to-make-legacy-refactoring-fun-again---from-months-to-days:
         -
@@ -24,6 +22,6 @@ parameters:
             link: "https://en.rmcreative.ru/"
 
         -
-            text: "A very interesting talk indeed. Shame on me, but I've never thought before how to automate the refactoring process. Now I have a couple of instruments to learn and try."
+            text: "A very interesting talk indeed. Shame on me, but I've never thought before how to automate the refactoring process.<br>Now I have a couple of instruments to learn and try."
             name: "Aleksey Stoletov"
             photo: "https://media.licdn.com/dms/image/C4D03AQFRG2NazWm-9w/profile-displayphoto-shrink_200_200/0?e=1564617600&v=beta&t=hZnxFAsDgQ-sfzDRE9wklyXstOdDGfZKZjodXm-78P4"

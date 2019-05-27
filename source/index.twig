@@ -7,7 +7,7 @@
     </head>
 
     <body>
-        <section class="home-bg-img h-100vh">
+        <section class="home-bg-img h-100vh" id="big_header">
             <div class="container">
                 <div class="row justify-content-end">
                     <div class="col-12 col-sm-12 col-md-6 col-lg-6">
@@ -29,10 +29,13 @@
                             </h1>
 
                             <a href="#show" class="btn btn-custom mt-5">
-                                <em class="pe-7s-play pe-lg"></em>
-                                &nbsp;
-                                Oh, Really?
+                                <nobr>Oh, Really?&nbsp;                                 🤔&nbsp;</nobr>
                             </a>
+
+                            <br>
+                            <br>
+
+                            <p class="get_in_touch">Get in touch with us. Send an email to <a href="mailto:tomas.vot@gmail.com">tomas.vot@gmail.com</a>.</p>
                         </div>
                     </div>
                 </div>
@@ -65,11 +68,64 @@
             </div>
         </section>
 
-        <div class="container">
-            {% include "_snippets/special-event.twig" %}
-        </div>
+{#        <div class="container">#}
+{#            {% include "_snippets/special-event.twig" %}#}
+{#        </div>#}
 
-        {% include "_snippets/section/left_and_right.twig" %}
+        <section class="section" id="services">
+            <div class="container">
+                <div class="text-center">
+                    <h2>
+                        2 Ways to Turn Legacy Code into Joy
+                    </h2>
+                </div>
+
+                <div class="row mt-5 services_boxes vertical-content rounded p-4">
+                    <div class="col-6">
+                        <div class="services_icon text-center">
+                            <i class="pe-7s-piggy"></i>
+                        </div>
+                        <div class="services_content text-center">
+                            <h4>
+                                For Developers
+                            </h4>
+                            <p class="mt-3 text-muted mx-auto">
+                                {% for item in copy.instant_upgrades.bullets %}
+                                    {{ item }}<br>
+                                {% endfor %}
+
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="services_icon text-center">
+                            <h4>
+                                For Companies
+                            </h4>
+                            <i class="pe-7s-diskette"></i>
+                        </div>
+
+                        <div class="services_content text-center">
+                            <p class="mt-3 text-muted mx-auto">
+                                {% for item in copy.instant_refactoring.bullets %}
+                                    {{ item }}<br>
+                                {% endfor %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <a href="https://github.com/rectorphp/rector" class="btn btn-custom mt-5">
+                        <i class="fab fa-github"></i>
+                        &nbsp;
+                        Visit Rector on Github
+                    </a>
+                </div>
+            </div>
+        </section>
+
 
         <section class="section bg-light">
             <div class="container">
@@ -80,25 +136,22 @@
                     "To help every developer in the planet with fresh or legacy PHP code to use the latest PHP, the most advanced version of their favorite framework and the latest craftsman patterns there will be.<br><br>
                     Without work, instantly, so they can focus on what they love most - <strong>thinking about algorithms and writing fresh code</strong>."
                 </blockquote>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="container">
-                To make this happen, I need your help
 
                 <br>
 
-                <a href="https://www.patreon.com/rectorphp" class="btn btn-danger">
-                    <i class="far fa-heart fa-fw"></i>
-                    &nbsp;
-                    Support Rector on Patreon
-                </a>
+                <div class="text-center">
+                    <p>To make this happen, <strong>we need your support</strong>. We look for developer backers and for company sponsors.</p>
+                    <a href="https://www.patreon.com/bePatron?u=4756109" alt="Become a Patron"><img src="https://c5.patreon.com/external/logo/become_a_patron_button.png" /></a>
+
+                    <p class="mt-5 text-muted">
+                        1 rule for your code? 1 rule-set tailored to your project? <a href="patreon.com/rectorphp">Check all treats you can get</a> depending on your level support.
+                    </p>
+                </div>
             </div>
         </section>
 
         <a name="show"></a>
-        <section class="section bg-light" id="video">
+        <section class="section" id="video">
             <div class="container text-center">
                 <div>
                     <h2>Must be Complicated, Right?</h2>
@@ -120,25 +173,13 @@
             </div>
         </section>
 
-
-        {% include "_snippets/section/references.twig" %}
-
-        <div class="section">
+        <div class="section bg-light">
             <div class="container text-center">
                 <h2>What people say?</h2>
 
                 {% include "_snippets/tweets.twig" %}
 
-{#                <br>#}
-{#                <br>#}
-
-{#                <p class="text-center">#}
-{#                    <a href="{{ contact_link }}" class="btn btn-custom mt-3 mb-5">#}
-{#                        <em class=" pe-7s-mail pe-lg"></em>&nbsp;#}
-{#                        &nbsp;#}
-{#                        I want to Refactor my Code Too!#}
-{#                    </a>#}
-{#                </p>#}
+                {% include "_snippets/section/references.twig" %}
             </div>
         </div>
 

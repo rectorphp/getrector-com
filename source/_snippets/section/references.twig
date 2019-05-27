@@ -1,65 +1,32 @@
-<section class="section" id="client">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="text-center">
-                    <h2>You Don't Have to Take my Word for it</h2>
+<br>
+
+<div class="row mt-5" id="reference">
+    {% for reference in references %}
+        <div class="col-md-2 col-sm-4 mb-5 mt-2">
+            <div class="text-center">
+                {% if reference.photo starts with 'http' %}
+                    {% set reference_photo = reference.photo %}
+                {% else %}
+                    {% set reference_photo %}/assets/images/references/{{ reference.photo }}{% endset %}
+                {% endif %}
+                <img src="{{ reference_photo }}" alt="" class="img-fluid rounded-circle img-thumbnail">
+            </div>
+        </div>
+        <div class="col-md-10 col-sm-8">
+            <div class="text-left">
+                <div class="reference-text">
+                    <q class="quote">{{ reference.text|markdown|raw }}</q>
+                </div>
+
+                <div class="mt-2">
+                    <strong class="name">
+                        {% if reference.link is defined %}<a href="{{ reference.link }}">{% endif %}
+                        {{ reference.name }}
+                        {% if reference.link is defined %}</a>{% endif %}
+                    </strong>{% if reference.position is defined %} &ndash; {{ reference.position }}{% endif %}
                 </div>
             </div>
         </div>
-
-        <div class="row mt-5" id="reference">
-            {% for reference in references %}
-                <div class="col-md-2 col-sm-4">
-                    <div class="mt-4 text-center">
-                        {% if reference.photo starts with 'http' %}
-                            {% set reference_photo = reference.photo %}
-                        {% else %}
-                            {% set reference_photo %}/assets/images/references/{{ reference.photo }}{% endset %}
-                        {% endif %}
-                        <img src="{{ reference_photo }}" alt="" class="img-fluid mx-auto rounded-circle img-thumbnail">
-
-                        <div class="mt-4">
-                            <strong class="name">
-                                {% if reference.link is defined %}<a href="{{ reference.link }}">{% endif %}
-
-                                {{ reference.name }}
-
-                                {% if reference.link is defined %}</a>{% endif %}
-                            </strong>
-                            {% if reference.position is defined %}
-                                <p class="mb-0 font-weight-bold">{{ reference.position }}</p>
-                            {% endif %}
-
-                            <br>
-
-                            {% if refernce.company_logo is defined %}
-                                <img src="/assets/images/references/{{ reference.company_logo }}" alt="" class="w-100 img-fluid mx-auto reference-company-logo object-fit">
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-10 col-sm-8">
-                    <div class="mx-auto text-left">
-                        <div class="mt-3">
-                            <div class="mt-2 reference-text">
-                                <q class="quote">{{ reference.text|markdown|raw }}</q>
-                            </div>
-
-                            {% if reference.case_study is defined %}
-                                <div class="clearfix"></div>
-                                <br>
-
-                                <a href="{{ reference.case_study }}" class="btn btn-warning btn-sm mt-1 mb-2 pull-right">
-                                    <em class="pe-7s-glasses pe-lg"></em>
-                                    &nbsp;
-                                    Read the Case Study
-                                </a>
-                            {% endif %}
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
+        {% endfor %}
     </div>
-</section>
+</div>
