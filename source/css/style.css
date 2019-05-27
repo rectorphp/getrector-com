@@ -165,3 +165,14 @@ a, a:hover, a:focus, button, button:focus {
 .object-fit {
     object-fit: contain;
 }
+
+#company_logos img {
+    height: 4em;
+    margin: 0 2em 0 0;
+}
+
+h2 {
+    margin-left: 0;
+    padding-left: 0;
+    padding-bottom: 1em;
+}

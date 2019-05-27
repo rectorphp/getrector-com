@@ -25,7 +25,7 @@
                             <div class="clearfix"></div>
 
                             <h1 class="header_title">
-                                {{ copy.killer_headline }}
+                                You won't have to upgrade PHP code manually - ever again
                             </h1>
 
                             <a href="#show" class="btn btn-custom mt-5">
@@ -39,37 +39,99 @@
             </div>
         </section>
 
-        {% include "_snippets/section/projects.twig" %}
+        <section class="section bg-light">
+            <div class="container">
+                <h2 class="text-center">Companies Rector already helped</h2>
+
+                <div class="row text-center" id="company_logos">
+                    <div class="col-4">
+                        <a href="https://entry.do">
+                            <img src="/assets/images/logo/entrydo.png" alt="">
+                        </a>
+                    </div>
+
+                    <div class="col-4">
+                        <a href="https://www.elasticr.cz">
+                            <img src="/assets/images/logo/elasticr.svg" alt="">
+                        </a>
+                    </div>
+
+                    <div class="col-4">
+                        <a href="https://www.glami.cz">
+                            <img src="/assets/images/logo/glami.png" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            {% include "_snippets/special-event.twig" %}
+        </div>
 
         {% include "_snippets/section/left_and_right.twig" %}
 
-        <h3>What is Rectors ultimate goal?</h3>
+        <section class="section bg-light">
+            <div class="container">
 
-        <p>
-            "To help every developer in the planet with fresh or legacy PHP code to use the latest PHP, the most advanced version of their favorite framework and the latest craftsman patterns there will be. Without work, instantly, so they can focus on what they love most - <strong>thinking about algorithms and writing fresh code</strong>."
-        </p>
+                <h2 class="text-center">What is Rectors ultimate goal?</h2>
 
-        To make this happen, I need your help
+                <blockquote class="blockquote">
+                    "To help every developer in the planet with fresh or legacy PHP code to use the latest PHP, the most advanced version of their favorite framework and the latest craftsman patterns there will be. Without work, instantly, so they can focus on what they love most - <strong>thinking about algorithms and writing fresh code</strong>."
+                </blockquote>
+            </div>
+        </section>
 
-        patreon
+        <section class="section">
+            <div class="container">
+                To make this happen, I need your help
 
+                patreon
+            </div>
+        </section>
 
-        {% include "_snippets/section/video.twig" %}
+        <a name="show"></a>
+        <section class="section bg-light" id="video">
+            <div class="container text-center">
+                <div>
+                    <h2>Must be Complicated, Right?</h2>
+                </div>
+
+                <p>
+                    Watch how Rector upgrades your code with <code>code-quality</code>, <code>dead-code</code>, <code>php71</code> and <code>php74</code> sets.
+                </p>
+
+                <div class="row mt-4 pt-4">
+                    <div class="col-lg-12">
+                        <div class="text-center">
+                            <img src="/assets/images/rector-showcase.gif" alt="" class="m-auto rounded">
+                            {# @todo replace with ascicast #}
+                            {#                    <script id="asciicast-220449" src="https://asciinema.org/a/220449.js" async></script>#}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
 
         {% include "_snippets/section/references.twig" %}
 
-        <h3>What people say?</h3>
+        <div class="container">
+            <h3>What people say?</h3>
 
-        - https://joind.in/event/php-russia-2019/how-to-make-legacy-refactoring-fun-again---from-months-to-days
+            {% include "_snippets/tweets.twig" %}
 
+            <br>
+            <br>
 
-        <p class="text-center">
-            <a href="{{ contact_link }}" class="btn btn-custom mt-3 mb-5">
-                <em class="pe-7s-mail pe-lg"></em>&nbsp;
-                &nbsp;
-                I want to Refactor my Code Too!
-            </a>
-        </p>
+            <p class="text-center">
+                <a href="{{ contact_link }}" class="btn btn-custom mt-3 mb-5">
+                    <em class="pe-7s-mail pe-lg"></em>&nbsp;
+                    &nbsp;
+                    I want to Refactor my Code Too!
+                </a>
+            </p>
+        </div>
 
         {% include "_snippets/layout/footer.twig" %}
 

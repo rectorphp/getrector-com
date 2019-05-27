@@ -28,7 +28,9 @@
 
                             <br>
 
-                            <img src="/assets/images/references/{{ reference.company_logo }}" alt="" class="w-100 img-fluid mx-auto reference-company-logo object-fit">
+                            {% if refernce.company_logo is defined %}
+                                <img src="/assets/images/references/{{ reference.company_logo }}" alt="" class="w-100 img-fluid mx-auto reference-company-logo object-fit">
+                            {% endif %}
                         </div>
                     </div>
                 </div>
