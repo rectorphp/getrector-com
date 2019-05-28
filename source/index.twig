@@ -25,17 +25,19 @@
                             <div class="clearfix"></div>
 
                             <h1 class="header_title">
-                                You won't have to upgrade PHP code manually - ever again
+                                You don't have to upgrade PHP code manually - ever again
                             </h1>
 
-                            <a href="#show" class="btn btn-custom mt-5">
-                                <nobr>Oh, Really?&nbsp;                                 🤔&nbsp;</nobr>
+                            <a href="#show" class="btn btn-custom mt-5 text-nowrap">
+                                Oh, Really?&nbsp;                                 🤔&nbsp;</nobr>
                             </a>
 
                             <br>
                             <br>
 
                             <p class="get_in_touch">Get in touch with us. Send an email to <a href="mailto:tomas.vot@gmail.com">tomas.vot@gmail.com</a>.</p>
+
+                            <div class="clearfix"></div>
                         </div>
                     </div>
                 </div>
@@ -75,57 +77,63 @@
         <section class="section" id="services">
             <div class="container">
                 <div class="text-center">
-                    <h2>
-                        2 Ways to Turn Legacy Code into Joy
-                    </h2>
+                    <h2>How will Rector make your life easier?</h2>
                 </div>
 
-                <div class="row mt-5 services_boxes vertical-content rounded p-4">
-                    <div class="col-6">
-                        <div class="services_icon text-center">
-                            <i class="pe-7s-piggy"></i>
-                        </div>
-                        <div class="services_content text-center">
-                            <h4>
-                                For Developers
-                            </h4>
-                            <p class="mt-3 text-muted mx-auto">
-                                {% for item in copy.instant_upgrades.bullets %}
-                                    {{ item }}<br>
-                                {% endfor %}
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3 class="text-center">
+                                    <em class="fas fa-code fa-fw"></em>
+                                    &nbsp;
+                                    For Developers
+                                </h3>
+                                <p class="mt-3">
+                                    <ul>
+                                        <li>Do you want to migrate from PHP 5.3 to 7.1?</li>
+                                        <li>Do you want to use the newest Symfony code without reading all `CHANGELOG.md` files?</li>
+                                    </ul>
+                                </p>
 
-                            </p>
+                                <div class="text-center">
+                                    <a href="https://github.com/rectorphp/rector" class="btn btn-success mt-5">
+                                        <i class="fab fa-github"></i>
+                                        &nbsp;
+                                        Visit Rector on Github
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="col-6">
-                        <div class="services_icon text-center">
-                            <h4>
-                                For Companies
-                            </h4>
-                            <i class="pe-7s-diskette"></i>
-                        </div>
+                    <div class="col-12 col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3 class="text-center">
+                                    <em class="fas fa-user-tie fa-fw"></em>
+                                    &nbsp;
+                                    For CEOs
+                                </h3>
 
-                        <div class="services_content text-center">
-                            <p class="mt-3 text-muted mx-auto">
-                                {% for item in copy.instant_refactoring.bullets %}
-                                    {{ item }}<br>
-                                {% endfor %}
-                            </p>
+                                <ul class="mt-3">
+                                    <li>Are you stuck on legacy code because you have to "delivery features"?</li>
+                                    <li>Do you migrate from legacy code?</li>
+                                    <li>Do you use old framework, that slows down your product?</li>
+                                    <li>Do you want turn static to constructor injection in 1000 classes?</li>
+                                </ul>
+
+                                <div class="text-center">
+                                    <a href="mailto:tomas@getrector.org" class="btn btn-primary">
+                                        Write us
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="text-center">
-                    <a href="https://github.com/rectorphp/rector" class="btn btn-custom mt-5">
-                        <i class="fab fa-github"></i>
-                        &nbsp;
-                        Visit Rector on Github
-                    </a>
                 </div>
             </div>
         </section>
-
 
         <section class="section bg-light">
             <div class="container">

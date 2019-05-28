@@ -26,8 +26,8 @@ a, a:hover, a:focus, button, button:focus {
 }
 
 .section .container {
-    padding-top: 6em;
-    padding-bottom: 6em;
+    padding-top: 4em;
+    padding-bottom: 5em;
 }
 
 .h-100vh {
@@ -211,5 +211,9 @@ h2 {
 }
 
 #reference strong {
+    font-size: 1em;
+}
+
+h3 em {
     font-size: 1em;
 }

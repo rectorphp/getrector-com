@@ -7,7 +7,7 @@ parameters:
                 Before, we could only dream of it. But **within nearly 17 days with Rector refactoring, we had our 55 000+ lines** app (150+ routes) running on Symfony 4.2 in production.
                 **What a joy**!
             name: "Jan Mikes"
-            photo: "jan_mikes.jpg"
+            photo: "/assets/images/references/jan_mikes.jpg"
             company_logo: "entrydo.png"
             position: "CTO @ EntryDo"
             link: "https://janmikes.cz/"
