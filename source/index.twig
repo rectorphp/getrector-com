@@ -7,7 +7,7 @@
     <body>
         <section class="home-bg-img" id="big_header">
             <div class="container">
-                <div class="row justify-content-end">
+                <div class="row">
                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-5" id="video">
 {#                        <ul class="nav nav-tabs" id="myTab" role="tablist">#}
 {#                            {% for video in videos %}#}
@@ -19,12 +19,10 @@
 {#                            {% endfor %}#}
 {#                        </ul>#}
 
-                        <div class="tab-content" id="myTabContent">
+                        <div class="tab-content">
                             {% for video in videos %}
-                                <div class="tab-pane fade mt-3 show{% if loop.first %} active{% endif %}" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                    <img src="{{ video.url }}" alt="" class="m-auto rounded">
-                                    <p class="pt-3 pb-2">{{ video.description|markdown|raw }}</p>
-                                    {# @todo replace with ascicast #}
+                                <div class="tab-pane fade mt-2 ml-2 mr-2 show{% if loop.first %} active{% endif %}" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                    <script id="asciicast-225145" src="https://asciinema.org/a/225145.js" async data-rows="30"></script>
                                 </div>
                             {% endfor %}
                         </div>
@@ -43,7 +41,7 @@
 
                             <div class="clearfix"></div>
 
-                            <h1 class="header_title">
+                            <h1 class="header_title mb-4">
                                 You don't have to upgrade PHP code manually - ever again
                             </h1>
 
