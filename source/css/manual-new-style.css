@@ -161,5 +161,5 @@ ul.list-noindent {
 /*!* not sure why, but em in footer are bigger; this is to make the width the same size as rest *!*/
 #footer .container {
     max-width: 50em;
-    font-size: .9em;
+    font-size: .8em;
 }
