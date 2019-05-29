@@ -93,9 +93,15 @@ h2 {
     background: white;
 }
 
+#video {
+    background: #111;
+    box-shadow: -4px -4px -4px rgba(0, 0, 0, .3);
+    padding: 1em;
+    color: #DDD;
+}
+
 #video img {
     max-width: 100%;
-    border: 1px solid #DDD;
 }
 
 .header_title {

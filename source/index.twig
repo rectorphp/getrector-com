@@ -8,6 +8,27 @@
         <section class="home-bg-img" id="big_header">
             <div class="container">
                 <div class="row justify-content-end">
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-5" id="video">
+{#                        <ul class="nav nav-tabs" id="myTab" role="tablist">#}
+{#                            {% for video in videos %}#}
+{#                                <li class="nav-item">#}
+{#                                    <a class="bg-dark border-dark text-white nav-link{% if loop.first %} active{% endif %}" id="{{ video.id }}-tab" data-toggle="tab" href="#{{ video.id }}" role="tab" aria-controls="{{ video.id }}" aria-selected="true">#}
+{#                                        {{ video.label }}#}
+{#                                    </a>#}
+{#                                </li>#}
+{#                            {% endfor %}#}
+{#                        </ul>#}
+
+                        <div class="tab-content" id="myTabContent">
+                            {% for video in videos %}
+                                <div class="tab-pane fade mt-3 show{% if loop.first %} active{% endif %}" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                    <img src="{{ video.url }}" alt="" class="m-auto rounded">
+                                    <p class="pt-3 pb-2">{{ video.description|markdown|raw }}</p>
+                                    {# @todo replace with ascicast #}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
                     <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                         <br>
                         <a href="/" id="main_logo">
@@ -176,35 +197,6 @@
                     <p class="mt-5 text-muted">
                         1 rule for your code? 1 rule-set tailored to your project? <a href="https://patreon.com/rectorphp">Check all treats you can get</a> depending on your level support.
                     </p>
-                </div>
-            </div>
-        </section>
-
-        <a name="show"></a>
-        <section class="section" id="video">
-            <div class="container text-center">
-                <div>
-                    <h2>Rector just works - out of the box</h2>
-                </div>
-
-                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                    {% for video in videos %}
-                        <li class="nav-item">
-                            <a class="nav-link{% if loop.first %} active{% endif %}" id="{{ video.id }}-tab" data-toggle="tab" href="#{{ video.id }}" role="tab" aria-controls="{{ video.id }}" aria-selected="true">
-                                {{ video.label }}
-                            </a>
-                        </li>
-                    {% endfor %}
-                </ul>
-
-                <div class="tab-content" id="myTabContent">
-                    {% for video in videos %}
-                        <div class="tab-pane fade show{% if loop.first %} active{% endif %}" id="home" role="tabpanel" aria-labelledby="home-tab">
-                            <p class="pt-3 pb-2">{{ video.description|markdown|raw }}</p>
-                            <img src="{{ video.url }}" alt="" class="m-auto rounded">
-                            {# @todo replace with ascicast #}
-                        </div>
-                    {% endfor %}
                 </div>
             </div>
         </section>
