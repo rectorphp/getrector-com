@@ -260,3 +260,7 @@ h3 em {
 #header a:hover {
     color: #EEE;
 }
+
+.card {
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, .1);
+}

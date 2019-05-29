@@ -163,3 +163,7 @@ ul.list-noindent {
     max-width: 50em;
     font-size: .8em;
 }
+
+body h2 {
+    text-align: center;
+}
