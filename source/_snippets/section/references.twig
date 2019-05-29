@@ -9,16 +9,14 @@
         </div>
         <div class="col-md-10 col-sm-8 mb-5">
             <div class="text-left">
-                <div class="reference-text">
-                    <q class="quote">{{ reference.text|markdown|raw }}</q>
-                </div>
+                <q class="blockquote">{{ reference.text|markdown|raw }}</q>
 
                 <div class="mt-2">
                     <strong class="name">
-                        {% if reference.link is defined %}<a href="{{ reference.link }}">{% endif %}
-                        {{ reference.name }}
-                        {% if reference.link is defined %}</a>{% endif %}
-                    </strong>{% if reference.position is defined %} &ndash; {{ reference.position }}{% endif %}
+                        {% if reference.link is defined %}<a href="{{ reference.link }}">{% endif %}{{ reference.name }}{% if reference.link is defined %}</a>{% endif %}
+                    </strong>{% if reference.position is defined %}
+
+                    &ndash; {{ reference.position }}{% endif %}
                 </div>
             </div>
         </div>
