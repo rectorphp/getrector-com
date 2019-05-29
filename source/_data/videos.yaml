@@ -4,4 +4,4 @@ parameters:
             id: "home"
             url: "/assets/images/rector-showcase.gif"
             label: "Code Quality"
-            description: "Improve your code quality with `code-quality` level"
+            description: "Improve your code quality with `code-quality` level. Check [all rules](https://github.com/rectorphp/rector/blob/master/docs/AllRectorsOverview.md#codequality) from this level."
