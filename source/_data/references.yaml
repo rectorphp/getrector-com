@@ -1,11 +1,14 @@
 parameters:
     references:
         -
+            name: "Hulkkonen Aleksi"
+            text: "We work on updating our project to the newest Symfony with the help of Rector - it's agreat tool, thank you!"
+            photo: "https://avatars0.githubusercontent.com/u/42401517?s=460&v=4"
+
+        -
             text: |
-                Rector helped us to **get rid of our frustration** with Nette application by migrating it to Symfony.
-                <br>
-                Before, we could only dream of it. But **within nearly 17 days with Rector refactoring, we had our 55 000+ lines** app (150+ routes) running on Symfony 4.2 in production.
-                **What a joy**!
+                Rector helped us to get rid of our frustration with Nette application by migrating it to Symfony.
+                We thought we could only dream of it, but within 17 days we had our app running on Symfony 4.2 in production.
             name: "Jan Mikes"
             photo: "/assets/images/references/jan_mikes.jpg"
             company_logo: "entrydo.png"
@@ -22,11 +25,7 @@ parameters:
             link: "https://en.rmcreative.ru/"
 
         -
-            text: "A very interesting talk indeed. Shame on me, but I've never thought before how to automate the refactoring process.<br>Now I have a couple of instruments to learn and try."
+            text: "A very interesting talk indeed. Shame on me, but I've never thought before how to automate the refactoring process. Now I have a couple of instruments to learn and try."
             name: "Aleksey Stoletov"
             photo: "https://media.licdn.com/dms/image/C4D03AQFRG2NazWm-9w/profile-displayphoto-shrink_200_200/0?e=1564617600&v=beta&t=hZnxFAsDgQ-sfzDRE9wklyXstOdDGfZKZjodXm-78P4"
 
-        -
-            name: "Hulkkonen Aleksi"
-            text: "We work on updating our project to the newest Symfony with the help of Rector - it's agreat tool, thank you!"
-            photo: "https://avatars0.githubusercontent.com/u/42401517?s=460&v=4"
