@@ -1,10 +1,22 @@
 parameters:
-    case_studies_nette:
+    migrated_projects:
         -
             name: 'EntryDo'
+            from: 'nette'
+            to: 'symfony'
             web: 'https://entry.do/'
             image: '/assets/images/logo/entrydo.png'
             source_loc: 54 357
             hours_of_work: 80
             people: 2
             case_study_link: 'https://pehapkari.cz/blog/2019/04/20/how-we-migrated-54-357-lines-of-code-nette-to-symfony-in-2-people-under-80-hours/'
+
+    open_spots:
+        -
+            from: 'nette'
+            to: 'symfony'
+            is_free: true
+        -
+            from: 'zend'
+            to: 'symfony'
+            is_free: false

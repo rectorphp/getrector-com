@@ -145,3 +145,20 @@ h2 {
 /*#footer .container {*/
 /*    max-width: 65em;*/
 /*}*/
+
+.card h3 {
+    font-size: 1.5em;
+}
+
+.table .alert {
+    padding: .2em .4em;
+}
+
+ul.list-noindent {
+    margin-left: 1.2em;
+    padding-left: 0;
+}
+
+#subpage .section h2 {
+    margin-top: 0;
+}
