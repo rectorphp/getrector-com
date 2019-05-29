@@ -242,6 +242,7 @@ h3 em {
 #header {
     background: #222;
     padding: 1.5em 0 .7em 0;
+    text-transform: uppercase;
 }
 
 .section table td {

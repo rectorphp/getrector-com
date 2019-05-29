@@ -1,4 +1,4 @@
-* {
+body {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 18px;
 }
@@ -84,10 +84,6 @@ h2 {
     font-size: 1em;
 }
 
-#client .reference-text {
-    font-size: 1.5em;
-}
-
 .section:not(.bg-light) {
     background-image: url('../assets/chars.png');
     background-position: top left;
@@ -141,11 +137,6 @@ h2 {
     max-width: 55em;
 }
 
-/*!* not sure why, but em in footer are bigger; this is to make the width the same size as rest *!*/
-/*#footer .container {*/
-/*    max-width: 65em;*/
-/*}*/
-
 .card h3 {
     font-size: 1.5em;
 }
@@ -161,4 +152,14 @@ ul.list-noindent {
 
 #subpage .section h2 {
     margin-top: 0;
+}
+
+.reference-text {
+    font-size: 1.3em;
+}
+
+/*!* not sure why, but em in footer are bigger; this is to make the width the same size as rest *!*/
+#footer .container {
+    max-width: 50em;
+    font-size: .9em;
 }
