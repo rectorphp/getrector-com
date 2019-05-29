@@ -25,3 +25,8 @@ parameters:
             text: "A very interesting talk indeed. Shame on me, but I've never thought before how to automate the refactoring process.<br>Now I have a couple of instruments to learn and try."
             name: "Aleksey Stoletov"
             photo: "https://media.licdn.com/dms/image/C4D03AQFRG2NazWm-9w/profile-displayphoto-shrink_200_200/0?e=1564617600&v=beta&t=hZnxFAsDgQ-sfzDRE9wklyXstOdDGfZKZjodXm-78P4"
+
+        -
+            name: "Hulkkonen Aleksi"
+            text: "We work on updating our project to the newest Symfony with the help of Rector - it's agreat tool, thank you!"
+            photo: "https://avatars0.githubusercontent.com/u/42401517?s=460&v=4"
