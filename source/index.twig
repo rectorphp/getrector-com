@@ -151,10 +151,12 @@
 
                 <div class="text-center">
                     <p>To make this happen, <strong>we need your support</strong>. We look for developer backers and for company sponsors.</p>
-                    <a href="https://www.patreon.com/bePatron?u=4756109" alt="Become a Patron"><img src="https://c5.patreon.com/external/logo/become_a_patron_button.png" /></a>
+                    <a href="https://www.patreon.com/bePatron?u=4756109" alt="Become a Patron">
+                        <img src="https://c5.patreon.com/external/logo/become_a_patron_button.png" alt="">
+                    </a>
 
                     <p class="mt-5 text-muted">
-                        1 rule for your code? 1 rule-set tailored to your project? <a href="patreon.com/rectorphp">Check all treats you can get</a> depending on your level support.
+                        1 rule for your code? 1 rule-set tailored to your project? <a href="https://patreon.com/rectorphp">Check all treats you can get</a> depending on your level support.
                     </p>
                 </div>
             </div>
@@ -167,9 +169,27 @@
                     <h2>Must be Complicated, Right?</h2>
                 </div>
 
-                <p>
-                    Watch how Rector upgrades your code with <code>code-quality</code>, <code>dead-code</code>, <code>php71</code> and <code>php74</code> sets.
-                </p>
+                <p>What can Rector help you with out of the box?</p>
+
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">code-quality</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">dead-code</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">php71</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Fix PHPStan Errors</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...</div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+                </div>
 
                 <div class="row mt-4 pt-4">
                     <div class="col-lg-12">
@@ -196,5 +216,9 @@
         {% include "_snippets/layout/footer.twig" %}
 
         {% include "_snippets/layout/google_analytics.twig" %}
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </body>
 </html>
