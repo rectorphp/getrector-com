@@ -170,28 +170,24 @@
                     <h2>Rector just works - out of the box</h2>
                 </div>
 
-                {#  @todo use videos array, iterate #}
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">code-quality</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">dead-code</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">php71</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Fix PHPStan Errors</a>
-                    </li>
+                    {% for video in videos %}
+                        <li class="nav-item">
+                            <a class="nav-link{% if loop.first %} active{% endif %}" id="{{ video.id }}-tab" data-toggle="tab" href="#{{ video.id }}" role="tab" aria-controls="{{ video.id }}" aria-selected="true">
+                                {{ video.label }}
+                            </a>
+                        </li>
+                    {% endfor %}
                 </ul>
+
                 <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        <img src="/assets/images/rector-showcase.gif" alt="" class="m-auto rounded">
-                        {# @todo replace with ascicast #}
-                    </div>
-                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
-                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+                    {% for video in videos %}
+                        <div class="tab-pane fade show{% if loop.first %} active{% endif %}" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <p class="pt-3 pb-2">{{ video.description|markdown|raw }}</p>
+                            <img src="{{ video.url }}" alt="" class="m-auto rounded">
+                            {# @todo replace with ascicast #}
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
         </section>

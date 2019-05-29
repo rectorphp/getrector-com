@@ -1,0 +1,7 @@
+parameters:
+    videos:
+        -
+            id: "home"
+            url: "/assets/images/rector-showcase.gif"
+            label: "Code Quality"
+            description: "Improve your code quality with `code-quality` level"
