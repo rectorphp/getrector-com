@@ -1,6 +1,6 @@
-* {
+body {
     font-family: 'Source Sans Pro', sans-serif;
-    font-size: 1em;
+    font-size: 18px;
 }
 
 #main_logo {
@@ -84,10 +84,6 @@ h2 {
     font-size: 1em;
 }
 
-#client .reference-text {
-    font-size: 1.5em;
-}
-
 .section:not(.bg-light) {
     background-image: url('../assets/chars.png');
     background-position: top left;
@@ -104,7 +100,7 @@ h2 {
 }
 
 .header_title {
-    font-size: 4em;
+    font-size: 3.5em;
     font-weight: 300;
 }
 
@@ -138,18 +134,32 @@ h2 {
 }
 
 .container {
-    max-width: 65em;
-}
-
-/* not sure why, but em in footer are bigger; this is to make the width the same size as rest */
-#footer .container {
     max-width: 55em;
 }
 
-#reference .name {
+.card h3 {
     font-size: 1.5em;
 }
 
-.reference-company-logo {
-    max-width: 175px;
+.table .alert {
+    padding: .2em .4em;
+}
+
+ul.list-noindent {
+    margin-left: 1.2em;
+    padding-left: 0;
+}
+
+#subpage .section h2 {
+    margin-top: 0;
+}
+
+.reference-text {
+    font-size: 1.3em;
+}
+
+/*!* not sure why, but em in footer are bigger; this is to make the width the same size as rest *!*/
+#footer .container {
+    max-width: 50em;
+    font-size: .9em;
 }

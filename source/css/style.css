@@ -26,16 +26,20 @@ a, a:hover, a:focus, button, button:focus {
 }
 
 .section .container {
-    padding-top: 6em;
-    padding-bottom: 6em;
+    padding-top: 4em;
+    padding-bottom: 5em;
 }
 
 .h-100vh {
     height: 100vh;
 }
 
-.btn:not(.btn-sm) {
-    padding: .7em 1.5em;
+table a.btn.btn-success {
+    color: #FFF;
+}
+
+table a.btn.btn-success:hover {
+    color: #EEE;
 }
 
 .btn-custom {
@@ -164,4 +168,96 @@ a, a:hover, a:focus, button, button:focus {
 
 .object-fit {
     object-fit: contain;
+}
+
+#company_logos img {
+    height: 4em;
+    margin: 0 2em 0 0;
+}
+
+h2 {
+    margin-left: 0;
+    margin-bottom: 1em;
+    padding-left: 0;
+    padding-bottom: 1em;
+}
+
+.blockquote {
+    font-size: 1.3em;
+    line-height: 1.5em;
+}
+
+.blockquote strong, nobr {
+    font-size: 1em;
+}
+
+/* used from https://fontawesome.com/ */
+.text-green {
+    color: #51cf66;
+}
+
+.text-orange {
+    color: #ff922b;
+}
+
+.text-blue {
+    color: #339af0;
+}
+
+.get_in_touch a, .get_in_touch a:active {
+    color: #BBB;
+    text-decoration: underline;
+}
+
+.get_in_touch a:hover {
+    color: #FFF;
+    text-decoration: none;
+}
+
+#reference strong {
+    font-size: 1em;
+}
+
+h3 em {
+    font-size: 1em;
+}
+
+
+#subpage h1 {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+
+#subpage h2 {
+    margin-top: 2em;
+    text-align: center;
+}
+
+#migrated_projects img {
+    max-height: 2em;
+}
+
+#header {
+    background: #222;
+    padding: 1.5em 0 .7em 0;
+    text-transform: uppercase;
+}
+
+.section table td {
+    background: #FFF;
+}
+
+#subpage h3 {
+    margin-top: 1em;
+    font-size: 1.5em;
+}
+
+#header a {
+    color: #FFF;
+}
+
+#header a:hover {
+    color: #EEE;
 }

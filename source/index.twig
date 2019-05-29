@@ -7,7 +7,7 @@
     </head>
 
     <body>
-        <section class="home-bg-img h-100vh">
+        <section class="home-bg-img h-100vh" id="big_header">
             <div class="container">
                 <div class="row justify-content-end">
                     <div class="col-12 col-sm-12 col-md-6 col-lg-6">
@@ -25,38 +25,193 @@
                             <div class="clearfix"></div>
 
                             <h1 class="header_title">
-                                {{ copy.killer_headline }}
+                                You don't have to upgrade PHP code manually - ever again
                             </h1>
 
-                            <a href="#show" class="btn btn-custom mt-5">
-                                <em class="pe-7s-play pe-lg"></em>
-                                &nbsp;
-                                Oh, Really?
+                            <a href="#show" class="btn btn-custom mt-5 text-nowrap">
+                                Oh, Really?&nbsp;                                 🤔&nbsp;</nobr>
                             </a>
+
+                            <br>
+                            <br>
+
+                            <p class="get_in_touch">Get in touch with us. Send an email to <a href="mailto:tomas@getrector.org">tomas@getrector.org</a>.</p>
+
+                            <div class="clearfix"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        {% include "_snippets/section/projects.twig" %}
+        <section class="section bg-light text-center">
+            <div class="container">
+                <h2>Companies Rector already helped</h2>
 
-        {% include "_snippets/section/left_and_right.twig" %}
+                <div class="row" id="company_logos">
+                    <div class="col-4">
+                        <a href="https://entry.do">
+                            <img src="/assets/images/logo/entrydo.png" alt="">
+                        </a>
+                    </div>
 
-        {% include "_snippets/section/video.twig" %}
+                    <div class="col-4">
+                        <a href="https://www.elasticr.cz">
+                            <img src="/assets/images/logo/elasticr.svg" alt="">
+                        </a>
+                    </div>
 
-        {% include "_snippets/section/references.twig" %}
+                    <div class="col-4">
+                        <a href="https://www.glami.cz">
+                            <img src="/assets/images/logo/glami.png" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <p class="text-center">
-            <a href="{{ contact_link }}" class="btn btn-custom mt-3 mb-5">
-                <em class="pe-7s-mail pe-lg"></em>&nbsp;
-                &nbsp;
-                I want to Refactor my Code Too!
-            </a>
-        </p>
+        <div class="container">
+            {% include "_snippets/special-event.twig" %}
+        </div>
+
+        <section class="section" id="services">
+            <div class="container">
+                <div class="text-center">
+                    <h2>How will Rector make your life easier?</h2>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3 class="text-center mt-2 mb-4">
+                                    <em class="fas fa-code fa-fw"></em>
+                                    &nbsp;
+                                    For Developers
+                                </h3>
+
+                                <ul class="list-group ml-4 mb-2">
+                                    <li>Do you want to migrate from PHP 5.3 to 7.1?</li>
+                                    <li>Do you want to use the newest Symfony code without reading all <code>CHANGELOG.md</code> files?</li>
+                                    <li>Do you want turn static to constructor injection in 1000 classes?</li>
+                                    <li>Do you want refactor at scale without rebasing?</li>
+                                </ul>
+
+                                <p>Download Rector on Github and use it.</p>
+
+                                <div class="text-center">
+                                    <a href="https://github.com/rectorphp/rector" class="btn btn-success mt-5">
+                                        <i class="fab fa-github"></i>
+                                        &nbsp;
+                                        Visit Rector on Github
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3 class="text-center mt-2 mb-4">
+                                    <em class="fas fa-user-tie fa-fw"></em>
+                                    &nbsp;
+                                    For CEOs
+                                </h3>
+
+                                <ul class="list-group ml-4 mb-2">
+                                    <li>Are you stuck on legacy code because you have to "delivery features"?</li>
+                                    <li>Do you use old framework, that slows down your product?</li>
+                                    <li>Does your team complain about legacy code, but you just can't stop development for 6 months?</li>
+                                    <li>Do you want keep delivering features and migrate framework at the same time?</li>
+                                </ul>
+
+                                <br>
+
+                                <div class="text-center mt-3">
+                                    <a href="mailto:tomas@getrector.org" class="btn btn-primary">
+                                        <em class="fas fa-envelope fa-fw"></em>
+                                        &nbsp;
+                                        Write us
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section bg-light">
+            <div class="container">
+
+                <h2 class="text-center">What is Rector's ultimate goal?</h2>
+
+                <blockquote class="blockquote">
+                    "To help every developer in the planet with fresh or legacy PHP code to use the latest PHP, the most advanced version of their favorite framework and the latest craftsman patterns there will be.<br><br>
+                    Without work, instantly, so they can focus on what they love most - <strong>thinking about algorithms and writing fresh code</strong>."
+                </blockquote>
+
+                <br>
+
+                <div class="text-center">
+                    <p>To make this happen, <strong>we need your support</strong>. We look for developer backers and for company sponsors.</p>
+                    <a href="https://www.patreon.com/bePatron?u=4756109" alt="Become a Patron">
+                        <img src="https://c5.patreon.com/external/logo/become_a_patron_button.png" alt="">
+                    </a>
+
+                    <p class="mt-5 text-muted">
+                        1 rule for your code? 1 rule-set tailored to your project? <a href="https://patreon.com/rectorphp">Check all treats you can get</a> depending on your level support.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <a name="show"></a>
+        <section class="section" id="video">
+            <div class="container text-center">
+                <div>
+                    <h2>Rector just works - out of the box</h2>
+                </div>
+
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    {% for video in videos %}
+                        <li class="nav-item">
+                            <a class="nav-link{% if loop.first %} active{% endif %}" id="{{ video.id }}-tab" data-toggle="tab" href="#{{ video.id }}" role="tab" aria-controls="{{ video.id }}" aria-selected="true">
+                                {{ video.label }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+
+                <div class="tab-content" id="myTabContent">
+                    {% for video in videos %}
+                        <div class="tab-pane fade show{% if loop.first %} active{% endif %}" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <p class="pt-3 pb-2">{{ video.description|markdown|raw }}</p>
+                            <img src="{{ video.url }}" alt="" class="m-auto rounded">
+                            {# @todo replace with ascicast #}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        <div class="section bg-light">
+            <div class="container text-center">
+                <h2>What people say?</h2>
+
+                {% include "_snippets/tweets.twig" %}
+
+                {% include "_snippets/section/references.twig" %}
+            </div>
+        </div>
 
         {% include "_snippets/layout/footer.twig" %}
 
         {% include "_snippets/layout/google_analytics.twig" %}
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </body>
 </html>

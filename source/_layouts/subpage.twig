@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "_snippets/layout/head.twig" %}
+</head>
+
+<body>
+    <div id="header" class="text-center">
+        <a href="/">
+            <img src="/assets/images/logo/rector-no_frame_vector.svg" alt="" style="max-width: 3em">
+            <h1 class="mt-2">Rector</h1>
+        </a>
+    </div>
+
+    <div id="subpage">
+        {% block content %}{% endblock %}
+    </div>
+
+    {% include "_snippets/layout/footer.twig" %}
+
+    {% include "_snippets/layout/google_analytics.twig" %}
+    </body>
+</html>
