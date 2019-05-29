@@ -76,7 +76,6 @@ h2 {
 
 #footer a:hover {
     color: #20a55b;
-    text-decoration: underline !important;
 }
 
 #footer #made_by {
@@ -166,4 +165,12 @@ ul.list-noindent {
 
 body h2 {
     text-align: center;
+}
+
+body a:not(.btn) {
+    text-decoration: underline !important;
+}
+
+body a:not(.btn):hover, body a:not(.btn):focus {
+    text-decoration: none !important;
 }
