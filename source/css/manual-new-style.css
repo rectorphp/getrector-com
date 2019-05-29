@@ -76,7 +76,6 @@ h2 {
 
 #footer a:hover {
     color: #20a55b;
-    text-decoration: underline !important;
 }
 
 #footer #made_by {
@@ -94,9 +93,15 @@ h2 {
     background: white;
 }
 
+#video {
+    background: #111;
+    box-shadow: -4px -4px -4px rgba(0, 0, 0, .3);
+    padding: 1em;
+    color: #DDD;
+}
+
 #video img {
     max-width: 100%;
-    border: 1px solid #DDD;
 }
 
 .header_title {
@@ -162,4 +167,16 @@ ul.list-noindent {
 #footer .container {
     max-width: 50em;
     font-size: .8em;
+}
+
+body h2 {
+    text-align: center;
+}
+
+body a:not(.btn) {
+    text-decoration: underline !important;
+}
+
+body a:not(.btn):hover, body a:not(.btn):focus {
+    text-decoration: none !important;
 }

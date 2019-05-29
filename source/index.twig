@@ -8,6 +8,27 @@
         <section class="home-bg-img" id="big_header">
             <div class="container">
                 <div class="row justify-content-end">
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-5" id="video">
+{#                        <ul class="nav nav-tabs" id="myTab" role="tablist">#}
+{#                            {% for video in videos %}#}
+{#                                <li class="nav-item">#}
+{#                                    <a class="bg-dark border-dark text-white nav-link{% if loop.first %} active{% endif %}" id="{{ video.id }}-tab" data-toggle="tab" href="#{{ video.id }}" role="tab" aria-controls="{{ video.id }}" aria-selected="true">#}
+{#                                        {{ video.label }}#}
+{#                                    </a>#}
+{#                                </li>#}
+{#                            {% endfor %}#}
+{#                        </ul>#}
+
+                        <div class="tab-content" id="myTabContent">
+                            {% for video in videos %}
+                                <div class="tab-pane fade mt-3 show{% if loop.first %} active{% endif %}" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                    <img src="{{ video.url }}" alt="" class="m-auto rounded">
+                                    <p class="pt-3 pb-2">{{ video.description|markdown|raw }}</p>
+                                    {# @todo replace with ascicast #}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
                     <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                         <br>
                         <a href="/" id="main_logo">
@@ -27,7 +48,7 @@
                             </h1>
 
                             <a href="#show" class="btn btn-custom mt-5 text-nowrap">
-                                Oh, Really?&nbsp;                                 🤔&nbsp;</nobr>
+                                Oh, Really?&nbsp;                                 🤔&nbsp;
                             </a>
 
                             <br>
@@ -71,7 +92,16 @@
         </section>
 
         <div class="container">
-            {% include "_snippets/special-event.twig" %}
+            <br>
+            <br>
+
+            <div class="alert alert-primary text-center boxcloud">
+                Do you have a <strong>Nette application you want to switch to Symfony 4.3</strong>?
+                <br>
+                <a href="/framework-migration/" class="btn btn-outline-dark btn-light mt-2">
+                    Grab Free Spot!
+                </a>
+            </div>
         </div>
 
         <section class="section" id="services">
@@ -99,8 +129,8 @@
 
                                 <p class="mt-3">Download Rector on Github and use it.</p>
 
-                                <div class="text-center">
-                                    <a href="https://github.com/rectorphp/rector" class="btn btn-success mt-5">
+                                <div class="text-center mt-5">
+                                    <a href="https://github.com/rectorphp/rector" class="btn btn-success">
                                         <i class="fab fa-github"></i>
                                         &nbsp;
                                         Visit Rector on Github
@@ -126,9 +156,9 @@
                                     <li>Do you want keep delivering features and migrate framework at the same time?</li>
                                 </ul>
 
-                                <br>
+                                <p class="mt-3">Contact us and get ahead of your competition.</p>
 
-                                <div class="text-center mt-3">
+                                <div class="text-center" style="margin-top: 1.6em;">
                                     <a href="mailto:tomas@getrector.org" class="btn btn-primary">
                                         <em class="fas fa-envelope fa-fw"></em>
                                         &nbsp;
@@ -145,7 +175,11 @@
         <section class="section bg-light">
             <div class="container">
 
-                <h2 class="text-center">What is Rector's ultimate goal?</h2>
+                <h2>
+                    <em class="fas fa-dove"></em>
+                    &nbsp;
+                    What is Rector's ultimate goal?
+                </h2>
 
                 <blockquote class="blockquote">
                     "To help every developer in the planet with fresh or legacy PHP code to use the latest PHP, the most advanced version of their favorite framework and the latest craftsman patterns there will be.<br><br>
@@ -167,38 +201,13 @@
             </div>
         </section>
 
-        <a name="show"></a>
-        <section class="section" id="video">
-            <div class="container text-center">
-                <div>
-                    <h2>Rector just works - out of the box</h2>
-                </div>
-
-                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                    {% for video in videos %}
-                        <li class="nav-item">
-                            <a class="nav-link{% if loop.first %} active{% endif %}" id="{{ video.id }}-tab" data-toggle="tab" href="#{{ video.id }}" role="tab" aria-controls="{{ video.id }}" aria-selected="true">
-                                {{ video.label }}
-                            </a>
-                        </li>
-                    {% endfor %}
-                </ul>
-
-                <div class="tab-content" id="myTabContent">
-                    {% for video in videos %}
-                        <div class="tab-pane fade show{% if loop.first %} active{% endif %}" id="home" role="tabpanel" aria-labelledby="home-tab">
-                            <p class="pt-3 pb-2">{{ video.description|markdown|raw }}</p>
-                            <img src="{{ video.url }}" alt="" class="m-auto rounded">
-                            {# @todo replace with ascicast #}
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
-        </section>
-
         <div class="section bg-light">
             <div class="container text-center">
-                <h2>What people say?</h2>
+                <h2>
+                    <em class="fas fa-user-check"></em>
+                    &nbsp;
+                    What people say?
+                </h2>
 
                 {% include "_snippets/tweets.twig" %}
 
@@ -213,5 +222,8 @@
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+        {# for tweets #}
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     </body>
 </html>
