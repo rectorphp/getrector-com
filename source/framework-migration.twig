@@ -1,10 +1,16 @@
 ---
-layout: "_layouts/subpage.twig"
+layout: "_layouts/default.twig"
 form_link: "https://forms.gle/Re59dSrBkUXAdT4m9"
 ---
 
-<div class="container">
-    <h1>1-Month Framework Migration Challenge</h1>
+{{ include('_snippets/layout/small_header.twig') }}
+
+<div class="container" id="subpage">
+    <h1>
+        <em class="fas fa-stopwatch"></em>
+        &nbsp;
+        1-Month Framework Migration Challenge
+    </h1>
 
     <div class="text-center">
         <blockquote class="blockquote">"It's not possible."</blockquote>
