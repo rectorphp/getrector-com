@@ -207,6 +207,10 @@ h2 {
     color: #339af0;
 }
 
+.get_in_touch {
+    line-height: 2em;
+}
+
 .get_in_touch a, .get_in_touch a:active, .get_in_touch a:focus {
     color: #BBB;
     text-decoration: underline;
