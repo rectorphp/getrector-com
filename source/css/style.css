@@ -250,10 +250,6 @@ h3 em {
     margin-bottom: .5em;
 }
 
-#migrated_projects img {
-    max-height: 2em;
-}
-
 #header {
     background: #222;
     padding: 1.5em 0 .7em 0;
