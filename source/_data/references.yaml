@@ -1,8 +1,17 @@
 parameters:
     references:
+        # https://joind.in/event/php-russia-2019/how-to-make-legacy-refactoring-fun-again---from-months-to-days:
+        -
+            text: "Very useful tool. I'm sold :)"
+            name: "Alexander Makarov"
+            photo: "https://avatars0.githubusercontent.com/u/47294?s=400&v=4"
+            company_logo: "https://www.yiiframework.com/image/logo.svg"
+            position: "Yii Framework Core Developer"
+            link: "https://en.rmcreative.ru/"
+
         -
             name: "Hulkkonen Aleksi"
-            text: "We work on updating our project to the newest Symfony with the help of Rector - it's agreat tool, thank you!"
+            text: "We used Rector to update our project to the newest Symfony - great tool, thank you!"
             photo: "https://avatars0.githubusercontent.com/u/42401517?s=460&v=4"
 
         -
@@ -14,18 +23,3 @@ parameters:
             company_logo: "entrydo.png"
             position: "CTO @ EntryDo"
             link: "https://janmikes.cz/"
-
-    # https://joind.in/event/php-russia-2019/how-to-make-legacy-refactoring-fun-again---from-months-to-days:
-        -
-            text: "Very useful tool presented well. I'm sold :)"
-            name: "Alexander Makarov"
-            photo: "https://avatars0.githubusercontent.com/u/47294?s=400&v=4"
-            company_logo: "https://www.yiiframework.com/image/logo.svg"
-            position: "Yii Framework Core Developer"
-            link: "https://en.rmcreative.ru/"
-
-        -
-            text: "A very interesting talk indeed. Shame on me, but I've never thought before how to automate the refactoring process. Now I have a couple of instruments to learn and try."
-            name: "Aleksey Stoletov"
-            photo: "https://media.licdn.com/dms/image/C4D03AQFRG2NazWm-9w/profile-displayphoto-shrink_200_200/0?e=1564617600&v=beta&t=hZnxFAsDgQ-sfzDRE9wklyXstOdDGfZKZjodXm-78P4"
-
