@@ -475,3 +475,11 @@ body a:not(.btn):hover, body a:not(.btn):focus {
 q.blockquote {
     display: block;
 }
+
+.bg-black {
+    background-color: #333;
+}
+
+.text-bold {
+    font-weight: bold;
+}
