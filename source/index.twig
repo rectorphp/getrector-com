@@ -39,17 +39,15 @@ layout: "_layouts/default.twig"
                     <div class="clearfix"></div>
 
                     <h1 class="header_title mb-4">
-                        You don't have to upgrade PHP code manually - ever again
+                        {#                        How could we remove manual upgrades of PHP projects once and for all?#}
+                        How could we turn working with legacy code into joy?
                     </h1>
 
-                    <q class="oh_really">Oh, Really?&nbsp;                                 🤔&nbsp;</q>
-
-                    <br>
                     <br>
 
-                    <p class="get_in_touch mb-5">Get in touch with us. Send an email to <a href="mailto:tomas@getrector.org">tomas@getrector.org</a>.
-                        <br>
-                    Or do <strong>you want to play</strong>? Get <a href="http://github.com/rectorphp/rector">Rector on GitHub</a> and start today!</p>
+                    <p class="get_in_touch mb-5">
+                        Look at <a href="http://github.com/rectorphp/rector">Rector on GitHub</a> to find the answer!
+                    </p>
 
                     <div class="clearfix"></div>
                 </div>
@@ -58,18 +56,9 @@ layout: "_layouts/default.twig"
     </div>
 </section>
 
-<div class="container">
-    <div class="alert alert-success mt-3">
-        We're working on a service, that will run Rector on your all repositories and all PRs on per-commits basis - <a href="https://rector-ci.org/">Rector CI</a>. Instantly with zero-setup - we'll handle Rector install, composer conflicts and PHP PHP 7.0- version for you.
-        <br>
-        <br>
-        <strong>Do you want to try it? <a href="/contact/">Write us to get into private beta</a>.</strong>
-    </div>
-</div>
-
 <section class="section bg-light text-center">
     <div class="container">
-        <h2>Companies Rector already helped</h2>
+        <h2 class="mb-4">Who already delegates boring work to Rector?</h2>
 
         <table id="company_logos">
             <tr class="row">
@@ -117,7 +106,7 @@ layout: "_layouts/default.twig"
             <div class="col-12 col-md-6">
                 <div class="card mb-5 md-md-0">
                     <div class="card-body">
-                        <h3 class="text-center mt-2 mb-4">
+                        <h3 class="text-bold text-center mt-2 mb-4">
                             <em class="fas fa-code fa-fw"></em>
                             &nbsp;
                             For Developers
@@ -130,13 +119,11 @@ layout: "_layouts/default.twig"
                             <li>Or refactor custom code at scale without rebasing?</li>
                         </ul>
 
-                        <p class="mt-3">Download Rector on Github and use it.</p>
-
                         <div class="text-center mt-5">
-                            <a href="https://github.com/rectorphp/rector" class="btn btn-success">
+                            <a href="https://github.com/rectorphp/rector" class="btn btn-dark">
                                 <i class="fab fa-github"></i>
                                 &nbsp;
-                                Visit Rector on Github
+                                Visit Rector on Github and Use It
                             </a>
                         </div>
                     </div>
@@ -146,7 +133,7 @@ layout: "_layouts/default.twig"
             <div class="col-12 col-md-6">
                 <div class="card mb-5 md-md-0">
                     <div class="card-body">
-                        <h3 class="text-center mt-2 mb-4">
+                        <h3 class="text-bold text-center mt-2 mb-4">
                             <em class="fas fa-user-tie fa-fw"></em>
                             &nbsp;
                             For CEOs
@@ -159,13 +146,42 @@ layout: "_layouts/default.twig"
                             <li>Do you want keep delivering features and migrate framework at the same time?</li>
                         </ul>
 
-                        <p class="mt-3">Contact us and get ahead of your competition.</p>
-
                         <div class="text-center" style="margin-top: 1.6em;">
                             <a href="/contact/" class="btn btn-primary">
                                 <em class="fas fa-envelope fa-fw"></em>
                                 &nbsp;
-                                Write us
+                                Contact us and Beat Your Competition
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="card text-white bg-black mb-5 md-md-0">
+                    <div class="card-body">
+                        <h3 class="text-center text-bold text-success mt-2 mb-4">
+                            <em class="fas fa-robot fa-fw"></em>
+                            &nbsp;
+                            Rector CI - Next Member of Your Team
+                        </h3>
+
+                        <ul class="list-group ml-4 mb-2">
+                            <li>
+                                A service, that will run Rector on your all repositories and all PRs every time you commit
+                            </li>
+                            <li>
+                                1 click away, unlock sets and let CI do the work
+                            </li>
+                            <li>Do you want to extend your team with a member <strong>who gets never tired and gets smarter every day</strong>?
+                        </ul>
+
+                        <div class="text-center" style="margin-top: 1.6em;">
+                            <a href="/contact/" class="btn btn-success">
+
+                                <em class="fas fa-unlock fa-fw"></em>
+                                &nbsp;
+                                Request Private Beta Access
                             </a>
                         </div>
                     </div>
@@ -212,8 +228,9 @@ layout: "_layouts/default.twig"
             What people say?
         </h2>
 
-        {% include "_snippets/tweets.twig" %}
         {% include "_snippets/section/references.twig" %}
+
+        {% include "_snippets/tweets.twig" %}
     </div>
 </div>
 

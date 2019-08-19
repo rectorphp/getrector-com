@@ -1,12 +1,7 @@
 <br>
 
-<div class="row mt-5" id="reference">
+<div class="row mt-5 text-center m-auto" id="reference" style="max-width:30em">
     {% for reference in references %}
-        <div class="col-md-2 col-sm-4 mb-5 mt-2">
-            <div class="text-center">
-                <img src="{{ reference.photo }}" alt="" class="img-fluid rounded-circle img-thumbnail">
-            </div>
-        </div>
         <div class="col-md-10 col-sm-8 mb-5">
             <div class="text-left">
                 <q class="blockquote">{{ reference.text|markdown|raw }}</q>
@@ -18,6 +13,11 @@
 
                     &ndash; {{ reference.position }}{% endif %}
                 </div>
+            </div>
+        </div>
+        <div class="col-md-2 col-sm-4 mb-5 mt-0">
+            <div class="text-center">
+                <img src="{{ reference.photo }}" alt="" class="img-fluid rounded-circle img-thumbnail">
             </div>
         </div>
     {% endfor %}
