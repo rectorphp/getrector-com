@@ -8,18 +8,3 @@ parameters:
             company_logo: "https://www.yiiframework.com/image/logo.svg"
             position: "Yii Framework Core Developer"
             link: "https://en.rmcreative.ru/"
-
-        -
-            name: "Hulkkonen Aleksi"
-            text: "We used Rector to update our project to the newest Symfony - great tool, thank you!"
-            photo: "https://avatars0.githubusercontent.com/u/42401517?s=460&v=4"
-
-        -
-            text: |
-                Rector helped us to get rid of our frustration with Nette application by migrating it to Symfony.
-                We thought we could only dream of it, but within 17 days we had our app running on Symfony 4.2 in production.
-            name: "Jan Mikes"
-            photo: "/assets/images/references/jan_mikes.jpg"
-            company_logo: "entrydo.png"
-            position: "CTO @ EntryDo"
-            link: "https://janmikes.cz/"
