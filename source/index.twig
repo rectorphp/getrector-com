@@ -6,16 +6,6 @@ layout: "_layouts/default.twig"
     <div class="container">
         <div class="row">
             <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-5" id="video">
-{#                        <ul class="nav nav-tabs" id="myTab" role="tablist">#}
-{#                            {% for video in videos %}#}
-{#                                <li class="nav-item">#}
-{#                                    <a class="bg-dark border-dark text-white nav-link{% if loop.first %} active{% endif %}" id="{{ video.id }}-tab" data-toggle="tab" href="#{{ video.id }}" role="tab" aria-controls="{{ video.id }}" aria-selected="true">#}
-{#                                        {{ video.label }}#}
-{#                                    </a>#}
-{#                                </li>#}
-{#                            {% endfor %}#}
-{#                        </ul>#}
-
                 <div class="tab-content">
                     {% for video in videos %}
                         <div class="tab-pane fade mt-2 ml-2 mr-2 show{% if loop.first %} active{% endif %}" id="home" role="tabpanel" aria-labelledby="home-tab">
@@ -40,7 +30,7 @@ layout: "_layouts/default.twig"
 
                     <h1 class="header_title mb-4">
                         {#                        How could we remove manual upgrades of PHP projects once and for all?#}
-                        How could we turn working with legacy code into joy?
+                        How Could We Turn Working with Legacy Code into Joy?
                     </h1>
 
                     <br>
@@ -60,33 +50,39 @@ layout: "_layouts/default.twig"
     <div class="container">
         <h2 class="mb-4">Who already delegates boring work to Rector?</h2>
 
-        <table id="company_logos">
+        <table id="company_logos" class="mt-5">
             <tr class="row">
-                <td class="align-middle col">
+                <td class="align-middle col-6 col-md-4 mb-5 pl-3 pr-3">
                     <a href="https://spaceflow.io">
                         <img src="/assets/images/logo/spaceflow.png" alt="" class="mt-3">
                     </a>
                 </td>
 
-                <td class="align-middle col" style="margin-top: -.2em">
+                <td class="align-middle col-6 col-md-4 mb-5 pl-3 pr-3" style="margin-top:0em">
                     <a href="https://www.elasticr.cz/">
                         <img src="/assets/images/logo/elasticr.png" alt="">
                     </a>
                 </td>
 
-                <td class="align-middle col">
+                <td class="align-middle col-6 col-md-4 mb-5 pl-3 pr-3">
                     <a href="https://glami.cz">
                         <img src="/assets/images/logo/glami.png" alt="">
                     </a>
                 </td>
 
-                <td class="align-middle col">
+                <td class="align-middle col-6 col-md-4 mb-5 pl-3 pr-3">
                     <a href="https://www.previo.cz">
-                        <img src="/assets/images/logo/previo.png" alt="" style="margin-top: -1em">
+                        <img src="/assets/images/logo/previo.png" alt="">
                     </a>
                 </td>
 
-                <td class="align-middle col">
+                <td class="align-middle col-6 col-md-4 mb-5 pl-3 pr-3">
+                    <a href="https://www.zoot.cz">
+                        <img src="/assets/images/logo/zoot.png" alt="">
+                    </a>
+                </td>
+
+                <td class="align-middle col-6 col-md-4 mb-5 pl-2 pr-2">
                     <a href="https://entry.do">
                         <img src="/assets/images/logo/entrydo.png" alt="">
                     </a>
