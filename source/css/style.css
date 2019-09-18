@@ -9,14 +9,6 @@ a, a:hover, a:focus, button, button:focus {
     box-shadow: none !important;
 }
 
-::selection {
-    background: rgba(166, 175, 189, 0.3);
-}
-
-::-moz-selection {
-    background: rgba(166, 175, 189, 0.3);
-}
-
 #services li {
     line-height: 1.3em;
     margin-bottom: .5em;
@@ -31,38 +23,8 @@ a, a:hover, a:focus, button, button:focus {
 }
 
 .section .container {
-    padding-top: 4em;
+    padding-top: 5em;
     padding-bottom: 5em;
-}
-
-table a.btn.btn-success {
-    color: #FFF;
-}
-
-table a.btn.btn-success:hover {
-    color: #EEE;
-}
-
-.btn-custom {
-    background-color: #21ae61;
-    border: 2px solid #20ba6c;
-    color: #fff;
-    transition: all 0.5s;
-    border-radius: 5px;
-    font-size: 1.2em;
-}
-
-.btn-custom:hover,
-.btn-custom:focus,
-.btn-custom:active,
-.btn-custom.active,
-.btn-custom.focus,
-.btn-custom:active,
-.btn-custom:focus,
-.btn-custom:hover {
-    background-color: #1f9955;
-    border-color: #1b9c5b;
-    color: #fff;
 }
 
 .vertical-content {
@@ -78,11 +40,6 @@ table a.btn.btn-success:hover {
     -webkit-flex-direction: row;
 }
 
-.btn-sm {
-    font-size: 1.1em;
-    padding: .4em .8em;
-}
-
 /*==========================
         4.HOME
 ============================*/
@@ -91,14 +48,6 @@ table a.btn.btn-success:hover {
     background-image: url(../images/home-bg3.jpg);
     background-size: cover;
     background-position: top center;
-}
-
-.home_divider {
-    height: .4em;
-    width: 20em;
-    float: right;
-    background-color: #fff;
-    border-radius: 5em;
 }
 
 /*==========================
@@ -257,11 +206,6 @@ h3 em {
     text-transform: uppercase;
 }
 
-#subpage h3 {
-    margin-top: 1em;
-    font-size: 1.5em;
-}
-
 #header a {
     color: #FFF;
     text-decoration: underline;
@@ -276,17 +220,17 @@ h3 em {
     box-shadow: 4px 4px 4px rgba(0, 0, 0, .1);
 }
 
-.boxcloud {
-    background-image: linear-gradient(180deg,#007dbc,#33528c);
+#video {
+    /* black with opacity */
+    background-image: linear-gradient(180deg,#222,#111);
     background-repeat: repeat-x;
-    color: #fff;
-    font-size: 1.1em;
-    padding: .8em .6em;
-}
 
-.oh_really {
-    font-size: 1.5em;
-    margin: 1em 0 0 0;
+    box-shadow: -2px -2px 4px rgba(0, 0, 0, .3);
+    padding: .5em;
+    color: #DDD;
+
+    border-top-left-radius: .5em;
+    border-top-right-radius: .5em;
 }
 
 html {
@@ -300,7 +244,7 @@ html {
 }
 
 #main_logo img {
-    width: 4em;
+    width: 4.5em;
     float: right;
     padding-top: .5em;
     padding-left: 1.2em;
@@ -308,7 +252,8 @@ html {
 
 #main_logo h1 {
     color: white;
-    font-weight: 400;
+    font-weight: 700;
+    font-family: "Montserrat";
     text-transform: uppercase;
     font-size: 2.5em;
     padding-left: .7em;
@@ -376,22 +321,15 @@ h2 {
     background: white;
 }
 
-#video {
-    /* black with opacity */
-    background-color: rgba(30, 30, 30, 0.6);
-    box-shadow: -2px -2px 4px rgba(0, 0, 0, .3);
-    padding: .5em;
-    color: #DDD;
-}
-
-#video img {
-    max-width: 100%;
-}
-
 .header_title {
     color: #DDD;
     font-size: calc(2em + 1.2vw);
     line-height: 1.5em;
+    font-weight: 300;
+    font-family: "Roboto Slab";
+}
+
+.font_roboto {
     font-weight: 300;
     font-family: "Roboto Slab";
 }
@@ -401,10 +339,6 @@ h2 {
     .header_title {
         font-size: 3em;
     }
-
-    .home_divider {
-        width: 15em;
-    }
 }
 
 @media (max-width: 768px) {
@@ -412,16 +346,10 @@ h2 {
         font-size: 2.5em;
     }
 
-    .home_divider {
-        width: 10em;
-    }
-
     h2 {
         font-size: 1.5em;
     }
 }
-
-
 
 .container {
     max-width: 55em;
@@ -429,10 +357,6 @@ h2 {
 
 .card h3 {
     font-size: 1.5em;
-}
-
-.table .alert {
-    padding: .2em .4em;
 }
 
 ul.list-noindent {
