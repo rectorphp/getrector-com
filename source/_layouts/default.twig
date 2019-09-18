@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         {% include "_snippets/layout/head.twig" %}
+        {% include "_snippets/styles.twig" %}
     </head>
 
     <body>
@@ -9,12 +10,6 @@
 
         {% include "_snippets/layout/footer.twig" %}
         {% include "_snippets/layout/google_analytics.twig" %}
-
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-        {# for tweets #}
-        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        {% include "_snippets/javascripts.twig" %}
     </body>
 </html>

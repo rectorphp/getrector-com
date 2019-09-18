@@ -17,6 +17,11 @@ a, a:hover, a:focus, button, button:focus {
     background: rgba(166, 175, 189, 0.3);
 }
 
+#services li {
+    line-height: 1.3em;
+    margin-bottom: .5em;
+}
+
 /*==========================
         2.HELPER
 ============================*/
@@ -120,10 +125,6 @@ table a.btn.btn-success:hover {
 ============================*/
 
 @media (max-width: 768px) {
-    .header_title {
-        font-size: 38px;
-        line-height: 1.2;
-    }
     .header_subtitle {
         font-size: 15px;
         line-height: 1.8;
@@ -317,38 +318,30 @@ html {
 }
 
 
-.section-inverted {
-    background: #111;
-    color: white;
-}
-
 /* inspired by backers from https://nette.org/ */
-#projects {
+#company_logos img {
     transition: all .3s ease;
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
     opacity: .66;
+    transform: scale(0.90);
 }
 
-#projects:hover {
+#company_logos a:hover img {
     filter: grayscale(0%);
     opacity: 1;
-}
-
-#projects img:hover {
-    transform: scale(1.05);
+    transform: scale(1);
     transition: .2s;
 }
 
-.img-thumbnail {
-    max-width: 6em;
+h2 {
+    font-size: 1.9em;
+    font-weight: 400;
+    color: #4b4b4b;
 }
 
-h2 {
-    font-size: 1.7em;
-    text-transform: uppercase;
-    font-weight: 600;
-    color: #4b4b4b;
+#services .card-body {
+    padding: 2.3em;
 }
 
 #footer {
@@ -396,8 +389,11 @@ h2 {
 }
 
 .header_title {
-    font-size: 3.5em;
+    color: #DDD;
+    font-size: calc(2em + 1.2vw);
+    line-height: 1.5em;
     font-weight: 300;
+    font-family: "Roboto Slab";
 }
 
 /* responsive */
@@ -424,6 +420,8 @@ h2 {
         font-size: 1.5em;
     }
 }
+
+
 
 .container {
     max-width: 55em;
