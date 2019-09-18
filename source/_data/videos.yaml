@@ -1,6 +1,0 @@
-parameters:
-    videos:
-        -
-            id: "home"
-            label: "Code Quality"
-            asciinema: 'https://asciinema.org/a/225145'

@@ -221,8 +221,8 @@ h3 em {
 }
 
 #video {
-    /* black with opacity */
-    background-image: linear-gradient(180deg,#222,#111);
+    /* colors: https://paletton.com/#uid=12Y0u0kmaG0bOTahyM-qF-DvVtC */
+    background-image: linear-gradient(180deg,#40D07B,#00AA45);
     background-repeat: repeat-x;
 
     box-shadow: -2px -2px 4px rgba(0, 0, 0, .3);
@@ -400,4 +400,18 @@ q.blockquote {
 
 .text-bold {
     font-weight: bold;
+}
+
+
+/* show/hidden menu; ref https://stackoverflow.com/a/35362821/1348344 */
+@media (max-width: 768px) {
+    .hidden-sm-down {
+        display: none !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .hidden-md-up {
+        display: none !important;
+    }
 }
