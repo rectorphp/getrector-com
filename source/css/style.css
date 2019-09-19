@@ -74,20 +74,9 @@ a, a:hover, a:focus, button, button:focus {
 ============================*/
 
 @media (max-width: 768px) {
-    .header_subtitle {
-        font-size: 15px;
-        line-height: 1.8;
-    }
     .h-100vh {
         height: auto;
     }
-    .clip-home {
-        clip-path: none;
-    }
-    .vertical-content {
-        display: inherit;
-    }
-
     .home-bg-color,
     .h-100vh.jarallax,
     .home-bg-img,
