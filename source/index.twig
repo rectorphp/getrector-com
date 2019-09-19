@@ -5,17 +5,9 @@ layout: "_layouts/default.twig"
 <section class="home-bg-img" id="big_header">
     <div class="container">
         <div class="row">
-            <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-5" id="video">
-                <div class="tab-content">
-                    {% for video in videos %}
-                        <div class="tab-pane fade mt-2 ml-2 mr-2 show{% if loop.first %} active{% endif %}" id="home" role="tabpanel" aria-labelledby="home-tab">
-                            <script id="asciicast-225145" src="https://asciinema.org/a/225145.js" async data-rows="30"></script>
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
-            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                <br>
+            <div class="col-6 hidden-sm-down"></div>
+
+            <div class="col-6">
                 <a href="/" id="main_logo">
                     <img src="/assets/images/logo/rector-no_frame_vector.svg" alt="">
                     <h1>Rector</h1>
@@ -28,7 +20,7 @@ layout: "_layouts/default.twig"
 
                     <div class="clearfix"></div>
 
-                    <h1 class="header_title mb-4">
+                    <h1 class="header_title mb-4 mt-3 pull-right">
                         {#                        How could we remove manual upgrades of PHP projects once and for all?#}
                         How Could We Turn Working with Legacy Code into Joy?
                     </h1>
@@ -46,7 +38,7 @@ layout: "_layouts/default.twig"
     </div>
 </section>
 
-<section class="section bg-light text-center">
+<section class="section bg-light text-center" data-aos="fade-up">
     <div class="container">
         <h2 class="mb-4">Who already delegates boring work to Rector?</h2>
 
@@ -92,7 +84,7 @@ layout: "_layouts/default.twig"
     </div>
 </section>
 
-<section class="section" id="services">
+<section class="section" id="services" data-aos="fade-up">
     <div class="container">
         <div class="text-center">
             <h2>How will Rector make your life easier?</h2>
@@ -100,12 +92,12 @@ layout: "_layouts/default.twig"
 
         <div class="row">
             <div class="col-12 col-md-6">
-                <div class="card mb-5 md-md-0">
+                <div class="card mb-5 md-md-0" data-aos="fade-right">
                     <div class="card-body">
                         <h3 class="text-bold text-center mt-2 mb-4">
                             <em class="fas fa-code fa-fw"></em>
                             &nbsp;
-                            For Developers
+                            For CTOs
                         </h3>
 
                         <ul class="list-group ml-4 mb-2">
@@ -127,7 +119,7 @@ layout: "_layouts/default.twig"
             </div>
 
             <div class="col-12 col-md-6">
-                <div class="card mb-5 md-md-0">
+                <div class="card mb-5 md-md-0" data-aos="fade-left">
                     <div class="card-body">
                         <h3 class="text-bold text-center mt-2 mb-4">
                             <em class="fas fa-user-tie fa-fw"></em>
@@ -154,7 +146,7 @@ layout: "_layouts/default.twig"
             </div>
 
             <div class="col-12">
-                <div class="card text-white bg-black mb-5 md-md-0">
+                <div class="card text-white bg-black mb-5 md-md-0" data-aos="fade-up">
                     <div class="card-body">
                         <h3 class="text-center text-bold text-success mt-2 mb-4">
                             <em class="fas fa-robot fa-fw"></em>
@@ -190,33 +182,33 @@ layout: "_layouts/default.twig"
 <section class="section bg-light">
     <div class="container">
 
-        <h2>
+        <h2 data-aos="fade-up">
             <em class="fas fa-dove"></em>
             &nbsp;
-            What is Rector's ultimate goal?
+            What is Our Ultimate Goal?
         </h2>
 
-        <q class="blockquote">
+        <q class="blockquote" data-aos="fade-up">
             To help every developer in the planet with fresh or legacy PHP code to use the latest PHP, the most advanced version of their favorite framework and the latest craftsman patterns there will be.<br><br>
             Without work, instantly, so they can focus on what they love most - <strong>thinking about algorithms and writing fresh code</strong>.
         </q>
+    </div>
+</div>
 
-        <br>
+<section class="bg-danger text-white" data-aos="fade-up">
 
-        <div class="text-center">
-            <p>To make this happen, <strong>we need your support</strong>. We look for developer backers and for company sponsors.</p>
-            <a href="https://www.patreon.com/bePatron?u=4756109" alt="Become a Patron">
-                <img src="https://c5.patreon.com/external/logo/become_a_patron_button.png" alt="">
-            </a>
+    <div class="container text-center">
+        <p>
+            To make this happen, <strong>we need your support</strong>. We look for developer backers and for company sponsors.
+        </p>
 
-            <p class="mt-5 text-muted">
-                1 rule for your code? 1 rule-set tailored to your project? <a href="https://patreon.com/rectorphp">Check all treats you can get</a> depending on your level support.
-            </p>
-        </div>
+        <a href="https://www.patreon.com/bePatron?u=4756109" alt="Become a Patron" class="mt-5">
+            <img src="https://c5.patreon.com/external/logo/become_a_patron_button.png" alt="">
+        </a>
     </div>
 </section>
 
-<section class="section">
+<section class="section" data-aos="fade-up">
     <div class="container text-center">
         <h2>
             <em class="fas fa-user-check"></em>
