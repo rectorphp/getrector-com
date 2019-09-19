@@ -18,10 +18,6 @@ a, a:hover, a:focus, button, button:focus {
         2.HELPER
 ============================*/
 
-.section {
-    background-color: #fff;
-}
-
 .section .container {
     padding-top: 5em;
     padding-bottom: 5em;
@@ -306,10 +302,6 @@ h2 {
     background-repeat: repeat;
 }
 
-.section:not(.bg-light) .container {
-    background: white;
-}
-
 .header_title {
     color: #DDD;
     font-size: calc(2em + 1.2vw);
@@ -403,4 +395,12 @@ q.blockquote {
     .hidden-md-up {
         display: none !important;
     }
+}
+
+.bg-light {
+    background: #DDD;
+}
+
+.text-bigger {
+    font-size: 1.3em;
 }
