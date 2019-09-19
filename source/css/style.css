@@ -280,8 +280,7 @@ h2 {
 }
 
 #footer {
-    padding-top: 1.8em;
-    padding-bottom: 1em;
+    padding: 1.8em 0;
 
     background-color: #24292e;
     color: #FFF;
