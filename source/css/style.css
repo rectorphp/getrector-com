@@ -404,3 +404,8 @@ q.blockquote {
 .text-bigger {
     font-size: 1.3em;
 }
+
+.img-face {
+    max-width: 10em;
+    margin: 1em auto;
+}
