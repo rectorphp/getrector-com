@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% include "_snippets/layout/head.twig" %}
+        {% include "_snippets/styles.twig" %}
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+
+    <body id="{% block body_id %}{% endblock %}">
+        {% block body %}
+            <div id="main">
+                {% include '_snippets/flash_messages.twig' %}
+
+                {% block main %}{% endblock %}
+            </div>
+        {% endblock %}
+
+        {% include "_snippets/layout/footer.twig" %}
+        {% include "_snippets/layout/google_analytics.twig" %}
+        {% include "_snippets/javascripts.twig" %}
+    </body>
+</html>

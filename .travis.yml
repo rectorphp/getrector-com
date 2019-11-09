@@ -1,28 +1,82 @@
 language: php
-
+dist: trusty
 php: 7.3
 
-branches:
-    # to deploy page just once
-    only:
-        - master
+before_install:
+    # turn off XDebug to speed up
+    - phpenv config-rm xdebug.ini || return 0
 
 install:
     - composer install
 
-script:
-    - vendor/bin/statie generate source -vvv
+jobs:
+    include:
+        # 1. Building Docker image, testing & static analysis
+        -
+            # for faster CI, this runs in parallel with testing and static analysis
+            stage: test
+            name: 'Build Docker Image'
+            if: NOT type = cron
+            install:
+                - echo "composer install is run inside the Docker image"
+            script:
+                - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+                - docker pull rector/getrector.org || true
+                - docker build --cache-from rector/getrector.org -t rector/getrector.org:$TRAVIS_COMMIT --target production -f Dockerfile .
+                - docker push rector/getrector.org
 
-# see docs: https://www.statie.org/docs/github-pages/
-deploy:
-    provider: pages
-    skip_cleanup: true
-    github_token: $GITHUB_TOKEN
-    on:
-        branch: master
-    local_dir: output
+        # tests + static analysis
+        -
+            name: ECS
+            script:
+                - composer check-cs
+
+        -
+            name: PHPStan
+            script:
+                - composer phpstan
+
+        -
+            stage: test
+            name: 'Unit Tests'
+            script:
+                - vendor/bin/phpunit
+
+        -
+            name: Rector
+            script:
+                - vendor/bin/rector process src --config rector-ci.yaml --dry-run
+
+        # build + deploy Docker image
+        # 2. Build Docker image → deploy
+        -
+            stage: warmup
+            name: 'Production Cache Warmup'
+            install:
+                - echo "composer install is run inside the Docker image"
+            script:
+                - docker run --rm -e APP_ENV=prod rector/getrector.org:$TRAVIS_COMMIT bin/console cache:warmup
+
+        -
+            stage: deploy
+            name: 'Deploy to getrector.org'
+            install:
+                - echo "composer install is run inside the Docker image"
+            if: branch = master AND type = push
+            script: skip
+            deploy:
+                -
+                    provider: script
+                    script: sh bin/deploy.sh
+                    skip_cleanup: true
+
+matrix:
+    fast_finish: true
+
+cache:
+    directories:
+        - $HOME/.composer/cache
 
 notifications:
     email:
         on_success: never
-        on_failure: always

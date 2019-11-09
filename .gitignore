@@ -1,11 +1,54 @@
-# statie
-/output
-statie.local.yaml
+# not really needed
+yarn.lock
 
-# npm
-node_modules
-package-lock.json
+vendor/
 
-# composer
-vendor
-composer.lock
+.idea
+
+var
+public/bundles/
+public/build/
+
+## Docker
+docker-compose.yml
+.docker/mysql-data
+
+.env.local
+.env.local.php
+.env.*.local
+
+# node
+*.local.yaml
+
+# PHPUnit 8+
+.phpunit.result.cache
+
+/public/adminer/
+
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+###< symfony/framework-bundle ###
+
+###> squizlabs/php_codesniffer ###
+/.phpcs-cache
+/phpcs.xml
+###< squizlabs/php_codesniffer ###
+
+###> friendsofphp/php-cs-fixer ###
+/.php_cs
+/.php_cs.cache
+###< friendsofphp/php-cs-fixer ###
+
+###> phpunit/phpunit ###
+/phpunit.xml
+.phpunit.result.cache
+###< phpunit/phpunit ###
+
+###> symfony/webpack-encore-bundle ###
+/node_modules/
+/public/build/
+npm-debug.log
+yarn-error.log
+###< symfony/webpack-encore-bundle ###

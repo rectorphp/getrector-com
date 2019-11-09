@@ -1,0 +1,22 @@
+imports:
+    - { resource: 'vendor/symplify/easy-coding-standard/config/set/psr12.yaml' }
+    - { resource: 'vendor/symplify/easy-coding-standard/config/set/php71.yaml' }
+    - { resource: 'vendor/symplify/easy-coding-standard/config/set/symplify.yaml' }
+    - { resource: 'vendor/symplify/easy-coding-standard/config/set/common.yaml' }
+    - { resource: 'vendor/symplify/easy-coding-standard/config/set/clean-code.yaml' }
+
+services:
+    Symplify\CodingStandard\Fixer\Php\ClassStringToClassConstantFixer:
+        allow_classes:
+            - 'SomeClass' # from PHPUnit
+            - 'PHPUnit\Framework\TestCase' # usually part of node construction, it can be missed
+            - 'Exception'
+            - 'ResourceBundle'
+            - 'SimpleXMLElement'
+
+parameters:
+    skip:
+        # rather useless
+        Symplify\CodingStandard\Sniffs\DependencyInjection\NoClassInstantiationSniff: ~
+        # conflict with "PhpCsFixer\Fixer\Operator\NotOperatorWithSuccessorSpaceFixer"
+        PhpCsFixer\Fixer\Operator\UnaryOperatorSpacesFixer: ~
