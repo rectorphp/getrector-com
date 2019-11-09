@@ -1,5 +1,6 @@
 # not really needed
 yarn.lock
+package-lock.json
 
 vendor/
 
@@ -23,7 +24,8 @@ docker-compose.yml
 # PHPUnit 8+
 .phpunit.result.cache
 
-/public/adminer/
+public/adminer
+public/build
 
 ###> symfony/framework-bundle ###
 /.env.local

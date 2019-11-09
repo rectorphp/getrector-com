@@ -1,3 +1,21 @@
+// setting the value of this variable to an empty data URL is the only working solution
+// to load the Bootswatch web fonts locally and avoid loading them from Google servers
+// see https://github.com/thomaspark/bootswatch/issues/55#issuecomment-298093182
+$web-font-path: 'data:text/css;base64,';
+
+// Make sure the bootstrap-sass and lato fonts are resolved correctly
+$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
+
+//@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+@import "~bootstrap/scss/bootstrap";
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
+/* ---------------------------------------------------- */
+
+* {
+    font-size: 18px;
+}
+
 body {
     font-family: 'Source Sans Pro', sans-serif;
     overflow-x: hidden;
@@ -41,61 +59,15 @@ a, a:hover, a:focus, button, button:focus {
 ============================*/
 
 .home-bg-img {
-    background-image: url(../images/home-bg3.jpg);
+    background-image: url('/assets/images/home-bg3.jpg');
     background-size: cover;
     background-position: top center;
 }
 
-/*==========================
-        6.SERVICES
-============================*/
-
-.services_boxes {
-    border: 1px solid #e3e6f0;
-    padding: 4em 0;
-}
-
-.services_boxes .services_icon i {
-    font-size: 9em;
-    color: #dedfe6;
-}
-
-.services_boxes .services_content p {
-    font-size: 1.1em;
-    line-height: 1.8em;
-}
 
 /*==========================
         20.RESPONSIVE
 ============================*/
-
-@media (max-width: 768px) {
-    .h-100vh {
-        height: auto;
-    }
-    .home-bg-color,
-    .h-100vh.jarallax,
-    .home-bg-img,
-    .home-bg-color-gradient,
-    .h-100vh,
-    .home-half,
-    .half-slider {
-        padding: 1em .5em 3em .5em;
-    }
-
-    .services_boxes .services_icon i {
-        font-size: 130px;
-    }
-
-    .services_icon, .services_content {
-        margin-top: 15px;
-    }
-
-    .services_boxes {
-        margin-right: 7px !important;
-        margin-left: 7px !important;
-    }
-}
 
 .object-fit {
     object-fit: contain;
@@ -131,32 +103,6 @@ h2 {
 }
 
 /* used from https://fontawesome.com/ */
-.text-green {
-    color: #51cf66;
-}
-
-.text-orange {
-    color: #ff922b;
-}
-
-.text-blue {
-    color: #339af0;
-}
-
-.get_in_touch {
-    line-height: 2em;
-}
-
-.get_in_touch a, .get_in_touch a:active, .get_in_touch a:focus {
-    color: #BBB;
-    text-decoration: underline;
-}
-
-.get_in_touch a:hover {
-    color: #FFF;
-    text-decoration: none;
-}
-
 #reference strong {
     font-size: 1em;
 }
@@ -164,7 +110,6 @@ h2 {
 h3 em {
     font-size: 1em;
 }
-
 
 #subpage {
     padding-bottom: 3em;
@@ -206,18 +151,18 @@ h3 em {
     box-shadow: 4px 4px 4px rgba(0, 0, 0, .1);
 }
 
-#video {
-    /* colors: https://paletton.com/#uid=12Y0u0kmaG0bOTahyM-qF-DvVtC */
-    background-image: linear-gradient(180deg,#40D07B,#00AA45);
-    background-repeat: repeat-x;
-
-    box-shadow: -2px -2px 4px rgba(0, 0, 0, .3);
-    padding: .5em;
-    color: #DDD;
-
-    border-top-left-radius: .5em;
-    border-top-right-radius: .5em;
-}
+//#video {
+//    /* colors: https://paletton.com/#uid=12Y0u0kmaG0bOTahyM-qF-DvVtC */
+//    background-image: linear-gradient(180deg,#40D07B,#00AA45);
+//    background-repeat: repeat-x;
+//
+//    box-shadow: -2px -2px 4px rgba(0, 0, 0, .3);
+//    padding: .5em;
+//    color: #DDD;
+//
+//    border-top-left-radius: .5em;
+//    border-top-right-radius: .5em;
+//}
 
 html {
     font-family: 'Source Sans Pro', sans-serif;
@@ -297,17 +242,22 @@ h2 {
 }
 
 .section:not(.bg-light) {
-    background-image: url('../chars.png');
+    background-image: url('/assets/images/chars.png');
     background-position: top left;
     background-repeat: repeat;
 }
 
 .header_title {
-    color: #DDD;
-    font-size: calc(2em + 1.2vw);
+    color: #FFF;
+    font-size: calc(3em + 1.2vw);
     line-height: 1.5em;
     font-weight: 300;
     font-family: "Roboto Slab";
+    text-align: center;
+
+    strong {
+        font-size: 1em;
+    }
 }
 
 .font_roboto {
@@ -408,8 +358,4 @@ q.blockquote {
 .img-face {
     max-width: 10em;
     margin: 1em auto;
-}
-
-.container {
-
 }

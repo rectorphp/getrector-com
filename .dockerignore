@@ -24,3 +24,4 @@ docker-compose.dist.yml
 public/build
 
 vendor/
+node_modules/

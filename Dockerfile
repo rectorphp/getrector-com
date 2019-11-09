@@ -51,7 +51,7 @@ RUN chmod +x /usr/local/bin/docker-php-entrypoint
 
 COPY composer.json phpunit.xml.dist ./
 
-RUN composer install --prefer-dist --no-dev --no-autoloader --no-scripts --no-progress --no-suggest \
+RUN COMPOSER_MEMORY_LIMIT=-1 composer install --prefer-dist --no-dev --no-autoloader --no-scripts --no-progress --no-suggest \
     && composer clear-cache
 
 COPY . .
@@ -70,12 +70,9 @@ FROM production as dev
 
 ## TODO: we might need NPM + NODE in dev + entrypoint with npm install?
 
-RUN composer install --prefer-dist --no-scripts --no-progress --no-suggest
+## see https://getcomposer.org/doc/articles/troubleshooting.md#memory-limit-errors
+RUN COMPOSER_MEMORY_LIMIT=-1 composer install --prefer-dist --no-scripts --no-progress --no-suggest
 
-COPY ./.docker/php/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
-
-## Install Xdebug extension + cleanup
-RUN pecl -q install xdebug \
-    && docker-php-ext-enable xdebug \
-    && apt-get clean \
+## cleanup
+RUN apt-get clean \
     && rm -rf /tmp/* /usr/local/lib/php/doc/* /var/cache/apt/*
