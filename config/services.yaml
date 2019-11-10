@@ -1,0 +1,14 @@
+services:
+    _defaults:
+        public: true
+        autowire: true
+        autoconfigure: true
+
+    Rector\Website\:
+        resource: '../src/'
+        exclude:
+            - '../src/GetRectorKernel.php'
+
+    Symplify\PackageBuilder\Console\Style\SymfonyStyleFactory: ~
+    Symfony\Component\Console\Style\SymfonyStyle:
+        factory: ['@Symplify\PackageBuilder\Console\Style\SymfonyStyleFactory', 'create']

@@ -1,0 +1,21 @@
+twig:
+    debug: '%kernel.debug%'
+    default_path: '%kernel.project_dir%/templates'
+    strict_variables: '%kernel.debug%'
+    exception_controller: null
+    form_themes:
+        - '_snippets/form/layout.twig'
+        - '_snippets/form/fields.twig'
+
+    globals:
+        site_url: "https://getrector.org"
+
+    # see https://symfony.com/blog/new-in-symfony-2-7-default-date-and-number-format-configuration
+    date:
+        format: 'j. n., G:i' # Czech format
+
+    # see https://symfony.com/blog/new-in-symfony-2-7-default-date-and-number-format-configuration
+    number_format:
+        decimals: 0
+        decimal_point: ','
+        thousands_separator: ' '

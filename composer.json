@@ -1,10 +1,83 @@
 {
+    "name": "rector/website",
+    "description": "Website of GetRector.org",
     "require": {
         "php": "^7.3",
-        "symplify/statie": "^6.0",
-        "symfony/symfony": "^4.3"
+        "ext-json": "*",
+        "ext-pdo": "*",
+        "ext-pdo_mysql": "*",
+        "doctrine/annotations": "^1.8",
+        "doctrine/cache": "^1.8",
+        "doctrine/doctrine-bundle": "^1.11",
+        "doctrine/orm": "2.7.x-dev",
+        "psr/simple-cache": "^1.0",
+        "symfony/asset": "*",
+        "symfony/cache": "4.4.*",
+        "symfony/console": "*",
+        "symfony/debug-bundle": "*",
+        "symfony/dependency-injection": "*",
+        "symfony/dotenv": "*",
+        "symfony/error-renderer": "*",
+        "symfony/event-dispatcher": "*",
+        "symfony/flex": "^1.4",
+        "symfony/form": "*",
+        "symfony/framework-bundle": "*",
+        "symfony/http-kernel": "*",
+        "symfony/intl": "*",
+        "symfony/mime": "*",
+        "symfony/orm-pack": "^1.0.7",
+        "symfony/security": "*",
+        "symfony/security-bundle": "*",
+        "symfony/templating": "*",
+        "symfony/translation": "*",
+        "symfony/twig-bridge": "*",
+        "symfony/twig-bundle": "*",
+        "symfony/validator": "*",
+        "symfony/web-profiler-bundle": "*",
+        "symfony/webpack-encore-bundle": "^1.6",
+        "symfony/yaml": "*",
+        "symplify/autodiscovery": "6.1",
+        "symplify/flex-loader": "6.1",
+        "symplify/package-builder": "6.1"
     },
     "require-dev": {
-        "rector/rector": "^0.5"
-    }
+        "phpstan/phpstan": "^0.11.19",
+        "phpstan/phpstan-doctrine": "^0.11.6",
+        "phpunit/phpunit": "^8.4",
+        "rector/rector": "dev-master",
+        "roave/security-advisories": "dev-master",
+        "symfony/var-dumper": "*",
+        "symfony/browser-kit": "*",
+        "symplify/coding-standard": "6.1",
+        "symplify/easy-coding-standard": "6.1",
+        "symplify/phpstan-extensions": "6.1",
+        "tracy/tracy": "^2.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Rector\\Website\\": "src"
+        }
+    },
+    "scripts": {
+        "auto-scripts": {
+            "cache:clear": "symfony-cmd",
+            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+        },
+        "check-cs": "vendor/bin/ecs check src --ansi",
+        "fix-cs": "vendor/bin/ecs check src --fix --ansi",
+        "doctrine": "bin/console doctrine:schema:update --dump-sql --force --ansi",
+        "phpstan": "php -d memory_limit=1G vendor/bin/phpstan analyse src --error-format symplify --ansi",
+        "rector": "vendor/bin/rector process src --config rector-ci.yaml --ansi"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "symfony": {
+            "allow-contrib": true,
+            "require": "4.4.*"
+        }
+    },
+    "prefer-stable": true,
+    "minimum-stability": "dev"
 }

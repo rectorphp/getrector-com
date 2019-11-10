@@ -1,6 +1,9 @@
+; top-most EditorConfig file
 root = true
 
-[*.{css,html,js,json,latte,neon,php,twig,xml,yaml,yml}]
+; Unix-style newlines
+
+[*]
 charset = utf-8
 end_of_line = lf
 insert_final_newline = true

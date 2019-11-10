@@ -1,0 +1,10 @@
+parameters:
+    sets:
+        - 'dead-code'
+        - 'code-quality'
+        - 'coding-style'
+        - 'type-declaration'
+
+    exclude_paths:
+        - '*/var/cache/*'
+        - '*/adminer/index.php'

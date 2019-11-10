@@ -1,0 +1,41 @@
+version: "3.7"
+services:
+    web:
+        image: getrector_org
+        restart: unless-stopped
+        build:
+            context: .
+            target: dev
+            dockerfile: Dockerfile
+        env_file:
+            - .env
+        environment:
+            XDEBUG_CONFIG: "remote_host=host.docker.internal"
+            PHP_IDE_CONFIG: "serverName=getrector_corg
+        ports:
+            - "8080:80"
+        volumes:
+            - .:/var/www/getrector.org:cached
+        tmpfs:
+            - /var/www/getrector.org/var/cache
+        depends_on:
+            - mysql
+
+    mysql:
+        image: mysql:5.7
+        restart: unless-stopped
+        environment:
+            MYSQL_ROOT_PASSWORD: "root"
+            MYSQL_DATABASE: "getrector_corg
+        volumes:
+            - ./.docker/mysql-data:/var/lib/mysql
+        ports:
+            - 3306:3306
+
+    adminer:
+        image: adminer
+        restart: unless-stopped
+        ports:
+            - 8081:8080
+        depends_on:
+            - mysql

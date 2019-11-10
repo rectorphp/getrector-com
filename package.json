@@ -1,9 +1,33 @@
 {
+    "name": "pehapkari-cz",
     "dependencies": {
-        "child_process": "^1.0",
-        "gulp": "^4.0.0",
-        "gulp-cli": "^2.0",
-        "gulp-watch": "^5.0"
+        "ajv": "^6.10.1",
+        "bootstrap": "^4.3.1",
+        "jquery": "^3.4.1",
+        "typed.js": "^2.0.11",
+        "@fortawesome/fontawesome-free": "^5.9.0",
+        "@fortawesome/free-brands-svg-icons": "^5.9.0",
+        "@fortawesome/free-regular-svg-icons": "^5.9.0",
+        "@fortawesome/free-solid-svg-icons": "^5.9.0"
     },
-    "private": true
+    "devDependencies": {
+        "@symfony/webpack-encore": "^0.27.0",
+        "bootstrap-sass": "^3.4.1",
+        "bootswatch": "^3.4.1",
+        "imports-loader": "^0.8.0",
+        "node-sass": "^4.12.0",
+        "sass-loader": "^7.1.0"
+    },
+    "scripts": {
+        "dev-server": "encore dev-server",
+        "dev": "encore dev --progress",
+        "watch": "encore dev --watch",
+        "build": "encore production --progress"
+    },
+    "license": "UNLICENSED",
+    "private": true,
+    "repository": {
+        "type": "website",
+        "url": "https://github.com/rectorphp/getrector.org"
+    }
 }
