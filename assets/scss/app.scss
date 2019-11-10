@@ -54,14 +54,14 @@ a, a:hover, a:focus, button, button:focus {
         20.RESPONSIVE
 ============================*/
 
-table#company_logos img {
-    max-height: 4em;
-    padding: 0 1em;
+#company_logos img {
     max-width: 100%;
-}
 
-@media (max-width: 768px) {
-    table#company_logos img {
+    width: 9em;
+    height: 3em;
+    object-fit: scale-down;
+
+    @include media-breakpoint-down(md) {
         padding: 0 .1em;
     }
 }
