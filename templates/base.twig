@@ -10,6 +10,32 @@
     <body id="{% block body_id %}{% endblock %}">
         {% block body %}
             <div id="main">
+                <section class="home-bg-img" id="big_header">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 mt-3">
+                                <a href="/" id="main_logo">
+                                    <img src="/assets/images/logo/rector-no_frame_vector.svg" alt="">
+                                    <div class="logo_text">Rector</div>
+                                </a>
+
+                                <div class="clearfix"></div>
+
+                                <h1 class="mb-5 mt-5" data-aos="fade-left">
+                                    {{ page_title }}
+                                </h1>
+
+                                {% set subtitle %}{{ (block('subtitle')) ?? '' }}{% endset %}
+                                {% if subtitle is not null %}
+                                    <div class="text-center mt-5 mb-5" id="subtitle">
+                                        {{ subtitle }}
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
                 {% include '_snippets/flash_messages.twig' %}
 
                 {% block main %}{% endblock %}

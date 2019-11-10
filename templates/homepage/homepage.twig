@@ -1,38 +1,20 @@
 {% extends "base.twig" %}
 
+{% set page_title %}
+How&nbsp;Could&nbsp;We&nbsp;Turn
+<strong>Working&nbsp;with&nbsp;Legacy&nbsp;Code</strong>
+into&nbsp;Joy?
+{% endset %}
+
+{% block subtitle %}
+    <a href="http://github.com/rectorphp/rector" class="btn btn-success shadow m-auto btn-lg">
+        <em class="fab fa-github fa-fw"></em>
+        &nbsp;
+        Look at Rector on GitHub <span class="hidden-sm-down">to find the answer!</span>
+    </a>
+{% endblock %}
+
 {% block main %}
-    <section class="home-bg-img" id="big_header">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 mt-3">
-                    <a href="/" id="main_logo">
-                        <img src="/assets/images/logo/rector-no_frame_vector.svg" alt="">
-                        <h1>Rector</h1>
-                    </a>
-
-                    <div class="clearfix"></div>
-
-                    <h1 class="header_title mb-5 mt-5" data-aos="fade-left">
-                        {#                        How could we remove manual upgrades of PHP projects once and for all?#}
-                        How&nbsp;Could&nbsp;We&nbsp;Turn
-                        <strong>Working&nbsp;with&nbsp;Legacy&nbsp;Code</strong>
-                        into&nbsp;Joy?
-                    </h1>
-
-                    <br>
-
-                    <div class="text-center mb-5">
-                        <a href="http://github.com/rectorphp/rector" class="btn btn-success shadow m-auto btn-lg">
-                            <em class="fab fa-github fa-fw"></em>
-                            &nbsp;
-                            Look at Rector on GitHub to find the answer!
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="section bg-light text-center">
         <div class="container">
             <h2 class="mb-4" data-aos="fade-up">Who Already Delegates Boring Work to Rector?</h2>

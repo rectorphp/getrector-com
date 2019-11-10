@@ -9,6 +9,7 @@ twig:
 
     globals:
         site_url: "https://getrector.org"
+        main_page_title: "Rector - Automated Way to Instantly Upgrade and Refactor any PHP code"
 
     # see https://symfony.com/blog/new-in-symfony-2-7-default-date-and-number-format-configuration
     date:
