@@ -7,7 +7,8 @@ docker push rector/getrector.org
 
 eval $(ssh-agent -s)
 mkdir -p ~/.ssh
-ssh-keyscan -H getrector.org >> ~/.ssh/known_hosts
+# here is the name of the server we connect to, not final domain
+ssh-keyscan -H pehapkari.cz >> ~/.ssh/known_hosts
 
 # create single-line string from private key with https://www.samltool.com/format_privatekey.php
 # you need the private key from the remote server on your server (e.g. Digital Ocean)
