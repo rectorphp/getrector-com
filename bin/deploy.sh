@@ -8,5 +8,7 @@ docker push rector/getrector.org
 eval $(ssh-agent -s)
 mkdir -p ~/.ssh
 ssh-keyscan -H getrector.org >> ~/.ssh/known_hosts
+
+# create from private key with: https://www.samltool.com/format_privatekey.php
 echo "$DEPLOY_PRIVATE_KEY" | ssh-add - > /dev/null
 ssh root@pehapkari.cz "cd /projects/getrector.org && ./run.sh"
