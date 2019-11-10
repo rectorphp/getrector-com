@@ -3,9 +3,6 @@ twig:
     default_path: '%kernel.project_dir%/templates'
     strict_variables: '%kernel.debug%'
     exception_controller: null
-    form_themes:
-        - '_snippets/form/layout.twig'
-        - '_snippets/form/fields.twig'
 
     globals:
         site_url: "https://getrector.org"

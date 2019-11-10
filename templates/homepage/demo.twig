@@ -1,16 +1,15 @@
 {% extends "base.twig" %}
 
-{% include '_snippets/layout/small_header.twig' %}
+{% set page_title %}Try Rector Online{% endset %}
 
 {% block main %}
     <div class="container" id="subpage">
-        <h1 class="font_roboto">
-            Try Rector
-        </h1>
-
         <div class="row" style="min-height: 30em">
-            @todo Form to submit...
+            {% form_theme form 'bootstrap_4_layout.html.twig' %}
+            {{ form(form) }}
         </div>
+
+
 
         @todo show result
     </div>
