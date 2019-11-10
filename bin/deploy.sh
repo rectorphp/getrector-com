@@ -11,6 +11,6 @@ mkdir -p ~/.ssh
 ssh-keyscan -H getrector.org >> ~/.ssh/known_hosts
 
 # create single-line string from private key from remote server on your server (e.g. Digital Ocean)
-# see https://github.com/travis-ci/travis-ci/issues/7715
+# see https://github.com/travis-ci/travis-ci/issues/7715#issuecomment-433301692
 echo "$DEPLOY_PRIVATE_KEY" | ssh-add - > /dev/null
 ssh root@getrector.org "cd /projects/getrector.org && ./run.sh"
