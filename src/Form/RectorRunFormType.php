@@ -6,7 +6,7 @@ namespace Rector\Website\Form;
 
 use Nette\Utils\FileSystem;
 use Rector\Set\SetProvider;
-use Rector\Website\ValueObject\RectorRunValueObject;
+use Rector\Website\Entity\RectorRun;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -38,7 +38,7 @@ final class RectorRunFormType extends AbstractType
         $sets = $setProvider->provide();
         $sets = array_combine($sets, $sets);
 
-        $formBuilder->add('set', ChoiceType::class, [
+        $formBuilder->add('set_name', ChoiceType::class, [
             'label' => 'Set',
             'required' => true,
             'choices' => $sets,
@@ -57,7 +57,7 @@ final class RectorRunFormType extends AbstractType
     public function configureOptions(OptionsResolver $optionsResolver): void
     {
         $optionsResolver->setDefaults([
-            'data_class' => RectorRunValueObject::class,
+            'data_class' => RectorRun::class,
         ]);
     }
 }

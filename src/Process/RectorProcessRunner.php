@@ -7,7 +7,7 @@ namespace Rector\Website\Process;
 use Nette\Utils\FileSystem;
 use Nette\Utils\Json;
 use Rector\Exception\ShouldNotHappenException;
-use Rector\Website\ValueObject\RectorRunValueObject;
+use Rector\Website\Entity\RectorRun;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
 
@@ -26,10 +26,10 @@ final class RectorProcessRunner
     /**
      * @return mixed[]
      */
-    public function run(RectorRunValueObject $rectorRunValueObject): array
+    public function run(RectorRun $rectorRun): array
     {
-        $tempFile = $this->createTempPhpFile($rectorRunValueObject);
-        $process = $this->createProcess($rectorRunValueObject, $tempFile);
+        $tempFile = $this->createTempPhpFile($rectorRun);
+        $process = $this->createProcess($rectorRun, $tempFile);
         $process->run();
 
         if (! $process->isTerminated()) {
@@ -42,26 +42,26 @@ final class RectorProcessRunner
         return Json::decode($output, Json::FORCE_ARRAY);
     }
 
-    private function createTempPhpFile(RectorRunValueObject $rectorRunValueObject): string
+    private function createTempPhpFile(RectorRun $rectorRun): string
     {
         $tempFile = sys_get_temp_dir() . '/_rector_temp_analyzed_file.php';
-        if ($rectorRunValueObject->getContent() === null) {
+        if ($rectorRun->getContent() === null) {
             throw new ShouldNotHappenException();
         }
 
-        FileSystem::write($tempFile, $rectorRunValueObject->getContent());
+        FileSystem::write($tempFile, $rectorRun->getContent());
 
         return $tempFile;
     }
 
-    private function createProcess(RectorRunValueObject $rectorRunValueObject, string $tempPhpFile): Process
+    private function createProcess(RectorRun $rectorRun, string $tempPhpFile): Process
     {
         return new Process([
             'vendor/bin/rector',
             'process', $tempPhpFile,
             '--dry-run',
             '--output-format', 'json',
-            '--set', $rectorRunValueObject->getSet(),
+            '--set', $rectorRun->getSetName(),
         ], $this->projectDir);
     }
 }

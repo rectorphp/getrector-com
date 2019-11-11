@@ -11,7 +11,7 @@ services:
         resource: '../src/'
         exclude:
             - '../src/GetRectorKernel.php'
-            - '../src/ValueObject/'
+            - '../src/Entity'
 
     Symplify\PackageBuilder\Console\Style\SymfonyStyleFactory: ~
     Symfony\Component\Console\Style\SymfonyStyle:

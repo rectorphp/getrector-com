@@ -5,21 +5,22 @@
 {% block main %}
     <div class="container" id="subpage">
         <div class="row" style="min-height: 30em">
-            <div class="col-6">
+            <div class="col-12 col-md-6">
                 <h2 class="m-0">Input</h2>
                 {% form_theme form 'bootstrap_4_layout.html.twig' %}
                 {{ form(form) }}
             </div>
-            <div class="col-6">
+            <div class="col-12 col-md-6">
                 <h2 class="mt-0 mb-0">Result</h2>
-                    {% if file_diff is defined %}
-                        <pre class="language-diff"><code class="language-diff">{{ file_diff }}</code></pre>
+                    {% if rector_run is not null %}
+                        <pre class="language-diff"><code class="language-diff">{{ rector_run.content }}</code></pre>
+
+                        Permalink:
+                        <a href="{{ path('demo_detail', {'uuid': rector_run.uuid }) }}">{{ rector_run.uuid }}</a>
                     {% else %}
                         ...
                     {% endif %}
             </div>
         </div>
-
-
     </div>
 {% endblock %}

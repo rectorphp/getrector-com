@@ -101,6 +101,22 @@ h2 {
 #subtitle {
     color: #FFF;
     font-size: 2em;
+
+    @include media-breakpoint-down(md) {
+        font-size: 1.4em;
+
+        .btn {
+            font-size: 1em;
+        }
+    }
+
+    @include media-breakpoint-down(sm) {
+        font-size: 1.2em;
+
+        .btn {
+            font-size: .8em;
+        }
+    }
 }
 
 #subpage {
@@ -183,32 +199,12 @@ h1 {
     strong {
         font-size: 1em;
     }
-}
 
-@include media-breakpoint-down(md) {
-    #subtitle {
-        font-size: 1.4em;
-
-        .btn {
-            font-size: 1em;
-        }
-    }
-
-    h1 {
+    @include media-breakpoint-down(md) {
         font-size: 2.4em;
     }
-}
 
-@include media-breakpoint-down(sm) {
-    #subtitle {
-        font-size: 1.2em;
-
-        .btn {
-            font-size: .8em;
-        }
-    }
-
-    h1 {
+    @include media-breakpoint-down(sm) {
         font-size: 1.7em;
     }
 }
@@ -240,7 +236,7 @@ ul.list-noindent {
     font-size: .8em;
 }
 
-body h2 {
+h2 {
     color: #4b4b4b;
     text-align: center;
 }
@@ -298,4 +294,12 @@ q.blockquote {
 
 h1 em, h2 em {
     font-size: 1em;
+}
+
+.list-group {
+    margin-left: 1.3em;
+
+    li {
+        margin-bottom: .5em;
+    }
 }

@@ -7,16 +7,16 @@ into&nbsp;Joy?
 {% endset %}
 
 {% block subtitle %}
-    <a href="http://github.com/rectorphp/rector" class="btn btn-success shadow m-auto btn-lg">
+    <a href="http://github.com/rectorphp/rector" class="btn btn-primary shadow m-auto btn-lg">
         <em class="fab fa-github fa-fw"></em>
         &nbsp;
-        Look at Rector on GitHub
+        Look at GitHub
     </a>
 
-    <a href="{{ path('demo') }}" class="btn btn-danger shadow btn-lg ml-3">
+    <a href="{{ path('demo') }}" class="btn btn-success shadow btn-lg ml-3">
         <em class="fa fa-laptop-code fa-fw"></em>
         &nbsp;
-        Try Demo
+        Online Demo
     </a>
 {% endblock %}
 
@@ -84,24 +84,22 @@ into&nbsp;Joy?
                 <div class="col-12 col-md-6">
                     <div class="card mb-5 md-md-0" data-aos="fade-right">
                         <div class="card-body">
-                            <h2 class="text-bold text-center mt-3 mb-2">
+                            <h3 class="text-bold text-center mt-3 mb-4">
                                 <em class="fas fa-code fa-fw"></em>
                                 &nbsp;
                                 For CTOs
-                            </h2>
+                            </h3>
 
-                            <ul class="list-group ml-4 mb-2">
+                            <ul class="list-group">
                                 <li>Do you want to migrate your code from PHP 5.3 to 7.4?</li>
                                 <li>Do you want to use the newest Symfony code without reading all the <code>CHANGELOG.md</code> files?</li>
-                                <li>Do you want turn static to constructor injection in 1000 classes in seconds?</li>
-                                <li>Or refactor custom code at scale without rebasing?</li>
+                                <li>Do you want to turn static to constructor injection in 1000 classes in seconds?</li>
+                                <li>Refactor custom code at scale without rebasing?</li>
                             </ul>
 
-                            <div class="text-center mt-5">
-                                <a href="https://github.com/rectorphp/rector" class="btn btn-dark">
-                                    <i class="fab fa-github"></i>
-                                    &nbsp;
-                                    Visit Rector on Github and Use It
+                            <div class="text-center mt-5 mb-3">
+                                <a href="{{ path('contact') }}" class="btn btn-success">
+                                    Let's talk about Your Legacy
                                 </a>
                             </div>
                         </div>
@@ -111,24 +109,22 @@ into&nbsp;Joy?
                 <div class="col-12 col-md-6">
                     <div class="card mb-5 md-md-0" data-aos="fade-left">
                         <div class="card-body">
-                            <h2 class="text-bold text-center mt-3 mb-2">
+                            <h3 class="text-bold text-center mt-3 mb-4">
                                 <em class="fas fa-user-tie fa-fw"></em>
                                 &nbsp;
                                 For CEOs
-                            </h2>
+                            </h3>
 
-                            <ul class="list-group ml-4 mb-2">
-                                <li>Are you stuck on legacy code because you have to "deliver features"?</li>
-                                <li>Do you use an old framework, that slows down your product?</li>
+                            <ul class="list-group">
+                                <li>Are you stuck on legacy code because you have to "delivery features"?</li>
+                                <li>Do you use old framework, that slows down your product?</li>
                                 <li>Does your team complain about legacy code, but you just can't stop development for 6 months?</li>
                                 <li>Do you want keep delivering features and migrate framework at the same time?</li>
                             </ul>
 
-                            <div class="text-center" style="margin-top: 1.6em;">
-                                <a href="/contact/" class="btn btn-primary">
-                                    <em class="fas fa-envelope fa-fw"></em>
-                                    &nbsp;
-                                    Contact us and Beat Your Competition
+                            <div class="text-center mt-4 mb-3">
+                                <a href="{{ path('contact') }}" class="btn btn-primary">
+                                    Contact us and Jump over Competition
                                 </a>
                             </div>
                         </div>
