@@ -1,9 +1,0 @@
-.token.deleted {
-    color: #dc322f; /* red */
-    background-color: #e6dada; /* red */
-}
-
-.token.inserted {
-    color: #859900; /* green */
-    background-color: #e4e6da; /* green */
-}

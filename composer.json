@@ -25,6 +25,7 @@
         "symfony/intl": "*",
         "symfony/mime": "*",
         "symfony/orm-pack": "^1.0.7",
+        "symfony/process": "*",
         "symfony/security-bundle": "*",
         "symfony/templating": "*",
         "symfony/translation": "*",

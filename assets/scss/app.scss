@@ -11,6 +11,7 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 @import "~bootstrap/scss/bootstrap";
 @import "~@fortawesome/fontawesome-free/css/all.css";
 @import "logo";
+@import "prism";
 
 /* ---------------------------------------------------- */
 
@@ -172,11 +173,12 @@ h2 {
 
 h1 {
     color: #FFF;
-    font-size: calc(3em + 1.2vw);
-    line-height: 1.5em;
+    font-size: calc(2.5em + 1.2vw);
+    line-height: 1.4em;
     font-weight: 300;
     font-family: "Roboto Slab";
     text-align: center;
+    padding-bottom: .5em;
 
     strong {
         font-size: 1em;
@@ -188,7 +190,7 @@ h1 {
         font-size: 1.4em;
 
         .btn {
-            font-size: .7em;
+            font-size: 1em;
         }
     }
 
@@ -283,9 +285,17 @@ q.blockquote {
 
 .text-bigger {
     font-size: 1.3em;
+
+    strong {
+        font-size: 1em;
+    }
 }
 
 .img-face {
     max-width: 8em;
     margin: 1em auto;
+}
+
+h1 em, h2 em {
+    font-size: 1em;
 }

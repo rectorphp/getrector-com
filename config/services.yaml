@@ -3,11 +3,15 @@ services:
         public: true
         autowire: true
         autoconfigure: true
+        bind:
+            # see https://symfony.com/blog/new-in-symfony-3-4-local-service-binding
+            $projectDir: '%kernel.project_dir%'
 
     Rector\Website\:
         resource: '../src/'
         exclude:
             - '../src/GetRectorKernel.php'
+            - '../src/ValueObject/'
 
     Symplify\PackageBuilder\Console\Style\SymfonyStyleFactory: ~
     Symfony\Component\Console\Style\SymfonyStyle:
