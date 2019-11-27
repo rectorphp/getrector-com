@@ -8,11 +8,11 @@
         "ext-pdo_mysql": "*",
         "doctrine/annotations": "^1.8",
         "doctrine/cache": "^1.8",
-        "doctrine/doctrine-bundle": "^1.11",
-        "doctrine/orm": "2.7.x-dev",
+        "doctrine/doctrine-bundle": "^2.0",
+        "doctrine/orm": "^2.7",
         "psr/simple-cache": "^1.0",
         "symfony/asset": "*",
-        "symfony/cache": "4.4.*",
+        "symfony/cache": "*",
         "symfony/console": "*",
         "symfony/debug-bundle": "*",
         "symfony/dependency-injection": "*",
@@ -26,7 +26,6 @@
         "symfony/intl": "*",
         "symfony/mime": "*",
         "symfony/orm-pack": "^1.0.7",
-        "symfony/security": "*",
         "symfony/security-bundle": "*",
         "symfony/templating": "*",
         "symfony/translation": "*",
@@ -34,23 +33,23 @@
         "symfony/twig-bundle": "*",
         "symfony/validator": "*",
         "symfony/web-profiler-bundle": "*",
-        "symfony/webpack-encore-bundle": "^1.6",
+        "symfony/webpack-encore-bundle": "^1.7",
         "symfony/yaml": "*",
-        "symplify/autodiscovery": "6.1",
-        "symplify/flex-loader": "6.1",
-        "symplify/package-builder": "6.1"
+        "symplify/autodiscovery": "^7.0",
+        "symplify/flex-loader": "^7.0",
+        "symplify/package-builder": "^7.0"
     },
     "require-dev": {
-        "phpstan/phpstan": "^0.11.19",
+        "phpstan/phpstan-shim": "^0.11.19",
         "phpstan/phpstan-doctrine": "^0.11.6",
         "phpunit/phpunit": "^8.4",
         "rector/rector": "dev-master",
         "roave/security-advisories": "dev-master",
         "symfony/var-dumper": "*",
         "symfony/browser-kit": "*",
-        "symplify/coding-standard": "6.1",
-        "symplify/easy-coding-standard": "6.1",
-        "symplify/phpstan-extensions": "6.1",
+        "symplify/coding-standard": "^7.0",
+        "symplify/easy-coding-standard": "^7.0",
+        "symplify/phpstan-extensions": "^7.0",
         "tracy/tracy": "^2.7"
     },
     "autoload": {
@@ -75,7 +74,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": true,
-            "require": "4.4.*"
+            "require": "5.0.*"
         }
     },
     "prefer-stable": true,
