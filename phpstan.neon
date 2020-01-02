@@ -8,3 +8,6 @@ parameters:
     ignoreErrors:
         - '#PHPDoc tag @return with type array<Twig\\TwigFilter\> is incompatible with native type Iterator#'
         - '#Return type \(Iterator\) of method Rector\\Website\\Twig\\TitleTwigExtension\:\:getFilters\(\) should be compatible with return type \(array<Twig\\TwigFilter\>\) of method Twig\\Extension\\(AbstractExtension|ExtensionInterface)\:\:getFilters\(\)#'
+
+        # mixed
+        - '#return type has no value type specified in iterable type Iterator#'

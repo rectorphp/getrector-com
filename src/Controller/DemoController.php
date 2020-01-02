@@ -4,14 +4,12 @@ declare(strict_types=1);
 
 namespace Rector\Website\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\ControllerTrait;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-final class DemoController
+final class DemoController extends AbstractController
 {
-    use ControllerTrait;
-
     /**
      * @Route(path="demo", name="demo")
      */
