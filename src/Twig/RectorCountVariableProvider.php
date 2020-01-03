@@ -14,7 +14,6 @@ final class RectorCountVariableProvider
      */
     private const SOURCE_URL = 'https://raw.githubusercontent.com/rectorphp/rector/master/docs/AllRectorsOverview.md';
 
-
     /**
      * @var int
      */
