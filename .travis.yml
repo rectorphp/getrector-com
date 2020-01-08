@@ -6,7 +6,7 @@ php: 7.3
 
 before_install:
     # turn off XDebug to speed up
-    - phpenv config-rm xdebug.ini || return 0
+    - phpenv config-rm xdebug.ini
 
 install:
     - composer install
@@ -26,28 +26,6 @@ jobs:
                 - docker pull rector/getrector.org || true
                 - docker build --cache-from rector/getrector.org -t rector/getrector.org:$TRAVIS_COMMIT --target production -f Dockerfile .
                 - docker push rector/getrector.org
-
-        # tests + static analysis
-        -
-            name: ECS
-            script:
-                - composer check-cs
-
-        -
-            name: PHPStan
-            script:
-                - composer phpstan
-
-        -
-            stage: test
-            name: 'Unit Tests'
-            script:
-                - vendor/bin/phpunit
-
-        -
-            name: Rector
-            script:
-                - vendor/bin/rector process src --config rector-ci.yaml --dry-run
 
         # build + deploy Docker image
         # 2. Build Docker image → deploy
@@ -71,9 +49,6 @@ jobs:
                     provider: script
                     script: sh bin/deploy.sh
                     skip_cleanup: true
-
-matrix:
-    fast_finish: true
 
 cache:
     directories:
