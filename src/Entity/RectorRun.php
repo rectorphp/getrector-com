@@ -11,11 +11,8 @@ use Ramsey\Uuid\UuidInterface;
 /**
  * @ORM\Entity
  */
-final class RectorRun
+class RectorRun
 {
-    // @todo add timestampable to know when what
-
-
     /**
      * @ORM\Column(type="text")
      * @var string|null
