@@ -66,7 +66,7 @@ final class GetRectorKernel extends Kernel
 
         $this->flexLoader->loadRoutes($routeCollectionBuilder, [
             // project's packages
-//            $this->getProjectDir() . '/packages/*/src/Controller/*',
+            //            $this->getProjectDir() . '/packages/*/src/Controller/*',
         ]);
     }
 

@@ -1,6 +1,3 @@
-imports:
-    - { resource: "parameters/authors.yaml" }
-
 services:
     _defaults:
         public: true

@@ -4,17 +4,7 @@
 {% set page_title %}{{ post.title }}{% endset %}
 
 {% block main %}
-    <div class="container" id="article">
-        <h1>{{ page_title }}</h1>
-
-{#        <strong>#}
-{#            {% if post.author matches '#^\\d+$#' %}#}
-{#                {{ authors[post.author].name }}#}
-{#            {% else %}#}
-{#                {{ post.author }}#}
-{#            {% endif %}#}
-{#        </strong>#}
-        &nbsp;
+    <div class="container" id="subpage">
         <time datetime="{{ post.getDateInFormat('Y-m-D') }}">
             {{ post.getDateInFormat('j. n. Y') }}
         </time>

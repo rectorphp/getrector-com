@@ -3,33 +3,22 @@
 {% set page_title %}Do you Want to Learn&nbsp;about&nbsp;Rector?{% endset %}
 
 {% block main %}
-    <div class="container"  id="blog">
-        <h1>{{ page_title }}</h1>
+    <div class="container" id="subpage">
+        <div class="row" style="min-height: 30em">
+            {# "filter" prevents future publishing #}
+            {% for post in posts|filter(post => (post.getDateInFormat('Y-m-d') <= "now"|date('Y-m-d'))) %}
+                <div class="col-12">
+                    <h2 class="text-left mb-0 pb-3">
+                        <a href="{{ post|link }}">{{ post.title }}</a>
+                    </h2>
 
-        {# "filter" prevents future publishing #}
-        {% for post in posts|filter(post => (post.getDateInFormat('Y-m-d') <= "now"|date('Y-m-d'))) %}
-            <div class="col-12 col-lg-6">
-                <div class="article mb-3 card">
-                    <a href="{{ post|link }}">
-                        <div class="card-body">
-                            <h2>{{ post.title }}</h2>
+                    <time datetime="{{ post.getDateInFormat('Y-m-D') }}">
+                        {{ post.getDateInFormat('j. n. Y') }}
+                    </time>
 
-{#                            <div class="author">#}
-{#                                {% if post.author matches '#^\\d+$#' %}#}
-{#                                    {{ authors[post.author].name }}#}
-{#                                {% else %}#}
-{#                                    {{ post.author }}#}
-{#                                {% endif %}#}
-{#                            </div>#}
-                        </div>
-                        <div class="card-footer">
-                            <time datetime="{{ post.getDateInFormat('Y-m-D') }}">
-                                {{ post.getDateInFormat('j. n. Y') }}
-                            </time>
-                        </div>
-                    </a>
+                    <p class="perex">{{ post.perex|raw }}</p>
                 </div>
-            </div>
-        {% endfor %}
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}
