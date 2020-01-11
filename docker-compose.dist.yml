@@ -11,7 +11,7 @@ services:
             - .env
         environment:
             XDEBUG_CONFIG: "remote_host=host.docker.internal"
-            PHP_IDE_CONFIG: "serverName=getrector_corg
+            PHP_IDE_CONFIG: "serverName=getrector_org"
         ports:
             - "8080:80"
         volumes:
@@ -26,7 +26,7 @@ services:
         restart: unless-stopped
         environment:
             MYSQL_ROOT_PASSWORD: "root"
-            MYSQL_DATABASE: "getrector_corg
+            MYSQL_DATABASE: "getrector_org"
         volumes:
             - ./.docker/mysql-data:/var/lib/mysql
         ports:
