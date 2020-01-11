@@ -18,5 +18,10 @@ parameters:
     skip:
         # rather useless
         Symplify\CodingStandard\Sniffs\DependencyInjection\NoClassInstantiationSniff: ~
+
         # conflict with "PhpCsFixer\Fixer\Operator\NotOperatorWithSuccessorSpaceFixer"
         PhpCsFixer\Fixer\Operator\UnaryOperatorSpacesFixer: ~
+
+        # used for analysis later
+        SlevomatCodingStandard\Sniffs\Classes\UnusedPrivateElementsSniff.WriteOnlyProperty:
+            - 'src/Entity/RectorRun.php'

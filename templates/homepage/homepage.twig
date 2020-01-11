@@ -7,10 +7,16 @@ into&nbsp;Joy?
 {% endset %}
 
 {% block subtitle %}
-    <a href="http://github.com/rectorphp/rector" class="btn btn-success shadow m-auto btn-lg">
+    <a href="http://github.com/rectorphp/rector" class="btn btn-primary shadow m-auto btn-lg">
         <em class="fab fa-github fa-fw"></em>
         &nbsp;
-        Look at Rector on GitHub <span class="hidden-sm-down">to find the answer!</span>
+        Look at GitHub
+    </a>
+
+    <a href="{{ path('demo') }}" class="btn btn-success shadow btn-lg ml-3">
+        <em class="fa fa-laptop-code fa-fw"></em>
+        &nbsp;
+        Online Demo
     </a>
 {% endblock %}
 
@@ -38,12 +44,6 @@ into&nbsp;Joy?
                             <img src="/assets/images/logo/glami.png" alt="">
                         </a>
                     </td>
-
-{#                    <td class="align-middle col-6 col-md-4 mb-5 pl-3 pr-3" data-aos="fade-up">#}
-{#                        <a href="https://www.previo.cz">#}
-{#                            <img src="/assets/images/logo/previo.png" alt="">#}
-{#                        </a>#}
-{#                    </td>#}
 
                     <td class="align-middle col-6 col-md-4 mb-5 pl-3 pr-3" data-aos="fade-up">
                         <a href="https://www.previo.cz">
@@ -77,24 +77,22 @@ into&nbsp;Joy?
                 <div class="col-12 col-md-6">
                     <div class="card mb-5 md-md-0" data-aos="fade-right">
                         <div class="card-body">
-                            <h3 class="text-bold text-center mt-2 mb-4">
+                            <h3 class="text-bold text-center mt-3 mb-4">
                                 <em class="fas fa-code fa-fw"></em>
                                 &nbsp;
                                 For CTOs
                             </h3>
 
-                            <ul class="list-group ml-4 mb-2">
+                            <ul class="list-group">
                                 <li>Do you want to migrate your code from PHP 5.3 to 7.4?</li>
                                 <li>Do you want to use the newest Symfony code without reading all the <code>CHANGELOG.md</code> files?</li>
-                                <li>Do you want turn static to constructor injection in 1000 classes in seconds?</li>
-                                <li>Or refactor custom code at scale without rebasing?</li>
+                                <li>Do you want to turn static to constructor injection in 1000 classes in seconds?</li>
+                                <li>Refactor custom code at scale without rebasing?</li>
                             </ul>
 
-                            <div class="text-center mt-5">
-                                <a href="https://github.com/rectorphp/rector" class="btn btn-dark">
-                                    <i class="fab fa-github"></i>
-                                    &nbsp;
-                                    Visit Rector on Github and Use It
+                            <div class="text-center mt-5 mb-3">
+                                <a href="{{ path('contact') }}" class="btn btn-success">
+                                    Let's talk about Your Legacy
                                 </a>
                             </div>
                         </div>
@@ -104,24 +102,22 @@ into&nbsp;Joy?
                 <div class="col-12 col-md-6">
                     <div class="card mb-5 md-md-0" data-aos="fade-left">
                         <div class="card-body">
-                            <h3 class="text-bold text-center mt-2 mb-4">
+                            <h3 class="text-bold text-center mt-3 mb-4">
                                 <em class="fas fa-user-tie fa-fw"></em>
                                 &nbsp;
                                 For CEOs
                             </h3>
 
-                            <ul class="list-group ml-4 mb-2">
-                                <li>Are you stuck on legacy code because you have to "deliver features"?</li>
-                                <li>Do you use an old framework, that slows down your product?</li>
+                            <ul class="list-group">
+                                <li>Are you stuck on legacy code because you have to "delivery features"?</li>
+                                <li>Do you use old framework, that slows down your product?</li>
                                 <li>Does your team complain about legacy code, but you just can't stop development for 6 months?</li>
                                 <li>Do you want keep delivering features and migrate framework at the same time?</li>
                             </ul>
 
-                            <div class="text-center" style="margin-top: 1.6em;">
-                                <a href="/contact/" class="btn btn-primary">
-                                    <em class="fas fa-envelope fa-fw"></em>
-                                    &nbsp;
-                                    Contact us and Beat Your Competition
+                            <div class="text-center mt-4 mb-3">
+                                <a href="{{ path('contact') }}" class="btn btn-primary">
+                                    Contact us and Jump over Competition
                                 </a>
                             </div>
                         </div>
@@ -138,7 +134,7 @@ into&nbsp;Joy?
             <h2 data-aos="fade-up">
                 <em class="fas fa-dove"></em>
                 &nbsp;
-                What is Our Ultimate Goal?
+                What is Rector's Ultimate Goal?
             </h2>
 
             <q class="blockquote" data-aos="fade-up">

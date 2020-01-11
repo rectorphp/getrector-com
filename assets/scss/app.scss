@@ -11,6 +11,7 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 @import "~bootstrap/scss/bootstrap";
 @import "~@fortawesome/fontawesome-free/css/all.css";
 @import "logo";
+@import "prism";
 
 /* ---------------------------------------------------- */
 
@@ -54,14 +55,14 @@ a, a:hover, a:focus, button, button:focus {
         20.RESPONSIVE
 ============================*/
 
-table#company_logos img {
-    max-height: 4em;
-    padding: 0 1em;
+#company_logos img {
     max-width: 100%;
-}
 
-@media (max-width: 768px) {
-    table#company_logos img {
+    width: 9em;
+    height: 3em;
+    object-fit: scale-down;
+
+    @include media-breakpoint-down(md) {
         padding: 0 .1em;
     }
 }
@@ -100,6 +101,22 @@ h2 {
 #subtitle {
     color: #FFF;
     font-size: 2em;
+
+    @include media-breakpoint-down(md) {
+        font-size: 1.4em;
+
+        .btn {
+            font-size: 1em;
+        }
+    }
+
+    @include media-breakpoint-down(sm) {
+        font-size: 1.2em;
+
+        .btn {
+            font-size: .8em;
+        }
+    }
 }
 
 #subpage {
@@ -172,41 +189,22 @@ h2 {
 
 h1 {
     color: #FFF;
-    font-size: calc(3em + 1.2vw);
-    line-height: 1.5em;
+    font-size: calc(2.5em + 1.2vw);
+    line-height: 1.4em;
     font-weight: 300;
     font-family: "Roboto Slab";
     text-align: center;
+    padding-bottom: .5em;
 
     strong {
         font-size: 1em;
     }
-}
 
-@include media-breakpoint-down(md) {
-    #subtitle {
-        font-size: 1.4em;
-
-        .btn {
-            font-size: .7em;
-        }
-    }
-
-    h1 {
+    @include media-breakpoint-down(md) {
         font-size: 2.4em;
     }
-}
 
-@include media-breakpoint-down(sm) {
-    #subtitle {
-        font-size: 1.2em;
-
-        .btn {
-            font-size: .8em;
-        }
-    }
-
-    h1 {
+    @include media-breakpoint-down(sm) {
         font-size: 1.7em;
     }
 }
@@ -238,7 +236,7 @@ ul.list-noindent {
     font-size: .8em;
 }
 
-body h2 {
+h2 {
     color: #4b4b4b;
     text-align: center;
 }
@@ -283,9 +281,25 @@ q.blockquote {
 
 .text-bigger {
     font-size: 1.3em;
+
+    strong {
+        font-size: 1em;
+    }
 }
 
 .img-face {
-    max-width: 10em;
+    max-width: 8em;
     margin: 1em auto;
+}
+
+h1 em, h2 em {
+    font-size: 1em;
+}
+
+.list-group {
+    margin-left: 1.3em;
+
+    li {
+        margin-bottom: .5em;
+    }
 }

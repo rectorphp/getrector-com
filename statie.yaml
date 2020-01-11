@@ -1,6 +1,0 @@
-imports:
-    - { resource: 'source/_data/*.yaml' }
-
-parameters:
-    # get "Creator's Access Token" here: https://www.patreon.com/portal/registration/register-clients and put to statie.local.yaml
-    patreon_token: "..."

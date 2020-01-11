@@ -1,17 +1,26 @@
 {% extends "base.twig" %}
 
-{% include '_snippets/layout/small_header.twig' %}
+{% set page_title %}Try Rector Online{% endset %}
 
 {% block main %}
     <div class="container" id="subpage">
-        <h1 class="font_roboto">
-            Try Rector
-        </h1>
-
         <div class="row" style="min-height: 30em">
-            @todo Form to submit...
-        </div>
+            <div class="col-12 col-md-6">
+                <h2 class="m-0">Input</h2>
+                {% form_theme form 'bootstrap_4_layout.html.twig' %}
+                {{ form(form) }}
+            </div>
+            <div class="col-12 col-md-6">
+                <h2 class="mt-0 mb-0">Result</h2>
+                    {% if rector_run is not null %}
+                        <pre class="language-diff"><code class="language-diff">{{ rector_run.content }}</code></pre>
 
-        @todo show result
+                        Permalink:
+                        <a href="{{ path('demo_detail', {'uuid': rector_run.uuid }) }}">{{ rector_run.uuid }}</a>
+                    {% else %}
+                        ...
+                    {% endif %}
+            </div>
+        </div>
     </div>
 {% endblock %}

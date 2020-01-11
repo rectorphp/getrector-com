@@ -11,3 +11,10 @@ parameters:
 
         # mixed
         - '#return type has no value type specified in iterable type Iterator#'
+
+        - '#Method Rector\\Website\\Process\\RectorProcessRunner\:\:createProcess\(\) return type has no value type specified in iterable type Symfony\\Component\\Process\\Process#'
+        - '#Method Rector\\Website\\Controller\\DemoController\:\:processFormAndReturnRoute\(\) has parameter \$form with no value type specified in iterable type Symfony\\Component\\Form\\FormInterface#'
+        - '#Method Rector\\Website\\Form\\RectorRunFormType\:\:buildForm\(\) has parameter \$formBuilder with no value type specified in iterable type Symfony\\Component\\Form\\FormBuilderInterface#'
+
+        # wip
+        - '#Unreachable statement \- code above always terminates#'
