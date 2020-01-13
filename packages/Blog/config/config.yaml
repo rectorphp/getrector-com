@@ -1,0 +1,25 @@
+services:
+    _defaults:
+        public: true
+        autowire: true
+        autoconfigure: true
+
+    Rector\Website\Blog\:
+        resource: '../src/'
+        exclude:
+            - '../src/DependencyInjection/*'
+
+    # for rendering markdown posts
+    ParsedownExtra:
+        class: 'ParsedownExtra'
+
+    Rector\Website\Blog\DependencyInjection\StatieFactory: null
+
+    Symplify\Statie\Generator\Generator:
+        factory: ['@Rector\Website\Blog\DependencyInjection\StatieFactory', 'createGenerator']
+
+    Symplify\Statie\Generator\RelatedItemsResolver:
+        factory: ['@Rector\Website\Blog\DependencyInjection\StatieFactory', 'createRelatedItemsResolver']
+
+    # provides "link" filter
+    Symplify\Statie\Twig\GeneratorTwigExtension: null

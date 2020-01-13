@@ -55,9 +55,8 @@ final class GetRectorKernel extends Kernel
         $this->discovery->discoverTranslations($containerBuilder);
 
         $this->flexLoader->loadConfigs($containerBuilder, $loader, [
-            // project packages
+            // project's packages
             $this->getProjectDir() . '/packages/*/config/*',
-            $this->getProjectDir() . '/packages/*/config/packages/*',
         ]);
     }
 
@@ -65,7 +64,10 @@ final class GetRectorKernel extends Kernel
     {
         $this->discovery->discoverRoutes($routeCollectionBuilder);
 
-        $this->flexLoader->loadRoutes($routeCollectionBuilder);
+        $this->flexLoader->loadRoutes($routeCollectionBuilder, [
+            // project's packages
+//            $this->getProjectDir() . '/packages/*/src/Controller/*',
+        ]);
     }
 
     protected function build(ContainerBuilder $containerBuilder): void

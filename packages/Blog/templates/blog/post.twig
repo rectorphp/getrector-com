@@ -1,0 +1,42 @@
+{% extends "base.twig" %}
+
+{# @var \Symplify\Statie\Renderable\File\PostFile post #}
+{% set page_title %}{{ post.title }}{% endset %}
+
+{% block main %}
+    <div class="container" id="article">
+        <h1>{{ page_title }}</h1>
+
+{#        <strong>#}
+{#            {% if post.author matches '#^\\d+$#' %}#}
+{#                {{ authors[post.author].name }}#}
+{#            {% else %}#}
+{#                {{ post.author }}#}
+{#            {% endif %}#}
+{#        </strong>#}
+        &nbsp;
+        <time datetime="{{ post.getDateInFormat('Y-m-D') }}">
+            {{ post.getDateInFormat('j. n. Y') }}
+        </time>
+
+        <br>
+
+        <div class="card mt-4 mb-4">
+            <div class="card-body text-bigger">
+                {{ post.perex|raw }}
+            </div>
+        </div>
+
+        {{ post.content|raw }}
+
+        <br>
+
+{#        <div class="container">#}
+{#            {% include "_snippets/disqus_comments.twig" %}#}
+{#        </div>#}
+
+        <br>
+    </div>
+
+{#    <script id="dsq-count-scr" src="https://{{ disqus_name }}.disqus.com/count.js" async defer></script>#}
+{% endblock %}
