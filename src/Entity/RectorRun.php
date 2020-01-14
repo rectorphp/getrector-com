@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Rector\Website\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 
 /**
@@ -18,6 +17,12 @@ class RectorRun
      * @var string
      */
     private $content;
+
+    /**
+     * @ORM\Column(type="text")
+     * @var string|null
+     */
+    private $contentDiff;
 
     /**
      * @ORM\Column(type="string")
@@ -71,6 +76,12 @@ class RectorRun
     public function getContentHash(): string
     {
         return $this->contentHash;
+    }
+
+    public function updateResult(string $contentDiff, string $resultJson): void
+    {
+        $this->contentDiff = $contentDiff;
+        $this->resultJson = $resultJson;
     }
 
     private function calculateContentHash(string $content): string

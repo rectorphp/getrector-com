@@ -87,21 +87,20 @@ final class DemoController extends AbstractController
         $this->rectorRunRepository->save($currentRectorRun);
 
         try {
-            $json = $this->rectorProcessRunner->run($currentRectorRun);
+            $runResult = $this->rectorProcessRunner->run($currentRectorRun);
         } catch (Throwable $throwable) {
             throw new BadRequestHttpException('Invalid error', $throwable);
         }
 
-        $fileDiff = $json['file_diffs'][0]['diff'] ?? null;
+        $fileDiff = $runResult['file_diffs'][0]['diff'] ?? null;
         if ($fileDiff) {
             /** @var string $fileDiff */
             $fileDiff = $this->cleanFileDiff($fileDiff);
         }
 
-        $jsonStrings = Json::encode($json);
-        $rectorRun->setResultJson($jsonStrings);
-        $rectorRun->setContent($fileDiff);
-        $this->rectorRunRepository->save($rectorRun);
+        $currentRectorRun->updateResult($fileDiff, Json::encode($runResult));
+
+        $this->rectorRunRepository->save($currentRectorRun);
 
         return $this->redirectToRectorRun($currentRectorRun);
     }
