@@ -6,8 +6,7 @@ namespace Rector\Website\Process;
 
 use Nette\Utils\FileSystem;
 use Nette\Utils\Json;
-use Rector\Exception\ShouldNotHappenException;
-use Rector\Website\Form\RectorRunFormData;
+use Rector\Website\Entity\RectorRun;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
 
@@ -27,10 +26,10 @@ final class RectorProcessRunner
     /**
      * @return mixed[]
      */
-    public function run(RectorRunFormData $formData): array
+    public function run(RectorRun $rectorRun): array
     {
-        $tempFile = $this->createTempPhpFile($formData);
-        $process = $this->createProcess($tempFile, $formData->getSetName());
+        $tempFile = $this->createTempPhpFile($rectorRun->getContentHash(), $rectorRun->getContent());
+        $process = $this->createProcess($tempFile, $rectorRun->getSetName());
         $process->run();
 
         if (! $process->isTerminated()) {
@@ -43,15 +42,11 @@ final class RectorProcessRunner
         return Json::decode($output, Json::FORCE_ARRAY);
     }
 
-    private function createTempPhpFile(RectorRunFormData $rectorRun): string
+    private function createTempPhpFile(string $contentHash, string $fileContent): string
     {
-        if ($rectorRun->getContent() === null) {
-            throw new ShouldNotHappenException();
-        }
+        $tempFile = $contentHash . '/rector_analyzed_file.php';
 
-        $tempFile = $rectorRun->getContentHash() . '/rector_analyzed_file.php';
-
-        FileSystem::write($this->demoDir . '/' . $tempFile, $rectorRun->getContent());
+        FileSystem::write($this->demoDir . '/' . $tempFile, $fileContent);
 
         return $tempFile;
     }

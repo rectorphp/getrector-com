@@ -62,6 +62,17 @@ class RectorRun
         return $this->content;
     }
 
+
+    public function getSetName(): string
+    {
+        return $this->setName;
+    }
+
+    public function getContentHash(): string
+    {
+        return $this->contentHash;
+    }
+
     private function calculateContentHash(string $content): string
     {
         return hash('sha256', $content);

@@ -87,7 +87,7 @@ final class DemoController extends AbstractController
         $this->rectorRunRepository->save($currentRectorRun);
 
         try {
-            $json = $this->rectorProcessRunner->run($formData);
+            $json = $this->rectorProcessRunner->run($currentRectorRun);
         } catch (Throwable $throwable) {
             throw new BadRequestHttpException('Invalid error', $throwable);
         }
