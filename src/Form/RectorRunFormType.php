@@ -57,7 +57,7 @@ final class RectorRunFormType extends AbstractType
     public function configureOptions(OptionsResolver $optionsResolver): void
     {
         $optionsResolver->setDefaults([
-            'data_class' => RectorRun::class,
+            'data_class' => RectorRunFormData::class,
         ]);
     }
 }

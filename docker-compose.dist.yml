@@ -16,6 +16,9 @@ services:
             - "8080:80"
         volumes:
             - .:/var/www/getrector.org:cached
+            - /usr/bin/docker:/usr/bin/docker
+            - /var/run/docker.sock:/var/run/docker.sock
+            - demo:/var/rector-tmp
         tmpfs:
             - /var/www/getrector.org/var/cache
         depends_on:
@@ -32,10 +35,6 @@ services:
         ports:
             - 3306:3306
 
-    adminer:
-        image: adminer
-        restart: unless-stopped
-        ports:
-            - 8081:8080
-        depends_on:
-            - mysql
+volumes:
+    demo:
+        name: rector-demo

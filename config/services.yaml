@@ -1,3 +1,6 @@
+parameters:
+    demo_dir: '%env(DEMO_DIR))%'
+
 services:
     _defaults:
         public: true
@@ -6,12 +9,14 @@ services:
         bind:
             # see https://symfony.com/blog/new-in-symfony-3-4-local-service-binding
             $projectDir: '%kernel.project_dir%'
+            $demoDir: '%demo_dir%'
 
     Rector\Website\:
         resource: '../src/'
         exclude:
             - '../src/GetRectorKernel.php'
             - '../src/Entity'
+            - '*FormData.php'
 
     Symplify\PackageBuilder\Console\Style\SymfonyStyleFactory: ~
     Symfony\Component\Console\Style\SymfonyStyle:

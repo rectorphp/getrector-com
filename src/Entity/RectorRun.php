@@ -15,13 +15,19 @@ class RectorRun
 {
     /**
      * @ORM\Column(type="text")
-     * @var string|null
+     * @var string
      */
     private $content;
 
     /**
      * @ORM\Column(type="string")
-     * @var string|null
+     * @var string
+     */
+    private $contentHash;
+
+    /**
+     * @ORM\Column(type="string")
+     * @var string
      */
     private $setName;
 
@@ -32,22 +38,23 @@ class RectorRun
     private $resultJson;
 
     /**
-     * @var UuidInterface|null
+     * @var UuidInterface
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="CUSTOM")
-     * @ORM\CustomIdGenerator(class="Ramsey\Uuid\Doctrine\UuidGenerator")
      * @ORM\Column(type="uuid", unique=true)
      */
-    private $uuid;
+    private $id;
 
-    public function __construct()
+    public function __construct(UuidInterface $id, string $setName, string $content)
     {
-        $this->uuid = Uuid::uuid4();
+        $this->id = $id;
+        $this->setName = $setName;
+        $this->content = $content;
+        $this->contentHash = $this->calculateContentHash($content);
     }
 
-    public function getUuid(): ?UuidInterface
+    public function getId(): UuidInterface
     {
-        return $this->uuid;
+        return $this->id;
     }
 
     public function getContent(): ?string
@@ -55,23 +62,8 @@ class RectorRun
         return $this->content;
     }
 
-    public function setContent(string $content): void
+    private function calculateContentHash(string $content): string
     {
-        $this->content = $content;
-    }
-
-    public function getSetName(): ?string
-    {
-        return $this->setName;
-    }
-
-    public function setSetName(?string $setName): void
-    {
-        $this->setName = $setName;
-    }
-
-    public function setResultJson(?string $resultJson): void
-    {
-        $this->resultJson = $resultJson;
+        return hash('sha256', $content);
     }
 }

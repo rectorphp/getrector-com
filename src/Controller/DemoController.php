@@ -6,7 +6,9 @@ namespace Rector\Website\Controller;
 
 use Nette\Utils\Json;
 use Nette\Utils\Strings;
+use Ramsey\Uuid\Uuid;
 use Rector\Website\Entity\RectorRun;
+use Rector\Website\Form\RectorRunFormData;
 use Rector\Website\Form\RectorRunFormType;
 use Rector\Website\Process\RectorProcessRunner;
 use Rector\Website\Repository\RectorRunRepository;
@@ -17,7 +19,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Throwable;
 
 final class DemoController extends AbstractController
@@ -39,18 +40,24 @@ final class DemoController extends AbstractController
     }
 
     /**
-     * @Route(path="demo/{uuid}", name="demo_detail", methods={"GET", "POST"})
+     * @Route(path="demo/{id}", name="demo_detail", methods={"GET", "POST"})
      * @Route(path="demo", name="demo", methods={"GET", "POST"})
      */
-    public function __invoke(Request $request, ?RectorRun $rectorRun = null): Response
+    public function __invoke(Request $request): Response
     {
-        throw new AccessDeniedException();
+        // $formData = new RectorRunFormData();
 
-        $form = $this->createForm(RectorRunFormType::class);
+        $form = $this->createForm(RectorRunFormType::class/*, $formData*/);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            return $this->processFormAndReturnRoute($rectorRun, $form);
+            return $this->processFormAndReturnRoute($form);
+        }
+
+        $rectorRun = null;
+        $id = $request->query->get('id');
+        if ($id) {
+            // TODO: search RectorRun by $request->query->get('id') or throw 404
         }
 
         return $this->render('homepage/demo.twig', [
@@ -59,13 +66,28 @@ final class DemoController extends AbstractController
         ]);
     }
 
-    private function processFormAndReturnRoute(?RectorRun $rectorRun, FormInterface $form): RedirectResponse
+    private function processFormAndReturnRoute(FormInterface $form): RedirectResponse
     {
-        /** @var RectorRun $rectorRun */
-        $rectorRun = $form->getData();
+        /** @var RectorRunFormData $formData */
+        $formData = $form->getData();
+
+        $currentRectorRun = new RectorRun(
+            Uuid::uuid4(),
+            $formData->getSetName(),
+            $formData->getContent()
+        );
+
+        /** @var RectorRun|null $previousRectorRun */
+        $previousRectorRun = null; // @TODO: Search by content hash and rector set
+
+        if ($previousRectorRun) {
+            return $this->redirectToRectorRun($previousRectorRun);
+        }
+
+        $this->rectorRunRepository->save($currentRectorRun);
 
         try {
-            $json = $this->rectorProcessRunner->run($rectorRun);
+            $json = $this->rectorProcessRunner->run($formData);
         } catch (Throwable $throwable) {
             throw new BadRequestHttpException('Invalid error', $throwable);
         }
@@ -81,9 +103,7 @@ final class DemoController extends AbstractController
         $rectorRun->setContent($fileDiff);
         $this->rectorRunRepository->save($rectorRun);
 
-        return $this->redirectToRoute('demo_detail', [
-            'uuid' => $rectorRun->getUuid(),
-        ]);
+        return $this->redirectToRectorRun($currentRectorRun);
     }
 
     private function cleanFileDiff(string $fileDiff): string
@@ -97,5 +117,13 @@ final class DemoController extends AbstractController
         }
 
         return $fileDiff;
+    }
+
+
+    private function redirectToRectorRun(RectorRun $rectorRun): RedirectResponse
+    {
+        return $this->redirectToRoute('demo_detail', [
+            'id' => $rectorRun->getId()->toString(),
+        ]);
     }
 }
