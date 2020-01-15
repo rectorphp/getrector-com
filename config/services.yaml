@@ -1,15 +1,11 @@
 parameters:
-    demo_dir: '%env(DEMO_DIR))%'
+    demo_dir: '%env(DEMO_DIR)%'
 
 services:
     _defaults:
         public: true
         autowire: true
         autoconfigure: true
-        bind:
-            # see https://symfony.com/blog/new-in-symfony-3-4-local-service-binding
-            $projectDir: '%kernel.project_dir%'
-            $demoDir: '%demo_dir%'
 
     Rector\Website\:
         resource: '../src/'

@@ -21,6 +21,7 @@ final class RectorProcessRunner
     public function __construct(string $demoDir)
     {
         $this->demoDir = $demoDir;
+        $this->demoDir = '/var/www/getrector.org/var/demo';
     }
 
     /**
@@ -30,6 +31,7 @@ final class RectorProcessRunner
     {
         $tempFile = $this->createTempPhpFile($rectorRun->getContentHash(), $rectorRun->getContent());
         $process = $this->createProcess($tempFile, $rectorRun->getSetName());
+
         $process->run();
 
         if (! $process->isTerminated()) {
@@ -37,7 +39,9 @@ final class RectorProcessRunner
         }
 
         // log it!
-        $output = $process->getOutput();
+        $output = $this->getProcessOutput('ed5aa7322d451877135286912bfddc084fe288850e30268ed907ff522205eccd');
+
+        $this->removeContainer('ed5aa7322d451877135286912bfddc084fe288850e30268ed907ff522205eccd');
 
         return Json::decode($output, Json::FORCE_ARRAY);
     }
@@ -46,6 +50,7 @@ final class RectorProcessRunner
     {
         $tempFile = $contentHash . '/rector_analyzed_file.php';
 
+        FileSystem::createDir($this->demoDir . '/' . $contentHash);
         FileSystem::write($this->demoDir . '/' . $tempFile, $fileContent);
 
         return $tempFile;
@@ -53,14 +58,36 @@ final class RectorProcessRunner
 
     private function createProcess(string $filePath, string $setName): Process
     {
-        // docker run --rm -v rector-demo:/project:ro rector/rector process /project/DemoFile.php --dry-run --set dead-code
+        // docker run -i --rm -v rector-demo:/project:ro rector/rector process /project/DemoFile.php --dry-run --set dead-code > output.txt
         return new Process([
-            'docker', 'run', '--rm',
-            '-v', 'rector-demo:/project:ro',
+            'docker', 'run', '-i',
+            '--name', 'ed5aa7322d451877135286912bfddc084fe288850e30268ed907ff522205eccd',
+            '-v', '/Users/janmikes/Sites/getrector.org/var/demo:/project:ro',
+            'rector/rector',
             'process', '/project/' . $filePath,
             '--dry-run',
             '--output-format', 'json',
             '--set', $setName,
         ]);
+    }
+
+    private function getProcessOutput(string $identifier): string
+    {
+        $process = new Process([
+            'docker', 'logs', $identifier
+        ]);
+
+        $process->run();
+
+        return $process->getOutput();
+    }
+
+    private function removeContainer(string $identifier): void
+    {
+        $process = new Process([
+            'docker', 'rm', $identifier
+        ]);
+
+        $process->run();
     }
 }

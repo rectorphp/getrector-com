@@ -19,7 +19,7 @@ class RectorRun
     private $content;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=true)
      * @var string|null
      */
     private $contentDiff;
@@ -37,7 +37,7 @@ class RectorRun
     private $setName;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=true)
      * @var string|null
      */
     private $resultJson;
@@ -49,9 +49,21 @@ class RectorRun
      */
     private $id;
 
-    public function __construct(UuidInterface $id, string $setName, string $content)
+    /**
+     * @var \DateTimeImmutable
+     * @ORM\Column(type="datetime_immutable")
+     */
+    private $executedAt;
+
+    public function __construct(
+        UuidInterface $id,
+        \DateTimeImmutable $executedAt,
+        string $setName,
+        string $content
+    )
     {
         $this->id = $id;
+        $this->executedAt = $executedAt;
         $this->setName = $setName;
         $this->content = $content;
         $this->contentHash = $this->calculateContentHash($content);
