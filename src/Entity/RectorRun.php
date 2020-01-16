@@ -43,6 +43,12 @@ class RectorRun
     private $resultJson;
 
     /**
+     * @ORM\Column(type="text", nullable=true)
+     * @var string|null
+     */
+    private $errorMessage;
+
+    /**
      * @var UuidInterface
      * @ORM\Id
      * @ORM\Column(type="uuid", unique=true)
@@ -90,10 +96,30 @@ class RectorRun
         return $this->contentHash;
     }
 
+    public function getContentDiff(): string
+    {
+        return $this->contentDiff;
+    }
+
     public function updateResult(string $contentDiff, string $resultJson): void
     {
         $this->contentDiff = $contentDiff;
         $this->resultJson = $resultJson;
+    }
+
+    public function isSuccessful(): bool
+    {
+        return $this->errorMessage === null && $this->resultJson !== null;
+    }
+
+    public function getErrorMessage(): string
+    {
+        return $this->errorMessage;
+    }
+
+    public function fail(string $errorMessage): void
+    {
+        $this->errorMessage = $errorMessage;
     }
 
     private function calculateContentHash(string $content): string

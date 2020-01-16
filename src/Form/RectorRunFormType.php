@@ -21,13 +21,9 @@ final class RectorRunFormType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $formBuilder, array $options): void
     {
-        $demoFileContent = FileSystem::read(__DIR__ . '/../../data/DemoFile.php');
-
         $formBuilder->add('content', TextareaType::class, [
             'label' => 'PHP File content',
             'required' => true,
-            // default value
-            'data' => $demoFileContent . PHP_EOL . PHP_EOL,
             'attr' => [
                 'rows' => 10,
                 'cols' => 150,
@@ -42,8 +38,6 @@ final class RectorRunFormType extends AbstractType
             'label' => 'Set',
             'required' => true,
             'choices' => $sets,
-            // default value
-            'data' => 'dead-code',
         ]);
 
         $formBuilder->add('process', SubmitType::class, [

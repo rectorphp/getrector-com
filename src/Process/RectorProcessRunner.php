@@ -6,6 +6,7 @@ namespace Rector\Website\Process;
 
 use Nette\Utils\FileSystem;
 use Nette\Utils\Json;
+use Nette\Utils\JsonException;
 use Rector\Website\Entity\RectorRun;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
@@ -15,13 +16,23 @@ final class RectorProcessRunner
     /**
      * @var string
      */
-    private $demoDir;
+    private const ANALYZED_FILE_NAME = 'rector_analyzed_file.php';
+
+    /**
+     * @var string
+     */
+    private $hostDemoDir;
+
+    /**
+     * @var string
+     */
+    private $localDemoDir;
 
 
-    public function __construct(string $demoDir)
+    public function __construct(string $hostDemoDir, string $localDemoDir)
     {
-        $this->demoDir = $demoDir;
-        $this->demoDir = '/var/www/getrector.org/var/demo';
+        $this->hostDemoDir = $hostDemoDir;
+        $this->localDemoDir = $localDemoDir;
     }
 
     /**
@@ -29,8 +40,10 @@ final class RectorProcessRunner
      */
     public function run(RectorRun $rectorRun): array
     {
-        $tempFile = $this->createTempPhpFile($rectorRun->getContentHash(), $rectorRun->getContent());
-        $process = $this->createProcess($tempFile, $rectorRun->getSetName());
+        $contentHash = $rectorRun->getContentHash();
+
+        $this->createTempPhpFile($contentHash, $rectorRun->getContent());
+        $process = $this->createProcess($contentHash, $rectorRun->getSetName());
 
         $process->run();
 
@@ -38,54 +51,70 @@ final class RectorProcessRunner
             throw new ProcessFailedException($process);
         }
 
-        // log it!
-        $output = $this->getProcessOutput('ed5aa7322d451877135286912bfddc084fe288850e30268ed907ff522205eccd');
+        $output = $this->getProcessOutput($contentHash);
 
-        $this->removeContainer('ed5aa7322d451877135286912bfddc084fe288850e30268ed907ff522205eccd');
+        $this->cleanup($contentHash);
 
-        return Json::decode($output, Json::FORCE_ARRAY);
+        try {
+            return Json::decode($output, Json::FORCE_ARRAY);
+        } catch (JsonException $exception) {
+            throw new \Exception($output);
+        }
     }
 
     private function createTempPhpFile(string $contentHash, string $fileContent): string
     {
-        $tempFile = $contentHash . '/rector_analyzed_file.php';
+        $tempFile = $contentHash . '/' . self::ANALYZED_FILE_NAME;
 
-        FileSystem::createDir($this->demoDir . '/' . $contentHash);
-        FileSystem::write($this->demoDir . '/' . $tempFile, $fileContent);
+        FileSystem::write($this->localDemoDir . '/' . $tempFile, $fileContent);
 
         return $tempFile;
     }
 
-    private function createProcess(string $filePath, string $setName): Process
+    private function createProcess(string $contentHash, string $setName): Process
     {
-        // docker run -i --rm -v rector-demo:/project:ro rector/rector process /project/DemoFile.php --dry-run --set dead-code > output.txt
+        $volumeSourcePath = $this->hostDemoDir . '/' . $contentHash;
+
         return new Process([
-            'docker', 'run', '-i',
-            '--name', 'ed5aa7322d451877135286912bfddc084fe288850e30268ed907ff522205eccd',
-            '-v', '/Users/janmikes/Sites/getrector.org/var/demo:/project:ro',
+            'docker', 'run',
+            '--name', $contentHash,
+            '-v', $volumeSourcePath . ':/project:ro',
             'rector/rector',
-            'process', '/project/' . $filePath,
+            'process', '/project/' . self::ANALYZED_FILE_NAME,
             '--dry-run',
             '--output-format', 'json',
             '--set', $setName,
         ]);
     }
 
-    private function getProcessOutput(string $identifier): string
+    private function cleanup(string $contentHash): void
+    {
+        $this->removeContainer($contentHash);
+
+        FileSystem::delete($this->localDemoDir . '/' . $contentHash);
+    }
+
+    private function getProcessOutput(string $containerName): string
     {
         $process = new Process([
-            'docker', 'logs', $identifier
+            'docker', 'logs', $containerName
         ]);
 
         $process->run();
 
+        $errorOutput = $process->getErrorOutput();
+
+        if ($errorOutput) {
+            return $errorOutput;
+        }
+
         return $process->getOutput();
     }
 
-    private function removeContainer(string $identifier): void
+    private function removeContainer(string $containerName): void
     {
         $process = new Process([
-            'docker', 'rm', $identifier
+            'docker', 'rm', $containerName
         ]);
 
         $process->run();

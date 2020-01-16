@@ -1,5 +1,6 @@
 parameters:
-    demo_dir: '%env(DEMO_DIR)%'
+    local_demo_dir: '%kernel.project_dir%/var/demo'
+    host_demo_dir: '%env(HOST_DEMO_DIR)%'
 
 services:
     _defaults:
