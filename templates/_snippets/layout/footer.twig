@@ -4,20 +4,26 @@
             <div class="col-12 col-md-6 text-center text-md-left mb-4 mb-md-0">
                 <a href="{{ path('contact') }}">Contact</a>
                 <span class="pl-2 pr-2">•</span>
-{#                <a href="{{ path('demo') }}">Demo</a>#}
+{#                <a href="{{ path('blog') }}">Blog</a>#}
 {#                <span class="pl-2 pr-2">•</span>#}
                 <a href="https://github.com/rectorphp/rector">Github</a>
                 <span class="pl-2 pr-2">•</span>
                 <a href="https://www.patreon.com/rectorphp">Sponsors</a>
-                <span class="pl-2 pr-2">•</span>
-                <a href="https://github.com/rectorphp/rector/blob/master/docs/AllRectorsOverview.md">
-                    Check all {{ rector_count_provider.provide }} Rules
+
+                <br>
+                <br>
+
+                <a href="https://github.com/rectorphp/rector/blob/master/docs/AllRectorsOverview.md" class="mt-5">
+                    Check all <strong>{{ rector_count_provider.provide }} Rules</strong>
                 </a>
             </div>
 
             <div class="col-12 col-md-6 text-center text-md-right" id="made_by">
                 <strong>Do you want to get out of legacy code in 1 month?</strong>
+
                 <br>
+                <br>
+
                 <a href="{{ path('contact') }}">Write us</a> to make impossible happen
             </div>
         </div>

@@ -4,8 +4,11 @@ declare(strict_types=1);
 
 namespace Rector\Website\Twig;
 
+use DateInterval;
 use Nette\Utils\FileSystem;
 use Nette\Utils\Strings;
+use Symfony\Contracts\Cache\CacheInterface;
+use Symfony\Contracts\Cache\ItemInterface;
 
 final class RectorCountVariableProvider
 {
@@ -19,14 +22,31 @@ final class RectorCountVariableProvider
      */
     private const FALLBACK_COUNT = 400;
 
+    /**
+     * @var string
+     */
+    private const CACHE_KEY = 'rectors_count';
+
+    /**
+     * @var CacheInterface
+     */
+    private $cache;
+
+    public function __construct(CacheInterface $cache)
+    {
+        $this->cache = $cache;
+    }
+
     public function provide(): int
     {
-        $sourceContent = FileSystem::read(self::SOURCE_URL);
+        return (int) $this->cache->get(self::CACHE_KEY, static function (ItemInterface $item) {
+            $item->expiresAfter(DateInterval::createFromDateString('+24 hours'));
 
-        $matches = Strings::match($sourceContent, '#\b(?<count>\d+)\b#');
+            $sourceContent = FileSystem::read(self::SOURCE_URL);
 
-        $count = $matches['count'] ?? self::FALLBACK_COUNT;
+            $matches = Strings::match($sourceContent, '#\b(?<count>\d+)\b#');
 
-        return (int) $count;
+            return $matches['count'] ?? self::FALLBACK_COUNT;
+        });
     }
 }

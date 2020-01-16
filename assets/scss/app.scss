@@ -292,7 +292,7 @@ q.blockquote {
     margin: 1em auto;
 }
 
-h1 em, h2 em {
+h1 em, h2 em, h2 a {
     font-size: 1em;
 }
 
@@ -303,3 +303,10 @@ h1 em, h2 em {
         margin-bottom: .5em;
     }
 }
+
+.perex {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-size: 1.3em;
+}
+
