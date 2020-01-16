@@ -1,6 +1,7 @@
 parameters:
     local_demo_dir: '%kernel.project_dir%/var/demo'
     host_demo_dir: '%env(HOST_DEMO_DIR)%'
+    rector_demo_docker_image: 'rector/rector:0.6.10'
 
 services:
     _defaults:

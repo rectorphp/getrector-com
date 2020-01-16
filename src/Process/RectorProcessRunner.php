@@ -28,10 +28,17 @@ final class RectorProcessRunner
      */
     private $localDemoDir;
 
-    public function __construct(string $hostDemoDir, string $localDemoDir)
+    /**
+     * @var string
+     */
+    private $rectorDemoDockerImage;
+
+
+    public function __construct(string $hostDemoDir, string $localDemoDir, string $rectorDemoDockerImage)
     {
         $this->hostDemoDir = $hostDemoDir;
         $this->localDemoDir = $localDemoDir;
+        $this->rectorDemoDockerImage = $rectorDemoDockerImage;
     }
 
     /**
@@ -78,7 +85,7 @@ final class RectorProcessRunner
             'docker', 'run',
             '--name', $contentHash,
             '-v', $volumeSourcePath . ':/project:ro',
-            'rector/rector',
+            $this->rectorDemoDockerImage,
             'process', '/project/' . self::ANALYZED_FILE_NAME,
             '--dry-run',
             '--output-format', 'json',
