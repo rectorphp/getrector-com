@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Rector\Website\Entity;
 
+use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
-use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 
 /**
@@ -15,63 +15,110 @@ class RectorRun
 {
     /**
      * @ORM\Column(type="text")
-     * @var string|null
+     * @var string
      */
     private $content;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="text", nullable=true)
      * @var string|null
+     */
+    private $contentDiff;
+
+    /**
+     * @ORM\Column(type="string")
+     * @var string
+     */
+    private $contentHash;
+
+    /**
+     * @ORM\Column(type="string")
+     * @var string
      */
     private $setName;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=true)
      * @var string|null
      */
     private $resultJson;
 
     /**
-     * @var UuidInterface|null
+     * @ORM\Column(type="text", nullable=true)
+     * @var string|null
+     */
+    private $errorMessage;
+
+    /**
+     * @var UuidInterface
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="CUSTOM")
-     * @ORM\CustomIdGenerator(class="Ramsey\Uuid\Doctrine\UuidGenerator")
      * @ORM\Column(type="uuid", unique=true)
      */
-    private $uuid;
+    private $id;
 
-    public function __construct()
+    /**
+     * @var DateTimeImmutable
+     * @ORM\Column(type="datetime_immutable")
+     */
+    private $executedAt;
+
+    public function __construct(UuidInterface $id, DateTimeImmutable $executedAt, string $setName, string $content)
     {
-        $this->uuid = Uuid::uuid4();
+        $this->id = $id;
+        $this->executedAt = $executedAt;
+        $this->setName = $setName;
+        $this->content = $content;
+        $this->contentHash = $this->calculateContentHash($content);
     }
 
-    public function getUuid(): ?UuidInterface
+    public function getId(): UuidInterface
     {
-        return $this->uuid;
+        return $this->id;
     }
 
-    public function getContent(): ?string
+    public function getContent(): string
     {
         return $this->content;
     }
 
-    public function setContent(string $content): void
-    {
-        $this->content = $content;
-    }
-
-    public function getSetName(): ?string
+    public function getSetName(): string
     {
         return $this->setName;
     }
 
-    public function setSetName(?string $setName): void
+    public function getContentHash(): string
     {
-        $this->setName = $setName;
+        return $this->contentHash ?: '';
     }
 
-    public function setResultJson(?string $resultJson): void
+    public function getContentDiff(): string
     {
+        return $this->contentDiff ?: '';
+    }
+
+    public function updateResult(string $contentDiff, string $resultJson): void
+    {
+        $this->contentDiff = $contentDiff;
         $this->resultJson = $resultJson;
+    }
+
+    public function isSuccessful(): bool
+    {
+        return $this->errorMessage === null && $this->resultJson !== null;
+    }
+
+    public function getErrorMessage(): ?string
+    {
+        return $this->errorMessage;
+    }
+
+    public function fail(string $errorMessage): void
+    {
+        $this->errorMessage = $errorMessage;
+    }
+
+    private function calculateContentHash(string $content): string
+    {
+        return hash('sha256', $content);
     }
 }

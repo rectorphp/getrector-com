@@ -13,10 +13,16 @@
             <div class="col-12 col-md-6">
                 <h2 class="mt-0 mb-0">Result</h2>
                     {% if rector_run is not null %}
-                        <pre class="language-diff"><code class="language-diff">{{ rector_run.content }}</code></pre>
+                        {% if rector_run.successful %}
+                            <pre class="language-diff"><code class="language-diff">{{ rector_run.contentDiff }}</code></pre>
+                        {% else %}
+                            <div class="alert alert-danger">
+                                {{ rector_run.errorMessage }}
+                            </div>
+                        {% endif %}
 
                         Permalink:
-                        <a href="{{ path('demo_detail', {'uuid': rector_run.uuid }) }}">{{ rector_run.uuid }}</a>
+                        <a href="{{ path('demo_detail', {'id': rector_run.id }) }}">{{ rector_run.id }}</a>
                     {% else %}
                         ...
                     {% endif %}

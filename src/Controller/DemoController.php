@@ -4,9 +4,13 @@ declare(strict_types=1);
 
 namespace Rector\Website\Controller;
 
+use DateTimeImmutable;
+use Nette\Utils\FileSystem;
 use Nette\Utils\Json;
 use Nette\Utils\Strings;
+use Ramsey\Uuid\Uuid;
 use Rector\Website\Entity\RectorRun;
+use Rector\Website\Form\RectorRunFormData;
 use Rector\Website\Form\RectorRunFormType;
 use Rector\Website\Process\RectorProcessRunner;
 use Rector\Website\Repository\RectorRunRepository;
@@ -15,9 +19,7 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Throwable;
 
 final class DemoController extends AbstractController
@@ -39,18 +41,32 @@ final class DemoController extends AbstractController
     }
 
     /**
-     * @Route(path="demo/{uuid}", name="demo_detail", methods={"GET", "POST"})
+     * @Route(path="demo/{id}", name="demo_detail", methods={"GET", "POST"})
      * @Route(path="demo", name="demo", methods={"GET", "POST"})
      */
-    public function __invoke(Request $request, ?RectorRun $rectorRun = null): Response
+    public function __invoke(Request $request): Response
     {
-        throw new AccessDeniedException();
+        $formData = new RectorRunFormData();
+        $rectorRun = null;
+        $rectorRunId = $request->attributes->get('id');
 
-        $form = $this->createForm(RectorRunFormType::class);
+        $demoFileContent = FileSystem::read(__DIR__ . '/../../data/DemoFile.php');
+
+        $formData->setContent($demoFileContent);
+        $formData->setSetName('dead-code');
+
+        if ($rectorRunId) {
+            $rectorRun = $this->rectorRunRepository->get(Uuid::fromString($rectorRunId));
+
+            $formData->setContent($rectorRun->getContent());
+            $formData->setSetName($rectorRun->getSetName());
+        }
+
+        $form = $this->createForm(RectorRunFormType::class, $formData);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            return $this->processFormAndReturnRoute($rectorRun, $form);
+            return $this->processFormAndReturnRoute($form);
         }
 
         return $this->render('homepage/demo.twig', [
@@ -59,30 +75,54 @@ final class DemoController extends AbstractController
         ]);
     }
 
-    private function processFormAndReturnRoute(?RectorRun $rectorRun, FormInterface $form): RedirectResponse
+    private function processFormAndReturnRoute(FormInterface $form): RedirectResponse
     {
-        /** @var RectorRun $rectorRun */
-        $rectorRun = $form->getData();
+        /** @var RectorRunFormData $formData */
+        $formData = $form->getData();
+        $setName = $formData->getSetName();
+
+        $currentRectorRun = new RectorRun(
+            Uuid::uuid4(),
+            new DateTimeImmutable(),
+            $setName,
+            $formData->getContent()
+        );
+
+        /** @var RectorRun|null $previousRectorRun */
+        $previousRectorRun = $this->rectorRunRepository->findMostRecentSetRun(
+            $setName,
+            $currentRectorRun->getContentHash()
+        );
+
+        if ($previousRectorRun) {
+            return $this->redirectToDetail($previousRectorRun);
+        }
+
+        $this->rectorRunRepository->save($currentRectorRun);
 
         try {
-            $json = $this->rectorProcessRunner->run($rectorRun);
+            $runResult = $this->rectorProcessRunner->run($currentRectorRun);
+            $fileDiff = $runResult['file_diffs'][0]['diff'] ?? $currentRectorRun->getContent();
+
+            if ($fileDiff) {
+                /** @var string $fileDiff */
+                $fileDiff = $this->cleanFileDiff($fileDiff);
+            }
+
+            $currentRectorRun->updateResult($fileDiff, Json::encode($runResult));
         } catch (Throwable $throwable) {
-            throw new BadRequestHttpException('Invalid error', $throwable);
+            $currentRectorRun->fail($throwable->getMessage());
         }
 
-        $fileDiff = $json['file_diffs'][0]['diff'] ?? null;
-        if ($fileDiff) {
-            /** @var string $fileDiff */
-            $fileDiff = $this->cleanFileDiff($fileDiff);
-        }
+        $this->rectorRunRepository->save($currentRectorRun);
 
-        $jsonStrings = Json::encode($json);
-        $rectorRun->setResultJson($jsonStrings);
-        $rectorRun->setContent($fileDiff);
-        $this->rectorRunRepository->save($rectorRun);
+        return $this->redirectToDetail($currentRectorRun);
+    }
 
+    private function redirectToDetail(RectorRun $rectorRun): RedirectResponse
+    {
         return $this->redirectToRoute('demo_detail', [
-            'uuid' => $rectorRun->getUuid(),
+            'id' => $rectorRun->getId()->toString(),
         ]);
     }
 
