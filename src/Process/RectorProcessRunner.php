@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Rector\Website\Process;
 
-use LogicException;
 use Nette\Utils\FileSystem;
 use Nette\Utils\Json;
 use Nette\Utils\JsonException;
@@ -58,7 +57,7 @@ final class RectorProcessRunner
         try {
             return Json::decode($output, Json::FORCE_ARRAY);
         } catch (JsonException $jsonException) {
-            throw new LogicException($output);
+            throw new RectorRunFailedException($output);
         }
     }
 

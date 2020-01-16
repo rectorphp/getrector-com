@@ -102,13 +102,11 @@ final class DemoController extends AbstractController
 
         try {
             $runResult = $this->rectorProcessRunner->run($currentRectorRun);
+            $fileDiff = $runResult['file_diffs'][0]['diff'] ?? $currentRectorRun->getContent();
 
-            $fileDiff = $runResult['file_diffs'][0]['diff'] ?? null;
             if ($fileDiff) {
                 /** @var string $fileDiff */
                 $fileDiff = $this->cleanFileDiff($fileDiff);
-            } else {
-                $fileDiff = $currentRectorRun->getContent();
             }
 
             $currentRectorRun->updateResult($fileDiff, Json::encode($runResult));
