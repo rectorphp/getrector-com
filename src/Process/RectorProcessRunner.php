@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Website\Process;
 
+use LogicException;
 use Nette\Utils\FileSystem;
 use Nette\Utils\Json;
 use Nette\Utils\JsonException;
@@ -27,7 +28,6 @@ final class RectorProcessRunner
      * @var string
      */
     private $localDemoDir;
-
 
     public function __construct(string $hostDemoDir, string $localDemoDir)
     {
@@ -57,8 +57,8 @@ final class RectorProcessRunner
 
         try {
             return Json::decode($output, Json::FORCE_ARRAY);
-        } catch (JsonException $exception) {
-            throw new \Exception($output);
+        } catch (JsonException $jsonException) {
+            throw new LogicException($output);
         }
     }
 
@@ -87,18 +87,9 @@ final class RectorProcessRunner
         ]);
     }
 
-    private function cleanup(string $contentHash): void
-    {
-        $this->removeContainer($contentHash);
-
-        FileSystem::delete($this->localDemoDir . '/' . $contentHash);
-    }
-
     private function getProcessOutput(string $containerName): string
     {
-        $process = new Process([
-            'docker', 'logs', $containerName
-        ]);
+        $process = new Process(['docker', 'logs', $containerName]);
 
         $process->run();
 
@@ -111,11 +102,16 @@ final class RectorProcessRunner
         return $process->getOutput();
     }
 
+    private function cleanup(string $contentHash): void
+    {
+        $this->removeContainer($contentHash);
+
+        FileSystem::delete($this->localDemoDir . '/' . $contentHash);
+    }
+
     private function removeContainer(string $containerName): void
     {
-        $process = new Process([
-            'docker', 'rm', $containerName
-        ]);
+        $process = new Process(['docker', 'rm', $containerName]);
 
         $process->run();
     }

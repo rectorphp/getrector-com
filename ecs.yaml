@@ -25,3 +25,6 @@ parameters:
         # used for analysis later
         SlevomatCodingStandard\Sniffs\Classes\UnusedPrivateElementsSniff.WriteOnlyProperty:
             - 'src/Entity/RectorRun.php'
+
+        Symplify\CodingStandard\Fixer\Naming\PropertyNameMatchingTypeFixer:
+            - 'src/Entity/*'

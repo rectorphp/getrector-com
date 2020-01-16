@@ -28,7 +28,6 @@ final class RectorRunRepository
         $this->entityManager->flush();
     }
 
-
     public function findMostRecentSetRun(string $setName, string $contentHash): ?RectorRun
     {
         try {
@@ -44,19 +43,19 @@ final class RectorRunRepository
                 ->setMaxResults(1)
                 ->getQuery()
                 ->getSingleResult();
-        } catch (NoResultException $exception) {
+        } catch (NoResultException $noResultException) {
             return null;
         }
     }
 
-    public function get(UuidInterface $id): RectorRun
+    public function get(UuidInterface $uuid): RectorRun
     {
-        $rectorRun = $this->entityManager->find(RectorRun::class, $id);
+        $rectorRun = $this->entityManager->find(RectorRun::class, $uuid);
 
-        if (!$rectorRun) {
-            throw new NotFoundHttpException();
+        if ($rectorRun instanceof RectorRun) {
+            return $rectorRun;
         }
 
-        return $rectorRun;
+        throw new NotFoundHttpException();
     }
 }

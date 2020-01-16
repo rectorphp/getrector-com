@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Website\Entity;
 
+use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
 use Ramsey\Uuid\UuidInterface;
 
@@ -56,17 +57,12 @@ class RectorRun
     private $id;
 
     /**
-     * @var \DateTimeImmutable
+     * @var DateTimeImmutable
      * @ORM\Column(type="datetime_immutable")
      */
     private $executedAt;
 
-    public function __construct(
-        UuidInterface $id,
-        \DateTimeImmutable $executedAt,
-        string $setName,
-        string $content
-    )
+    public function __construct(UuidInterface $id, DateTimeImmutable $executedAt, string $setName, string $content)
     {
         $this->id = $id;
         $this->executedAt = $executedAt;
@@ -80,11 +76,10 @@ class RectorRun
         return $this->id;
     }
 
-    public function getContent(): ?string
+    public function getContent(): string
     {
         return $this->content;
     }
-
 
     public function getSetName(): string
     {
@@ -93,12 +88,12 @@ class RectorRun
 
     public function getContentHash(): string
     {
-        return $this->contentHash;
+        return $this->contentHash ?: '';
     }
 
     public function getContentDiff(): string
     {
-        return $this->contentDiff;
+        return $this->contentDiff ?: '';
     }
 
     public function updateResult(string $contentDiff, string $resultJson): void
@@ -112,7 +107,7 @@ class RectorRun
         return $this->errorMessage === null && $this->resultJson !== null;
     }
 
-    public function getErrorMessage(): string
+    public function getErrorMessage(): ?string
     {
         return $this->errorMessage;
     }

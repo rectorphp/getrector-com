@@ -1,4 +1,6 @@
-<?php declare (strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Rector\Website\Form;
 
@@ -14,7 +16,7 @@ final class RectorRunFormData
      */
     private $setName;
 
-    public function getContent(): ?string
+    public function getContent(): string
     {
         return $this->content;
     }
@@ -24,7 +26,7 @@ final class RectorRunFormData
         $this->content = $content;
     }
 
-    public function getSetName(): ?string
+    public function getSetName(): string
     {
         return $this->setName;
     }

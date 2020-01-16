@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Website\Controller;
 
+use DateTimeImmutable;
 use Nette\Utils\FileSystem;
 use Nette\Utils\Json;
 use Nette\Utils\Strings;
@@ -47,20 +48,18 @@ final class DemoController extends AbstractController
     {
         $formData = new RectorRunFormData();
         $rectorRun = null;
-        $id = $request->attributes->get('id');
+        $rectorRunId = $request->attributes->get('id');
 
         $demoFileContent = FileSystem::read(__DIR__ . '/../../data/DemoFile.php');
 
         $formData->setContent($demoFileContent);
         $formData->setSetName('dead-code');
 
-        if ($id) {
-            $rectorRun = $this->rectorRunRepository->get(Uuid::fromString($id));
+        if ($rectorRunId) {
+            $rectorRun = $this->rectorRunRepository->get(Uuid::fromString($rectorRunId));
 
-            if ($rectorRun) {
-                $formData->setContent($rectorRun->getContent());
-                $formData->setSetName($rectorRun->getSetName());
-            }
+            $formData->setContent($rectorRun->getContent());
+            $formData->setSetName($rectorRun->getSetName());
         }
 
         $form = $this->createForm(RectorRunFormType::class, $formData);
@@ -69,7 +68,6 @@ final class DemoController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             return $this->processFormAndReturnRoute($form);
         }
-
 
         return $this->render('homepage/demo.twig', [
             'form' => $form->createView(),
@@ -85,7 +83,7 @@ final class DemoController extends AbstractController
 
         $currentRectorRun = new RectorRun(
             Uuid::uuid4(),
-            new \DateTimeImmutable(),
+            new DateTimeImmutable(),
             $setName,
             $formData->getContent()
         );
@@ -123,6 +121,13 @@ final class DemoController extends AbstractController
         return $this->redirectToDetail($currentRectorRun);
     }
 
+    private function redirectToDetail(RectorRun $rectorRun): RedirectResponse
+    {
+        return $this->redirectToRoute('demo_detail', [
+            'id' => $rectorRun->getId()->toString(),
+        ]);
+    }
+
     private function cleanFileDiff(string $fileDiff): string
     {
         // https://regex101.com/r/sI6GVY/1/
@@ -134,13 +139,5 @@ final class DemoController extends AbstractController
         }
 
         return $fileDiff;
-    }
-
-
-    private function redirectToDetail(RectorRun $rectorRun): RedirectResponse
-    {
-        return $this->redirectToRoute('demo_detail', [
-            'id' => $rectorRun->getId()->toString(),
-        ]);
     }
 }
