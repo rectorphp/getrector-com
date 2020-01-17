@@ -2,6 +2,9 @@
     "behat/transliterator": {
         "version": "v1.2.0"
     },
+    "clue/stream-filter": {
+        "version": "v1.4.1"
+    },
     "composer/semver": {
         "version": "1.5.0"
     },
@@ -114,6 +117,9 @@
     "guzzlehttp/psr7": {
         "version": "1.6.1"
     },
+    "http-interop/http-factory-guzzle": {
+        "version": "1.0.0"
+    },
     "j7mbo/twitter-api-php": {
         "version": "1.0.6"
     },
@@ -186,6 +192,27 @@
     "php-cs-fixer/diff": {
         "version": "v1.3.0"
     },
+    "php-http/client-common": {
+        "version": "2.1.0"
+    },
+    "php-http/discovery": {
+        "version": "1.7.4"
+    },
+    "php-http/guzzle6-adapter": {
+        "version": "v2.0.1"
+    },
+    "php-http/httplug": {
+        "version": "2.1.0"
+    },
+    "php-http/message": {
+        "version": "1.8.0"
+    },
+    "php-http/message-factory": {
+        "version": "v1.0.2"
+    },
+    "php-http/promise": {
+        "version": "v1.0.0"
+    },
     "phpdocumentor/reflection-common": {
         "version": "2.0.0"
     },
@@ -248,6 +275,12 @@
     },
     "psr/event-dispatcher": {
         "version": "1.0.0"
+    },
+    "psr/http-client": {
+        "version": "1.0.0"
+    },
+    "psr/http-factory": {
+        "version": "1.0.1"
     },
     "psr/http-message": {
         "version": "1.0.1"
@@ -317,6 +350,24 @@
     },
     "sebastian/version": {
         "version": "2.0.1"
+    },
+    "sentry/sdk": {
+        "version": "2.1.0"
+    },
+    "sentry/sentry": {
+        "version": "2.3.0"
+    },
+    "sentry/sentry-symfony": {
+        "version": "3.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "3.0",
+            "ref": "9746f0823302d7980e5273ef7a69ef3f5ac80914"
+        },
+        "files": [
+            "config/packages/sentry.yaml"
+        ]
     },
     "slevomat/coding-standard": {
         "version": "5.0.4"
@@ -482,6 +533,9 @@
         "version": "v1.13.1"
     },
     "symfony/polyfill-php73": {
+        "version": "v1.13.1"
+    },
+    "symfony/polyfill-uuid": {
         "version": "v1.13.1"
     },
     "symfony/process": {

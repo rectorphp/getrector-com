@@ -1,0 +1,7 @@
+sentry:
+    dsn: '%env(SENTRY_DSN)%'
+    options:
+        send_default_pii: true
+        attach_stacktrace: true
+        excluded_exceptions:
+            - Symfony\Component\HttpKernel\Exception\NotFoundHttpException

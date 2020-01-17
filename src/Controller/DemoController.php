@@ -14,6 +14,7 @@ use Rector\Website\Form\RectorRunFormData;
 use Rector\Website\Form\RectorRunFormType;
 use Rector\Website\Process\RectorProcessRunner;
 use Rector\Website\Repository\RectorRunRepository;
+use function Sentry\captureException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -118,6 +119,10 @@ final class DemoController extends AbstractController
             $currentRectorRun->success($fileDiff, Json::encode($runResult), $rectorProcessStopwatchEvent);
         } catch (Throwable $throwable) {
             $currentRectorRun->fail($throwable->getMessage(), $rectorProcessStopwatchEvent);
+
+            // @TODO change to monolog
+            // Log to sentry
+            captureException($throwable);
         }
 
         $this->rectorRunRepository->save($currentRectorRun);

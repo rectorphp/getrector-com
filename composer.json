@@ -15,6 +15,7 @@
         "ramsey/uuid": "^3.8",
         "ramsey/uuid-doctrine": "^1.5",
         "rector/rector": "^0.6.9",
+        "sentry/sentry-symfony": "^3.3",
         "symfony/asset": "*",
         "symfony/cache": "*",
         "symfony/console": "*",
