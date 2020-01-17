@@ -7,6 +7,7 @@ namespace Rector\Website\Entity;
 use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
 use Ramsey\Uuid\UuidInterface;
+use Symfony\Component\Stopwatch\StopwatchEvent;
 
 /**
  * @ORM\Entity
@@ -102,11 +103,11 @@ class RectorRun
         return $this->contentDiff ?: '';
     }
 
-    public function success(string $contentDiff, string $resultJson, float $elapsedTime): void
+    public function success(string $contentDiff, string $resultJson, StopwatchEvent $stopwatchEvent): void
     {
         $this->contentDiff = $contentDiff;
         $this->resultJson = $resultJson;
-        $this->elapsedTime = $elapsedTime;
+        $this->updateTimeElapsed($stopwatchEvent);
     }
 
     public function isSuccessful(): bool
@@ -119,14 +120,20 @@ class RectorRun
         return $this->errorMessage;
     }
 
-    public function fail(string $errorMessage, float $elapsedTime): void
+    public function fail(string $errorMessage, StopwatchEvent $stopwatchEvent): void
     {
         $this->errorMessage = $errorMessage;
-        $this->elapsedTime = $elapsedTime;
+        $this->updateTimeElapsed($stopwatchEvent);
     }
 
     private function calculateContentHash(string $content): string
     {
         return hash('sha256', $content);
+    }
+
+    private function updateTimeElapsed(StopwatchEvent $stopwatchEvent): void
+    {
+        // Convert milliseconds to seconds to be more readable
+        $this->elapsedTime = $stopwatchEvent->getDuration() / 1000;
     }
 }

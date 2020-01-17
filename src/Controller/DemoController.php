@@ -116,14 +116,10 @@ final class DemoController extends AbstractController
             }
 
             $stopwatch->stop('rector-process');
-            $currentRectorRun->success(
-                $fileDiff,
-                Json::encode($runResult),
-                $rectorProcessStopwatchEvent->getDuration()
-            );
+            $currentRectorRun->success($fileDiff, Json::encode($runResult), $rectorProcessStopwatchEvent);
         } catch (Throwable $throwable) {
             $stopwatch->stop('rector-process');
-            $currentRectorRun->fail($throwable->getMessage(), $rectorProcessStopwatchEvent->getDuration());
+            $currentRectorRun->fail($throwable->getMessage(), $rectorProcessStopwatchEvent);
         }
 
         $this->rectorRunRepository->save($currentRectorRun);

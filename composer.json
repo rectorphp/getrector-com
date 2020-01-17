@@ -31,7 +31,7 @@
         "symfony/orm-pack": "^1.0.7",
         "symfony/process": "*",
         "symfony/security-bundle": "*",
-        "symfony/stopwatch": "5.0.*",
+        "symfony/stopwatch": "*",
         "symfony/templating": "*",
         "symfony/translation": "*",
         "symfony/twig-bridge": "*",
