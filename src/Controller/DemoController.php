@@ -20,6 +20,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Stopwatch\Stopwatch;
 use Throwable;
 
 final class DemoController extends AbstractController
@@ -100,6 +101,9 @@ final class DemoController extends AbstractController
 
         $this->rectorRunRepository->save($currentRectorRun);
 
+        $stopwatch = new Stopwatch();
+        $rectorProcessStopwatchEvent = $stopwatch->start('rector-process');
+
         try {
             $runResult = $this->rectorProcessRunner->run($currentRectorRun);
             $fileDiff = $runResult['file_diffs'][0]['diff'] ?? null;
@@ -111,9 +115,15 @@ final class DemoController extends AbstractController
                 $fileDiff = $currentRectorRun->getContent();
             }
 
-            $currentRectorRun->updateResult($fileDiff, Json::encode($runResult));
+            $stopwatch->stop('rector-process');
+            $currentRectorRun->success(
+                $fileDiff,
+                Json::encode($runResult),
+                $rectorProcessStopwatchEvent->getDuration()
+            );
         } catch (Throwable $throwable) {
-            $currentRectorRun->fail($throwable->getMessage());
+            $stopwatch->stop('rector-process');
+            $currentRectorRun->fail($throwable->getMessage(), $rectorProcessStopwatchEvent->getDuration());
         }
 
         $this->rectorRunRepository->save($currentRectorRun);

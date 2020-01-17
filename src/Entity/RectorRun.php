@@ -50,6 +50,12 @@ class RectorRun
     private $errorMessage;
 
     /**
+     * @var float|null
+     * @ORM\Column(type="float", nullable=true)
+     */
+    private $elapsedTime;
+
+    /**
      * @var UuidInterface
      * @ORM\Id
      * @ORM\Column(type="uuid", unique=true)
@@ -96,10 +102,11 @@ class RectorRun
         return $this->contentDiff ?: '';
     }
 
-    public function updateResult(string $contentDiff, string $resultJson): void
+    public function success(string $contentDiff, string $resultJson, float $elapsedTime): void
     {
         $this->contentDiff = $contentDiff;
         $this->resultJson = $resultJson;
+        $this->elapsedTime = $elapsedTime;
     }
 
     public function isSuccessful(): bool
@@ -112,9 +119,10 @@ class RectorRun
         return $this->errorMessage;
     }
 
-    public function fail(string $errorMessage): void
+    public function fail(string $errorMessage, float $elapsedTime): void
     {
         $this->errorMessage = $errorMessage;
+        $this->elapsedTime = $elapsedTime;
     }
 
     private function calculateContentHash(string $content): string

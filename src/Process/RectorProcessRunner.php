@@ -33,7 +33,6 @@ final class RectorProcessRunner
      */
     private $rectorDemoDockerImage;
 
-
     public function __construct(string $hostDemoDir, string $localDemoDir, string $rectorDemoDockerImage)
     {
         $this->hostDemoDir = $hostDemoDir;
