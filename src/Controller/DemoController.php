@@ -9,11 +9,12 @@ use Nette\Utils\FileSystem;
 use Nette\Utils\Json;
 use Nette\Utils\Strings;
 use Ramsey\Uuid\Uuid;
+use Ramsey\Uuid\UuidInterface;
 use Rector\Website\Entity\RectorRun;
 use Rector\Website\Form\DemoFormType;
-use Rector\Website\Form\RectorRunFormData;
 use Rector\Website\Process\RectorProcessRunner;
 use Rector\Website\Repository\RectorRunRepository;
+use Rector\Website\ValueObject\RectorRunFormData;
 use function Sentry\captureException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormInterface;
@@ -43,23 +44,15 @@ final class DemoController extends AbstractController
     }
 
     /**
-     * @Route(path="demo/{id}", name="demo_detail", methods={"GET", "POST"})
+     * @Route(path="demo/{uuid}", name="demo_detail", methods={"GET", "POST"})
      * @Route(path="demo", name="demo", methods={"GET", "POST"})
      */
-    public function __invoke(Request $request): Response
+    public function __invoke(Request $request, ?UuidInterface $uuid = null): Response
     {
-        $formData = new RectorRunFormData();
-        $rectorRun = null;
-        $rectorRunId = $request->attributes->get('id');
+        $formData = $this->createRectorRunFormData();
 
-        $demoFileContent = FileSystem::read(__DIR__ . '/../../data/DemoFile.php');
-        $demoConfig = FileSystem::read(__DIR__ . '/../../data/demo-config.yaml');
-
-        $formData->setContent($demoFileContent);
-        $formData->setConfig($demoConfig);
-
-        if ($rectorRunId) {
-            $rectorRun = $this->rectorRunRepository->get(Uuid::fromString($rectorRunId));
+        if ($uuid) {
+            $rectorRun = $this->rectorRunRepository->get($uuid);
 
             $formData->setContent($rectorRun->getContent());
             $formData->setConfig($rectorRun->getConfig());
@@ -74,17 +67,28 @@ final class DemoController extends AbstractController
 
         return $this->render('homepage/demo.twig', [
             'demo_form' => $form->createView(),
-            'rector_run' => $rectorRun,
+            'rector_run' => $rectorRun ?? null,
         ]);
+    }
+
+    private function createRectorRunFormData(): RectorRunFormData
+    {
+        $demoFileContent = FileSystem::read(__DIR__ . '/../../data/DemoFile.php');
+        $demoConfig = FileSystem::read(__DIR__ . '/../../data/demo-config.yaml');
+
+        $formData = new RectorRunFormData();
+        $formData->setContent($demoFileContent);
+        $formData->setConfig($demoConfig);
+        return $formData;
     }
 
     private function processFormAndReturnRoute(FormInterface $form): RedirectResponse
     {
-        /** @var RectorRunFormData $formData */
-        $formData = $form->getData();
-        $config = $formData->getConfig();
+        /** @var RectorRunFormData $rectorRunFormData */
+        $rectorRunFormData = $form->getData();
+        $config = $rectorRunFormData->getConfig();
 
-        $rectorRun = $this->createRectorRun($config, $formData);
+        $rectorRun = $this->createRectorRun($config, $rectorRunFormData);
 
         $this->rectorRunRepository->save($rectorRun);
 

@@ -15,13 +15,6 @@ use Symfony\Component\Stopwatch\StopwatchEvent;
 class RectorRun
 {
     /**
-     * @var UuidInterface
-     * @ORM\Id
-     * @ORM\Column(type="uuid", unique=true)
-     */
-    private $id;
-
-    /**
      * @ORM\Column(type="text")
      * @var string
      */
@@ -56,6 +49,13 @@ class RectorRun
      * @ORM\Column(type="float", nullable=true)
      */
     private $elapsedTime;
+
+    /**
+     * @var UuidInterface
+     * @ORM\Id
+     * @ORM\Column(type="uuid", unique=true)
+     */
+    private $id;
 
     /**
      * @var DateTimeImmutable

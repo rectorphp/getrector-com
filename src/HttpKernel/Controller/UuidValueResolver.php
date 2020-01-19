@@ -16,23 +16,24 @@ use Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadata;
  */
 final class UuidValueResolver implements ArgumentValueResolverInterface
 {
-    public function supports(Request $request, ArgumentMetadata $argument): bool
+    public function supports(Request $request, ArgumentMetadata $argumentMetadata): bool
     {
-        if (! is_a($argument->getType(), UuidInterface::class, true)) {
+        if ($argumentMetadata->getType() === null) {
             return false;
         }
 
-        $argumentValue = $request->get($argument->getName());
+        if (! is_a($argumentMetadata->getType(), UuidInterface::class, true)) {
+            return false;
+        }
+
+        $argumentValue = $request->get($argumentMetadata->getName());
 
         return $argumentValue !== null;
     }
 
-    /**
-     * @return UuidInterface|null
-     */
-    public function resolve(Request $request, ArgumentMetadata $argument): Iterator
+    public function resolve(Request $request, ArgumentMetadata $argumentMetadata): Iterator
     {
-        $argumentValue = $request->get($argument->getName());
+        $argumentValue = $request->get($argumentMetadata->getName());
 
         yield Uuid::fromString($argumentValue);
     }
