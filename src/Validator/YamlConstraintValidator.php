@@ -15,6 +15,7 @@ use Symfony\Component\Validator\ConstraintValidator;
  * It is needed for per-input error render in a form.
  *
  * @see https://symfony.com/doc/current/validation/custom_constraint.html#creating-the-validator-itself
+ * @see YamlConstraint
  */
 final class YamlConstraintValidator extends ConstraintValidator
 {

@@ -12,6 +12,7 @@ use Symfony\Component\Validator\ConstraintValidator;
 
 /**
  * @see https://symfony.com/doc/current/validation/custom_constraint.html#creating-the-validator-itself
+ * @see PHPConstraint
  */
 final class PHPConstraintValidator extends ConstraintValidator
 {
@@ -26,6 +27,7 @@ final class PHPConstraintValidator extends ConstraintValidator
     }
 
     /**
+     * @param string $value
      * @param PHPConstraint $constraint
      */
     public function validate($value, Constraint $constraint): void

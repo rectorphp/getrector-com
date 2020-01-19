@@ -17,7 +17,7 @@ final class YamlConstraint extends Constraint
     /**
      * @var string
      */
-    public $message = 'The string "{{ string }}" is not valid YAML';
+    public $message = 'Value "%string%" is not a valid YAML';
 
     public function validatedBy(): string
     {
