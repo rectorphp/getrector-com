@@ -83,12 +83,7 @@ final class DemoController extends AbstractController
         $formData = $form->getData();
         $setName = $formData->getSetName();
 
-        $rectorRun = new RectorRun(
-            Uuid::uuid4(),
-            new DateTimeImmutable(),
-            $setName,
-            $formData->getContent()
-        );
+        $rectorRun = new RectorRun(Uuid::uuid4(), new DateTimeImmutable(), $setName, $formData->getContent());
 
         $this->rectorRunRepository->save($rectorRun);
 
@@ -120,13 +115,6 @@ final class DemoController extends AbstractController
         return $this->redirectToDetail($rectorRun);
     }
 
-    private function redirectToDetail(RectorRun $rectorRun): RedirectResponse
-    {
-        return $this->redirectToRoute('demo_detail', [
-            'id' => $rectorRun->getId()->toString(),
-        ]);
-    }
-
     private function cleanFileDiff(string $fileDiff): string
     {
         // https://regex101.com/r/sI6GVY/1/
@@ -138,5 +126,12 @@ final class DemoController extends AbstractController
         }
 
         return $fileDiff;
+    }
+
+    private function redirectToDetail(RectorRun $rectorRun): RedirectResponse
+    {
+        return $this->redirectToRoute('demo_detail', [
+            'id' => $rectorRun->getId()->toString(),
+        ]);
     }
 }
