@@ -25,4 +25,4 @@ services:
     # see https://symfony.com/doc/current/controller/argument_value_resolver.html
     Rector\Website\HttpKernel\Controller\UuidValueResolver:
         tags:
-            - { name: controller.argument_value_resolver, priority: 50 }
+            - { name: controller.argument_value_resolver, priority: 500 }
