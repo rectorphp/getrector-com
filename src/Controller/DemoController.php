@@ -22,6 +22,11 @@ use Symfony\Component\Routing\Annotation\Route;
 final class DemoController extends AbstractController
 {
     /**
+     * @var string[][]
+     */
+    private $demoLinks = [];
+
+    /**
      * @var RectorRunRepository
      */
     private $rectorRunRepository;
@@ -31,10 +36,14 @@ final class DemoController extends AbstractController
      */
     private $demoRunner;
 
-    public function __construct(RectorRunRepository $rectorRunRepository, DemoRunner $demoRunner)
+    /**
+     * @param string[][] $demoLinks
+     */
+    public function __construct(RectorRunRepository $rectorRunRepository, DemoRunner $demoRunner, array $demoLinks)
     {
         $this->rectorRunRepository = $rectorRunRepository;
         $this->demoRunner = $demoRunner;
+        $this->demoLinks = $demoLinks;
     }
 
     /**
@@ -45,19 +54,20 @@ final class DemoController extends AbstractController
     {
         $formData = $this->createDemoFormData($rectorRun);
 
-        $form = $this->createForm(DemoFormType::class, $formData, [
+        $demoForm = $this->createForm(DemoFormType::class, $formData, [
             // this is needed for manual render
             'action' => $this->generateUrl('demo'),
         ]);
-        $form->handleRequest($request);
+        $demoForm->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            return $this->processFormAndReturnRoute($form);
+        if ($demoForm->isSubmitted() && $demoForm->isValid()) {
+            return $this->processFormAndReturnRoute($demoForm);
         }
 
         return $this->render('homepage/demo.twig', [
-            'demo_form' => $form->createView(),
-            'rector_run' => $rectorRun ?? null,
+            'demo_form' => $demoForm->createView(),
+            'rector_run' => $rectorRun,
+            'demo_links' => $this->demoLinks,
         ]);
     }
 

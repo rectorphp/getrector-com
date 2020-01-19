@@ -3,6 +3,17 @@ parameters:
     host_demo_dir: '%env(HOST_DEMO_DIR)%'
     rector_demo_docker_image: 'rector/rector:0.6.11'
 
+    demo_links:
+        -
+            label: "PHP 7.4 Typed Properties"
+            uuid:
+        -
+            label: "create_function()"
+            uuid:
+        -
+            label: "Add @var type"
+            uuid:
+
 services:
     _defaults:
         public: true

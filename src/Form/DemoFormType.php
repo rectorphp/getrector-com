@@ -39,7 +39,7 @@ final class DemoFormType extends AbstractType
         $formBuilder->add('process', SubmitType::class, [
             'label' => 'Process!',
             'attr' => [
-                'class' => 'btn btn-lg btn-success m-auto',
+                'class' => 'btn btn-lg btn-success m-auto btn-demo-submit',
             ],
         ]);
     }

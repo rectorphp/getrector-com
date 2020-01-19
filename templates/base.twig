@@ -10,7 +10,8 @@
     <body id="{% block body_id %}{% endblock %}">
         {% block body %}
             <div id="main">
-                {% if small_headline_design is defined and small_headline_design == true %}
+                {% if no_headline_design is defined %}
+                {% elseif small_headline_design is defined %}
                     <section id="small_header">
                         <div class="container">
                             <div class="row">

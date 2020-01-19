@@ -59,3 +59,11 @@
         });
     });
 </script>
+
+
+<script type="text/javascript">
+    $('.btn-demo-submit').on('click', function (event) {
+        $(this).prepend('<em class="fas fa-sync-alt fa-spin"></em>&nbsp;&nbsp;&nbsp;');
+        $(this).form.submit();
+    });
+</script>
