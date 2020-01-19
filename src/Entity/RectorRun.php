@@ -27,16 +27,10 @@ class RectorRun
     private $contentDiff;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="text")
      * @var string
      */
-    private $contentHash;
-
-    /**
-     * @ORM\Column(type="string")
-     * @var string
-     */
-    private $setName;
+    private $config;
 
     /**
      * @ORM\Column(type="text", nullable=true)
@@ -69,13 +63,12 @@ class RectorRun
      */
     private $executedAt;
 
-    public function __construct(UuidInterface $id, DateTimeImmutable $executedAt, string $setName, string $content)
+    public function __construct(UuidInterface $id, DateTimeImmutable $executedAt, string $config, string $content)
     {
         $this->id = $id;
         $this->executedAt = $executedAt;
-        $this->setName = $setName;
+        $this->config = $config;
         $this->content = $content;
-        $this->contentHash = $this->calculateContentHash($content);
     }
 
     public function getId(): UuidInterface
@@ -88,14 +81,9 @@ class RectorRun
         return $this->content;
     }
 
-    public function getSetName(): string
+    public function getConfig(): string
     {
-        return $this->setName;
-    }
-
-    public function getContentHash(): string
-    {
-        return $this->contentHash ?: '';
+        return $this->config;
     }
 
     public function getContentDiff(): string
@@ -124,11 +112,6 @@ class RectorRun
     {
         $this->errorMessage = $errorMessage;
         $this->updateTimeElapsed($stopwatchEvent);
-    }
-
-    private function calculateContentHash(string $content): string
-    {
-        return hash('sha256', $content);
     }
 
     private function updateTimeElapsed(StopwatchEvent $stopwatchEvent): void

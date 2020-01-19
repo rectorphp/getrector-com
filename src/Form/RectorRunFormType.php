@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Website\Form;
 
-use Rector\Set\SetProvider;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -28,14 +26,13 @@ final class RectorRunFormType extends AbstractType
             ],
         ]);
 
-        $setProvider = new SetProvider();
-        $sets = $setProvider->provide();
-        $sets = array_combine($sets, $sets);
-
-        $formBuilder->add('set_name', ChoiceType::class, [
-            'label' => 'Set',
+        $formBuilder->add('config', TextareaType::class, [
+            'label' => 'Rector config',
             'required' => true,
-            'choices' => $sets,
+            'attr' => [
+                'rows' => 10,
+                'cols' => 150,
+            ],
         ]);
 
         $formBuilder->add('process', SubmitType::class, [
