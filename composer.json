@@ -65,6 +65,11 @@
             "Rector\\Website\\Blog\\": "packages/Blog/src"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Rector\\Website\\Tests\\": "tests"
+        }
+    },
     "scripts": {
         "auto-scripts": {
             "cache:clear": "symfony-cmd",

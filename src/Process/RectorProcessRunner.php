@@ -8,7 +8,7 @@ use Nette\Utils\FileSystem;
 use Nette\Utils\Json;
 use Rector\Website\Entity\RectorRun;
 use Rector\Website\Lint\PHPFileLinter;
-use Rector\Website\Lint\YamlFileLinter;
+use Rector\Website\Lint\YamlLinter;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
 
@@ -50,22 +50,22 @@ final class RectorProcessRunner
     private $rectorDemoDockerImage;
 
     /**
-     * @var YamlFileLinter
+     * @var YamlLinter
      */
-    private $yamlFileLinter;
+    private $yamlLinter;
 
     public function __construct(
         string $hostDemoDir,
         string $localDemoDir,
         string $rectorDemoDockerImage,
         PHPFileLinter $phpFileLinter,
-        YamlFileLinter $yamlFileLinter
+        YamlLinter $yamlLinter
     ) {
         $this->hostDemoDir = $hostDemoDir;
         $this->localDemoDir = $localDemoDir;
         $this->rectorDemoDockerImage = $rectorDemoDockerImage;
         $this->phpFileLinter = $phpFileLinter;
-        $this->yamlFileLinter = $yamlFileLinter;
+        $this->yamlLinter = $yamlLinter;
     }
 
     /**
@@ -100,7 +100,7 @@ final class RectorProcessRunner
         $this->phpFileLinter->checkFileSyntax($phpFilePath);
 
         $configFilePath = $this->createTempRunFile($runId, self::CONFIG_NAME, $rectorRun->getConfig());
-        $this->yamlFileLinter->checkFileSyntax($configFilePath);
+        $this->yamlLinter->checkFileSyntax($configFilePath);
 
         return new Process([
             'docker', 'run',

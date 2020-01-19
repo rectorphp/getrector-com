@@ -12,10 +12,11 @@ services:
     Rector\Website\:
         resource: '../src/'
         exclude:
-            - '../src/GetRectorKernel.php'
             - '../src/Entity/*'
-            - '../src/ValueObject/*'
             - '../src/Exception/*'
+            - '../src/GetRectorKernel.php'
+            - '../src/ValueObject/*'
+            - '../src/Validator/Constraint/*'
 
     Symplify\PackageBuilder\Console\Style\SymfonyStyleFactory: ~
     Symfony\Component\Console\Style\SymfonyStyle:
