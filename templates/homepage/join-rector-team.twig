@@ -1,0 +1,29 @@
+{% extends "base.twig" %}
+
+{% set page_title %}Join Rector Team{% endset %}
+
+{% block main %}
+    <div class="container" id="subpage">
+        <h2>Do you...</h2>
+
+        <ul class="text-bigger">
+            <li>find automated instant migrations amazing?</li>
+            <li>contribute to Rector on Github?</li>
+            <li>find yourself a person that always resolves the most difficult task in your team?</li>
+        </ul>
+
+        <h2>Would you like to...</h2>
+
+        <ul class="text-bigger">
+            <li>learn to work with abstract syntax tree?</li>
+            <li>work on the most disgusting old huge big pile of legacy PHP code?</li>
+            <li>join the biggest magic movement in PHP hasever seen?</li>
+        </ul>
+
+        <br>
+
+        <p class="text-bigger">
+            <strong>We want you!</strong> <a href="{{ path('contact') }}">Let's talk</a>
+        </p>
+    </div>
+{% endblock %}

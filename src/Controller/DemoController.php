@@ -64,7 +64,7 @@ final class DemoController extends AbstractController
             return $this->processFormAndReturnRoute($demoForm);
         }
 
-        return $this->render('homepage/demo.twig', [
+        return $this->render('demo/demo.twig', [
             'demo_form' => $demoForm->createView(),
             'rector_run' => $rectorRun,
             'demo_links' => $this->demoLinks,
