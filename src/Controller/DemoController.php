@@ -120,7 +120,9 @@ final class DemoController extends AbstractController
 
         $this->rectorRunRepository->save($rectorRun);
 
-        return $this->redirectToDetail($rectorRun);
+        return $this->redirectToRoute('demo_detail', [
+            'id' => $rectorRun->getId()->toString(),
+        ]);
     }
 
     private function createRectorRun(string $config, DemoFormData $demoFormData): RectorRun
@@ -138,12 +140,5 @@ final class DemoController extends AbstractController
         }
 
         return $rectorRun->getContent();
-    }
-
-    private function redirectToDetail(RectorRun $rectorRun): RedirectResponse
-    {
-        return $this->redirectToRoute('demo_detail', [
-            'id' => $rectorRun->getId()->toString(),
-        ]);
     }
 }
