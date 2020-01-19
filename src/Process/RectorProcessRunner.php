@@ -8,6 +8,7 @@ use Nette\Utils\FileSystem;
 use Nette\Utils\Json;
 use Rector\Website\Entity\RectorRun;
 use Rector\Website\Lint\PHPFileLinter;
+use Rector\Website\Lint\YamlFileLinter;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
 
@@ -48,16 +49,23 @@ final class RectorProcessRunner
      */
     private $rectorDemoDockerImage;
 
+    /**
+     * @var YamlFileLinter
+     */
+    private $yamlFileLinter;
+
     public function __construct(
         string $hostDemoDir,
         string $localDemoDir,
         string $rectorDemoDockerImage,
-        PHPFileLinter $phpFileLinter
+        PHPFileLinter $phpFileLinter,
+        YamlFileLinter $yamlFileLinter
     ) {
         $this->hostDemoDir = $hostDemoDir;
         $this->localDemoDir = $localDemoDir;
         $this->rectorDemoDockerImage = $rectorDemoDockerImage;
         $this->phpFileLinter = $phpFileLinter;
+        $this->yamlFileLinter = $yamlFileLinter;
     }
 
     /**
@@ -88,10 +96,11 @@ final class RectorProcessRunner
         $runId = $rectorRun->getId()->toString();
         $volumeSourcePath = $this->hostDemoDir . '/' . $runId;
 
-        $phpFile = $this->createTempRunFile($runId, self::ANALYZED_FILE_NAME, $rectorRun->getContent());
-        $this->checkPhpFileSyntax($phpFile);
+        $phpFilePath = $this->createTempRunFile($runId, self::ANALYZED_FILE_NAME, $rectorRun->getContent());
+        $this->phpFileLinter->checkFileSyntax($phpFilePath);
 
-        $this->createTempRunFile($runId, self::CONFIG_NAME, $rectorRun->getConfig());
+        $configFilePath = $this->createTempRunFile($runId, self::CONFIG_NAME, $rectorRun->getConfig());
+        $this->yamlFileLinter->checkFileSyntax($configFilePath);
 
         return new Process([
             'docker', 'run',
@@ -147,11 +156,6 @@ final class RectorProcessRunner
         FileSystem::write($absolutePath, $fileContent);
 
         return $absolutePath;
-    }
-
-    private function checkPhpFileSyntax(string $absolutePath): void
-    {
-        $this->phpFileLinter->lintFile($absolutePath);
     }
 
     private function removeContainer(string $containerName): void

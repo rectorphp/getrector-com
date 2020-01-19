@@ -10,7 +10,7 @@ use Symfony\Component\Process\Process;
 
 final class PHPFileLinter
 {
-    public function lintFile(string $absoluteFilePath): void
+    public function checkFileSyntax(string $absoluteFilePath): void
     {
         $this->checkOpeningPhpTag($absoluteFilePath);
 
