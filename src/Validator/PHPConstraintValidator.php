@@ -7,7 +7,7 @@ namespace Rector\Website\Validator;
 use Nette\Utils\Strings;
 use Rector\Website\Exception\Linter\MissingPHPOpeningTagException;
 use Rector\Website\Exception\LintingException;
-use Rector\Website\Lint\PHPFileLinter;
+use Rector\Website\Lint\PHPLinter;
 use Rector\Website\Validator\Constraint\PHPConstraint;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
@@ -18,13 +18,13 @@ use Symfony\Component\Validator\ConstraintValidator;
 final class PHPConstraintValidator extends ConstraintValidator
 {
     /**
-     * @var PHPFileLinter
+     * @var PHPLinter
      */
-    private $phpFileLinter;
+    private $phpLinter;
 
-    public function __construct(PHPFileLinter $phpFileLinter)
+    public function __construct(PHPLinter $phpLinter)
     {
-        $this->phpFileLinter = $phpFileLinter;
+        $this->phpLinter = $phpLinter;
     }
 
     /**
@@ -34,7 +34,7 @@ final class PHPConstraintValidator extends ConstraintValidator
     public function validate($value, Constraint $constraint): void
     {
         try {
-            $this->phpFileLinter->checkContentSyntax($value);
+            $this->phpLinter->checkContentSyntax($value);
         } catch (MissingPHPOpeningTagException $missingPHPOpeningTagException) {
             $this->context->buildViolation('Add opening "<?php" tag')
                 ->addViolation();

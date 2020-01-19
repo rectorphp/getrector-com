@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Rector\Website\Tests\Validator;
 
 use Iterator;
+use Nette\Utils\FileSystem;
 use Rector\Website\GetRectorKernel;
 use Rector\Website\ValueObject\DemoFormData;
 use Symfony\Component\Validator\ConstraintViolation;
@@ -42,6 +43,9 @@ final class PHPConstraintValidatorTest extends AbstractKernelTestCase
     {
         yield ['<?php echo "hi";'];
         yield [' <?php echo "hi";'];
+
+        $classContent = FileSystem::read(__DIR__ . '/Fixture/class.php.inc');
+        yield [$classContent];
     }
 
     /**
