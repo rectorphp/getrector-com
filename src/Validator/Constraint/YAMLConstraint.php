@@ -5,22 +5,17 @@ declare(strict_types=1);
 namespace Rector\Website\Validator\Constraint;
 
 use Doctrine\Common\Annotations\Annotation\Target;
-use Rector\Website\Validator\YamlConstraintValidator;
+use Rector\Website\Validator\YAMLConstraintValidator;
 use Symfony\Component\Validator\Constraint;
 
 /**
  * @Annotation
  * @Target({"PROPERTY", "ANNOTATION"})
  */
-final class YamlConstraint extends Constraint
+final class YAMLConstraint extends Constraint
 {
-    /**
-     * @var string
-     */
-    public $message = 'Value "%string%" is not a valid YAML';
-
     public function validatedBy(): string
     {
-        return YamlConstraintValidator::class;
+        return YAMLConstraintValidator::class;
     }
 }

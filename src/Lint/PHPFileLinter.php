@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Rector\Website\Lint;
 
 use Nette\Utils\Strings;
+use Rector\Website\Exception\Linter\MissingPHPOpeningTagException;
 use Rector\Website\Exception\LintingException;
 use Symfony\Component\Process\Process;
 
@@ -27,10 +28,10 @@ final class PHPFileLinter
 
     private function checkOpeningPhpTag(string $content): void
     {
-        if (Strings::startsWith($content, '<?php')) {
+        if (Strings::match($content, '#(\s+)?\<\?php#')) {
             return;
         }
 
-        throw new LintingException('Complete opening php tag "<?php"');
+        throw new MissingPHPOpeningTagException();
     }
 }

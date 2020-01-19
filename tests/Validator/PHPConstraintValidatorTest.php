@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Website\Tests\Validator;
 
+use Iterator;
 use Rector\Website\GetRectorKernel;
 use Rector\Website\ValueObject\DemoFormData;
 use Symfony\Component\Validator\ConstraintViolation;
@@ -20,7 +21,6 @@ final class PHPConstraintValidatorTest extends AbstractKernelTestCase
     protected function setUp(): void
     {
         self::bootKernel(GetRectorKernel::class);
-
         $this->validator = self::$container->get(ValidatorInterface::class);
     }
 
@@ -35,17 +35,17 @@ final class PHPConstraintValidatorTest extends AbstractKernelTestCase
         $this->assertCount(0, $constraints);
     }
 
-    public function provideDataForTestValidPHPSyntax()
+    public function provideDataForTestValidPHPSyntax(): Iterator
     {
         yield ['<?php echo "hi";'];
+        yield [' <?php echo "hi";'];
     }
 
     /**
-     * @dataProvider provideDataForTestInvalidPHPSyntax()
+     * @dataProvider provideDataForTestMissingPHPOpeningTag()
      */
-    public function testInvalidPHPSyntax(string $content): void
+    public function testMissingPHPOpeningTag(string $content): void
     {
-
         $demoFormData = new DemoFormData($content, '');
         $constraints = $this->validator->validate($demoFormData);
 
@@ -54,12 +54,36 @@ final class PHPConstraintValidatorTest extends AbstractKernelTestCase
         /** @var ConstraintViolation $constraintViolation */
         $constraintViolation = $constraints[0];
 
+        $this->assertSame('Add opening "<?php" tag', $constraintViolation->getMessage());
+    }
+
+    public function provideDataForTestMissingPHPOpeningTag(): Iterator
+    {
+        yield ['php echo'];
+        yield ['echo'];
+    }
+
+    /**
+     * @dataProvider provideDataForTestInvalidPHPSyntax()
+     */
+    public function testInvalidPHPSyntax(string $content): void
+    {
+        $demoFormData = new DemoFormData($content, '');
+        $constraints = $this->validator->validate($demoFormData);
+
+        $this->assertCount(1, $constraints);
+
+        /** @var ConstraintViolation $constraintViolation */
+        $constraintViolation = $constraints[0];
+
+        dump($constraintViolation->getMessage());
+
         $expectedMessage = sprintf('Value "%s" is not a valid PHP', $content);
         $this->assertSame($expectedMessage, $constraintViolation->getMessage());
     }
 
-    public function provideDataForTestInvalidPHPSyntax()
+    public function provideDataForTestInvalidPHPSyntax(): Iterator
     {
-        yield ['invalid php echo'];
+        yield ['<?php echo " . '];
     }
 }

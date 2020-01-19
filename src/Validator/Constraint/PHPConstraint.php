@@ -14,11 +14,6 @@ use Symfony\Component\Validator\Constraint;
  */
 final class PHPConstraint extends Constraint
 {
-    /**
-     * @var string
-     */
-    public $message = 'Value "%string%" is not a valid PHP';
-
     public function validatedBy(): string
     {
         return PHPConstraintValidator::class;

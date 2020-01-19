@@ -6,7 +6,7 @@ namespace Rector\Website\Validator;
 
 use Rector\Website\Exception\LintingException;
 use Rector\Website\Lint\YamlLinter;
-use Rector\Website\Validator\Constraint\YamlConstraint;
+use Rector\Website\Validator\Constraint\YAMLConstraint;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
 
@@ -17,7 +17,7 @@ use Symfony\Component\Validator\ConstraintValidator;
  * @see https://symfony.com/doc/current/validation/custom_constraint.html#creating-the-validator-itself
  * @see YamlConstraint
  */
-final class YamlConstraintValidator extends ConstraintValidator
+final class YAMLConstraintValidator extends ConstraintValidator
 {
     /**
      * @var YamlLinter
@@ -38,8 +38,8 @@ final class YamlConstraintValidator extends ConstraintValidator
         try {
             $this->yamlLinter->checkContentSyntax($value);
         } catch (LintingException $lintingException) {
-            $this->context->buildViolation($constraint->message)
-                ->setParameter('%string%', $value)
+            $this->context->buildViolation('Fix YAML: %error%')
+                ->setParameter('%error%', $lintingException->getMessage())
                 ->addViolation();
         }
     }
