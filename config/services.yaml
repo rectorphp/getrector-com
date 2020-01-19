@@ -3,13 +3,19 @@ parameters:
     host_demo_dir: '%env(HOST_DEMO_DIR)%'
     rector_demo_docker_image: 'rector/rector:0.6.11'
 
+    # @todo
     demo_links:
+        # https://github.com/rectorphp/rector/blob/master/docs/AllRectorsOverview.md#typedpropertyrector
         -
             label: "PHP 7.4 Typed Properties"
             uuid:
+
+        # https://github.com/rectorphp/rector/blob/master/docs/AllRectorsOverview.md#createfunctiontoanonymousfunctionrector
         -
             label: "create_function()"
             uuid:
+
+        # https://github.com/rectorphp/rector/blob/master/docs/AllRectorsOverview.md#completevardoctypepropertyrector
         -
             label: "Add @var type"
             uuid:
