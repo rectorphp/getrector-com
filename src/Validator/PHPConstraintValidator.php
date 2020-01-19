@@ -26,7 +26,6 @@ final class PHPConstraintValidator extends ConstraintValidator
     }
 
     /**
-     * @param string $value
      * @param PHPConstraint $constraint
      */
     public function validate($value, Constraint $constraint): void

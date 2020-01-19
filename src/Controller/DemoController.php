@@ -77,21 +77,15 @@ final class DemoController extends AbstractController
 
     private function createDemoFormData(?RectorRun $rectorRun): DemoFormData
     {
-        $formData = new DemoFormData();
-
         if ($rectorRun) {
-            $formData->setContent($rectorRun->getContent());
-            $formData->setConfig($rectorRun->getConfig());
-        } else {
-            // default values
-            $demoFileContent = FileSystem::read(__DIR__ . '/../../data/DemoFile.php');
-            $demoConfig = FileSystem::read(__DIR__ . '/../../data/demo-config.yaml');
-
-            $formData->setContent($demoFileContent);
-            $formData->setConfig($demoConfig);
+            return new DemoFormData($rectorRun->getContent(), $rectorRun->getConfig());
         }
 
-        return $formData;
+        // default values
+        $demoContent = FileSystem::read(__DIR__ . '/../../data/DemoFile.php');
+        $demoConfig = FileSystem::read(__DIR__ . '/../../data/demo-config.yaml');
+
+        return new DemoFormData($demoContent, $demoConfig);
     }
 
     private function processFormAndReturnRoute(FormInterface $form): RedirectResponse

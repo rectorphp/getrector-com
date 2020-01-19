@@ -23,6 +23,12 @@ final class DemoFormData
      */
     private $config;
 
+    public function __construct(string $content, string $config)
+    {
+        $this->content = $content;
+        $this->config = $config;
+    }
+
     public function getContent(): string
     {
         return $this->content;
