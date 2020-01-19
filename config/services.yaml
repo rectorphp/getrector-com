@@ -13,10 +13,16 @@ services:
         resource: '../src/'
         exclude:
             - '../src/GetRectorKernel.php'
-            - '../src/Entity'
-            - '*FormData.php'
-            - '*Exception.php'
+            - '../src/Entity/*'
+            - '../src/ValueObject/*'
+            - '../src/Exception/*'
 
     Symplify\PackageBuilder\Console\Style\SymfonyStyleFactory: ~
     Symfony\Component\Console\Style\SymfonyStyle:
         factory: ['@Symplify\PackageBuilder\Console\Style\SymfonyStyleFactory', 'create']
+
+    # needs to be registered manually, because it doesn't work without priority :/
+    # see https://symfony.com/doc/current/controller/argument_value_resolver.html
+    Rector\Website\HttpKernel\Controller\RectorRunValueResolver:
+        tags:
+            - { name: controller.argument_value_resolver, priority: 550 }

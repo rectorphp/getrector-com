@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Lint;
+namespace Rector\Website\Exception;
 
 use RuntimeException;
 

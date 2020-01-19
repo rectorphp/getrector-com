@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Form;
+namespace Rector\Website\ValueObject;
 
-final class RectorRunFormData
+final class DemoFormData
 {
     /**
      * @var string

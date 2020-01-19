@@ -100,7 +100,11 @@ class RectorRun
 
     public function isSuccessful(): bool
     {
-        return $this->errorMessage === null && $this->resultJson !== null;
+        if ($this->errorMessage !== null) {
+            return false;
+        }
+
+        return $this->resultJson !== null;
     }
 
     public function getErrorMessage(): ?string

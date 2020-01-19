@@ -15,14 +15,10 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 
 /* ---------------------------------------------------- */
 
-* {
-    font-size: 18px;
-}
-
 body {
+    font-size: 18px;
     font-family: 'Source Sans Pro', sans-serif;
     overflow-x: hidden;
-    font-size: 18px;
 }
 
 a, a:hover, a:focus, button, button:focus {
@@ -310,3 +306,44 @@ h1 em, h2 em, h2 a {
     font-size: 1.3em;
 }
 
+#small_header {
+    background: #222;
+
+    h1 {
+        text-align: left;
+        font-size: 2.2em;
+        line-height: 1.3em;
+        margin-bottom: 0;
+    }
+}
+
+.demo_form_code {
+    width: 100%;
+}
+
+#rector_run_form {
+    /* code highlight */
+    .CodeMirror {
+        border: 1px solid grey;
+        font-size: .8em;
+
+        height: 100%;
+    }
+
+    .codemirror_php {
+        .CodeMirror {
+            min-height: 20em;
+
+        }
+    }
+
+    .codemirror_yaml {
+        .CodeMirror {
+            min-height: 5em;
+        }
+    }
+}
+
+#demo {
+    min-height: 40em;
+}

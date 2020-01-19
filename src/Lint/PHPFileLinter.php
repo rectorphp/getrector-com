@@ -6,6 +6,7 @@ namespace Rector\Website\Lint;
 
 use Nette\Utils\FileSystem;
 use Nette\Utils\Strings;
+use Rector\Website\Exception\LintingException;
 use Symfony\Component\Process\Process;
 
 final class PHPFileLinter
