@@ -53,15 +53,16 @@ final class DemoController extends AbstractController
         $rectorRunId = $request->attributes->get('id');
 
         $demoFileContent = FileSystem::read(__DIR__ . '/../../data/DemoFile.php');
+        $demoConfig = FileSystem::read(__DIR__ . '/../../data/demo-config.yaml');
 
         $formData->setContent($demoFileContent);
-        $formData->setSetName('dead-code');
+        $formData->setConfig($demoConfig);
 
         if ($rectorRunId) {
             $rectorRun = $this->rectorRunRepository->get(Uuid::fromString($rectorRunId));
 
             $formData->setContent($rectorRun->getContent());
-            $formData->setSetName($rectorRun->getSetName());
+            $formData->setConfig($rectorRun->getConfig());
         }
 
         $form = $this->createForm(RectorRunFormType::class, $formData);
@@ -81,9 +82,9 @@ final class DemoController extends AbstractController
     {
         /** @var RectorRunFormData $formData */
         $formData = $form->getData();
-        $setName = $formData->getSetName();
+        $config = $formData->getConfig();
 
-        $rectorRun = new RectorRun(Uuid::uuid4(), new DateTimeImmutable(), $setName, $formData->getContent());
+        $rectorRun = new RectorRun(Uuid::uuid4(), new DateTimeImmutable(), $config, $formData->getContent());
 
         $this->rectorRunRepository->save($rectorRun);
 

@@ -20,6 +20,11 @@ final class RectorProcessRunner
     /**
      * @var string
      */
+    private const CONFIG_NAME = 'rector.yaml';
+
+    /**
+     * @var string
+     */
     private const RECTOR_RESULT_FILE_NAME = 'result.json';
 
     /**
@@ -50,9 +55,9 @@ final class RectorProcessRunner
     public function run(RectorRun $rectorRun): array
     {
         $process = $this->createProcess($rectorRun);
-        $contentHash = $rectorRun->getContentHash();
+        $runId = $rectorRun->getId()->toString();
 
-        $this->registerCleanupOnShutdown($contentHash);
+        $this->registerCleanupOnShutdown($runId);
 
         $process->run();
 
@@ -61,46 +66,47 @@ final class RectorProcessRunner
         }
 
         if ($process->isSuccessful()) {
-            return $this->getRectorResult($contentHash);
+            return $this->getRectorResult($runId);
         }
 
-        throw new RectorRunFailedException($this->getProcessOutput($contentHash));
+        throw new RectorRunFailedException($this->getProcessOutput($runId));
     }
 
     private function createProcess(RectorRun $rectorRun): Process
     {
-        $contentHash = $rectorRun->getContentHash();
-        $volumeSourcePath = $this->hostDemoDir . '/' . $contentHash;
+        $runId = $rectorRun->getId()->toString();
+        $volumeSourcePath = $this->hostDemoDir . '/' . $runId;
 
-        $this->createTempPhpFile($contentHash, $rectorRun->getContent());
+        $this->createTempRunFile($runId, self::ANALYZED_FILE_NAME, $rectorRun->getContent());
+        $this->createTempRunFile($runId, self::CONFIG_NAME, $rectorRun->getConfig());
 
         return new Process([
             'docker', 'run',
-            '--name', $contentHash,
+            '--name', $runId,
             '--volume', $volumeSourcePath . ':/project',
             $this->rectorDemoDockerImage,
             'process', '/project/' . self::ANALYZED_FILE_NAME,
             '--output-format', 'json',
             '--output-file', '/project/' . self::RECTOR_RESULT_FILE_NAME,
-            '--set', $rectorRun->getSetName(),
+            '--config', '/project/' . self::CONFIG_NAME,
         ]);
     }
 
-    private function registerCleanupOnShutdown(string $contentHash): void
+    private function registerCleanupOnShutdown(string $runId): void
     {
-        register_shutdown_function(function () use ($contentHash): void {
-            $this->removeContainer($contentHash);
+        register_shutdown_function(function () use ($runId): void {
+            $this->removeContainer($runId);
 
-            FileSystem::delete($this->localDemoDir . '/' . $contentHash);
+            FileSystem::delete($this->localDemoDir . '/' . $runId);
         });
     }
 
     /**
      * @return mixed[]
      */
-    private function getRectorResult(string $contentHash): array
+    private function getRectorResult(string $runId): array
     {
-        $outputPath = sprintf('%s/%s/%s', $this->localDemoDir, $contentHash, self::RECTOR_RESULT_FILE_NAME);
+        $outputPath = sprintf('%s/%s/%s', $this->localDemoDir, $runId, self::RECTOR_RESULT_FILE_NAME);
         $result = FileSystem::read($outputPath);
 
         return Json::decode($result, Json::FORCE_ARRAY);
@@ -121,9 +127,9 @@ final class RectorProcessRunner
         return $process->getOutput();
     }
 
-    private function createTempPhpFile(string $contentHash, string $fileContent): string
+    private function createTempRunFile(string $runId, string $fileName, string $fileContent): string
     {
-        $tempFile = $contentHash . '/' . self::ANALYZED_FILE_NAME;
+        $tempFile = $runId . '/' . $fileName;
 
         FileSystem::write($this->localDemoDir . '/' . $tempFile, $fileContent);
 

@@ -14,7 +14,7 @@ final class RectorRunFormData
     /**
      * @var string
      */
-    private $setName;
+    private $config;
 
     public function getContent(): string
     {
@@ -26,13 +26,13 @@ final class RectorRunFormData
         $this->content = $content;
     }
 
-    public function getSetName(): string
+    public function getConfig(): string
     {
-        return $this->setName;
+        return $this->config;
     }
 
-    public function setSetName(string $setName): void
+    public function setConfig(string $config): void
     {
-        $this->setName = $setName;
+        $this->config = $config;
     }
 }
