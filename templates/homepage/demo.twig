@@ -32,6 +32,7 @@
             {{ form_row(demo_form.content) }}
             {{ form_row(demo_form.config) }}
 
+
             {# @see http://symfony.com/doc/current/security/csrf.html#csrf-protection-in-login-forms #}
             <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
