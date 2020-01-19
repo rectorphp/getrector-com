@@ -23,7 +23,7 @@ final class RectorRunFormType extends AbstractType
             'required' => true,
             'attr' => [
                 'rows' => 30,
-                'class' => 'demo_form_code codemirror_php'
+                'class' => 'codemirror_php'
             ],
         ]);
 
@@ -31,8 +31,7 @@ final class RectorRunFormType extends AbstractType
             'label' => 'Rector config',
             'required' => true,
             'attr' => [
-                'rows' => 10,
-                'cols' => 150,
+                'class' => 'codemirror_yaml'
             ],
         ]);
 
