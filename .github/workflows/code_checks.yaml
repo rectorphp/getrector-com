@@ -31,6 +31,20 @@ jobs:
             -   run: composer install --no-progress
             -   run: composer phpstan
 
+    lint_twig_yaml:
+        runs-on: ubuntu-latest
+        steps:
+            -   uses: actions/checkout@v2
+            -   uses: shivammathur/setup-php@v1
+                with:
+                    php-version: 7.3
+                    coverage: none
+
+            -   run: composer install --no-progress
+            -   run: bin/console lint:twig
+            -   run: bin/console lint:yaml config
+            -   run: bin/console lint:container
+
     rector:
         runs-on: ubuntu-latest
         steps:
