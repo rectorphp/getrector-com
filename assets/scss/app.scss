@@ -15,14 +15,11 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 
 /* ---------------------------------------------------- */
 
-* {
-    font-size: 18px;
-}
-
 body {
+    font-size: 18px;
     font-family: 'Source Sans Pro', sans-serif;
     overflow-x: hidden;
-    font-size: 18px;
+    //font-size: 18px;
 }
 
 a, a:hover, a:focus, button, button:focus {
@@ -322,8 +319,15 @@ h1 em, h2 em, h2 a {
 }
 
 .demo_form_code {
-    font-family: monospace;
-    font-size: 0.8em;
-    min-height: 20em;
     width: 100%;
+}
+
+#rector_run_form {
+    .CodeMirror {
+        border: 1px solid grey;
+        font-size: .9em;
+
+        height: 100%;
+        min-height: 20em;
+    }
 }

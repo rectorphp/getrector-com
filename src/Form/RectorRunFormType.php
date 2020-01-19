@@ -22,7 +22,8 @@ final class RectorRunFormType extends AbstractType
             'label' => false,
             'required' => true,
             'attr' => [
-                'class' => 'demo_form_code'
+                'rows' => 30,
+                'class' => 'demo_form_code codemirror_php'
             ],
         ]);
 
