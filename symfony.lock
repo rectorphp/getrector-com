@@ -412,6 +412,9 @@
             "config/bootstrap.php"
         ]
     },
+    "symfony/css-selector": {
+        "version": "v5.0.2"
+    },
     "symfony/debug": {
         "version": "4.4.x-dev"
     },
