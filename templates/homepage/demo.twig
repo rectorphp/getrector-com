@@ -4,7 +4,7 @@
 {% set small_headline_design = true %}
 
 {% block main %}
-    <div class="container-fluid mt-5 pl-5 pr-5" id="demo">
+    <div class="container-fluid mt-5 pl-5 pr-5 {% if rector_run is not null %}short{% endif %}" id="demo">
         {% form_theme demo_form 'bootstrap_4_layout.html.twig' %}
 
         <div id="rector_run_form">

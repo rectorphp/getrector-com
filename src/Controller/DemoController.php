@@ -52,7 +52,7 @@ final class DemoController extends AbstractController
     }
 
     /**
-     * @Route(path="demo/{rectorRun}", name="demo_detail", methods={"GET", "POST"})
+     * @Route(path="demo/{rectorRun}", name="demo_detail", methods={"GET"})
      * @Route(path="demo", name="demo", methods={"GET", "POST"})
      */
     public function __invoke(Request $request, ?RectorRun $rectorRun = null): Response
