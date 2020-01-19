@@ -15,6 +15,13 @@ use Symfony\Component\Stopwatch\StopwatchEvent;
 class RectorRun
 {
     /**
+     * @var UuidInterface
+     * @ORM\Id
+     * @ORM\Column(type="uuid", unique=true)
+     */
+    private $id;
+
+    /**
      * @ORM\Column(type="text")
      * @var string
      */
@@ -49,13 +56,6 @@ class RectorRun
      * @ORM\Column(type="float", nullable=true)
      */
     private $elapsedTime;
-
-    /**
-     * @var UuidInterface
-     * @ORM\Id
-     * @ORM\Column(type="uuid", unique=true)
-     */
-    private $id;
 
     /**
      * @var DateTimeImmutable
@@ -100,7 +100,11 @@ class RectorRun
 
     public function isSuccessful(): bool
     {
-        return $this->errorMessage === null && $this->resultJson !== null;
+        if ($this->errorMessage !== null) {
+            return false;
+        }
+
+        return $this->resultJson !== null;
     }
 
     public function getErrorMessage(): ?string
