@@ -28,29 +28,23 @@
 
         <div id="rector_run_form">
             {{ form_start(demo_form) }}
-                <div class="row">
-                    <div class="col-12">
-                        {{ form_row(demo_form.content) }}
+
+            {{ form_row(demo_form.content) }}
+            {{ form_row(demo_form.config) }}
+
+            {# @see http://symfony.com/doc/current/security/csrf.html#csrf-protection-in-login-forms #}
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+            <div class="mt-5">
+                {% if rector_run is not null %}
+                    <div class="pt-2 pull-right" style="float:right;">
+                        Permalink:
+                        <a href="{{ path('demo_detail', {'rectorRun': rector_run.id }) }}">{{ rector_run.id }}</a>
                     </div>
-                </div>
+                {% endif %}
 
-                <div class="row">
-                    <div class="col-12">
-                        {{ form_row(demo_form.config) }}
-
-                        {# @see http://symfony.com/doc/current/security/csrf.html#csrf-protection-in-login-forms #}
-                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-
-                        {{ form_row(demo_form.process) }}
-
-                        {% if rector_run is not null %}
-                            <p class="mt-4 pt-3">
-                                Permalink:
-                                <a href="{{ path('demo_detail', {'rectorRun': rector_run.id }) }}">{{ rector_run.id }}</a>
-                            </p>
-                        {% endif %}
-                    </div>
-                </div>
+                {{ form_row(demo_form.process) }}
+            </div>
 
             {{ form_end(demo_form) }}
         </div>
