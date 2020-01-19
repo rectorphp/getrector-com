@@ -9,6 +9,7 @@ vendor/
 var
 public/bundles/
 public/build/
+public/adminer/
 
 ## Docker
 docker-compose.yml
