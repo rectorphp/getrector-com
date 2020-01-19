@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e706f7a85a4866e81fe3429b96738757",
+    "content-hash": "4817e794fceec517125811987e578e42",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -3820,16 +3820,16 @@
         },
         {
             "name": "rector/rector",
-            "version": "dev-master",
+            "version": "v0.6.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "438af0cde494995bb22d9cf16cc793d9e2d113c1"
+                "reference": "e12f266f549a08615bf5a5c2ee10662b269263d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/438af0cde494995bb22d9cf16cc793d9e2d113c1",
-                "reference": "438af0cde494995bb22d9cf16cc793d9e2d113c1",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/e12f266f549a08615bf5a5c2ee10662b269263d1",
+                "reference": "e12f266f549a08615bf5a5c2ee10662b269263d1",
                 "shasum": ""
             },
             "require": {
@@ -3970,7 +3970,7 @@
                 "instant refactoring",
                 "instant upgrades"
             ],
-            "time": "2020-01-17T09:20:36+00:00"
+            "time": "2020-01-17T15:49:58+00:00"
         },
         {
             "name": "sebastian/diff",
@@ -10742,7 +10742,6 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "rector/rector": 20,
         "roave/security-advisories": 20
     },
     "prefer-stable": true,

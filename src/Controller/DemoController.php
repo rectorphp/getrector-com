@@ -83,58 +83,36 @@ final class DemoController extends AbstractController
         $formData = $form->getData();
         $setName = $formData->getSetName();
 
-        $currentRectorRun = new RectorRun(
-            Uuid::uuid4(),
-            new DateTimeImmutable(),
-            $setName,
-            $formData->getContent()
-        );
+        $rectorRun = new RectorRun(Uuid::uuid4(), new DateTimeImmutable(), $setName, $formData->getContent());
 
-        /** @var RectorRun|null $previousRectorRun */
-        $previousRectorRun = $this->rectorRunRepository->findMostRecentSetRun(
-            $setName,
-            $currentRectorRun->getContentHash()
-        );
-
-        if ($previousRectorRun) {
-            return $this->redirectToDetail($previousRectorRun);
-        }
-
-        $this->rectorRunRepository->save($currentRectorRun);
+        $this->rectorRunRepository->save($rectorRun);
 
         $stopwatch = new Stopwatch();
         $rectorProcessStopwatchEvent = $stopwatch->start('rector-process');
 
         try {
-            $runResult = $this->rectorProcessRunner->run($currentRectorRun);
+            $runResult = $this->rectorProcessRunner->run($rectorRun);
             $fileDiff = $runResult['file_diffs'][0]['diff'] ?? null;
 
             if ($fileDiff) {
                 /** @var string $fileDiff */
                 $fileDiff = $this->cleanFileDiff($fileDiff);
             } else {
-                $fileDiff = $currentRectorRun->getContent();
+                $fileDiff = $rectorRun->getContent();
             }
 
-            $currentRectorRun->success($fileDiff, Json::encode($runResult), $rectorProcessStopwatchEvent);
+            $rectorRun->success($fileDiff, Json::encode($runResult), $rectorProcessStopwatchEvent);
         } catch (Throwable $throwable) {
-            $currentRectorRun->fail($throwable->getMessage(), $rectorProcessStopwatchEvent);
+            $rectorRun->fail($throwable->getMessage(), $rectorProcessStopwatchEvent);
 
             // @TODO change to monolog
             // Log to sentry
             captureException($throwable);
         }
 
-        $this->rectorRunRepository->save($currentRectorRun);
+        $this->rectorRunRepository->save($rectorRun);
 
-        return $this->redirectToDetail($currentRectorRun);
-    }
-
-    private function redirectToDetail(RectorRun $rectorRun): RedirectResponse
-    {
-        return $this->redirectToRoute('demo_detail', [
-            'id' => $rectorRun->getId()->toString(),
-        ]);
+        return $this->redirectToDetail($rectorRun);
     }
 
     private function cleanFileDiff(string $fileDiff): string
@@ -148,5 +126,12 @@ final class DemoController extends AbstractController
         }
 
         return $fileDiff;
+    }
+
+    private function redirectToDetail(RectorRun $rectorRun): RedirectResponse
+    {
+        return $this->redirectToRoute('demo_detail', [
+            'id' => $rectorRun->getId()->toString(),
+        ]);
     }
 }
