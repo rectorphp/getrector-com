@@ -29,17 +29,7 @@ final class PHPFileLinter
     public function checkFileSyntax(string $absoluteFilePath): void
     {
         $content = FileSystem::read($absoluteFilePath);
-
-        $this->checkOpeningPhpTag($content);
-
-        $process = new Process(['php', '-l', $absoluteFilePath]);
-        $process->run();
-
-        if ($process->isSuccessful()) {
-            return;
-        }
-
-        throw new LintingException($process->getOutput(), (int) $process->getExitCode());
+        $this->checkContentSyntax($content);
     }
 
     private function checkOpeningPhpTag(string $content): void

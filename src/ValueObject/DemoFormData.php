@@ -12,7 +12,6 @@ final class DemoFormData
 {
     /**
      * @var string
-     * @Assert\NotBlank()
      * @PHPConstraint()
      */
     private $content;
