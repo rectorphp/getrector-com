@@ -4,17 +4,28 @@ declare(strict_types=1);
 
 namespace Rector\Website\ValueObject;
 
+use Rector\Website\Validator\Constraint\PHPConstraint;
+use Rector\Website\Validator\Constraint\YAMLConstraint;
+
 final class DemoFormData
 {
     /**
      * @var string
+     * @PHPConstraint()
      */
     private $content;
 
     /**
      * @var string
+     * @YamlConstraint()
      */
     private $config;
+
+    public function __construct(string $content, string $config)
+    {
+        $this->content = $content;
+        $this->config = $config;
+    }
 
     public function getContent(): string
     {

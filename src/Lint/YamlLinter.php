@@ -8,8 +8,17 @@ use Rector\Website\Exception\LintingException;
 use Symfony\Component\Yaml\Exception\ParseException;
 use Symfony\Component\Yaml\Yaml;
 
-final class YamlFileLinter
+final class YamlLinter
 {
+    public function checkContentSyntax(string $content): void
+    {
+        try {
+            Yaml::parse($content);
+        } catch (ParseException $parseException) {
+            throw new LintingException($parseException->getMessage());
+        }
+    }
+
     public function checkFileSyntax(string $absolutePath): void
     {
         try {

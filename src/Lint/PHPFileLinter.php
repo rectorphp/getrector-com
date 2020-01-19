@@ -4,33 +4,36 @@ declare(strict_types=1);
 
 namespace Rector\Website\Lint;
 
-use Nette\Utils\FileSystem;
 use Nette\Utils\Strings;
+use Rector\Website\Exception\Linter\MissingPHPOpeningTagException;
 use Rector\Website\Exception\LintingException;
 use Symfony\Component\Process\Process;
 
 final class PHPFileLinter
 {
-    public function checkFileSyntax(string $absoluteFilePath): void
+    public function checkContentSyntax(string $content): void
     {
-        $this->checkOpeningPhpTag($absoluteFilePath);
+        $this->checkOpeningPhpTag($content);
 
-        $process = new Process(['php', '-l', $absoluteFilePath]);
+        // @see https://stackoverflow.com/a/18243142/1348344
+        // this is needed as pipe is not supported by new Process([])
+        $commandLine = sprintf('echo "%s" | php -l', $content);
+        $process = Process::fromShellCommandline($commandLine);
         $process->run();
 
         if ($process->isSuccessful()) {
             return;
         }
 
-        throw new LintingException($process->getOutput(), (int) $process->getExitCode());
+        throw new LintingException($process->getErrorOutput(), (int) $process->getExitCode());
     }
 
-    private function checkOpeningPhpTag(string $absoluteFilePath): void
+    private function checkOpeningPhpTag(string $content): void
     {
-        $content = FileSystem::read($absoluteFilePath);
-
-        if (! Strings::startsWith($content, '<?php')) {
-            throw new LintingException('Opening php tag "<?php" is missing');
+        if (Strings::match($content, '#(\s+)?\<\?php#')) {
+            return;
         }
+
+        throw new MissingPHPOpeningTagException();
     }
 }

@@ -328,12 +328,9 @@ h1 em, h2 em, h2 a {
         font-size: .8em;
 
         height: 100%;
-    }
 
-    .codemirror_php {
-        .CodeMirror {
-            min-height: 20em;
-
+        &.codemirror_php {
+            min-height: 25em;
         }
     }
 
@@ -345,5 +342,30 @@ h1 em, h2 em, h2 a {
 }
 
 #demo {
-    min-height: 40em;
+    min-height: 20em;
+
+    &.short {
+        min-height: 12em;
+    }
+}
+
+#demo_result {
+    min-height: 25em;
+    background: #666;
+
+    h2, h3 {
+        color: #DDD;
+    }
+}
+
+.invalid-feedback {
+    margin-bottom: 1em;
+}
+
+.badge, .invalid-feedback {
+    font-size: 1em;
+}
+
+.badge {
+    margin-right: .5em;
 }

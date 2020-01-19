@@ -6,53 +6,39 @@ namespace Rector\Website\Controller;
 
 use DateTimeImmutable;
 use Nette\Utils\FileSystem;
-use Nette\Utils\Json;
 use Ramsey\Uuid\Uuid;
+use Rector\Website\DemoRunner;
 use Rector\Website\Entity\RectorRun;
 use Rector\Website\Form\DemoFormType;
-use Rector\Website\Process\RectorProcessRunner;
 use Rector\Website\Repository\RectorRunRepository;
-use Rector\Website\Utils\FileDiffCleaner;
 use Rector\Website\ValueObject\DemoFormData;
-use function Sentry\captureException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Stopwatch\Stopwatch;
-use Throwable;
 
 final class DemoController extends AbstractController
 {
-    /**
-     * @var RectorProcessRunner
-     */
-    private $rectorProcessRunner;
-
     /**
      * @var RectorRunRepository
      */
     private $rectorRunRepository;
 
     /**
-     * @var FileDiffCleaner
+     * @var DemoRunner
      */
-    private $fileDiffCleaner;
+    private $demoRunner;
 
-    public function __construct(
-        RectorProcessRunner $rectorProcessRunner,
-        RectorRunRepository $rectorRunRepository,
-        FileDiffCleaner $fileDiffCleaner
-    ) {
-        $this->rectorProcessRunner = $rectorProcessRunner;
+    public function __construct(RectorRunRepository $rectorRunRepository, DemoRunner $demoRunner)
+    {
         $this->rectorRunRepository = $rectorRunRepository;
-        $this->fileDiffCleaner = $fileDiffCleaner;
+        $this->demoRunner = $demoRunner;
     }
 
     /**
-     * @Route(path="demo/{rectorRun}", name="demo_detail", methods={"GET", "POST"})
+     * @Route(path="demo/{rectorRun}", name="demo_detail", methods={"GET"})
      * @Route(path="demo", name="demo", methods={"GET", "POST"})
      */
     public function __invoke(Request $request, ?RectorRun $rectorRun = null): Response
@@ -77,21 +63,15 @@ final class DemoController extends AbstractController
 
     private function createDemoFormData(?RectorRun $rectorRun): DemoFormData
     {
-        $formData = new DemoFormData();
-
         if ($rectorRun) {
-            $formData->setContent($rectorRun->getContent());
-            $formData->setConfig($rectorRun->getConfig());
-        } else {
-            // default values
-            $demoFileContent = FileSystem::read(__DIR__ . '/../../data/DemoFile.php');
-            $demoConfig = FileSystem::read(__DIR__ . '/../../data/demo-config.yaml');
-
-            $formData->setContent($demoFileContent);
-            $formData->setConfig($demoConfig);
+            return new DemoFormData($rectorRun->getContent(), $rectorRun->getConfig());
         }
 
-        return $formData;
+        // default values
+        $demoContent = FileSystem::read(__DIR__ . '/../../data/DemoFile.php');
+        $demoConfig = FileSystem::read(__DIR__ . '/../../data/demo-config.yaml');
+
+        return new DemoFormData($demoContent, $demoConfig);
     }
 
     private function processFormAndReturnRoute(FormInterface $form): RedirectResponse
@@ -103,49 +83,17 @@ final class DemoController extends AbstractController
         $rectorRun = $this->createRectorRun($config, $demoFormData);
         $this->rectorRunRepository->save($rectorRun);
 
-        $this->runAndPopulateRunResult($rectorRun);
+        $this->demoRunner->runAndPopulateRunResult($rectorRun);
 
         $this->rectorRunRepository->save($rectorRun);
 
         return $this->redirectToRoute('demo_detail', [
-            'id' => $rectorRun->getId()->toString(),
+            'rectorRun' => $rectorRun->getId(),
         ]);
     }
 
     private function createRectorRun(string $config, DemoFormData $demoFormData): RectorRun
     {
         return new RectorRun(Uuid::uuid4(), new DateTimeImmutable(), $config, $demoFormData->getContent());
-    }
-
-    private function runAndPopulateRunResult(RectorRun $rectorRun): void
-    {
-        $stopwatch = new Stopwatch();
-        $rectorProcessStopwatchEvent = $stopwatch->start('rector-process');
-
-        try {
-            $runResult = $this->rectorProcessRunner->run($rectorRun);
-
-            $fileDiff = $this->createFileDiff($runResult, $rectorRun);
-
-            $rectorRun->success($fileDiff, Json::encode($runResult), $rectorProcessStopwatchEvent);
-        } catch (Throwable $throwable) {
-            $rectorRun->fail($throwable->getMessage(), $rectorProcessStopwatchEvent);
-
-            // @TODO change to monolog
-            // Log to sentry
-            captureException($throwable);
-        }
-    }
-
-    private function createFileDiff(array $runResult, RectorRun $rectorRun): string
-    {
-        $fileDiff = $runResult['file_diffs'][0]['diff'] ?? null;
-
-        if ($fileDiff) {
-            /** @var string $fileDiff */
-            return $this->fileDiffCleaner->clean($fileDiff);
-        }
-
-        return $rectorRun->getContent();
     }
 }
