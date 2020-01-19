@@ -57,7 +57,7 @@ final class DemoController extends AbstractController
      */
     public function __invoke(Request $request, ?RectorRun $rectorRun = null): Response
     {
-        $formData = $this->createRectorRunFormData($rectorRun);
+        $formData = $this->createDemoFormData($rectorRun);
 
         $form = $this->createForm(DemoFormType::class, $formData);
         $form->handleRequest($request);
@@ -72,7 +72,7 @@ final class DemoController extends AbstractController
         ]);
     }
 
-    private function createRectorRunFormData(?RectorRun $rectorRun): DemoFormData
+    private function createDemoFormData(?RectorRun $rectorRun): DemoFormData
     {
         $formData = new DemoFormData();
 
@@ -93,11 +93,11 @@ final class DemoController extends AbstractController
 
     private function processFormAndReturnRoute(FormInterface $form): RedirectResponse
     {
-        /** @var DemoFormData $rectorRunFormData */
-        $rectorRunFormData = $form->getData();
-        $config = $rectorRunFormData->getConfig();
+        /** @var DemoFormData $demoFormData */
+        $demoFormData = $form->getData();
+        $config = $demoFormData->getConfig();
 
-        $rectorRun = $this->createRectorRun($config, $rectorRunFormData);
+        $rectorRun = $this->createRectorRun($config, $demoFormData);
 
         $this->rectorRunRepository->save($rectorRun);
 
