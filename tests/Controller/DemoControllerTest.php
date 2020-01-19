@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-
 namespace Rector\Website\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
+ * @see \Rector\Website\Controller\DemoController
  * @see \Rector\Website\Form\DemoFormType
  */
 final class DemoControllerTest extends WebTestCase
