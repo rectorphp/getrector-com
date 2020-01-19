@@ -11,7 +11,7 @@ use Nette\Utils\Strings;
 use Ramsey\Uuid\Uuid;
 use Rector\Website\Entity\RectorRun;
 use Rector\Website\Form\RectorRunFormData;
-use Rector\Website\Form\RectorRunFormType;
+use Rector\Website\Form\DemoFormType;
 use Rector\Website\Process\RectorProcessRunner;
 use Rector\Website\Repository\RectorRunRepository;
 use function Sentry\captureException;
@@ -65,7 +65,7 @@ final class DemoController extends AbstractController
             $formData->setConfig($rectorRun->getConfig());
         }
 
-        $form = $this->createForm(RectorRunFormType::class, $formData);
+        $form = $this->createForm(DemoFormType::class, $formData);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
