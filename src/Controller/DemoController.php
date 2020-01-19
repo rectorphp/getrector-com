@@ -73,7 +73,7 @@ final class DemoController extends AbstractController
         }
 
         return $this->render('homepage/demo.twig', [
-            'form' => $form->createView(),
+            'demo_form' => $form->createView(),
             'rector_run' => $rectorRun,
         ]);
     }
@@ -84,7 +84,7 @@ final class DemoController extends AbstractController
         $formData = $form->getData();
         $config = $formData->getConfig();
 
-        $rectorRun = new RectorRun(Uuid::uuid4(), new DateTimeImmutable(), $config, $formData->getContent());
+        $rectorRun = $this->createRectorRun($config, $formData);
 
         $this->rectorRunRepository->save($rectorRun);
 
@@ -93,14 +93,8 @@ final class DemoController extends AbstractController
 
         try {
             $runResult = $this->rectorProcessRunner->run($rectorRun);
-            $fileDiff = $runResult['file_diffs'][0]['diff'] ?? null;
 
-            if ($fileDiff) {
-                /** @var string $fileDiff */
-                $fileDiff = $this->cleanFileDiff($fileDiff);
-            } else {
-                $fileDiff = $rectorRun->getContent();
-            }
+            $fileDiff = $this->createFileDiff($runResult, $rectorRun);
 
             $rectorRun->success($fileDiff, Json::encode($runResult), $rectorProcessStopwatchEvent);
         } catch (Throwable $throwable) {
@@ -134,5 +128,22 @@ final class DemoController extends AbstractController
         return $this->redirectToRoute('demo_detail', [
             'id' => $rectorRun->getId()->toString(),
         ]);
+    }
+
+    private function createFileDiff(array $runResult, RectorRun $rectorRun): string
+    {
+        $fileDiff = $runResult['file_diffs'][0]['diff'] ?? null;
+
+        if ($fileDiff) {
+            /** @var string $fileDiff */
+            return $this->cleanFileDiff($fileDiff);
+        }
+
+        return $rectorRun->getContent();
+    }
+
+    private function createRectorRun(string $config, RectorRunFormData $formData): RectorRun
+    {
+        return new RectorRun(Uuid::uuid4(), new DateTimeImmutable(), $config, $formData->getContent());
     }
 }
