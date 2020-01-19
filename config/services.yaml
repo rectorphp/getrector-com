@@ -4,15 +4,26 @@ parameters:
     rector_demo_docker_image: 'rector/rector:0.6.11'
 
     demo_links:
+        # https://github.com/rectorphp/rector/blob/master/docs/AllRectorsOverview.md#typedpropertyrector
         -
             label: "PHP 7.4 Typed Properties"
-            uuid:
+            uuid: "c4f35db2-fe8d-4dde-bf3c-29c580dc60a1"
+
+        # https://github.com/rectorphp/rector/blob/master/docs/AllRectorsOverview.md#createfunctiontoanonymousfunctionrector
         -
             label: "create_function()"
-            uuid:
+            uuid: "63843c0a-d24f-4e73-a9b4-5b96c82bdd2e"
+
+        # https://github.com/rectorphp/rector/blob/master/docs/AllRectorsOverview.md#changeifelsevalueassigntoearlyreturnrector
         -
-            label: "Add @var type"
-            uuid:
+            label: "Early Return"
+            uuid: "f9782921-32b6-4a0b-a9aa-779506d4ed3a"
+
+        # https://github.com/rectorphp/rector/blob/master/docs/AllRectorsOverview.md#consecutivenullcomparereturnstonullcoalescequeuerector
+        -
+            label: "Null Coalescing"
+            uuid: "21f4705d-c654-4b45-9ca8-2e8b68f8ec54"
+
 
 services:
     _defaults:
