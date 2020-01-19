@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Website\Lint;
 
+use Rector\Website\Exception\LintingException;
 use Symfony\Component\Yaml\Exception\ParseException;
 use Symfony\Component\Yaml\Yaml;
 
