@@ -8,17 +8,12 @@ parameters:
         # https://github.com/rectorphp/rector/blob/master/docs/AllRectorsOverview.md#typedpropertyrector
         -
             label: "PHP 7.4 Typed Properties"
-            uuid:
+            uuid: "c4f35db2-fe8d-4dde-bf3c-29c580dc60a1"
 
         # https://github.com/rectorphp/rector/blob/master/docs/AllRectorsOverview.md#createfunctiontoanonymousfunctionrector
         -
             label: "create_function()"
-            uuid:
-
-        # https://github.com/rectorphp/rector/blob/master/docs/AllRectorsOverview.md#completevardoctypepropertyrector
-        -
-            label: "Add @var type"
-            uuid:
+            uuid: "63843c0a-d24f-4e73-a9b4-5b96c82bdd2e"
 
 services:
     _defaults:
