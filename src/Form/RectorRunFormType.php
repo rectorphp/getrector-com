@@ -18,11 +18,13 @@ final class RectorRunFormType extends AbstractType
     public function buildForm(FormBuilderInterface $formBuilder, array $options): void
     {
         $formBuilder->add('content', TextareaType::class, [
-            'label' => 'PHP File content',
+            // no label needed
+            'label' => false,
             'required' => true,
             'attr' => [
                 'rows' => 10,
                 'cols' => 150,
+                'class' => 'demo_form_code'
             ],
         ]);
 
@@ -36,9 +38,9 @@ final class RectorRunFormType extends AbstractType
         ]);
 
         $formBuilder->add('process', SubmitType::class, [
-            'label' => 'Process File',
+            'label' => 'Process!',
             'attr' => [
-                'class' => 'btn btn-success m-auto',
+                'class' => 'btn btn-lg btn-success m-auto',
             ],
         ]);
     }
