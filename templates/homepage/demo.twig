@@ -1,25 +1,45 @@
 {% extends "base.twig" %}
 
 {% set page_title %}Try Rector Online{% endset %}
-{% set small_headline_design = true %}
+{#{% set small_headline_design = true %}#}
+{% set no_headline_design = true %}
 
 {% block main %}
-    <div class="container-fluid mt-5 pl-5 pr-5 {% if rector_run is not null %}short{% endif %}" id="demo">
+    <div class="container-fluid mt-0 pl-5 pr-5 {% if rector_run is not null %}short{% endif %}" id="demo">
+        <a href="{{ path('homepage') }}" id="main_logo">
+            <img src="{{ asset('assets/images/logo/rector-no_frame_vector.svg') }}" alt="">
+            <div class="logo_text text-dark">Rector</div>
+        </a>
+
+        {% if demo_links|length > 0 %}
+            <p class="mb-4 mt-4">
+                Try these:
+
+                {% for demo_link in demo_links %}
+                    {# @var demo_link \Rector\Website\ValueObject\TwigAutocomplete\DemoLink #}
+                    <a href="{{ path('demo_detail', {'rectorRun': demo_link.uuid}) }}" class="ml-3">{{ demo_link.label }}</a>
+                {% endfor %}
+            </p>
+        {% endif %}
+
+        <div class="clearfix"></div>
+
         {% form_theme demo_form 'bootstrap_4_layout.html.twig' %}
 
         <div id="rector_run_form">
             {{ form_start(demo_form) }}
                 <div class="row">
-                    <div class="col-12 col-md-6">
+                    <div class="col-12">
                         {{ form_row(demo_form.content) }}
                     </div>
-                    <div class="col-12 col-md-6">
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
                         {{ form_row(demo_form.config) }}
 
                         {# @see http://symfony.com/doc/current/security/csrf.html#csrf-protection-in-login-forms #}
                         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-
-                        <br>
 
                         {{ form_row(demo_form.process) }}
 
