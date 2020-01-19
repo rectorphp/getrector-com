@@ -7,12 +7,12 @@ namespace Rector\Website\Controller;
 use DateTimeImmutable;
 use Nette\Utils\FileSystem;
 use Nette\Utils\Json;
-use Nette\Utils\Strings;
 use Ramsey\Uuid\Uuid;
 use Rector\Website\Entity\RectorRun;
 use Rector\Website\Form\DemoFormType;
 use Rector\Website\Process\RectorProcessRunner;
 use Rector\Website\Repository\RectorRunRepository;
+use Rector\Website\Utils\FileDiffCleaner;
 use Rector\Website\ValueObject\DemoFormData;
 use function Sentry\captureException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -36,10 +36,19 @@ final class DemoController extends AbstractController
      */
     private $rectorRunRepository;
 
-    public function __construct(RectorProcessRunner $rectorProcessRunner, RectorRunRepository $rectorRunRepository)
-    {
+    /**
+     * @var FileDiffCleaner
+     */
+    private $fileDiffCleaner;
+
+    public function __construct(
+        RectorProcessRunner $rectorProcessRunner,
+        RectorRunRepository $rectorRunRepository,
+        FileDiffCleaner $fileDiffCleaner
+    ) {
         $this->rectorProcessRunner = $rectorProcessRunner;
         $this->rectorRunRepository = $rectorRunRepository;
+        $this->fileDiffCleaner = $fileDiffCleaner;
     }
 
     /**
@@ -125,7 +134,7 @@ final class DemoController extends AbstractController
 
         if ($fileDiff) {
             /** @var string $fileDiff */
-            return $this->cleanFileDiff($fileDiff);
+            return $this->fileDiffCleaner->clean($fileDiff);
         }
 
         return $rectorRun->getContent();
@@ -136,18 +145,5 @@ final class DemoController extends AbstractController
         return $this->redirectToRoute('demo_detail', [
             'id' => $rectorRun->getId()->toString(),
         ]);
-    }
-
-    private function cleanFileDiff(string $fileDiff): string
-    {
-        // https://regex101.com/r/sI6GVY/1/
-        $match = Strings::match($fileDiff, '#^.*?@@\n(?<content>.*?)$#Us');
-        $fileDiff = $match['content'] ?? '';
-
-        if (Strings::contains($fileDiff, 'No newline at end of file')) {
-            $fileDiff = Strings::substring($fileDiff, 0, -strlen('\ No newline at end of file') - 1);
-        }
-
-        return $fileDiff;
     }
 }
