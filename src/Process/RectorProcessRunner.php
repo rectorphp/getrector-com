@@ -7,6 +7,7 @@ namespace Rector\Website\Process;
 use Nette\Utils\FileSystem;
 use Nette\Utils\Json;
 use Rector\Website\Entity\RectorRun;
+use Rector\Website\Lint\PHPFileLinter;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
 
@@ -28,6 +29,11 @@ final class RectorProcessRunner
     private const RECTOR_RESULT_FILE_NAME = 'result.json';
 
     /**
+     * @var phpFileLinter
+     */
+    private $phpFileLinter;
+
+    /**
      * @var string
      */
     private $hostDemoDir;
@@ -42,11 +48,16 @@ final class RectorProcessRunner
      */
     private $rectorDemoDockerImage;
 
-    public function __construct(string $hostDemoDir, string $localDemoDir, string $rectorDemoDockerImage)
-    {
+    public function __construct(
+        string $hostDemoDir,
+        string $localDemoDir,
+        string $rectorDemoDockerImage,
+        PHPFileLinter $phpFileLinter
+    ) {
         $this->hostDemoDir = $hostDemoDir;
         $this->localDemoDir = $localDemoDir;
         $this->rectorDemoDockerImage = $rectorDemoDockerImage;
+        $this->phpFileLinter = $phpFileLinter;
     }
 
     /**
@@ -77,7 +88,9 @@ final class RectorProcessRunner
         $runId = $rectorRun->getId()->toString();
         $volumeSourcePath = $this->hostDemoDir . '/' . $runId;
 
-        $this->createTempRunFile($runId, self::ANALYZED_FILE_NAME, $rectorRun->getContent());
+        $phpFile = $this->createTempRunFile($runId, self::ANALYZED_FILE_NAME, $rectorRun->getContent());
+        $this->checkPhpFileSyntax($phpFile);
+
         $this->createTempRunFile($runId, self::CONFIG_NAME, $rectorRun->getConfig());
 
         return new Process([
@@ -129,11 +142,16 @@ final class RectorProcessRunner
 
     private function createTempRunFile(string $runId, string $fileName, string $fileContent): string
     {
-        $tempFile = $runId . '/' . $fileName;
+        $absolutePath = sprintf('%s/%s/%s', $this->localDemoDir, $runId, $fileName);
 
-        FileSystem::write($this->localDemoDir . '/' . $tempFile, $fileContent);
+        FileSystem::write($absolutePath, $fileContent);
 
-        return $tempFile;
+        return $absolutePath;
+    }
+
+    private function checkPhpFileSyntax(string $absolutePath): void
+    {
+        $this->phpFileLinter->lintFile($absolutePath);
     }
 
     private function removeContainer(string $containerName): void
