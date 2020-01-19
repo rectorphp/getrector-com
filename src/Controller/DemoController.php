@@ -13,7 +13,7 @@ use Rector\Website\Entity\RectorRun;
 use Rector\Website\Form\DemoFormType;
 use Rector\Website\Process\RectorProcessRunner;
 use Rector\Website\Repository\RectorRunRepository;
-use Rector\Website\ValueObject\RectorRunFormData;
+use Rector\Website\ValueObject\DemoFormData;
 use function Sentry\captureException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormInterface;
@@ -63,9 +63,9 @@ final class DemoController extends AbstractController
         ]);
     }
 
-    private function createRectorRunFormData(?RectorRun $rectorRun): RectorRunFormData
+    private function createRectorRunFormData(?RectorRun $rectorRun): DemoFormData
     {
-        $formData = new RectorRunFormData();
+        $formData = new DemoFormData();
 
         if ($rectorRun) {
             $formData->setContent($rectorRun->getContent());
@@ -84,7 +84,7 @@ final class DemoController extends AbstractController
 
     private function processFormAndReturnRoute(FormInterface $form): RedirectResponse
     {
-        /** @var RectorRunFormData $rectorRunFormData */
+        /** @var DemoFormData $rectorRunFormData */
         $rectorRunFormData = $form->getData();
         $config = $rectorRunFormData->getConfig();
 
@@ -114,9 +114,9 @@ final class DemoController extends AbstractController
         return $this->redirectToDetail($rectorRun);
     }
 
-    private function createRectorRun(string $config, RectorRunFormData $rectorRunFormData): RectorRun
+    private function createRectorRun(string $config, DemoFormData $demoFormData): RectorRun
     {
-        return new RectorRun(Uuid::uuid4(), new DateTimeImmutable(), $config, $rectorRunFormData->getContent());
+        return new RectorRun(Uuid::uuid4(), new DateTimeImmutable(), $config, $demoFormData->getContent());
     }
 
     private function createFileDiff(array $runResult, RectorRun $rectorRun): string
