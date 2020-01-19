@@ -19,6 +19,7 @@ final class DemoFormData
 
     /**
      * @var string
+     * @Assert\NotBlank()
      * @YamlConstraint()
      */
     private $config;

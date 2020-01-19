@@ -328,12 +328,9 @@ h1 em, h2 em, h2 a {
         font-size: .8em;
 
         height: 100%;
-    }
 
-    .codemirror_php {
-        .CodeMirror {
-            min-height: 20em;
-
+        &.codemirror_php {
+            min-height: 25em;
         }
     }
 
