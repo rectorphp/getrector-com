@@ -54,6 +54,9 @@ jobs:
                     extensions: mbstring # needed by phpunit
 
             -   run: composer install --no-progress
+            # for controller tests
+            -   run: npm install
+            -   run: npm run dev
             -   run: vendor/bin/phpunit
 
     test_coverage:
@@ -66,6 +69,9 @@ jobs:
                     coverage: pcov
 
             -   run: composer install --no-progress
+            # for controller tests
+            -   run: npm install
+            -   run: npm run dev
             -   run: |
                     vendor/bin/phpunit --coverage-clover build/logs/clover.xml
                     # Coveralls.io
