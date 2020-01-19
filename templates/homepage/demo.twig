@@ -1,15 +1,16 @@
 {% extends "base.twig" %}
 
 {% set page_title %}Try Rector Online{% endset %}
+{% set small_headline_design = true %}
 
 {% block main %}
     <div class="container" id="subpage">
         <div class="row" style="min-height: 30em">
             <div class="col-12 col-md-6">
-                <h2 class="m-0">Input</h2>
                 {% form_theme form 'bootstrap_4_layout.html.twig' %}
                 {{ form(form) }}
             </div>
+
             <div class="col-12 col-md-6">
                 <h2 class="mt-0 mb-0">Result</h2>
                     {% if rector_run is not null %}
