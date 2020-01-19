@@ -12,7 +12,7 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symplify\PackageBuilder\Tests\AbstractKernelTestCase;
 
 /**
- * @see YAMLConstraintValidator
+ * @see \Rector\Website\Validator\YAMLConstraintValidator
  */
 final class YAMLConstraintValidatorTest extends AbstractKernelTestCase
 {
@@ -62,7 +62,7 @@ final class YAMLConstraintValidatorTest extends AbstractKernelTestCase
         /** @var ConstraintViolation $constraintViolation */
         $constraintViolation = $constraints[0];
 
-        $expectedMessageFormat = 'Fix YAML: %s at line ' . $expetedLine . ' %s';
+        $expectedMessageFormat = 'Fix YAML syntax: %s at line ' . $expetedLine . ' %s';
 
         /** @see https://phpunit.readthedocs.io/en/8.5/assertions.html#assertstringmatchesformat */
         $this->assertStringMatchesFormat($expectedMessageFormat, $constraintViolation->getMessage());

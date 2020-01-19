@@ -55,3 +55,22 @@ jobs:
 
             -   run: composer install --no-progress
             -   run: vendor/bin/phpunit
+
+    test_coverage:
+        runs-on: ubuntu-latest
+        steps:
+            -   uses: actions/checkout@v2
+            -   uses: shivammathur/setup-php@v1
+                with:
+                    php-version: 7.3
+                    coverage: pcov
+                    extensions: mbstring # needed by phpunit
+
+            -   run: composer install --no-progress
+            -   run: |
+                    vendor/bin/phpunit --coverage-clover coverage.xml
+                    # Coveralls.io
+                    wget https://github.com/php-coveralls/php-coveralls/releases/download/v2.1.0/php-coveralls.phar
+                    php php-coveralls.phar --verbose
+                env:
+                    COVERALLS_REPO_TOKEN: 'aG2qi4W6HtQM7jhHcTYoyOjoz2RCHFbGk'

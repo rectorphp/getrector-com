@@ -11,6 +11,9 @@ use Symfony\Component\Validator\ConstraintViolation;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symplify\PackageBuilder\Tests\AbstractKernelTestCase;
 
+/**
+ * @see \Rector\Website\Validator\PHPConstraintValidator
+ */
 final class PHPConstraintValidatorTest extends AbstractKernelTestCase
 {
     /**
@@ -76,14 +79,12 @@ final class PHPConstraintValidatorTest extends AbstractKernelTestCase
         /** @var ConstraintViolation $constraintViolation */
         $constraintViolation = $constraints[0];
 
-        dump($constraintViolation->getMessage());
-
-        $expectedMessage = sprintf('Value "%s" is not a valid PHP', $content);
-        $this->assertSame($expectedMessage, $constraintViolation->getMessage());
+        /** @see https://phpunit.readthedocs.io/en/8.5/assertions.html#assertstringmatchesformat */
+        $this->assertStringMatchesFormat('Fix PHP syntax: %s', $constraintViolation->getMessage());
     }
 
     public function provideDataForTestInvalidPHPSyntax(): Iterator
     {
-        yield ['<?php echo " . '];
+        yield ['<?php echo " echo . '];
     }
 }

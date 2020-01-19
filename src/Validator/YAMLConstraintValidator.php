@@ -38,7 +38,7 @@ final class YAMLConstraintValidator extends ConstraintValidator
         try {
             $this->yamlLinter->checkContentSyntax($value);
         } catch (LintingException $lintingException) {
-            $this->context->buildViolation('Fix YAML: %error%')
+            $this->context->buildViolation('Fix YAML syntax: %error%')
                 ->setParameter('%error%', $lintingException->getMessage())
                 ->addViolation();
         }

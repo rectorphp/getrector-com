@@ -16,14 +16,16 @@ final class PHPFileLinter
         $this->checkOpeningPhpTag($content);
 
         // @see https://stackoverflow.com/a/18243142/1348344
-        $process = new Process(['echo', $content, '|', 'php', '-l']);
+        // this is needed as pipe is not supported by new Process([])
+        $commandLine = sprintf('echo "%s" | php -l', $content);
+        $process = Process::fromShellCommandline($commandLine);
         $process->run();
 
         if ($process->isSuccessful()) {
             return;
         }
 
-        throw new LintingException($process->getOutput(), (int) $process->getExitCode());
+        throw new LintingException($process->getErrorOutput(), (int) $process->getExitCode());
     }
 
     private function checkOpeningPhpTag(string $content): void
