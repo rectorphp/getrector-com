@@ -59,7 +59,10 @@ final class DemoController extends AbstractController
     {
         $formData = $this->createDemoFormData($rectorRun);
 
-        $form = $this->createForm(DemoFormType::class, $formData);
+        $form = $this->createForm(DemoFormType::class, $formData, [
+            // this is needed for manual render
+            'action' => $this->generateUrl('demo'),
+        ]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -98,9 +101,24 @@ final class DemoController extends AbstractController
         $config = $demoFormData->getConfig();
 
         $rectorRun = $this->createRectorRun($config, $demoFormData);
+        $this->rectorRunRepository->save($rectorRun);
+
+        $this->runAndPopulateRunResult($rectorRun);
 
         $this->rectorRunRepository->save($rectorRun);
 
+        return $this->redirectToRoute('demo_detail', [
+            'id' => $rectorRun->getId()->toString(),
+        ]);
+    }
+
+    private function createRectorRun(string $config, DemoFormData $demoFormData): RectorRun
+    {
+        return new RectorRun(Uuid::uuid4(), new DateTimeImmutable(), $config, $demoFormData->getContent());
+    }
+
+    private function runAndPopulateRunResult(RectorRun $rectorRun): void
+    {
         $stopwatch = new Stopwatch();
         $rectorProcessStopwatchEvent = $stopwatch->start('rector-process');
 
@@ -117,17 +135,6 @@ final class DemoController extends AbstractController
             // Log to sentry
             captureException($throwable);
         }
-
-        $this->rectorRunRepository->save($rectorRun);
-
-        return $this->redirectToRoute('demo_detail', [
-            'id' => $rectorRun->getId()->toString(),
-        ]);
-    }
-
-    private function createRectorRun(string $config, DemoFormData $demoFormData): RectorRun
-    {
-        return new RectorRun(Uuid::uuid4(), new DateTimeImmutable(), $config, $demoFormData->getContent());
     }
 
     private function createFileDiff(array $runResult, RectorRun $rectorRun): string
