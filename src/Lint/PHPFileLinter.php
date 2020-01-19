@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Rector\Website\Lint;
 
-use Nette\Utils\FileSystem;
 use Nette\Utils\Strings;
 use Rector\Website\Exception\LintingException;
 use Symfony\Component\Process\Process;
@@ -15,7 +14,7 @@ final class PHPFileLinter
     {
         $this->checkOpeningPhpTag($content);
 
-        // see https://stackoverflow.com/a/18243142/1348344
+        // @see https://stackoverflow.com/a/18243142/1348344
         $process = new Process(['echo', $content, '|', 'php', '-l']);
         $process->run();
 
@@ -24,12 +23,6 @@ final class PHPFileLinter
         }
 
         throw new LintingException($process->getOutput(), (int) $process->getExitCode());
-    }
-
-    public function checkFileSyntax(string $absoluteFilePath): void
-    {
-        $content = FileSystem::read($absoluteFilePath);
-        $this->checkContentSyntax($content);
     }
 
     private function checkOpeningPhpTag(string $content): void

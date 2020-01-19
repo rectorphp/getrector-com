@@ -7,8 +7,6 @@ namespace Rector\Website\Process;
 use Nette\Utils\FileSystem;
 use Nette\Utils\Json;
 use Rector\Website\Entity\RectorRun;
-use Rector\Website\Lint\PHPFileLinter;
-use Rector\Website\Lint\YamlLinter;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
 
@@ -30,11 +28,6 @@ final class RectorProcessRunner
     private const RECTOR_RESULT_FILE_NAME = 'result.json';
 
     /**
-     * @var phpFileLinter
-     */
-    private $phpFileLinter;
-
-    /**
      * @var string
      */
     private $hostDemoDir;
@@ -49,23 +42,11 @@ final class RectorProcessRunner
      */
     private $rectorDemoDockerImage;
 
-    /**
-     * @var YamlLinter
-     */
-    private $yamlLinter;
-
-    public function __construct(
-        string $hostDemoDir,
-        string $localDemoDir,
-        string $rectorDemoDockerImage,
-        PHPFileLinter $phpFileLinter,
-        YamlLinter $yamlLinter
-    ) {
+    public function __construct(string $hostDemoDir, string $localDemoDir, string $rectorDemoDockerImage)
+    {
         $this->hostDemoDir = $hostDemoDir;
         $this->localDemoDir = $localDemoDir;
         $this->rectorDemoDockerImage = $rectorDemoDockerImage;
-        $this->phpFileLinter = $phpFileLinter;
-        $this->yamlLinter = $yamlLinter;
     }
 
     /**
@@ -96,11 +77,8 @@ final class RectorProcessRunner
         $runId = $rectorRun->getId()->toString();
         $volumeSourcePath = $this->hostDemoDir . '/' . $runId;
 
-        $phpFilePath = $this->createTempRunFile($runId, self::ANALYZED_FILE_NAME, $rectorRun->getContent());
-        $this->phpFileLinter->checkFileSyntax($phpFilePath);
-
-        $configFilePath = $this->createTempRunFile($runId, self::CONFIG_NAME, $rectorRun->getConfig());
-        $this->yamlLinter->checkFileSyntax($configFilePath);
+        $this->createTempRunFile($runId, self::ANALYZED_FILE_NAME, $rectorRun->getContent());
+        $this->createTempRunFile($runId, self::CONFIG_NAME, $rectorRun->getConfig());
 
         return new Process([
             'docker', 'run',
@@ -137,7 +115,6 @@ final class RectorProcessRunner
     private function getProcessOutput(string $containerName): string
     {
         $process = new Process(['docker', 'logs', $containerName]);
-
         $process->run();
 
         $errorOutput = $process->getErrorOutput();
@@ -149,13 +126,11 @@ final class RectorProcessRunner
         return $process->getOutput();
     }
 
-    private function createTempRunFile(string $runId, string $fileName, string $fileContent): string
+    private function createTempRunFile(string $runId, string $fileName, string $fileContent): void
     {
         $absolutePath = sprintf('%s/%s/%s', $this->localDemoDir, $runId, $fileName);
 
         FileSystem::write($absolutePath, $fileContent);
-
-        return $absolutePath;
     }
 
     private function removeContainer(string $containerName): void
