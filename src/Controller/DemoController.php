@@ -9,7 +9,6 @@ use Nette\Utils\FileSystem;
 use Nette\Utils\Json;
 use Nette\Utils\Strings;
 use Ramsey\Uuid\Uuid;
-use Ramsey\Uuid\UuidInterface;
 use Rector\Website\Entity\RectorRun;
 use Rector\Website\Form\DemoFormType;
 use Rector\Website\Process\RectorProcessRunner;
@@ -44,19 +43,12 @@ final class DemoController extends AbstractController
     }
 
     /**
-     * @Route(path="demo/{uuid}", name="demo_detail", methods={"GET", "POST"})
+     * @Route(path="demo/{rectorRun}", name="demo_detail", methods={"GET", "POST"})
      * @Route(path="demo", name="demo", methods={"GET", "POST"})
      */
-    public function __invoke(Request $request, ?UuidInterface $uuid = null): Response
+    public function __invoke(Request $request, ?RectorRun $rectorRun = null): Response
     {
-        $formData = $this->createRectorRunFormData();
-
-        if ($uuid) {
-            $rectorRun = $this->rectorRunRepository->get($uuid);
-
-            $formData->setContent($rectorRun->getContent());
-            $formData->setConfig($rectorRun->getConfig());
-        }
+        $formData = $this->createRectorRunFormData($rectorRun);
 
         $form = $this->createForm(DemoFormType::class, $formData);
         $form->handleRequest($request);
@@ -71,14 +63,22 @@ final class DemoController extends AbstractController
         ]);
     }
 
-    private function createRectorRunFormData(): RectorRunFormData
+    private function createRectorRunFormData(?RectorRun $rectorRun): RectorRunFormData
     {
-        $demoFileContent = FileSystem::read(__DIR__ . '/../../data/DemoFile.php');
-        $demoConfig = FileSystem::read(__DIR__ . '/../../data/demo-config.yaml');
-
         $formData = new RectorRunFormData();
-        $formData->setContent($demoFileContent);
-        $formData->setConfig($demoConfig);
+
+        if ($rectorRun) {
+            $formData->setContent($rectorRun->getContent());
+            $formData->setConfig($rectorRun->getConfig());
+        } else {
+            // default values
+            $demoFileContent = FileSystem::read(__DIR__ . '/../../data/DemoFile.php');
+            $demoConfig = FileSystem::read(__DIR__ . '/../../data/demo-config.yaml');
+
+            $formData->setContent($demoFileContent);
+            $formData->setConfig($demoConfig);
+        }
+
         return $formData;
     }
 

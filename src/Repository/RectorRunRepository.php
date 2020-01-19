@@ -30,7 +30,6 @@ final class RectorRunRepository
     public function get(UuidInterface $uuid): RectorRun
     {
         $rectorRun = $this->entityManager->find(RectorRun::class, $uuid);
-
         if ($rectorRun instanceof RectorRun) {
             return $rectorRun;
         }

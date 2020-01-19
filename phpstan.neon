@@ -13,9 +13,7 @@ parameters:
         - '#type has no value type specified in iterable type#'
         - '#with no value type specified in iterable type#'
 
-        - '#Method Rector\\Website\\Process\\RectorProcessRunner\:\:createProcess\(\) return type has no value type specified in iterable type Symfony\\Component\\Process\\Process#'
-        - '#Method Rector\\Website\\Controller\\DemoController\:\:processFormAndReturnRoute\(\) has parameter \$form with no value type specified in iterable type Symfony\\Component\\Form\\FormInterface#'
-        - '#Method Rector\\Website\\Form\\RectorRunFormType\:\:buildForm\(\) has parameter \$formBuilder with no value type specified in iterable type Symfony\\Component\\Form\\FormBuilderInterface#'
+        - '#PHPDoc tag @return with type Rector\\Website\\Entity\\RectorRun is not subtype of native type Iterator#'
 
         # wip
         - '#Unreachable statement \- code above always terminates#'

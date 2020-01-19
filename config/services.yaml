@@ -23,6 +23,6 @@ services:
 
     # needs to be registered manually, because it doesn't work without priority :/
     # see https://symfony.com/doc/current/controller/argument_value_resolver.html
-    Rector\Website\HttpKernel\Controller\UuidValueResolver:
+    Rector\Website\HttpKernel\Controller\RectorRunValueResolver:
         tags:
-            - { name: controller.argument_value_resolver, priority: 500 }
+            - { name: controller.argument_value_resolver, priority: 550 }
