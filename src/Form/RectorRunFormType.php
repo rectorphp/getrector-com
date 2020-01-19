@@ -22,8 +22,6 @@ final class RectorRunFormType extends AbstractType
             'label' => false,
             'required' => true,
             'attr' => [
-                'rows' => 10,
-                'cols' => 150,
                 'class' => 'demo_form_code'
             ],
         ]);
