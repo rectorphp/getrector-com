@@ -15,6 +15,11 @@ parameters:
             label: "create_function()"
             uuid: "63843c0a-d24f-4e73-a9b4-5b96c82bdd2e"
 
+        # https://github.com/rectorphp/rector/blob/master/docs/AllRectorsOverview.md#changeifelsevalueassigntoearlyreturnrector
+        -
+            label: "Early Return"
+            uuid: "f9782921-32b6-4a0b-a9aa-779506d4ed3a"
+
 services:
     _defaults:
         public: true
