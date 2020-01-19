@@ -59,7 +59,10 @@ final class DemoController extends AbstractController
     {
         $formData = $this->createDemoFormData($rectorRun);
 
-        $form = $this->createForm(DemoFormType::class, $formData);
+        $form = $this->createForm(DemoFormType::class, $formData, [
+            // this is needed for manual render
+            'action' => $this->generateUrl('demo'),
+        ]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
