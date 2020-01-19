@@ -1,3 +1,4 @@
+# rector.yaml
 parameters:
     sets:
         - 'dead-code'

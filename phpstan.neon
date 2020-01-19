@@ -10,7 +10,8 @@ parameters:
         - '#Return type \(Iterator\) of method Rector\\Website\\Twig\\TitleTwigExtension\:\:getFilters\(\) should be compatible with return type \(array<Twig\\TwigFilter\>\) of method Twig\\Extension\\(AbstractExtension|ExtensionInterface)\:\:getFilters\(\)#'
 
         # mixed
-        - '#return type has no value type specified in iterable type Iterator#'
+        - '#type has no value type specified in iterable type#'
+        - '#with no value type specified in iterable type#'
 
         - '#Method Rector\\Website\\Process\\RectorProcessRunner\:\:createProcess\(\) return type has no value type specified in iterable type Symfony\\Component\\Process\\Process#'
         - '#Method Rector\\Website\\Controller\\DemoController\:\:processFormAndReturnRoute\(\) has parameter \$form with no value type specified in iterable type Symfony\\Component\\Form\\FormInterface#'

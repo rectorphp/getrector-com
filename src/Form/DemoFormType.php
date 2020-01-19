@@ -23,15 +23,15 @@ final class DemoFormType extends AbstractType
             'required' => true,
             'attr' => [
                 'rows' => 30,
-                'class' => 'codemirror_php'
+                'class' => 'codemirror_php',
             ],
         ]);
 
         $formBuilder->add('config', TextareaType::class, [
-            'label' => 'Rector config',
+            'label' => false,
             'required' => true,
             'attr' => [
-                'class' => 'codemirror_yaml'
+                'class' => 'codemirror_yaml',
             ],
         ]);
 

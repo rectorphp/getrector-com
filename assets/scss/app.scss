@@ -323,9 +323,10 @@ h1 em, h2 em, h2 a {
 }
 
 #rector_run_form {
+    /* code highlight */
     .CodeMirror {
         border: 1px solid grey;
-        font-size: .9em;
+        font-size: .8em;
 
         height: 100%;
     }

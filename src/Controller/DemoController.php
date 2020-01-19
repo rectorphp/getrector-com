@@ -10,8 +10,8 @@ use Nette\Utils\Json;
 use Nette\Utils\Strings;
 use Ramsey\Uuid\Uuid;
 use Rector\Website\Entity\RectorRun;
-use Rector\Website\Form\RectorRunFormData;
 use Rector\Website\Form\DemoFormType;
+use Rector\Website\Form\RectorRunFormData;
 use Rector\Website\Process\RectorProcessRunner;
 use Rector\Website\Repository\RectorRunRepository;
 use function Sentry\captureException;
@@ -110,24 +110,9 @@ final class DemoController extends AbstractController
         return $this->redirectToDetail($rectorRun);
     }
 
-    private function cleanFileDiff(string $fileDiff): string
+    private function createRectorRun(string $config, RectorRunFormData $rectorRunFormData): RectorRun
     {
-        // https://regex101.com/r/sI6GVY/1/
-        $match = Strings::match($fileDiff, '#^.*?@@\n(?<content>.*?)$#Us');
-        $fileDiff = $match['content'] ?? '';
-
-        if (Strings::contains($fileDiff, 'No newline at end of file')) {
-            $fileDiff = Strings::substring($fileDiff, 0, -strlen('\ No newline at end of file') - 1);
-        }
-
-        return $fileDiff;
-    }
-
-    private function redirectToDetail(RectorRun $rectorRun): RedirectResponse
-    {
-        return $this->redirectToRoute('demo_detail', [
-            'id' => $rectorRun->getId()->toString(),
-        ]);
+        return new RectorRun(Uuid::uuid4(), new DateTimeImmutable(), $config, $rectorRunFormData->getContent());
     }
 
     private function createFileDiff(array $runResult, RectorRun $rectorRun): string
@@ -142,8 +127,23 @@ final class DemoController extends AbstractController
         return $rectorRun->getContent();
     }
 
-    private function createRectorRun(string $config, RectorRunFormData $formData): RectorRun
+    private function redirectToDetail(RectorRun $rectorRun): RedirectResponse
     {
-        return new RectorRun(Uuid::uuid4(), new DateTimeImmutable(), $config, $formData->getContent());
+        return $this->redirectToRoute('demo_detail', [
+            'id' => $rectorRun->getId()->toString(),
+        ]);
+    }
+
+    private function cleanFileDiff(string $fileDiff): string
+    {
+        // https://regex101.com/r/sI6GVY/1/
+        $match = Strings::match($fileDiff, '#^.*?@@\n(?<content>.*?)$#Us');
+        $fileDiff = $match['content'] ?? '';
+
+        if (Strings::contains($fileDiff, 'No newline at end of file')) {
+            $fileDiff = Strings::substring($fileDiff, 0, -strlen('\ No newline at end of file') - 1);
+        }
+
+        return $fileDiff;
     }
 }
