@@ -11,6 +11,7 @@
         <ini name="error_reporting" value="-1" />
         <server name="APP_ENV" value="test" force="true" />
         <server name="SHELL_VERBOSITY" value="-1" />
+        <server name="KERNEL_CLASS" value="Rector\Website\GetRectorKernel" />
 
         <!-- ###+ sentry/sentry-symfony ### -->
         <env name="SENTRY_DSN" value=""/>
@@ -18,7 +19,7 @@
     </php>
 
     <testsuites>
-        <testsuite name="Project Test Suite">
+        <testsuite name="main">
             <directory>tests</directory>
         </testsuite>
     </testsuites>

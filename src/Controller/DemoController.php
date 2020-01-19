@@ -91,8 +91,6 @@ final class DemoController extends AbstractController
         $config = $demoFormData->getConfig();
 
         $rectorRun = $this->createRectorRun($config, $demoFormData);
-        $this->rectorRunRepository->save($rectorRun);
-
         $this->demoRunner->runAndPopulateRunResult($rectorRun);
 
         $this->rectorRunRepository->save($rectorRun);
