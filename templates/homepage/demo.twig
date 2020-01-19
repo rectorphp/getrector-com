@@ -34,8 +34,10 @@
 
             {{ form_end(demo_form) }}
         </div>
+    </div>
 
-        {% if rector_run is not null %}
+    {% if rector_run is not null %}
+        <div class="container-fluid mt-5 mb-0 pl-5 pr-5 pb-4" id="demo_result">
             <br>
 
             <h3 class="mt-0 mb-4 text-left">Result</h3>
@@ -48,6 +50,6 @@
                     {{ rector_run.errorMessage }}
                 </div>
             {% endif %}
-        {% endif %}
-    </div>
+        </div>
+    {% endif %}
 {% endblock %}

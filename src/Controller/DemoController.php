@@ -108,7 +108,7 @@ final class DemoController extends AbstractController
         $this->rectorRunRepository->save($rectorRun);
 
         return $this->redirectToRoute('demo_detail', [
-            'id' => $rectorRun->getId()->toString(),
+            'rectorRun' => $rectorRun->getId(),
         ]);
     }
 
@@ -124,7 +124,6 @@ final class DemoController extends AbstractController
 
         try {
             $runResult = $this->rectorProcessRunner->run($rectorRun);
-
             $fileDiff = $this->createFileDiff($runResult, $rectorRun);
 
             $rectorRun->success($fileDiff, Json::encode($runResult), $rectorProcessStopwatchEvent);
