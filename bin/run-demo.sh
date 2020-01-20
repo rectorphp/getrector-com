@@ -1,14 +1,13 @@
 #!/usr/bin/env bash
 
-while getopts ":v:r:i:d:" opt
+while getopts ":v:n:i:" opt
 do
   case ${opt} in
     v) VOLUME_SOURCE=${OPTARG};;
-    r) RUN_ID=${OPTARG};;
+    n) NAME=${OPTARG};;
     i) DOCKER_IMAGE=${OPTARG};;
-    d) RUN_DIRECTORY=${OPTARG};;
     h)
-        echo "Usage: run-demo [-h] -v <VOLUME_SOURCE> -r <RUN_ID> -i <DOCKER_IMAGE>"
+        echo "Usage: run-demo [-h] -v <VOLUME_SOURCE> -n <NAME> -i <DOCKER_IMAGE>"
         exit 0
         ;;
     \?)
@@ -31,24 +30,15 @@ fi
 shift $((OPTIND - 1))
 
 docker run \
-    --name ${RUN_ID} \
+    --name ${NAME} \
     --volume ${VOLUME_SOURCE}:/project \
     ${DOCKER_IMAGE} \
     process /project/rector_analyzed_file.php \
     --output-format json \
-    --output-file /project/output.json \
     --config /project/rector.yaml
 
 RECTOR_RUN_EXIT_CODE=$?
 
-if [[ ${RECTOR_RUN_EXIT_CODE} -eq 0 ]]
-then
-    cat ${RUN_DIRECTORY}/output.json
-else
-    docker logs ${RUN_ID}
-fi
-
-docker rm ${RUN_ID} > /dev/null
-rm -rf ${RUN_DIRECTORY}
+docker rm -f ${NAME} > /dev/null
 
 exit ${RECTOR_RUN_EXIT_CODE}

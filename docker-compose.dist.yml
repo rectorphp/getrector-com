@@ -5,7 +5,7 @@ services:
         restart: unless-stopped
         build:
             context: .
-            target: dev
+            target: app # You might want to change this to dev-xdebug to enable xdebug
             dockerfile: Dockerfile
         env_file:
             - .env
@@ -32,3 +32,11 @@ services:
             - ./.docker/mysql-data:/var/lib/mysql
         ports:
             - 3306:3306
+
+    adminer:
+        image: adminer
+        restart: unless-stopped
+        ports:
+            - 8081:8080
+        depends_on:
+            - mysql

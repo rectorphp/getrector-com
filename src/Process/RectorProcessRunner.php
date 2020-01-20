@@ -6,7 +6,7 @@ namespace Rector\Website\Process;
 
 use Nette\Utils\FileSystem;
 use Nette\Utils\Json;
-use Rector\Website\Entity\RectorRun;
+use Nette\Utils\Random;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
 
@@ -59,13 +59,17 @@ final class RectorProcessRunner
     /**
      * @return mixed[]
      */
-    public function run(RectorRun $rectorRun): array
+    public function run(string $fileContent, string $config): array
     {
-        $runId = $rectorRun->getId()->toString();
-        $process = $this->createProcess($rectorRun);
+        $identifier = Random::generate(20);
 
-        $this->createRunFile($runId, self::ANALYZED_FILE_NAME, $rectorRun->getContent());
-        $this->createRunFile($runId, self::CONFIG_NAME, $rectorRun->getConfig());
+        $this->registerCleanupOnShutdown($identifier);
+
+        $this->createTempFile($identifier . '/' . self::ANALYZED_FILE_NAME, $fileContent);
+        $this->createTempFile($identifier . '/' . self::CONFIG_NAME, $config);
+
+        $process = $this->createProcess($identifier);
+
         $process->run();
 
         if (! $process->isTerminated()) {
@@ -82,25 +86,28 @@ final class RectorProcessRunner
         throw new RectorRunFailedException($output);
     }
 
-    private function createProcess(RectorRun $rectorRun): Process
+    private function registerCleanupOnShutdown(string $directory): void
     {
-        $runId = $rectorRun->getId()->toString();
-        $volumeSourcePath = $this->hostDemoDir . '/' . $runId;
+        register_shutdown_function(function () use ($directory): void {
+            FileSystem::delete($this->localDemoDir . '/' . $directory);
+        });
+    }
+
+    private function createTempFile(string $filePath, string $fileContent): void
+    {
+        FileSystem::write($this->localDemoDir . '/' . $filePath, $fileContent);
+    }
+
+    private function createProcess(string $identifier): Process
+    {
+        $volumeSourcePath = $this->hostDemoDir . '/' . $identifier;
 
         return new Process([
             // Because user www-data runs docker owned by root, we need to use sudo
             'sudo', $this->demoExecutablePath,
-            '-r', $runId,
+            '-n', $identifier,
             '-v', $volumeSourcePath,
             '-i', $this->rectorDemoDockerImage,
-            '-d', $this->localDemoDir . '/' . $runId,
         ]);
-    }
-
-    private function createRunFile(string $runId, string $fileName, string $fileContent): void
-    {
-        $absolutePath = sprintf('%s/%s/%s', $this->localDemoDir, $runId, $fileName);
-
-        FileSystem::write($absolutePath, $fileContent);
     }
 }

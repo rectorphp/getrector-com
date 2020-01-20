@@ -47,7 +47,7 @@ RUN apt-get update && apt-get install -y \
 # Installing composer and prestissimo globally
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-ENV COMPOSER_ALLOW_SUPERUSER 1
+ENV COMPOSER_ALLOW_SUPERUSER=1 COMPOSER_MEMORY_LIMIT=-1
 RUN composer global require "hirak/prestissimo:^0.3" --prefer-dist --no-progress --no-suggest --classmap-authoritative --no-plugins --no-scripts
 
 # Entrypoint
@@ -73,19 +73,18 @@ RUN yarn run build
 ####
 ## Build app itself
 ####
-FROM base as production
+FROM base as app
 
-COPY .docker/sudoers/www-data /etc/sudoers.d/www-data
+# Allow www-data to run bin/run-demo.sh with sudo
+COPY ./.docker/sudoers/www-data /etc/sudoers.d/www-data
 RUN chmod 440 /etc/sudoers.d/www-data
 
 COPY composer.json composer.lock phpunit.xml.dist ./
 
-RUN COMPOSER_MEMORY_LIMIT=-1 composer install --prefer-dist --no-dev --no-autoloader --no-scripts --no-progress --no-suggest \
+RUN composer install --prefer-dist --no-dev --no-autoloader --no-scripts --no-progress --no-suggest \
     && composer clear-cache
 
 COPY --from=node-build /build/public/build ./public/build
-
-COPY . .
 
 RUN mkdir -p ./var/cache \
     ./var/log \
@@ -95,19 +94,21 @@ RUN mkdir -p ./var/cache \
         && chown -R www-data ./var
 
 
-## Local build
-FROM production as dev
-
-## TODO: we might need NPM + NODE in dev + entrypoint with npm install?
-
-## see https://getcomposer.org/doc/articles/troubleshooting.md#memory-limit-errors
-RUN COMPOSER_MEMORY_LIMIT=-1 composer install --prefer-dist --no-scripts --no-progress --no-suggest
-
-
-## Local build + xdebug
-FROM dev as dev-xdebug
+####
+## Local build + xdebug - we do not need COPY files because we will get them from volume
+####
+FROM app as dev-xdebug
 
 COPY ./.docker/php/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
 RUN pecl -q install xdebug \
     && docker-php-ext-enable xdebug
+
+
+####
+## Production build
+####
+FROM app as production
+
+# Copy project files, intentionally only for production because of cache rocket speedup
+COPY . .
