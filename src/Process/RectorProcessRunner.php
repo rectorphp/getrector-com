@@ -72,7 +72,7 @@ final class RectorProcessRunner
             throw new ProcessFailedException($process);
         }
 
-        $output = $process->getOutput();
+        $output = $process->getErrorOutput() ?: $process->getOutput();
 
         if ($process->isSuccessful()) {
             // If it was successful it will output valid json with result
@@ -88,7 +88,8 @@ final class RectorProcessRunner
         $volumeSourcePath = $this->hostDemoDir . '/' . $runId;
 
         return new Process([
-            $this->demoExecutablePath,
+            // Because user www-data runs docker owned by root, we need to use sudo
+            'sudo', $this->demoExecutablePath,
             '-r', $runId,
             '-v', $volumeSourcePath,
             '-i', $this->rectorDemoDockerImage,

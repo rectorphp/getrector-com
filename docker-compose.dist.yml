@@ -12,10 +12,10 @@ services:
         environment:
             XDEBUG_CONFIG: "remote_host=host.docker.internal"
             PHP_IDE_CONFIG: "serverName=getrector_org"
-            DOCKER_HOST: "tcp://docker-proxy:2375"
         ports:
             - "8080:80"
         volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
             - .:/var/www/getrector.org:delegated
         tmpfs:
             - /var/www/getrector.org/var/cache
@@ -32,9 +32,3 @@ services:
             - ./.docker/mysql-data:/var/lib/mysql
         ports:
             - 3306:3306
-
-    docker-proxy:
-        image: docksal/socat
-        restart: unless-stopped
-        volumes:
-            - /var/run/docker.sock:/var/run/docker.sock
