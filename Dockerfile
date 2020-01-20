@@ -1,22 +1,13 @@
-FROM node:10.15.3 as node-build
-
-WORKDIR /build
-
-COPY package*.json webpack*.json ./
-RUN yarn install
-
-COPY . .
-
-RUN yarn run build
-
-
-FROM php:7.3-apache as production
+####
+## Base stage, to empower cache
+####
+FROM php:7.3-apache as base
 
 WORKDIR /var/www/getrector.org
 
 COPY ./.docker/apache/apache.conf /etc/apache2/sites-available/000-default.conf
 
-# Install php extensions + cleanup
+# Install php extensions
 RUN apt-get update && apt-get install -y \
         git \
         unzip \
@@ -27,6 +18,7 @@ RUN apt-get update && apt-get install -y \
         libzip-dev \
         libpng-dev \
         libjpeg-dev \
+        sudo \
     && docker-php-ext-configure gd --with-png-dir=/usr/include/  --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install gd \
     && docker-php-ext-configure intl \
@@ -62,14 +54,38 @@ RUN composer global require "hirak/prestissimo:^0.3" --prefer-dist --no-progress
 COPY ./.docker/docker-entrypoint.sh /usr/local/bin/docker-php-entrypoint
 RUN chmod +x /usr/local/bin/docker-php-entrypoint
 
-COPY composer.json phpunit.xml.dist ./
+
+####
+## Build js+css assets
+####
+FROM node:10.15.3 as node-build
+
+WORKDIR /build
+
+COPY package.json yarn.* webpack.config.js ./
+RUN yarn install
+
+COPY ./assets ./assets
+
+RUN yarn run build
+
+
+####
+## Build app itself
+####
+FROM base as production
+
+COPY .docker/sudoers/www-data /etc/sudoers.d/www-data
+RUN chmod 440 /etc/sudoers.d/www-data
+
+COPY composer.json composer.lock phpunit.xml.dist ./
 
 RUN COMPOSER_MEMORY_LIMIT=-1 composer install --prefer-dist --no-dev --no-autoloader --no-scripts --no-progress --no-suggest \
     && composer clear-cache
 
-COPY . .
-
 COPY --from=node-build /build/public/build ./public/build
+
+COPY . .
 
 RUN mkdir -p ./var/cache \
     ./var/log \
