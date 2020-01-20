@@ -32,3 +32,11 @@ services:
             - ./.docker/mysql-data:/var/lib/mysql
         ports:
             - 3306:3306
+
+    adminer:
+        image: adminer
+        restart: unless-stopped
+        ports:
+            - 8081:8080
+        depends_on:
+            - mysql
