@@ -165,10 +165,10 @@ h2 {
 
     a {
         color: #21c87a;
-    }
 
-    a:hover {
-        color: #20a55b;
+        &:hover {
+            color: #20a55b;
+        }
     }
 
     #made_by {
@@ -368,4 +368,23 @@ h1 em, h2 em, h2 a {
 
 .badge {
     margin-right: .5em;
+}
+
+h2 a, a {
+    color: #21c87a;
+
+    &:hover {
+        color: #20a55b;
+    }
+}
+
+#subpage.post {
+    h2 {
+        text-align: left;
+        padding-bottom: 0;
+    }
+
+    h3 {
+        margin-top: 1em;
+    }
 }

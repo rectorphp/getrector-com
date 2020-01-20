@@ -7,11 +7,12 @@ twig:
     globals:
         site_url: "https://getrector.org"
         main_page_title: "Rector - Automated Way to Instantly Upgrade and Refactor any PHP code"
+
         # see https://symfony.com/doc/current/templating/global_variables.html#referencing-services
         rector_count_provider: '@Rector\Website\Twig\RectorCountVariableProvider'
 
         # @todo create this
-        disqus_name: "get_rector_org"
+        disqus_name: "getrectororg"
 
     # see https://symfony.com/blog/new-in-symfony-2-7-default-date-and-number-format-configuration
     date:
