@@ -13,19 +13,16 @@ use Symfony\Component\Process\Process;
 final class RectorProcessRunner
 {
     /**
+     * Do not change without changing run-demo.sh
      * @var string
      */
     private const ANALYZED_FILE_NAME = 'rector_analyzed_file.php';
 
     /**
+     * Do not change without changing run-demo.sh
      * @var string
      */
     private const CONFIG_NAME = 'rector.yaml';
-
-    /**
-     * @var string
-     */
-    private const RECTOR_RESULT_FILE_NAME = 'result.json';
 
     /**
      * @var string
@@ -42,11 +39,21 @@ final class RectorProcessRunner
      */
     private $rectorDemoDockerImage;
 
-    public function __construct(string $hostDemoDir, string $localDemoDir, string $rectorDemoDockerImage)
-    {
+    /**
+     * @var string
+     */
+    private $demoExecutablePath;
+
+    public function __construct(
+        string $hostDemoDir,
+        string $localDemoDir,
+        string $rectorDemoDockerImage,
+        string $demoExecutablePath
+    ) {
         $this->hostDemoDir = $hostDemoDir;
         $this->localDemoDir = $localDemoDir;
         $this->rectorDemoDockerImage = $rectorDemoDockerImage;
+        $this->demoExecutablePath = $demoExecutablePath;
     }
 
     /**
@@ -54,22 +61,25 @@ final class RectorProcessRunner
      */
     public function run(RectorRun $rectorRun): array
     {
-        $process = $this->createProcess($rectorRun);
         $runId = $rectorRun->getId()->toString();
+        $process = $this->createProcess($rectorRun);
 
-        $this->registerCleanupOnShutdown($runId);
-
+        $this->createRunFile($runId, self::ANALYZED_FILE_NAME, $rectorRun->getContent());
+        $this->createRunFile($runId, self::CONFIG_NAME, $rectorRun->getConfig());
         $process->run();
 
         if (! $process->isTerminated()) {
             throw new ProcessFailedException($process);
         }
 
+        $output = $process->getOutput();
+
         if ($process->isSuccessful()) {
-            return $this->getRectorResult($runId);
+            // If it was successful it will output valid json with result
+            return Json::decode($output, Json::FORCE_ARRAY);
         }
 
-        throw new RectorRunFailedException($this->getProcessOutput($runId));
+        throw new RectorRunFailedException($output);
     }
 
     private function createProcess(RectorRun $rectorRun): Process
@@ -77,66 +87,19 @@ final class RectorProcessRunner
         $runId = $rectorRun->getId()->toString();
         $volumeSourcePath = $this->hostDemoDir . '/' . $runId;
 
-        $this->createTempRunFile($runId, self::ANALYZED_FILE_NAME, $rectorRun->getContent());
-        $this->createTempRunFile($runId, self::CONFIG_NAME, $rectorRun->getConfig());
-
         return new Process([
-            'docker', 'run',
-            '--name', $runId,
-            '--volume', $volumeSourcePath . ':/project',
-            $this->rectorDemoDockerImage,
-            'process', '/project/' . self::ANALYZED_FILE_NAME,
-            '--output-format', 'json',
-            '--output-file', '/project/' . self::RECTOR_RESULT_FILE_NAME,
-            '--config', '/project/' . self::CONFIG_NAME,
+            $this->demoExecutablePath,
+            '-r', $runId,
+            '-v', $volumeSourcePath,
+            '-i', $this->rectorDemoDockerImage,
+            '-d', $this->localDemoDir . '/' . $runId
         ]);
     }
 
-    private function registerCleanupOnShutdown(string $runId): void
-    {
-        register_shutdown_function(function () use ($runId): void {
-            $this->removeContainer($runId);
-
-            FileSystem::delete($this->localDemoDir . '/' . $runId);
-        });
-    }
-
-    /**
-     * @return mixed[]
-     */
-    private function getRectorResult(string $runId): array
-    {
-        $outputPath = sprintf('%s/%s/%s', $this->localDemoDir, $runId, self::RECTOR_RESULT_FILE_NAME);
-        $result = FileSystem::read($outputPath);
-
-        return Json::decode($result, Json::FORCE_ARRAY);
-    }
-
-    private function getProcessOutput(string $containerName): string
-    {
-        $process = new Process(['docker', 'logs', $containerName]);
-        $process->run();
-
-        $errorOutput = $process->getErrorOutput();
-
-        if ($errorOutput) {
-            return $errorOutput;
-        }
-
-        return $process->getOutput();
-    }
-
-    private function createTempRunFile(string $runId, string $fileName, string $fileContent): void
+    private function createRunFile(string $runId, string $fileName, string $fileContent): void
     {
         $absolutePath = sprintf('%s/%s/%s', $this->localDemoDir, $runId, $fileName);
 
         FileSystem::write($absolutePath, $fileContent);
-    }
-
-    private function removeContainer(string $containerName): void
-    {
-        $process = new Process(['docker', 'rm', $containerName]);
-
-        $process->run();
     }
 }
