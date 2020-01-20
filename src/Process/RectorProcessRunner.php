@@ -93,7 +93,7 @@ final class RectorProcessRunner
             '-r', $runId,
             '-v', $volumeSourcePath,
             '-i', $this->rectorDemoDockerImage,
-            '-d', $this->localDemoDir . '/' . $runId
+            '-d', $this->localDemoDir . '/' . $runId,
         ]);
     }
 
