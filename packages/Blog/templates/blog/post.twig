@@ -4,10 +4,12 @@
 {% set page_title %}{{ post.title }}{% endset %}
 
 {% block main %}
-    <div class="container" id="subpage">
-        <time datetime="{{ post.getDateInFormat('Y-m-D') }}">
-            {{ post.getDateInFormat('j. n. Y') }}
-        </time>
+    <div class="container post" id="subpage">
+        <small>
+            <time datetime="{{ post.getDateInFormat('Y-m-D') }}" class="text-muted">
+                {{ post.getDateInFormat('j. n. Y') }}
+            </time>
+        </small>
 
         <br>
 
@@ -20,10 +22,12 @@
         {{ post.content|raw }}
 
         <br>
+        <br>
+        <br>
 
-{#        <div class="container">#}
-{#            {% include "_snippets/disqus_comments.twig" %}#}
-{#        </div>#}
+        <div class="container">
+            {% include "_snippets/disqus_comments.twig" %}
+        </div>
 
         <br>
     </div>

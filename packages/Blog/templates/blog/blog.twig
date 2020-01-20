@@ -8,15 +8,23 @@
             {# "filter" prevents future publishing #}
             {% for post in posts|filter(post => (post.getDateInFormat('Y-m-d') <= "now"|date('Y-m-d'))) %}
                 <div class="col-12">
-                    <h2 class="text-left mb-0 pb-3">
+                    <h2 class="text-left mb-0 pb-4 mt-3">
                         <a href="{{ post|link }}">{{ post.title }}</a>
                     </h2>
 
-                    <time datetime="{{ post.getDateInFormat('Y-m-D') }}">
-                        {{ post.getDateInFormat('j. n. Y') }}
-                    </time>
+                    <small>
+                        <time datetime="{{ post.getDateInFormat('Y-m-D') }}" class="text-muted">
+                            {{ post.getDateInFormat('j. n. Y') }}
+                        </time>
+                    </small>
 
-                    <p class="perex">{{ post.perex|raw }}</p>
+                    <p class="perex mb-5">{{ post.perex|raw }}</p>
+
+                    <a href="{{ post|link }}" class="btn btn-success btn-lg">
+                        Read More
+                        &nbsp;
+                        <em class="fas fa-arrow-alt-circle-right fa-fw"></em>
+                    </a>
                 </div>
             {% endfor %}
         </div>
