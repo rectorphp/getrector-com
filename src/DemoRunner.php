@@ -36,7 +36,7 @@ final class DemoRunner
         $rectorProcessStopwatchEvent = $stopwatch->start('rector-process');
 
         try {
-            $runResult = $this->rectorProcessRunner->run($rectorRun);
+            $runResult = $this->rectorProcessRunner->run($rectorRun->getContent(), $rectorRun->getConfig());
             $fileDiff = $this->createFileDiff($runResult, $rectorRun);
 
             $rectorRun->success($fileDiff, Json::encode($runResult), $rectorProcessStopwatchEvent);
