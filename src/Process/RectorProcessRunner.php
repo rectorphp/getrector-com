@@ -6,6 +6,7 @@ namespace Rector\Website\Process;
 
 use Nette\Utils\FileSystem;
 use Nette\Utils\Json;
+use Nette\Utils\JsonException;
 use Nette\Utils\Random;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
@@ -79,8 +80,12 @@ final class RectorProcessRunner
         $output = $process->getErrorOutput() ?: $process->getOutput();
 
         if ($process->isSuccessful()) {
-            // If it was successful it will output valid json with result
-            return Json::decode($output, Json::FORCE_ARRAY);
+            try {
+                // If it was successful it will output valid json with result
+                return Json::decode($output, Json::FORCE_ARRAY);
+            } catch (JsonException $jsonException) {
+                // Do nothing, RectorRunFailedException will be thrown anyway
+            }
         }
 
         throw new RectorRunFailedException($output);
