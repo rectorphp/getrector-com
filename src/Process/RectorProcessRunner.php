@@ -8,6 +8,7 @@ use Nette\Utils\FileSystem;
 use Nette\Utils\Json;
 use Nette\Utils\JsonException;
 use Nette\Utils\Random;
+use Rector\Website\Error\ErrorMessageNormalizer;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
 
@@ -45,12 +46,19 @@ final class RectorProcessRunner
      */
     private $demoExecutablePath;
 
+    /**
+     * @var ErrorMessageNormalizer
+     */
+    private $errorMessageNormalizer;
+
     public function __construct(
+        ErrorMessageNormalizer $errorMessageNormalizer,
         string $hostDemoDir,
         string $localDemoDir,
         string $rectorDemoDockerImage,
         string $demoExecutablePath
     ) {
+        $this->errorMessageNormalizer = $errorMessageNormalizer;
         $this->hostDemoDir = $hostDemoDir;
         $this->localDemoDir = $localDemoDir;
         $this->rectorDemoDockerImage = $rectorDemoDockerImage;
@@ -70,7 +78,6 @@ final class RectorProcessRunner
         $this->createTempFile($identifier . '/' . self::CONFIG_NAME, $config);
 
         $process = $this->createProcess($identifier);
-
         $process->run();
 
         if (! $process->isTerminated()) {
@@ -87,6 +94,8 @@ final class RectorProcessRunner
                 // Do nothing, RectorRunFailedException will be thrown anyway
             }
         }
+
+        $output = $this->errorMessageNormalizer->normalize($output);
 
         throw new RectorRunFailedException($output);
     }
