@@ -8,6 +8,7 @@
 .editorconfig
 ide-twig.json
 
+.github/
 .git/
 .gitattributes
 .gitignore
