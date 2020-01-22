@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Rector\Website\Validator;
 
 use Nette\Utils\Strings;
+use Rector\Website\Exception\Linter\ForbiddenPHPFunctionException;
 use Rector\Website\Exception\Linter\MissingPHPOpeningTagException;
 use Rector\Website\Exception\LintingException;
 use Rector\Website\Lint\PHPLinter;
@@ -37,6 +38,9 @@ final class PHPConstraintValidator extends ConstraintValidator
             $this->phpLinter->checkContentSyntax($value);
         } catch (MissingPHPOpeningTagException $missingPHPOpeningTagException) {
             $this->context->buildViolation('Add opening "<?php" tag')
+                ->addViolation();
+        } catch (ForbiddenPHPFunctionException $forbiddenFunctionException) {
+            $this->context->buildViolation($forbiddenFunctionException->getMessage())
                 ->addViolation();
         } catch (LintingException $lintingException) {
             $usefulLinterMessage = $this->clearLinterMessage($lintingException->getMessage());
