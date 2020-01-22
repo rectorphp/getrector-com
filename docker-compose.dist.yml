@@ -5,7 +5,7 @@ services:
         restart: unless-stopped
         build:
             context: .
-            target: app # You might want to change this to dev-xdebug to enable xdebug
+            target: production # You might want to change this to dev-xdebug to enable xdebug
             dockerfile: Dockerfile
         env_file:
             - .env

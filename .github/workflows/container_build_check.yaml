@@ -12,8 +12,16 @@ jobs:
 
             - name: Build image
               run: |
-                docker pull rector/getrector.org || true
-                docker build . --cache-from rector/getrector.org --tag image --target production
+                # Cache multi-stage builds: https://pythonspeed.com/articles/faster-multi-stage-builds/
+
+                docker pull rector/getrector.org:base || true
+                docker pull rector/getrector.org:node-build || true
+                docker pull rector/getrector.org:latest || true
+
+                docker build . --tag image --target production \
+                  --cache-from rector/getrector.org:base \
+                  --cache-from rector/getrector.org:node-build \
+                  --cache-from rector/getrector.org:latest
 
             - name: Warmup cache
               run: docker run -e APP_ENV=prod image bin/console cache:warmup
