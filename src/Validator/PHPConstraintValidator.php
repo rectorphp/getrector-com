@@ -5,9 +5,10 @@ declare(strict_types=1);
 namespace Rector\Website\Validator;
 
 use Nette\Utils\Strings;
-use Rector\Website\Exception\Linter\ForbiddenPHPFunctionException;
+use Rector\Website\Exception\ForbiddenPHPFunctionException;
 use Rector\Website\Exception\Linter\MissingPHPOpeningTagException;
 use Rector\Website\Exception\LintingException;
+use Rector\Website\Lint\ForbiddenPHPFunctionsChecker;
 use Rector\Website\Lint\PHPLinter;
 use Rector\Website\Validator\Constraint\PHPConstraint;
 use Symfony\Component\Validator\Constraint;
@@ -23,9 +24,15 @@ final class PHPConstraintValidator extends ConstraintValidator
      */
     private $phpLinter;
 
-    public function __construct(PHPLinter $phpLinter)
+    /**
+     * @var ForbiddenPHPFunctionsChecker
+     */
+    private $forbiddenPHPFunctionsChecker;
+
+    public function __construct(PHPLinter $phpLinter, ForbiddenPHPFunctionsChecker $forbiddenPHPFunctionsChecker)
     {
         $this->phpLinter = $phpLinter;
+        $this->forbiddenPHPFunctionsChecker = $forbiddenPHPFunctionsChecker;
     }
 
     /**
@@ -36,11 +43,12 @@ final class PHPConstraintValidator extends ConstraintValidator
     {
         try {
             $this->phpLinter->checkContentSyntax($value);
+            $this->forbiddenPHPFunctionsChecker->checkCode($value);
         } catch (MissingPHPOpeningTagException $missingPHPOpeningTagException) {
             $this->context->buildViolation('Add opening "<?php" tag')
                 ->addViolation();
-        } catch (ForbiddenPHPFunctionException $forbiddenFunctionException) {
-            $this->context->buildViolation($forbiddenFunctionException->getMessage())
+        } catch (ForbiddenPHPFunctionException $forbiddenPHPFunctionException) {
+            $this->context->buildViolation($forbiddenPHPFunctionException->getMessage())
                 ->addViolation();
         } catch (LintingException $lintingException) {
             $usefulLinterMessage = $this->clearLinterMessage($lintingException->getMessage());

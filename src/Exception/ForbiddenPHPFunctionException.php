@@ -1,6 +1,8 @@
-<?php declare (strict_types=1);
+<?php
 
-namespace Rector\Website\Exception\Linter;
+declare(strict_types=1);
+
+namespace Rector\Website\Exception;
 
 use RuntimeException;
 
