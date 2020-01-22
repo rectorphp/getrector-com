@@ -84,20 +84,20 @@ final class RectorProcessRunner
             throw new ProcessFailedException($process);
         }
 
-        $output = $process->getErrorOutput() ?: $process->getOutput();
+        $output = $process->getOutput();
+        $errorOutput = $output ?: $process->getErrorOutput();
+        $errorOutput = $this->errorMessageNormalizer->normalize($errorOutput);
 
         if ($process->isSuccessful()) {
             try {
                 // If it was successful it will output valid json with result
                 return Json::decode($output, Json::FORCE_ARRAY);
             } catch (JsonException $jsonException) {
-                // Do nothing, RectorRunFailedException will be thrown anyway
+                throw new RectorRunFailedException($errorOutput, $jsonException->getCode(), $jsonException);
             }
         }
 
-        $output = $this->errorMessageNormalizer->normalize($output);
-
-        throw new RectorRunFailedException($output);
+        throw new RectorRunFailedException($errorOutput);
     }
 
     private function registerCleanupOnShutdown(string $directory): void
