@@ -1,9 +1,6 @@
 name: Container build check
 
-on:
-    pull_request:
-        branches:
-            - master
+on: push
 
 jobs:
     warmup:

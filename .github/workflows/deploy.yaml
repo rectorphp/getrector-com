@@ -1,18 +1,13 @@
-# Dependent workflow hack: https://github.community/t5/GitHub-Actions/Depend-on-another-workflow/m-p/32487/highlight/true#M1155
 name: Deploy
 
 on:
-    pull_request:
-        types: [closed]
+    push:
         branches:
             - master
 
 jobs:
     deploy:
         runs-on: ubuntu-latest
-
-        # run when the PR was actually merged (rather then being closed without merging)
-        if: github.event.pull_request.merged
 
         steps:
             - uses: actions/checkout@v2
