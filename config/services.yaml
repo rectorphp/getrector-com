@@ -3,6 +3,18 @@ parameters:
     host_demo_dir: '%env(HOST_DEMO_DIR)%'
     rector_demo_docker_image: 'rector/rector-secured:latest'
     demo_executable_path: '%kernel.project_dir%/bin/run-demo.sh'
+    forbidden_functions:
+        - 'exec'
+        - 'passthru'
+        - 'shell_exec'
+        - 'system'
+        - 'proc_open'
+        - 'popen'
+        - 'curl_exec'
+        - 'curl_multi_exec'
+        - 'parse_ini_file'
+        - 'show_source'
+        - 'mail'
 
     demo_links:
         # https://github.com/rectorphp/rector/blob/master/docs/AllRectorsOverview.md#typedpropertyrector
