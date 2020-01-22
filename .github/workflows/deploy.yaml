@@ -1,0 +1,38 @@
+# Dependent workflow hack: https://github.community/t5/GitHub-Actions/Depend-on-another-workflow/m-p/32487/highlight/true#M1155
+name: Deploy
+
+on:
+    pull_request:
+        types: [closed]
+        branches:
+            - master
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+
+        # run when the PR was actually merged (rather then being closed without merging)
+        if: github.event.pull_request.merged
+
+        steps:
+            - uses: actions/checkout@v2
+              if: github.event.pull_request.merged
+              with:
+                  ref: master
+
+            - name: Log into registry
+              run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+
+            - name: Publish docker image
+              run: |
+                docker pull rector/getrector.org || true
+                docker build . --cache-from rector/getrector.org --tag rector/getrector.org:latest --target production
+                docker push rector/getrector.org
+
+            - name: Deploy
+              uses: appleboy/ssh-action@master
+              with:
+                  host: ${{ secrets.DEPLOY_HOST }}
+                  username: ${{ secrets.DEPLOY_USERNAME }}
+                  key: ${{ secrets.DEPLOY_KEY }}
+                  script: "cd /projects/getrector.org && ./run.sh"
