@@ -16,7 +16,7 @@ jobs:
             - name: Build image
               run: |
                 docker pull rector/getrector.org || true
-                docker build . --cache-from rector/getrector.org -t image --target production
+                docker build . --cache-from rector/getrector.org --tag image --target production
 
             - name: Warmup cache
               run: docker run -e APP_ENV=prod image bin/console cache:warmup
