@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 final class DemoFormType extends AbstractType
 {
@@ -22,18 +23,22 @@ final class DemoFormType extends AbstractType
             // no label needed
             'label' => false,
             'required' => true,
+            'empty_data' => '',
             'attr' => [
                 'rows' => 30,
                 'class' => 'codemirror_php',
             ],
+            'constraints' => [new NotBlank()],
         ]);
 
         $formBuilder->add('config', TextareaType::class, [
             'label' => false,
             'required' => true,
+            'empty_data' => '',
             'attr' => [
                 'class' => 'codemirror_yaml',
             ],
+            'constraints' => [new NotBlank()],
         ]);
 
         $formBuilder->add('process', SubmitType::class, [

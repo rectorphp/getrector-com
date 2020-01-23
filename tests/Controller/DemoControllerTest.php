@@ -42,7 +42,7 @@ final class DemoControllerTest extends WebTestCase
         self::assertRouteSame('demo');
 
         // form should contain errors
-        self::assertSelectorExists('#demo_form_content_errors');
+        self::assertSelectorExists('.invalid-feedback');
     }
 
 
@@ -62,8 +62,8 @@ final class DemoControllerTest extends WebTestCase
 
         # Invalid Yaml syntax
         yield [
-            'failed',
-            "services:\n   - test",
+            '<?php',
+            "- 'A'\n - 'B'",
         ];
     }
 }
