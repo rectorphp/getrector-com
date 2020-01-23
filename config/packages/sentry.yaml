@@ -1,7 +1,7 @@
 sentry:
     dsn: '%env(SENTRY_DSN)%'
     options:
-        release: '%env(SENTRY_RELEASE))%'
+        release: '%env(SENTRY_RELEASE)%'
         send_default_pii: true
         attach_stacktrace: true
         excluded_exceptions:
