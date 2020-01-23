@@ -360,6 +360,10 @@ h1 em, h2 em, h2 a {
 
 .invalid-feedback {
     margin-bottom: 1em;
+
+    .d-block + .d-block {
+        margin-top: 5px;
+    }
 }
 
 .badge, .invalid-feedback {
