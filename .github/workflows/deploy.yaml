@@ -55,6 +55,9 @@ jobs:
                 docker push rector/getrector.org:node-build
                 docker push rector/getrector.org:latest
 
+            - name: Finalize Sentry release
+              run: sentry-cli releases finalize ${{ github.sha }}
+
             - name: Deploy
               uses: appleboy/ssh-action@master
               with:
@@ -63,5 +66,5 @@ jobs:
                   key: ${{ secrets.DEPLOY_KEY }}
                   script: "cd /projects/getrector.org && ./run.sh"
 
-            - name: Finalize Sentry release
-              run: sentry-cli releases finalize ${{ github.sha }}
+            - name: Notify Sentry deploy
+              run: sentry-cli releases deploys ${{ github.sha }} new -e prod
