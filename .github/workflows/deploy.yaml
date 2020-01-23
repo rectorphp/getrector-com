@@ -33,6 +33,7 @@ jobs:
                   --cache-from rector/getrector.org:node-build
 
                 docker build . --tag rector/getrector.org:latest --target production \
+                  --build-arg commitHash=${{ GITHUB_SHA }} \
                   --cache-from rector/getrector.org:base \
                   --cache-from rector/getrector.org:node-build \
                   --cache-from rector/getrector.org:latest
