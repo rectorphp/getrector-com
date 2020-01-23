@@ -24,8 +24,8 @@ final class ForbiddenPHPFunctionsChecker
 
     public function checkCode(string $code): void
     {
-        // https://regex101.com/r/4in3xJ/2
-        $pattern = sprintf('#^(?<function>%s)\s*\(#mi', implode('|', $this->forbiddenFunctions));
+        // https://regex101.com/r/4in3xJ/3
+        $pattern = sprintf('#(?<function>%s)\s*\(#mi', implode('|', $this->forbiddenFunctions));
         $match = Strings::match($code, $pattern);
 
         if (isset($match['function'])) {
