@@ -10,9 +10,22 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
+
             - uses: actions/checkout@v2
               with:
                   ref: master
+
+            - name: Setup Sentry CLI
+              uses: mathrix-education/setup-sentry-cli@0.1.0
+              with:
+                token: ${{ secrets.SENTRY_AUTH_TOKEN }}
+                organization: rector
+                project: getrector-org
+
+            - name: Create Sentry release
+              run: |
+                sentry-cli releases new ${{ GITHUB_SHA }}
+                sentry-cli releases set-commits --auto ${{ GITHUB_SHA }}
 
             - name: Log into registry
               run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
@@ -33,6 +46,7 @@ jobs:
                   --cache-from rector/getrector.org:node-build
 
                 docker build . --tag rector/getrector.org:latest --target production \
+                  --build-arg commitHash=${{ GITHUB_SHA }} \
                   --cache-from rector/getrector.org:base \
                   --cache-from rector/getrector.org:node-build \
                   --cache-from rector/getrector.org:latest
@@ -48,3 +62,6 @@ jobs:
                   username: ${{ secrets.DEPLOY_USERNAME }}
                   key: ${{ secrets.DEPLOY_KEY }}
                   script: "cd /projects/getrector.org && ./run.sh"
+
+            - name: Finalize Sentry release
+              run: sentry-cli releases finalize ${{ GITHUB_SHA }}

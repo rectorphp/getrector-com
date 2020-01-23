@@ -92,6 +92,10 @@ RUN mkdir -p ./var/cache \
         && composer dump-autoload -o --no-dev \
         && chown -R www-data ./var
 
+# To track releases
+ARG commitHash=""
+ENV SENTRY_RELEASE=${commitHash}
+
 COPY . .
 
 
