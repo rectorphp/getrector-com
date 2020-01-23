@@ -54,6 +54,9 @@ RUN composer global require "hirak/prestissimo:^0.3" --prefer-dist --no-progress
 COPY ./.docker/docker-entrypoint.sh /usr/local/bin/docker-php-entrypoint
 RUN chmod +x /usr/local/bin/docker-php-entrypoint
 
+# Allow www-data to run bin/run-demo.sh with sudo
+COPY ./.docker/sudoers/www-data /etc/sudoers.d/www-data
+RUN chmod 440 /etc/sudoers.d/www-data
 
 ####
 ## Build js+css assets
@@ -73,11 +76,7 @@ RUN yarn run build
 ####
 ## Build app itself
 ####
-FROM base as app
-
-# Allow www-data to run bin/run-demo.sh with sudo
-COPY ./.docker/sudoers/www-data /etc/sudoers.d/www-data
-RUN chmod 440 /etc/sudoers.d/www-data
+FROM base as production
 
 COPY composer.json composer.lock phpunit.xml.dist ./
 
@@ -93,22 +92,15 @@ RUN mkdir -p ./var/cache \
         && composer dump-autoload -o --no-dev \
         && chown -R www-data ./var
 
+COPY . .
+
 
 ####
 ## Local build + xdebug - we do not need COPY files because we will get them from volume
 ####
-FROM app as dev-xdebug
+FROM production as dev-xdebug
 
 COPY ./.docker/php/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
 RUN pecl -q install xdebug \
     && docker-php-ext-enable xdebug
-
-
-####
-## Production build
-####
-FROM app as production
-
-# Copy project files, intentionally only for production because of cache rocket speedup
-COPY . .
