@@ -24,8 +24,8 @@ jobs:
 
             - name: Create Sentry release
               run: |
-                sentry-cli releases new ${{ env.GITHUB_SHA }}
-                sentry-cli releases set-commits --auto ${{ env.GITHUB_SHA }}
+                sentry-cli releases new ${{ github.sha }}
+                sentry-cli releases set-commits --auto ${{ github.sha }}
 
             - name: Log into registry
               run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
@@ -46,7 +46,7 @@ jobs:
                   --cache-from rector/getrector.org:node-build
 
                 docker build . --tag rector/getrector.org:latest --target production \
-                  --build-arg commitHash=${{ env.GITHUB_SHA }} \
+                  --build-arg commitHash=${{ github.sha }} \
                   --cache-from rector/getrector.org:base \
                   --cache-from rector/getrector.org:node-build \
                   --cache-from rector/getrector.org:latest
@@ -64,4 +64,4 @@ jobs:
                   script: "cd /projects/getrector.org && ./run.sh"
 
             - name: Finalize Sentry release
-              run: sentry-cli releases finalize ${{ env.GITHUB_SHA }}
+              run: sentry-cli releases finalize ${{ github.sha }}
