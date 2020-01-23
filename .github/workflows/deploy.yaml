@@ -10,10 +10,13 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-
-            - uses: actions/checkout@v2
+            - uses: chrnorm/deployment-action@releases/v1
+              name: Create GitHub deployment
+              id: github_deploy
               with:
-                  ref: master
+                initial_status: "in_progress"
+                token: "${{ github.token }}"
+                environment: prod
 
             - name: Setup Sentry CLI
               uses: mathrix-education/setup-sentry-cli@0.1.0
@@ -29,6 +32,8 @@ jobs:
 
             - name: Log into registry
               run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+
+            - uses: actions/checkout@v2
 
             - name: Build and push image
               run: |
@@ -68,3 +73,19 @@ jobs:
 
             - name: Notify Sentry deploy
               run: sentry-cli releases deploys ${{ github.sha }} new -e prod
+
+            - name: Update GitHub deployment status (success)
+              if: success()
+              uses: chrnorm/deployment-status@releases/v1
+              with:
+                token: "${{ github.token }}"
+                state: "success"
+                deployment_id: ${{ steps.github_deploy.outputs.deployment_id }}
+
+            - name: Update GitHub deployment status (failure)
+              if: failure()
+              uses: chrnorm/deployment-status@releases/v1
+              with:
+                token: "${{ github.token }}"
+                state: "failure"
+                deployment_id: ${{ steps.github_deploy.outputs.deployment_id }}
