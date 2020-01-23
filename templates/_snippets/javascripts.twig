@@ -62,8 +62,17 @@
 
 
 <script type="text/javascript">
+    var formState = null;
+
     $('.btn-demo-submit').on('click', function (event) {
-        $(this).prepend('<em class="fas fa-sync-alt fa-spin"></em>&nbsp;&nbsp;&nbsp;');
-        $(this).form.submit();
+        event.preventDefault();
+
+        if (formState !== 'submitted') {
+            formState = 'submitted';
+
+            $(this).addClass('disabled').attr('disabled', 'disabled');
+            $(this).prepend('<em class="fas fa-sync-alt fa-spin"></em>&nbsp;&nbsp;&nbsp;');
+            $(this).closest('form').submit();
+        }
     });
 </script>
