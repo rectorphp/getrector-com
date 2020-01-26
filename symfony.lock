@@ -693,6 +693,9 @@
     "symplify/coding-standard": {
         "version": "6.2-dev"
     },
+    "symplify/easy-coding-standard": {
+        "version": "v7.2.2"
+    },
     "symplify/flex-loader": {
         "version": "v6.1.0"
     },

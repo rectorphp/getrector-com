@@ -17,3 +17,5 @@ parameters:
 
         # wip
         - '#Unreachable statement \- code above always terminates#'
+        - '#Return type \(Iterator\) of method Rector\\Website\\Twig\\(.*?)\:\:getFilters\(\) should be compatible with return type \(array<Twig\\TwigFilter\>\) of method Twig\\Extension\\(.*?)\:\:getFilters\(\)#'
+

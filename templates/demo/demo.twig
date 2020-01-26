@@ -31,7 +31,6 @@
             {{ form_row(demo_form.content) }}
             {{ form_row(demo_form.config) }}
 
-
             {# @see http://symfony.com/doc/current/security/csrf.html#csrf-protection-in-login-forms #}
             <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
@@ -62,6 +61,22 @@
             {% else %}
                 <div class="alert alert-danger">
                     {{ rector_run.errorMessage }}
+                </div>
+            {% endif %}
+
+            {% if rector_run.appliedRules is not empty %}
+                <div class="mt-5">
+                    <h3>Applied Rules</h3>
+
+                    <ul class="list-noindent">
+                        {% for applied_rule in rector_run.appliedRules %}
+                            <li>
+                                <a href="{{ applied_rule|github_readme_link }}">
+                                    {{ applied_rule }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
                 </div>
             {% endif %}
         </div>

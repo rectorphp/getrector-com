@@ -90,7 +90,5 @@
             "allow-contrib": true,
             "require": "5.0.*"
         }
-    },
-    "prefer-stable": true,
-    "minimum-stability": "dev"
+    }
 }
