@@ -20,6 +20,7 @@ RUN apt-get update && apt-get install -y \
         libjpeg-dev \
         sudo \
     && docker-php-ext-configure gd --with-png-dir=/usr/include/  --with-jpeg-dir=/usr/include/ \
+    && docker-php-ext-configure opcache --enable-opcache \
     && docker-php-ext-install gd \
     && docker-php-ext-configure intl \
     && docker-php-ext-install intl \
@@ -27,7 +28,7 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install exif \
     && pecl -q install \
         zip \
-    && docker-php-ext-enable zip
+    && docker-php-ext-enable zip opcache
 
 # Install docker
 RUN apt-get update && apt-get install -y \
@@ -46,6 +47,9 @@ RUN apt-get update && apt-get install -y \
 
 # Installing composer and prestissimo globally
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+ENV PHP_OPCACHE_VALIDATE_TIMESTAMPS="0"
+COPY ./.docker/php/opcache.ini /usr/local/etc/php/conf.d/opcache.ini
 
 ENV COMPOSER_ALLOW_SUPERUSER=1 COMPOSER_MEMORY_LIMIT=-1
 RUN composer global require "hirak/prestissimo:^0.3" --prefer-dist --no-progress --no-suggest --classmap-authoritative --no-plugins --no-scripts
