@@ -8,17 +8,20 @@ use Nette\Utils\FileSystem;
 use Rector\Website\Entity\RectorRun;
 use Rector\Website\ValueObject\DemoFormData;
 
+/**
+ * @see \Rector\Website\Tests\FormDataFactory\DemoFormDataFactoryTest
+ */
 final class DemoFormDataFactory
 {
     /**
      * @var string
      */
-    private const CONTENT_FILE_PATH = __DIR__ . '/../../data/DemoFile.php';
+    public const CONTENT_FILE_PATH = __DIR__ . '/../../data/DemoFile.php';
 
     /**
      * @var string
      */
-    private const CONFIG_FILE_PATH = __DIR__ . '/../../data/demo-config.yaml';
+    public const CONFIG_FILE_PATH = __DIR__ . '/../../data/demo-config.yaml';
 
     public function createFromRectorRun(?RectorRun $rectorRun): DemoFormData
     {

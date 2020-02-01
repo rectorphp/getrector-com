@@ -31,8 +31,8 @@ final class DemoFormDataFactoryTest extends AbstractKernelTestCase
     {
         $demoFormData = $this->demoFormDataFactory->createFromRectorRun(null);
 
-        $this->assertStringContainsString('we never get here', $demoFormData->getContent());
-        $this->assertStringContainsString('dead-code', $demoFormData->getConfig());
+        $this->assertStringEqualsFile(DemoFormDataFactory::CONTENT_FILE_PATH, $demoFormData->getContent());
+        $this->assertStringEqualsFile(DemoFormDataFactory::CONFIG_FILE_PATH, $demoFormData->getConfig());
     }
 
     public function testWithRectoRun(): void
