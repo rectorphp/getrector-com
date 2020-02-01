@@ -6,18 +6,22 @@ namespace Rector\Website\Utils;
 
 use Nette\Utils\Strings;
 
+/**
+ * @see \Rector\Website\Tests\Utils\FileDiffCleanerTest
+ */
 final class FileDiffCleaner
 {
+    /**
+     * @see https://regex101.com/r/sI6GVY/1/
+     * @var string
+     */
+    private const DIFF_START_PATTERN = '#^.*?@@\n#Us';
+
     public function clean(string $fileDiff): string
     {
-        // https://regex101.com/r/sI6GVY/1/
-        $match = Strings::match($fileDiff, '#^.*?@@\n(?<content>.*?)$#Us');
-        $fileDiff = $match['content'] ?? '';
+        $fileDiff = Strings::replace($fileDiff, self::DIFF_START_PATTERN);
+        $fileDiff = Strings::replace($fileDiff, '#\\\\ No newline at end of file\n#m');
 
-        if (Strings::contains($fileDiff, 'No newline at end of file')) {
-            $fileDiff = Strings::substring($fileDiff, 0, -strlen('\ No newline at end of file') - 1);
-        }
-
-        return $fileDiff;
+        return trim($fileDiff) . PHP_EOL;
     }
 }
