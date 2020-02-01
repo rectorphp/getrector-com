@@ -5,10 +5,8 @@ declare(strict_types=1);
 namespace Rector\Website\Tests\FormDataFactory;
 
 use DateTimeImmutable;
-use Iterator;
 use Ramsey\Uuid\Uuid;
 use Rector\Website\Entity\RectorRun;
-use Rector\Website\Error\ErrorMessageNormalizer;
 use Rector\Website\FormDataFactory\DemoFormDataFactory;
 use Rector\Website\GetRectorKernel;
 use Symplify\PackageBuilder\Tests\AbstractKernelTestCase;

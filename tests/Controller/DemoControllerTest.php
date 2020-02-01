@@ -23,7 +23,6 @@ final class DemoControllerTest extends WebTestCase
         self::assertResponseIsSuccessful();
     }
 
-
     /**
      * @dataProvider provideTestFormSubmitData
      */
@@ -45,25 +44,15 @@ final class DemoControllerTest extends WebTestCase
         self::assertSelectorExists('.invalid-feedback');
     }
 
-
     public function provideTestFormSubmitData(): Generator
     {
         # Send empty form
-        yield [
-            '',
-            '',
-        ];
+        yield ['', ''];
 
         # Invalid PHP syntax
-        yield [
-            'failed',
-            'services:',
-        ];
+        yield ['failed', 'services:'];
 
         # Invalid Yaml syntax
-        yield [
-            '<?php',
-            "- 'A'\n - 'B'",
-        ];
+        yield ['<?php', "- 'A'\n - 'B'"];
     }
 }

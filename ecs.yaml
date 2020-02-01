@@ -8,6 +8,10 @@ services:
             - 'SimpleXMLElement'
 
 parameters:
+    paths:
+        - "src"
+        - "tests"
+
     sets:
         - "psr12"
         - "php70"

@@ -53,7 +53,6 @@ final class YAMLConstraintValidatorTest extends AbstractKernelTestCase
      */
     public function testInvalidYamlSyntax(string $content, int $expetedLine): void
     {
-
         $demoFormData = new DemoFormData(self::VALID_PHP, $content);
         $constraints = $this->validator->validate($demoFormData);
 
