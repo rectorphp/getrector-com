@@ -61,7 +61,7 @@ final class DemoController extends AbstractController
      */
     public function __invoke(Request $request, ?RectorRun $rectorRun = null): Response
     {
-        $formData = $this->demoFormDataFactory->createDemoFormData($rectorRun);
+        $formData = $this->demoFormDataFactory->createFromRectorRun($rectorRun);
 
         $demoForm = $this->createForm(DemoFormType::class, $formData, [
             // this is needed for manual render
