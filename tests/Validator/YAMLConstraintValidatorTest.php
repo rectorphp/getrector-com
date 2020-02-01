@@ -28,7 +28,7 @@ final class YAMLConstraintValidatorTest extends AbstractKernelTestCase
 
     protected function setUp(): void
     {
-        self::bootKernel(GetRectorKernel::class);
+        $this->bootKernel(GetRectorKernel::class);
         $this->validator = self::$container->get(ValidatorInterface::class);
     }
 

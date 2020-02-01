@@ -23,7 +23,7 @@ final class DemoFormDataFactoryTest extends AbstractKernelTestCase
 
     protected function setUp(): void
     {
-        self::bootKernel(GetRectorKernel::class);
+        $this->bootKernel(GetRectorKernel::class);
         $this->demoFormDataFactory = self::$container->get(DemoFormDataFactory::class);
     }
 

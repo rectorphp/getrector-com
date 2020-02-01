@@ -21,7 +21,7 @@ final class ErrorMessageNormalizerTest extends AbstractKernelTestCase
 
     protected function setUp(): void
     {
-        self::bootKernel(GetRectorKernel::class);
+        $this->bootKernel(GetRectorKernel::class);
         $this->errorMessageNormalizer = self::$container->get(ErrorMessageNormalizer::class);
     }
 
