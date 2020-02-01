@@ -4,6 +4,23 @@
 
 ## How to Run Locally?
 
+### Install
+
+- run `npm install`
+- run `composer install`
+
+### Configure
+
 - copy `.env` to `.env.local`
 - change `DATABASE_HOST` there to `localhost`
 - copy `docker-compose.dist.yml` to `docker-compose.yml`
+
+### Run
+
+- run `npm run watch`
+- run `php -S localhost:8000 -t public`
+- run `docker-compose up`
+
+Open: [localhost:8000](http://localhost:8000)
+
+Voilá:
