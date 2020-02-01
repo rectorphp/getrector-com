@@ -6,6 +6,7 @@ namespace Rector\Website\Entity;
 
 use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
+use Nette\Utils\Json;
 use Ramsey\Uuid\UuidInterface;
 use Symfony\Component\Stopwatch\StopwatchEvent;
 
@@ -98,6 +99,11 @@ class RectorRun
         $this->updateTimeElapsed($stopwatchEvent);
     }
 
+    public function getResultJson(): ?string
+    {
+        return $this->resultJson;
+    }
+
     public function isSuccessful(): bool
     {
         if ($this->errorMessage !== null) {
@@ -116,6 +122,20 @@ class RectorRun
     {
         $this->errorMessage = $errorMessage;
         $this->updateTimeElapsed($stopwatchEvent);
+    }
+
+    /**
+     * @return string[]
+     */
+    public function getAppliedRules(): array
+    {
+        if ($this->resultJson === null) {
+            return [];
+        }
+
+        $arrayJson = Json::decode($this->resultJson, Json::FORCE_ARRAY);
+
+        return $arrayJson['file_diffs'][0]['applied_rectors'] ?? [];
     }
 
     private function updateTimeElapsed(StopwatchEvent $stopwatchEvent): void
