@@ -57,7 +57,7 @@
 
             {# @var rector_run \Rector\Website\Entity\RectorRun  #}
             {% if rector_run.successful %}
-                <pre class="language-diff"><code class="language-diff">{{ rector_run.contentDiff }}</code></pre>
+                <pre><code class="language-diff">{{ rector_run.contentDiff }}</code></pre>
             {% else %}
                 <div class="alert alert-danger">
                     {{ rector_run.errorMessage }}

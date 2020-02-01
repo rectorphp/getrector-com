@@ -76,8 +76,8 @@
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
         },
-        "check-cs": "vendor/bin/ecs check src --ansi",
-        "fix-cs": "vendor/bin/ecs check src --fix --ansi",
+        "check-cs": "vendor/bin/ecs check --ansi",
+        "fix-cs": "vendor/bin/ecs check --fix --ansi",
         "doctrine": "bin/console doctrine:schema:update --dump-sql --force --ansi",
         "phpstan": "php -d memory_limit=1G vendor/bin/phpstan analyse src --error-format symplify --ansi",
         "rector": "vendor/bin/rector process src --config rector-ci.yaml --ansi"

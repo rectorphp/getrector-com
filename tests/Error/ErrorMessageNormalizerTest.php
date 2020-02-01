@@ -21,7 +21,7 @@ final class ErrorMessageNormalizerTest extends AbstractKernelTestCase
 
     protected function setUp(): void
     {
-        self::bootKernel(GetRectorKernel::class);
+        $this->bootKernel(GetRectorKernel::class);
         $this->errorMessageNormalizer = self::$container->get(ErrorMessageNormalizer::class);
     }
 
@@ -37,7 +37,13 @@ final class ErrorMessageNormalizerTest extends AbstractKernelTestCase
     public function provideDataForTest(): Iterator
     {
         yield ['message', 'message'];
-        yield ["Class 'ClassIsMissing' not found in /project/rector_analyzed_file.php", 'Class "ClassIsMissing" is missing. Complete it to code input, e.g. "class ClassIsMissing {}"'];
-        yield ["Interface 'InterfaceIsMissing' not found in /project/rector_analyzed_file.php", 'Interface "InterfaceIsMissing" is missing. Complete it to code input, e.g. "interface InterfaceIsMissing {}"'];
+        yield [
+            "Class 'ClassIsMissing' not found in /project/rector_analyzed_file.php",
+            'Class "ClassIsMissing" is missing. Complete it to code input, e.g. "class ClassIsMissing {}"',
+        ];
+        yield [
+            "Interface 'InterfaceIsMissing' not found in /project/rector_analyzed_file.php",
+            'Interface "InterfaceIsMissing" is missing. Complete it to code input, e.g. "interface InterfaceIsMissing {}"',
+        ];
     }
 }

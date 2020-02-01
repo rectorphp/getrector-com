@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace Rector\Website\Controller;
 
 use DateTimeImmutable;
-use Nette\Utils\FileSystem;
 use Ramsey\Uuid\Uuid;
 use Rector\Website\DemoRunner;
 use Rector\Website\Entity\RectorRun;
 use Rector\Website\Form\DemoFormType;
+use Rector\Website\FormDataFactory\DemoFormDataFactory;
 use Rector\Website\Repository\RectorRunRepository;
 use Rector\Website\ValueObject\DemoFormData;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -37,13 +37,22 @@ final class DemoController extends AbstractController
     private $demoRunner;
 
     /**
+     * @var DemoFormDataFactory
+     */
+    private $demoFormDataFactory;
+
+    /**
      * @param string[][] $demoLinks
      */
-    public function __construct(RectorRunRepository $rectorRunRepository, DemoRunner $demoRunner, array $demoLinks)
+    public function __construct(
+        RectorRunRepository $rectorRunRepository,
+        DemoFormDataFactory $demoFormDataFactory,
+        DemoRunner $demoRunner, array $demoLinks)
     {
         $this->rectorRunRepository = $rectorRunRepository;
         $this->demoRunner = $demoRunner;
         $this->demoLinks = $demoLinks;
+        $this->demoFormDataFactory = $demoFormDataFactory;
     }
 
     /**
@@ -52,7 +61,7 @@ final class DemoController extends AbstractController
      */
     public function __invoke(Request $request, ?RectorRun $rectorRun = null): Response
     {
-        $formData = $this->createDemoFormData($rectorRun);
+        $formData = $this->demoFormDataFactory->createFromRectorRun($rectorRun);
 
         $demoForm = $this->createForm(DemoFormType::class, $formData, [
             // this is needed for manual render
@@ -69,19 +78,6 @@ final class DemoController extends AbstractController
             'rector_run' => $rectorRun,
             'demo_links' => $this->demoLinks,
         ]);
-    }
-
-    private function createDemoFormData(?RectorRun $rectorRun): DemoFormData
-    {
-        if ($rectorRun) {
-            return new DemoFormData($rectorRun->getContent(), $rectorRun->getConfig());
-        }
-
-        // default values
-        $demoContent = FileSystem::read(__DIR__ . '/../../data/DemoFile.php');
-        $demoConfig = FileSystem::read(__DIR__ . '/../../data/demo-config.yaml');
-
-        return new DemoFormData($demoContent, $demoConfig);
     }
 
     private function processFormAndReturnRoute(FormInterface $form): RedirectResponse
