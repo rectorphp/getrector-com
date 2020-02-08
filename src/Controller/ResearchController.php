@@ -26,6 +26,11 @@ final class ResearchController extends AbstractController
      */
     public function __invoke(): Response
     {
+        // TODO: create form
+
+        // TODO: After successful form submission
+        // return $this->redirectToRoute('research_thank_you');
+
         return $this->render('research/research.twig');
     }
 }

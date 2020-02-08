@@ -17,7 +17,7 @@ join_us:
     defaults:
         template: 'homepage/join-rector-team.twig'
 
-thank_you:
+research_thank_you:
     path: 'research/thank-you'
     controller: 'Symfony\Bundle\FrameworkBundle\Controller\TemplateController'
     defaults:
