@@ -1,0 +1,28 @@
+{% extends "base.twig" %}
+
+{% set page_title %}
+    Research
+{% endset %}
+
+{% block subtitle %}
+    Idea: share your frustrations, we will choose one of you and help you to lower them :-). How much are you frustrated and for what reasons?<br>
+    This research will be shared anonymously, to help you understand and map what is going on on PHP community.
+{% endblock %}
+
+{% block main %}
+    <ul>
+        <li>Please mind leaving contact so we can let you know that we have chosen you? Web/email <small>We will not send you any bullshits (marketing, advertisement etc.)</small></li>
+        <li>Frustration level 1-10</li>
+        <li>Framework</li>
+        <li>Using composer? And up to date dependencies?</li>
+        <li>Team size</li>
+        <li>Project size</li>
+        <li>Project age</li>
+        <li>Any static analysis tools? CS, CSFixer, PHPStan, PSalm?</li>
+        <li>Using CI?</li>
+        <li>Test coverage?</li>
+        <li>PHP version</li>
+        <li>What sucks the most in your application?</li>
+        <li>How would you decrease your frustration level if you could?</li>
+    </ul>
+{% endblock %}
