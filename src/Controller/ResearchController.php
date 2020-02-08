@@ -22,7 +22,7 @@ use Symfony\Component\Routing\Annotation\Route;
 final class ResearchController extends AbstractController
 {
     /**
-     * @Route(path="research", name="research", methods={"GET"})
+     * @Route(path="research", name="research", methods={"GET", "POST"})
      */
     public function __invoke(): Response
     {
