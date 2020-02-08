@@ -4,14 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Website\Controller;
 
-use DateTimeImmutable;
-use Ramsey\Uuid\Uuid;
-use Rector\Website\DemoRunner;
-use Rector\Website\Entity\RectorRun;
-use Rector\Website\Form\DemoFormType;
-use Rector\Website\FormDataFactory\DemoFormDataFactory;
-use Rector\Website\Repository\RectorRunRepository;
-use Rector\Website\ValueObject\DemoFormData;
+use Rector\Website\Form\ResearchFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -24,13 +17,30 @@ final class ResearchController extends AbstractController
     /**
      * @Route(path="research", name="research", methods={"GET", "POST"})
      */
-    public function __invoke(): Response
+    public function __invoke(Request $request): Response
     {
-        // TODO: create form
+        $researchForm = $this->createForm(ResearchFormType::class, null, [
+            // this is needed for manual render
+            'action' => $this->generateUrl('research'),
+        ]);
+        $researchForm->handleRequest($request);
 
-        // TODO: After successful form submission
-        // return $this->redirectToRoute('research_thank_you');
+        if ($researchForm->isSubmitted() && $researchForm->isValid()) {
+            return $this->processFormAndRedirectToThankYou($researchForm);
+        }
 
-        return $this->render('research/research.twig');
+        return $this->render('research/research.twig', [
+            'research_form' => $researchForm->createView(),
+        ]);
+    }
+
+
+    private function processFormAndRedirectToThankYou(FormInterface $form): RedirectResponse
+    {
+        // $formData = $form->getData();
+
+        // TODO: create and save entity
+
+        return $this->redirectToRoute('research_thank_you');
     }
 }
