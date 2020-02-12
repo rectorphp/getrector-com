@@ -3,6 +3,7 @@
 namespace Rector\Website\Entity;
 
 use Ramsey\Uuid\UuidInterface;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity

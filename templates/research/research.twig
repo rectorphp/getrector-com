@@ -1,30 +1,40 @@
 {% extends "base.twig" %}
 
 {% set page_title %}
-    Research
+    Frustration research
 {% endset %}
 
 {% block subtitle %}
-    Idea: share your frustrations, we will choose one of you and help you to lower them :-). How much are you frustrated and for what reasons?<br>
+    Please, share your frustrations, we will choose one of you and help you to lower them :-). How much are you frustrated and for what reasons?<br>
     This research will be shared anonymously, to help you understand and map what is going on on PHP community.
 {% endblock %}
 
 {% block main %}
-    <ul>
-        <li>Please mind leaving contact so we can let you know that we have chosen you? Web/email <small>We will not send you any bullshits (marketing, advertisement etc.)</small></li>
-        <li>Frustration level 1-10</li>
-        <li>Framework</li>
-        <li>Using composer? And up to date dependencies?</li>
-        <li>Team size</li>
-        <li>Project size</li>
-        <li>Project age</li>
-        <li>Any static analysis tools? CS, CSFixer, PHPStan, PSalm?</li>
-        <li>Using CI?</li>
-        <li>Test coverage?</li>
-        <li>PHP version</li>
-        <li>What sucks the most in your application?</li>
-        <li>How would you decrease your frustration level if you could?</li>
-    </ul>
 
-    {{ form(research_form) }}
+    <div class="container">
+        <small>We will not send you any bullshits (marketing, advertisement etc.)</small>
+
+        {% form_theme research_form 'bootstrap_4_layout.html.twig' %}
+        {{ form_start(research_form) }}
+
+        {{ form_row(research_form.php_version) }}
+        {{ form_row(research_form.framework) }}
+        {{ form_row(research_form.composer) }}
+        {{ form_row(research_form.composer_up_to_date) }}
+        {{ form_row(research_form.external_tools) }}
+        {{ form_row(research_form.continuous_integration) }}
+        {{ form_row(research_form.test_coverage) }}
+        {{ form_row(research_form.team_size) }}
+        {{ form_row(research_form.project_age) }}
+        {{ form_row(research_form.project_size) }}
+        {{ form_row(research_form.frustration_level) }}
+        {{ form_row(research_form.frustration_reasons) }}
+        {{ form_row(research_form.improvements_suggestions) }}
+        {{ form_row(research_form.company_web) }}
+        {{ form_row(research_form.contact_email) }}
+        {{ form_row(research_form.contact_name) }}
+        {{ form_row(research_form.submit) }}
+
+        {{ form_end(research_form) }}
+    </div>
 {% endblock %}
