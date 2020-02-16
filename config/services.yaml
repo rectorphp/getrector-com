@@ -1,7 +1,7 @@
 parameters:
     local_demo_dir: '%kernel.project_dir%/var/demo'
     host_demo_dir: '%env(HOST_DEMO_DIR)%'
-    rector_demo_docker_image: 'rector/rector-secured:latest'
+    rector_demo_docker_image: 'rector/rector-secured:0.7.0'
     demo_executable_path: '%kernel.project_dir%/bin/run-demo.sh'
     forbidden_functions:
         - 'exec'
