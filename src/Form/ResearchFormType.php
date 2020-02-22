@@ -28,7 +28,7 @@ final class ResearchFormType extends AbstractType
             'required' => true,
         ]);
 
-        $formBuilder->add('composer', TextType::class, [
+        $formBuilder->add('using_composer', TextType::class, [
             'label' => 'Using composer?',
             'required' => true,
         ]);
