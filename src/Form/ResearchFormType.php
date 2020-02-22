@@ -4,12 +4,15 @@ declare(strict_types=1);
 
 namespace Rector\Website\Form;
 
+use Ramsey\Uuid\Uuid;
+use Rector\Website\Entity\ResearchAnswer;
+use Rector\Website\ValueObject\ResearchFormData;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 final class ResearchFormType extends AbstractType
 {
@@ -101,6 +104,14 @@ final class ResearchFormType extends AbstractType
             // 'attr' => [
             //    'class' => 'btn btn-lg btn-success m-auto btn-demo-submit',
             // ],
+        ]);
+    }
+
+
+    public function configureOptions(OptionsResolver $optionsResolver): void
+    {
+        $optionsResolver->setDefaults([
+            'data_class' => ResearchAnswer::class,
         ]);
     }
 }

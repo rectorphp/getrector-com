@@ -4,7 +4,11 @@ declare(strict_types=1);
 
 namespace Rector\Website\Controller;
 
+use Ramsey\Uuid\Uuid;
+use Rector\Website\Entity\ResearchAnswer;
 use Rector\Website\Form\ResearchFormType;
+use Rector\Website\Repository\ResearchAnswerRepository;
+use Rector\Website\ValueObject\ResearchFormData;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -14,6 +18,18 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class ResearchController extends AbstractController
 {
+    /**
+     * @var ResearchAnswerRepository
+     */
+    private $researchAnswerRepository;
+
+
+    public function __construct(ResearchAnswerRepository $researchAnswerRepository)
+    {
+        $this->researchAnswerRepository = $researchAnswerRepository;
+    }
+
+
     /**
      * @Route(path="research", name="research", methods={"GET", "POST"})
      */
@@ -37,9 +53,10 @@ final class ResearchController extends AbstractController
 
     private function processFormAndRedirectToThankYou(FormInterface $form): RedirectResponse
     {
-        // $formData = $form->getData();
+        /** @var ResearchAnswer $researchFormData */
+        $researchAnswer = $form->getData();
 
-        // TODO: create and save entity
+        $this->researchAnswerRepository->save($researchAnswer);
 
         return $this->redirectToRoute('research_thank_you');
     }
