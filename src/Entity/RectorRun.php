@@ -54,7 +54,7 @@ class RectorRun
     /**
      * @var UuidInterface
      * @ORM\Id
-     * @ORM\Column(type="uuid", unique=true)
+     * @ORM\Column(type="uuid")
      */
     private $id;
 
