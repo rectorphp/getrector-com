@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Rector\Website\Controller;
 
-use Ramsey\Uuid\Uuid;
 use Rector\Website\Entity\ResearchAnswer;
 use Rector\Website\Form\ResearchFormType;
 use Rector\Website\Repository\ResearchAnswerRepository;
@@ -23,12 +22,10 @@ final class ResearchController extends AbstractController
      */
     private $researchAnswerRepository;
 
-
     public function __construct(ResearchAnswerRepository $researchAnswerRepository)
     {
         $this->researchAnswerRepository = $researchAnswerRepository;
     }
-
 
     /**
      * @Route(path="research", name="research", methods={"GET", "POST"})
@@ -50,10 +47,9 @@ final class ResearchController extends AbstractController
         ]);
     }
 
-
     private function processFormAndRedirectToThankYou(FormInterface $form): RedirectResponse
     {
-        /** @var ResearchAnswer $researchFormData */
+        /** @var ResearchAnswer $researchAnswer */
         $researchAnswer = $form->getData();
 
         $this->researchAnswerRepository->save($researchAnswer);

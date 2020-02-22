@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Website\Form;
 
-use Ramsey\Uuid\Uuid;
 use Rector\Website\Entity\ResearchAnswer;
-use Rector\Website\ValueObject\ResearchFormData;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -101,12 +99,8 @@ final class ResearchFormType extends AbstractType
 
         $formBuilder->add('submit', SubmitType::class, [
             'label' => 'Send',
-            // 'attr' => [
-            //    'class' => 'btn btn-lg btn-success m-auto btn-demo-submit',
-            // ],
         ]);
     }
-
 
     public function configureOptions(OptionsResolver $optionsResolver): void
     {
