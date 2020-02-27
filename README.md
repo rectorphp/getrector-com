@@ -16,6 +16,7 @@
 - copy `.env` to `.env.local`
 - change `DATABASE_HOST` there to `localhost`
 - copy `docker-compose.dist.yml` to `docker-compose.yml`
+- run `bin/console doctrine:schema:create`
 
 ### Run
 
@@ -25,4 +26,4 @@
 
 Open: [localhost:8000](http://localhost:8000)
 
-Voilá:
+Voilá!
