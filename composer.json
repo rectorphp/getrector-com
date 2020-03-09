@@ -63,7 +63,8 @@
     "autoload": {
         "psr-4": {
             "Rector\\Website\\": "src",
-            "Rector\\Website\\Blog\\": "packages/Blog/src"
+            "Rector\\Website\\Blog\\": "packages/blog/src",
+            "Rector\\Website\\ForCompanies\\": "packages/for-companies/src"
         }
     },
     "autoload-dev": {

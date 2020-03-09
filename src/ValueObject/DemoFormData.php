@@ -17,7 +17,7 @@ final class DemoFormData
 
     /**
      * @var string
-     * @YamlConstraint()
+     * @YAMLConstraint()
      */
     private $config;
 

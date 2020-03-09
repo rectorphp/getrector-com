@@ -1,0 +1,171 @@
+{% extends "base.twig" %}
+
+{# keywords:
+
+main concurrent: in-house development #}
+
+{% set page_title %}For Companies{% endset %}
+
+{% block main %}
+    <div class="container" id="subpage">
+        <h2>How does Rector compare to In-House Development?</h2>
+
+        <table class="table table-bordered table-striped">
+            <thead class="text-center">
+                <tr>
+                    <th rowspan="2">Metric</th>
+                    <th colspan="3">Approach</th>
+                </tr>
+                <tr>
+                    <th>Internal Team</th>
+                    <th>External Team</th>
+                    <th>Rector Team</th>
+                </tr>
+            </thead>
+
+            <tr>
+                <td>Development</td>
+                <td class="text-center">
+                    <em class="fas fa-fw fa-times text-danger fa-lg"></em>
+                </td>
+                <td class="text-center">
+                    <em class="fas fa-fw fa-lg fa-check text-success"></em>
+                </td>
+                <td class="text-center">
+                    <em class="fas fa-fw fa-lg fa-check text-success"></em>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Costs</td>
+                <td class="text-center">
+                    <em class="fas fa-fw fa-lg fa-check text-success"></em>
+                </td>
+                <td class="text-center">
+                    <em class="fas fa-fw fa-times text-danger fa-lg"></em>
+                </td>
+                <td class="text-center">
+                    <em class="fas fa-fw fa-lg fa-check text-success"></em>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Time</td>
+                <td class="text-center">
+                    <em class="fas fa-fw fa-times text-danger fa-lg"></em>
+                </td>
+                <td class="text-center">
+                    <em class="fas fa-fw fa-lg fa-check text-success"></em>
+                </td>
+                <td class="text-center">
+                    <em class="fas fa-fw fa-lg fa-check text-success"></em>
+                </td>
+            </tr>
+        </table>
+
+        <br>
+{#        <br>#}
+
+{#        <table class="table table-bordered">#}
+{#            <thead class="thead-dark">#}
+{#                <tr>#}
+{#                    <th></th>#}
+{#                    <th>In-House Development</th>#}
+{#                    <th>Rector</th>#}
+{#                </tr>#}
+{#            </thead>#}
+
+{#            <tr>#}
+{#                <th>Costs per month</th>#}
+{#                <td>-€30,000</td>#}
+{#                <td>-€40,000</td>#}
+{#            </tr>#}
+
+{#            <tr>#}
+{#                <th>Total costs</th>#}
+{#                <td>#}
+{#                    -€450,000#}
+{#                </td>#}
+{#                <td>#}
+{#                    -€80,000#}
+{#                </td>#}
+{#            </tr>#}
+
+{#            <tr>#}
+{#                <td>Time Difference in %</td>#}
+{#                <td colspan="2">13.33 %</td>#}
+{#            </tr>#}
+
+{#            <tr>#}
+{#                <td>Costs Difference in %</td>#}
+{#                <td colspan="2" class="text-center">17.78 %</td>#}
+{#            </tr>#}
+
+{#            <tr>#}
+{#                <th>#}
+{#                    Money Saved / Profits#}
+{#                </th>#}
+{#                <td colspan="2" class="text-center">#}
+{#                    €370,000#}
+{#                </td>#}
+{#            </tr>#}
+
+{#            <tr>#}
+{#                <td>#}
+{#                    ROI#}
+{#                </td>#}
+{#                <td colspan="2" class="text-center">#}
+{#                    462.50%#}
+{#                </td>#}
+{#            </tr>#}
+
+{#            <tr>#}
+{#                <th>Months to deliver results</th>#}
+{#                <td class="text-center">2</td>#}
+{#            </tr>#}
+{#        </table>#}
+
+        <hr>
+
+        <h2>Calculation of Project Migration</h2>
+
+        {{ form_start(project_calculation_form_type) }}
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <td></td>
+                        <th class="text-center">In-House Development</th>
+                        <th class="text-center">Rector</th>
+                    </tr>
+                </thead>
+
+                <tr>
+                    <th>Lines of code</th>
+                    <td colspan="2">{{ form_widget(project_calculation_form_type.project_lines_of_code) }}</td>
+                </tr>
+
+                <tr>
+                    <th>Months of Work</th>
+                    <td>{{ form_widget(project_calculation_form_type.in_house_months) }}</td>
+                    <td>@todo count</td>
+                </tr>
+
+                <tr>
+                    <th>Monthly Costs</th>
+                    <td>{{ form_widget(project_calculation_form_type.in_house_monthly_costs) }} €</td>
+                    <td>@todo count</td>
+                </tr>
+
+                <tr>
+                    <td colspan="3">{{ form_widget(project_calculation_form_type.submit) }}</td>
+                </tr>
+            </table>
+
+        {{ form_end(project_calculation_form_type) }}
+    </div>
+
+
+
+    <br>
+    <br>
+{% endblock %}
