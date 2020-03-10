@@ -57,7 +57,7 @@ Following PSR-4 standard allows you to rapidly create classes and use them insta
 
 ## Why should you want it?
 
-Without PSR-4 it's a mess!
+Without PSR-4 **it's a mess**!
 
 Most of the popular tools (like Rector, PHPStan or Psalm) requires you to have solved question of autoloading already or they most likely will not be able to process your code.
 
@@ -73,9 +73,9 @@ Having 5 classes in same file was common thing, making the need of finding speci
 
 As well ["dead" PHPUnit test cases were discovered](https://twitter.com/mikes_honza/status/1224818282143809537?s=20) - not running, because of not following the standard. For example `MySomeClassTest` in filename `MySomeClass.php` and because of the default `*Test.php` file filter in PHPUnit, these tests were simply ignored.
 
-Glami is **very** focused on performance. Because there is no publicly documented performance outcomes of switching to PSR-4 autoloading, we were fairly surprised after first tests!
+Glami is **very focused on performance**. Because there is no publicly documented performance outcomes of switching to PSR-4 autoloading, we were fairly surprised after first tests!
 
-In one of the most business critical parts we measured speed-up, lowering response time from 8ms to 6ms. That is **incredible 25%** performance gain just by following a PSR-4 standard!
+In one of the most business critical parts we measured speed-up, lowering response time from **8ms to 6ms**. That is **incredible 25%** performance gain just by following a PSR-4 standard!
 
 <div class="text-center">
     <img style="max-width: 260px;" src="/assets/images/blog/glami-psr-4/performance-boost.png" class="img-thumbnail mt-3 mb-3">
