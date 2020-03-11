@@ -69,6 +69,12 @@ Most of the popular tools (like Rector, PHPStan or Psalm) expects you to have so
 
 In Glami, for autoloading classes, they were originally using a combination of [Nette RobotLoader](https://github.com/nette/robot-loader) (a great tool for autoloading, if you do not mind about PSR-4 at all) and on some places, for performance reasons, including the files manually.
 
+<div class="text-center">
+     <img style="max-width: 460px;" src="/assets/images/blog/glami-psr-4/robotloader-usage.png" class="img-thumbnail mt-3 mb-1">
+     &nbsp;
+     <img style="max-width: 460px;" src="/assets/images/blog/glami-psr-4/manual-includes.png" class="img-thumbnail mt-1 mb-3">
+ </div>
+
 Having 5 classes in the same file was a common thing, making the need for finding a specific class for the developer much more difficult.
 
 We found ["dead" PHPUnit test cases](https://twitter.com/mikes_honza/status/1224818282143809537?s=20) - not running, because of not following the standard!
