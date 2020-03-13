@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Rector\Website\Blog\DependencyInjection;
 
 use Psr\Container\ContainerInterface;
-use Symfony\Component\DependencyInjection\Container;
 use Symplify\Statie\Configuration\StatieConfiguration;
 use Symplify\Statie\Generator\Generator;
 use Symplify\Statie\Generator\RelatedItemsResolver;

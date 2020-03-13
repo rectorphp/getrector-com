@@ -64,7 +64,8 @@ final class YAMLConstraintValidatorTest extends AbstractKernelTestCase
         $expectedMessageFormat = 'Fix YAML syntax: %s at line ' . $expetedLine . ' %s';
 
         /** @see https://phpunit.readthedocs.io/en/8.5/assertions.html#assertstringmatchesformat */
-        $this->assertStringMatchesFormat($expectedMessageFormat, $constraintViolation->getMessage());
+        $message = (string) $constraintViolation->getMessage();
+        $this->assertStringMatchesFormat($expectedMessageFormat, $message);
     }
 
     public function provideDataForTestInvalidYamlSyntax(): Iterator

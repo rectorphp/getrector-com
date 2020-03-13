@@ -7,7 +7,7 @@ namespace Rector\Website\Demo\Utils;
 use Nette\Utils\Strings;
 
 /**
- * @see \Rector\Website\Tests\Utils\FileDiffCleanerTest
+ * @see \Rector\Website\Demo\Tests\Utils\FileDiffCleanerTest
  */
 final class FileDiffCleaner
 {

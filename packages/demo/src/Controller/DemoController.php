@@ -9,7 +9,7 @@ use Ramsey\Uuid\Uuid;
 use Rector\Website\Demo\DemoRunner;
 use Rector\Website\Demo\Entity\RectorRun;
 use Rector\Website\Demo\Form\DemoFormType;
-use Rector\Website\Demo\FormDataFactory\DemoFormDataFactory;
+use Rector\Website\Demo\Form\FormDataFactory\DemoFormDataFactory;
 use Rector\Website\Demo\Repository\RectorRunRepository;
 use Rector\Website\Demo\ValueObject\DemoFormData;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -27,12 +27,12 @@ final class DemoController extends AbstractController
     private $demoLinks = [];
 
     /**
-     * @var \Rector\Website\Demo\Repository\RectorRunRepository
+     * @var RectorRunRepository
      */
     private $rectorRunRepository;
 
     /**
-     * @var \Rector\Website\Demo\DemoRunner
+     * @var DemoRunner
      */
     private $demoRunner;
 
@@ -82,7 +82,7 @@ final class DemoController extends AbstractController
 
     private function processFormAndReturnRoute(FormInterface $form): RedirectResponse
     {
-        /** @var \Rector\Website\Demo\ValueObject\DemoFormData $demoFormData */
+        /** @var DemoFormData $demoFormData */
         $demoFormData = $form->getData();
         $config = $demoFormData->getConfig();
 

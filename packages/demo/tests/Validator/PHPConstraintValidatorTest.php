@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Tests\Validator;
+namespace Rector\Website\Demo\Tests\Validator;
 
 use Iterator;
 use Nette\Utils\FileSystem;
@@ -84,7 +84,8 @@ final class PHPConstraintValidatorTest extends AbstractKernelTestCase
         $constraintViolation = $constraints[0];
 
         /** @see https://phpunit.readthedocs.io/en/8.5/assertions.html#assertstringmatchesformat */
-        $this->assertStringMatchesFormat('Fix PHP syntax: %s', $constraintViolation->getMessage());
+        $message = (string) $constraintViolation->getMessage();
+        $this->assertStringMatchesFormat('Fix PHP syntax: %s', $message);
     }
 
     public function provideDataForTestInvalidPHPSyntax(): Iterator

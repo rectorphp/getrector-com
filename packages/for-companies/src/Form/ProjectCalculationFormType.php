@@ -4,11 +4,12 @@ declare(strict_types=1);
 
 namespace Rector\Website\ForCompanies\Form;
 
+use Rector\Website\ForCompanies\ValueObject\ProjectCalculationFormData;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 final class ProjectCalculationFormType extends AbstractType
 {
@@ -26,6 +27,13 @@ final class ProjectCalculationFormType extends AbstractType
             'attr' => [
                 'class' => 'btn btn-lg btn-success m-auto',
             ],
+        ]);
+    }
+
+    public function configureOptions(OptionsResolver $optionsResolver): void
+    {
+        $optionsResolver->setDefaults([
+            'data_class' => ProjectCalculationFormData::class,
         ]);
     }
 }

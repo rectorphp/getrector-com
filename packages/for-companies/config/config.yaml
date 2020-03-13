@@ -6,3 +6,6 @@ services:
 
     Rector\Website\ForCompanies\:
         resource: '../src/'
+        exclude:
+            - '../src/Entity/*'
+            - '../src/ValueObject/*'

@@ -25,7 +25,7 @@ final class PHPConstraintValidator extends ConstraintValidator
     private $phpLinter;
 
     /**
-     * @var \Rector\Website\Demo\Lint\ForbiddenPHPFunctionsChecker
+     * @var ForbiddenPHPFunctionsChecker
      */
     private $forbiddenPHPFunctionsChecker;
 

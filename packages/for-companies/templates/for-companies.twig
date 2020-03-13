@@ -134,8 +134,8 @@ main concurrent: in-house development #}
                 <thead class="thead-dark">
                     <tr>
                         <td></td>
-                        <th class="text-center">In-House Development</th>
-                        <th class="text-center">Rector</th>
+                        <th class="text-center w-25">In-House Development</th>
+                        <th class="text-center w-25">Rector</th>
                     </tr>
                 </thead>
 
@@ -147,18 +147,59 @@ main concurrent: in-house development #}
                 <tr>
                     <th>Months of Work</th>
                     <td>{{ form_widget(project_calculation_form_type.in_house_months) }}</td>
-                    <td>@todo count</td>
+                    <td>
+                        {% if project_calculation is defined %}
+                            {{ project_calculation.rectorInMonths }}
+                        {% endif %}
+                    </td>
                 </tr>
 
                 <tr>
                     <th>Monthly Costs</th>
                     <td>{{ form_widget(project_calculation_form_type.in_house_monthly_costs) }} €</td>
-                    <td>@todo count</td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <th>Total Costs</th>
+                    <td class="text-right">
+                        {% if project_calculation is defined %}
+                            {{ project_calculation.inHouseCosts|number_format }} €
+                        {% endif %}
+                    </td>
+                    <td class="text-right">
+                        {% if project_calculation is defined %}
+                            {{ project_calculation.rectorCosts|number_format }} €
+                        {% endif %}
+                    </td>
                 </tr>
 
                 <tr>
                     <td colspan="3">{{ form_widget(project_calculation_form_type.submit) }}</td>
                 </tr>
+
+                {% if project_calculation is defined %}
+                    <tr>
+                        <th>Rector - Time Efficiency</th>
+                        <td>{{ project_calculation.rectorTimeEfficiency }}</td>
+                    </tr>
+                    <tr>
+                        <th>Rector - Price Efficiency</th>
+                        <td>{{ project_calculation.rectorPriceEfficiency }}</td>
+                    </tr>
+                    <tr>
+                        <th>Money Saved / Profits</th>
+                        <td class="text-right">{{ project_calculation.savedMoneyAmount|number_format }} €</td>
+                    </tr>
+                    <tr>
+                        <th>ROI</th>
+                        <th>{{ project_calculation.returnOfInvestment }}</th>
+                    </tr>
+                    <tr>
+                        <th>Months to deliver results</th>
+                        <td>{{ project_calculation.rectorInMonths }}</td>
+                    </tr>
+                {% endif %}
             </table>
 
         {{ form_end(project_calculation_form_type) }}

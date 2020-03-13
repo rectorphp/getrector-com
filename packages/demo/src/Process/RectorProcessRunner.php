@@ -48,7 +48,7 @@ final class RectorProcessRunner
     private $demoExecutablePath;
 
     /**
-     * @var \Rector\Website\Demo\Error\ErrorMessageNormalizer
+     * @var ErrorMessageNormalizer
      */
     private $errorMessageNormalizer;
 

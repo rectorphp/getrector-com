@@ -15,12 +15,12 @@ use Throwable;
 final class DemoRunner
 {
     /**
-     * @var \Rector\Website\Demo\Process\RectorProcessRunner
+     * @var RectorProcessRunner
      */
     private $rectorProcessRunner;
 
     /**
-     * @var \Rector\Website\Demo\Utils\FileDiffCleaner
+     * @var FileDiffCleaner
      */
     private $fileDiffCleaner;
 

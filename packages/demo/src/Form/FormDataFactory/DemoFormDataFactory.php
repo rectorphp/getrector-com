@@ -2,26 +2,26 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Demo\FormDataFactory;
+namespace Rector\Website\Demo\Form\FormDataFactory;
 
 use Nette\Utils\FileSystem;
 use Rector\Website\Demo\Entity\RectorRun;
 use Rector\Website\Demo\ValueObject\DemoFormData;
 
 /**
- * @see \Rector\Website\Tests\FormDataFactory\DemoFormDataFactoryTest
+ * @see \Rector\Website\Demo\Tests\FormDataFactory\DemoFormDataFactoryTest
  */
 final class DemoFormDataFactory
 {
     /**
      * @var string
      */
-    public const CONTENT_FILE_PATH = __DIR__ . '/../../data/DemoFile.php';
+    public const CONTENT_FILE_PATH = __DIR__ . '/../../../data/DemoFile.php';
 
     /**
      * @var string
      */
-    public const CONFIG_FILE_PATH = __DIR__ . '/../../data/demo-config.yaml';
+    public const CONFIG_FILE_PATH = __DIR__ . '/../../../data/demo-config.yaml';
 
     public function createFromRectorRun(?RectorRun $rectorRun): DemoFormData
     {
