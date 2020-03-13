@@ -64,12 +64,14 @@
         "psr-4": {
             "Rector\\Website\\": "src",
             "Rector\\Website\\Blog\\": "packages/blog/src",
+            "Rector\\Website\\Demo\\": "packages/demo/src",
             "Rector\\Website\\ForCompanies\\": "packages/for-companies/src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Rector\\Website\\Tests\\": "tests"
+            "Rector\\Website\\Tests\\": "tests",
+            "Rector\\Website\\Demo\\Tests\\": "packages/demo/tests"
         }
     },
     "scripts": {

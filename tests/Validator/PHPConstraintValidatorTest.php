@@ -6,14 +6,14 @@ namespace Rector\Website\Tests\Validator;
 
 use Iterator;
 use Nette\Utils\FileSystem;
+use Rector\Website\Demo\ValueObject\DemoFormData;
 use Rector\Website\GetRectorKernel;
-use Rector\Website\ValueObject\DemoFormData;
 use Symfony\Component\Validator\ConstraintViolation;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symplify\PackageBuilder\Tests\AbstractKernelTestCase;
 
 /**
- * @see \Rector\Website\Validator\PHPConstraintValidator
+ * @see \Rector\Website\Demo\Validator\PHPConstraintValidator
  */
 final class PHPConstraintValidatorTest extends AbstractKernelTestCase
 {

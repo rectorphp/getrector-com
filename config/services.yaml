@@ -48,10 +48,8 @@ services:
         resource: '../src/'
         exclude:
             - '../src/Entity/*'
-            - '../src/Exception/*'
             - '../src/GetRectorKernel.php'
             - '../src/ValueObject/*'
-            - '../src/Validator/Constraint/*'
 
     Symplify\PackageBuilder\Console\Style\SymfonyStyleFactory: ~
     Symfony\Component\Console\Style\SymfonyStyle:
@@ -59,6 +57,6 @@ services:
 
     # needs to be registered manually, because it doesn't work without priority :/
     # see https://symfony.com/doc/current/controller/argument_value_resolver.html
-    Rector\Website\HttpKernel\Controller\RectorRunValueResolver:
+    Rector\Website\Demo\HttpKernel\Controller\RectorRunValueResolver:
         tags:
             - { name: controller.argument_value_resolver, priority: 550 }

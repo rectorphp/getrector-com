@@ -5,14 +5,14 @@ declare(strict_types=1);
 namespace Rector\Website\Tests\Validator;
 
 use Iterator;
+use Rector\Website\Demo\ValueObject\DemoFormData;
 use Rector\Website\GetRectorKernel;
-use Rector\Website\ValueObject\DemoFormData;
 use Symfony\Component\Validator\ConstraintViolation;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symplify\PackageBuilder\Tests\AbstractKernelTestCase;
 
 /**
- * @see \Rector\Website\Validator\YAMLConstraintValidator
+ * @see \Rector\Website\Demo\Validator\YAMLConstraintValidator
  */
 final class YAMLConstraintValidatorTest extends AbstractKernelTestCase
 {

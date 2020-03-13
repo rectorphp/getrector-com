@@ -15,7 +15,7 @@
                 Try these:
 
                 {% for demo_link in demo_links %}
-                    {# @var demo_link \Rector\Website\ValueObject\TwigAutocomplete\DemoLink #}
+                    {# @var demo_link \Rector\Website\Demo\ValueObject\TwigAutocomplete\DemoLink #}
                     <a href="{{ path('demo_detail', {'rectorRun': demo_link.uuid}) }}" class="ml-3">{{ demo_link.label }}</a>
                 {% endfor %}
             </p>
@@ -55,7 +55,7 @@
 
             <h3 class="mt-0 mb-4 text-left" id="result">Result</h3>
 
-            {# @var rector_run \Rector\Website\Entity\RectorRun  #}
+            {# @var rector_run \Rector\Website\Demo\Entity\RectorRun  #}
             {% if rector_run.successful %}
                 <pre><code class="language-diff">{{ rector_run.contentDiff }}</code></pre>
             {% else %}

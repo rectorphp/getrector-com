@@ -1,0 +1,13 @@
+services:
+    _defaults:
+        public: true
+        autowire: true
+        autoconfigure: true
+
+    Rector\Website\Demo\:
+        resource: '../src/'
+        exclude:
+            - '../src/Exception/*'
+            - '../src/Entity/*'
+            - '../src/ValueObject/*'
+            - '../src/Validator/Constraint/*'

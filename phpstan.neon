@@ -13,7 +13,7 @@ parameters:
         - '#type has no value type specified in iterable type#'
         - '#with no value type specified in iterable type#'
 
-        - '#PHPDoc tag @return with type Rector\\Website\\Entity\\RectorRun is not subtype of native type Iterator#'
+        - '#PHPDoc tag @return with type Rector\\Website\\Demo\\Entity\\RectorRun is not subtype of native type Iterator#'
 
         # wip
         - '#Unreachable statement \- code above always terminates#'
