@@ -34,6 +34,7 @@ docker run \
     --volume ${VOLUME_SOURCE}:/project \
     ${DOCKER_IMAGE} \
     process /project/rector_analyzed_file.php \
+    --autoload-file /project/rector_analyzed_file.php \
     --output-format json \
     --config /project/rector.yaml
 
