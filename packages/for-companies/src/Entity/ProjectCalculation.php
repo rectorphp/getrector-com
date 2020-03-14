@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Rector\Website\ForCompanies\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Ramsey\Uuid\Uuid;
+use Ramsey\Uuid\UuidInterface;
 use Rector\Website\ForCompanies\ValueObject\EstimationConstant;
 
 /**
@@ -12,6 +14,12 @@ use Rector\Website\ForCompanies\ValueObject\EstimationConstant;
  */
 class ProjectCalculation
 {
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="uuid")
+     */
+    private UuidInterface $id;
+
     /**
      * In €
      * @var int
@@ -50,6 +58,7 @@ class ProjectCalculation
 
     public function __construct(int $inHouseMonths, int $inHouseMonthlyCosts, int $projectLinesOfCode)
     {
+        $this->id = Uuid::uuid4();
         $this->inHouseMonths = $inHouseMonths;
         $this->inHouseMonthlyCosts = $inHouseMonthlyCosts;
         $this->projectLinesOfCode = $projectLinesOfCode;
