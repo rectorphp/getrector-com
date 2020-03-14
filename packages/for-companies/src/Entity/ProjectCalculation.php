@@ -15,12 +15,6 @@ use Rector\Website\ForCompanies\ValueObject\EstimationConstant;
 class ProjectCalculation
 {
     /**
-     * @ORM\Id
-     * @ORM\Column(type="uuid")
-     */
-    private UuidInterface $id;
-
-    /**
      * In €
      * @var int
      */
@@ -29,7 +23,13 @@ class ProjectCalculation
     /**
      * @var int
      */
+
     private const ROUNDING_LIMIT = 2;
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="uuid")
+     */
+    private UuidInterface $id;
 
     /**
      * @ORM\Column(type="integer")

@@ -29,8 +29,7 @@ parameters:
         PhpCsFixer\Fixer\Operator\UnaryOperatorSpacesFixer: ~
 
         # used for analysis later
-        SlevomatCodingStandard\Sniffs\Classes\UnusedPrivateElementsSniff.WriteOnlyProperty:
-            - 'src/Entity/RectorRun.php'
+        SlevomatCodingStandard\Sniffs\Classes\UnusedPrivateElementsSniff.WriteOnlyProperty: ~
 
         Symplify\CodingStandard\Fixer\Naming\PropertyNameMatchingTypeFixer:
             - 'src/Entity/*'
