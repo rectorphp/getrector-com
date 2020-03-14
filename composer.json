@@ -2,7 +2,7 @@
     "name": "rector/website",
     "description": "Website of GetRector.org",
     "require": {
-        "php": "^7.3",
+        "php": "^7.4",
         "ext-json": "*",
         "ext-pdo": "*",
         "ext-pdo_mysql": "*",
@@ -14,7 +14,7 @@
         "psr/simple-cache": "^1.0",
         "ramsey/uuid": "^3.8",
         "ramsey/uuid-doctrine": "^1.5",
-        "rector/rector": "^0.6.11",
+        "rector/rector": "^0.7",
         "sentry/sentry-symfony": "^3.3",
         "symfony/asset": "*",
         "symfony/cache": "*",
@@ -49,9 +49,9 @@
         "symplify/statie": "^7.2"
     },
     "require-dev": {
-        "phpstan/phpstan": "^0.12.4",
+        "phpstan/phpstan": "^0.12.7",
         "phpstan/phpstan-doctrine": "^0.12",
-        "phpunit/phpunit": "^8.5",
+        "phpunit/phpunit": "^9.0",
         "roave/security-advisories": "dev-master",
         "symfony/browser-kit": "*",
         "symfony/css-selector": "*",
@@ -83,7 +83,7 @@
         "fix-cs": "vendor/bin/ecs check --fix --ansi",
         "doctrine": "bin/console doctrine:schema:update --dump-sql --force --ansi",
         "phpstan": "php -d memory_limit=1G vendor/bin/phpstan analyse --error-format symplify --ansi",
-        "rector": "vendor/bin/rector process src --config rector-ci.yaml --ansi"
+        "rector": "vendor/bin/rector process --config rector-ci.yaml --ansi"
     },
     "config": {
         "sort-packages": true

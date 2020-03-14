@@ -1,4 +1,9 @@
 parameters:
+    paths:
+        - "src"
+        - "packages"
+        - "tests"
+
     sets:
         - 'dead-code'
         - 'code-quality'

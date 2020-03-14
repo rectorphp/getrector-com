@@ -6,7 +6,7 @@ namespace Rector\Website\Twig;
 
 use Iterator;
 use Nette\Utils\Strings;
-use Rector\Exception\ShouldNotHappenException;
+use Rector\Website\Exception\ShouldNotHappenException;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 

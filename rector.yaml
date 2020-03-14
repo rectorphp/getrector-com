@@ -1,0 +1,8 @@
+parameters:
+    paths:
+        - "src"
+        - "packages"
+        - "tests"
+
+    sets:
+        - "php74"
