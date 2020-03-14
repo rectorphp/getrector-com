@@ -45,7 +45,6 @@ public/build
 ###< friendsofphp/php-cs-fixer ###
 
 ###> phpunit/phpunit ###
-/phpunit.xml
 .phpunit.result.cache
 ###< phpunit/phpunit ###
 
