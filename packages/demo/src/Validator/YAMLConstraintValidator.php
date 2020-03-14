@@ -19,10 +19,7 @@ use Symfony\Component\Validator\ConstraintValidator;
  */
 final class YAMLConstraintValidator extends ConstraintValidator
 {
-    /**
-     * @var YamlLinter
-     */
-    private $yamlLinter;
+    private YamlLinter $yamlLinter;
 
     public function __construct(YamlLinter $yamlLinter)
     {

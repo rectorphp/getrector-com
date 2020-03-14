@@ -14,10 +14,7 @@ use Symplify\PackageBuilder\Tests\AbstractKernelTestCase;
  */
 final class ErrorMessageNormalizerTest extends AbstractKernelTestCase
 {
-    /**
-     * @var ErrorMessageNormalizer
-     */
-    private $errorMessageNormalizer;
+    private ErrorMessageNormalizer $errorMessageNormalizer;
 
     protected function setUp(): void
     {

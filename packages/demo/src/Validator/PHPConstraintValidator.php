@@ -19,15 +19,9 @@ use Symfony\Component\Validator\ConstraintValidator;
  */
 final class PHPConstraintValidator extends ConstraintValidator
 {
-    /**
-     * @var PHPLinter
-     */
-    private $phpLinter;
+    private PHPLinter $phpLinter;
 
-    /**
-     * @var ForbiddenPHPFunctionsChecker
-     */
-    private $forbiddenPHPFunctionsChecker;
+    private ForbiddenPHPFunctionsChecker $forbiddenPHPFunctionsChecker;
 
     public function __construct(PHPLinter $phpLinter, ForbiddenPHPFunctionsChecker $forbiddenPHPFunctionsChecker)
     {

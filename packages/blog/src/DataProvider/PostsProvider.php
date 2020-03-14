@@ -9,10 +9,7 @@ use Symplify\Statie\Renderable\File\PostFile;
 
 final class PostsProvider
 {
-    /**
-     * @var Generator
-     */
-    private $generator;
+    private Generator $generator;
 
     public function __construct(Generator $generator)
     {

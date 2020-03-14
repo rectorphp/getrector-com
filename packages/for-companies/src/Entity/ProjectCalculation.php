@@ -16,7 +16,7 @@ class ProjectCalculation
      * In €
      * @var int
      */
-    private const RECTOR_MONTHLY_EXPENSES = 14500;
+    private const RECTOR_MONTHLY_EXPENSES = 14_500;
 
     /**
      * @var int
@@ -25,33 +25,28 @@ class ProjectCalculation
 
     /**
      * @ORM\Column(type="integer")
-     * @var int
      */
-    private $inHouseMonths;
+    private int $inHouseMonths;
 
     /**
      * @ORM\Column(type="integer")
-     * @var int
      */
-    private $inHouseMonthlyCosts;
+    private int $inHouseMonthlyCosts;
 
     /**
      * @ORM\Column(type="integer")
-     * @var int
      */
-    private $projectLinesOfCode;
+    private int $projectLinesOfCode;
 
     /**
      * @ORM\Column(type="integer")
-     * @var int
      */
-    private $inHouseCosts;
+    private int $inHouseCosts;
 
     /**
      * @ORM\Column(type="float")
-     * @var float
      */
-    private $rectorHours;
+    private float $rectorHours;
 
     public function __construct(int $inHouseMonths, int $inHouseMonthlyCosts, int $projectLinesOfCode)
     {

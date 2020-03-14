@@ -6,20 +6,11 @@ namespace Rector\Website\ForCompanies\ValueObject;
 
 final class ProjectCalculationFormData
 {
-    /**
-     * @var int
-     */
-    private $inHouseMonths;
+    private int $inHouseMonths;
 
-    /**
-     * @var int
-     */
-    private $inHouseMonthlyCosts;
+    private int $inHouseMonthlyCosts;
 
-    /**
-     * @var int
-     */
-    private $projectLinesOfCode;
+    private int $projectLinesOfCode;
 
     public function __construct(int $inHouseMonths, int $inHouseMonthlyCosts, int $projectLinesOfCode)
     {

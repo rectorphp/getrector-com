@@ -21,25 +21,15 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class DemoController extends AbstractController
 {
+    private DemoRunner $demoRunner;
+
+    private RectorRunRepository $rectorRunRepository;
+
+    private DemoFormDataFactory $demoFormDataFactory;
     /**
      * @var string[][]
      */
-    private $demoLinks = [];
-
-    /**
-     * @var RectorRunRepository
-     */
-    private $rectorRunRepository;
-
-    /**
-     * @var DemoRunner
-     */
-    private $demoRunner;
-
-    /**
-     * @var DemoFormDataFactory
-     */
-    private $demoFormDataFactory;
+    private array $demoLinks = [];
 
     /**
      * @param string[][] $demoLinks

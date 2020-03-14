@@ -16,10 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class ForCompaniesController extends AbstractController
 {
-    /**
-     * @var ProjectCalculationFormDataFactory
-     */
-    private $projectCalculationFormDataFactory;
+    private ProjectCalculationFormDataFactory $projectCalculationFormDataFactory;
 
     public function __construct(ProjectCalculationFormDataFactory $projectCalculationFormDataFactory)
     {

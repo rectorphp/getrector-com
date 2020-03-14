@@ -27,30 +27,15 @@ final class RectorProcessRunner
      */
     private const CONFIG_NAME = 'rector.yaml';
 
-    /**
-     * @var string
-     */
-    private $hostDemoDir;
+    private string $hostDemoDir;
 
-    /**
-     * @var string
-     */
-    private $localDemoDir;
+    private string $localDemoDir;
 
-    /**
-     * @var string
-     */
-    private $rectorDemoDockerImage;
+    private string $rectorDemoDockerImage;
 
-    /**
-     * @var string
-     */
-    private $demoExecutablePath;
+    private string $demoExecutablePath;
 
-    /**
-     * @var ErrorMessageNormalizer
-     */
-    private $errorMessageNormalizer;
+    private ErrorMessageNormalizer $errorMessageNormalizer;
 
     public function __construct(
         ErrorMessageNormalizer $errorMessageNormalizer,

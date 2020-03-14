@@ -9,10 +9,7 @@ use Symplify\Statie\Renderable\File\PostFile;
 
 final class PostRepository
 {
-    /**
-     * @var PostsProvider
-     */
-    private $postsProvider;
+    private PostsProvider $postsProvider;
 
     public function __construct(PostsProvider $postsProvider)
     {

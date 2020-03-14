@@ -11,10 +11,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 final class RectorRunRepository
 {
-    /**
-     * @var EntityManagerInterface
-     */
-    private $entityManager;
+    private EntityManagerInterface $entityManager;
 
     public function __construct(EntityManagerInterface $entityManager)
     {

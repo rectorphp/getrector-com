@@ -16,10 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class ResearchController extends AbstractController
 {
-    /**
-     * @var ResearchAnswerRepository
-     */
-    private $researchAnswerRepository;
+    private ResearchAnswerRepository $researchAnswerRepository;
 
     public function __construct(ResearchAnswerRepository $researchAnswerRepository)
     {

@@ -21,10 +21,7 @@ final class YAMLConstraintValidatorTest extends AbstractKernelTestCase
      */
     private const VALID_PHP = '<?php echo "hi";';
 
-    /**
-     * @var ValidatorInterface
-     */
-    private $validator;
+    private ValidatorInterface $validator;
 
     protected function setUp(): void
     {

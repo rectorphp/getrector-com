@@ -34,3 +34,6 @@ parameters:
 
         Symplify\CodingStandard\Fixer\Naming\PropertyNameMatchingTypeFixer:
             - 'src/Entity/*'
+
+        # breaks PHP 7.4
+        PhpCsFixer\Fixer\ClassNotation\ClassAttributesSeparationFixer: null
