@@ -23,8 +23,8 @@ class ProjectCalculation
     /**
      * @var int
      */
-
     private const ROUNDING_LIMIT = 2;
+
     /**
      * @ORM\Id
      * @ORM\Column(type="uuid")

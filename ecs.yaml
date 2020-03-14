@@ -34,5 +34,7 @@ parameters:
         Symplify\CodingStandard\Fixer\Naming\PropertyNameMatchingTypeFixer:
             - 'src/Entity/*'
 
-        # breaks PHP 7.4
-        PhpCsFixer\Fixer\ClassNotation\ClassAttributesSeparationFixer: null
+        # breaks PHP 7.4 array type
+        PhpCsFixer\Fixer\ClassNotation\ClassAttributesSeparationFixer:
+            - "packages/demo/src/Lint/ForbiddenPHPFunctionsChecker.php"
+            - "packages/demo/src/Controller/DemoController.php"
