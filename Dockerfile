@@ -1,7 +1,7 @@
 ####
 ## Base stage, to empower cache
 ####
-FROM php:7.3-apache as base
+FROM php:7.4-apache as base
 
 WORKDIR /var/www/getrector.org
 
@@ -19,7 +19,7 @@ RUN apt-get update && apt-get install -y \
         libpng-dev \
         libjpeg-dev \
         sudo \
-    && docker-php-ext-configure gd --with-png-dir=/usr/include/  --with-jpeg-dir=/usr/include/ \
+    && docker-php-ext-configure gd --with-jpeg \
     && docker-php-ext-configure opcache --enable-opcache \
     && docker-php-ext-install gd \
     && docker-php-ext-configure intl \
