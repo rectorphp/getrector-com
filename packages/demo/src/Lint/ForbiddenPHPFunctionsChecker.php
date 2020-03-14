@@ -12,7 +12,7 @@ final class ForbiddenPHPFunctionsChecker
     /**
      * @var string[]
      */
-    private $forbiddenFunctions = [];
+    private array $forbiddenFunctions = [];
 
     /**
      * @param string[] $forbiddenFunctions

@@ -16,10 +16,7 @@ use Symplify\PackageBuilder\Tests\AbstractKernelTestCase;
  */
 final class DemoFormDataFactoryTest extends AbstractKernelTestCase
 {
-    /**
-     * @var DemoFormDataFactory
-     */
-    private $demoFormDataFactory;
+    private DemoFormDataFactory $demoFormDataFactory;
 
     protected function setUp(): void
     {

@@ -15,10 +15,7 @@ use Symplify\Statie\HttpKernel\StatieKernel;
  */
 final class StatieFactory
 {
-    /**
-     * @var ContainerInterface
-     */
-    private $statieContainer;
+    private ContainerInterface $statieContainer;
 
     public function __construct()
     {

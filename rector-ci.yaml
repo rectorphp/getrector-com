@@ -1,4 +1,9 @@
 parameters:
+    paths:
+        - "src"
+        - "packages"
+        - "tests"
+
     sets:
         - 'dead-code'
         - 'code-quality'
@@ -8,3 +13,4 @@ parameters:
     exclude_paths:
         - '*/var/cache/*'
         - '*/adminer/index.php'
+        - 'packages/demo/data/DemoFile.php'

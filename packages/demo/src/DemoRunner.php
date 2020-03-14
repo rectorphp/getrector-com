@@ -14,15 +14,9 @@ use Throwable;
 
 final class DemoRunner
 {
-    /**
-     * @var RectorProcessRunner
-     */
-    private $rectorProcessRunner;
+    private RectorProcessRunner $rectorProcessRunner;
 
-    /**
-     * @var FileDiffCleaner
-     */
-    private $fileDiffCleaner;
+    private FileDiffCleaner $fileDiffCleaner;
 
     public function __construct(RectorProcessRunner $rectorProcessRunner, FileDiffCleaner $fileDiffCleaner)
     {

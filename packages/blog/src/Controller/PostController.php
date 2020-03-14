@@ -11,10 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class PostController extends AbstractController
 {
-    /**
-     * @var PostRepository
-     */
-    private $postRepository;
+    private PostRepository $postRepository;
 
     public function __construct(PostRepository $postRepository)
     {
@@ -22,7 +19,7 @@ final class PostController extends AbstractController
     }
 
     /**
-     * @Route(path="blog/{postSlug}", name="post", requirements={"postSlug"=".+"})
+     * @Route(path="blog/{postSlug}", name="post", requirements={"postSlug":".+"})
      */
     public function __invoke(string $postSlug): Response
     {

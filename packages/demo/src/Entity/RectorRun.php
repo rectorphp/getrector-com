@@ -17,52 +17,44 @@ class RectorRun
 {
     /**
      * @ORM\Column(type="text")
-     * @var string
      */
-    private $content;
+    private string $content;
 
     /**
      * @ORM\Column(type="text", nullable=true)
-     * @var string|null
      */
-    private $contentDiff;
+    private ?string $contentDiff;
 
     /**
      * @ORM\Column(type="text")
-     * @var string
      */
-    private $config;
+    private string $config;
 
     /**
      * @ORM\Column(type="text", nullable=true)
-     * @var string|null
      */
-    private $resultJson;
+    private ?string $resultJson;
 
     /**
      * @ORM\Column(type="text", nullable=true)
-     * @var string|null
      */
-    private $errorMessage;
+    private ?string $errorMessage;
 
     /**
-     * @var float|null
      * @ORM\Column(type="float", nullable=true)
      */
-    private $elapsedTime;
+    private ?float $elapsedTime;
 
     /**
-     * @var UuidInterface
      * @ORM\Id
      * @ORM\Column(type="uuid")
      */
-    private $id;
+    private UuidInterface $id;
 
     /**
-     * @var DateTimeImmutable
      * @ORM\Column(type="datetime_immutable")
      */
-    private $executedAt;
+    private DateTimeImmutable $executedAt;
 
     public function __construct(UuidInterface $id, DateTimeImmutable $executedAt, string $config, string $content)
     {
@@ -141,6 +133,6 @@ class RectorRun
     private function updateTimeElapsed(StopwatchEvent $stopwatchEvent): void
     {
         // Convert milliseconds to seconds to be more readable
-        $this->elapsedTime = $stopwatchEvent->getDuration() / 1000;
+        $this->elapsedTime = $stopwatchEvent->getDuration() / 1_000;
     }
 }

@@ -129,6 +129,9 @@
     "jean85/pretty-package-versions": {
         "version": "1.2"
     },
+    "jetbrains/phpstorm-stubs": {
+        "version": "v2019.3"
+    },
     "laminas/laminas-zendframework-bridge": {
         "version": "1.0.1"
     },
@@ -245,6 +248,9 @@
     },
     "phpunit/php-file-iterator": {
         "version": "2.0.2"
+    },
+    "phpunit/php-invoker": {
+        "version": "3.0.0"
     },
     "phpunit/php-text-template": {
         "version": "1.2.1"

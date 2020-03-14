@@ -17,10 +17,7 @@ use Symplify\PackageBuilder\Tests\AbstractKernelTestCase;
  */
 final class PHPConstraintValidatorTest extends AbstractKernelTestCase
 {
-    /**
-     * @var ValidatorInterface
-     */
-    private $validator;
+    private ValidatorInterface $validator;
 
     protected function setUp(): void
     {

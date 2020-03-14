@@ -27,10 +27,7 @@ final class RectorCountVariableProvider
      */
     private const CACHE_KEY = 'rectors_count';
 
-    /**
-     * @var CacheInterface
-     */
-    private $cache;
+    private CacheInterface $cache;
 
     public function __construct(CacheInterface $cache)
     {

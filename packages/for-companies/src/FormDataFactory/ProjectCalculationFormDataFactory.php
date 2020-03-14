@@ -11,6 +11,6 @@ final class ProjectCalculationFormDataFactory
     public function create(): ProjectCalculationFormData
     {
         // demo data
-        return new ProjectCalculationFormData(3, 7500, 250000);
+        return new ProjectCalculationFormData(3, 7_500, 250_000);
     }
 }

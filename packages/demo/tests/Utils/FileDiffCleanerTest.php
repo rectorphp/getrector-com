@@ -12,10 +12,7 @@ use Symplify\PackageBuilder\Tests\AbstractKernelTestCase;
 
 final class FileDiffCleanerTest extends AbstractKernelTestCase
 {
-    /**
-     * @var FileDiffCleaner
-     */
-    private $fileDiffCleaner;
+    private FileDiffCleaner $fileDiffCleaner;
 
     protected function setUp(): void
     {

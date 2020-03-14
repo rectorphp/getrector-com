@@ -6,83 +6,35 @@ namespace Rector\Website\ValueObject;
 
 final class ResearchFormData
 {
-    /**
-     * @var string
-     */
-    public $phpVersion;
+    public string $phpVersion;
 
-    /**
-     * @var string
-     */
-    public $framework;
+    public string $framework;
 
-    /**
-     * @var string
-     */
-    public $usingComposer;
+    public string $usingComposer;
 
-    /**
-     * @var string
-     */
-    public $composerUpToDate;
+    public string $composerUpToDate;
 
-    /**
-     * @var string
-     */
-    public $externalTools;
+    public string $externalTools;
 
-    /**
-     * @var string
-     */
-    public $continuousIntegration;
+    public string $continuousIntegration;
 
-    /**
-     * @var string
-     */
-    public $testCoverage;
+    public string $testCoverage;
 
-    /**
-     * @var string
-     */
-    public $teamSize;
+    public string $teamSize;
 
-    /**
-     * @var string
-     */
-    public $projectAge;
+    public string $projectAge;
 
-    /**
-     * @var string
-     */
-    public $projectSize;
+    public string $projectSize;
 
-    /**
-     * @var string
-     */
-    public $frustrationLevel;
+    public string $frustrationLevel;
 
-    /**
-     * @var string
-     */
-    public $frustrationReasons;
+    public string $frustrationReasons;
 
-    /**
-     * @var string
-     */
-    public $improvementsSuggestions;
+    public string $improvementsSuggestions;
 
-    /**
-     * @var string
-     */
-    public $companyWeb;
+    public string $companyWeb;
 
-    /**
-     * @var string
-     */
-    public $contactEmail;
+    public string $contactEmail;
 
-    /**
-     * @var string
-     */
-    public $contactName;
+    public string $contactName;
 }

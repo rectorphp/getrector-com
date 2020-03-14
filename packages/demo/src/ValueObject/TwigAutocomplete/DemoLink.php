@@ -9,13 +9,7 @@ namespace Rector\Website\Demo\ValueObject\TwigAutocomplete;
  */
 final class DemoLink
 {
-    /**
-     * @var string
-     */
-    public $label;
+    public string $label;
 
-    /**
-     * @var string
-     */
-    public $uuid;
+    public string $uuid;
 }

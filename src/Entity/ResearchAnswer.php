@@ -15,113 +15,95 @@ use Ramsey\Uuid\UuidInterface;
 class ResearchAnswer
 {
     /**
-     * @var string
      * @ORM\Column()
      */
-    private $contactName;
+    private string $contactName;
 
     /**
-     * @var string
      * @ORM\Column()
      */
-    private $projectAge;
+    private string $projectAge;
 
     /**
-     * @var string
      * @ORM\Column()
      */
-    private $contactEmail;
+    private string $contactEmail;
 
     /**
-     * @var string
      * @ORM\Column()
      */
-    private $companyWeb;
+    private string $companyWeb;
 
     /**
-     * @var string
      * @ORM\Column(type="text")
      */
-    private $improvementsSuggestions;
+    private string $improvementsSuggestions;
 
     /**
-     * @var string
      * @ORM\Column(type="text")
      */
-    private $frustrationReasons;
+    private string $frustrationReasons;
 
     /**
-     * @var string
      * @ORM\Column()
      */
-    private $frustrationLevel;
+    private string $frustrationLevel;
 
     /**
-     * @var string
      * @ORM\Column()
      */
-    private $projectSize;
+    private string $projectSize;
 
     /**
-     * @var string
      * @ORM\Column()
      */
-    private $teamSize;
+    private string $teamSize;
 
     /**
-     * @var string
      * @ORM\Column()
      */
-    private $testCoverage;
+    private string $testCoverage;
 
     /**
-     * @var string
      * @ORM\Column()
      */
-    private $continuousIntegration;
+    private string $continuousIntegration;
 
     /**
-     * @var string
      * @ORM\Column()
      */
-    private $externalTools;
+    private string $externalTools;
 
     /**
-     * @var string
      * @ORM\Column()
      */
-    private $composerUpToDate;
+    private string $composerUpToDate;
 
     /**
-     * @var string
      * @ORM\Column()
      */
-    private $usingComposer;
+    private string $usingComposer;
 
     /**
-     * @var string
      * @ORM\Column()
      */
-    private $framework;
+    private string $framework;
 
     /**
-     * @var string
      * @ORM\Column()
      */
-    private $phpVersion;
+    private string $phpVersion;
 
     /**
-     * @var DateTimeImmutable
      * @ORM\Column(type="datetime_immutable")
      */
-    private $answeredAt;
+    private DateTimeImmutable $answeredAt;
 
     /**
-     * @var UuidInterface
      * @ORM\Id
      * @ORM\Column(type="uuid")
      */
-    private $id;
+    private UuidInterface $id;
 
     public function __construct()
     {

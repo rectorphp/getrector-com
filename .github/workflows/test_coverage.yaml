@@ -1,0 +1,28 @@
+name: Test Coverage
+
+on:
+    push:
+        branches:
+            - master
+
+jobs:
+    test_coverage:
+        runs-on: ubuntu-latest
+        steps:
+            -   uses: actions/checkout@v2
+            -   uses: shivammathur/setup-php@v1
+                with:
+                    php-version: 7.4
+                    coverage: pcov
+
+            -   run: composer install --no-progress
+            # for controller tests
+            -   run: npm install
+            -   run: npm run dev
+            -   run: |
+                    vendor/bin/phpunit --coverage-clover build/logs/clover.xml
+                    # Coveralls.io
+                    wget https://github.com/php-coveralls/php-coveralls/releases/download/v2.1.0/php-coveralls.phar
+                    php php-coveralls.phar --verbose
+                env:
+                    COVERALLS_REPO_TOKEN: 'aG2qi4W6HtQM7jhHcTYoyOjoz2RCHFbGk'

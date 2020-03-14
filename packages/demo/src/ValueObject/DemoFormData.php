@@ -10,16 +10,14 @@ use Rector\Website\Demo\Validator\Constraint\YAMLConstraint;
 final class DemoFormData
 {
     /**
-     * @var string
      * @PHPConstraint()
      */
-    private $content;
+    private string $content;
 
     /**
-     * @var string
      * @YAMLConstraint()
      */
-    private $config;
+    private string $config;
 
     public function __construct(string $content, string $config)
     {
