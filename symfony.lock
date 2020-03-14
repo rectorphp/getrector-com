@@ -129,6 +129,9 @@
     "jean85/pretty-package-versions": {
         "version": "1.2"
     },
+    "laminas/laminas-zendframework-bridge": {
+        "version": "1.0.1"
+    },
     "latte/latte": {
         "version": "v2.6.1"
     },
@@ -187,7 +190,7 @@
         "version": "2.0.1"
     },
     "php": {
-        "version": "7.3"
+        "version": "7.4"
     },
     "php-cs-fixer/diff": {
         "version": "v1.3.0"
@@ -722,6 +725,9 @@
     },
     "twig/twig": {
         "version": "v3.0.1"
+    },
+    "webimpress/safe-writer": {
+        "version": "2.0.0"
     },
     "webmozart/assert": {
         "version": "1.5.0"
