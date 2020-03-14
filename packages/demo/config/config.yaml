@@ -1,0 +1,19 @@
+services:
+    _defaults:
+        public: true
+        autowire: true
+        autoconfigure: true
+
+    Rector\Website\Demo\:
+        resource: '../src/'
+        exclude:
+            - '../src/Exception/*'
+            - '../src/Entity/*'
+            - '../src/ValueObject/*'
+            - '../src/Validator/Constraint/*'
+
+    # needs to be registered manually, because it doesn't work without priority :/
+    # see https://symfony.com/doc/current/controller/argument_value_resolver.html
+    Rector\Website\Demo\HttpKernel\Controller\RectorRunValueResolver:
+        tags:
+            - { name: controller.argument_value_resolver, priority: 550 }

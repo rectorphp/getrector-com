@@ -1,0 +1,11 @@
+services:
+    _defaults:
+        public: true
+        autowire: true
+        autoconfigure: true
+
+    Rector\Website\ForCompanies\:
+        resource: '../src/'
+        exclude:
+            - '../src/Entity/*'
+            - '../src/ValueObject/*'

@@ -5,14 +5,14 @@ declare(strict_types=1);
 namespace Rector\Website\Tests\Validator;
 
 use Iterator;
+use Rector\Website\Demo\ValueObject\DemoFormData;
 use Rector\Website\GetRectorKernel;
-use Rector\Website\ValueObject\DemoFormData;
 use Symfony\Component\Validator\ConstraintViolation;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symplify\PackageBuilder\Tests\AbstractKernelTestCase;
 
 /**
- * @see \Rector\Website\Validator\YAMLConstraintValidator
+ * @see \Rector\Website\Demo\Validator\YAMLConstraintValidator
  */
 final class YAMLConstraintValidatorTest extends AbstractKernelTestCase
 {
@@ -64,7 +64,8 @@ final class YAMLConstraintValidatorTest extends AbstractKernelTestCase
         $expectedMessageFormat = 'Fix YAML syntax: %s at line ' . $expetedLine . ' %s';
 
         /** @see https://phpunit.readthedocs.io/en/8.5/assertions.html#assertstringmatchesformat */
-        $this->assertStringMatchesFormat($expectedMessageFormat, $constraintViolation->getMessage());
+        $message = (string) $constraintViolation->getMessage();
+        $this->assertStringMatchesFormat($expectedMessageFormat, $message);
     }
 
     public function provideDataForTestInvalidYamlSyntax(): Iterator

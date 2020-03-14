@@ -7,7 +7,6 @@ namespace Rector\Website\Controller;
 use Rector\Website\Entity\ResearchAnswer;
 use Rector\Website\Form\ResearchFormType;
 use Rector\Website\Repository\ResearchAnswerRepository;
-use Rector\Website\ValueObject\ResearchFormData;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
