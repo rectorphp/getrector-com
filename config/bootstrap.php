@@ -1,5 +1,6 @@
 <?php
 
+use Doctrine\Common\Annotations\AnnotationReader;
 use Symfony\Component\Dotenv\Dotenv;
 
 // Load cached env vars if the .env.local.php file exists
@@ -24,3 +25,6 @@ if (isset($_COOKIE['XDEBUG_TRACE']) && !empty($_ENV['DEBUG_COOKIE']) && $_COOKIE
 function getUserIpAddr(): string {
     return $_SERVER['HTTP_CLIENT_IP'] ?? $_SERVER['HTTP_X_FORWARDED_FOR'] ?? $_SERVER['REMOTE_ADDR'];
 }
+
+// @see https://github.com/liip/LiipFunctionalTestBundle/issues/110#issuecomment-201908411
+AnnotationReader::addGlobalIgnoredName('dataProvider');
