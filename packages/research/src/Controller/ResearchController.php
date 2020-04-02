@@ -24,7 +24,7 @@ final class ResearchController extends AbstractController
     }
 
     /**
-     * @Route(path="research", name="research", methods={"GET", "POST"})
+     * @Route(path="research/thank-you", name="research_thank_you")
      */
     public function __invoke(Request $request): Response
     {
