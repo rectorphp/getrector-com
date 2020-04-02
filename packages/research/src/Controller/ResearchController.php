@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Controller;
+namespace Rector\Website\Research\Controller;
 
-use Rector\Website\Entity\ResearchAnswer;
-use Rector\Website\Form\ResearchFormType;
-use Rector\Website\Repository\ResearchAnswerRepository;
+use Rector\Website\Research\Entity\ResearchAnswer;
+use Rector\Website\Research\Form\ResearchFormType;
+use Rector\Website\Research\Repository\ResearchAnswerRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
