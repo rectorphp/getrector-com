@@ -24,6 +24,4 @@ parameters:
         - '#PHPDoc tag @return with type Rector\\Website\\Demo\\Entity\\RectorRun is not subtype of native type Iterator#'
 
         # wip
-        - '#Unreachable statement \- code above always terminates#'
         - '#Return type \(Iterator\) of method Rector\\Website\\Twig\\(.*?)\:\:getFilters\(\) should be compatible with return type \(array<Twig\\TwigFilter\>\) of method Twig\\Extension\\(.*?)\:\:getFilters\(\)#'
-        - '#Method Rector\\Website\\Blog\\DataProvider\\PostsProvider\:\:provide\(\) should return array<Symplify\\Statie\\Renderable\\File\\PostFile\> but returns array<Symplify\\Statie\\Generator\\Renderable\\File\\AbstractGeneratorFile\>#'

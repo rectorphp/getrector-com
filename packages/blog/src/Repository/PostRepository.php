@@ -4,37 +4,68 @@ declare(strict_types=1);
 
 namespace Rector\Website\Blog\Repository;
 
-use Rector\Website\Blog\DataProvider\PostsProvider;
-use Symplify\Statie\Renderable\File\PostFile;
+use Rector\Website\Blog\ValueObject\Post;
+use Rector\Website\Blog\ValueObjectFactory\PostFactory;
+use Symfony\Component\Finder\Finder;
+use Symplify\SmartFileSystem\Finder\FinderSanitizer;
+use Symplify\SmartFileSystem\SmartFileInfo;
 
 final class PostRepository
 {
-    private PostsProvider $postsProvider;
+    /**
+     * @var string
+     */
+    private const POST_DIRECTORY = __DIR__ . '/../../config/data';
 
-    public function __construct(PostsProvider $postsProvider)
+    private FinderSanitizer $finderSanitizer;
+
+    private PostFactory $postFactory;
+
+    /**
+     * @var Post[]
+     */
+    private $posts = [];
+
+    public function __construct(FinderSanitizer $finderSanitizer, PostFactory $postFactory)
     {
-        $this->postsProvider = $postsProvider;
+        $this->finderSanitizer = $finderSanitizer;
+        $this->postFactory = $postFactory;
     }
 
     /**
-     * @return PostFile[]
+     * @return Post[]
      */
     public function fetchAll(): array
     {
-        return $this->postsProvider->provide();
+        foreach ($this->findPostMarkdownFileInfos() as $smartFileInfo) {
+            $post = $this->postFactory->createFromFileInfo($smartFileInfo);
+            $this->posts[$post->getId()] = $post;
+        }
+
+        return $this->posts;
     }
 
-    public function findBySlug(string $slug): ?PostFile
+    public function findBySlug(string $slug): ?Post
     {
-        $posts = $this->postsProvider->provide();
-
-        /** @var PostFile $post */
-        foreach ($posts as $post) {
-            if ($post->getRelativeUrl() . '/' === 'blog/' . $slug || $post->getRelativeUrl() === 'blog/' . $slug) {
+        foreach ($this->fetchAll() as $post) {
+            if ($post->getSlug() === $slug) {
                 return $post;
             }
         }
 
         return null;
+    }
+
+    /**
+     * @return SmartFileInfo[]
+     */
+    private function findPostMarkdownFileInfos(): array
+    {
+        $finder = new Finder();
+        $finder->files()
+            ->in(self::POST_DIRECTORY)
+            ->name('*.md');
+
+        return $this->finderSanitizer->sanitize($finder);
     }
 }

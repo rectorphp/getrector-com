@@ -1,13 +1,13 @@
 {% extends "base.twig" %}
 
-{# @var \Symplify\Statie\Renderable\File\PostFile post #}
+{# @var \Rector\Website\Blog\ValueObject\Post post #}
 {% set page_title %}{{ post.title }}{% endset %}
 
 {% block main %}
     <div class="container post" id="subpage">
         <small>
-            <time datetime="{{ post.getDateInFormat('Y-m-D') }}" class="text-muted">
-                {{ post.getDateInFormat('j. n. Y') }}
+            <time datetime="{{ post.dateTime|date('Y-m-D') }}" class="text-muted">
+                {{ post.dateTime|date('j. n. Y') }}
             </time>
         </small>
 
@@ -19,7 +19,7 @@
             </div>
         </div>
 
-        {{ post.content|raw }}
+        {{ post.htmlContent|raw }}
 
         <br>
         <br>

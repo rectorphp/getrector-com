@@ -5,7 +5,6 @@ perex: |
     Rector is a composer package. If you install it, it has to meet install requirements conditions.
     <br>
     <strong>But how can you [upgrade your Symfony 2.8](https://www.tomasvotruba.com/blog/2019/02/28/how-to-upgrade-symfony-2-8-to-3-4/), when Rector needs at least Symfony 4.4?</strong>
-tweet: "New post on #rectorphp blog: How to install Rector despite Composer Conflicts"
 ---
 
 Do you have the most modern code base on PHP 7.2 and Symfony 4.4? No?

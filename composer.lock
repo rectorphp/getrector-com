@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "50fc980aaa6d8362f97317bb9f82c15a",
+    "content-hash": "b5748221f013119c306b35f966869d44",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -1338,20 +1338,23 @@
         },
         {
             "name": "erusev/parsedown-extra",
-            "version": "0.7.1",
+            "version": "0.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/erusev/parsedown-extra.git",
-                "reference": "0db5cce7354e4b76f155d092ab5eb3981c21258c"
+                "reference": "91ac3ff98f0cea243bdccc688df43810f044dcef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/erusev/parsedown-extra/zipball/0db5cce7354e4b76f155d092ab5eb3981c21258c",
-                "reference": "0db5cce7354e4b76f155d092ab5eb3981c21258c",
+                "url": "https://api.github.com/repos/erusev/parsedown-extra/zipball/91ac3ff98f0cea243bdccc688df43810f044dcef",
+                "reference": "91ac3ff98f0cea243bdccc688df43810f044dcef",
                 "shasum": ""
             },
             "require": {
-                "erusev/parsedown": "~1.4"
+                "erusev/parsedown": "^1.7.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8.35"
             },
             "type": "library",
             "autoload": {
@@ -1378,7 +1381,7 @@
                 "parsedown",
                 "parser"
             ],
-            "time": "2015-11-01T10:19:22+00:00"
+            "time": "2019-12-30T23:20:37+00:00"
         },
         {
             "name": "gedmo/doctrine-extensions",
@@ -1702,56 +1705,6 @@
             "time": "2018-07-31T19:32:56+00:00"
         },
         {
-            "name": "j7mbo/twitter-api-php",
-            "version": "1.0.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/J7mbo/twitter-api-php.git",
-                "reference": "443d22c53d621b3cc6b7e0c56daa60c5ada033f7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/J7mbo/twitter-api-php/zipball/443d22c53d621b3cc6b7e0c56daa60c5ada033f7",
-                "reference": "443d22c53d621b3cc6b7e0c56daa60c5ada033f7",
-                "shasum": ""
-            },
-            "require": {
-                "ext-curl": "*"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.5,>=4.5.1"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "classmap": [
-                    "TwitterAPIExchange.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GNU Public License"
-            ],
-            "authors": [
-                {
-                    "name": "James Mallison",
-                    "homepage": "https://github.com/j7mbo/twitter-api-php"
-                }
-            ],
-            "description": "Simple PHP Wrapper for Twitter API v1.1 calls",
-            "homepage": "https://github.com/j7mbo/twitter-api-php",
-            "keywords": [
-                "api",
-                "php",
-                "twitter"
-            ],
-            "time": "2017-05-08T12:10:56+00:00"
-        },
-        {
             "name": "jdorn/sql-formatter",
             "version": "v1.2.17",
             "source": {
@@ -2066,83 +2019,6 @@
                 "zf"
             ],
             "time": "2020-03-26T16:07:12+00:00"
-        },
-        {
-            "name": "latte/latte",
-            "version": "v2.7.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nette/latte.git",
-                "reference": "f2854b9261bfafe1d526cd836d8e8e11e14ae93b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/nette/latte/zipball/f2854b9261bfafe1d526cd836d8e8e11e14ae93b",
-                "reference": "f2854b9261bfafe1d526cd836d8e8e11e14ae93b",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "ext-tokenizer": "*",
-                "php": ">=7.1"
-            },
-            "conflict": {
-                "nette/application": "<2.4.1"
-            },
-            "require-dev": {
-                "nette/php-generator": "^3.3.4",
-                "nette/tester": "~2.0",
-                "nette/utils": "^3.0",
-                "phpstan/phpstan": "^0.12",
-                "tracy/tracy": "^2.3"
-            },
-            "suggest": {
-                "ext-fileinfo": "to use filter |datastream",
-                "ext-iconv": "to use filters |reverse, |substring",
-                "ext-mbstring": "to use filters like lower, upper, capitalize, ...",
-                "nette/php-generator": "to use tag {templatePrint}",
-                "nette/utils": "to use filter |webalize"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.7-dev"
-                }
-            },
-            "autoload": {
-                "classmap": [
-                    "src/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause",
-                "GPL-2.0-only",
-                "GPL-3.0-only"
-            ],
-            "authors": [
-                {
-                    "name": "David Grudl",
-                    "homepage": "https://davidgrudl.com"
-                },
-                {
-                    "name": "Nette Community",
-                    "homepage": "https://nette.org/contributors"
-                }
-            ],
-            "description": "☕ Latte: the intuitive and fast template engine for those who want the most secure PHP sites. Introduces context-sensitive escaping.",
-            "homepage": "https://latte.nette.org",
-            "keywords": [
-                "context-sensitive",
-                "engine",
-                "escaping",
-                "html",
-                "nette",
-                "security",
-                "template",
-                "twig"
-            ],
-            "time": "2020-04-01T14:27:27+00:00"
         },
         {
             "name": "nette/application",
@@ -8188,78 +8064,6 @@
             "time": "2020-03-18T23:14:48+00:00"
         },
         {
-            "name": "symplify/statie",
-            "version": "v7.2.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symplify/statie.git",
-                "reference": "67f7d3e671bbc89eaf0eff98d016d7c1f5e43b05"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symplify/statie/zipball/67f7d3e671bbc89eaf0eff98d016d7c1f5e43b05",
-                "reference": "67f7d3e671bbc89eaf0eff98d016d7c1f5e43b05",
-                "shasum": ""
-            },
-            "require": {
-                "composer/xdebug-handler": "^1.4",
-                "erusev/parsedown": "^1.7",
-                "erusev/parsedown-extra": "^0.7.1",
-                "guzzlehttp/guzzle": "^6.5",
-                "j7mbo/twitter-api-php": "^1.0.6",
-                "jean85/pretty-package-versions": "^1.2",
-                "latte/latte": "^2.5",
-                "nette/finder": "^2.5",
-                "nette/utils": "^3.0",
-                "ocramius/package-versions": "^1.4",
-                "php": "^7.2",
-                "symfony/config": "^4.4|^5.0",
-                "symfony/console": "^4.4|^5.0",
-                "symfony/dependency-injection": "^4.4|^5.0",
-                "symfony/event-dispatcher": "^4.4|^5.0",
-                "symfony/finder": "^4.4|^5.0",
-                "symfony/http-kernel": "^4.4|^5.0",
-                "symfony/yaml": "^4.4|^5.0",
-                "symplify/auto-bind-parameter": "^7.2.3",
-                "symplify/autowire-array-parameter": "^7.2.3",
-                "symplify/package-builder": "^7.2.3",
-                "symplify/set-config-resolver": "^7.2.3",
-                "symplify/smart-file-system": "^7.2.3",
-                "tracy/tracy": "^2.7",
-                "twig/twig": "^3.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^8.5|^9.0"
-            },
-            "bin": [
-                "bin/statie"
-            ],
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "7.3-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symplify\\Statie\\": "src",
-                    "Symplify\\Statie\\Generator\\": "packages/generator/src",
-                    "Symplify\\Statie\\Twig\\": "packages/twig/src",
-                    "Symplify\\Statie\\JoindIn\\": "packages/joind-in/src",
-                    "Symplify\\Statie\\Tweeter\\": "packages/tweeter/src",
-                    "Symplify\\Statie\\GithubContributorsThanker\\": "packages/github-contributors-thanker/src",
-                    "Symplify\\Statie\\HeadlineAnchorLinker\\": "packages/headline-anchor-linker/src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Static Site Generator",
-            "abandoned": "symplify/symfony-static-dumper",
-            "time": "2020-02-27T16:45:59+00:00"
-        },
-        {
             "name": "tracy/tracy",
             "version": "v2.7.3",
             "source": {
@@ -10821,12 +10625,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/coding-standard.git",
-                "reference": "94ae05f7c8d28ae4af846f2be91ecc1cfe1af59f"
+                "reference": "b1ddc8c909b3f1199c6e6c0c48b66d219fbc3364"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/coding-standard/zipball/94ae05f7c8d28ae4af846f2be91ecc1cfe1af59f",
-                "reference": "94ae05f7c8d28ae4af846f2be91ecc1cfe1af59f",
+                "url": "https://api.github.com/repos/symplify/coding-standard/zipball/b1ddc8c909b3f1199c6e6c0c48b66d219fbc3364",
+                "reference": "b1ddc8c909b3f1199c6e6c0c48b66d219fbc3364",
                 "shasum": ""
             },
             "require": {
@@ -10871,12 +10675,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/easy-coding-standard.git",
-                "reference": "a495657b83573316b13859ac6bb80bb18034d4ed"
+                "reference": "06716f343d56d87a6a95cf9a1c3c3453dd918d58"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/easy-coding-standard/zipball/a495657b83573316b13859ac6bb80bb18034d4ed",
-                "reference": "a495657b83573316b13859ac6bb80bb18034d4ed",
+                "url": "https://api.github.com/repos/symplify/easy-coding-standard/zipball/06716f343d56d87a6a95cf9a1c3c3453dd918d58",
+                "reference": "06716f343d56d87a6a95cf9a1c3c3453dd918d58",
                 "shasum": ""
             },
             "require": {
@@ -10942,12 +10746,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/phpstan-extensions.git",
-                "reference": "58f1251d8e2ba8cbe0ad119604917b740cba8d40"
+                "reference": "eddd16c9b67fb286869103ec0565d0c93b17adb2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/phpstan-extensions/zipball/58f1251d8e2ba8cbe0ad119604917b740cba8d40",
-                "reference": "58f1251d8e2ba8cbe0ad119604917b740cba8d40",
+                "url": "https://api.github.com/repos/symplify/phpstan-extensions/zipball/eddd16c9b67fb286869103ec0565d0c93b17adb2",
+                "reference": "eddd16c9b67fb286869103ec0565d0c93b17adb2",
                 "shasum": ""
             },
             "require": {

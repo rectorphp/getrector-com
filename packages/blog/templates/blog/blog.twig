@@ -6,25 +6,28 @@
     <div class="container" id="subpage">
         <div class="row" style="min-height: 30em">
             {# "filter" prevents future publishing #}
-            {% for post in posts|filter(post => (post.getDateInFormat('Y-m-d') <= "now"|date('Y-m-d'))) %}
-                <div class="col-12">
-                    <h2 class="text-left mb-0 pb-4 mt-3">
-                        <a href="{{ post|link }}">{{ post.title }}</a>
+            {% for post in posts|filter(post => (post.dateTime|date('Y-m-d') <= "now"|date('Y-m-d'))) %}
+                <div class="col-12 mb-5">
+                    <h2 class="text-left mb-0 pb-2 mt-3">
+                        <a href="{{ path('post', {'postSlug': post.slug }) }}">{{ post.title }}</a>
                     </h2>
 
                     <small>
-                        <time datetime="{{ post.getDateInFormat('Y-m-D') }}" class="text-muted">
-                            {{ post.getDateInFormat('j. n. Y') }}
+                        <time datetime="{{ post.dateTime|date('Y-m-D') }}" class="text-muted">
+                            {{ post.dateTime|date('j. n. Y') }}
                         </time>
                     </small>
 
-                    <p class="perex mb-5">{{ post.perex|raw }}</p>
+                    <p class="perex mb-0">{{ post.perex|markdown|raw }}</p>
 
-                    <a href="{{ post|link }}" class="btn btn-success btn-lg">
+                    <a href="{{ path('post', {'postSlug': post.slug }) }}" class="btn btn-success btn-lg">
                         Read More
                         &nbsp;
                         <em class="fas fa-arrow-alt-circle-right fa-fw"></em>
                     </a>
+
+                    <br>
+                    <br>
                 </div>
             {% endfor %}
         </div>
