@@ -6,6 +6,7 @@ namespace Rector\Website\Demo\Entity;
 
 use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
+use Jean85\Version;
 use Nette\Utils\Json;
 use Ramsey\Uuid\UuidInterface;
 use Symfony\Component\Stopwatch\StopwatchEvent;
@@ -114,6 +115,21 @@ class RectorRun
     {
         $this->errorMessage = $errorMessage;
         $this->updateTimeElapsed($stopwatchEvent);
+    }
+
+    public function getVersion(): ?Version
+    {
+        if (! $this->resultJson) {
+            return null;
+        }
+
+        $data = Json::decode($this->resultJson, Json::FORCE_ARRAY);
+
+        if (! isset($data['meta']['version'])) {
+            return null;
+        }
+
+        return new Version('rector/rector', $data['meta']['version']);
     }
 
     /**

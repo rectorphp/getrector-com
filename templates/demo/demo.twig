@@ -55,6 +55,12 @@
 
             <h3 class="mt-0 mb-4 text-left" id="result">Result</h3>
 
+            {% if rector_run.version is not null %}
+                <p class="rector-version">
+                    Used Rector version: <a href="https://github.com/rectorphp/rector/tree/{{ rector_run.version.commitHash }}">{{ rector_run.version.fullVersion }}</a>
+                </p>
+            {% endif %}
+
             {# @var rector_run \Rector\Website\Demo\Entity\RectorRun  #}
             {% if rector_run.successful %}
                 <pre><code class="language-diff">{{ rector_run.contentDiff }}</code></pre>

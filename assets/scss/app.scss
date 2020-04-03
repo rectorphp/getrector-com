@@ -353,8 +353,17 @@ h1 em, h2 em, h2 a {
     min-height: 25em;
     background: #666;
 
-    h2, h3 {
+    h2, h3, .rector-version {
         color: #fcf8e3;
+    }
+
+    .rector-version {
+        font-size: 15px;
+        margin-top: -15px;
+
+        a {
+            font-weight: bold;
+        }
     }
 }
 
