@@ -1,25 +1,22 @@
+parameters:
+    site_url: "https://getrector.org"
+
 services:
     _defaults:
         public: true
         autowire: true
         autoconfigure: true
+        bind:
+            $projectDir: "%kernel.project_dir%"
 
     Rector\Website\Blog\:
         resource: '../src/'
         exclude:
+            - '../src/ValueObject/*'
             - '../src/DependencyInjection/*'
 
     # for rendering markdown posts
     ParsedownExtra:
         class: 'ParsedownExtra'
 
-    Rector\Website\Blog\DependencyInjection\StatieFactory: null
-
-    Symplify\Statie\Generator\Generator:
-        factory: ['@Rector\Website\Blog\DependencyInjection\StatieFactory', 'createGenerator']
-
-    Symplify\Statie\Generator\RelatedItemsResolver:
-        factory: ['@Rector\Website\Blog\DependencyInjection\StatieFactory', 'createRelatedItemsResolver']
-
-    # provides "link" filter
-    Symplify\Statie\Twig\GeneratorTwigExtension: null
+    Symplify\SmartFileSystem\Finder\FinderSanitizer: null

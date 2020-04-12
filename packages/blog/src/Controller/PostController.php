@@ -30,7 +30,6 @@ final class PostController extends AbstractController
 
         return $this->render('blog/post.twig', [
             'post' => $post,
-            'title' => $post->getConfiguration()['title'] ?? null,
         ]);
     }
 }

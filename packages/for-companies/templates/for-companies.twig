@@ -148,7 +148,7 @@ main concurrent: in-house development #}
                     <th>Months of Work</th>
                     <td>{{ form_widget(project_calculation_form_type.in_house_months) }}</td>
                     <td>
-                        {% if project_calculation is defined %}
+                        {% if project_calculation is not null %}
                             {{ project_calculation.rectorInMonths }}
                         {% endif %}
                     </td>
@@ -163,22 +163,24 @@ main concurrent: in-house development #}
                 <tr>
                     <th>Total Costs</th>
                     <td class="text-right">
-                        {% if project_calculation is defined %}
+                        {% if project_calculation is not null %}
                             {{ project_calculation.inHouseCosts|number_format }} €
                         {% endif %}
                     </td>
                     <td class="text-right">
-                        {% if project_calculation is defined %}
+                        {% if project_calculation is not null %}
                             {{ project_calculation.rectorCosts|number_format }} €
                         {% endif %}
                     </td>
                 </tr>
 
                 <tr>
-                    <td colspan="3">{{ form_widget(project_calculation_form_type.submit) }}</td>
+                    <td colspan="3" class="text-center">
+                        {{ form_widget(project_calculation_form_type.submit) }}
+                    </td>
                 </tr>
 
-                {% if project_calculation is defined %}
+                {% if project_calculation is not null %}
                     <tr>
                         <th>Rector - Time Efficiency</th>
                         <td>{{ project_calculation.rectorTimeEfficiency }}</td>

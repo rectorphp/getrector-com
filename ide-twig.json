@@ -3,6 +3,7 @@
         { "path": "templates" },
         { "path": "packages/blog/templates" },
         { "path": "packages/demo/templates" },
+        { "path": "packages/research/templates" },
         { "path": "packages/for-companies/templates" }
     ]
 }

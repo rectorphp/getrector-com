@@ -47,9 +47,7 @@ services:
     Rector\Website\:
         resource: '../src/'
         exclude:
-            - '../src/Entity/*'
             - '../src/GetRectorKernel.php'
-            - '../src/ValueObject/*'
 
     Symplify\PackageBuilder\Console\Style\SymfonyStyleFactory: ~
     Symfony\Component\Console\Style\SymfonyStyle:

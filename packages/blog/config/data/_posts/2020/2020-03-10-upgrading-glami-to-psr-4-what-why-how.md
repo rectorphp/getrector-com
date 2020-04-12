@@ -5,7 +5,6 @@ perex: |
     In April 2019 we upgraded [Glami](https://glami.cz)'s big codebase to follow PSR-4.
     <br>
     <strong>It was a great success! In this part, we will go through what PSR-4 is and it's benefits.</strong>
-tweet: "New post on #rectorphp blog: Upgraded Glami to PSR-4, part 1: What and why?"
 ---
 
 ## What is PSR-4?
@@ -91,7 +90,6 @@ In one of the most business-critical parts, response time lowered from **8ms to 
     <img style="max-width: 260px;" src="/assets/images/blog/glami-psr-4/performance-boost.png" class="img-thumbnail mt-3 mb-3">
 </div>
 
----
 
 In the next parts, we will look more into the migrated codebase and migration process itself.
 

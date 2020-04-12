@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Form;
+namespace Rector\Website\Research\Form;
 
-use Rector\Website\Entity\ResearchAnswer;
+use Rector\Website\Research\Entity\ResearchAnswer;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;

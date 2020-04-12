@@ -1,22 +1,4 @@
 # template only routes → template
-homepage:
-    path: '/'
-    controller: 'Symfony\Bundle\FrameworkBundle\Controller\TemplateController'
-    defaults:
-        template: 'homepage/homepage.twig'
-
-contact:
-    path: 'contact'
-    controller: 'Symfony\Bundle\FrameworkBundle\Controller\TemplateController'
-    defaults:
-        template: 'homepage/contact.twig'
-
-join_us:
-    path: 'join-rector-team'
-    controller: 'Symfony\Bundle\FrameworkBundle\Controller\TemplateController'
-    defaults:
-        template: 'homepage/join-rector-team.twig'
-
 research_thank_you:
     path: 'research/thank-you'
     controller: 'Symfony\Bundle\FrameworkBundle\Controller\TemplateController'

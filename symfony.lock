@@ -120,9 +120,6 @@
     "http-interop/http-factory-guzzle": {
         "version": "1.0.0"
     },
-    "j7mbo/twitter-api-php": {
-        "version": "1.0.6"
-    },
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
     },
@@ -134,9 +131,6 @@
     },
     "laminas/laminas-zendframework-bridge": {
         "version": "1.0.1"
-    },
-    "latte/latte": {
-        "version": "v2.6.1"
     },
     "myclabs/deep-copy": {
         "version": "1.9.3"
@@ -719,9 +713,6 @@
     },
     "symplify/smart-file-system": {
         "version": "v7.0.2"
-    },
-    "symplify/statie": {
-        "version": "v7.2.1"
     },
     "theseer/tokenizer": {
         "version": "1.1.3"

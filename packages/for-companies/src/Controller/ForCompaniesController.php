@@ -33,29 +33,26 @@ final class ForCompaniesController extends AbstractController
         $projectCalculationForm = $this->createForm(ProjectCalculationFormType::class, $projectCalculationFormData);
         $projectCalculationForm->handleRequest($request);
 
+        $projectCalculation = null;
         if ($projectCalculationForm->isSubmitted() && $projectCalculationForm->isValid()) {
-            return $this->processForm($projectCalculationForm);
+            $projectCalculation = $this->processFormToProjectCalculation($projectCalculationForm);
         }
 
         return $this->render('for-companies.twig', [
             'project_calculation_form_type' => $projectCalculationForm->createView(),
+            'project_calculation' => $projectCalculation,
         ]);
     }
 
-    private function processForm(FormInterface $form): Response
+    private function processFormToProjectCalculation(FormInterface $form): ProjectCalculation
     {
         /** @var ProjectCalculationFormData $projectCalculationFormData */
         $projectCalculationFormData = $form->getData();
 
-        $projectCalculation = new ProjectCalculation(
+        return new ProjectCalculation(
             $projectCalculationFormData->getInHouseMonths(),
             $projectCalculationFormData->getInHouseMonthlyCosts(),
             $projectCalculationFormData->getProjectLinesOfCode(),
         );
-
-        return $this->render('for-companies.twig', [
-            'project_calculation_form_type' => $form->createView(),
-            'project_calculation' => $projectCalculation,
-        ]);
     }
 }

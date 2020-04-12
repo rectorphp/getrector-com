@@ -156,7 +156,25 @@ h2 {
     }
 }
 
+// sticky footer: see https://css-tricks.com/couple-takes-sticky-footer/#article-header-id-3
+html, body {
+    height: 100%;
+}
+
+body {
+    font-size: 18px;
+    font-family: 'Source Sans Pro', sans-serif;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+#main {
+    flex: 1 0 auto;
+}
+
 #footer {
+    flex-shrink: 0;
     padding: 1.8em 0;
 
     background-color: $black;

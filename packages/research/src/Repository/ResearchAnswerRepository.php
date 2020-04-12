@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Repository;
+namespace Rector\Website\Research\Repository;
 
 use Doctrine\ORM\EntityManagerInterface;
-use Rector\Website\Entity\ResearchAnswer;
+use Rector\Website\Research\Entity\ResearchAnswer;
 
 final class ResearchAnswerRepository
 {
