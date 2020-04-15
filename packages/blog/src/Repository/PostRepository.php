@@ -42,6 +42,11 @@ final class PostRepository
             $this->posts[$post->getId()] = $post;
         }
 
+        // sort from newest
+        usort($this->posts, function (Post $firstPost, Post $secondPost): int {
+            return $secondPost->getDateTime() <=> $firstPost->getDateTime();
+        });
+
         return $this->posts;
     }
 
