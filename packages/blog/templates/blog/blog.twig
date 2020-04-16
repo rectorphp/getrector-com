@@ -18,7 +18,7 @@
                         </time>
                     </small>
 
-                    <p class="perex mb-0">{{ post.perex|markdown|raw }}</p>
+                    <div class="perex mb-3">{{ post.perex|markdown|raw }}</div>
 
                     <a href="{{ path('post', {'postSlug': post.slug }) }}" class="btn btn-success btn-lg">
                         Read More

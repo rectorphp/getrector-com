@@ -15,7 +15,7 @@ final class PostRepository
     /**
      * @var string
      */
-    private const POST_DIRECTORY = __DIR__ . '/../../config/data';
+    private const POST_DIRECTORY = __DIR__ . '/../../data';
 
     private FinderSanitizer $finderSanitizer;
 
