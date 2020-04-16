@@ -75,10 +75,31 @@ final class PostFactory
         }
 
         $htmlContent = $this->parsedownExtra->parse($matches['content']);
+        $htmlContent = $this->decorateHeadlineWithId($htmlContent);
         $sourceRelativePath = $this->getSourceRelativePath($smartFileInfo);
         $absoluteUrl = $this->createAbsoluteUrl($slug);
 
         return new Post($id, $title, $slug, $dateTime, $perex, $htmlContent, $sourceRelativePath, $absoluteUrl);
+    }
+
+    /**
+     * Before:
+     * <h1>Hey</h1>
+     *
+     * After:
+     * <h1 id="hey">Hey</h1>
+     *
+     * Then the headline can be anchored in url as "#hey"
+     */
+    private function decorateHeadlineWithId(string $htmlContent): string
+    {
+        return Strings::replace($htmlContent, '#<h(?<level>\d+)>(?<headline>.*?)</h\d+>#', function ($matches) {
+            $level = $matches['level'];
+            $headline = $matches['headline'];
+            $idValue = Strings::webalize($headline);
+
+            return sprintf('<h%d id="%s">%s</h%d>', $level, $idValue, $headline, $level);
+        });
     }
 
     private function getSourceRelativePath(SmartFileInfo $smartFileInfo): string
