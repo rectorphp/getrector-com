@@ -15,12 +15,12 @@ Then you've probably experienced this before:
 composer install rector/rector --dev
 ```
 
-<img src="/assets/images/blog/rector_install_fail.png" class="img-thumbnail mt-2 mb-3">
+<img src="/assets/images/blog/2020/rector_install_fail.png" class="img-thumbnail mt-2 mb-3">
 
 That's sad :(
 
 <a href="https://github.com/rectorphp/rector/issues/2334">
-<img src="/assets/images/blog/rector_install_issue.png" class="img-thumbnail mt-2 mb-3">
+    <img src="/assets/images/blog/2020/rector_install_issue.png" class="img-thumbnail mt-2 mb-3">
 </a>
 
 Rector needs the same access to your code as PHPStan, so they can use reflection to get metadata and vendor class analysis. **Classes must be unique and autoloaded**. Few alternatives might help with version install config.
