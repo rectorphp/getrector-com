@@ -30,6 +30,8 @@ final class PostRepository
     {
         $this->finderSanitizer = $finderSanitizer;
         $this->postFactory = $postFactory;
+
+        $this->createPosts();
     }
 
     /**
@@ -37,23 +39,29 @@ final class PostRepository
      */
     public function fetchAll(): array
     {
-        foreach ($this->findPostMarkdownFileInfos() as $smartFileInfo) {
-            $post = $this->postFactory->createFromFileInfo($smartFileInfo);
-            $this->posts[$post->getId()] = $post;
-        }
-
         return $this->posts;
     }
 
     public function findBySlug(string $slug): ?Post
     {
-        foreach ($this->fetchAll() as $post) {
+        foreach ($this->posts as $post) {
             if ($post->getSlug() === $slug) {
                 return $post;
             }
         }
 
         return null;
+    }
+
+    private function createPosts(): void
+    {
+        $posts = [];
+        foreach ($this->findPostMarkdownFileInfos() as $smartFileInfo) {
+            $post = $this->postFactory->createFromFileInfo($smartFileInfo);
+            $posts[$post->getId()] = $post;
+        }
+
+        $this->posts = $this->sortByDateTimeFromNewest($posts);
     }
 
     /**
@@ -67,5 +75,18 @@ final class PostRepository
             ->name('*.md');
 
         return $this->finderSanitizer->sanitize($finder);
+    }
+
+    /**
+     * @param Post[] $posts
+     * @return Post[]
+     */
+    private function sortByDateTimeFromNewest(array $posts): array
+    {
+        usort($posts, function (Post $firstPost, Post $secondPost): int {
+            return $secondPost->getDateTime() <=> $firstPost->getDateTime();
+        });
+
+        return $posts;
     }
 }
