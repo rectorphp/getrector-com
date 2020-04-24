@@ -70,7 +70,7 @@ We got into a project that used PHPExcel and wanted to switch to PHP 7.4 and Sym
 
 To get rid of old PHPExcel, we prepare a set `phpexcel-to-phpspreadsheet` to help us.
 
-It took 3 days to make and now has [**230 lines**](https://github.com/rectorphp/rector/blob/master/config/set/phpoffice/phpexcel-to-phpspreadsheet.yaml) of configuration and **17 rules**.
+It took 3 days to make and now has [**230 lines**](https://github.com/rectorphp/rector/blob/master/config/set/php-office/phpexcel-to-phpspreadsheet.yaml) of configuration and **17 rules**.
 
 ## How to Migrate?
 
