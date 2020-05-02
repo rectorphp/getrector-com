@@ -42,7 +42,7 @@ Method move to another class:
 +PhpOffice\PhpSpreadsheet\Cell\Coordinate::absoluteCoordinate()
 ```
 
-and [so on](https://github.com/PHPOffice/PhpSpreadsheet/blob/master/docs/topics/migration-from-PHPExcel.md).
+and [so on](https://github.com/PHPOffice/PhpSpreadsheet/blob/50d78ce7898ee3a540cefd9693085b3636e578e6/docs/topics/migration-from-PHPExcel.md).
 
 <br>
 
@@ -81,7 +81,7 @@ vendor/bin/rector process src --set phpexcel-to-phpspreadsheet
 
 That's it! Rector just migrated your code from PHPExcel to PHPSpreadsheet.
 
-If you have any issues, look at [official migration tutorial](https://github.com/PHPOffice/PhpSpreadsheet/blob/master/docs/topics/migration-from-PHPExcel.md) or [let us know on GitHub](https://github.com/rectorphp/rector/issues).
+If you have any issues, look at [official migration tutorial](https://github.com/PHPOffice/PhpSpreadsheet/blob/50d78ce7898ee3a540cefd9693085b3636e578e6/docs/topics/migration-from-PHPExcel.md) or [let us know on GitHub](https://github.com/rectorphp/rector/issues).
 
 <br>
 
