@@ -15,7 +15,7 @@ final class RuleReadmeLinkTwigExtension extends AbstractExtension
     /**
      * @var string
      */
-    private const README_URL = 'https://github.com/rectorphp/rector/blob/master/docs/AllRectorsOverview.md';
+    private const README_URL = 'https://github.com/rectorphp/rector/blob/master/docs/rector_rules_overview.md';
 
     /**
      * @return TwigFilter[]
