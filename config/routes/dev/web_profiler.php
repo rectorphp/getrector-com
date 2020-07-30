@@ -2,21 +2,12 @@
 
 declare(strict_types=1);
 
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
-use function Symfony\Component\DependencyInjection\Loader\Configurator\ref;
+use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
 
-return static function (ContainerConfigurator $containerConfigurator): void {
-    $containerConfigurator->extension(
-        'web_profiler_wdt',
-        ['resource' => ref('WebProfilerBundle/Resources/config/routing/wdt.xml')]
-    );
+return static function (RoutingConfigurator $routingConfigurator): void {
+    $routingConfigurator->import('@WebProfilerBundle/Resources/config/routing/wdt.xml')
+        ->prefix('/_wdt');
 
-    $containerConfigurator->extension('web_profiler_wdt', ['prefix' => '/_wdt']);
-
-    $containerConfigurator->extension(
-        'web_profiler_profiler',
-        ['resource' => ref('WebProfilerBundle/Resources/config/routing/profiler.xml')]
-    );
-
-    $containerConfigurator->extension('web_profiler_profiler', ['prefix' => '/_profiler']);
+    $routingConfigurator->import('@WebProfilerBundle/Resources/config/routing/profiler.xml')
+        ->prefix('web_profiler_profiler');
 };
