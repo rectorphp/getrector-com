@@ -1,13 +1,45 @@
 <?php
 
+declare(strict_types=1);
+
+use Doctrine\Bundle\DoctrineBundle\DoctrineBundle;
+use Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle;
+use Sentry\SentryBundle\SentryBundle;
+use Symfony\Bundle\DebugBundle\DebugBundle;
+use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
+use Symfony\Bundle\SecurityBundle\SecurityBundle;
+use Symfony\Bundle\TwigBundle\TwigBundle;
+use Symfony\Bundle\WebProfilerBundle\WebProfilerBundle;
+use Symfony\WebpackEncoreBundle\WebpackEncoreBundle;
+
 return [
-    Symfony\Bundle\FrameworkBundle\FrameworkBundle::class => ['all' => true],
-    Symfony\Bundle\DebugBundle\DebugBundle::class => ['dev' => true, 'test' => true],
-    Symfony\Bundle\TwigBundle\TwigBundle::class => ['all' => true],
-    Symfony\Bundle\WebProfilerBundle\WebProfilerBundle::class => ['dev' => true, 'test' => true],
-    Symfony\Bundle\SecurityBundle\SecurityBundle::class => ['all' => true],
-    Doctrine\Bundle\DoctrineBundle\DoctrineBundle::class => ['all' => true],
-    Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle::class => ['all' => true],
-    Symfony\WebpackEncoreBundle\WebpackEncoreBundle::class => ['all' => true],
-    Sentry\SentryBundle\SentryBundle::class => ['all' => true],
+    FrameworkBundle::class => [
+        'all' => true,
+    ],
+    DebugBundle::class => [
+        'dev' => true,
+        'test' => true,
+    ],
+    TwigBundle::class => [
+        'all' => true,
+    ],
+    WebProfilerBundle::class => [
+        'dev' => true,
+        'test' => true,
+    ],
+    SecurityBundle::class => [
+        'all' => true,
+    ],
+    DoctrineBundle::class => [
+        'all' => true,
+    ],
+    DoctrineMigrationsBundle::class => [
+        'all' => true,
+    ],
+    WebpackEncoreBundle::class => [
+        'all' => true,
+    ],
+    SentryBundle::class => [
+        'all' => true,
+    ],
 ];
