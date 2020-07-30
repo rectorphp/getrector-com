@@ -6,7 +6,7 @@
         "ext-json": "*",
         "ext-pdo": "*",
         "ext-pdo_mysql": "*",
-        "doctrine/annotations": "^1.8",
+        "doctrine/annotations": "^1.8|^2.0",
         "doctrine/cache": "^1.10",
         "doctrine/doctrine-bundle": "^2.0",
         "doctrine/orm": "^2.7",
@@ -15,7 +15,7 @@
         "psr/simple-cache": "^1.0",
         "ramsey/uuid": "^3.9",
         "ramsey/uuid-doctrine": "^1.6",
-        "rector/rector": "^0.7",
+        "rector/rector": "^0.7.55",
         "sentry/sentry-symfony": "^3.4",
         "symfony/asset": "*",
         "symfony/cache": "*",
@@ -42,23 +42,25 @@
         "symfony/web-profiler-bundle": "*",
         "symfony/webpack-encore-bundle": "^1.7",
         "symfony/yaml": "*",
-        "symplify/auto-bind-parameter": "^7.2",
-        "symplify/autodiscovery": "^7.2",
-        "symplify/autowire-array-parameter": "^7.2",
-        "symplify/flex-loader": "^7.2",
-        "symplify/package-builder": "^7.2"
+        "symplify/auto-bind-parameter": "^8.1",
+        "symplify/autodiscovery": "^8.1",
+        "symplify/autowire-array-parameter": "^8.1",
+        "symplify/flex-loader": "^8.1",
+        "symplify/package-builder": "^8.1"
     },
     "require-dev": {
-        "phpstan/phpstan": "^0.12.18",
+        "migrify/config-transformer": "^0.3.20",
+        "phpstan/phpstan": "^0.12.33",
         "phpstan/phpstan-doctrine": "^0.12",
-        "phpunit/phpunit": "^9.0",
+        "phpunit/phpunit": "^9.0|^10.0",
         "roave/security-advisories": "dev-master",
+        "slevomat/coding-standard": "dev-master as 6.3",
         "symfony/browser-kit": "*",
         "symfony/css-selector": "*",
         "symfony/var-dumper": "*",
-        "symplify/coding-standard": "^7.2",
-        "symplify/easy-coding-standard": "^7.2",
-        "symplify/phpstan-extensions": "^7.2"
+        "symplify/coding-standard": "^8.1",
+        "symplify/easy-coding-standard": "^8.1",
+        "symplify/phpstan-extensions": "^8.1"
     },
     "autoload": {
         "psr-4": {
@@ -92,7 +94,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": true,
-            "require": "5.0.*"
+            "require": "5.1.*"
         }
     }
 }
