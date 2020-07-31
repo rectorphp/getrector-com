@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2bbe64c5df50e85e9dc3cdf660bf588d",
+    "content-hash": "1b787e0cea266cfa14a89ce15563907a",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -9935,12 +9935,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/migrify/config-transformer.git",
-                "reference": "5a64b2fcb84fd7a7c92e6fa7ddb9c5d6f3ebd5e2"
+                "reference": "0dfbbce3941511aaf7382eec33e450ec09890bb6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/migrify/config-transformer/zipball/5a64b2fcb84fd7a7c92e6fa7ddb9c5d6f3ebd5e2",
-                "reference": "5a64b2fcb84fd7a7c92e6fa7ddb9c5d6f3ebd5e2",
+                "url": "https://api.github.com/repos/migrify/config-transformer/zipball/0dfbbce3941511aaf7382eec33e450ec09890bb6",
+                "reference": "0dfbbce3941511aaf7382eec33e450ec09890bb6",
                 "shasum": ""
             },
             "require": {

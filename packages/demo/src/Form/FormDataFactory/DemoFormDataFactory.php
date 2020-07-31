@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Rector\Website\Demo\Form\FormDataFactory;
 
-use Nette\Utils\FileSystem;
 use Rector\Website\Demo\Entity\RectorRun;
 use Rector\Website\Demo\ValueObject\DemoFormData;
+use Symplify\SmartFileSystem\SmartFileSystem;
 
 /**
  * @see \Rector\Website\Demo\Tests\FormDataFactory\DemoFormDataFactoryTest
@@ -21,7 +21,14 @@ final class DemoFormDataFactory
     /**
      * @var string
      */
-    public const CONFIG_FILE_PATH = __DIR__ . '/../../../data/demo-config.yaml';
+    public const CONFIG_FILE_PATH = __DIR__ . '/../../../data/demo-config.php';
+
+    private SmartFileSystem $smartFileSystem;
+
+    public function __construct(SmartFileSystem $smartFileSystem)
+    {
+        $this->smartFileSystem = $smartFileSystem;
+    }
 
     public function createFromRectorRun(?RectorRun $rectorRun): DemoFormData
     {
@@ -30,8 +37,8 @@ final class DemoFormDataFactory
         }
 
         // default values
-        $demoContent = FileSystem::read(self::CONTENT_FILE_PATH);
-        $demoConfig = FileSystem::read(self::CONFIG_FILE_PATH);
+        $demoContent = $this->smartFileSystem->readFile(self::CONTENT_FILE_PATH);
+        $demoConfig = $this->smartFileSystem->readFile(self::CONFIG_FILE_PATH);
 
         return new DemoFormData($demoContent, $demoConfig);
     }
