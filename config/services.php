@@ -40,13 +40,13 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         'uuid' => 'c4f35db2-fe8d-4dde-bf3c-29c580dc60a1',
     ], [
         'label' => 'create_function()',
-        'uuid' => '63843c0a-d24f-4e73-a9b4-5b96c82bdd2e',
+        'uuid' => '90fe1d8c-affc-499c-988e-cc746a242dc5',
     ], [
         'label' => 'Early Return',
-        'uuid' => 'f9782921-32b6-4a0b-a9aa-779506d4ed3a',
+        'uuid' => '950be432-0e91-4bbf-837e-080f0329d9d4',
     ], [
         'label' => 'Null Coalescing',
-        'uuid' => '21f4705d-c654-4b45-9ca8-2e8b68f8ec54',
+        'uuid' => '81d6c6c4-a8e1-4eee-a1fb-24599aee4e5e',
     ]]);
 
     $services = $containerConfigurator->services();
