@@ -37,7 +37,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 
     $parameters->set('demo_links', [[
         'label' => 'PHP 7.4 Typed Properties',
-        'uuid' => 'c4f35db2-fe8d-4dde-bf3c-29c580dc60a1',
+        'uuid' => 'f4294f71-306d-4511-8b49-a911e9c7ed6a',
     ], [
         'label' => 'create_function()',
         'uuid' => '90fe1d8c-affc-499c-988e-cc746a242dc5',
