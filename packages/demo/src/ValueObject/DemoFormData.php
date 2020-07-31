@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Rector\Website\Demo\ValueObject;
 
 use Rector\Website\Demo\Validator\Constraint\PHPConstraint;
-use Rector\Website\Demo\Validator\Constraint\YAMLConstraint;
 
 final class DemoFormData
 {
@@ -15,7 +14,7 @@ final class DemoFormData
     private string $content;
 
     /**
-     * @YAMLConstraint()
+     * @PHPConstraint()
      */
     private string $config;
 

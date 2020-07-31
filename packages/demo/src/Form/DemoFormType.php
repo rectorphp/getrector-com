@@ -36,7 +36,7 @@ final class DemoFormType extends AbstractType
             'required' => true,
             'empty_data' => '',
             'attr' => [
-                'class' => 'codemirror_yaml',
+                'class' => 'codemirror_php',
             ],
             'constraints' => [new NotBlank()],
         ]);

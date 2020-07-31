@@ -20,7 +20,7 @@ final class DemoControllerTest extends WebTestCase
         // must be path of the controller
         $client->request('GET', '/demo');
 
-        self::assertResponseIsSuccessful();
+        $this->assertResponseIsSuccessful();
     }
 
     /**
@@ -38,10 +38,10 @@ final class DemoControllerTest extends WebTestCase
         ]);
 
         // no redirect, because PHP was invalid
-        self::assertRouteSame('demo');
+        $this->assertRouteSame('demo');
 
         // form should contain errors
-        self::assertSelectorExists('.invalid-feedback');
+        $this->assertSelectorExists('.invalid-feedback');
     }
 
     public function provideTestFormSubmitData(): Generator

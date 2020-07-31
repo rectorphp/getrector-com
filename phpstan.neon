@@ -4,7 +4,6 @@ includes:
 parameters:
     paths:
         - "src"
-        - "tests"
         - "packages"
 
     reportUnmatchedIgnoredErrors: false

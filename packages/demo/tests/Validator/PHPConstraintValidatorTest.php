@@ -30,7 +30,7 @@ final class PHPConstraintValidatorTest extends AbstractKernelTestCase
      */
     public function testValidPHPSyntax(string $content): void
     {
-        $demoFormData = new DemoFormData($content, '');
+        $demoFormData = new DemoFormData($content, '<?php echo 1;');
         $constraints = $this->validator->validate($demoFormData);
 
         $this->assertCount(0, $constraints);
@@ -53,7 +53,7 @@ final class PHPConstraintValidatorTest extends AbstractKernelTestCase
         $demoFormData = new DemoFormData($content, '');
         $constraints = $this->validator->validate($demoFormData);
 
-        $this->assertCount(1, $constraints);
+        $this->assertCount(2, $constraints);
 
         /** @var ConstraintViolation $constraintViolation */
         $constraintViolation = $constraints[0];
@@ -72,7 +72,7 @@ final class PHPConstraintValidatorTest extends AbstractKernelTestCase
      */
     public function testInvalidPHPSyntax(string $content): void
     {
-        $demoFormData = new DemoFormData($content, '');
+        $demoFormData = new DemoFormData($content, '<?php echo 1;');
         $constraints = $this->validator->validate($demoFormData);
 
         $this->assertCount(1, $constraints);

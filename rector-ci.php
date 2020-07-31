@@ -9,7 +9,7 @@ use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigura
 return static function (ContainerConfigurator $containerConfigurator): void {
     $parameters = $containerConfigurator->parameters();
 
-    $parameters->set(Option::PATHS, [__DIR__ . '/src', __DIR__ . '/packages', __DIR__ . '/tests']);
+    $parameters->set(Option::PATHS, [__DIR__ . '/src', __DIR__ . '/packages']);
 
     $parameters->set(
         Option::SETS,
