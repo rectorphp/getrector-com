@@ -1,0 +1,7 @@
+# .kodiak.toml
+version=1
+
+[merge]
+delete_branch_on_merge=true
+
+method="squash"
