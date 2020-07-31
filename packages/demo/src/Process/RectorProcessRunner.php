@@ -25,7 +25,7 @@ final class RectorProcessRunner
      * Do not change without changing run-demo.sh
      * @var string
      */
-    private const CONFIG_NAME = 'rector.yaml';
+    private const CONFIG_NAME = 'rector.php';
 
     private string $hostDemoDir;
 

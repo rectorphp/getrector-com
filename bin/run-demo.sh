@@ -36,7 +36,7 @@ docker run \
     process /project/rector_analyzed_file.php \
     --autoload-file /project/rector_analyzed_file.php \
     --output-format json \
-    --config /project/rector.yaml
+    --config /project/rector.php
 
 RECTOR_RUN_EXIT_CODE=$?
 
