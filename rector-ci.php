@@ -16,8 +16,5 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         [SetList::DEAD_CODE, SetList::CODE_QUALITY, SetList::CODING_STYLE, SetList::TYPE_DECLARATION]
     );
 
-    $parameters->set(
-        Option::EXCLUDE_PATHS,
-        ['*/var/cache/*', '*/adminer/index.php', __DIR__ . '/packages/demo/data/DemoFile.php']
-    );
+    $parameters->set(Option::EXCLUDE_PATHS, ['*/var/cache/*', __DIR__ . '/packages/demo/data/DemoFile.php']);
 };

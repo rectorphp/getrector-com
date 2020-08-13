@@ -19,7 +19,7 @@ final class PostController extends AbstractController
     }
 
     /**
-     * @Route(path="blog/{postSlug}", name="post", requirements={"postSlug":".+"})
+     * @Route(path="blog/{postSlug}", name="post", requirements={"postSlug"=".+"})
      */
     public function __invoke(string $postSlug): Response
     {
