@@ -26,4 +26,4 @@ parameters:
 #        - '#Return type \(Iterator\) of method Rector\\Website\\Twig\\(.*?)\:\:getFilters\(\) should be compatible with return type \(array<Twig\\TwigFilter\>\) of method Twig\\Extension\\(.*?)\:\:getFilters\(\)#'
 
         # sentry
-        - '#Function capture_exception not found#'
+        - '#(.*?)function Sentry\\capture_exception not found#i'

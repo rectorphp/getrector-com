@@ -8,6 +8,7 @@ use Nette\Utils\Json;
 use Rector\Website\Demo\Entity\RectorRun;
 use Rector\Website\Demo\Process\RectorProcessRunner;
 use Rector\Website\Demo\Utils\FileDiffCleaner;
+use function Sentry\capture_exception;
 use Symfony\Component\Stopwatch\Stopwatch;
 use Throwable;
 
