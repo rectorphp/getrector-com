@@ -98,12 +98,6 @@ final class PostFactory
         });
     }
 
-    private function getSourceRelativePath(SmartFileInfo $smartFileInfo): string
-    {
-        $relativeFilePath = $smartFileInfo->getRelativeFilePath();
-        return ltrim($relativeFilePath, './');
-    }
-
     private function createAbsoluteUrl(string $slug): string
     {
         $siteUrl = rtrim($this->siteUrl, '/');

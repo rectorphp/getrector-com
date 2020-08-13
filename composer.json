@@ -67,8 +67,7 @@
             "Rector\\Website\\": "src",
             "Rector\\Website\\Blog\\": "packages/blog/src",
             "Rector\\Website\\Demo\\": "packages/demo/src",
-            "Rector\\Website\\Research\\": "packages/research/src",
-            "Rector\\Website\\ForCompanies\\": "packages/for-companies/src"
+            "Rector\\Website\\Research\\": "packages/research/src"
         }
     },
     "autoload-dev": {
