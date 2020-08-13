@@ -8,7 +8,6 @@ use Nette\Utils\Json;
 use Rector\Website\Demo\Entity\RectorRun;
 use Rector\Website\Demo\Process\RectorProcessRunner;
 use Rector\Website\Demo\Utils\FileDiffCleaner;
-use function Sentry\captureException;
 use Symfony\Component\Stopwatch\Stopwatch;
 use Throwable;
 
@@ -39,7 +38,7 @@ final class DemoRunner
 
             // @TODO change to monolog
             // Log to sentry
-            captureException($throwable);
+            capture_exception($throwable);
         }
     }
 

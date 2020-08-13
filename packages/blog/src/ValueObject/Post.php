@@ -22,8 +22,6 @@ final class Post
 
     private string $slug;
 
-    private string $sourceRelativePath;
-
     private DateTimeInterface $dateTime;
 
     public function __construct(
@@ -33,7 +31,6 @@ final class Post
         DateTimeInterface $dateTime,
         string $perex,
         string $htmlContent,
-        string $sourceRelativePath,
         string $absoluteUrl
     ) {
         $this->id = $id;
@@ -43,7 +40,6 @@ final class Post
         $this->plaintextContent = strip_tags($htmlContent);
         $this->slug = $slug;
         $this->dateTime = $dateTime;
-        $this->sourceRelativePath = $sourceRelativePath;
         $this->absoluteUrl = $absoluteUrl;
     }
 

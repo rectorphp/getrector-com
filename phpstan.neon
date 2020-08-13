@@ -22,5 +22,8 @@ parameters:
 
         - '#PHPDoc tag @return with type Rector\\Website\\Demo\\Entity\\RectorRun is not subtype of native type Iterator#'
 
-        # wip
-        - '#Return type \(Iterator\) of method Rector\\Website\\Twig\\(.*?)\:\:getFilters\(\) should be compatible with return type \(array<Twig\\TwigFilter\>\) of method Twig\\Extension\\(.*?)\:\:getFilters\(\)#'
+#        # wip
+#        - '#Return type \(Iterator\) of method Rector\\Website\\Twig\\(.*?)\:\:getFilters\(\) should be compatible with return type \(array<Twig\\TwigFilter\>\) of method Twig\\Extension\\(.*?)\:\:getFilters\(\)#'
+
+        # sentry
+        - '#Function capture_exception not found#'

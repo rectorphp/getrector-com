@@ -6,7 +6,7 @@
         "ext-json": "*",
         "ext-pdo": "*",
         "ext-pdo_mysql": "*",
-        "doctrine/annotations": "^1.8|^2.0",
+        "doctrine/annotations": "^2.0",
         "doctrine/cache": "^1.10",
         "doctrine/doctrine-bundle": "^2.0",
         "doctrine/orm": "^2.7",
@@ -58,9 +58,9 @@
         "symfony/browser-kit": "*",
         "symfony/css-selector": "*",
         "symfony/var-dumper": "*",
-        "symplify/coding-standard": "^8.1",
-        "symplify/easy-coding-standard": "^8.1",
-        "symplify/phpstan-extensions": "^8.1"
+        "symplify/coding-standard": "^8.2",
+        "symplify/easy-coding-standard": "^8.2",
+        "symplify/phpstan-extensions": "^8.2"
     },
     "autoload": {
         "psr-4": {

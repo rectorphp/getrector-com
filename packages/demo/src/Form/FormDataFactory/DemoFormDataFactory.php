@@ -32,7 +32,7 @@ final class DemoFormDataFactory
 
     public function createFromRectorRun(?RectorRun $rectorRun): DemoFormData
     {
-        if ($rectorRun) {
+        if ($rectorRun !== null) {
             return new DemoFormData($rectorRun->getContent(), $rectorRun->getConfig());
         }
 

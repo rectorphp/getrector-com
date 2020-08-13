@@ -31,22 +31,18 @@ final class PostFactory
 
     private RouterInterface $router;
 
-    private string $projectDir;
-
     private string $siteUrl;
 
     public function __construct(
         ParsedownExtra $parsedownExtra,
         PathAnalyzer $pathAnalyzer,
         RouterInterface $router,
-        string $siteUrl,
-        string $projectDir
+        string $siteUrl
     ) {
         $this->parsedownExtra = $parsedownExtra;
         $this->pathAnalyzer = $pathAnalyzer;
         $this->router = $router;
         $this->siteUrl = rtrim($siteUrl, '/');
-        $this->projectDir = $projectDir;
     }
 
     public function createFromFileInfo(SmartFileInfo $smartFileInfo): Post
@@ -76,10 +72,10 @@ final class PostFactory
 
         $htmlContent = $this->parsedownExtra->parse($matches['content']);
         $htmlContent = $this->decorateHeadlineWithId($htmlContent);
-        $sourceRelativePath = $this->getSourceRelativePath($smartFileInfo);
+
         $absoluteUrl = $this->createAbsoluteUrl($slug);
 
-        return new Post($id, $title, $slug, $dateTime, $perex, $htmlContent, $sourceRelativePath, $absoluteUrl);
+        return new Post($id, $title, $slug, $dateTime, $perex, $htmlContent, $absoluteUrl);
     }
 
     /**
@@ -93,7 +89,7 @@ final class PostFactory
      */
     private function decorateHeadlineWithId(string $htmlContent): string
     {
-        return Strings::replace($htmlContent, '#<h(?<level>\d+)>(?<headline>.*?)</h\d+>#', function ($matches) {
+        return Strings::replace($htmlContent, '#<h(?<level>\d+)>(?<headline>.*?)</h\d+>#', function ($matches): string {
             $level = $matches['level'];
             $headline = $matches['headline'];
             $idValue = Strings::webalize($headline);

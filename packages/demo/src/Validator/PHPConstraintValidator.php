@@ -38,11 +38,11 @@ final class PHPConstraintValidator extends ConstraintValidator
         try {
             $this->phpLinter->checkContentSyntax($value);
             $this->forbiddenPHPFunctionsChecker->checkCode($value);
-        } catch (MissingPHPOpeningTagException $missingPHPOpeningTagException) {
+        } catch (MissingPHPOpeningTagException $missingphpOpeningTagException) {
             $this->context->buildViolation('Add opening "<?php" tag')
                 ->addViolation();
-        } catch (ForbiddenPHPFunctionException $forbiddenPHPFunctionException) {
-            $this->context->buildViolation($forbiddenPHPFunctionException->getMessage())
+        } catch (ForbiddenPHPFunctionException $forbiddenphpFunctionException) {
+            $this->context->buildViolation($forbiddenphpFunctionException->getMessage())
                 ->addViolation();
         } catch (LintingException $lintingException) {
             $usefulLinterMessage = $this->clearLinterMessage($lintingException->getMessage());

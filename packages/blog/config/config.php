@@ -15,8 +15,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $services->defaults()
         ->public()
         ->autowire()
-        ->autoconfigure()
-        ->bind('$projectDir', '%kernel.project_dir%');
+        ->autoconfigure();
 
     $services->load('Rector\Website\Blog\\', __DIR__ . '/../src/')
         ->exclude([__DIR__ . '/../src/ValueObject/*', __DIR__ . '/../src/DependencyInjection/*']);
