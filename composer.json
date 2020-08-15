@@ -6,7 +6,7 @@
         "ext-json": "*",
         "ext-pdo": "*",
         "ext-pdo_mysql": "*",
-        "doctrine/annotations": "^2.0",
+        "doctrine/annotations": "^1.10",
         "doctrine/cache": "^1.10",
         "doctrine/doctrine-bundle": "^2.0",
         "doctrine/orm": "^2.7",
