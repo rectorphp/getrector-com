@@ -70,6 +70,11 @@ class RectorRun
         return $this->id;
     }
 
+    public function getContentDiff(): string
+    {
+        return $this->contentDiff ?: '';
+    }
+
     public function getContent(): string
     {
         return $this->content;
