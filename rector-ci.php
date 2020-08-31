@@ -13,10 +13,9 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 
     $parameters->set(Option::PATHS, [__DIR__ . '/src', __DIR__ . '/packages']);
 
-    $parameters->set(
-        Option::SETS,
-        [SetList::DEAD_CODE, SetList::CODE_QUALITY, SetList::CODING_STYLE, SetList::TYPE_DECLARATION]
-    );
+    $parameters->set(Option::SETS, [
+        SetList::DEAD_CODE, SetList::CODE_QUALITY, SetList::CODING_STYLE, SetList::TYPE_DECLARATION,
+    ]);
 
     $parameters->set(Option::EXCLUDE_PATHS, ['*/var/cache/*', __DIR__ . '/packages/demo/data/DemoFile.php']);
 

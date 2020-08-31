@@ -31,6 +31,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
             __DIR__ . '/packages/demo/src/Lint/ForbiddenPHPFunctionsChecker.php',
             __DIR__ . '/packages/demo/src/Controller/DemoController.php',
         ],
-    ]
-    );
+    ]);
+
+    $parameters->set(Option::EXCLUDE_PATHS, [__DIR__ . '/config/bundles.php']);
 };
