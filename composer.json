@@ -15,7 +15,7 @@
         "psr/simple-cache": "^1.0",
         "ramsey/uuid": "^3.9",
         "ramsey/uuid-doctrine": "^1.6",
-        "rector/rector": "^0.7.56",
+        "rector/rector": "^0.7.63",
         "sentry/sentry-symfony": "^3.4",
         "symfony/asset": "*",
         "symfony/cache": "*",

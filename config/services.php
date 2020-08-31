@@ -35,19 +35,21 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         ]
     );
 
-    $parameters->set('demo_links', [[
-        'label' => 'PHP 7.4 Typed Properties',
-        'uuid' => '19ac6368-a647-43eb-a762-d16abe61dfff',
-    ], [
-        'label' => 'create_function()',
-        'uuid' => '90fe1d8c-affc-499c-988e-cc746a242dc5',
-    ], [
-        'label' => 'Early Return',
-        'uuid' => '950be432-0e91-4bbf-837e-080f0329d9d4',
-    ], [
-        'label' => 'Null Coalescing',
-        'uuid' => '81d6c6c4-a8e1-4eee-a1fb-24599aee4e5e',
-    ]]);
+    $parameters->set('demo_links', [
+        [
+            'label' => 'PHP 7.4 Typed Properties',
+            'uuid' => '19ac6368-a647-43eb-a762-d16abe61dfff',
+        ], [
+            'label' => 'create_function()',
+            'uuid' => '90fe1d8c-affc-499c-988e-cc746a242dc5',
+        ], [
+            'label' => 'Early Return',
+            'uuid' => '950be432-0e91-4bbf-837e-080f0329d9d4',
+        ], [
+            'label' => 'Null Coalescing',
+            'uuid' => '81d6c6c4-a8e1-4eee-a1fb-24599aee4e5e',
+        ],
+    ]);
 
     $services = $containerConfigurator->services();
 

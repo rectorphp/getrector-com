@@ -18,7 +18,7 @@ final class MarkdownTwigExtension extends AbstractExtension
     }
 
     /**
-     * @return \Twig\TwigFilter[]
+     * @return TwigFilter[]
      */
     public function getFilters(): iterable
     {
