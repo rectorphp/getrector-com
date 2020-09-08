@@ -12,31 +12,37 @@ jobs:
             fail-fast: false
             matrix:
                 actions:
-                    -   name: 'Easy Coding Standard'
+                    -
+                        name: 'Easy Coding Standard'
                         run: composer fix-cs
 
-                    -   name: 'PHPStan'
+                    -
+                        name: 'PHPStan'
                         run: composer phpstan
 
-                    -   name: 'Rector'
+                    -
+                        name: 'Rector'
                         run: composer rector
 
-                    -   name: 'Doctrine Validate Schema'
+                    -
+                        name: 'Doctrine Validate Schema'
                         run: bin/console doctrine:schema:validate --skip-sync
 
-                    -   name: 'Lint Twig'
+                    -
+                        name: 'Lint Twig'
                         run: bin/console lint:twig
 
-                    -   name: 'Lint YAML'
+                    -
+                        name: 'Lint YAML'
                         run: bin/console lint:yaml config
 
-                    -   name: 'Lint Dependency Injection Container'
+                    -
+                        name: 'Lint Dependency Injection Container'
                         run: bin/console lint:container
 
-
+        name: ${{ matrix.actions.name }}
         runs-on: ubuntu-latest
 
-        name: ${{ matrix.actions.name }}
         steps:
             -   uses: actions/checkout@v2
             # see https://github.com/shivammathur/setup-php
