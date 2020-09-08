@@ -15,7 +15,7 @@
         "psr/simple-cache": "^1.0",
         "ramsey/uuid": "^3.9",
         "ramsey/uuid-doctrine": "^1.6",
-        "rector/rector": "^0.7.63",
+        "rector/rector": "^0.8.3",
         "sentry/sentry-symfony": "^3.4",
         "symfony/asset": "*",
         "symfony/cache": "*",
@@ -42,11 +42,11 @@
         "symfony/web-profiler-bundle": "*",
         "symfony/webpack-encore-bundle": "^1.7",
         "symfony/yaml": "*",
-        "symplify/auto-bind-parameter": "^8.1",
-        "symplify/autodiscovery": "^8.1",
-        "symplify/autowire-array-parameter": "^8.1",
-        "symplify/flex-loader": "^8.1",
-        "symplify/package-builder": "^8.1"
+        "symplify/auto-bind-parameter": "^8.2",
+        "symplify/autodiscovery": "^8.2",
+        "symplify/autowire-array-parameter": "^8.2",
+        "symplify/flex-loader": "^8.2",
+        "symplify/package-builder": "^8.2"
     },
     "require-dev": {
         "migrify/config-transformer": "^0.3.20",
