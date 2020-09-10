@@ -129,9 +129,6 @@
     "jean85/pretty-package-versions": {
         "version": "1.2"
     },
-    "jetbrains/phpstorm-stubs": {
-        "version": "v2019.3"
-    },
     "laminas/laminas-code": {
         "version": "3.4.1"
     },
@@ -248,9 +245,6 @@
     },
     "phpunit/php-timer": {
         "version": "2.1.2"
-    },
-    "phpunit/php-token-stream": {
-        "version": "3.1.1"
     },
     "phpunit/phpunit": {
         "version": "4.7",
@@ -519,9 +513,6 @@
     },
     "symfony/http-kernel": {
         "version": "4.4.x-dev"
-    },
-    "symfony/inflector": {
-        "version": "v4.3.6"
     },
     "symfony/intl": {
         "version": "5.0-dev"
