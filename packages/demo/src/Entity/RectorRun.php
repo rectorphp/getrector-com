@@ -8,6 +8,7 @@ use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
 use Jean85\Version;
 use Nette\Utils\Json;
+use Nette\Utils\Strings;
 use Ramsey\Uuid\UuidInterface;
 use Symfony\Component\Stopwatch\StopwatchEvent;
 
@@ -129,7 +130,14 @@ class RectorRun
             return null;
         }
 
-        return new Version('rector/rector', $data['meta']['version']);
+        $version = $data['meta']['version'];
+
+        // Creating `new Version()` would fail if version does not contain `@`
+        if (Strings::contains($version, '@') === false) {
+            $version .= '@unknown';
+        }
+
+        return new Version('rector/rector', $version);
     }
 
     /**
