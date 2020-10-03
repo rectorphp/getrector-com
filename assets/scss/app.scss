@@ -116,17 +116,13 @@ h2 {
 }
 
 #subpage {
-    padding-top: 3em;
-    padding-bottom: 3em;
+    padding-top: 2em;
+    padding-bottom: 5em;
 
     h2 {
-        margin-top: 2em;
+        margin-top: 1em;
+        margin-bottom: .5em;
         text-align: center;
-    }
-
-    .card-body h2 {
-        margin-top: .5em;
-        margin-bottom: .3em;
     }
 }
 
@@ -253,6 +249,10 @@ ul.list-noindent {
 h2 {
     color: #4b4b4b;
     text-align: center;
+
+    small {
+        font-size: 0.7em;
+    }
 }
 
 body a:not(.btn) {
@@ -302,8 +302,8 @@ q.blockquote {
 }
 
 .img-face {
-    max-width: 8em;
-    margin: 1em auto;
+    max-width: 10em;
+    margin: .1em auto 2.8em auto;
 }
 
 h1 em, h2 em, h2 a {
