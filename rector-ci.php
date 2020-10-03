@@ -7,9 +7,9 @@ use Rector\Core\Configuration\Option;
 use Rector\DeadCode\Rector\Class_\RemoveUnusedDoctrineEntityMethodAndPropertyRector;
 use Rector\Generic\Rector\FuncCall\FuncCallToStaticCallRector;
 use Rector\Set\ValueObject\SetList;
+use function Rector\SymfonyPhpConfig\inline_value_objects;
 use Rector\Transform\ValueObject\FuncCallToStaticCall;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
-use function Rector\SymfonyPhpConfig\inline_value_objects;
 use function Symfony\Component\DependencyInjection\Loader\Configurator\inline_service;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
@@ -37,37 +37,14 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         ->call('configure', [[
             FuncCallToStaticCallRector::FUNC_CALLS_TO_STATIC_CALLS => [
                 inline_service(FuncCallToStaticCall::class)
-                    ->args(['dump', 'Tracy\Debugger', 'dump'])
-            ]
+                    ->args(['dump', 'Tracy\Debugger', 'dump']),
+            ],
         ]]);
 
     $services->set(FuncCallToStaticCallRector::class)
         ->call('configure', [[
             FuncCallToStaticCallRector::FUNC_CALLS_TO_STATIC_CALLS => inline_value_objects([
-                new FuncCallToStaticCall('dump', 'Tracy\Debugger', 'dump')
-            ])
+                new FuncCallToStaticCall('dump', 'Tracy\Debugger', 'dump'),
+            ]),
         ]]);
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
