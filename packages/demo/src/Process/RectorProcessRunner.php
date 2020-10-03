@@ -4,14 +4,16 @@ declare(strict_types=1);
 
 namespace Rector\Website\Demo\Process;
 
-use Nette\Utils\FileSystem;
 use Nette\Utils\Json;
 use Nette\Utils\JsonException;
 use Nette\Utils\Random;
 use Rector\Website\Demo\Error\ErrorMessageNormalizer;
 use Rector\Website\Demo\Exception\Process\RectorRunFailedException;
+use Rector\Website\Demo\ValueObject\Option;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
+use Symplify\PackageBuilder\Parameter\ParameterProvider;
+use Symplify\SmartFileSystem\SmartFileSystem;
 
 final class RectorProcessRunner
 {
@@ -37,18 +39,20 @@ final class RectorProcessRunner
 
     private ErrorMessageNormalizer $errorMessageNormalizer;
 
+    private SmartFileSystem $smartFileSystem;
+
     public function __construct(
         ErrorMessageNormalizer $errorMessageNormalizer,
-        string $hostDemoDir,
-        string $localDemoDir,
-        string $rectorDemoDockerImage,
-        string $demoExecutablePath
+        ParameterProvider $parameterProvider,
+        SmartFileSystem $smartFileSystem
     ) {
         $this->errorMessageNormalizer = $errorMessageNormalizer;
-        $this->hostDemoDir = $hostDemoDir;
-        $this->localDemoDir = $localDemoDir;
-        $this->rectorDemoDockerImage = $rectorDemoDockerImage;
-        $this->demoExecutablePath = $demoExecutablePath;
+        $this->smartFileSystem = $smartFileSystem;
+
+        $this->hostDemoDir = $parameterProvider->provideStringParameter(Option::HOST_DEMO_DIR);
+        $this->localDemoDir = $parameterProvider->provideStringParameter(Option::LOCAL_DEMO_DIR);
+        $this->rectorDemoDockerImage = $parameterProvider->provideStringParameter(Option::RECTOR_DEMO_DOCKER_IMAGE);
+        $this->demoExecutablePath = $parameterProvider->provideStringParameter(Option::DEMO_EXECUTABLE_PATH);
     }
 
     /**
@@ -89,13 +93,13 @@ final class RectorProcessRunner
     private function registerCleanupOnShutdown(string $directory): void
     {
         register_shutdown_function(function () use ($directory): void {
-            FileSystem::delete($this->localDemoDir . '/' . $directory);
+            $this->smartFileSystem->remove($this->localDemoDir . '/' . $directory);
         });
     }
 
     private function createTempFile(string $filePath, string $fileContent): void
     {
-        FileSystem::write($this->localDemoDir . '/' . $filePath, $fileContent);
+        $this->smartFileSystem->dumpFile($this->localDemoDir . '/' . $filePath, $fileContent);
     }
 
     private function createProcess(string $identifier): Process

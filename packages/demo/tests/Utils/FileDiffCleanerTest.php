@@ -5,19 +5,22 @@ declare(strict_types=1);
 namespace Rector\Website\Demo\Tests\Utils;
 
 use Iterator;
-use Nette\Utils\FileSystem;
 use Rector\Website\Demo\Utils\FileDiffCleaner;
 use Rector\Website\GetRectorKernel;
 use Symplify\PackageBuilder\Tests\AbstractKernelTestCase;
+use Symplify\SmartFileSystem\SmartFileSystem;
 
 final class FileDiffCleanerTest extends AbstractKernelTestCase
 {
     private FileDiffCleaner $fileDiffCleaner;
 
+    private SmartFileSystem $smartFileSystem;
+
     protected function setUp(): void
     {
         $this->bootKernel(GetRectorKernel::class);
         $this->fileDiffCleaner = self::$container->get(FileDiffCleaner::class);
+        $this->smartFileSystem = self::$container->get(SmartFileSystem::class);
     }
 
     /**
@@ -25,7 +28,7 @@ final class FileDiffCleanerTest extends AbstractKernelTestCase
      */
     public function test(string $inputFile, string $expectedFile): void
     {
-        $inputContent = FileSystem::read($inputFile);
+        $inputContent = $this->smartFileSystem->readFile($inputFile);
         $cleanedContent = $this->fileDiffCleaner->clean($inputContent);
 
         $this->assertStringEqualsFile($expectedFile, $cleanedContent);

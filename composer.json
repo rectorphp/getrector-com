@@ -43,11 +43,11 @@
         "symfony/web-profiler-bundle": "*",
         "symfony/webpack-encore-bundle": "^1.7",
         "symfony/yaml": "*",
-        "symplify/auto-bind-parameter": "^8.3",
-        "symplify/autodiscovery": "^8.3",
-        "symplify/autowire-array-parameter": "^8.3",
-        "symplify/flex-loader": "^8.3",
-        "symplify/package-builder": "^8.3"
+        "symplify/autodiscovery": "^8.3.27",
+        "symplify/autowire-array-parameter": "^8.3.27",
+        "symplify/flex-loader": "^8.3.27",
+        "symplify/package-builder": "^8.3.27",
+        "symplify/smart-file-system": "^8.3.27"
     },
     "require-dev": {
         "migrify/config-transformer": "^0.3.20",
@@ -59,9 +59,9 @@
         "symfony/browser-kit": "*",
         "symfony/css-selector": "*",
         "symfony/var-dumper": "*",
-        "symplify/coding-standard": "^8.3",
-        "symplify/easy-coding-standard": "^8.3",
-        "symplify/phpstan-extensions": "^8.3"
+        "symplify/coding-standard": "^8.3.27",
+        "symplify/easy-coding-standard": "^8.3.27",
+        "symplify/phpstan-extensions": "^8.3.27"
     },
     "autoload": {
         "psr-4": {

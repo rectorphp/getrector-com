@@ -8,9 +8,11 @@ use Nette\Utils\Strings;
 use ParsedownExtra;
 use Rector\Website\Blog\FileSystem\PathAnalyzer;
 use Rector\Website\Blog\ValueObject\Post;
+use Rector\Website\Demo\ValueObject\Option;
 use Rector\Website\Exception\ShouldNotHappenException;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Yaml\Yaml;
+use Symplify\PackageBuilder\Parameter\ParameterProvider;
 use Symplify\SmartFileSystem\SmartFileInfo;
 
 final class PostFactory
@@ -18,12 +20,18 @@ final class PostFactory
     /**
      * @var string
      */
-    private const SLASHES_WITH_SPACES_PATTERN = '(?:---[\s]*[\r\n]+)';
+    private const SLASHES_WITH_SPACES_REGEX = '(?:---[\s]*[\r\n]+)';
 
     /**
      * @var string
      */
-    private const CONFIG_CONTENT_PATTERN = '#^\s*' . self::SLASHES_WITH_SPACES_PATTERN . '?(?<config>.*?)' . self::SLASHES_WITH_SPACES_PATTERN . '(?<content>.*?)$#s';
+    private const CONFIG_CONTENT_REGEX = '#^\s*' . self::SLASHES_WITH_SPACES_REGEX . '?(?<config>.*?)' . self::SLASHES_WITH_SPACES_REGEX . '(?<content>.*?)$#s';
+
+    /**
+     * @see https://regex101.com/r/gtR8tj/1
+     * @var string
+     */
+    private const HEADLINE_REGEX = '#<h(?<level>\d+)>(?<headline>.*?)<\/h\d+>#';
 
     private ParsedownExtra $parsedownExtra;
 
@@ -37,17 +45,19 @@ final class PostFactory
         ParsedownExtra $parsedownExtra,
         PathAnalyzer $pathAnalyzer,
         RouterInterface $router,
-        string $siteUrl
+        ParameterProvider $parameterProvider
     ) {
         $this->parsedownExtra = $parsedownExtra;
         $this->pathAnalyzer = $pathAnalyzer;
         $this->router = $router;
+
+        $siteUrl = $parameterProvider->provideStringParameter(Option::SITE_URL);
         $this->siteUrl = rtrim($siteUrl, '/');
     }
 
     public function createFromFileInfo(SmartFileInfo $smartFileInfo): Post
     {
-        $matches = Strings::match($smartFileInfo->getContents(), self::CONFIG_CONTENT_PATTERN);
+        $matches = Strings::match($smartFileInfo->getContents(), self::CONFIG_CONTENT_REGEX);
 
         if (! isset($matches['config'])) {
             throw new ShouldNotHappenException();
@@ -89,7 +99,7 @@ final class PostFactory
      */
     private function decorateHeadlineWithId(string $htmlContent): string
     {
-        return Strings::replace($htmlContent, '#<h(?<level>\d+)>(?<headline>.*?)</h\d+>#', function ($matches): string {
+        return Strings::replace($htmlContent, self::HEADLINE_REGEX, function ($matches): string {
             $level = $matches['level'];
             $headline = $matches['headline'];
             $idValue = Strings::webalize($headline);
@@ -102,6 +112,8 @@ final class PostFactory
     {
         $siteUrl = rtrim($this->siteUrl, '/');
 
-        return $siteUrl . $this->router->generate('post', ['postSlug' => $slug]);
+        return $siteUrl . $this->router->generate('post', [
+            'postSlug' => $slug,
+        ]);
     }
 }

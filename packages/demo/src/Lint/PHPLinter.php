@@ -4,21 +4,34 @@ declare(strict_types=1);
 
 namespace Rector\Website\Demo\Lint;
 
-use Nette\Utils\FileSystem;
 use Nette\Utils\Strings;
 use Rector\Website\Demo\Exception\Linter\MissingPHPOpeningTagException;
 use Rector\Website\Demo\Exception\LintingException;
 use Symfony\Component\Process\Process;
+use Symplify\SmartFileSystem\SmartFileSystem;
 
 final class PHPLinter
 {
+    /**
+     * @see https://regex101.com/r/GzUnSz/1
+     * @var string
+     */
+    private const OPENING_PHP_TAG_REGEX = '#(\s+)?\<\?php#';
+
+    private SmartFileSystem $smartFileSystem;
+
+    public function __construct(SmartFileSystem $smartFileSystem)
+    {
+        $this->smartFileSystem = $smartFileSystem;
+    }
+
     public function checkContentSyntax(string $content): void
     {
         $this->checkOpeningPhpTag($content);
 
         $fileName = md5($content);
         $filePath = sys_get_temp_dir() . '/temp/' . $fileName;
-        FileSystem::write($filePath, $content);
+        $this->smartFileSystem->dumpFile($filePath, $content);
 
         $process = new Process(['php', '-l', $filePath]);
         $process->run();
@@ -32,7 +45,7 @@ final class PHPLinter
 
     private function checkOpeningPhpTag(string $content): void
     {
-        if (Strings::match($content, '#(\s+)?\<\?php#')) {
+        if (Strings::match($content, self::OPENING_PHP_TAG_REGEX)) {
             return;
         }
 
