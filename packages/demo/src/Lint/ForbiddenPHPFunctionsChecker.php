@@ -6,6 +6,8 @@ namespace Rector\Website\Demo\Lint;
 
 use Nette\Utils\Strings;
 use Rector\Website\Demo\Exception\ForbiddenPHPFunctionException;
+use Rector\Website\Demo\ValueObject\Option;
+use Symplify\PackageBuilder\Parameter\ParameterProvider;
 
 /**
  * @see \Rector\Website\Demo\Tests\Lint\ForbiddenPHPFunctionsCheckerTest
@@ -17,12 +19,10 @@ final class ForbiddenPHPFunctionsChecker
      */
     private array $forbiddenFunctions = [];
 
-    /**
-     * @param string[] $forbiddenFunctions
-     */
-    public function __construct(array $forbiddenFunctions)
+
+    public function __construct(ParameterProvider $parameterProvider)
     {
-        $this->forbiddenFunctions = $forbiddenFunctions;
+        $this->forbiddenFunctions = $parameterProvider->provideArrayParameter(Option::FORBIDDEN_FUNCTIONS);
     }
 
     public function checkCode(string $code): void

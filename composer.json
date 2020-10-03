@@ -43,11 +43,11 @@
         "symfony/web-profiler-bundle": "*",
         "symfony/webpack-encore-bundle": "^1.7",
         "symfony/yaml": "*",
-        "symplify/auto-bind-parameter": "^8.2",
-        "symplify/autodiscovery": "^8.2",
-        "symplify/autowire-array-parameter": "^8.2",
-        "symplify/flex-loader": "^8.2",
-        "symplify/package-builder": "^8.2"
+        "symplify/autodiscovery": "^8.3.27",
+        "symplify/autowire-array-parameter": "^8.3.27",
+        "symplify/flex-loader": "^8.3.27",
+        "symplify/package-builder": "^8.3.27",
+        "symplify/smart-file-system": "^8.3.27"
     },
     "require-dev": {
         "migrify/config-transformer": "^0.3.20",
@@ -55,20 +55,19 @@
         "phpstan/phpstan-doctrine": "^0.12",
         "phpunit/phpunit": "^9.0|^10.0",
         "roave/security-advisories": "dev-master",
-        "slevomat/coding-standard": "dev-master as 6.3",
+        "slevomat/coding-standard": "^6.3",
         "symfony/browser-kit": "*",
         "symfony/css-selector": "*",
         "symfony/var-dumper": "*",
-        "symplify/coding-standard": "^8.2",
-        "symplify/easy-coding-standard": "^8.2",
-        "symplify/phpstan-extensions": "^8.2"
+        "symplify/coding-standard": "^8.3.27",
+        "symplify/easy-coding-standard": "^8.3.27",
+        "symplify/phpstan-extensions": "^8.3.27"
     },
     "autoload": {
         "psr-4": {
             "Rector\\Website\\": "src",
             "Rector\\Website\\Blog\\": "packages/blog/src",
-            "Rector\\Website\\Demo\\": "packages/demo/src",
-            "Rector\\Website\\Research\\": "packages/research/src"
+            "Rector\\Website\\Demo\\": "packages/demo/src"
         }
     },
     "autoload-dev": {

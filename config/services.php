@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Rector\Website\Demo\ValueObject\Option;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use function Symfony\Component\DependencyInjection\Loader\Configurator\ref;
@@ -10,32 +11,26 @@ use Symplify\PackageBuilder\Console\Style\SymfonyStyleFactory;
 return static function (ContainerConfigurator $containerConfigurator): void {
     $parameters = $containerConfigurator->parameters();
 
-    $parameters->set('local_demo_dir', '%kernel.project_dir%/var/demo');
+    $parameters->set(Option::LOCAL_DEMO_DIR, '%kernel.project_dir%/var/demo');
+    $parameters->set(Option::HOST_DEMO_DIR, '%env(HOST_DEMO_DIR)%');
+    $parameters->set(Option::RECTOR_DEMO_DOCKER_IMAGE, 'rector/rector-secured:latest');
+    $parameters->set(Option::DEMO_EXECUTABLE_PATH, '%kernel.project_dir%/bin/run-demo.sh');
 
-    $parameters->set('host_demo_dir', '%env(HOST_DEMO_DIR)%');
+    $parameters->set(Option::FORBIDDEN_FUNCTIONS, [
+        'exec',
+        'passthru',
+        'shell_exec',
+        'system',
+        'proc_open',
+        'popen',
+        'curl_exec',
+        'curl_multi_exec',
+        'parse_ini_file',
+        'show_source',
+        'mail',
+    ]);
 
-    $parameters->set('rector_demo_docker_image', 'rector/rector-secured:latest');
-
-    $parameters->set('demo_executable_path', '%kernel.project_dir%/bin/run-demo.sh');
-
-    $parameters->set(
-        'forbidden_functions',
-        [
-            'exec',
-            'passthru',
-            'shell_exec',
-            'system',
-            'proc_open',
-            'popen',
-            'curl_exec',
-            'curl_multi_exec',
-            'parse_ini_file',
-            'show_source',
-            'mail',
-        ]
-    );
-
-    $parameters->set('demo_links', [
+    $parameters->set(Option::DEMO_LINKS, [
         [
             'label' => 'PHP 7.4 Typed Properties',
             'uuid' => '19ac6368-a647-43eb-a762-d16abe61dfff',

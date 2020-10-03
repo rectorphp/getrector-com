@@ -11,6 +11,7 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 @import "~bootstrap/scss/bootstrap";
 @import "~@fortawesome/fontawesome-free/css/all.css";
 @import "logo";
+@import "menu";
 @import "prism";
 
 /* ---------------------------------------------------- */
@@ -253,14 +254,6 @@ h2 {
     small {
         font-size: 0.7em;
     }
-}
-
-body a:not(.btn) {
-    text-decoration: underline !important;
-}
-
-body a:not(.btn):hover, body a:not(.btn):focus {
-    text-decoration: none !important;
 }
 
 q.blockquote {

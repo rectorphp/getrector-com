@@ -25,7 +25,8 @@ final class PostController extends AbstractController
     {
         $post = $this->postRepository->findBySlug($postSlug);
         if ($post === null) {
-            throw $this->createNotFoundException(sprintf("Post with slug '%s' not found", $postSlug));
+            $message = sprintf("Post with slug '%s' not found", $postSlug);
+            throw $this->createNotFoundException($message);
         }
 
         return $this->render('blog/post.twig', [

@@ -12,12 +12,14 @@ use Rector\Website\Demo\Form\DemoFormType;
 use Rector\Website\Demo\Form\FormDataFactory\DemoFormDataFactory;
 use Rector\Website\Demo\Repository\RectorRunRepository;
 use Rector\Website\Demo\ValueObject\DemoFormData;
+use Rector\Website\Demo\ValueObject\Option;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symplify\PackageBuilder\Parameter\ParameterProvider;
 
 final class DemoController extends AbstractController
 {
@@ -31,17 +33,15 @@ final class DemoController extends AbstractController
      */
     private array $demoLinks = [];
 
-    /**
-     * @param string[][] $demoLinks
-     */
     public function __construct(
         RectorRunRepository $rectorRunRepository,
         DemoFormDataFactory $demoFormDataFactory,
-        DemoRunner $demoRunner, array $demoLinks)
-    {
+        DemoRunner $demoRunner,
+        ParameterProvider $parameterProvider
+    ) {
         $this->rectorRunRepository = $rectorRunRepository;
         $this->demoRunner = $demoRunner;
-        $this->demoLinks = $demoLinks;
+        $this->demoLinks = $parameterProvider->provideArrayParameter(Option::DEMO_LINKS);
         $this->demoFormDataFactory = $demoFormDataFactory;
     }
 

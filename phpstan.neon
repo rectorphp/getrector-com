@@ -1,5 +1,6 @@
 includes:
-     - 'vendor/symplify/phpstan-extensions/config/config.neon'
+     - vendor/symplify/phpstan-extensions/config/config.neon
+     - vendor/symplify/coding-standard/config/symplify-rules.neon
 
 parameters:
     paths:
@@ -27,3 +28,20 @@ parameters:
 
         # sentry
         - '#(.*?)function Sentry\\capture_exception not found#i'
+
+        -
+             message: '#Too many public elements on class \- \d+\. Try narrow it down under 10#'
+             paths:
+                 - packages/demo/src/Entity/RectorRun.php
+
+        -
+            message: '#Do not use static calls#'
+            paths:
+                - packages/demo/src/Process/RectorProcessRunner.php
+
+        # @todo fix on symplify to skip protected element required by parent contract
+        -
+            message: '#Do not use protected element in final class#'
+            paths:
+                - src/GetRectorKernel.php # 39
+                - src/GetRectorKernel.php # 55
