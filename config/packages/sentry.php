@@ -6,7 +6,9 @@ use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigura
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
-    $containerConfigurator->extension('sentry', ['dsn' => '%env(SENTRY_DSN)%']);
+    $containerConfigurator->extension('sentry', [
+        'dsn' => '%env(SENTRY_DSN)%',
+    ]);
 
     $containerConfigurator->extension('sentry', [
         'options' => [

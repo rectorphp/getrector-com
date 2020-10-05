@@ -5,7 +5,9 @@ declare(strict_types=1);
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
-    $containerConfigurator->extension('framework', ['secret' => '%env(APP_SECRET)%']);
+    $containerConfigurator->extension('framework', [
+        'secret' => '%env(APP_SECRET)%',
+    ]);
 
     $containerConfigurator->extension('framework', [
         'csrf_protection' => [
@@ -13,9 +15,13 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         ],
     ]);
 
-    $containerConfigurator->extension('framework', ['http_method_override' => true]);
+    $containerConfigurator->extension('framework', [
+        'http_method_override' => true,
+    ]);
 
-    $containerConfigurator->extension('framework', ['trusted_hosts' => null]);
+    $containerConfigurator->extension('framework', [
+        'trusted_hosts' => null,
+    ]);
 
     $containerConfigurator->extension('framework', [
         'session' => [
@@ -41,5 +47,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         ],
     ]);
 
-    $containerConfigurator->extension('framework', ['ide' => 'phpstorm']);
+    $containerConfigurator->extension('framework', [
+        'ide' => 'phpstorm',
+    ]);
 };
