@@ -4,30 +4,23 @@
 
 {% block main %}
     <div class="container" id="subpage">
-        <div class="row" style="min-height: 30em">
+        <div class="row">
             {# "filter" prevents future publishing #}
             {% for post in posts|filter(post => (post.dateTime|date('Y-m-d') <= "now"|date('Y-m-d'))) %}
-                <div class="col-12 mb-5">
-                    <h2 class="text-left mb-0 pb-2 mt-3">
+                <div class="col-12 mb-5 text-center">
+                    <h2 class="mb-0 pb-2 mt-3">
                         <a href="{{ path('post', {'postSlug': post.slug }) }}">{{ post.title }}</a>
                     </h2>
 
-                    <small>
+                    <div class="mt-2">
                         <time datetime="{{ post.dateTime|date('Y-m-D') }}" class="text-muted">
-                            {{ post.dateTime|date('j. n. Y') }}
+                            {{ post.dateTime|date('Y-m-d') }}
                         </time>
-                    </small>
-
-                    <div class="perex mb-3">{{ post.perex|markdown|raw }}</div>
-
-                    <a href="{{ path('post', {'postSlug': post.slug }) }}" class="btn btn-success btn-lg">
-                        Read More
-                        &nbsp;
-                        <em class="fas fa-arrow-alt-circle-right fa-fw"></em>
-                    </a>
+                    </div>
 
                     <br>
                     <br>
+                    <hr>
                 </div>
             {% endfor %}
         </div>

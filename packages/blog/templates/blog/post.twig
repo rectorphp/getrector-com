@@ -5,13 +5,11 @@
 
 {% block main %}
     <div class="container post" id="subpage">
-        <small>
+        <div class="text-center">
             <time datetime="{{ post.dateTime|date('Y-m-D') }}" class="text-muted">
-                {{ post.dateTime|date('j. n. Y') }}
+                {{ post.dateTime|date('Y-m-d') }}
             </time>
-        </small>
-
-        <br>
+        </div>
 
         <div class="card mt-4 mb-4">
             <div class="card-body text-bigger">
@@ -19,7 +17,9 @@
             </div>
         </div>
 
-        {{ post.htmlContent|raw }}
+        <div class="text-body">
+            {{ post.htmlContent|raw }}
+        </div>
 
         <br>
         <br>
