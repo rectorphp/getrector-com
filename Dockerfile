@@ -52,7 +52,6 @@ ENV PHP_OPCACHE_VALIDATE_TIMESTAMPS="0"
 COPY ./.docker/php/opcache.ini /usr/local/etc/php/conf.d/opcache.ini
 
 ENV COMPOSER_ALLOW_SUPERUSER=1 COMPOSER_MEMORY_LIMIT=-1
-RUN composer global require "hirak/prestissimo:^0.3" --prefer-dist --no-progress --no-suggest --classmap-authoritative --no-plugins --no-scripts
 
 # Entrypoint
 COPY ./.docker/docker-entrypoint.sh /usr/local/bin/docker-php-entrypoint
