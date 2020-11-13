@@ -508,6 +508,12 @@
             "src/Kernel.php"
         ]
     },
+    "symfony/http-client": {
+        "version": "v5.1.8"
+    },
+    "symfony/http-client-contracts": {
+        "version": "v2.3.1"
+    },
     "symfony/http-foundation": {
         "version": "5.0-dev"
     },
@@ -717,6 +723,9 @@
     "symplify/coding-standard": {
         "version": "6.2-dev"
     },
+    "symplify/composer-json-manipulator": {
+        "version": "8.3.48"
+    },
     "symplify/console-color-diff": {
         "version": "v7.3.18"
     },
@@ -740,6 +749,9 @@
     },
     "symplify/smart-file-system": {
         "version": "v7.0.2"
+    },
+    "symplify/symplify-kernel": {
+        "version": "8.3.48"
     },
     "theseer/tokenizer": {
         "version": "1.1.3"
