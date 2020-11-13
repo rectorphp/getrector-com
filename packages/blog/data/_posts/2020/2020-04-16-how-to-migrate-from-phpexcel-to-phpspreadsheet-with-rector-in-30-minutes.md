@@ -74,12 +74,50 @@ It took 3 days to make and now has [**230 lines**](https://github.com/rectorphp/
 
 ## How to Migrate?
 
+1. Install Rector
+
 ```bash
 composer require rector/rector --dev
-vendor/bin/rector process src --set phpexcel-to-phpspreadsheet
 ```
 
+2. Create `rector.php` config
+
+```bash
+vendor/bin/rector init
+```
+
+3. Add your set to the config:
+
+```php
+use Rector\Core\Configuration\Option;
+use Rector\Set\ValueObject\SetList;
+use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+
+return static function (ContainerConfigurator $containerConfigurator): void {
+    $parameters = $containerConfigurator->parameters();
+    $parameters->set(Option::SETS, [
+        SetList::PHPEXCEL_TO_PHPSPREADSHEET,
+    ]);
+};
+```
+
+4. Dry run Rector to see what *would be* changed
+
+```bash
+vendor/bin/rector process src --dry-run
+```
+
+5. Make the changes happen:
+
+```bash
+vendor/bin/rector process src
+```
+
+<br>
+
 That's it! Rector just migrated your code from PHPExcel to PHPSpreadsheet.
+
+<br>
 
 If you have any issues, look at [official migration tutorial](https://github.com/PHPOffice/PhpSpreadsheet/blob/50d78ce7898ee3a540cefd9693085b3636e578e6/docs/topics/migration-from-PHPExcel.md) or [let us know on GitHub](https://github.com/rectorphp/rector/issues).
 
