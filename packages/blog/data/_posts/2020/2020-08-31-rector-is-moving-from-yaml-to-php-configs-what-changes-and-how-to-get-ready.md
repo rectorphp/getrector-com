@@ -76,7 +76,12 @@ Don't worry. We're all lazy here. [Migrify toolkit](https://tomasvotruba.com/blo
 
 ```bash
 composer require migrify/config-transformer --dev
-vendor/bin/config-transformer switch-format --input-format yaml rector.php rector-ci.php
+```
+
+Then provide files/directories with YAML files you want to switch to PHP:
+
+```bash
+vendor/bin/config-transformer switch-format rector.yaml
 ```
 
 ## What are Instant Benefits of `rector.php`?
