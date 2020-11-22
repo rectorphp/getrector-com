@@ -21,12 +21,12 @@ final class RectorCountVariableProvider
      * @see https://regex101.com/r/Q1lNxP/1
      * @var string
      */
-    private const COUNT_REGEX = '#\b(?<count>\d+)\b#';
+    private const COUNT_REGEX = '~## ~';
 
     /**
      * @var int
      */
-    private const FALLBACK_COUNT = 400;
+    private const FALLBACK_COUNT = 600;
 
     /**
      * @var string
@@ -49,9 +49,9 @@ final class RectorCountVariableProvider
             $item->expiresAfter(DateInterval::createFromDateString('+24 hours'));
 
             $sourceContent = $this->smartFileSystem->readFile(self::SOURCE_URL);
-            $matches = Strings::match($sourceContent, self::COUNT_REGEX);
+            $matches = Strings::matchAll($sourceContent, self::COUNT_REGEX);
 
-            return $matches['count'] ?? self::FALLBACK_COUNT;
+            return count($matches) ?? self::FALLBACK_COUNT;
         });
     }
 }
