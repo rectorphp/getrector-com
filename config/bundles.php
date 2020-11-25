@@ -11,4 +11,5 @@ return [
     Symfony\WebpackEncoreBundle\WebpackEncoreBundle::class => ['all' => true],
     Sentry\SentryBundle\SentryBundle::class => ['all' => true],
     Symplify\ComposerJsonManipulator\ComposerJsonManipulatorBundle::class => ['all' => true],
+    Symplify\MarkdownDiff\MarkdownDiffBundle::class => ['all' => true],
 ];

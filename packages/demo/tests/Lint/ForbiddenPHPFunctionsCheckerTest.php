@@ -7,7 +7,7 @@ namespace Rector\Website\Demo\Tests\Lint;
 use Rector\Website\Demo\Exception\ForbiddenPHPFunctionException;
 use Rector\Website\Demo\Lint\ForbiddenPHPFunctionsChecker;
 use Rector\Website\GetRectorKernel;
-use Symplify\PackageBuilder\Tests\AbstractKernelTestCase;
+use Symplify\PackageBuilder\Testing\AbstractKernelTestCase;
 
 final class ForbiddenPHPFunctionsCheckerTest extends AbstractKernelTestCase
 {

@@ -10,7 +10,7 @@ use Rector\Website\GetRectorKernel;
 use Symfony\Component\Validator\ConstraintViolation;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symplify\EasyTesting\DataProvider\StaticFixtureFinder;
-use Symplify\PackageBuilder\Tests\AbstractKernelTestCase;
+use Symplify\PackageBuilder\Testing\AbstractKernelTestCase;
 use Symplify\SmartFileSystem\SmartFileInfo;
 
 /**

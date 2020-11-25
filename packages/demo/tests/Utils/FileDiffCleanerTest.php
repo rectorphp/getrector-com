@@ -7,7 +7,7 @@ namespace Rector\Website\Demo\Tests\Utils;
 use Iterator;
 use Rector\Website\Demo\Utils\FileDiffCleaner;
 use Rector\Website\GetRectorKernel;
-use Symplify\PackageBuilder\Tests\AbstractKernelTestCase;
+use Symplify\PackageBuilder\Testing\AbstractKernelTestCase;
 use Symplify\SmartFileSystem\SmartFileSystem;
 
 final class FileDiffCleanerTest extends AbstractKernelTestCase
