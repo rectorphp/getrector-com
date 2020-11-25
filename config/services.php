@@ -5,6 +5,7 @@ declare(strict_types=1);
 use Rector\Website\Demo\ValueObject\Option;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+use Symplify\PackageBuilder\Reflection\PrivatesAccessor;
 use function Symfony\Component\DependencyInjection\Loader\Configurator\ref;
 use Symplify\PackageBuilder\Console\Style\SymfonyStyleFactory;
 
@@ -57,6 +58,8 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         ->exclude([__DIR__ . '/../src/GetRectorKernel.php']);
 
     $services->set(SymfonyStyleFactory::class);
+
+    $services->set(PrivatesAccessor::class);
 
     $services->set(SymfonyStyle::class)
         ->factory([ref(SymfonyStyleFactory::class), 'create']);

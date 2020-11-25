@@ -7,7 +7,7 @@ namespace Rector\Website\Demo\Tests\Validator;
 use Iterator;
 use Rector\Website\Demo\Error\ErrorMessageNormalizer;
 use Rector\Website\GetRectorKernel;
-use Symplify\PackageBuilder\Tests\AbstractKernelTestCase;
+use Symplify\PackageBuilder\Testing\AbstractKernelTestCase;
 
 /**
  * @see \Rector\Website\Demo\Error\ErrorMessageNormalizer
