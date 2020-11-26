@@ -87,7 +87,6 @@ $services->set(FuncCallToStaticCallRector::class)
 
 This works!
 
-
 There is just little detail. The IDE autocomplete we want from value objects:
 
 <img src="/assets/images/blog/2020/inline_service_dead_value_object.gif" class="img-thumbnail">
@@ -120,14 +119,15 @@ What we need here?
 
 <br>
 
-To cover all benefits together, we added **custom `inline_value_objects()` function**:
+To cover all benefits together, we've create **custom `Symplify\SymfonyPhpConfig\ValueObjectInliner` class**:
 
 ```php
 // rector.php
+use Symplify\SymfonyPhpConfig\ValueObjectInliner;
 
 $services->set(FuncCallToStaticCallRector::class)
     ->call('configure', [[
-        FuncCallToStaticCallRector::FUNC_CALLS_TO_STATIC_CALLS => inline_value_objects([
+        FuncCallToStaticCallRector::FUNC_CALLS_TO_STATIC_CALLS => ValueObjectInliner::inline([
             new FuncCallToStaticCall('dump', 'Tracy\Debugger', 'dump'),
             // it handles multiple items without duplicated call
             new FuncCallToStaticCall('d', 'Tracy\Debugger', 'dump'),
@@ -136,13 +136,21 @@ $services->set(FuncCallToStaticCallRector::class)
     ]]);
 ```
 
+Do you want to sure it too?
+
+```bash
+composer require symplify/symfony-php-config
+```
+
+And you're set!
+
 <br>
 
 <em class="fas fa-fw fa-check text-success fa-2x"></em>
 
 This way, **anyone can configure even the most complex Rector rules** without ever looking inside the Rector rule and scan for configuration values.
 
-## So which Rector uses what Value Object?
+## And What Rector uses What Value Object?
 
 In convention over configuration principle, all you need to know **the rule name**.
 
