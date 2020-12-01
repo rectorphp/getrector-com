@@ -45,17 +45,17 @@ final class PHPConstraintValidator extends ConstraintValidator
             $this->phpLinter->checkContentSyntax($value);
             $this->forbiddenPHPFunctionsChecker->checkCode($value);
         } catch (MissingPHPOpeningTagException $missingphpOpeningTagException) {
-            $violation = $this->context->buildViolation('Add opening "<?php" tag');
-            $violation->addViolation();
+            $constraintViolation = $this->context->buildViolation('Add opening "<?php" tag');
+            $constraintViolation->addViolation();
         } catch (ForbiddenPHPFunctionException $forbiddenphpFunctionException) {
-            $violation = $this->context->buildViolation($forbiddenphpFunctionException->getMessage());
-            $violation->addViolation();
+            $constraintViolation = $this->context->buildViolation($forbiddenphpFunctionException->getMessage());
+            $constraintViolation->addViolation();
         } catch (LintingException $lintingException) {
             $usefulLinterMessage = $this->clearLinterMessage($lintingException->getMessage());
 
-            $violation = $this->context->buildViolation('Fix PHP syntax: %error%');
-            $violation->setParameter('%error%', $usefulLinterMessage);
-            $violation->addViolation();
+            $constraintViolation = $this->context->buildViolation('Fix PHP syntax: %error%');
+            $constraintViolation->setParameter('%error%', $usefulLinterMessage);
+            $constraintViolation->addViolation();
         }
     }
 

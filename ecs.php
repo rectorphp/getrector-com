@@ -29,7 +29,10 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 
         UnaryOperatorSpacesFixer::class,
         UnusedPrivateElementsSniff::class . '.' . UnusedPrivateElementsSniff::CODE_WRITE_ONLY_PROPERTY,
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7d00d5f... bump deps
         ClassAttributesSeparationFixer::class => [
             __DIR__ . '/packages/demo/src/Lint/ForbiddenPHPFunctionsChecker.php',
             __DIR__ . '/packages/demo/src/Controller/DemoController.php',
