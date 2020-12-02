@@ -8,39 +8,18 @@ use DateTimeInterface;
 
 final class Post
 {
-    private int $id;
-
-    private string $absoluteUrl;
-
-    private string $title;
-
-    private string $perex;
-
-    private string $htmlContent;
-
     private string $plaintextContent;
 
-    private string $slug;
-
-    private DateTimeInterface $dateTime;
-
     public function __construct(
-        int $id,
-        string $title,
-        string $slug,
-        DateTimeInterface $dateTime,
-        string $perex,
-        string $htmlContent,
-        string $absoluteUrl
+        private int $id,
+        private string $title,
+        private string $slug,
+        private DateTimeInterface $dateTime,
+        private string $perex,
+        private string $htmlContent,
+        private string $absoluteUrl
     ) {
-        $this->id = $id;
-        $this->title = $title;
-        $this->perex = $perex;
-        $this->htmlContent = $htmlContent;
         $this->plaintextContent = strip_tags($htmlContent);
-        $this->slug = $slug;
-        $this->dateTime = $dateTime;
-        $this->absoluteUrl = $absoluteUrl;
     }
 
     public function getAbsoluteUrl(): string

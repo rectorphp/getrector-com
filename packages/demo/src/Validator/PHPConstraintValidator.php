@@ -25,14 +25,8 @@ final class PHPConstraintValidator extends ConstraintValidator
      */
     private const PHP_PARSE_ERROR_REGEX = '#PHP Parse error\:\s+syntax error\,\s+#';
 
-    private PHPLinter $phpLinter;
-
-    private ForbiddenPHPFunctionsChecker $forbiddenPHPFunctionsChecker;
-
-    public function __construct(PHPLinter $phpLinter, ForbiddenPHPFunctionsChecker $forbiddenPHPFunctionsChecker)
+    public function __construct(private PHPLinter $phpLinter, private ForbiddenPHPFunctionsChecker $forbiddenPHPFunctionsChecker)
     {
-        $this->phpLinter = $phpLinter;
-        $this->forbiddenPHPFunctionsChecker = $forbiddenPHPFunctionsChecker;
     }
 
     /**
@@ -44,7 +38,7 @@ final class PHPConstraintValidator extends ConstraintValidator
         try {
             $this->phpLinter->checkContentSyntax($value);
             $this->forbiddenPHPFunctionsChecker->checkCode($value);
-        } catch (MissingPHPOpeningTagException $missingphpOpeningTagException) {
+        } catch (MissingPHPOpeningTagException) {
             $constraintViolation = $this->context->buildViolation('Add opening "<?php" tag');
             $constraintViolation->addViolation();
         } catch (ForbiddenPHPFunctionException $forbiddenphpFunctionException) {

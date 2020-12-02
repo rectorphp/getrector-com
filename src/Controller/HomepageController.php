@@ -10,9 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class HomepageController extends AbstractController
 {
-    /**
-     * @Route(path="/", name="homepage")
-     */
+    #[Route('/', name: 'homepage')]
     public function __invoke(): Response
     {
         return $this->render('homepage/homepage.twig');

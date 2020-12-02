@@ -15,10 +15,16 @@ use Symplify\SymfonyPhpConfig\ValueObjectInliner;
 return static function (ContainerConfigurator $containerConfigurator): void {
     $parameters = $containerConfigurator->parameters();
 
+    $parameters->set(Option::AUTO_IMPORT_NAMES, true);
+
     $parameters->set(Option::PATHS, [__DIR__ . '/src', __DIR__ . '/packages']);
 
     $parameters->set(Option::SETS, [
-        SetList::DEAD_CODE, SetList::CODE_QUALITY, SetList::CODING_STYLE, SetList::TYPE_DECLARATION,
+        SetList::DEAD_CODE,
+        SetList::CODE_QUALITY,
+        SetList::CODING_STYLE,
+        SetList::TYPE_DECLARATION,
+        SetList::PHP_80,
     ]);
 
     $parameters->set(Option::SKIP, [

@@ -8,20 +8,8 @@ use Rector\Website\Demo\Validator\Constraint\PHPConstraint;
 
 final class DemoFormData
 {
-    /**
-     * @PHPConstraint()
-     */
-    private string $content;
-
-    /**
-     * @PHPConstraint()
-     */
-    private string $config;
-
-    public function __construct(string $content, string $config)
+    public function __construct(private string $content, private string $config)
     {
-        $this->content = $content;
-        $this->config = $config;
     }
 
     public function getContent(): string

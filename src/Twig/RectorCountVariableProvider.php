@@ -33,14 +33,8 @@ final class RectorCountVariableProvider
      */
     private const CACHE_KEY = 'rectors_count';
 
-    private CacheInterface $cache;
-
-    private SmartFileSystem $smartFileSystem;
-
-    public function __construct(CacheInterface $cache, SmartFileSystem $smartFileSystem)
+    public function __construct(private CacheInterface $cache, private SmartFileSystem $smartFileSystem)
     {
-        $this->cache = $cache;
-        $this->smartFileSystem = $smartFileSystem;
     }
 
     public function provide(): int

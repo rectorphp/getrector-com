@@ -37,18 +37,11 @@ final class RectorProcessRunner
 
     private string $demoExecutablePath;
 
-    private ErrorMessageNormalizer $errorMessageNormalizer;
-
-    private SmartFileSystem $smartFileSystem;
-
     public function __construct(
-        ErrorMessageNormalizer $errorMessageNormalizer,
+        private ErrorMessageNormalizer $errorMessageNormalizer,
         ParameterProvider $parameterProvider,
-        SmartFileSystem $smartFileSystem
+        private SmartFileSystem $smartFileSystem
     ) {
-        $this->errorMessageNormalizer = $errorMessageNormalizer;
-        $this->smartFileSystem = $smartFileSystem;
-
         $this->hostDemoDir = $parameterProvider->provideStringParameter(Option::HOST_DEMO_DIR);
         $this->localDemoDir = $parameterProvider->provideStringParameter(Option::LOCAL_DEMO_DIR);
         $this->rectorDemoDockerImage = $parameterProvider->provideStringParameter(Option::RECTOR_DEMO_DOCKER_IMAGE);
