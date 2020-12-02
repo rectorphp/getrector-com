@@ -9,13 +9,9 @@ use Rector\Website\Demo\Validator\Constraint\PHPConstraint;
 final class DemoFormData
 {
     public function __construct(
-        /**
-         * @PHPConstraint()
-         */
+        #[PHPConstraint]
         private string $content,
-        /**
-         * @PHPConstraint()
-         */
+        #[PHPConstraint]
         private string $config,
     ) {
     }
