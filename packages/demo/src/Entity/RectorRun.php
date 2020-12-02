@@ -18,19 +18,9 @@ use Symfony\Component\Stopwatch\StopwatchEvent;
 class RectorRun
 {
     /**
-     * @ORM\Column(type="text")
-     */
-    private string $content;
-
-    /**
      * @ORM\Column(type="text", nullable=true)
      */
     private ?string $contentDiff;
-
-    /**
-     * @ORM\Column(type="text")
-     */
-    private string $config;
 
     /**
      * @ORM\Column(type="text", nullable=true)
@@ -47,23 +37,25 @@ class RectorRun
      */
     private ?float $elapsedTime;
 
-    /**
-     * @ORM\Id
-     * @ORM\Column(type="uuid")
-     */
-    private UuidInterface $id;
-
-    /**
-     * @ORM\Column(type="datetime_immutable")
-     */
-    private DateTimeImmutable $executedAt;
-
-    public function __construct(UuidInterface $id, DateTimeImmutable $executedAt, string $config, string $content)
-    {
-        $this->id = $id;
-        $this->executedAt = $executedAt;
-        $this->config = $config;
-        $this->content = $content;
+    public function __construct(
+        /**
+         * @ORM\Id
+         * @ORM\Column(type="uuid")
+         */
+        private UuidInterface $id,
+        /**
+         * @ORM\Column(type="datetime_immutable")
+         */
+        DateTimeImmutable $executedAt,
+        /**
+         * @ORM\Column(type="text")
+         */
+        string $config,
+        /**
+         * @ORM\Column(type="text")
+         */
+        private string $content,
+    ) {
     }
 
     public function getId(): UuidInterface
