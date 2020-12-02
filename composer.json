@@ -11,7 +11,6 @@
         "doctrine/doctrine-bundle": "^2.0",
         "doctrine/orm": "^2.7",
         "erusev/parsedown-extra": "^0.8.1",
-        "gedmo/doctrine-extensions": "^2.4",
         "ocramius/proxy-manager": "2.8.*",
         "psr/simple-cache": "^1.0",
         "ramsey/uuid": "^3.9",
@@ -85,7 +84,7 @@
         "fix-cs": "vendor/bin/ecs check --fix --ansi",
         "doctrine": "bin/console doctrine:schema:update --dump-sql --force --ansi",
         "phpstan": "php -d memory_limit=1G vendor/bin/phpstan analyse --error-format symplify --ansi",
-        "rector": "vendor/bin/rector process --config rector-ci.php --ansi"
+        "rector": "vendor/bin/rector process --ansi"
     },
     "config": {
         "sort-packages": true
