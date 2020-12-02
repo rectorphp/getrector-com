@@ -18,15 +18,15 @@ final class RectorCountVariableProvider
     private const SOURCE_URL = 'https://raw.githubusercontent.com/rectorphp/rector/master/docs/rector_rules_overview.md';
 
     /**
-     * @see https://regex101.com/r/Q1lNxP/1
+     * @see https://regex101.com/r/BTdMQa/2
      * @var string
      */
-    private const COUNT_REGEX = '~## ~';
+    private const COUNT_REGEX = '#\b(?<count>\d+) Rules Overview\b#';
 
     /**
      * @var int
      */
-    private const FALLBACK_COUNT = 600;
+    private const FALLBACK_COUNT = 620;
 
     /**
      * @var string
@@ -48,7 +48,7 @@ final class RectorCountVariableProvider
             $sourceContent = $this->smartFileSystem->readFile(self::SOURCE_URL);
             $matches = Strings::matchAll($sourceContent, self::COUNT_REGEX);
 
-            return count($matches) ?? self::FALLBACK_COUNT;
+            return $matches['count'] ?? self::FALLBACK_COUNT;
         });
     }
 }
