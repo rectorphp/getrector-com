@@ -83,7 +83,7 @@ FROM base as production
 
 COPY composer.json composer.lock phpunit.xml ./
 
-RUN composer install --prefer-dist --no-dev --no-autoloader --no-scripts --no-progress --no-suggest \
+RUN composer install --prefer-dist --no-dev --no-autoloader --no-scripts --no-progress \
     && composer clear-cache
 
 COPY --from=node-build /build/public/build ./public/build
