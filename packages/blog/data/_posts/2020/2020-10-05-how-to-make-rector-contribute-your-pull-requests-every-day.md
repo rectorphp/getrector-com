@@ -70,7 +70,7 @@ jobs:
                     token: ${{ secrets.ACCESS_TOKEN }}
 
             -
-                uses: shivammathur/setup-php@v1
+                uses: shivammathur/setup-php@v2
                 with:
                     php-version: 7.4
                     coverage: none
