@@ -46,11 +46,11 @@ class RectorRun
         /**
          * @ORM\Column(type="datetime_immutable")
          */
-        DateTimeImmutable $executedAt,
+        private DateTimeImmutable $executedAt,
         /**
          * @ORM\Column(type="text")
          */
-        string $config,
+        private string $config,
         /**
          * @ORM\Column(type="text")
          */

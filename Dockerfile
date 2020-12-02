@@ -45,7 +45,7 @@ RUN apt-get update && apt-get install -y \
     && apt-get update && apt-get -y install \
         docker-ce-cli
 
-# Installing composer and prestissimo globally
+# Installing composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 ENV PHP_OPCACHE_VALIDATE_TIMESTAMPS="0"
@@ -83,7 +83,7 @@ FROM base as production
 
 COPY composer.json composer.lock phpunit.xml ./
 
-RUN composer install --prefer-dist --no-dev --no-autoloader --no-scripts --no-progress \
+RUN composer install --prefer-dist --no-dev --no-autoloader --no-scripts --no-progress --ignore-platform-reqs \
     && composer clear-cache
 
 COPY --from=node-build /build/public/build ./public/build
