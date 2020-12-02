@@ -6,7 +6,7 @@ use PhpCsFixer\Fixer\ClassNotation\ClassAttributesSeparationFixer;
 use PhpCsFixer\Fixer\Operator\UnaryOperatorSpacesFixer;
 use SlevomatCodingStandard\Sniffs\Classes\UnusedPrivateElementsSniff;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
-use Symplify\EasyCodingStandard\Configuration\Option;
+use Symplify\EasyCodingStandard\ValueObject\Option;
 use Symplify\EasyCodingStandard\ValueObject\Set\SetList;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
@@ -25,13 +25,14 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     ]);
 
     $parameters->set(Option::SKIP, [
-        UnaryOperatorSpacesFixer::class => null,
-        UnusedPrivateElementsSniff::class . '.' . UnusedPrivateElementsSniff::CODE_WRITE_ONLY_PROPERTY => null,
+        __DIR__ . '/config/bundles.php',
+
+        UnaryOperatorSpacesFixer::class,
+        UnusedPrivateElementsSniff::class . '.' . UnusedPrivateElementsSniff::CODE_WRITE_ONLY_PROPERTY,
+
         ClassAttributesSeparationFixer::class => [
             __DIR__ . '/packages/demo/src/Lint/ForbiddenPHPFunctionsChecker.php',
             __DIR__ . '/packages/demo/src/Controller/DemoController.php',
         ],
     ]);
-
-    $parameters->set(Option::EXCLUDE_PATHS, [__DIR__ . '/config/bundles.php']);
 };

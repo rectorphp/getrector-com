@@ -64,6 +64,6 @@ final class PHPConstraintValidator extends ConstraintValidator
      */
     private function clearLinterMessage(string $message): string
     {
-        return Strings::replace($message, self::PHP_PARSE_ERROR_REGEX);
+        return Strings::replace($message, self::PHP_PARSE_ERROR_REGEX, '');
     }
 }

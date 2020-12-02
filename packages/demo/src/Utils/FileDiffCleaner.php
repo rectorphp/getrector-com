@@ -25,8 +25,8 @@ final class FileDiffCleaner
 
     public function clean(string $fileDiff): string
     {
-        $fileDiff = Strings::replace($fileDiff, self::DIFF_START_REGEX);
-        $fileDiff = Strings::replace($fileDiff, self::NO_NEWLINE_REGEX);
+        $fileDiff = Strings::replace($fileDiff, self::DIFF_START_REGEX, '');
+        $fileDiff = Strings::replace($fileDiff, self::NO_NEWLINE_REGEX, '');
 
         return trim($fileDiff) . PHP_EOL;
     }

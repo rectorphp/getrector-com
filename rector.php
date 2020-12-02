@@ -7,10 +7,10 @@ use Rector\Core\Configuration\Option;
 use Rector\DeadCode\Rector\Class_\RemoveUnusedDoctrineEntityMethodAndPropertyRector;
 use Rector\Generic\Rector\FuncCall\FuncCallToStaticCallRector;
 use Rector\Set\ValueObject\SetList;
-use function Rector\SymfonyPhpConfig\inline_value_objects;
 use Rector\Transform\ValueObject\FuncCallToStaticCall;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use function Symfony\Component\DependencyInjection\Loader\Configurator\inline_service;
+use Symplify\SymfonyPhpConfig\ValueObjectInliner;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
     $parameters = $containerConfigurator->parameters();
@@ -21,9 +21,10 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         SetList::DEAD_CODE, SetList::CODE_QUALITY, SetList::CODING_STYLE, SetList::TYPE_DECLARATION,
     ]);
 
-    $parameters->set(Option::EXCLUDE_PATHS, ['*/var/cache/*', __DIR__ . '/packages/demo/data/DemoFile.php']);
+    $parameters->set(Option::SKIP, [
+        '*/var/cache/*',
+        __DIR__ . '/packages/demo/data/DemoFile.php',
 
-    $parameters->set(Option::EXCLUDE_RECTORS, [
         // false positive removal
         RemoveUnusedDoctrineEntityMethodAndPropertyRector::class,
 
@@ -43,7 +44,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 
     $services->set(FuncCallToStaticCallRector::class)
         ->call('configure', [[
-            FuncCallToStaticCallRector::FUNC_CALLS_TO_STATIC_CALLS => inline_value_objects([
+            FuncCallToStaticCallRector::FUNC_CALLS_TO_STATIC_CALLS => ValueObjectInliner::inline([
                 new FuncCallToStaticCall('dump', 'Tracy\Debugger', 'dump'),
             ]),
         ]]);
