@@ -133,7 +133,7 @@ class RectorRun
         $version = $data['meta']['version'];
 
         // Creating `new Version()` would fail if version does not contain `@`
-        if (Strings::contains($version, '@') === false) {
+        if (! Strings::contains($version, '@')) {
             $version .= '@unknown';
         }
 

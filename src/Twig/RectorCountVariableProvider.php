@@ -45,7 +45,7 @@ final class RectorCountVariableProvider
 
     public function provide(): int
     {
-        return (int) $this->cache->get(self::CACHE_KEY, function (ItemInterface $item) {
+        return (int) $this->cache->get(self::CACHE_KEY, function (ItemInterface $item): int {
             /** @var DateInterval $dateInterval */
             $dateInterval = DateInterval::createFromDateString('+24 hours');
 
