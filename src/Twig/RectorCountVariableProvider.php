@@ -46,7 +46,10 @@ final class RectorCountVariableProvider
     public function provide(): int
     {
         return (int) $this->cache->get(self::CACHE_KEY, function (ItemInterface $item) {
-            $item->expiresAfter(DateInterval::createFromDateString('+24 hours'));
+            /** @var DateInterval $dateInterval */
+            $dateInterval = DateInterval::createFromDateString('+24 hours');
+
+            $item->expiresAfter($dateInterval);
 
             $sourceContent = $this->smartFileSystem->readFile(self::SOURCE_URL);
             $matches = Strings::matchAll($sourceContent, self::COUNT_REGEX);
