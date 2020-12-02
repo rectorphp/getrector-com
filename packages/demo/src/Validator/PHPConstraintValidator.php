@@ -25,8 +25,10 @@ final class PHPConstraintValidator extends ConstraintValidator
      */
     private const PHP_PARSE_ERROR_REGEX = '#PHP Parse error\:\s+syntax error\,\s+#';
 
-    public function __construct(private PHPLinter $phpLinter, private ForbiddenPHPFunctionsChecker $forbiddenPHPFunctionsChecker)
-    {
+    public function __construct(
+        private PHPLinter $phpLinter,
+        private ForbiddenPHPFunctionsChecker $forbiddenPHPFunctionsChecker
+    ) {
     }
 
     /**

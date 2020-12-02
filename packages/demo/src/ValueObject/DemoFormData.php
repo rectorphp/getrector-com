@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Rector\Website\Demo\ValueObject;
 
-use Rector\Website\Demo\Validator\Constraint\PHPConstraint;
-
 final class DemoFormData
 {
     public function __construct(private string $content, private string $config)

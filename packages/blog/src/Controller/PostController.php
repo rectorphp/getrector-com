@@ -15,7 +15,9 @@ final class PostController extends AbstractController
     {
     }
 
-    #[Route('blog/{postSlug}', name: 'post', requirements: ['postSlug' => '.+'])]
+    #[Route('blog/{postSlug}', name: 'post', requirements: [
+        'postSlug' => '.+',
+    ])]
     public function __invoke(string $postSlug): Response
     {
         $post = $this->postRepository->findBySlug($postSlug);

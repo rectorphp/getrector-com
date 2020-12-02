@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use PhpCsFixer\Fixer\ClassNotation\ClassAttributesSeparationFixer;
 use PhpCsFixer\Fixer\Operator\UnaryOperatorSpacesFixer;
+use SlevomatCodingStandard\Sniffs\Classes\DisallowMultiPropertyDefinitionSniff;
 use SlevomatCodingStandard\Sniffs\Classes\UnusedPrivateElementsSniff;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symplify\EasyCodingStandard\ValueObject\Option;
@@ -27,12 +28,13 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $parameters->set(Option::SKIP, [
         __DIR__ . '/config/bundles.php',
 
+        // broken on PHP 8.0
+        ClassAttributesSeparationFixer::class,
+        DisallowMultiPropertyDefinitionSniff::class . '.DisallowedMultiPropertyDefinition',
+
         UnaryOperatorSpacesFixer::class,
         UnusedPrivateElementsSniff::class . '.' . UnusedPrivateElementsSniff::CODE_WRITE_ONLY_PROPERTY,
-<<<<<<< HEAD
 
-=======
->>>>>>> 7d00d5f... bump deps
         ClassAttributesSeparationFixer::class => [
             __DIR__ . '/packages/demo/src/Lint/ForbiddenPHPFunctionsChecker.php',
             __DIR__ . '/packages/demo/src/Controller/DemoController.php',
