@@ -84,7 +84,7 @@
         "fix-cs": "vendor/bin/ecs check --fix --ansi",
         "doctrine": "bin/console doctrine:schema:update --dump-sql --force --ansi",
         "phpstan": "php -d memory_limit=1G vendor/bin/phpstan analyse --error-format symplify --ansi",
-        "rector": "vendor/bin/rector process --config rector-ci.php --ansi"
+        "rector": "vendor/bin/rector process --ansi"
     },
     "config": {
         "sort-packages": true

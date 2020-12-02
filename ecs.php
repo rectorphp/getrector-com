@@ -17,7 +17,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         __DIR__ . '/src',
         __DIR__ . '/packages',
         __DIR__ . '/ecs.php',
-        __DIR__ . '/rector-ci.php',
+        __DIR__ . '/rector.php',
     ]);
 
     $parameters->set(Option::SETS, [

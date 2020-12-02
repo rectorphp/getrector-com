@@ -11,7 +11,7 @@ perex: |
 Using Rector in CI is a huge help to each member of the team. Rector reports weak parts and suggests better code.
 But Rector's primary goal is not to give you more work and steal your attention. Rector handles repeated, and mundane work for you and **let you focus on essential problems**.
 
-Actually, Rector is [pushing commits to itself on GitHub](http://github.com/rectorphp/rector) since [March 2020](https://github.com/rectorphp/rector/pull/3013/files) when [Jan Mikes](https://github.com/JanMikes) added it. What does it mean? If you contribute a rule that belongs, e.g., to *code quality* set that is part of `rector-ci.php`, its change will propagate to all Rector's code automatically before it gets merged. **You don't have to do anything - maintenance zero.**
+Actually, Rector is [pushing commits to itself on GitHub](http://github.com/rectorphp/rector) since [March 2020](https://github.com/rectorphp/rector/pull/3013/files) when [Jan Mikes](https://github.com/JanMikes) added it. What does it mean? If you contribute a rule that belongs, e.g., to *code quality* set that is part of `rector.php`, its change will propagate to all Rector's code automatically before it gets merged. **You don't have to do anything - maintenance zero.**
 
 When does that happen?
 
@@ -78,7 +78,7 @@ jobs:
             -   run: composer install --no-progress --ansi
 
             ## First run Rector without --dry-run, it would stop the process with exit 1 here
-            -   run: vendor/bin/rector process --config rector-ci.php --ansi
+            -   run: vendor/bin/rector process --ansi
 
             -
                 name: Check for Rector modified files
