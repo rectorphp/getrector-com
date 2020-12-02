@@ -2,7 +2,7 @@
     "name": "rector/website",
     "description": "Website of GetRector.org",
     "require": {
-        "php": "^7.4",
+        "php": "^8.0",
         "ext-json": "*",
         "ext-pdo": "*",
         "ext-pdo_mysql": "*",

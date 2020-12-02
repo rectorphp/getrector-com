@@ -14,14 +14,10 @@ use Throwable;
 
 final class DemoRunner
 {
-    private RectorProcessRunner $rectorProcessRunner;
-
-    private FileDiffCleaner $fileDiffCleaner;
-
-    public function __construct(RectorProcessRunner $rectorProcessRunner, FileDiffCleaner $fileDiffCleaner)
-    {
-        $this->rectorProcessRunner = $rectorProcessRunner;
-        $this->fileDiffCleaner = $fileDiffCleaner;
+    public function __construct(
+        private RectorProcessRunner $rectorProcessRunner,
+        private FileDiffCleaner $fileDiffCleaner
+    ) {
     }
 
     public function runAndPopulateRunResult(RectorRun $rectorRun): void

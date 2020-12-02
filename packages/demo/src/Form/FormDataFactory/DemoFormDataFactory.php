@@ -23,11 +23,8 @@ final class DemoFormDataFactory
      */
     public const CONFIG_FILE_PATH = __DIR__ . '/../../../data/demo-config.php';
 
-    private SmartFileSystem $smartFileSystem;
-
-    public function __construct(SmartFileSystem $smartFileSystem)
+    public function __construct(private SmartFileSystem $smartFileSystem)
     {
-        $this->smartFileSystem = $smartFileSystem;
     }
 
     public function createFromRectorRun(?RectorRun $rectorRun): DemoFormData

@@ -16,6 +16,8 @@ use Symfony\Component\Validator\ConstraintValidator;
 
 /**
  * @see https://symfony.com/doc/current/validation/custom_constraint.html#creating-the-validator-itself
+ *
+ * @see \Rector\Website\Demo\Tests\Validator\PHPConstraintValidatorTest
  */
 final class PHPConstraintValidator extends ConstraintValidator
 {
@@ -25,14 +27,10 @@ final class PHPConstraintValidator extends ConstraintValidator
      */
     private const PHP_PARSE_ERROR_REGEX = '#PHP Parse error\:\s+syntax error\,\s+#';
 
-    private PHPLinter $phpLinter;
-
-    private ForbiddenPHPFunctionsChecker $forbiddenPHPFunctionsChecker;
-
-    public function __construct(PHPLinter $phpLinter, ForbiddenPHPFunctionsChecker $forbiddenPHPFunctionsChecker)
-    {
-        $this->phpLinter = $phpLinter;
-        $this->forbiddenPHPFunctionsChecker = $forbiddenPHPFunctionsChecker;
+    public function __construct(
+        private PHPLinter $phpLinter,
+        private ForbiddenPHPFunctionsChecker $forbiddenPHPFunctionsChecker
+    ) {
     }
 
     /**
@@ -44,18 +42,18 @@ final class PHPConstraintValidator extends ConstraintValidator
         try {
             $this->phpLinter->checkContentSyntax($value);
             $this->forbiddenPHPFunctionsChecker->checkCode($value);
-        } catch (MissingPHPOpeningTagException $missingphpOpeningTagException) {
-            $violation = $this->context->buildViolation('Add opening "<?php" tag');
-            $violation->addViolation();
+        } catch (MissingPHPOpeningTagException) {
+            $constraintViolation = $this->context->buildViolation('Add opening "<?php" tag');
+            $constraintViolation->addViolation();
         } catch (ForbiddenPHPFunctionException $forbiddenphpFunctionException) {
-            $violation = $this->context->buildViolation($forbiddenphpFunctionException->getMessage());
-            $violation->addViolation();
+            $constraintViolation = $this->context->buildViolation($forbiddenphpFunctionException->getMessage());
+            $constraintViolation->addViolation();
         } catch (LintingException $lintingException) {
             $usefulLinterMessage = $this->clearLinterMessage($lintingException->getMessage());
 
-            $violation = $this->context->buildViolation('Fix PHP syntax: %error%');
-            $violation->setParameter('%error%', $usefulLinterMessage);
-            $violation->addViolation();
+            $constraintViolation = $this->context->buildViolation('Fix PHP syntax: %error%');
+            $constraintViolation->setParameter('%error%', $usefulLinterMessage);
+            $constraintViolation->addViolation();
         }
     }
 

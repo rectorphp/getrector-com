@@ -11,16 +11,11 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class BlogController extends AbstractController
 {
-    private PostRepository $postRepository;
-
-    public function __construct(PostRepository $postRepository)
+    public function __construct(private PostRepository $postRepository)
     {
-        $this->postRepository = $postRepository;
     }
 
-    /**
-     * @Route(path="blog", name="blog")
-     */
+    #[Route('blog', name: 'blog')]
     public function __invoke(): Response
     {
         return $this->render('blog/blog.twig', [

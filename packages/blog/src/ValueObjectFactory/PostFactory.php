@@ -33,24 +33,14 @@ final class PostFactory
      */
     private const HEADLINE_REGEX = '#<h(?<level>\d+)>(?<headline>.*?)<\/h\d+>#';
 
-    private ParsedownExtra $parsedownExtra;
-
-    private PathAnalyzer $pathAnalyzer;
-
-    private RouterInterface $router;
-
     private string $siteUrl;
 
     public function __construct(
-        ParsedownExtra $parsedownExtra,
-        PathAnalyzer $pathAnalyzer,
-        RouterInterface $router,
+        private ParsedownExtra $parsedownExtra,
+        private PathAnalyzer $pathAnalyzer,
+        private RouterInterface $router,
         ParameterProvider $parameterProvider
     ) {
-        $this->parsedownExtra = $parsedownExtra;
-        $this->pathAnalyzer = $pathAnalyzer;
-        $this->router = $router;
-
         $siteUrl = $parameterProvider->provideStringParameter(Option::SITE_URL);
         $this->siteUrl = rtrim($siteUrl, '/');
     }

@@ -14,11 +14,8 @@ use Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadata;
 
 final class RectorRunValueResolver implements ArgumentValueResolverInterface
 {
-    private RectorRunRepository $rectorRunRepository;
-
-    public function __construct(RectorRunRepository $rectorRunRepository)
+    public function __construct(private RectorRunRepository $rectorRunRepository)
     {
-        $this->rectorRunRepository = $rectorRunRepository;
     }
 
     public function supports(Request $request, ArgumentMetadata $argumentMetadata): bool

@@ -23,46 +23,33 @@ use Symplify\PackageBuilder\Parameter\ParameterProvider;
 
 final class DemoController extends AbstractController
 {
-    private DemoRunner $demoRunner;
-
-    private RectorRunRepository $rectorRunRepository;
-
-    private DemoFormDataFactory $demoFormDataFactory;
     /**
      * @var string[][]
      */
     private array $demoLinks = [];
 
     public function __construct(
-        RectorRunRepository $rectorRunRepository,
-        DemoFormDataFactory $demoFormDataFactory,
-        DemoRunner $demoRunner,
+        private RectorRunRepository $rectorRunRepository,
+        private DemoFormDataFactory $demoFormDataFactory,
+        private DemoRunner $demoRunner,
         ParameterProvider $parameterProvider
     ) {
-        $this->rectorRunRepository = $rectorRunRepository;
-        $this->demoRunner = $demoRunner;
         $this->demoLinks = $parameterProvider->provideArrayParameter(Option::DEMO_LINKS);
-        $this->demoFormDataFactory = $demoFormDataFactory;
     }
 
-    /**
-     * @Route(path="demo/{rectorRun}", name="demo_detail", methods={"GET"})
-     * @Route(path="demo", name="demo", methods={"GET", "POST"})
-     */
+    #[Route('demo/{rectorRun}', name: 'demo_detail', methods: ['GET'])]
+    #[Route('demo', name: 'demo', methods: ['GET', 'POST'])]
     public function __invoke(Request $request, ?RectorRun $rectorRun = null): Response
     {
         $formData = $this->demoFormDataFactory->createFromRectorRun($rectorRun);
-
         $demoForm = $this->createForm(DemoFormType::class, $formData, [
             // this is needed for manual render
             'action' => $this->generateUrl('demo'),
         ]);
         $demoForm->handleRequest($request);
-
         if ($demoForm->isSubmitted() && $demoForm->isValid()) {
             return $this->processFormAndReturnRoute($demoForm);
         }
-
         return $this->render('demo/demo.twig', [
             'demo_form' => $demoForm->createView(),
             'rector_run' => $rectorRun,

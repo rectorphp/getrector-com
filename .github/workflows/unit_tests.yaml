@@ -9,11 +9,12 @@ jobs:
             -   uses: actions/checkout@v2
             -   uses: shivammathur/setup-php@v2
                 with:
-                    php-version: 7.4
+                    php-version: 8.0
                     coverage: none # default is xdebug
                     extensions: mbstring # needed by phpunit
 
-            -   run: composer install --no-progress
+            -   run: composer install --no-progress --ignore-platform-reqs
+
             # for controller tests
             -   run: npm install
             -   run: npm run dev
