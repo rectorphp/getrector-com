@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Rector\Website\Demo\Validator\Constraint;
 
-use function Attribute;
 use Attribute;
 use Rector\Website\Demo\Validator\PHPConstraintValidator;
 use Symfony\Component\Validator\Constraint;

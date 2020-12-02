@@ -45,3 +45,5 @@ parameters:
             paths:
                 - src/GetRectorKernel.php # 39
                 - src/GetRectorKernel.php # 55
+
+        - '#Attribute class Rector\\Website\\Demo\\Validator\\Constraint\\PHPConstraint does not have the parameter target#'

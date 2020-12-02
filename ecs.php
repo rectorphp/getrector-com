@@ -33,7 +33,9 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         DisallowMultiPropertyDefinitionSniff::class . '.DisallowedMultiPropertyDefinition',
 
         UnaryOperatorSpacesFixer::class,
-        UnusedPrivateElementsSniff::class . '.' . UnusedPrivateElementsSniff::CODE_WRITE_ONLY_PROPERTY,
+
+        // bugged and replaced by PHPStan + Rector
+        UnusedPrivateElementsSniff::class,
 
         ClassAttributesSeparationFixer::class => [
             __DIR__ . '/packages/demo/src/Lint/ForbiddenPHPFunctionsChecker.php',
