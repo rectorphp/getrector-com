@@ -4,22 +4,23 @@
 {% set no_headline_design = true %}
 
 {% block main %}
-    <div class="container-fluid mt-0 pl-5 pr-5 {% if rector_run is not null %}short{% endif %}" id="demo">
-        <a href="{{ path('homepage') }}" id="main_logo">
-            <img src="{{ asset('assets/images/logo/rector-no_frame_vector.svg') }}" alt="">
-            <div class="logo_text text-dark">Rector</div>
-        </a>
+    <div class="container {% if rector_run is not null %}short{% endif %}">
+        <div style="float: right; margin-top: -.7em">
+            <a href="{{ path('homepage') }}">
+                <img src="{{ asset('assets/images/logo/rector.svg') }}" alt="" style="height: 2.7em">
+            </a>
+        </div>
 
-        {% if demo_links|length > 0 %}
-            <p class="mb-4 mt-4">
-                Try these:
+        <div class="mb-4 mt-4">
+            Try these:
 
-                {% for demo_link in demo_links %}
-                    {# @var demo_link \Rector\Website\Demo\ValueObject\TwigAutocomplete\DemoLink #}
-                    <a href="{{ path('demo_detail', {'rectorRun': demo_link.uuid}) }}" class="ml-3">{{ demo_link.label }}</a>
-                {% endfor %}
-            </p>
-        {% endif %}
+            {% for demo_link in demo_links %}
+                {# @var demo_link \Rector\Website\Demo\ValueObject\TwigAutocomplete\DemoLink #}
+                <a href="{{ path('demo_detail', {'rectorRun': demo_link.uuid}) }}" class="ml-3">{{ demo_link.label }}</a>
+            {% endfor %}
+        </div>
+
+
 
         <div class="clearfix"></div>
 
@@ -48,6 +49,9 @@
             {{ form_end(demo_form) }}
         </div>
     </div>
+
+    <br>
+    <br>
 
     {% if rector_run is not null %}
         <div class="container-fluid mt-5 mb-0 pl-5 pr-5 pb-4" id="demo_result">
