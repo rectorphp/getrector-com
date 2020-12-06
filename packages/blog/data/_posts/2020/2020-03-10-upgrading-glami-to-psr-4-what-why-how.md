@@ -4,7 +4,8 @@ title: "Upgrading Glami to PSR-4, part 1: What and why?"
 perex: |
     In April 2019 we upgraded [Glami](https://glami.cz)'s big codebase to follow PSR-4.
     <br>
-    <strong>It was a great success! In this part, we will go through what PSR-4 is and it's benefits.</strong>
+    <br>
+    **It was a great success! In this part, we will go through what PSR-4 is and it's benefits.**
 ---
 
 ## What is PSR-4?
