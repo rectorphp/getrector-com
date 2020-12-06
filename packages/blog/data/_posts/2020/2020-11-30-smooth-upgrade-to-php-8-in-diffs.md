@@ -10,14 +10,17 @@ perex: |
     Continue reading ↓
 ---
 
-## tl;dr; in 5 minutes
+## In a Rush to Private Jet?
+
+1. Do it in 5 minutes:
 
 ```bash
 composer require rector/rector --dev
+# create "rector.php"
 vendor/bin/rector init
 ```
 
-Update `rector.php` with PHP 8 set:
+2. Update `rector.php` with PHP 8 set:
 
 ```diff
  use Rector\Core\Configuration\Option;
@@ -33,7 +36,7 @@ Update `rector.php` with PHP 8 set:
  };
 ```
 
-Run Rector:
+3. Run Rector:
 
 ```bash
 vendor/bin/rector process src
@@ -49,9 +52,9 @@ How does such upgrade look in practise? See one of real pull-requests created wi
 
 ### Smooth Upgrade?
 
-The goal of this tutorial is to prepare your for expected required steps, so the upgrade will require the least effort possible. Follow the guide and get to PHP 8 like a walk in the park.
+This tutorial aims to prepare you for the expected required steps so that the upgrade will require the least effort possible. Follow the guide and get to PHP 8 like **a walk in the park**.
 
-## What will Rector handle for You?
+## What Rector handles for You?
 
 ### 1. From `switch()` to `match()`
 
@@ -71,12 +74,16 @@ The goal of this tutorial is to prepare your for expected required steps, so the
 +};
 ```
 
+<br>
+
 ### 2. From `get_class()` to Faster `X::class`
 
 ```diff
 -get_class($object);
 +$object::class;
 ```
+
+<br>
 
 ### 3. From Dummy Constructor to Promoted Properties
 
@@ -85,15 +92,15 @@ The goal of this tutorial is to prepare your for expected required steps, so the
  {
 -    public float $alcoholLimit;
 -
-     public function __construct(
--        float $alcoholLimit = 0.0,
--    ) {
+-    public function __construct(float $alcoholLimit = 0.0)
++    public function __construct(public float $alcoholLimit = 0.0)
+     {
 -        $this->alcoholLimit = $alcoholLimit;
--    }
-+        public float $alcoholLimit = 0.0,
-+    ) {}
+     }
  }
 ```
+
+<br>
 
 ### 4. Private Final Methods are Not Allowed Anymore
 
@@ -107,6 +114,8 @@ The goal of this tutorial is to prepare your for expected required steps, so the
      }
  }
 ```
+
+<br>
 
 ### 5. Replace Null Checks with Null Safe Calls
 
@@ -126,7 +135,9 @@ The goal of this tutorial is to prepare your for expected required steps, so the
  }
 ```
 
-### 6. Unused Catched $variable is not Needed Anymore
+<br>
+
+### 6. Unused $variable in `catch()` is not Needed Anymore
 
 ```diff
  final class SomeClass
@@ -141,6 +152,8 @@ The goal of this tutorial is to prepare your for expected required steps, so the
  }
 ```
 
+<br>
+
 ### 7. New `str_contains()` Function
 
 ```diff
@@ -148,19 +161,25 @@ The goal of this tutorial is to prepare your for expected required steps, so the
 +$hasA = str_contains('abc', 'a');
 ```
 
-### 8. New `str_ends_with()` Function
+<br>
+
+### 8. New `str_starts_with()` Function
+
+```diff
+-$isMatch = substr($haystack, 0, strlen($needle)) === $needle;
++$isMatch = str_starts_with($haystack, $needle);
+```
+
+<br>
+
+### 9. New `str_ends_with()` Function
 
 ```diff
 -$isMatch = substr($haystack, -strlen($needle)) === $needle;
 +$isMatch = str_ends_with($haystack, $needle);
 ```
 
-### 9. New `str_starts_with()` Function
-
-```diff
--$isMatch = substr($haystack, 0, strlen($needle)) === $needle;
-+$isMatch = str_starts_with($haystack, $needle);
-```
+<br>
 
 ### 10. New `Stringable` Interface for
 
@@ -176,7 +195,7 @@ The goal of this tutorial is to prepare your for expected required steps, so the
  }
 ```
 
-This class can now be used in places, where `string` type is needed:
+Class that implements `Stringable` can now be used in places, where `string` type is needed:
 
 ```php
 function run(string $anyString)
@@ -187,6 +206,8 @@ function run(string $anyString)
 $name = new Name('Kenny');
 run($name);
 ```
+
+<br>
 
 ### 11. From Union docblock types to Union PHP Declarations
 
@@ -204,6 +225,8 @@ run($name);
  }
 ```
 
+<br>
+
 ### 12. Symfony Annotations to Attributes
 
 ```diff
@@ -212,11 +235,9 @@ run($name);
  class SomeController
  {
 -   /**
--    * @Route(path="blog/{postSlug}", name="post", requirements={"postSlug"=".+"})
+-    * @Route(path="blog/{postSlug}", name="post")
 -    */
-+    #[Route('blog/{postSlug}', name: 'post', requirements: [
-+        'postSlug' => '.+',
-+    ])]
++    #[Route('blog/{postSlug}', name: 'post')]
      public function __invoke(): Response
      {
          // ...
@@ -224,7 +245,9 @@ run($name);
  }
 ```
 
-### 13. From Doctrine Annotations Markers to Attribute
+<br>
+
+### 13. From Doctrine Annotations to Attributes
 
 ```diff
 -use Doctrine\Common\Annotations\Annotation\Target;
@@ -241,7 +264,7 @@ run($name);
  }
 ```
 
-Then use in code with attribute syntax:
+Then use in code with attributes:
 
 ```diff
  final class DemoFormData
@@ -249,24 +272,16 @@ Then use in code with attribute syntax:
 -    /**
 -     * @PHPConstraint()
 -     */
--    private string $content;
++    #[PHPConstraint]
+     private string $content;
 -
 -    /**
 -     * @PHPConstraint()
 -     */
--    private string $config;
++    #[PHPConstraint]
+     private string $config;
 
--    public function __construct(string $content, string $config)
--    {
--        $this->content = $content;
--        $this->config = $config;
-+    public function __construct(
-+        #[PHPConstraint]
-+        private string $content,
-+        #[PHPConstraint]
-+        private string $config,
-+    ) {
-     }
+    // ...
 ```
 
 <br>
@@ -301,13 +316,17 @@ Update `shivammathur/setup-php@v2` in your workflows:
 -                    php-version: 8.0
 ```
 
-<br>
+## Skip incompatible Coding Standard rules
 
-Do you have problems with `composer install`?
+These 3 rules are not compatible with PHP 8 yet. So better skip them in `ecs.php`:
 
-## How to Allow PHP 8 Blocking Packages
+- `PhpCsFixer\Fixer\ClassNotation\ClassAttributesSeparationFixer`
+- `PhpCsFixer\Fixer\Operator\BinaryOperatorSpacesFixer`
+- `SlevomatCodingStandard\Sniffs\Classes\DisallowMultiPropertyDefinitionSniff`
 
-Some packages didn't get to update their `composer.json`, so be nice and help them and all their users with small pull-request:
+## Do you Have Conflicts With `composer install`?
+
+Some packages didn't get to update their `composer.json`. **Be nice and help your fellow developers** with a small pull-request:
 
 ```diff
  {
@@ -318,7 +337,7 @@ Some packages didn't get to update their `composer.json`, so be nice and help th
  }
 ```
 
-Other packages are blocking PHP 8 upgrade from own their maintainers' ideology, even though the code runs on PHP 8 with no problems. There is great [15-min video](https://www.youtube.com/watch?v=c3bpTBjhK2Y) about this topic by Nikita Popov, the most active PHP core contributor, and Nikolas Grekas, the main Symfony contributor.
+Other packages block PHP 8 upgrades from their own maintainers' ideology, **even though the code runs on PHP 8**. Watch **an excellent [15-min video](https://www.youtube.com/watch?v=c3bpTBjhK2Y)** about this by [Nikita Popov](https://twitter.com/nikita_ppv), the most active PHP core developer, and [Nikolas Grekas](https://twitter.com/nicolasgrekas), the same just for Symfony.
 
 But ideology is not why we're here. **We want to upgrade our project to PHP 8**. Thanks to Composer 2, this can [be easily solved](https://php.watch/articles/composer-ignore-platform-req):
 
@@ -327,7 +346,7 @@ But ideology is not why we're here. **We want to upgrade our project to PHP 8**.
 +composer upgrade --ignore-platform-req php
 ```
 
-Upgrade your CI workflows and Docker build scripts and you're ready to go.
+Upgrade your CI workflows and Docker build scripts, and you're ready to go.
 
 <br>
 
