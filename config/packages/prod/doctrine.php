@@ -5,6 +5,7 @@ declare(strict_types=1);
 use Symfony\Component\Cache\DoctrineProvider;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use function Symfony\Component\DependencyInjection\Loader\Configurator\ref;
+use function Symfony\Component\DependencyInjection\Loader\Configurator\service;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
     $containerConfigurator->extension('doctrine', [
@@ -28,11 +29,11 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 
     $services->set('doctrine.result_cache_provider', DoctrineProvider::class)
         ->private()
-        ->args([ref('doctrine.result_cache_pool')]);
+        ->args([service('doctrine.result_cache_pool')]);
 
     $services->set('doctrine.system_cache_provider', DoctrineProvider::class)
         ->private()
-        ->args([ref('doctrine.system_cache_pool')]);
+        ->args([service('doctrine.system_cache_pool')]);
 
     $containerConfigurator->extension('framework', [
         'cache' => [
