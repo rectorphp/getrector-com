@@ -71,7 +71,7 @@ h1, h2, h3 {
 h2 {
     margin-top: 1.3rem;
     font-weight: 500;
-    line-height: 2em;
+    line-height: 1.3em;
 }
 
 h3 {
@@ -357,15 +357,14 @@ h2 a, a {
     }
 }
 
-#post, #blog {
-    max-width: 48em;
+#post, #blog, #contact {
     margin-top: 2em;
+    margin-bottom: 6em;
 
     h1 {
         margin-top: 2.5em;
         margin-bottom: 2.2em;
         font-weight: 500 !important;
-        line-height: 1.25!important;
         color: #24292e;
     }
 
@@ -411,4 +410,6 @@ ol {
     }
 }
 
-
+#made_by p {
+    line-height: 2em;
+}

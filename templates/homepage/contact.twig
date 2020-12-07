@@ -3,30 +3,12 @@
 {% set page_title %}Your Legacy? Our Ecstasy!{% endset %}
 
 {% block main %}
-    <div id="blog">
+    <div id="contact">
         <h1>Let's Make Impossible Happen</h1>
 
         <div class="row">
-            <div class="col-12 col-sm-4">
-                <h2>Tomas Votruba</h2>
-                <p>Chief Cleaning Lady</p>
-
-                <div class="text-center mt-5">
-                    <img src="https://avatars.githubusercontent.com/u/924196" class="rounded-circle img-face shadow">
-                </div>
-
-                <div class="text-center text-bigger">
-                    <span class="pl-2 pr-2">•</span>
-                    <a href="tel:+420776778332">+420 <strong>776 778 332</strong></a>
-                    <span class="pl-2 pr-2">•</span>
-                    <a href="mailto:tomas@getrector.org">tomas@getrector.org</a>
-                </div>
-            </div>
-
             <div class="col-12 col-sm-8">
-                <h2>Send us Message with your Project</h2>
-
-                <p>How do you want to impove it?</p>
+                <h2>How can we Help Your Project?</h2>
 
                 {{ form(contact_form) }}
             </div>
@@ -39,22 +21,41 @@
         <br>
         <br>
 
-        <h3 id="company-details">Company Details</h3>
+        <div class="row">
+            <div class="col-6">
+                <h2>Tomas Votruba</h2>
+                <p class="text-bigger">Chief Cleaning Lady</p>
 
-        <p>
-            Edukai, s.r.o.
-        </p>
+                <div class="mt-5">
+                    <img src="https://avatars.githubusercontent.com/u/924196" class="rounded-circle img-face shadow">
+                </div>
 
-        <p>
-            Dubová 4<br>
-            460 01<br>
-            Liberec<br>
-            Czech Republic
-        </p>
+                <div class="text-bigger">
+                    <span class="pl-2 pr-2">•</span>
+                    <a href="tel:+420776778332">+420 <strong>776 778 332</strong></a>
 
-        <p>
-            ID: 07536721<br>
-            VAT ID: CZ07536721
-        </p>
+                    <br>
+                    <span class="pl-2 pr-2">•</span><a href="mailto:tomas@getrector.org">tomas@getrector.org</a>
+                </div>
+            </div>
+
+            <div class="col-6" id="company-details">
+                <h2>Company Details</h2>
+
+                <p class="text-bigger">Edukai, s.r.o.</p>
+
+                <p>
+                    Dubová 4<br>
+                    460 01<br>
+                    Liberec<br>
+                    Czech Republic
+                </p>
+
+                <p>
+                    ID: 07536721<br>
+                    VAT ID: CZ07536721
+                </p>
+            </div>
+        </div>
     </div>
 {% endblock %}

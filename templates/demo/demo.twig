@@ -23,7 +23,7 @@
         {{ form_row(demo_form.content) }}
 
         <p class="mt-4">
-            Config <code>rector.php</code>:
+            Configure <code>rector.php</code>:
         </p>
         {{ form_row(demo_form.config) }}
 
@@ -55,7 +55,8 @@
 
             {% if rector_run.version is not null %}
                 <p class="rector-version">
-                    Used Rector version: <a href="https://github.com/rectorphp/rector/tree/{{ rector_run.version.commitHash }}">{{ rector_run.version.fullVersion }}</a>
+                    Used Rector version:
+                    <a href="https://github.com/rectorphp/rector/tree/{{ rector_run.version.commitHash }}">{{ rector_run.version.fullVersion }}</a>
                 </p>
             {% endif %}
 
