@@ -12,7 +12,45 @@
 
                 <br>
 
-                {{ form(contact_form) }}
+                <p class="mb-5">Tell us your biggest problems you struggle with. <strong>You can be honest with us</strong>, we've seen a lot of legacy projects. We'll get in touch with you within 3 days.</p>
+
+                {{ form_start(contact_form) }}
+                    <div class="row">
+                        <div class="col-6 form-group">
+                            {{ form_row(contact_form.current_php_version) }}
+                        </div>
+
+                        <div class="col-6 form-group">
+                            {{ form_row(contact_form.target_php_version) }}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6 form-group">
+                            {{ form_row(contact_form.project_size) }}
+                        </div>
+
+                        <div class="col-6 form-group">
+                            {{ form_row(contact_form.framework) }}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 form-group">
+                            {{ form_row(contact_form.message) }}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6 form-group">
+                            {{ form_row(contact_form.name) }}
+                        </div>
+
+                        <div class="col-6 form-group">
+                            {{ form_row(contact_form.email) }}
+                        </div>
+                    </div>
+                {{ form_end(contact_form) }}
             </div>
         </div>
 

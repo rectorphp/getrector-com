@@ -29,11 +29,16 @@ final class ContactFormType extends AbstractType
         '8.0' => 80000,
     ];
 
+    /**
+     * @var string
+     */
+    private const PICK_ONE_PLACEHOLDER = 'Pick one...';
+
     public function buildForm(FormBuilderInterface $formBuilder, array $options): void
     {
         $formBuilder->add('project_size', ChoiceType::class, [
             'label' => 'Project size',
-            'placeholder' => 'Pick one',
+            'placeholder' => self::PICK_ONE_PLACEHOLDER,
             'required' => true,
             'choices' => [
                 'Smaller then 100 000 lines' => 100_000,
@@ -46,22 +51,29 @@ final class ContactFormType extends AbstractType
 
         $formBuilder->add('framework', TextType::class, [
             'label' => 'Used PHP framework',
+            'attr' => [
+                'placeholder' => 'E.g. Symfony 2.8',
+            ],
         ]);
 
         $formBuilder->add('current_php_version', ChoiceType::class, [
             'label' => 'Current PHP version',
-            'placeholder' => 'If relevant...',
+            'placeholder' => self::PICK_ONE_PLACEHOLDER,
             'choices' => self::PHP_VERSION_CHOICES,
         ]);
 
-        $formBuilder->add('goal_php_version', ChoiceType::class, [
+        $formBuilder->add('target_php_version', ChoiceType::class, [
             'label' => 'Goal PHP version',
             'placeholder' => 'If relevant...',
             'choices' => self::PHP_VERSION_CHOICES,
+            'required' => false,
         ]);
 
         $formBuilder->add('message', TextareaType::class, [
-            'label' => 'What goal can we help you with?',
+            'label' => 'What do you need help you with?',
+            'attr' => [
+                'rows' => 5,
+            ],
         ]);
 
         $formBuilder->add('name', TextType::class, [
@@ -76,6 +88,9 @@ final class ContactFormType extends AbstractType
 
         $formBuilder->add('submit', SubmitType::class, [
             'label' => 'Send Message',
+            'attr' => [
+                'class' => 'btn btn-success',
+            ],
         ]);
     }
 }
