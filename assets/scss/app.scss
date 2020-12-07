@@ -66,12 +66,12 @@ a, a:hover, a:focus, button, button:focus {
 
 h2 {
     margin-left: 0;
-    margin-bottom: 1em;
+    margin-bottom: 1.3em;
     padding-left: 0;
     padding-bottom: 1em;
     font-family: 'Roboto Slab', serif;
-    font-weight: 400;
-    font-size: 1.9em;
+    font-weight: 500;
+    font-size: 2.2rem;
 
     @include media-breakpoint-down(md) {
         font-size: 1.7em;
@@ -121,8 +121,8 @@ h2 {
     padding-bottom: 5em;
 
     h2 {
-        margin-top: 1em;
-        margin-bottom: .5em;
+        margin-top: 1.3em;
+        margin-bottom: 1em;
         text-align: center;
     }
 }
@@ -200,7 +200,7 @@ body {
 
 h1 {
     color: #FFF;
-    font-size: calc(2.5em + 1.2vw);
+    font-size: calc(2.4em + 1.2vw);
     line-height: 1.4em;
     font-weight: 300;
     font-family: "Roboto Slab";
