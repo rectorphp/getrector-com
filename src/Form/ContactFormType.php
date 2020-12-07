@@ -31,16 +31,9 @@ final class ContactFormType extends AbstractType
 
     public function buildForm(FormBuilderInterface $formBuilder, array $options): void
     {
-        $formBuilder->add('name', TextType::class, [
-            'required' => true,
-        ]);
-
-        $formBuilder->add('email', TextType::class, [
-            'required' => true,
-        ]);
-
         $formBuilder->add('project_size', ChoiceType::class, [
-            'label' => 'How big is your project?',
+            'label' => 'Project size',
+            'placeholder' => 'Pick one',
             'required' => true,
             'choices' => [
                 'Smaller then 100 000 lines' => 100_000,
@@ -52,23 +45,33 @@ final class ContactFormType extends AbstractType
         ]);
 
         $formBuilder->add('framework', TextType::class, [
-            'label' => 'What PHP framework the project uses?',
+            'label' => 'Used PHP framework',
         ]);
 
         $formBuilder->add('current_php_version', ChoiceType::class, [
-            'label' => 'Current PHP version?',
+            'label' => 'Current PHP version',
             'placeholder' => 'If relevant...',
             'choices' => self::PHP_VERSION_CHOICES,
         ]);
 
         $formBuilder->add('goal_php_version', ChoiceType::class, [
-            'label' => 'Goal PHP version?',
+            'label' => 'Goal PHP version',
             'placeholder' => 'If relevant...',
             'choices' => self::PHP_VERSION_CHOICES,
         ]);
 
         $formBuilder->add('message', TextareaType::class, [
             'label' => 'What goal can we help you with?',
+        ]);
+
+        $formBuilder->add('name', TextType::class, [
+            'label' => 'What is your name?',
+            'required' => true,
+        ]);
+
+        $formBuilder->add('email', TextType::class, [
+            'label' => 'What is your email?',
+            'required' => true,
         ]);
 
         $formBuilder->add('submit', SubmitType::class, [

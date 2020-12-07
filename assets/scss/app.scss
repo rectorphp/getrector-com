@@ -265,9 +265,12 @@ h1 em, h2 em, h2 a {
 }
 
 #homepage {
+    margin-bottom: 5em;
+
     h2 {
         margin-bottom: 3em;
     }
+
 }
 
 .demo_form_code {
@@ -364,7 +367,7 @@ h2 a, a {
         background: white;
 
         a.nav-link, a.nav-link:active {
-            color: #0a4b3e;
+            color: #222;
         }
     }
 }
