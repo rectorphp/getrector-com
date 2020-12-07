@@ -37,9 +37,8 @@ a, a:hover, a:focus, button, button:focus {
         2.HELPER
 ============================*/
 
-.section .container {
-    padding-top: 5em;
-    padding-bottom: 5em;
+.container-fluid {
+    max-width: 56em;
 }
 
 /*==========================
@@ -154,12 +153,7 @@ body {
     flex-direction: column;
 }
 
-#main {
-    flex: 1 0 auto;
-}
-
 #footer {
-    flex-shrink: 0;
     padding: 1.8em 0;
 
     background-color: $black;
@@ -172,11 +166,6 @@ body {
         &:hover {
             color: #20a55b;
         }
-    }
-
-    #made_by {
-        color: #DDD;
-        font-size: 1em;
     }
 }
 
@@ -364,14 +353,6 @@ h1 em, h2 em, h2 a {
     }
 }
 
-.badge, .invalid-feedback {
-    font-size: 1em;
-}
-
-.badge {
-    margin-right: .5em;
-}
-
 h2 a, a {
     color: #21c87a;
 
@@ -397,6 +378,23 @@ h2 a, a {
     }
 }
 
+.navbar-dark .navbar-nav {
+    text-align: center;
+
+    a.nav-link {
+        margin: 0;
+        padding: .5em 1em;
+    }
+
+    .active {
+        background: white;
+
+        a.nav-link, a.nav-link:active {
+            color: #0a4b3e;
+        }
+    }
+}
+
 .alt-mono-font {
     font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
 }
@@ -416,3 +414,5 @@ ol {
         margin-top: 1.2em;
     }
 }
+
+

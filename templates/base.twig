@@ -10,16 +10,12 @@
     <body id="{% block body_id %}{% endblock %}">
         {% block body %}
             <div id="main">
-                {% if no_headline_design is defined %}
-                {% else %}
-                    <section id="big_header">
-                        {% include "_snippets/menu.twig" %}
-                    </section>
-                {% endif %}
+                {% include "_snippets/menu.twig" %}
 
-                {% include '_snippets/flash_messages.twig' %}
-
-                {% block main %}{% endblock %}
+                <div class="container">
+                    {% include '_snippets/flash_messages.twig' %}
+                    {% block main %}{% endblock %}
+                </div>
             </div>
         {% endblock %}
 
