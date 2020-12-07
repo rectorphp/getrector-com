@@ -121,18 +121,8 @@ h3 {
 /* inspired by backers from https://nette.org/ */
 #company_logos {
     img {
-        transition: all .3s ease;
-        -webkit-filter: grayscale(100%);
         filter: grayscale(100%);
-        opacity: .66;
-        transform: scale(0.90);
-    }
-
-    a:hover img {
-        filter: grayscale(0%);
-        opacity: 1;
-        transform: scale(1);
-        transition: .2s;
+        opacity: .70;
     }
 }
 
