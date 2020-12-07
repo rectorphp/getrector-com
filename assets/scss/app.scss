@@ -37,10 +37,6 @@ a, a:hover, a:focus, button, button:focus {
         2.HELPER
 ============================*/
 
-.container-fluid {
-    max-width: 56em;
-}
-
 /*==========================
         4.HOME
 ============================*/
@@ -68,7 +64,7 @@ a, a:hover, a:focus, button, button:focus {
     }
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3 {
     font-family: 'Inter', sans-serif;
 }
 
@@ -194,7 +190,7 @@ h1 {
 }
 
 .container {
-    max-width: 55em;
+    max-width: 52em;
 }
 
 ul.list-noindent {
