@@ -59,7 +59,7 @@ This tutorial aims to prepare you for the expected required steps so that the up
 ### 1. From `switch()` to `match()`
 
 ```diff
--$statement = switch ($this->lexer->lookahead['type']) {
+-switch ($this->lexer->lookahead['type']) {
 -    case Lexer::T_SELECT:
 -        $statement = $this->SelectStatement();
 -        break;
