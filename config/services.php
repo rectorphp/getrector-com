@@ -39,7 +39,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         ->autoconfigure();
 
     $services->load('Rector\Website\\', __DIR__ . '/../src/')
-        ->exclude([__DIR__ . '/../src/GetRectorKernel.php']);
+        ->exclude([__DIR__ . '/../src/GetRectorKernel.php', __DIR__ . '/../src/ValueObject']);
 
     $services->set(SymfonyStyleFactory::class);
 

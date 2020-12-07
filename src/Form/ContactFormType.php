@@ -6,6 +6,8 @@ namespace Rector\Website\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 
@@ -32,6 +34,7 @@ final class ContactFormType extends AbstractType
         $formBuilder->add('name', TextType::class, [
             'required' => true,
         ]);
+
         $formBuilder->add('email', TextType::class, [
             'required' => true,
         ]);
@@ -41,10 +44,15 @@ final class ContactFormType extends AbstractType
             'required' => true,
             'choices' => [
                 'Smaller then 100 000 lines' => 100_000,
+                '< 250 000 lines' => 250_000,
                 '< 500 000 lines' => 500_000,
                 '< 1 000 000 lines' => 1_500_000,
                 'More than million lines' => 9_999_999,
             ],
+        ]);
+
+        $formBuilder->add('framework', TextType::class, [
+            'label' => 'What PHP framework the project uses?',
         ]);
 
         $formBuilder->add('current_php_version', ChoiceType::class, [
@@ -57,6 +65,14 @@ final class ContactFormType extends AbstractType
             'label' => 'Goal PHP version?',
             'placeholder' => 'If relevant...',
             'choices' => self::PHP_VERSION_CHOICES,
+        ]);
+
+        $formBuilder->add('message', TextareaType::class, [
+            'label' => 'What goal can we help you with?',
+        ]);
+
+        $formBuilder->add('submit', SubmitType::class, [
+            'label' => 'Send Message',
         ]);
     }
 }
