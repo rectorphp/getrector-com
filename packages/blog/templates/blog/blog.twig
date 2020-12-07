@@ -7,24 +7,21 @@
 
         <h1>Rector Blog</h1>
 
-        <div class="row">
-            {% for post in posts %}
-                <div class="col-12 mb-5">
-                    <h2>
-                        <a href="{{ path('post', {'postSlug': post.slug }) }}">{{ post.title }}</a>
-                    </h2>
+        {% for post in posts %}
+            <div class="mb-5">
+                <h2>
+                    <a href="{{ path('post', {'postSlug': post.slug }) }}">{{ post.title }}</a>
+                </h2>
 
-                    <div class="mt-2 alt-mono-font text-grey">
-                        <time datetime="{{ post.dateTime|date('Y-m-D') }}" class="text-muted text-smaller">
-                            {{ post.dateTime|date }}
-                        </time>
-                    </div>
-
-                    <br>
-                    <br>
-                    <hr>
+                <div class="mt-2 alt-mono-font text-grey">
+                    <time datetime="{{ post.dateTime|date('Y-m-D') }}" class="text-muted text-smaller">
+                        {{ post.dateTime|date }}
+                    </time>
                 </div>
-            {% endfor %}
+
+                <br>
+            </div>
+        {% endfor %}
         </div>
     </div>
 {% endblock %}

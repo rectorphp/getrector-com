@@ -6,35 +6,28 @@ namespace Rector\Website\Demo\Controller;
 
 use DateTimeImmutable;
 use Ramsey\Uuid\Uuid;
+use Rector\Website\Demo\DataProvider\DemoLinkProvider;
 use Rector\Website\Demo\DemoRunner;
 use Rector\Website\Demo\Entity\RectorRun;
 use Rector\Website\Demo\Form\DemoFormType;
 use Rector\Website\Demo\Form\FormDataFactory\DemoFormDataFactory;
 use Rector\Website\Demo\Repository\RectorRunRepository;
 use Rector\Website\Demo\ValueObject\DemoFormData;
-use Rector\Website\Demo\ValueObject\Option;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symplify\PackageBuilder\Parameter\ParameterProvider;
 
 final class DemoController extends AbstractController
 {
-    /**
-     * @var string[][]
-     */
-    private array $demoLinks = [];
-
     public function __construct(
         private RectorRunRepository $rectorRunRepository,
         private DemoFormDataFactory $demoFormDataFactory,
         private DemoRunner $demoRunner,
-        ParameterProvider $parameterProvider
+        private DemoLinkProvider $demoLinkProvider,
     ) {
-        $this->demoLinks = $parameterProvider->provideArrayParameter(Option::DEMO_LINKS);
     }
 
     #[Route('demo/{rectorRun}', name: 'demo_detail', methods: ['GET'])]
@@ -53,7 +46,7 @@ final class DemoController extends AbstractController
         return $this->render('demo/demo.twig', [
             'demo_form' => $demoForm->createView(),
             'rector_run' => $rectorRun,
-            'demo_links' => $this->demoLinks,
+            'demo_links' => $this->demoLinkProvider->provide(),
         ]);
     }
 

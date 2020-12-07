@@ -15,14 +15,11 @@
             Try these:
 
             {% for demo_link in demo_links %}
-                {# @var demo_link \Rector\Website\Demo\ValueObject\TwigAutocomplete\DemoLink #}
                 <a href="{{ path('demo_detail', {'rectorRun': demo_link.uuid}) }}" class="ml-3">
                     {{ demo_link.label }}
                 </a>
             {% endfor %}
         </div>
-
-
 
         <div class="clearfix"></div>
 
