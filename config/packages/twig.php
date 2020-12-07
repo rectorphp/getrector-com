@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 use Rector\Website\Twig\RectorCountVariableProvider;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
-use function Symfony\Component\DependencyInjection\Loader\Configurator\ref;
 use function Symfony\Component\DependencyInjection\Loader\Configurator\service;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
@@ -21,7 +20,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
             'disqus_name' => 'getrectororg',
         ],
         'date' => [
-            'format' => 'j. n., G:i',
+            'format' => 'F d, Y',
         ],
         'number_format' => [
             'decimals' => 0,

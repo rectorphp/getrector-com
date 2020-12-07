@@ -16,7 +16,9 @@
 
             {% for demo_link in demo_links %}
                 {# @var demo_link \Rector\Website\Demo\ValueObject\TwigAutocomplete\DemoLink #}
-                <a href="{{ path('demo_detail', {'rectorRun': demo_link.uuid}) }}" class="ml-3">{{ demo_link.label }}</a>
+                <a href="{{ path('demo_detail', {'rectorRun': demo_link.uuid}) }}" class="ml-3">
+                    {{ demo_link.label }}
+                </a>
             {% endfor %}
         </div>
 
@@ -30,6 +32,10 @@
             {{ form_start(demo_form) }}
 
             {{ form_row(demo_form.content) }}
+
+            <p class="mt-4">
+                Config <code>rector.php</code>:
+            </p>
             {{ form_row(demo_form.config) }}
 
             {# @see http://symfony.com/doc/current/security/csrf.html#csrf-protection-in-login-forms #}

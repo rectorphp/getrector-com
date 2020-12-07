@@ -11,7 +11,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 final class ContactFormType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $formBuilder, array $options)
+    public function buildForm(FormBuilderInterface $formBuilder, array $options): void
     {
         $formBuilder->add('name', TextType::class);
         $formBuilder->add('project_size', ChoiceType::class);

@@ -5,10 +5,9 @@ declare(strict_types=1);
 use Rector\Website\Demo\ValueObject\Option;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
-use function Symfony\Component\DependencyInjection\Loader\Configurator\ref;
+use function Symfony\Component\DependencyInjection\Loader\Configurator\service;
 use Symplify\PackageBuilder\Console\Style\SymfonyStyleFactory;
 use Symplify\PackageBuilder\Reflection\PrivatesAccessor;
-use function Symfony\Component\DependencyInjection\Loader\Configurator\service;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
     $parameters = $containerConfigurator->parameters();

@@ -12,23 +12,8 @@
             <div id="main">
                 {% if no_headline_design is defined %}
                 {% else %}
-                    <section class="home-bg-img" id="big_header">
+                    <section id="big_header">
                         {% include "_snippets/menu.twig" %}
-
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-12 mt-3">
-                                    <h1 class="mb-5 mt-5">{{ page_title }}</h1>
-
-                                    {% set subtitle %}{{ (block('subtitle')) ?? '' }}{% endset %}
-                                    {% if subtitle is not null %}
-                                        <div class="text-center mt-5 mb-5" id="subtitle">
-                                            {{ subtitle }}
-                                        </div>
-                                    {% endif %}
-                                </div>
-                            </div>
-                        </div>
                     </section>
                 {% endif %}
 

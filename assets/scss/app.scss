@@ -1,7 +1,13 @@
 // setting the value of this variable to an empty data URL is the only working solution
 // to load the Bootswatch web fonts locally and avoid loading them from Google servers
 // see https://github.com/thomaspark/bootswatch/issues/55#issuecomment-298093182
-$web-font-path: 'data:text/css;base64,';
+
+@import url('https://rsms.me/inter/inter.css');
+html { font-family: 'Inter', sans-serif; }
+@supports (font-variation-settings: normal) {
+    html { font-family: 'Inter var', sans-serif; }
+}
+
 $black: #24292e;
 
 // Make sure the bootstrap-sass and lato fonts are resolved correctly
@@ -65,24 +71,17 @@ a, a:hover, a:focus, button, button:focus {
 
 h1, h2, h3, h4 {
     font-family: 'Inter', sans-serif;
-    font-weight: 600;
 }
 
 h2 {
-    margin-left: 0;
-    margin-bottom: 1.3em;
-    padding-left: 0;
-    padding-bottom: 1em;
+    margin-top: 1.3rem;
     font-weight: 500;
-    font-size: 2.2rem;
+    line-height: 2em;
+}
 
-    @include media-breakpoint-down(md) {
-        font-size: 1.7em;
-    }
-
-    @include media-breakpoint-down(sm) {
-        font-size: 1.3em;
-    }
+h3 {
+    font-size: 1.4rem;
+    line-height: 1.7em;
 }
 
 .blockquote {
@@ -101,7 +100,7 @@ h2 {
 #subtitle {
     color: #FFF;
     font-size: 2em;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter UI', sans-serif;
 
     @include media-breakpoint-down(md) {
         font-size: 1.4em;
@@ -118,21 +117,6 @@ h2 {
             font-size: .8em;
         }
     }
-}
-
-#subpage {
-    padding-top: 2em;
-    padding-bottom: 5em;
-
-    h2 {
-        margin-top: 1.3em;
-        margin-bottom: 1em;
-        text-align: center;
-    }
-}
-
-.card {
-    box-shadow: 4px 4px 4px rgba(0, 0, 0, .1);
 }
 
 .btn span {
@@ -197,17 +181,14 @@ body {
 }
 
 .section:not(.bg-light) {
-    background-image: url('/assets/images/chars.png');
     background-position: top left;
     background-repeat: repeat;
 }
 
 h1 {
-    color: #FFF;
-    font-size: calc(2.4em + 1.2vw);
+    font-size: 2.8em;
     line-height: 1.4em;
     font-weight: 300;
-    text-align: center;
     padding-bottom: .5em;
 
     strong {
@@ -227,17 +208,9 @@ h1 {
     max-width: 55em;
 }
 
-.card h3 {
-    font-size: 1.5em;
-}
-
 ul.list-noindent {
     margin-left: 1.2em;
     padding-left: 0;
-}
-
-#subpage .section h2 {
-    margin-top: 0;
 }
 
 .reference-text {
@@ -252,11 +225,6 @@ ul.list-noindent {
 
 h2 {
     color: #4b4b4b;
-    text-align: center;
-
-    small {
-        font-size: 0.7em;
-    }
 }
 
 q.blockquote {
@@ -317,7 +285,8 @@ h1 em, h2 em, h2 a {
 .perex {
     margin-top: 1em;
     margin-bottom: 1em;
-    font-size: 1.3em;
+    font-size: 1.2em;
+    padding: .7em 0;
 }
 
 #small_header {
@@ -328,6 +297,12 @@ h1 em, h2 em, h2 a {
         font-size: 2.2em;
         line-height: 1.3em;
         margin-bottom: 0;
+    }
+}
+
+#homepage {
+    h2 {
+        margin-bottom: 3em;
     }
 }
 
@@ -405,23 +380,39 @@ h2 a, a {
     }
 }
 
-#subpage.post {
-    h2 {
-        text-align: left;
-        padding-bottom: 0;
-    }
+#post, #blog {
+    max-width: 48em;
+    margin-top: 2em;
 
-    h3 {
-        margin-top: 1em;
+    h1 {
+        margin-top: 2.5em;
+        margin-bottom: 2.2em;
+        font-weight: 500 !important;
+        line-height: 1.25!important;
+        color: #24292e;
     }
 
     .text-body {
-        font-size: 1.2em;
+        font-size: 1.1em;
     }
 }
 
-#subpage.contact {
-    .card {
-        margin-bottom: 1em;
+.alt-mono-font {
+    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
+}
+
+.text-smaller {
+    font-size: .8em;
+}
+
+.text-grey {
+    color: #959da5;
+}
+
+ol {
+    padding-left: 1em;
+
+    li {
+        margin-top: 1.2em;
     }
 }

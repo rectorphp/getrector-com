@@ -5,12 +5,12 @@ perex: |
     PHP 8 was released more than 2 weeks ago. Do you want to know what is new? Check [colorful post series about PHP 8 news](https://stitcher.io/blog/new-in-php-8) by Brent.
     <br>
     <br>
-    Do you want to upgrade your project today?
-
-    Continue reading ↓
+    Do you want to upgrade your project today? Continue reading...
 ---
 
 ## In a Rush to Private Jet?
+
+### 3 Steps to Upgrade in 5 mins
 
 1. Do it in 5 minutes:
 
@@ -49,6 +49,8 @@ How does such upgrade look in practise? See one of real pull-requests created wi
 - [tomasvotruba.com](https://github.com/TomasVotruba/tomasvotruba.com/pull/1107/files)
 - [getrector.org](https://github.com/rectorphp/getrector.org/pull/190/files)
 - [friendsofphp.org](https://github.com/TomasVotruba/friendsofphp.org/pull/176/files)
+
+<br>
 
 ### Smooth Upgrade?
 
@@ -221,6 +223,7 @@ run($name);
 -    public function go($number)
 +    public function go(array|int $number): bool|float
      {
+         // ...
      }
  }
 ```
@@ -324,7 +327,7 @@ These 3 rules are not compatible with PHP 8 yet. So better skip them in `ecs.php
 - `PhpCsFixer\Fixer\Operator\BinaryOperatorSpacesFixer`
 - `SlevomatCodingStandard\Sniffs\Classes\DisallowMultiPropertyDefinitionSniff`
 
-## Do you Have Conflicts With `composer install`?
+## Resolve Hard Conflicts With `composer install`
 
 Some packages didn't get to update their `composer.json`. **Be nice and help your fellow developers** with a small pull-request:
 
@@ -343,7 +346,7 @@ But ideology is not why we're here. **We want to upgrade our project to PHP 8**.
 
 ```diff
 -composer install
-+composer upgrade --ignore-platform-req php
++composer update --ignore-platform-req php
 ```
 
 Upgrade your CI workflows and Docker build scripts, and you're ready to go.

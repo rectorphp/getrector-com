@@ -7,6 +7,21 @@
 {% endset %}
 
 {% block main %}
+    <div class="container home-bg-img" id="homepage">
+        <div class="row">
+            <div class="col-12 mt-3">
+                <h1 class="mb-5 mt-5">{{ page_title }}</h1>
+
+                {% set subtitle %}{{ (block('subtitle')) ?? '' }}{% endset %}
+                {% if subtitle is not null %}
+                    <div class="text-center mt-5 mb-5" id="subtitle">
+                        {{ subtitle }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
     <section class="section bg-light text-center">
         <div class="container">
             <h2 class="mb-4" data-aos="fade-up">Who Already Delegates Boring Work to Rector?</h2>
@@ -120,8 +135,6 @@
     <section class="section" data-aos="fade-up">
         <div class="container text-center">
             <h2>
-                <em class="fas fa-user-check"></em>
-                &nbsp;
                 What Rector Users Say?
             </h2>
 
