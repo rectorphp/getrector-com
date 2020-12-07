@@ -6,8 +6,8 @@
                     <a href="{{ path('blog') }}" class="nav-link">Blog</a>
                 </li>
 
-                <li class="nav-item">
-                    <a href="#mission" class="nav-link">Mission</a>
+                <li class="nav-item {% if is_current_routes(["mission"]) %}active{% endif %}">
+                    <a href="{{ path('mission') }}" class="nav-link">Mission</a>
                 </li>
 
                 <li class="nav-item {% if is_current_routes(["demo", "demo_detail"]) %}active{% endif %}">
