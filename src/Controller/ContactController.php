@@ -33,17 +33,12 @@ final class ContactController extends AbstractController
                 throw new ShouldNotHappenException();
             }
 
-            // @todo add created at with doctrine behaviors
-            dump($contactMessage);
-            die;
-
-            // @todo handle
+            // @todo create midration
             $this->contactMessageRepository->save($contactMessage);
 
             $this->addFlash('success', 'Your message is on the way!');
             // form was submitted
 
-            // rediredt to self
             return $this->redirectToRoute(RouteName::CONTACT);
         }
 

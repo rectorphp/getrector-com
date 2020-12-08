@@ -3796,12 +3796,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "a3add7d409830a220f24d4171d8f4dd1e23188b8"
+                "reference": "e0b4d469cdcf2b6d1a84b6581e1edbf95b314812"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/a3add7d409830a220f24d4171d8f4dd1e23188b8",
-                "reference": "a3add7d409830a220f24d4171d8f4dd1e23188b8",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/e0b4d469cdcf2b6d1a84b6581e1edbf95b314812",
+                "reference": "e0b4d469cdcf2b6d1a84b6581e1edbf95b314812",
                 "shasum": ""
             },
             "require": {
@@ -3886,6 +3886,7 @@
                     "Rector\\DoctrineCodeQuality\\": "rules/doctrine-code-quality/src",
                     "Rector\\DoctrineGedmoToKnplabs\\": "rules/doctrine-gedmo-to-knplabs/src",
                     "Rector\\Doctrine\\": "rules/doctrine/src",
+                    "Rector\\DowngradePhp70\\": "rules/downgrade-php70/src",
                     "Rector\\DowngradePhp71\\": "rules/downgrade-php71/src",
                     "Rector\\DowngradePhp72\\": "rules/downgrade-php72/src",
                     "Rector\\DowngradePhp73\\": "rules/downgrade-php73/src",
@@ -3997,7 +3998,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-12-08T11:19:58+00:00"
+            "time": "2020-12-08T12:03:00+00:00"
         },
         {
             "name": "sebastian/diff",

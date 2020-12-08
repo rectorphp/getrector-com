@@ -6,7 +6,6 @@ namespace Rector\Website\ValueObject;
 
 final class RouteName
 {
-
     /**
      * @var string
      */

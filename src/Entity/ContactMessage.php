@@ -37,7 +37,7 @@ class ContactMessage implements TimestampableInterface
     public string $email;
 
     /**
-     * @ORM\Column(type="int")
+     * @ORM\Column(type="integer")
      */
     public int $projectSize;
 
@@ -47,12 +47,12 @@ class ContactMessage implements TimestampableInterface
     public string $framework;
 
     /**
-     * @ORM\Column(type="int")
+     * @ORM\Column(type="integer")
      */
     public int $currentPhpVersion;
 
     /**
-     * @ORM\Column(type="int")
+     * @ORM\Column(type="integer", nullable=true)
      */
     public ?int $targetPhpVersion;
 }
