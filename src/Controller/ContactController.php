@@ -8,6 +8,7 @@ use Rector\Website\Entity\ContactMessage;
 use Rector\Website\Exception\ShouldNotHappenException;
 use Rector\Website\Form\ContactFormType;
 use Rector\Website\Repository\ContactMessageRepository;
+use Rector\Website\ValueObject\RouteName;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,16 +16,11 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class ContactController extends AbstractController
 {
-    /**
-     * @var string
-     */
-    private const ROUTE_CONTACT = 'contact';
-
     public function __construct(private ContactMessageRepository $contactMessageRepository, )
     {
     }
 
-    #[Route(path: 'contact', name: self::ROUTE_CONTACT)]
+    #[Route(path: 'contact', name: RouteName::CONTACT)]
     public function __invoke(Request $request): Response
     {
         //, $contactFormData);
@@ -48,7 +44,7 @@ final class ContactController extends AbstractController
             // form was submitted
 
             // rediredt to self
-            return $this->redirectToRoute(self::ROUTE_CONTACT);
+            return $this->redirectToRoute(RouteName::CONTACT);
         }
 
         return $this->render('homepage/contact.twig', [
