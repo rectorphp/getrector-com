@@ -8,13 +8,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-final class HomepageController extends AbstractController
+final class RssController extends AbstractController
 {
-    #[Route(path: '/', name: 'homepage')]
+    #[Route(path: 'rss.xml', name: 'rss')]
     public function __invoke(): Response
     {
-        return $this->render('homepage/homepage.twig', [
-            'title' => "We'll Speed up your Development Process by 300 %",
-        ]);
+        return $this->render('homepage/rss.twig');
     }
 }

@@ -39,6 +39,9 @@ final class DemoRunner
         }
     }
 
+    /**
+     * @param mixed[] $runResult
+     */
     private function createFileDiff(array $runResult, RectorRun $rectorRun): string
     {
         $fileDiff = $runResult['file_diffs'][0]['diff'] ?? null;

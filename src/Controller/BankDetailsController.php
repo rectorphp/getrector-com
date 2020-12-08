@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class BankDetailsController extends AbstractController
 {
-    #[Route('bank-details', name: 'bank-details')]
+    #[Route(path: 'bank-details', name: 'bank_details')]
     public function __invoke(): Response
     {
         return $this->render('homepage/bank_details.twig');

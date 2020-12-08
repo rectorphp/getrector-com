@@ -2,31 +2,56 @@
 
 {% set page_title %}Your Legacy? Our Ecstasy!{% endset %}
 
-{% block subtitle %}Contact us to make impossible happen.{% endblock %}
-
 {% block main %}
-    <div class="container contact" id="subpage">
+    <div id="contact">
+        <h1>Let's Make Impossible Happen</h1>
+
         <div class="row">
-            <div class="col-12 col-sm-6">
-                <h2>
-                    Tomas Votruba
-                    <br>
-                    <small>Chief Cleaning Lady</small>
-                </h2>
+            <div class="col-12 col-sm-8">
+                <h2>How can we Help Your Project?</h2>
 
-                <div class="text-center">
-                    <img src="https://avatars.githubusercontent.com/u/924196" class="rounded-circle img-face shadow">
-                </div>
+                <br>
 
-                <div class="text-center text-bigger">
-                    <a href="tel:+420776778332">+420 <strong>776 778 332</strong></a>
-                    <span class="pl-2 pr-2">•</span>
-                    <a href="mailto:tomas@getrector.org">tomas@getrector.org</a>
-                </div>
+                <p class="mb-5">Tell us your biggest problems you struggle with. <strong>You can be honest with us</strong>, we've seen a lot of legacy projects. We'll get in touch with you within 3 days.</p>
+
+                {{ form_start(contact_form) }}
+                    <div class="row">
+                        <div class="col-6 form-group">
+                            {{ form_row(contact_form.currentPhpVersion) }}
+                        </div>
+
+                        <div class="col-6 form-group">
+                            {{ form_row(contact_form.targetPhpVersion) }}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6 form-group">
+                            {{ form_row(contact_form.projectSize) }}
+                        </div>
+
+                        <div class="col-6 form-group">
+                            {{ form_row(contact_form.framework) }}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 form-group">
+                            {{ form_row(contact_form.message) }}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6 form-group">
+                            {{ form_row(contact_form.name) }}
+                        </div>
+
+                        <div class="col-6 form-group">
+                            {{ form_row(contact_form.email) }}
+                        </div>
+                    </div>
+                {{ form_end(contact_form) }}
             </div>
-
-            {# aspiring cleaning ladies... #}
-            {# slamduik #}
         </div>
 
         <br>
@@ -34,23 +59,41 @@
         <br>
         <br>
 
-        <h3 id="invoice-details">Invoice Details</h3>
+        <div class="row">
+            <div class="col-6">
+                <h2>Tomas Votruba</h2>
+                <p class="text-bigger">Chief Cleaning Officer</p>
 
-        <p>
-            Edukai, s.r.o.
-        </p>
+                <div class="mt-5">
+                    <img src="https://avatars.githubusercontent.com/u/924196" class="rounded-circle img-face shadow ml-4">
+                </div>
 
-        <p>
-            Dubová 4<br>
-            460 01<br>
-            Liberec<br>
-            Czech Republic<br>
-            Europe
-        </p>
+                <div class="text-bigger">
+                    <span class="pl-2 pr-2">•</span>
+                    <a href="tel:+420776778332">+420 <strong>776 778 332</strong></a>
 
-        <p>
-            ID (IČ): 07536721<br>
-            VAT ID (DIČ): CZ07536721
-        </p>
+                    <br>
+                    <span class="pl-2 pr-2">•</span><a href="mailto:tomas@getrector.org">tomas@getrector.org</a>
+                </div>
+            </div>
+
+            <div class="col-6" id="company-details">
+                <h2>Company Details</h2>
+
+                <p class="text-bigger">Edukai, s.r.o.</p>
+
+                <p>
+                    Dubová 4<br>
+                    460 01<br>
+                    Liberec<br>
+                    Czech Republic
+                </p>
+
+                <p>
+                    ID: 07536721<br>
+                    VAT ID: CZ07536721
+                </p>
+            </div>
+        </div>
     </div>
 {% endblock %}

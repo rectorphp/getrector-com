@@ -1,131 +1,147 @@
 {% extends "base.twig" %}
 
-{% set page_title %}
-    We'll <strong>Speed up</strong> your Development&nbsp;Process
-    <br>
-    by 300 %
-{% endset %}
-
 {% block main %}
-    <section class="section bg-light text-center">
-        <div class="container">
-            <h2 class="mb-4" data-aos="fade-up">Who Already Delegates Boring Work to Rector?</h2>
+    <div id="homepage">
+        <h1 class="main-title">
+            We'll Speed up your Development&nbsp;Process
+            <br>
+            by 300 %
+        </h1>
 
-            <div class="row" id="company_logos" class="mt-5">
-                <div class="align-self-center col-6 col-md-3 mb-4" data-aos="fade-up">
-                    <a href="https://eonx.com">
-                        <img src="/assets/images/logo/eonx.png" alt="">
-                    </a>
-                </div>
+        <p class="mt-5">
+            <a href="#how" class="text-bigger">That's a bold claim... How exactly?</a>
+        </p>
 
-                <div class="align-self-center col-6 col-md-3 mb-4" data-aos="fade-up">
-                    <a href="http://amateri.com">
-                        <img src="/assets/images/logo/amateri.png" alt="">
-                    </a>
-                </div>
+        {% include "_snippets/homepage_separator.twig" %}
 
-                <div class="align-self-center col-6 col-md-3 mb-4" data-aos="fade-up">
-                    <a href="http://luzanky.cz">
-                        <img src="/assets/images/logo/luzanky.png" alt="">
-                    </a>
-                </div>
+        <h2><span class="text-rector-blue">Join Companies</span> with Rectified Code</h2>
 
-                <div class="align-self-center col-6 col-md-3 mb-4" data-aos="fade-up">
-                    <a href="https://spaceflow.io">
-                        <img src="/assets/images/logo/spaceflow.png" alt="">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section" id="services">
-        <div class="container">
-            <div class="text-center" data-aos="fade-up">
-                <h2>How will Rector make&nbsp;your&nbsp;Life&nbsp;Easier?</h2>
-            </div>
-
+        <div id="company_logos">
             <div class="row">
-                <div class="col-12 col-md-6">
-                    <div class="card mb-5 md-md-0" data-aos="fade-right">
-                        <div class="card-body">
-                            <h3 class="text-bold text-center mt-3 mb-4">
-                                <em class="fas fa-code fa-fw"></em>
-                                &nbsp;
-                                For CTOs
-                            </h3>
-
-                            <ul class="list-group">
-                                <li>Do you want to migrate your code from PHP 5.3 to 7.4?</li>
-                                <li>Do you want to use the newest Symfony code without reading all the <code>CHANGELOG.md</code> files?</li>
-                                <li>Do you want to turn static to constructor injection in 1000 classes in seconds?</li>
-                                <li>Refactor custom code at scale without rebasing?</li>
-                            </ul>
-
-                            <div class="text-center mt-5 mb-3">
-                                <a href="{{ path('contact') }}" class="btn btn-success btn-lg">
-                                    Let's talk about Your Legacy
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                <div class="align-self-center col-6 mb-4 col-md-2">
+                    <img src="/assets/images/logo/eonx.png" alt="">
                 </div>
 
-                <div class="col-12 col-md-6">
-                    <div class="card mb-5 md-md-0" data-aos="fade-left">
-                        <div class="card-body">
-                            <h3 class="text-bold text-center mt-3 mb-4">
-                                <em class="fas fa-user-tie fa-fw"></em>
-                                &nbsp;
-                                For CEOs
-                            </h3>
-
-                            <ul class="list-group">
-                                <li>Are you stuck on legacy code because you have to "delivery features"?</li>
-                                <li>Do you use old framework, that slows down your product?</li>
-                                <li>Does your team complain about legacy code, but you just can't stop development for 6 months?</li>
-                                <li>Do you want keep delivering features and migrate framework at the same time?</li>
-                            </ul>
-
-                            <div class="text-center mt-4 mb-3">
-{#                                <a href="{{ path('for_companies') }}" class="btn btn-primary">#}
-                                <a href="{{ path('contact') }}" class="btn btn-success btn-lg">
-                                    Contact us and Jump over Competition
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                <div class="align-self-center col-6 mb-4 col-md-2 ml-4 text-right" style="margin-right: -.4em">
+                    <img src="/assets/images/logo/amateri.png" alt="">
                 </div>
 
+                <div class="align-self-center col-6 mb-4 col-md-2">
+                    <img src="/assets/images/logo/zenika.jpg" alt="">
+                </div>
+
+                <div class="align-self-center col-6 mb-4 col-md-2" style="margin-left: -.4em;margin-right: -.5em;">
+                    <img src="/assets/images/logo/luzanky.png" alt="">
+                </div>
+
+                <div class="align-self-center col-6 mb-4 col-md-2">
+                    <img src="/assets/images/logo/jcid.png" alt="">
+                </div>
+
+                <div class="align-self-center col-6 mb-4 col-md-2" style="margin-left: -1em">
+                    <img src="/assets/images/logo/spaceflow.png" alt="">
+                </div>
             </div>
         </div>
-    </section>
 
-    <div class="section bg-light">
-        <div class="container" id="mission">
+        {% include "_snippets/homepage_separator.twig" %}
 
-            <h2 data-aos="fade-up">
-                <em class="fas fa-dove"></em>
-                &nbsp;
-                What is our Mission?
-            </h2>
+        <div id="how"></div>
+        <h2>How will Rector make&nbsp;your&nbsp;<span class="text-rector-blue">Life&nbsp;Easier</span>?</h2>
 
-            <q class="blockquote" data-aos="fade-up">
-                To help every developer in the planet with fresh or legacy PHP code to use the latest PHP, the most advanced version of their favorite framework and the latest craftsman patterns there will be.<br><br>
-                Without work, instantly, so they can focus on what they love most - <strong>thinking about algorithms and writing fresh code</strong>.
-            </q>
+        <div class="row text-center">
+
+            <div class="col-12 col-md-4">
+                <em class="fas fa-brain fa-3x text-rector-blue"></em>
+                <h3>Smarter Code</h3>
+            </div>
+
+            <div class="col-12 col-md-4">
+                <em class="fas fa-piggy-bank fa-3x text-rector-green"></em>
+                <h3>Cheaper Features</h3>
+            </div>
+
+            <div class="col-12 col-md-4">
+                <em class="fas fa-users fa-3x text-rector-blue"></em>
+                <h3>Faster Onboarding</h3>
+            </div>
         </div>
+
+        <br>
+        <br>
+
+        <div class="row text-center">
+            <div class="col-12 col-md-4">
+                <em class="fas fa-smile-beam fa-3x text-rector-green"></em>
+                <h3>
+                    Happier<br>
+                    Developers
+                </h3>
+            </div>
+
+            <div class="col-12 col-md-4">
+                <em class="fas fa-sync-alt fa-3x text-rector-blue fa-spin"></em>
+                <h3>Continuous Upgrades</h3>
+            </div>
+
+            <div class="col-12 col-md-4">
+                <em class="fas fa-robot fa-3x text-rector-red"></em>
+                <h3>Automated Code Reviews</h3>
+            </div>
+        </div>
+
+        <br>
+        <br>
+        <br>
+
+        <div class="text-center">
+            <a href="{{ path('contact') }}" class="btn btn-success btn-lg m-auto">
+                Take a leap to Ultra Project
+            </a>
+        </div>
+
+        {% include "_snippets/homepage_separator.twig" %}
+
+        <h2>
+            What do you <span class="text-rector-blue">Love about Rector</span>?
+        </h2>
+
+       <blockquote class="blockquote clearfix">
+           <img src="https://pbs.twimg.com/profile_images/867439780728107016/GWANUhbt_400x400.jpg" class="rounded-circle img-face-smaller-right shadow" alt="">
+
+            <p>
+                "Since last week, I <strong>automated several months work of mindless work</strong>.<br>
+                Rector is one of my best friends in the fight against legacy."
+            </p>
+
+            <footer class="blockquote-footer">
+                <a href="https://twitter.com/afilina/status/1229406983486394369">Anna Filina</a>, Legacy Archeologist
+            </footer>
+        </blockquote>
+
+        <blockquote class="blockquote clearfix">
+            <img src="https://pbs.twimg.com/profile_images/819586686149677056/DOMf3P79_400x400.jpg" class="rounded-circle img-face-smaller-left shadow mr-5" alt="">
+
+            <p>
+                "Just upgraded <strong>PHPUnit 4 to 8</strong> with Rector in <strong>3 seconds</strong>."
+            </p>
+            <footer class="blockquote-footer">
+                <a href="https://twitter.com/ArkadiuszKondas/status/1196349896690950144">Arkadiusz Kondas</a>,
+                Software Architect and Ultrarunner
+            </footer>
+        </blockquote>
+
+        <blockquote class="blockquote">
+            <img src="https://pbs.twimg.com/profile_images/937401535109238784/LUP1_bQf_400x400.jpg" class="rounded-circle img-face-smaller-right shadow ml-3" alt="">
+
+            <p>
+                "Rector is one of <strong>the most useful projects</strong> PHP developers overlook.<br>
+                It upgrades your Symfony 3 app to Symfony 4."
+            </p>
+
+            <footer class="blockquote-footer">
+                <a href="https://twitter.com/symfony_en/status/1076024294591877120">Symfony News</a>
+            </footer>
+        </blockquote>
     </div>
-
-    <section class="section" data-aos="fade-up">
-        <div class="container text-center">
-            <h2>
-                <em class="fas fa-user-check"></em>
-                &nbsp;
-                What Rector Users Say?
-            </h2>
-
-            {% include "_snippets/tweets.twig" %}
-        </div>
-    </section>
 {% endblock %}

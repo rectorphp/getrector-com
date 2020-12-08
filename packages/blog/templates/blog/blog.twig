@@ -3,26 +3,24 @@
 {% set page_title %}Do you Want to Learn&nbsp;about&nbsp;Rector?{% endset %}
 
 {% block main %}
-    <div class="container" id="subpage">
-        <div class="row">
-            {# "filter" prevents future publishing #}
-            {% for post in posts|filter(post => (post.dateTime|date('Y-m-d') <= "now"|date('Y-m-d'))) %}
-                <div class="col-12 mb-5 text-center">
-                    <h2 class="mb-0 pb-2 mt-3">
-                        <a href="{{ path('post', {'postSlug': post.slug }) }}">{{ post.title }}</a>
-                    </h2>
+    <div id="blog">
+        <h1>Rector Blog</h1>
 
-                    <div class="mt-2">
-                        <time datetime="{{ post.dateTime|date('Y-m-D') }}" class="text-muted">
-                            {{ post.dateTime|date('Y-m-d') }}
-                        </time>
-                    </div>
+        {% for post in posts %}
+            <div class="mb-5">
+                <h2>
+                    <a href="{{ path('post', {'postSlug': post.slug }) }}">{{ post.title }}</a>
+                </h2>
 
-                    <br>
-                    <br>
-                    <hr>
+                <div class="mt-2 alt-mono-font text-grey">
+                    <time datetime="{{ post.dateTime|date('Y-m-D') }}" class="text-muted text-smaller">
+                        {{ post.dateTime|date }}
+                    </time>
                 </div>
-            {% endfor %}
+
+                <br>
+            </div>
+        {% endfor %}
         </div>
     </div>
 {% endblock %}

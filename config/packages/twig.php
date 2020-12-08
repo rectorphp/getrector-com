@@ -3,25 +3,27 @@
 declare(strict_types=1);
 
 use Rector\Website\Twig\RectorCountVariableProvider;
+use Rector\Website\ValueObject\TwigExtension;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
-use function Symfony\Component\DependencyInjection\Loader\Configurator\ref;
+use function Symfony\Component\DependencyInjection\Loader\Configurator\service;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
-    $containerConfigurator->extension('twig', [
-        'default_path' => '%kernel.project_dir%/templates',
-        'debug' => '%kernel.debug%',
-        'strict_variables' => '%kernel.debug%',
-        'exception_controller' => null,
-        'globals' => [
+    $containerConfigurator->extension(TwigExtension::NAME, [
+        TwigExtension::FORM_THEMES => ['bootstrap_4_layout.html.twig'],
+        TwigExtension::DEFAULT_PATH => '%kernel.project_dir%/templates',
+        TwigExtension::DEBUG => '%kernel.debug%',
+        TwigExtension::STRICT_VARIABLES => '%kernel.debug%',
+        TwigExtension::EXCEPTION_CONTROLLER => null,
+        TwigExtension::GLOBALS => [
             'site_url' => 'https://getrector.org',
             'main_page_title' => 'Rector - Automated Way to Instantly Upgrade and Refactor any PHP code',
-            'rector_count_provider' => ref(RectorCountVariableProvider::class),
+            'rector_count_provider' => service(RectorCountVariableProvider::class),
             'disqus_name' => 'getrectororg',
         ],
-        'date' => [
-            'format' => 'j. n., G:i',
+        TwigExtension::DATE => [
+            'format' => 'F d, Y',
         ],
-        'number_format' => [
+        TwigExtension::NUMBER_FORMAT => [
             'decimals' => 0,
             'decimal_point' => ',',
             'thousands_separator' => ' ',

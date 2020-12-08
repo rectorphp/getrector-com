@@ -2,8 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Demo\Form\FormDataFactory;
+namespace Rector\Website\Demo\ValueObjectFactory;
 
+use DateTimeImmutable;
+use Ramsey\Uuid\Uuid;
 use Rector\Website\Demo\Entity\RectorRun;
 use Rector\Website\Demo\ValueObject\DemoFormData;
 use Symplify\SmartFileSystem\SmartFileSystem;
@@ -16,12 +18,12 @@ final class DemoFormDataFactory
     /**
      * @var string
      */
-    public const CONTENT_FILE_PATH = __DIR__ . '/../../../data/DemoFile.php';
+    public const CONTENT_FILE_PATH = __DIR__ . '/../../data/DemoFile.php';
 
     /**
      * @var string
      */
-    public const CONFIG_FILE_PATH = __DIR__ . '/../../../data/demo-config.php';
+    public const CONFIG_FILE_PATH = __DIR__ . '/../../data/demo-config.php';
 
     public function __construct(private SmartFileSystem $smartFileSystem)
     {
@@ -38,5 +40,10 @@ final class DemoFormDataFactory
         $demoConfig = $this->smartFileSystem->readFile(self::CONFIG_FILE_PATH);
 
         return new DemoFormData($demoContent, $demoConfig);
+    }
+
+    public function createRectorRun(string $config, DemoFormData $demoFormData): RectorRun
+    {
+        return new RectorRun(Uuid::uuid4(), new DateTimeImmutable(), $config, $demoFormData->getContent());
     }
 }

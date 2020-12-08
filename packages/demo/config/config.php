@@ -15,14 +15,12 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         ->autoconfigure();
 
     $services->load('Rector\Website\Demo\\', __DIR__ . '/../src/')
-        ->exclude(
-            [
-                __DIR__ . '/../src/Exception',
-                __DIR__ . '/../src/Entity',
-                __DIR__ . '/../src/ValueObject',
-                __DIR__ . '/../src/Validator/Constraint',
-            ]
-        );
+        ->exclude([
+            __DIR__ . '/../src/Exception',
+            __DIR__ . '/../src/Entity',
+            __DIR__ . '/../src/ValueObject',
+            __DIR__ . '/../src/Validator/Constraint',
+        ]);
 
     $services->set(RectorRunValueResolver::class)
         ->tag('controller.argument_value_resolver', [

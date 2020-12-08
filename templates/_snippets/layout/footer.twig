@@ -1,36 +1,36 @@
 <div id="footer">
     <div class="container">
         <div class="row">
-            <div class="col-12 col-md-6 text-center text-md-left mb-4 mb-md-0">
-                <a href="{{ path('contact') }}">Contact</a>
-                <span class="pl-2 pr-2">•</span>
-                <a href="https://github.com/rectorphp/rector/blob/master/docs/rector_rules_overview.md" class="mt-5">
-                    Delegate to {{ rector_count_provider.provide }} Rector Rules
+            <div class="col-12 col-md-6 text-center text-md-left pt-3">
+                <a href="http://github.com/rectorphp/rector" class="p-2">
+                    <em class="fab fa-github fa-fw fa-lg"></em>
                 </a>
 
-                <br>
-                <br>
-
-                <a href="https://twitter.com/rectorphp" class="mr-4">
-                    <em class="fab fa-twitter fa-fw fa-2x"></em>
+                <a href="https://twitter.com/rectorphp" class="p-2">
+                    <em class="fab fa-twitter fa-fw fa-lg"></em>
                 </a>
 
-                <a href="https://www.linkedin.com/company/rectorphp" class="mr-4">
-                    <em class="fab fa-linkedin fa-fw fa-2x"></em>
+                <a href="{{ path('rss') }}" class="p-2">
+                    <em class="fas fa-rss fa-fw fa-lg"></em>
                 </a>
 
-                <a href="http://facebook.com/rectorphp">
-                    <em class="fab fa-facebook fa-fw fa-2x"></em>
+                <a href="https://www.linkedin.com/company/rectorphp" class="p-2">
+                    <em class="fab fa-linkedin fa-fw fa-lg"></em>
+                </a>
+
+                <a href="http://facebook.com/rectorphp" class="p-2">
+                    <em class="fab fa-facebook fa-fw fa-lg"></em>
                 </a>
             </div>
 
-            <div class="col-12 col-md-6 text-center text-md-right" id="made_by">
-                <strong>Do you want to get out of legacy code in 1 month?</strong>
+            <div class="col-12 col-md-6 text-center text-md-right">
+                <p>
+                    Do you want to Migrate out of Legacy Code <strong>in a month</strong>?
 
-                <br>
-                <br>
+                    <br>
 
-                <a href="{{ path('contact') }}">Write us</a> to make impossible happen
+                    <a href="{{ path(constant('Rector\\Website\\ValueObject\\RouteName::CONTACT')) }}">Dare us</a>
+                </p>
             </div>
         </div>
     </div>

@@ -37,6 +37,9 @@ final class PHPConstraintValidatorTest extends AbstractKernelTestCase
         $this->assertCount(0, $constraints);
     }
 
+    /**
+     * @return Iterator<mixed>
+     */
     public function provideDataForTestValidPHPSyntax(): Iterator
     {
         return StaticFixtureFinder::yieldDirectory(__DIR__ . '/Fixture', '*.php.inc');
@@ -58,6 +61,9 @@ final class PHPConstraintValidatorTest extends AbstractKernelTestCase
         $this->assertSame('Add opening "<?php" tag', $constraintViolation->getMessage());
     }
 
+    /**
+     * @return Iterator<mixed>
+     */
     public function provideDataForTestMissingPHPOpeningTag(): Iterator
     {
         yield ['php echo'];
@@ -82,6 +88,9 @@ final class PHPConstraintValidatorTest extends AbstractKernelTestCase
         $this->assertStringMatchesFormat('Fix PHP syntax: %s', $message);
     }
 
+    /**
+     * @return Iterator<mixed>
+     */
     public function provideDataForTestInvalidPHPSyntax(): Iterator
     {
         yield ['<?php echo " echo . '];

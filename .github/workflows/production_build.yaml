@@ -27,4 +27,4 @@ jobs:
               run: docker run -e APP_ENV=prod image bin/console cache:warmup
 
             - name: Doctrine schema validation
-              run: docker run -e APP_ENV=prod image bin/console doctrine:schema:validate --skip-sync
+              run: docker run -e APP_ENV=prod image bin/console doctrine:schema:validate --skip-sync --ansi

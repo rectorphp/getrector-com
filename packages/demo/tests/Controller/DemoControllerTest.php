@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Website\Demo\Tests\Controller;
 
-use Generator;
+use Iterator;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
@@ -44,7 +44,10 @@ final class DemoControllerTest extends WebTestCase
         $this->assertSelectorExists('.invalid-feedback');
     }
 
-    public function provideTestFormSubmitData(): Generator
+    /**
+     * @return Iterator<mixed>
+     */
+    public function provideTestFormSubmitData(): Iterator
     {
         # Send empty form
         yield ['', ''];

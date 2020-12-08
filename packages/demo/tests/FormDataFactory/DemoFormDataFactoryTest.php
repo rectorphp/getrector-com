@@ -7,12 +7,12 @@ namespace Rector\Website\Demo\Tests\FormDataFactory;
 use DateTimeImmutable;
 use Ramsey\Uuid\Uuid;
 use Rector\Website\Demo\Entity\RectorRun;
-use Rector\Website\Demo\Form\FormDataFactory\DemoFormDataFactory;
+use Rector\Website\Demo\ValueObjectFactory\DemoFormDataFactory;
 use Rector\Website\GetRectorKernel;
 use Symplify\PackageBuilder\Testing\AbstractKernelTestCase;
 
 /**
- * @see \Rector\Website\Demo\Form\FormDataFactory\DemoFormDataFactory
+ * @see \Rector\Website\Demo\ValueObjectFactory\DemoFormDataFactory
  */
 final class DemoFormDataFactoryTest extends AbstractKernelTestCase
 {

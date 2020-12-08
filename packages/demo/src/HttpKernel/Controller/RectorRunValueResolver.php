@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Rector\Website\Demo\HttpKernel\Controller;
 
-use Iterator;
 use Ramsey\Uuid\Uuid;
 use Rector\Website\Demo\Entity\RectorRun;
 use Rector\Website\Demo\Repository\RectorRunRepository;
@@ -30,14 +29,13 @@ final class RectorRunValueResolver implements ArgumentValueResolverInterface
     }
 
     /**
-     * @return RectorRun
+     * @return RectorRun[]
      */
-    public function resolve(Request $request, ArgumentMetadata $argumentMetadata): Iterator
+    public function resolve(Request $request, ArgumentMetadata $argumentMetadata): iterable
     {
         $argumentValue = $request->get($argumentMetadata->getName());
 
         $uuid = Uuid::fromString($argumentValue);
-
-        yield $this->rectorRunRepository->get($uuid);
+        return [$this->rectorRunRepository->get($uuid)];
     }
 }

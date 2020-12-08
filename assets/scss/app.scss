@@ -1,7 +1,13 @@
 // setting the value of this variable to an empty data URL is the only working solution
 // to load the Bootswatch web fonts locally and avoid loading them from Google servers
 // see https://github.com/thomaspark/bootswatch/issues/55#issuecomment-298093182
-$web-font-path: 'data:text/css;base64,';
+
+@import url('https://rsms.me/inter/inter.css');
+html { font-family: 'Inter', sans-serif; }
+@supports (font-variation-settings: normal) {
+    html { font-family: 'Inter var', sans-serif; }
+}
+
 $black: #24292e;
 
 // Make sure the bootstrap-sass and lato fonts are resolved correctly
@@ -10,7 +16,6 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 //@import "~bootstrap-sass/assets/stylesheets/bootstrap";
 @import "~bootstrap/scss/bootstrap";
 @import "~@fortawesome/fontawesome-free/css/all.css";
-@import "logo";
 @import "menu";
 @import "prism";
 
@@ -32,11 +37,6 @@ a, a:hover, a:focus, button, button:focus {
         2.HELPER
 ============================*/
 
-.section .container {
-    padding-top: 5em;
-    padding-bottom: 5em;
-}
-
 /*==========================
         4.HOME
 ============================*/
@@ -53,10 +53,8 @@ a, a:hover, a:focus, button, button:focus {
 ============================*/
 
 #company_logos img {
-    //max-width: 100%;
-
     width: 10em;
-    height: 3em;
+    height: 2em;
     object-fit: scale-down;
 
     @include media-breakpoint-down(md) {
@@ -64,22 +62,19 @@ a, a:hover, a:focus, button, button:focus {
     }
 }
 
+h1, h2, h3 {
+    font-family: 'Inter', sans-serif;
+}
+
 h2 {
-    margin-left: 0;
-    margin-bottom: 1.3em;
-    padding-left: 0;
-    padding-bottom: 1em;
-    font-family: 'Roboto Slab', serif;
+    margin-top: 1.3rem;
     font-weight: 500;
-    font-size: 2.2rem;
+    line-height: 1.3em;
+}
 
-    @include media-breakpoint-down(md) {
-        font-size: 1.7em;
-    }
-
-    @include media-breakpoint-down(sm) {
-        font-size: 1.3em;
-    }
+h3 {
+    font-size: 1.4rem;
+    line-height: 1.7em;
 }
 
 .blockquote {
@@ -95,42 +90,6 @@ h2 {
     font-size: 1em;
 }
 
-#subtitle {
-    color: #FFF;
-    font-size: 2em;
-
-    @include media-breakpoint-down(md) {
-        font-size: 1.4em;
-
-        .btn {
-            font-size: 1em;
-        }
-    }
-
-    @include media-breakpoint-down(sm) {
-        font-size: 1.2em;
-
-        .btn {
-            font-size: .8em;
-        }
-    }
-}
-
-#subpage {
-    padding-top: 2em;
-    padding-bottom: 5em;
-
-    h2 {
-        margin-top: 1.3em;
-        margin-bottom: 1em;
-        text-align: center;
-    }
-}
-
-.card {
-    box-shadow: 4px 4px 4px rgba(0, 0, 0, .1);
-}
-
 .btn span {
     font-size: 1em;
 }
@@ -138,18 +97,8 @@ h2 {
 /* inspired by backers from https://nette.org/ */
 #company_logos {
     img {
-        transition: all .3s ease;
-        -webkit-filter: grayscale(100%);
         filter: grayscale(100%);
-        opacity: .66;
-        transform: scale(0.90);
-    }
-
-    a:hover img {
-        filter: grayscale(0%);
-        opacity: 1;
-        transform: scale(1);
-        transition: .2s;
+        opacity: .70;
     }
 }
 
@@ -166,12 +115,7 @@ body {
     flex-direction: column;
 }
 
-#main {
-    flex: 1 0 auto;
-}
-
 #footer {
-    flex-shrink: 0;
     padding: 1.8em 0;
 
     background-color: $black;
@@ -185,26 +129,17 @@ body {
             color: #20a55b;
         }
     }
-
-    #made_by {
-        color: #DDD;
-        font-size: 1em;
-    }
 }
 
 .section:not(.bg-light) {
-    background-image: url('/assets/images/chars.png');
     background-position: top left;
     background-repeat: repeat;
 }
 
 h1 {
-    color: #FFF;
-    font-size: calc(2.4em + 1.2vw);
+    font-size: 2.8em;
     line-height: 1.4em;
     font-weight: 300;
-    font-family: "Roboto Slab";
-    text-align: center;
     padding-bottom: .5em;
 
     strong {
@@ -218,23 +153,22 @@ h1 {
     @include media-breakpoint-down(sm) {
         font-size: 1.7em;
     }
+
+    &.main-title {
+        margin-top: 2em;
+        font-size: 3.5em;
+        line-height: 1.25em;
+        font-weight: 800;
+    }
 }
 
 .container {
-    max-width: 55em;
-}
-
-.card h3 {
-    font-size: 1.5em;
+    max-width: 52em;
 }
 
 ul.list-noindent {
     margin-left: 1.2em;
     padding-left: 0;
-}
-
-#subpage .section h2 {
-    margin-top: 0;
 }
 
 .reference-text {
@@ -245,15 +179,6 @@ ul.list-noindent {
 #footer .container {
     max-width: 50em;
     font-size: .8em;
-}
-
-h2 {
-    color: #4b4b4b;
-    text-align: center;
-
-    small {
-        font-size: 0.7em;
-    }
 }
 
 q.blockquote {
@@ -299,32 +224,48 @@ q.blockquote {
     margin: .1em auto 2.8em auto;
 }
 
-h1 em, h2 em, h2 a {
-    font-size: 1em;
-}
-
-.list-group {
-    margin-left: 1.3em;
-
-    li {
-        margin-bottom: .5em;
-    }
-}
-
 .perex {
     margin-top: 1em;
     margin-bottom: 1em;
-    font-size: 1.3em;
+    font-size: 1.2em;
+    padding: .7em 0;
 }
 
-#small_header {
-    background: #222;
+#homepage {
+    margin-bottom: 8em;
+    clear: both;
 
-    h1 {
-        text-align: left;
-        font-size: 2.2em;
-        line-height: 1.3em;
-        margin-bottom: 0;
+    h2 {
+        font-size: 2.4rem;
+        margin: 2em 0;
+        text-align: center;
+
+        font-weight: 500 !important;
+    }
+
+    h3 {
+        margin-top: 1.5em;
+        text-transform: uppercase;
+        font-size: 1.4em;
+        font-weight: 200;
+        line-height: 1.5em;
+    }
+
+    .blockquote {
+        font-size: 1.4em;
+        margin-bottom: 1em;
+    }
+
+    .img-face-smaller-right {
+        float: right;
+        max-width: 5em;
+        margin: .1em auto 2.8em auto;
+    }
+
+    .img-face-smaller-left {
+        float: left;
+        max-width: 5em;
+        margin: .1em auto 2.8em auto;
     }
 }
 
@@ -386,14 +327,6 @@ h1 em, h2 em, h2 a {
     }
 }
 
-.badge, .invalid-feedback {
-    font-size: 1em;
-}
-
-.badge {
-    margin-right: .5em;
-}
-
 h2 a, a {
     color: #21c87a;
 
@@ -402,23 +335,88 @@ h2 a, a {
     }
 }
 
-#subpage.post {
-    h2 {
-        text-align: left;
-        padding-bottom: 0;
-    }
+#post, #blog, #contact, #mission {
+    margin-top: 2em;
+    margin-bottom: 6em;
 
-    h3 {
-        margin-top: 1em;
+    h1 {
+        margin-top: 2.5em;
+        margin-bottom: 2.2em;
+        font-weight: 500 !important;
+        color: #24292e;
     }
 
     .text-body {
-        font-size: 1.2em;
+        font-size: 1.1em;
     }
 }
 
-#subpage.contact {
-    .card {
-        margin-bottom: 1em;
+.navbar-dark .navbar-nav {
+    text-align: center;
+
+    a.nav-link {
+        margin: 0;
+        padding: .5em 1em;
     }
+
+    .active {
+        background: white;
+
+        a.nav-link, a.nav-link:active {
+            color: #222;
+        }
+    }
+}
+
+.alt-mono-font {
+    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
+}
+
+.text-smaller {
+    font-size: .8em;
+}
+
+.text-grey {
+    color: #959da5;
+}
+
+ol {
+    padding-left: 1em;
+
+    li {
+        margin-top: 1.2em;
+    }
+}
+
+// forms
+label.required:before {
+    content: "* ";
+    color: #dc3545;
+}
+
+.img-thumbnail {
+    margin-bottom: .5em;
+}
+
+#top_right_logo {
+    float: right;
+    margin-top: -.1em;
+
+    img {
+        max-height: 2.4em;
+    }
+}
+
+// from the logo window - http://getrector.org/assets/images/logo/rector-white.svg
+.text-rector-blue {
+    color: #75d5eb;
+}
+
+.text-rector-green {
+    color: #74c079;
+}
+
+.text-rector-red {
+    color: #994343;
+    // or #9d2e2e
 }

@@ -5,7 +5,8 @@ declare(strict_types=1);
 use Rector\Website\Demo\ValueObject\Option;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
-use function Symfony\Component\DependencyInjection\Loader\Configurator\ref;
+use function Symfony\Component\DependencyInjection\Loader\Configurator\service;
+use Symfony\Component\Security\Core\Security;
 use Symplify\PackageBuilder\Console\Style\SymfonyStyleFactory;
 use Symplify\PackageBuilder\Reflection\PrivatesAccessor;
 
@@ -31,22 +32,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         'mail',
     ]);
 
-    $parameters->set(Option::DEMO_LINKS, [
-        [
-            'label' => 'PHP 7.4 Typed Properties',
-            'uuid' => '19ac6368-a647-43eb-a762-d16abe61dfff',
-        ], [
-            'label' => 'create_function()',
-            'uuid' => '90fe1d8c-affc-499c-988e-cc746a242dc5',
-        ], [
-            'label' => 'Early Return',
-            'uuid' => '950be432-0e91-4bbf-837e-080f0329d9d4',
-        ], [
-            'label' => 'Null Coalescing',
-            'uuid' => '81d6c6c4-a8e1-4eee-a1fb-24599aee4e5e',
-        ],
-    ]);
-
     $services = $containerConfigurator->services();
 
     $services->defaults()
@@ -55,12 +40,16 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         ->autoconfigure();
 
     $services->load('Rector\Website\\', __DIR__ . '/../src/')
-        ->exclude([__DIR__ . '/../src/GetRectorKernel.php']);
+        ->exclude(
+            [__DIR__ . '/../src/GetRectorKernel.php', __DIR__ . '/../src/ValueObject', __DIR__ . '/../src/Entity']
+        );
 
     $services->set(SymfonyStyleFactory::class);
 
     $services->set(PrivatesAccessor::class);
 
     $services->set(SymfonyStyle::class)
-        ->factory([ref(SymfonyStyleFactory::class), 'create']);
+        ->factory([service(SymfonyStyleFactory::class), 'create']);
+
+    $services->set(Security::class);
 };

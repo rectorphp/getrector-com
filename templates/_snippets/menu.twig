@@ -2,41 +2,33 @@
     <div class="container">
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a href="{{ path('blog') }}" class="nav-link">
-                        Blog
-                    </a>
+                <li class="nav-item {% if is_current_routes(["blog", "post"]) %}active{% endif %}">
+                    <a href="{{ path('blog') }}" class="nav-link">Blog</a>
                 </li>
 
-                <li class="nav-item">
-                    <a href="#mission" class="nav-link">
-                        Mission
-                    </a>
+                <li class="nav-item {% if is_current_routes(["mission"]) %}active{% endif %}">
+                    <a href="{{ path('mission') }}" class="nav-link">Mission</a>
                 </li>
 
-                <li class="nav-item">
-                    <a href="{{ path('demo') }}" class="nav-link">
-                        Try Rector Online
-                    </a>
+                <li class="nav-item {% if is_current_routes(["demo", "demo_detail"]) %}active{% endif %}">
+                    <a href="{{ path('demo') }}" class="nav-link">Demo</a>
                 </li>
 
-                <li class="nav-item">
-                    <a href="{{ path('contact') }}" class="nav-link">
-                        Contact
-                    </a>
+                <li class="nav-item {% if is_current_routes(["contact"]) %}active{% endif %}">
+                    <a href="{{ path('contact') }}" class="nav-link">Contact</a>
                 </li>
 
                 <li class="nav-item">
                     <a href="http://github.com/rectorphp/rector" class="nav-link mr-3">
-                        GitHub
+                        <em class="fab fa-github fa-lg"></em>
                     </a>
                 </li>
             </ul>
         </div>
 
-        <div style="float: right; margin-top: -.2em">
+        <div id="top_right_logo">
             <a href="{{ path('homepage') }}">
-                <img src="{{ asset('assets/images/logo/rector-white.svg') }}" alt="" style="height: 2.7em">
+                <img src="{{ asset('assets/images/logo/rector-white.svg') }}" alt="">
             </a>
         </div>
     </div>
