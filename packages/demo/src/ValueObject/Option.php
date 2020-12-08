@@ -9,11 +9,6 @@ final class Option
     /**
      * @var string
      */
-    public const DEMO_LINKS = 'demo_links';
-
-    /**
-     * @var string
-     */
     public const FORBIDDEN_FUNCTIONS = 'forbidden_functions';
 
     /**

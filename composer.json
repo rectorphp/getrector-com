@@ -33,7 +33,6 @@
         "symfony/process": "^5.2",
         "symfony/security-bundle": "^5.2",
         "symfony/security-core": "^5.2",
-        "symfony/stopwatch": "^5.2",
         "symfony/templating": "^5.2",
         "symfony/translation": "^5.2",
         "symfony/twig-bridge": "^5.2",

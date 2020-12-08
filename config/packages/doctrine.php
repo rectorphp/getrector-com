@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Symfony\Bridge\Doctrine\Types\UuidType;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
@@ -15,6 +16,9 @@ return static function (ContainerConfigurator $containerConfigurator): void {
             'user' => '%env(DATABASE_USER)%',
             'password' => '%env(DATABASE_PASSWORD)%',
             'charset' => '%env(DATABASE_CHARSET)%',
+            'types' => [
+                'uuid' => UuidType::class,
+            ],
         ],
     ]);
 

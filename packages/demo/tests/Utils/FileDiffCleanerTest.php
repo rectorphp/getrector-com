@@ -43,9 +43,15 @@ final class FileDiffCleanerTest extends AbstractKernelTestCase
             __DIR__ . '/FileDiffCleanerSource/start_input.txt',
             __DIR__ . '/FileDiffCleanerSource/expected_output.txt',
         ];
+
         yield [
             __DIR__ . '/FileDiffCleanerSource/newline_input.txt',
             __DIR__ . '/FileDiffCleanerSource/expected_output.txt',
+        ];
+
+        yield [
+            __DIR__ . '/FileDiffCleanerSource/endline_input.txt',
+            __DIR__ . '/FileDiffCleanerSource/endline_output.txt',
         ];
     }
 }

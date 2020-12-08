@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Rector\Website\Demo\Tests\Validator;
 
 use Iterator;
-use Rector\Website\Demo\ValueObject\DemoFormData;
+use Rector\Website\Demo\Entity\RectorRun;
 use Rector\Website\GetRectorKernel;
 use Symfony\Component\Validator\ConstraintViolation;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
@@ -31,7 +31,7 @@ final class PHPConstraintValidatorTest extends AbstractKernelTestCase
      */
     public function testValidPHPSyntax(SmartFileInfo $smartFileInfo): void
     {
-        $demoFormData = new DemoFormData($smartFileInfo->getContents(), '<?php echo 1;');
+        $demoFormData = $this->createRectorRun($smartFileInfo->getContents(), '<?php echo 1;');
         $constraints = $this->validator->validate($demoFormData);
 
         $this->assertCount(0, $constraints);
@@ -50,7 +50,7 @@ final class PHPConstraintValidatorTest extends AbstractKernelTestCase
      */
     public function testMissingPHPOpeningTag(string $content): void
     {
-        $demoFormData = new DemoFormData($content, '');
+        $demoFormData = $this->createRectorRun($content, '');
         $constraints = $this->validator->validate($demoFormData);
 
         $this->assertCount(2, $constraints);
@@ -75,7 +75,7 @@ final class PHPConstraintValidatorTest extends AbstractKernelTestCase
      */
     public function testInvalidPHPSyntax(string $content): void
     {
-        $demoFormData = new DemoFormData($content, '<?php echo 1;');
+        $demoFormData = $this->createRectorRun($content, '<?php echo 1;');
         $constraints = $this->validator->validate($demoFormData);
 
         $this->assertCount(1, $constraints);
@@ -94,5 +94,14 @@ final class PHPConstraintValidatorTest extends AbstractKernelTestCase
     public function provideDataForTestInvalidPHPSyntax(): Iterator
     {
         yield ['<?php echo " echo . '];
+    }
+
+    private function createRectorRun(string $content, string $config): RectorRun
+    {
+        $rectorRun = new RectorRun();
+        $rectorRun->setContent($content);
+        $rectorRun->setConfig($config);
+
+        return $rectorRun;
     }
 }

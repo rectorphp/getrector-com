@@ -4,7 +4,7 @@
 <meta name="description" content="Rector - Automated Way to Instantly Upgrade and Refactor any PHP code" />
 <meta name="keywords" content="php, rector, instant upgrades, instant refactoring, upgrade symfony, upgrade php, upgrade cakephp, upgrade legacy, php migration, laravel shift alternative, php shift" />
 
-{% set full_title %}{% if page_title is defined %}{{ page_title|clear_title }} | {% endif %} {{ main_page_title }}{% endset %}
+{% set full_title %}{% if page_title is defined %}{{ page_title|clear_title }} | {% endif %}{{ main_page_title }}{% endset %}
 <title>{{ full_title }}</title>
 
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-touch-icon.png">
@@ -12,17 +12,17 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
 <link rel="mask-icon" href="/assets/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
 <meta name="msapplication-TileColor" content="#da532c">
-<meta name="theme-color" content="#ffffff">
+{#<meta name="theme-color" content="#ffffff">#}
 
 <meta name="twitter:site" content="@rectorphp">
+
+{% set social_image %}{{ site_url }}/assets/images/logo/rector/rector-no_frame_vector_for_circles.png{% endset %}
 
 {# socials sharing - Twitter at least #}
 <meta property="og:type" content="website">
 <meta property="og:title" content="{{ full_title }}">
-
-{% set social_image %}{{ site_url }}/assets/images/logo/rector/rector-no_frame_vector_for_circles.png{% endset %}
+<meta property="og:image" content="{{ social_image }}">
 
 {# https://wordpress.stackexchange.com/a/271508 #}
 <link rel="image_src" href="{{ social_image }}">
-<meta property="og:image" content="{{ social_image }}">
 <meta name="twitter:image" content="{{ social_image }}">

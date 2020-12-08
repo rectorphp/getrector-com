@@ -12,8 +12,8 @@
                     <a href="{{ path('post', {'postSlug': post.slug }) }}">{{ post.title }}</a>
                 </h2>
 
-                <div class="mt-2 alt-mono-font text-grey">
-                    <time datetime="{{ post.dateTime|date('Y-m-D') }}" class="text-muted text-smaller">
+                <div class="mt-2 mono-font text-grey">
+                    <time datetime="{{ post.dateTime|date('Y-m-D') }}">
                         {{ post.dateTime|date }}
                     </time>
                 </div>

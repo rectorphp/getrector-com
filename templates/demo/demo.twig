@@ -3,73 +3,35 @@
 {% set page_title %}Try Rector Online{% endset %}
 
 {% block main %}
-    <div class="mb-4 mt-4 text-right">
-        Try these:
-
-        {% for demo_link in demo_links %}
-            <a href="{{ path('demo_detail', {'rectorRun': demo_link.uuid}) }}" class="ml-3">
-                {{ demo_link.label }}
-            </a>
-        {% endfor %}
-    </div>
-
-    <div class="clearfix"></div>
-
-    <div id="rector_run_form">
+    <div id="rector_run_form" class="mt-4 mb-5">
         {{ form_start(demo_form) }}
-
         {{ form_row(demo_form.content) }}
-
-        <p class="mt-4">
-            Configure <code>rector.php</code>:
-        </p>
         {{ form_row(demo_form.config) }}
 
         {# @see http://symfony.com/doc/current/security/csrf.html#csrf-protection-in-login-forms #}
         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-        <div class="mt-5">
-            {% if rector_run is not null %}
-                <div class="pt-2 pull-right" style="float:right;">
-                    Permalink:
-                    <a href="{{ path('demo_detail', {'rectorRun': rector_run.id }) }}">{{ rector_run.id }}</a>
-                </div>
-            {% endif %}
-
+        <div class="mt-5 text-center">
             {{ form_row(demo_form.process) }}
         </div>
 
         {{ form_end(demo_form) }}
     </div>
 
-    <br>
-    <br>
-
-    {% if rector_run is not null %}
-        <div class="container-fluid mt-5 mb-0 pl-5 pr-5 pb-4" id="demo_result">
-            <br>
-
-            <h3 class="mt-0 mb-4 text-left" id="result">Result</h3>
-
-            {% if rector_run.version is not null %}
-                <p class="rector-version">
-                    Used Rector version:
-                    <a href="https://github.com/rectorphp/rector/tree/{{ rector_run.version.commitHash }}">{{ rector_run.version.fullVersion }}</a>
-                </p>
-            {% endif %}
-
-            {# @var rector_run \Rector\Website\Demo\Entity\RectorRun  #}
+    {# @var rector_run \Rector\Website\Demo\Entity\RectorRun  #}
+    {% if rector_run.hasRun %}
+        <div class="mt-4 mb-5" id="demo_result">
             {% if rector_run.successful %}
                 <pre><code class="language-diff">{{ rector_run.contentDiff }}</code></pre>
             {% else %}
                 <div class="alert alert-danger">
-                    {{ rector_run.errorMessage }}
+                    {{ rector_run.fatalErrorMessage }}
                 </div>
             {% endif %}
 
             {% if rector_run.appliedRules is not empty %}
                 <div class="mt-5">
-                    <h3>Applied Rules</h3>
+                    <h2 class="mb-4">Applied Rules</h2>
 
                     <ul class="list-noindent">
                         {% for applied_rule in rector_run.appliedRules %}
