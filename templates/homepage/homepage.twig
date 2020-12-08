@@ -1,16 +1,20 @@
 {% extends "base.twig" %}
 
-{% set page_title %}
-    We'll <strong>Speed up</strong> your Development&nbsp;Process
-    <br>
-    by 300 %
-{% endset %}
-
 {% block main %}
     <div id="homepage">
-        <h1 class="main-title">{{ page_title }}</h1>
+        <h1 class="main-title">
+            We'll Speed up your Development&nbsp;Process
+            <br>
+            by 300 %
+        </h1>
 
-        <h2>Join Companies with Rectified Code</h2>
+        <p class="mt-5">
+            <a href="#how" class="text-bigger">That's a bold claim... How exactly?</a>
+        </p>
+
+        <br>
+
+        <h2><span class="text-rector-blue">Join Companies</span> with Rectified Code</h2>
 
         <div class="row" id="company_logos">
             <div class="align-self-center col-6 col-md-3 mb-4">
@@ -33,18 +37,13 @@
         <br>
         <br>
 
-        <h2>How will Rector make&nbsp;your&nbsp;Life&nbsp;Easier?</h2>
+        <div id="how"></div>
+        <h2>How will Rector make&nbsp;your&nbsp;<span class="text-rector-blue">Life&nbsp;Easier</span>?</h2>
 
         <div class="row">
             <div class="col-12 col-md-6">
-                <div class="card mb-5 md-md-0"ht">
+                <div class="card mb-5 md-md-0">
                     <div class="card-body">
-                        <h3 class="text-bold text-center mt-3 mb-4">
-                            <em class="fas fa-code fa-fw"></em>
-                            &nbsp;
-                            For CTOs
-                        </h3>
-
                         <ul class="list-group">
                             <li>Do you want to migrate your code from PHP 5.3 to 7.4?</li>
                             <li>Do you want to use the newest Symfony code without reading all the <code>CHANGELOG.md</code> files?</li>
@@ -56,14 +55,8 @@
             </div>
 
             <div class="col-12 col-md-6">
-                <div class="card mb-5 md-md-0"t">
+                <div class="card mb-5 md-md-0">
                     <div class="card-body">
-                        <h3 class="text-bold text-center mt-3 mb-4">
-                            <em class="fas fa-user-tie fa-fw"></em>
-                            &nbsp;
-                            For CEOs
-                        </h3>
-
                         <ul class="list-group">
                             <li>Are you stuck on legacy code because you have to "delivery features"?</li>
                             <li>Do you use old framework, that slows down your product?</li>
@@ -74,16 +67,54 @@
                 </div>
             </div>
 
-            <div class="text-center">
-                <a href="{{ path('contact') }}" class="btn btn-success btn-lg m-auto">
-                    Contact us to Jump over Competition
-                </a>
-            </div>
+            <a href="{{ path('contact') }}" class="btn btn-success btn-lg m-auto">
+                Contact us to Jump over Competition
+            </a>
         </div>
 
 
-        <h2>What Rector Users Say?</h2>
+        <br>
+        <br>
+        <br>
 
-        {% include "_snippets/tweets.twig" %}
+        <h2>
+            What do you <span class="text-rector-blue">Love about Rector</span>?
+        </h2>
+
+       <blockquote class="blockquote clearfix">
+           <img src="https://pbs.twimg.com/profile_images/867439780728107016/GWANUhbt_400x400.jpg" class="rounded-circle img-face-smaller-right shadow" alt="">
+
+            <p>
+                "Since last week, I <strong>automated several months work of mindless work</strong>.<br>
+                Rector is one of my best friends in the fight against legacy."
+            </p>
+
+            <footer class="blockquote-footer">
+                <a href="https://twitter.com/afilina/status/1229406983486394369">Anna Filina</a>, Legacy Archeologist
+            </footer>
+        </blockquote>
+
+        <blockquote class="blockquote clearfix">
+            <img src="https://pbs.twimg.com/profile_images/819586686149677056/DOMf3P79_400x400.jpg" class="rounded-circle img-face-smaller-left shadow mr-5" alt="">
+
+            <p>
+                "Just upgraded PHPUnit from <strong>4 to 8</strong> with Rector in <strong>3 seconds</strong>."
+            </p>
+            <footer class="blockquote-footer">
+                <a href="https://twitter.com/ArkadiuszKondas/status/1196349896690950144">Arkadiusz Kondas</a>,
+                Software Architect and Ultrarunner
+            </footer>
+        </blockquote>
+
+        <blockquote class="blockquote">
+            <img src="https://pbs.twimg.com/profile_images/937401535109238784/LUP1_bQf_400x400.jpg" class="rounded-circle img-face-smaller-right shadow ml-3" alt="">
+
+            "Rector is one of <strong>the most useful projects</strong> PHP developers overlook.<br>
+            It upgrades your Symfony 3 app to Symfony 4."
+
+            <footer class="blockquote-footer">
+                <a href="https://twitter.com/symfony_en/status/1076024294591877120">Symfony News</a>
+            </footer>
+        </blockquote>
     </div>
 {% endblock %}

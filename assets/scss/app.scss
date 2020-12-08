@@ -158,6 +158,7 @@ h1 {
         margin-top: 2em;
         font-size: 3.5em;
         line-height: 1.25em;
+        font-weight: 800;
     }
 }
 
@@ -223,14 +224,6 @@ q.blockquote {
     margin: .1em auto 2.8em auto;
 }
 
-.list-group {
-    margin-left: 1.3em;
-
-    li {
-        margin-bottom: .5em;
-    }
-}
-
 .perex {
     margin-top: 1em;
     margin-bottom: 1em;
@@ -239,7 +232,7 @@ q.blockquote {
 }
 
 #homepage {
-    margin-bottom: 5em;
+    margin-bottom: 8em;
     clear: both;
 
     h2 {
@@ -248,6 +241,23 @@ q.blockquote {
         text-align: center;
 
         font-weight: 500 !important;
+    }
+
+    .blockquote {
+        font-size: 1.4em;
+        margin-bottom: 1em;
+    }
+
+    .img-face-smaller-right {
+        float: right;
+        max-width: 5em;
+        margin: .1em auto 2.8em auto;
+    }
+
+    .img-face-smaller-left {
+        float: left;
+        max-width: 5em;
+        margin: .1em auto 2.8em auto;
     }
 }
 
