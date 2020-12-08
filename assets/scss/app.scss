@@ -408,3 +408,8 @@ label.required:before {
 .pull-right {
     float: right;
 }
+
+// full height background for removed and added lines
+.token.deleted, .token.added {
+    display: inline-block;
+}
