@@ -100,7 +100,7 @@ final class PHPConstraintValidatorTest extends AbstractKernelTestCase
     {
         $rectorRun = new RectorRun();
         $rectorRun->setContent($content);
-        $rectorRun->setContent($config);
+        $rectorRun->setConfig($config);
 
         return $rectorRun;
     }

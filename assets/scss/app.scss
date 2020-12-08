@@ -295,16 +295,8 @@ q.blockquote {
     }
 }
 
-#demo {
-    min-height: 36em;
-
-    &.short {
-        min-height: 12em;
-    }
-}
-
 #demo_result {
-    min-height: 25em;
+    min-height: 15em;
 }
 
 .invalid-feedback {

@@ -7,7 +7,7 @@ namespace Rector\Website\Demo\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Contract\Entity\TimestampableInterface;
 use Knp\DoctrineBehaviors\Model\Timestampable\TimestampableTrait;
-use Nette\Utils\Json;
+use Rector\Website\Demo\Utils\FileDiffCleaner;
 use Rector\Website\Demo\Validator\Constraint\PHPConstraint;
 use Symfony\Bridge\Doctrine\IdGenerator\UuidV4Generator;
 use Symfony\Component\Uid\Uuid;
@@ -20,6 +20,11 @@ class RectorRun implements TimestampableInterface
     use TimestampableTrait;
 
     /**
+     * @var string
+     */
+    private const NO_CHANGE_CONTENT = '// no change';
+
+    /**
      * @ORM\Id
      * @ORM\Column(type="uuid", unique=true)
      * @ORM\GeneratedValue(strategy="CUSTOM")
@@ -28,24 +33,15 @@ class RectorRun implements TimestampableInterface
     private Uuid $id;
 
     /**
-     * @ORM\Column(type="text", nullable=true)
+     * @ORM\Column(type="json")
+     * @var mixed[]
      */
-    private ?string $contentDiff;
+    private array $jsonResult = [];
 
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    private ?string $resultJson;
-
-    /**
-     * @ORM\Column(type="text", nullable=true)
-     */
-    private ?string $errorMessage;
-
-    /**
-     * @ORM\Column(type="float", nullable=true)
-     */
-    private ?float $elapsedTime;
+    private ?string $fatalErrorMessage = null;
 
     /**
      * @ORM\Column(type="text")
@@ -66,7 +62,13 @@ class RectorRun implements TimestampableInterface
 
     public function getContentDiff(): string
     {
-        return $this->contentDiff ?: '';
+        $fileDiff = $this->jsonResult['file_diffs'][0]['diff'] ?? null;
+        if (is_string($fileDiff)) {
+            $fileDiffCleaner = new FileDiffCleaner();
+            return $fileDiffCleaner->clean($fileDiff);
+        }
+
+        return self::NO_CHANGE_CONTENT;
     }
 
     public function getContent(): string
@@ -79,48 +81,43 @@ class RectorRun implements TimestampableInterface
         return $this->config;
     }
 
-    public function success(string $contentDiff, string $resultJson): void
+    /**
+     * @return mixed[]
+     */
+    public function getJsonResult(): array
     {
-        $this->contentDiff = $contentDiff;
-        $this->resultJson = $resultJson;
-    }
-
-    public function getResultJson(): ?string
-    {
-        return $this->resultJson;
+        return $this->jsonResult;
     }
 
     public function isSuccessful(): bool
     {
-        if ($this->errorMessage !== null) {
+        if ($this->fatalErrorMessage !== null) {
             return false;
         }
 
-        return $this->resultJson !== null;
+        return $this->jsonResult !== [];
     }
 
-    public function getErrorMessage(): ?string
+    public function getFatalErrorMessage(): ?string
     {
-        return $this->errorMessage;
+        return $this->fatalErrorMessage;
     }
 
-    public function fail(string $errorMessage): void
+    public function setFatalErrorMessage(string $fatalErrorMessage): void
     {
-        $this->errorMessage = $errorMessage;
+        $this->fatalErrorMessage = $fatalErrorMessage;
     }
 
     /**
-     * @return mixed[]
+     * @return string[]
      */
     public function getAppliedRules(): array
     {
-        if ($this->resultJson === null) {
+        if ($this->jsonResult === []) {
             return [];
         }
 
-        $arrayJson = Json::decode($this->resultJson, Json::FORCE_ARRAY);
-
-        $result = $arrayJson['file_diffs'][0]['applied_rectors'] ?? [];
+        $result = $this->jsonResult['file_diffs'][0]['applied_rectors'] ?? [];
         return (array) $result;
     }
 
@@ -132,5 +129,18 @@ class RectorRun implements TimestampableInterface
     public function setConfig(string $config): void
     {
         $this->config = $config;
+    }
+
+    /**
+     * @param mixed[] $jsonResult
+     */
+    public function setJsonResult(array $jsonResult): void
+    {
+        $this->jsonResult = $jsonResult;
+    }
+
+    public function hasRun(): bool
+    {
+        return $this->jsonResult !== [];
     }
 }

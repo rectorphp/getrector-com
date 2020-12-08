@@ -39,8 +39,8 @@ final class RectorProcessRunner
 
     public function __construct(
         private ErrorMessageNormalizer $errorMessageNormalizer,
-        ParameterProvider $parameterProvider,
-        private SmartFileSystem $smartFileSystem
+        private SmartFileSystem $smartFileSystem,
+        ParameterProvider $parameterProvider
     ) {
         $this->hostDemoDir = $parameterProvider->provideStringParameter(Option::HOST_DEMO_DIR);
         $this->localDemoDir = $parameterProvider->provideStringParameter(Option::LOCAL_DEMO_DIR);

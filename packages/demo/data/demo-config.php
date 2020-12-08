@@ -1,8 +1,8 @@
 <?php
 
-declare(strict_types=1);
-
 // rector.php
+
+declare(strict_types=1);
 
 use Rector\Core\Configuration\Option;
 use Rector\Set\ValueObject\SetList;

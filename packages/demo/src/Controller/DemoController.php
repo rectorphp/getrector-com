@@ -67,7 +67,7 @@ final class DemoController extends AbstractController
             throw new ShouldNotHappenException();
         }
 
-        $this->demoRunner->runAndPopulateRunResult($rectorRun);
+        $this->demoRunner->processRectorRun($rectorRun);
 
         $this->rectorRunRepository->save($rectorRun);
 
