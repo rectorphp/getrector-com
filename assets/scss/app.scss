@@ -243,6 +243,14 @@ q.blockquote {
         font-weight: 500 !important;
     }
 
+    h3 {
+        margin-top: 1.5em;
+        text-transform: uppercase;
+        font-size: 1.4em;
+        font-weight: 200;
+        line-height: 1.5em;
+    }
+
     .blockquote {
         font-size: 1.4em;
         margin-bottom: 1em;
@@ -402,4 +410,13 @@ label.required:before {
 // from the logo window - http://getrector.org/assets/images/logo/rector-white.svg
 .text-rector-blue {
     color: #75d5eb;
+}
+
+.text-rector-green {
+    color: #74c079;
+}
+
+.text-rector-red {
+    color: #994343;
+    // or #9d2e2e
 }
