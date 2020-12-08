@@ -75,7 +75,7 @@ final class ContactFormType extends AbstractType
         ]);
 
         $formBuilder->add('message', TextareaType::class, [
-            'label' => 'What do you need help you with?',
+            'label' => 'What do you need help with?',
             'attr' => [
                 'rows' => 5,
             ],
@@ -94,7 +94,7 @@ final class ContactFormType extends AbstractType
         $formBuilder->add('submit', SubmitType::class, [
             'label' => 'Send Message',
             'attr' => [
-                'class' => 'btn btn-success',
+                'class' => 'btn btn-success btn-lg',
             ],
         ]);
     }

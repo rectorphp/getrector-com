@@ -53,10 +53,8 @@ a, a:hover, a:focus, button, button:focus {
 ============================*/
 
 #company_logos img {
-    //max-width: 100%;
-
     width: 10em;
-    height: 3em;
+    height: 2em;
     object-fit: scale-down;
 
     @include media-breakpoint-down(md) {
@@ -245,7 +243,7 @@ q.blockquote {
     clear: both;
 
     h2 {
-        font-size: 2.5em;
+        font-size: 2.4rem;
         margin: 2em 0;
         text-align: center;
 
@@ -389,4 +387,9 @@ label.required:before {
     img {
         max-height: 2.4em;
     }
+}
+
+// from the logo window - http://getrector.org/assets/images/logo/rector-white.svg
+.text-rector-blue {
+    color: #75d5eb;
 }
