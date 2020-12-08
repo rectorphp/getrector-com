@@ -2,10 +2,8 @@
 
 declare(strict_types=1);
 
-use Rector\Website\Twig\RectorCountVariableProvider;
 use Rector\Website\ValueObject\TwigExtension;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
-use function Symfony\Component\DependencyInjection\Loader\Configurator\service;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
     $containerConfigurator->extension(TwigExtension::NAME, [
@@ -17,7 +15,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         TwigExtension::GLOBALS => [
             'site_url' => 'https://getrector.org',
             'main_page_title' => 'Rector - Automated Way to Instantly Upgrade and Refactor any PHP code',
-            'rector_count_provider' => service(RectorCountVariableProvider::class),
             'disqus_name' => 'getrectororg',
         ],
         TwigExtension::DATE => [

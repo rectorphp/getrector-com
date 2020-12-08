@@ -246,9 +246,9 @@ q.blockquote {
     h3 {
         margin-top: 1.5em;
         text-transform: uppercase;
-        font-size: 1.4em;
+        font-size: 1.3em;
         font-weight: 200;
-        line-height: 1.5em;
+        line-height: 1.4em;
     }
 
     .blockquote {
@@ -355,15 +355,14 @@ h2 a, a {
     text-align: center;
 
     a.nav-link {
+        color: #DDD;
         margin: 0;
         padding: .5em 1em;
     }
 
     .active {
-        background: white;
-
         a.nav-link, a.nav-link:active {
-            color: #222;
+            color: #FFF;
         }
     }
 }
