@@ -13,7 +13,7 @@ jobs:
                     coverage: none # default is xdebug
                     extensions: mbstring # needed by phpunit
 
-            -   run: composer install --no-progress --ignore-platform-reqs
+            -   run: composer install --no-progress --ignore-platform-req php
 
             # for controller tests
             -   run: npm install
