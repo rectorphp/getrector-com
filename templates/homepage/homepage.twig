@@ -12,30 +12,39 @@
             <a href="#how" class="text-bigger">That's a bold claim... How exactly?</a>
         </p>
 
-        <br>
+        {% include "_snippets/homepage_separator.twig" %}
 
         <h2><span class="text-rector-blue">Join Companies</span> with Rectified Code</h2>
 
-        <div class="row" id="company_logos">
-            <div class="align-self-center col-6 col-md-3 mb-4">
-                <img src="/assets/images/logo/eonx.png" alt="">
-            </div>
+        <div id="company_logos">
+            <div class="row">
+                <div class="align-self-center col-6 mb-4 col-md-2">
+                    <img src="/assets/images/logo/eonx.png" alt="">
+                </div>
 
-            <div class="align-self-center col-6 col-md-3 mb-4">
-                <img src="/assets/images/logo/amateri.png" alt="">
-            </div>
+                <div class="align-self-center col-6 mb-4 col-md-2 ml-4 text-right" style="margin-right: -.4em">
+                    <img src="/assets/images/logo/amateri.png" alt="">
+                </div>
 
-            <div class="align-self-center col-6 col-md-3 mb-4">
-                <img src="/assets/images/logo/luzanky.png" alt="">
-            </div>
+                <div class="align-self-center col-6 mb-4 col-md-2">
+                    <img src="/assets/images/logo/zenika.jpg" alt="">
+                </div>
 
-            <div class="align-self-center col-6 col-md-3 mb-4">
-                <img src="/assets/images/logo/spaceflow.png" alt="">
+                <div class="align-self-center col-6 mb-4 col-md-2" style="margin-left: -.4em;margin-right: -.5em;">
+                    <img src="/assets/images/logo/luzanky.png" alt="">
+                </div>
+
+                <div class="align-self-center col-6 mb-4 col-md-2">
+                    <img src="/assets/images/logo/jcid.png" alt="">
+                </div>
+
+                <div class="align-self-center col-6 mb-4 col-md-2" style="margin-left: -1em">
+                    <img src="/assets/images/logo/spaceflow.png" alt="">
+                </div>
             </div>
         </div>
 
-        <br>
-        <br>
+        {% include "_snippets/homepage_separator.twig" %}
 
         <div id="how"></div>
         <h2>How will Rector make&nbsp;your&nbsp;<span class="text-rector-blue">Life&nbsp;Easier</span>?</h2>
@@ -68,14 +77,11 @@
             </div>
 
             <a href="{{ path('contact') }}" class="btn btn-success btn-lg m-auto">
-                Contact us to Jump over Competition
+                Take a leap to Ultra Project
             </a>
         </div>
 
-
-        <br>
-        <br>
-        <br>
+        {% include "_snippets/homepage_separator.twig" %}
 
         <h2>
             What do you <span class="text-rector-blue">Love about Rector</span>?
@@ -98,7 +104,7 @@
             <img src="https://pbs.twimg.com/profile_images/819586686149677056/DOMf3P79_400x400.jpg" class="rounded-circle img-face-smaller-left shadow mr-5" alt="">
 
             <p>
-                "Just upgraded PHPUnit from <strong>4 to 8</strong> with Rector in <strong>3 seconds</strong>."
+                "Just upgraded <strong>PHPUnit 4 to 8</strong> with Rector in <strong>3 seconds</strong>."
             </p>
             <footer class="blockquote-footer">
                 <a href="https://twitter.com/ArkadiuszKondas/status/1196349896690950144">Arkadiusz Kondas</a>,
@@ -109,8 +115,10 @@
         <blockquote class="blockquote">
             <img src="https://pbs.twimg.com/profile_images/937401535109238784/LUP1_bQf_400x400.jpg" class="rounded-circle img-face-smaller-right shadow ml-3" alt="">
 
-            "Rector is one of <strong>the most useful projects</strong> PHP developers overlook.<br>
-            It upgrades your Symfony 3 app to Symfony 4."
+            <p>
+                "Rector is one of <strong>the most useful projects</strong> PHP developers overlook.<br>
+                It upgrades your Symfony 3 app to Symfony 4."
+            </p>
 
             <footer class="blockquote-footer">
                 <a href="https://twitter.com/symfony_en/status/1076024294591877120">Symfony News</a>
