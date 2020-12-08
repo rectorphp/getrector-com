@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace Rector\Website\Form;
 
+use Rector\Website\ValueObject\ContactFormData;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 final class ContactFormType extends AbstractType
 {
@@ -94,6 +96,13 @@ final class ContactFormType extends AbstractType
             'attr' => [
                 'class' => 'btn btn-success',
             ],
+        ]);
+    }
+
+    public function configureOptions(OptionsResolver $optionsResolver): void
+    {
+        $optionsResolver->setDefaults([
+            'data_class' => ContactFormData::class,
         ]);
     }
 }

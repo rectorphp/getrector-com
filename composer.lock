@@ -13212,12 +13212,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/phpstan-rules.git",
-                "reference": "da616898eb5b2b88869f21e4857c8a8a79552eb0"
+                "reference": "6f075e2166305ffa63e8f9f9a3d7699e909d9061"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/phpstan-rules/zipball/da616898eb5b2b88869f21e4857c8a8a79552eb0",
-                "reference": "da616898eb5b2b88869f21e4857c8a8a79552eb0",
+                "url": "https://api.github.com/repos/symplify/phpstan-rules/zipball/6f075e2166305ffa63e8f9f9a3d7699e909d9061",
+                "reference": "6f075e2166305ffa63e8f9f9a3d7699e909d9061",
                 "shasum": ""
             },
             "require": {
@@ -13272,7 +13272,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-12-07T23:22:46+00:00"
+            "time": "2020-12-08T01:28:52+00:00"
         },
         {
             "name": "theseer/tokenizer",
