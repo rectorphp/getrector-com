@@ -66,4 +66,9 @@ final class Post
     {
         return (int) $this->dateTime->format('Y');
     }
+
+    public function getTweetLink(): string
+    {
+        return 'https://twitter.com/intent/tweet?text=' . $this->title . '&url=' . $this->absoluteUrl . '&hashtags=rectorphp';
+    }
 }

@@ -4,7 +4,8 @@
 <meta name="description" content="Rector - Automated Way to Instantly Upgrade and Refactor any PHP code" />
 <meta name="keywords" content="php, rector, instant upgrades, instant refactoring, upgrade symfony, upgrade php, upgrade cakephp, upgrade legacy, php migration, laravel shift alternative, php shift" />
 
-<title>{% if page_title is defined %} {{ page_title|clear_title }} | {% endif %} {{ main_page_title }}</title>
+{% set full_title %}{% if page_title is defined %}{{ page_title|clear_title }} | {% endif %} {{ main_page_title }}{% endset %}
+<title>{{ full_title }}</title>
 
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
@@ -12,3 +13,10 @@
 <link rel="mask-icon" href="/assets/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
+
+<meta name="twitter:site" content="@rectorphp">
+
+{# socials sharing - Twitter at least #}
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ full_title }}">
+<meta property="og:image" content="/assets/images/logo/rector/rector-no_frame_vector_for_circles.png">

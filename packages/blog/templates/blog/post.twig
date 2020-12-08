@@ -9,6 +9,13 @@
             <time datetime="{{ post.dateTime|date('Y-m-D') }}" class="alt-mono-font text-grey text-smaller">
                 {{ post.dateTime|date }}
             </time>
+
+            <div class="pull-right">
+                <a href="{{ post.tweetLink }}" class="btn btn-primary btn-sm">
+                    <em class="fab fa-twitter fa-fw"></em>
+                    Tweet this
+                </a>
+            </div>
         </div>
 
         <h1>{{ post.title }}</h1>
