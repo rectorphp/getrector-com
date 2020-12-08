@@ -34,6 +34,9 @@ final class FileDiffCleanerTest extends AbstractKernelTestCase
         $this->assertStringEqualsFile($expectedFile, $cleanedContent);
     }
 
+    /**
+     * @return Iterator<mixed>
+     */
     public function provideData(): Iterator
     {
         yield [

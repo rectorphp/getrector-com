@@ -9,6 +9,7 @@ use Iterator;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\HttpKernel\Bundle\BundleInterface;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Routing\RouteCollectionBuilder;
 use Symplify\Autodiscovery\Discovery;
@@ -31,6 +32,9 @@ final class GetRectorKernel extends Kernel
         $this->discovery = new Discovery($this->getProjectDir());
     }
 
+    /**
+     * @return Iterator<BundleInterface>
+     */
     public function registerBundles(): Iterator
     {
         return $this->flexLoader->loadBundles();

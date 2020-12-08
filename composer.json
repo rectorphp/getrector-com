@@ -9,7 +9,7 @@
         "doctrine/annotations": "^1.10",
         "doctrine/cache": "^1.10",
         "doctrine/doctrine-bundle": "^2.0",
-        "doctrine/orm": "^2.7",
+        "doctrine/orm": "^2.8",
         "erusev/parsedown-extra": "^0.8.1",
         "ocramius/proxy-manager": "2.8.*",
         "psr/simple-cache": "^1.0",
@@ -59,9 +59,9 @@
         "symplify/smart-file-system": "dev-master"
     },
     "require-dev": {
-        "phpstan/phpstan": "^0.12.57",
-        "phpstan/phpstan-doctrine": "^0.12.23",
-        "phpunit/phpunit": "^9.4|^10.",
+        "phpstan/phpstan": "^0.12.58",
+        "phpstan/phpstan-doctrine": "^0.12.25",
+        "phpunit/phpunit": "^9.4",
         "roave/security-advisories": "dev-master",
         "slevomat/coding-standard": "^6.4",
         "symfony/browser-kit": "^5.2",

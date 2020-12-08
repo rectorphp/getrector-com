@@ -34,6 +34,9 @@ final class ContactFormType extends AbstractType
      */
     private const PICK_ONE_PLACEHOLDER = 'Pick one...';
 
+    /**
+     * @param mixed[] $options
+     */
     public function buildForm(FormBuilderInterface $formBuilder, array $options): void
     {
         $formBuilder->add('project_size', ChoiceType::class, [

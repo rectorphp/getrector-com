@@ -14,39 +14,9 @@ parameters:
         - "packages/demo/data/DemoFile.php"
 
     ignoreErrors:
-        - '#PHPDoc tag @return with type array<Twig\\TwigFilter\> is incompatible with native type Iterator#'
-        - '#Return type \(Iterator\) of method Rector\\Website\\Twig\\TitleTwigExtension\:\:getFilters\(\) should be compatible with return type \(array<Twig\\TwigFilter\>\) of method Twig\\Extension\\(AbstractExtension|ExtensionInterface)\:\:getFilters\(\)#'
-
-        # mixed
-        - '#type has no value type specified in iterable type#'
-        - '#with no value type specified in iterable type#'
-
-        - '#PHPDoc tag @return with type Rector\\Website\\Demo\\Entity\\RectorRun is not subtype of native type Iterator#'
-
-#        # wip
-#        - '#Return type \(Iterator\) of method Rector\\Website\\Twig\\(.*?)\:\:getFilters\(\) should be compatible with return type \(array<Twig\\TwigFilter\>\) of method Twig\\Extension\\(.*?)\:\:getFilters\(\)#'
-
-        # sentry
-        - '#(.*?)function Sentry\\capture_exception not found#i'
-
-        -
-             message: '#Too many public elements on class \- \d+\. Try narrow it down under 10#'
-             paths:
-                 - packages/demo/src/Entity/RectorRun.php
-
-        -
-            message: '#Do not use static calls#'
-            paths:
-                - packages/demo/src/Process/RectorProcessRunner.php
-
-        # @todo fix on symplify to skip protected element required by parent contract
-#        -
-#            message: '#Do not use protected element in final class#'
-#            paths:
-#                - src/GetRectorKernel.php # 39
-#                - src/GetRectorKernel.php # 55
-
         - '#Attribute class Rector\\Website\\Demo\\Validator\\Constraint\\PHPConstraint does not have the parameter target#'
 
-        # fixed in never version of Symplify
-        - '#Constant string value need to only have small letters, _, \-, \. and numbers#'
+        - '#Method Rector\\Website\\Demo\\Process\\RectorProcessRunner\:\:createProcess\(\) return type has no value type specified in iterable type Symfony\\Component\\Process\\Process#'
+        - '#Method Rector\\Website\\Demo\\Form\\DemoFormType\:\:buildForm\(\) has parameter \$formBuilder with no value type specified in iterable type Symfony\\Component\\Form\\FormBuilderInterface#'
+        - '#Method Rector\\Website\\Form\\ContactFormType\:\:buildForm\(\) has parameter \$formBuilder with no value type specified in iterable type Symfony\\Component\\Form\\FormBuilderInterface#'
+        - '#Method Rector\\Website\\Demo\\Controller\\DemoController\:\:processFormAndReturnRoute\(\) has parameter \$form with no value type specified in iterable type Symfony\\Component\\Form\\FormInterface#'
