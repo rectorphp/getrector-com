@@ -6,22 +6,22 @@ namespace Rector\Website\Entity;
 
 use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
+use Knp\DoctrineBehaviors\Contract\Entity\TimestampableInterface;
+use Knp\DoctrineBehaviors\Model\Timestampable\TimestampableTrait;
 use Ramsey\Uuid\UuidInterface;
 
 /**
  * @ORM\Entity
  */
-class ContactMessage
+class ContactMessage implements TimestampableInterface
 {
+    use TimestampableTrait;
+
     /**
      * @ORM\Id
      * @ORM\Column(type="uuid")
      */
     public UuidInterface $id;
-    /**
-     * @ORM\Column(type="datetime_immutable")
-     */
-    public DateTimeImmutable $createdAt;
     /**
      * @ORM\Column(type="text")
      */
