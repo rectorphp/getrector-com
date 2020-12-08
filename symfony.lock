@@ -129,6 +129,9 @@
     "jean85/pretty-package-versions": {
         "version": "1.2"
     },
+    "knplabs/doctrine-behaviors": {
+        "version": "v2.0.8"
+    },
     "laminas/laminas-code": {
         "version": "3.4.1"
     },
