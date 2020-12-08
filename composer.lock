@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c2c556ac12322b05ac43d399b3cc7103",
+    "content-hash": "6b6c7c9b213ff41f96314e8db4298e44",
     "packages": [
         {
             "name": "clue/stream-filter",
@@ -3796,12 +3796,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "7867fe927a28623abba47c0b9ec9fbb993106b3f"
+                "reference": "a3add7d409830a220f24d4171d8f4dd1e23188b8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/7867fe927a28623abba47c0b9ec9fbb993106b3f",
-                "reference": "7867fe927a28623abba47c0b9ec9fbb993106b3f",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/a3add7d409830a220f24d4171d8f4dd1e23188b8",
+                "reference": "a3add7d409830a220f24d4171d8f4dd1e23188b8",
                 "shasum": ""
             },
             "require": {
@@ -3997,7 +3997,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-12-07T12:20:59+00:00"
+            "time": "2020-12-08T11:19:58+00:00"
         },
         {
             "name": "sebastian/diff",

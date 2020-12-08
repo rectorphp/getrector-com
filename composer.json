@@ -20,6 +20,7 @@
         "sentry/sentry-symfony": "^3.4",
         "symfony/asset": "^5.2",
         "symfony/cache": "^5.2",
+        "symfony/security-core": "^5.2",
         "symfony/console": "^5.2",
         "symfony/debug-bundle": "^5.2",
         "symfony/dependency-injection": "^5.2",

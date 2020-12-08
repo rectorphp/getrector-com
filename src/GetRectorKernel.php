@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Rector\Website;
 
-use Doctrine\Common\EventSubscriber;
 use Iterator;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
