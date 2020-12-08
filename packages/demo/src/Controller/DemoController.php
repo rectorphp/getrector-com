@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Rector\Website\Demo\Controller;
 
-use Rector\Website\Demo\DataProvider\DemoLinkProvider;
 use Rector\Website\Demo\DemoRunner;
 use Rector\Website\Demo\Entity\RectorRun;
 use Rector\Website\Demo\Form\DemoFormType;
@@ -36,7 +35,6 @@ final class DemoController extends AbstractController
         private RectorRunRepository $rectorRunRepository,
         private DemoFormDataFactory $demoFormDataFactory,
         private DemoRunner $demoRunner,
-        private DemoLinkProvider $demoLinkProvider,
         private RectorRunFactory $rectorRunFactory
     ) {
     }
@@ -60,7 +58,6 @@ final class DemoController extends AbstractController
         return $this->render('demo/demo.twig', [
             'demo_form' => $demoForm->createView(),
             'rector_run' => $rectorRun,
-            'demo_links' => $this->demoLinkProvider->provide(),
         ]);
     }
 

@@ -3,21 +3,8 @@
 {% set page_title %}Try Rector Online{% endset %}
 
 {% block main %}
-    <div class="mb-4 mt-4 text-right">
-        Try these:
-
-        {% for demo_link in demo_links %}
-            <a href="{{ path('demo_detail', {'rectorRun': demo_link.uuid}) }}" class="ml-3">
-                {{ demo_link.label }}
-            </a>
-        {% endfor %}
-    </div>
-
-    <div class="clearfix"></div>
-
     <div id="rector_run_form">
         {{ form_start(demo_form) }}
-
         {{ form_row(demo_form.content) }}
 
         <p class="mt-4">
@@ -42,14 +29,13 @@
         {{ form_end(demo_form) }}
     </div>
 
-    <br>
-    <br>
+    {% include "_snippets/homepage_separator.twig" %}
 
     {% if rector_run is not null %}
-        <div class="container-fluid mt-5 mb-0 pl-5 pr-5 pb-4" id="demo_result">
+        <div class="mt-5 mb-0 pl-5 pr-5 pb-4" id="demo_result">
             <br>
 
-            <h3 class="mt-0 mb-4 text-left" id="result">Result</h3>
+            <h3 id="result">Result</h3>
 
             {% if rector_run.version is not null %}
                 <p class="rector-version">
