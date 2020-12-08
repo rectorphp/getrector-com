@@ -8,8 +8,6 @@ use Rector\Website\Demo\DemoRunner;
 use Rector\Website\Demo\Entity\RectorRun;
 use Rector\Website\Demo\Form\DemoFormType;
 use Rector\Website\Demo\Repository\RectorRunRepository;
-use Rector\Website\Demo\ValueObject\DemoFormData;
-use Rector\Website\Demo\ValueObjectFactory\DemoFormDataFactory;
 use Rector\Website\Demo\ValueObjectFactory\RectorRunFactory;
 use Rector\Website\Exception\ShouldNotHappenException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -33,7 +31,6 @@ final class DemoController extends AbstractController
 
     public function __construct(
         private RectorRunRepository $rectorRunRepository,
-        private DemoFormDataFactory $demoFormDataFactory,
         private DemoRunner $demoRunner,
         private RectorRunFactory $rectorRunFactory
     ) {
@@ -43,9 +40,11 @@ final class DemoController extends AbstractController
     #[Route(self::ROUTE_DEMO, name: self::ROUTE_DEMO, methods: ['GET', 'POST'])]
     public function __invoke(Request $request, ?RectorRun $rectorRun = null): Response
     {
-        $form = $this->demoFormDataFactory->createFromRectorRun($rectorRun);
+        if ($rectorRun === null) {
+            $rectorRun = $this->rectorRunFactory->createEmpty();
+        }
 
-        $demoForm = $this->createForm(DemoFormType::class, $form, [
+        $demoForm = $this->createForm(DemoFormType::class, $rectorRun, [
             // this is needed for manual render
             'action' => $this->generateUrl(self::ROUTE_DEMO),
         ]);
@@ -63,14 +62,11 @@ final class DemoController extends AbstractController
 
     private function processFormAndReturnRoute(FormInterface $form): RedirectResponse
     {
-        $demoFormData = $form->getData();
-        if (! $demoFormData instanceof DemoFormData) {
+        $rectorRun = $form->getData();
+        if (! $rectorRun instanceof RectorRun) {
             throw new ShouldNotHappenException();
         }
 
-        $config = $demoFormData->getConfig();
-
-        $rectorRun = $this->rectorRunFactory->create($config, $demoFormData);
         $this->demoRunner->runAndPopulateRunResult($rectorRun);
 
         $this->rectorRunRepository->save($rectorRun);

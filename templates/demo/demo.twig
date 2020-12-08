@@ -3,7 +3,7 @@
 {% set page_title %}Try Rector Online{% endset %}
 
 {% block main %}
-    <div id="rector_run_form" class="mt-4">
+    <div id="rector_run_form" class="mt-4 mb-5">
         {{ form_start(demo_form) }}
         {{ form_row(demo_form.content) }}
         {{ form_row(demo_form.config) }}
@@ -31,7 +31,7 @@
 
             {% if rector_run.appliedRules is not empty %}
                 <div class="mt-5">
-                    <h2>Applied Rules</h2>
+                    <h2 class="mb-4">Applied Rules</h2>
 
                     <ul class="list-noindent">
                         {% for applied_rule in rector_run.appliedRules %}

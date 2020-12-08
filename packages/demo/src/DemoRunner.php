@@ -9,7 +9,6 @@ use Rector\Website\Demo\Entity\RectorRun;
 use Rector\Website\Demo\Process\RectorProcessRunner;
 use Rector\Website\Demo\Utils\FileDiffCleaner;
 use function Sentry\captureException;
-use Symfony\Component\Stopwatch\Stopwatch;
 use Throwable;
 
 final class DemoRunner
@@ -22,16 +21,14 @@ final class DemoRunner
 
     public function runAndPopulateRunResult(RectorRun $rectorRun): void
     {
-        $stopwatch = new Stopwatch();
-        $rectorProcessStopwatchEvent = $stopwatch->start('rector-process');
-
         try {
             $runResult = $this->rectorProcessRunner->run($rectorRun->getContent(), $rectorRun->getConfig());
             $fileDiff = $this->createFileDiff($runResult, $rectorRun);
 
-            $rectorRun->success($fileDiff, Json::encode($runResult), $rectorProcessStopwatchEvent);
+            $rectorRun->success($fileDiff, Json::encode($runResult));
         } catch (Throwable $throwable) {
-            $rectorRun->fail($throwable->getMessage(), $rectorProcessStopwatchEvent);
+            $rectorRun->
+            fail($throwable->getMessage());
 
             // @TODO change to monolog
             // Log to sentry

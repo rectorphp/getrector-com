@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 // rector.php
 
 use Rector\Core\Configuration\Option;

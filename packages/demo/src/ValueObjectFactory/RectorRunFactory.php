@@ -4,14 +4,35 @@ declare(strict_types=1);
 
 namespace Rector\Website\Demo\ValueObjectFactory;
 
-use DateTimeImmutable;
 use Rector\Website\Demo\Entity\RectorRun;
-use Rector\Website\Demo\ValueObject\DemoFormData;
+use Symplify\SmartFileSystem\SmartFileSystem;
 
 final class RectorRunFactory
 {
-    public function create(string $config, DemoFormData $demoFormData): RectorRun
+    /**
+     * @var string
+     */
+    public const CONTENT_FILE_PATH = __DIR__ . '/../../data/DemoFile.php';
+
+    /**
+     * @var string
+     */
+    public const CONFIG_FILE_PATH = __DIR__ . '/../../data/demo-config.php';
+
+    public function __construct(private SmartFileSystem $smartFileSystem)
     {
-        return new RectorRun(new DateTimeImmutable(), $config, $demoFormData->getContent());
+    }
+
+    public function createEmpty(): RectorRun
+    {
+        // default values
+        $content = $this->smartFileSystem->readFile(self::CONTENT_FILE_PATH);
+        $config = $this->smartFileSystem->readFile(self::CONFIG_FILE_PATH);
+
+        $rectorRun = new RectorRun();
+        $rectorRun->setContent($content);
+        $rectorRun->setConfig($config);
+
+        return $rectorRun;
     }
 }

@@ -4,20 +4,21 @@ declare(strict_types=1);
 
 namespace Rector\Website\Demo\Entity;
 
-use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
-use Jean85\Version;
+use Knp\DoctrineBehaviors\Contract\Entity\TimestampableInterface;
+use Knp\DoctrineBehaviors\Model\Timestampable\TimestampableTrait;
 use Nette\Utils\Json;
-use Nette\Utils\Strings;
+use Rector\Website\Demo\Validator\Constraint\PHPConstraint;
 use Symfony\Bridge\Doctrine\IdGenerator\UuidV4Generator;
-use Symfony\Component\Stopwatch\StopwatchEvent;
 use Symfony\Component\Uid\Uuid;
 
 /**
  * @ORM\Entity
  */
-class RectorRun
+class RectorRun implements TimestampableInterface
 {
+    use TimestampableTrait;
+
     /**
      * @ORM\Id
      * @ORM\Column(type="uuid", unique=true)
@@ -46,21 +47,17 @@ class RectorRun
      */
     private ?float $elapsedTime;
 
-    public function __construct(
-        /**
-         * @ORM\Column(type="datetime_immutable")
-         */
-        private DateTimeImmutable $executedAt,
-        /**
-         * @ORM\Column(type="text")
-         */
-        private string $config,
-        /**
-         * @ORM\Column(type="text")
-         */
-        private string $content,
-    ) {
-    }
+    /**
+     * @ORM\Column(type="text")
+     */
+    #[PHPConstraint]
+    private string $config;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    #[PHPConstraint]
+    private string $content;
 
     public function getId(): Uuid
     {
@@ -82,11 +79,10 @@ class RectorRun
         return $this->config;
     }
 
-    public function success(string $contentDiff, string $resultJson, StopwatchEvent $stopwatchEvent): void
+    public function success(string $contentDiff, string $resultJson): void
     {
         $this->contentDiff = $contentDiff;
         $this->resultJson = $resultJson;
-        $this->updateTimeElapsed($stopwatchEvent);
     }
 
     public function getResultJson(): ?string
@@ -108,32 +104,9 @@ class RectorRun
         return $this->errorMessage;
     }
 
-    public function fail(string $errorMessage, StopwatchEvent $stopwatchEvent): void
+    public function fail(string $errorMessage): void
     {
         $this->errorMessage = $errorMessage;
-        $this->updateTimeElapsed($stopwatchEvent);
-    }
-
-    public function getVersion(): ?Version
-    {
-        if (! $this->resultJson) {
-            return null;
-        }
-
-        $data = Json::decode($this->resultJson, Json::FORCE_ARRAY);
-
-        if (! isset($data['meta']['version'])) {
-            return null;
-        }
-
-        $version = $data['meta']['version'];
-
-        // Creating `new Version()` would fail if version does not contain `@`
-        if (! Strings::contains($version, '@')) {
-            $version .= '@unknown';
-        }
-
-        return new Version('rector/rector', $version);
     }
 
     /**
@@ -151,9 +124,13 @@ class RectorRun
         return (array) $result;
     }
 
-    private function updateTimeElapsed(StopwatchEvent $stopwatchEvent): void
+    public function setContent(string $content): void
     {
-        // Convert milliseconds to seconds to be more readable
-        $this->elapsedTime = $stopwatchEvent->getDuration() / 1_000;
+        $this->content = $content;
+    }
+
+    public function setConfig(string $config): void
+    {
+        $this->config = $config;
     }
 }
