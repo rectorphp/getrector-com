@@ -48,6 +48,6 @@ jobs:
                     php-version: 8.0
                     coverage: none
 
-            -   run: composer install --no-progress --ansi --ignore-platform-reqs
+            -   run: composer install --no-progress --ansi --ignore-platform-req php
 
             -   run: ${{ matrix.actions.run }}

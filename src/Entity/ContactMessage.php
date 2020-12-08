@@ -7,7 +7,8 @@ namespace Rector\Website\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Contract\Entity\TimestampableInterface;
 use Knp\DoctrineBehaviors\Model\Timestampable\TimestampableTrait;
-use Ramsey\Uuid\UuidInterface;
+use Symfony\Bridge\Doctrine\IdGenerator\UuidV4Generator;
+use Symfony\Component\Uid\Uuid;
 
 /**
  * @ORM\Entity
@@ -19,8 +20,10 @@ class ContactMessage implements TimestampableInterface
     /**
      * @ORM\Id
      * @ORM\Column(type="uuid")
+     * @ORM\GeneratedValue(strategy="CUSTOM")
+     * @ORM\CustomIdGenerator(class=UuidV4Generator::class)
      */
-    public UuidInterface $id;
+    public Uuid $id;
     /**
      * @ORM\Column(type="text")
      */
