@@ -10,8 +10,6 @@
         "doctrine/cache": "^1.10",
         "doctrine/doctrine-bundle": "^2.0",
         "doctrine/orm": "^2.8",
-        "doctrine/doctrine-migrations-bundle": "^3.0",
-        "doctrine/migrations": "^3.0",
         "erusev/parsedown-extra": "^0.8.1",
         "knplabs/doctrine-behaviors": "^2.0.8",
         "ocramius/proxy-manager": "2.8",
