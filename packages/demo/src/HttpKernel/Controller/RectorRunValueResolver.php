@@ -36,8 +36,6 @@ final class RectorRunValueResolver implements ArgumentValueResolverInterface
         $argumentValue = $request->get($argumentMetadata->getName());
 
         $uuid = Uuid::fromString($argumentValue);
-        return [
-            $this->rectorRunRepository->get($uuid),
-        ];
+        return [$this->rectorRunRepository->get($uuid)];
     }
 }

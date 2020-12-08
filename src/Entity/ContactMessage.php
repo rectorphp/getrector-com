@@ -13,20 +13,47 @@ use Ramsey\Uuid\UuidInterface;
  */
 class ContactMessage
 {
-    public function __construct(
-        /**
-         * @ORM\Id
-         * @ORM\Column(type="uuid")
-         */
-        private UuidInterface $id,
-        /**
-         * @ORM\Column(type="datetime_immutable")
-         */
-        private DateTimeImmutable $createdAt,
-        /**
-         * @ORM\Column(type="text")
-         */
-        private string $message,
-    ) {
-    }
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="uuid")
+     */
+    public UuidInterface $id;
+    /**
+     * @ORM\Column(type="datetime_immutable")
+     */
+    public DateTimeImmutable $createdAt;
+    /**
+     * @ORM\Column(type="text")
+     */
+    public string $message;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    public string $name;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    public string $email;
+
+    /**
+     * @ORM\Column(type="int")
+     */
+    public int $projectSize;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    public string $framework;
+
+    /**
+     * @ORM\Column(type="int")
+     */
+    public int $currentPhpVersion;
+
+    /**
+     * @ORM\Column(type="int")
+     */
+    public ?int $targetPhpVersion;
 }

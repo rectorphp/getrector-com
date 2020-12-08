@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Website\Form;
 
-use Rector\Website\ValueObject\ContactFormData;
+use Rector\Website\Entity\ContactMessage;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -41,7 +41,7 @@ final class ContactFormType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $formBuilder, array $options): void
     {
-        $formBuilder->add('project_size', ChoiceType::class, [
+        $formBuilder->add('projectSize', ChoiceType::class, [
             'label' => 'Project size',
             'placeholder' => self::PICK_ONE_PLACEHOLDER,
             'required' => true,
@@ -61,13 +61,13 @@ final class ContactFormType extends AbstractType
             ],
         ]);
 
-        $formBuilder->add('current_php_version', ChoiceType::class, [
+        $formBuilder->add('currentPhpVersion', ChoiceType::class, [
             'label' => 'Current PHP version',
             'placeholder' => self::PICK_ONE_PLACEHOLDER,
             'choices' => self::PHP_VERSION_CHOICES,
         ]);
 
-        $formBuilder->add('target_php_version', ChoiceType::class, [
+        $formBuilder->add('targetPhpVersion', ChoiceType::class, [
             'label' => 'Goal PHP version',
             'placeholder' => 'If relevant...',
             'choices' => self::PHP_VERSION_CHOICES,
@@ -102,7 +102,7 @@ final class ContactFormType extends AbstractType
     public function configureOptions(OptionsResolver $optionsResolver): void
     {
         $optionsResolver->setDefaults([
-            'data_class' => ContactFormData::class,
+            'data_class' => ContactMessage::class,
         ]);
     }
 }
