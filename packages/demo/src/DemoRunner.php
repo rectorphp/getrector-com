@@ -45,7 +45,6 @@ final class DemoRunner
     private function createFileDiff(array $runResult, RectorRun $rectorRun): string
     {
         $fileDiff = $runResult['file_diffs'][0]['diff'] ?? null;
-
         if ($fileDiff) {
             /** @var string $fileDiff */
             return $this->fileDiffCleaner->clean($fileDiff);

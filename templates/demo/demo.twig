@@ -3,44 +3,23 @@
 {% set page_title %}Try Rector Online{% endset %}
 
 {% block main %}
-    {% if rector_run is not null %}
-        <div class="pt-2 pull-right mono-font text-smaller">
-            Permalink: <a href="{{ path('demo_detail', {'rectorRun': rector_run.id }) }}">{{ rector_run.id }}</a>
-        </div>
-    {% endif %}
-
     <div id="rector_run_form" class="mt-4">
         {{ form_start(demo_form) }}
         {{ form_row(demo_form.content) }}
-
-        <p class="mt-4">
-            Configure <code>rector.php</code>:
-        </p>
         {{ form_row(demo_form.config) }}
 
         {# @see http://symfony.com/doc/current/security/csrf.html#csrf-protection-in-login-forms #}
         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-        <div class="mt-5">
+        <div class="mt-5 text-center">
             {{ form_row(demo_form.process) }}
         </div>
 
         {{ form_end(demo_form) }}
     </div>
 
-    {% include "_snippets/homepage_separator.twig" %}
-
     {% if rector_run is not null %}
-        <div class="mb-0" id="demo_result">
-            <h3 id="result">Result</h3>
-
-            {% if rector_run.version is not null %}
-                <p class="rector-version mono-font">
-                    Used Rector version:
-                    <a href="https://github.com/rectorphp/rector/tree/{{ rector_run.version.commitHash }}">{{ rector_run.version.fullVersion }}</a>
-                </p>
-            {% endif %}
-
+        <div class="mt-4 mb-5" id="demo_result">
             {# @var rector_run \Rector\Website\Demo\Entity\RectorRun  #}
             {% if rector_run.successful %}
                 <pre><code class="language-diff">{{ rector_run.contentDiff }}</code></pre>
@@ -52,7 +31,7 @@
 
             {% if rector_run.appliedRules is not empty %}
                 <div class="mt-5">
-                    <h3>Applied Rules</h3>
+                    <h2>Applied Rules</h2>
 
                     <ul class="list-noindent">
                         {% for applied_rule in rector_run.appliedRules %}

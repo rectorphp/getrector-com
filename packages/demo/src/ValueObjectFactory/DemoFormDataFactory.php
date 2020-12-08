@@ -36,6 +36,7 @@ final class DemoFormDataFactory
 
         // default values
         $demoContent = $this->smartFileSystem->readFile(self::CONTENT_FILE_PATH);
+        $demoContent = rtrim($demoContent) . PHP_EOL;
         $demoConfig = $this->smartFileSystem->readFile(self::CONFIG_FILE_PATH);
 
         return new DemoFormData($demoContent, $demoConfig);

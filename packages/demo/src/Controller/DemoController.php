@@ -77,7 +77,7 @@ final class DemoController extends AbstractController
 
         return $this->redirectToRoute(self::ROUTE_DEMO_DETAIL, [
             'rectorRun' => $rectorRun->getId(),
-            '_fragment' => 'result',
+            '_fragment' => 'demo_result',
         ]);
     }
 }

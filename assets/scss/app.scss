@@ -274,6 +274,8 @@ q.blockquote {
 }
 
 #rector_run_form {
+    margin-bottom: 0;
+
     /* code highlight */
     .CodeMirror {
         border: 1px solid grey;
@@ -303,15 +305,6 @@ q.blockquote {
 
 #demo_result {
     min-height: 25em;
-
-    .rector-version {
-        font-size: 15px;
-        margin-top: -15px;
-
-        a {
-            font-weight: bold;
-        }
-    }
 }
 
 .invalid-feedback {
@@ -368,6 +361,7 @@ h2 a, a {
 
 .mono-font {
     font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
+    font-size: .9em;
 }
 
 .text-smaller {
