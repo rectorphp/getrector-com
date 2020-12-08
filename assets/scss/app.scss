@@ -358,6 +358,10 @@ h2 a, a {
         color: #DDD;
         margin: 0;
         padding: .5em 1em;
+
+        &:hover {
+            color: #FFF;
+        }
     }
 
     .active {
