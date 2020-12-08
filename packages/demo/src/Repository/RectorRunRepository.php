@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Rector\Website\Demo\Repository;
 
 use Doctrine\ORM\EntityManagerInterface;
-use Ramsey\Uuid\UuidInterface;
 use Rector\Website\Demo\Entity\RectorRun;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\Uid\Uuid;
 
 final class RectorRunRepository
 {
@@ -21,7 +21,7 @@ final class RectorRunRepository
         $this->entityManager->flush();
     }
 
-    public function get(UuidInterface $uuid): RectorRun
+    public function get(Uuid $uuid): RectorRun
     {
         $rectorRun = $this->entityManager->find(RectorRun::class, $uuid);
         if ($rectorRun instanceof RectorRun) {

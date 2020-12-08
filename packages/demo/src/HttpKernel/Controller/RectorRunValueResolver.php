@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Rector\Website\Demo\HttpKernel\Controller;
 
-use Ramsey\Uuid\Uuid;
 use Rector\Website\Demo\Entity\RectorRun;
 use Rector\Website\Demo\Repository\RectorRunRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Controller\ArgumentValueResolverInterface;
 use Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadata;
+use Symfony\Component\Uid\Uuid;
 
 final class RectorRunValueResolver implements ArgumentValueResolverInterface
 {

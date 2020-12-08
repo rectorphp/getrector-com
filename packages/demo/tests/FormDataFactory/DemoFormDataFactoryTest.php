@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace Rector\Website\Demo\Tests\FormDataFactory;
 
 use DateTimeImmutable;
-use Ramsey\Uuid\Uuid;
 use Rector\Website\Demo\Entity\RectorRun;
 use Rector\Website\Demo\ValueObjectFactory\DemoFormDataFactory;
 use Rector\Website\GetRectorKernel;
+use Symfony\Component\Uid\Uuid;
 use Symplify\PackageBuilder\Testing\AbstractKernelTestCase;
 
 /**
@@ -34,7 +34,7 @@ final class DemoFormDataFactoryTest extends AbstractKernelTestCase
 
     public function testWithRectoRun(): void
     {
-        $rectorRun = new RectorRun(Uuid::uuid4(), new DateTimeImmutable(), 'some config', 'come content');
+        $rectorRun = new RectorRun(Uuid::v4(), new DateTimeImmutable(), 'some config', 'come content');
         $demoFormData = $this->demoFormDataFactory->createFromRectorRun($rectorRun);
 
         $this->assertSame($rectorRun->getContent(), $demoFormData->getContent());

@@ -9,8 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Jean85\Version;
 use Nette\Utils\Json;
 use Nette\Utils\Strings;
-use Ramsey\Uuid\UuidInterface;
 use Symfony\Component\Stopwatch\StopwatchEvent;
+use Symfony\Component\Uid\Uuid;
 
 /**
  * @ORM\Entity
@@ -42,7 +42,7 @@ class RectorRun
          * @ORM\Id
          * @ORM\Column(type="uuid")
          */
-        private UuidInterface $id,
+        private Uuid $id,
         /**
          * @ORM\Column(type="datetime_immutable")
          */
@@ -58,7 +58,7 @@ class RectorRun
     ) {
     }
 
-    public function getId(): UuidInterface
+    public function getId(): Uuid
     {
         return $this->id;
     }
