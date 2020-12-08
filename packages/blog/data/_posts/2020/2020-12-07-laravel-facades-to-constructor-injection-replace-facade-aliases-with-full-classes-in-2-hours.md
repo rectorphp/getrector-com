@@ -14,7 +14,6 @@ perex: |
 It was a big surprise for us that it's not only external critics of Laravel but also from inside the community itself.
 There is [a proposal to remove facades completely in Laravel 6](https://github.com/laravel/ideas/issues/1508):
 
-
 <img src="/assets/images/blog/2020/laravel-facades-6.png" class="img-thumbnail">
 
 <br>
@@ -120,10 +119,12 @@ Blade templates are covered too!
 <br>
 
 
-## Real Case Study Data
+## Real Case Study with Eonx
 
 You're probably thinking: "Demo always looks nice. It's designed to look nice. But what about a real private project?"
-We're glad you doubt. Recently, we applied this refactoring on a project of size 250 000-750 000 lines of code.
+We're glad you doubt.
+
+Recently, we applied this refactoring on a project of size 250 000-750 000 lines of code, in cooperation with Australian company, [Eonx](https://eonx.com/).
 
 Here are all the pull-requests, we had to make:
 
@@ -133,10 +134,10 @@ Here are all the pull-requests, we had to make:
 
 <br>
 
-### In The End
+### The Numbers
 
 - we changed ~65 000 lines of code
-- it took ~15 hours of Rector configuration work and research (= the insight in this post)
+- it took ~15 hours of Rector configuration work and research (= the insights in this post)
 - and 4 hours of coding work and running Rector
 
 Now the same work on the same project would take **2 hours in total**. And we believe you can do it for your project too!
@@ -144,4 +145,3 @@ Now the same work on the same project would take **2 hours in total**. And we be
 <br>
 
 Happy refactoring!
-
