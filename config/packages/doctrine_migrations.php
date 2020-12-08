@@ -6,10 +6,8 @@ use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigura
 
 return static function (ContainerConfigurator $containerConfigurator): void {
     $containerConfigurator->extension('doctrine_migrations', [
-        'dir_name' => '%kernel.project_dir%/migrations',
-    ]);
-
-    $containerConfigurator->extension('doctrine_migrations', [
-        'namespace' => 'DoctrineMigrations',
+        'migrations_paths' => [
+            'DoctrineMigrations' => '%kernel.project_dir%/migrations',
+        ],
     ]);
 };

@@ -21,7 +21,7 @@ final class RssController extends AbstractController
     public function __invoke(): Response
     {
         $posts = $this->postRepository->fetchAll();
-        return $this->render('rss.twig', [
+        return $this->render('blog/rss.twig', [
             'posts' => $posts,
             'most_recent_post_date_time' => $this->getMostRecentPostDateTime($posts),
         ]);
