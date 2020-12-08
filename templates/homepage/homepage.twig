@@ -7,17 +7,10 @@
 {% endset %}
 
 {% block main %}
-    <div class="container" id="homepage">
+    <div id="homepage">
         <div class="row">
-            <div class="col-12 mt-3">
-                <h1 class="mb-5 mt-5">{{ page_title }}</h1>
-
-                {% set subtitle %}{{ (block('subtitle')) ?? '' }}{% endset %}
-                {% if subtitle is not null %}
-                    <div class="text-center mt-5 mb-5" id="subtitle">
-                        {{ subtitle }}
-                    </div>
-                {% endif %}
+            <div class="col-12">
+                <h1 class="main-title">{{ page_title }}</h1>
             </div>
         </div>
     </div>
@@ -68,12 +61,6 @@
                                 <li>Do you want to turn static to constructor injection in 1000 classes in seconds?</li>
                                 <li>Refactor custom code at scale without rebasing?</li>
                             </ul>
-
-                            <div class="text-center mt-5 mb-3">
-                                <a href="{{ path('contact') }}" class="btn btn-success btn-lg">
-                                    Let's talk about Your Legacy
-                                </a>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -93,25 +80,26 @@
                                 <li>Does your team complain about legacy code, but you just can't stop development for 6 months?</li>
                                 <li>Do you want keep delivering features and migrate framework at the same time?</li>
                             </ul>
-
-                            <div class="text-center mt-4 mb-3">
-{#                                <a href="{{ path('for_companies') }}" class="btn btn-primary">#}
-                                <a href="{{ path('contact') }}" class="btn btn-success btn-lg">
-                                    Contact us and Jump over Competition
-                                </a>
-                            </div>
                         </div>
                     </div>
+                </div>
+
+                <div class="text-center mt-4 mb-3">
+                    {#                                <a href="{{ path('for_companies') }}" class="btn btn-primary">#}
+                    <a href="{{ path('contact') }}" class="btn btn-success btn-lg">
+                        Contact us and Jump over Competition
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="container text-center">
-        <h2>
-            What Rector Users Say?
-        </h2>
+    <h2 class="text-center">
+        What Rector Users Say?
+    </h2>
 
-        {% include "_snippets/tweets.twig" %}
-    </div>
+    <br>
+    <br>
+
+    {% include "_snippets/tweets.twig" %}
 {% endblock %}

@@ -92,28 +92,6 @@ h3 {
     font-size: 1em;
 }
 
-#subtitle {
-    color: #FFF;
-    font-size: 2em;
-    font-family: 'Inter UI', sans-serif;
-
-    @include media-breakpoint-down(md) {
-        font-size: 1.4em;
-
-        .btn {
-            font-size: 1em;
-        }
-    }
-
-    @include media-breakpoint-down(sm) {
-        font-size: 1.2em;
-
-        .btn {
-            font-size: .8em;
-        }
-    }
-}
-
 .btn span {
     font-size: 1em;
 }
@@ -177,6 +155,12 @@ h1 {
     @include media-breakpoint-down(sm) {
         font-size: 1.7em;
     }
+
+    &.main-title {
+        margin-top: 2em;
+        font-size: 3.5em;
+        line-height: 1.25em;
+    }
 }
 
 .container {
@@ -196,10 +180,6 @@ ul.list-noindent {
 #footer .container {
     max-width: 50em;
     font-size: .8em;
-}
-
-h2 {
-    color: #4b4b4b;
 }
 
 q.blockquote {
@@ -245,10 +225,6 @@ q.blockquote {
     margin: .1em auto 2.8em auto;
 }
 
-h1 em, h2 em, h2 a {
-    font-size: 1em;
-}
-
 .list-group {
     margin-left: 1.3em;
 
@@ -266,11 +242,14 @@ h1 em, h2 em, h2 a {
 
 #homepage {
     margin-bottom: 5em;
+    clear: both;
 
     h2 {
+        margin-top: 3em;
         margin-bottom: 3em;
-    }
 
+        font-weight: 800;
+    }
 }
 
 .demo_form_code {
@@ -392,17 +371,21 @@ ol {
     }
 }
 
-#made_by p {
-    line-height: 2em;
-}
-
 // forms
 label.required:before {
     content: "* ";
     color: #dc3545;
 }
 
-
 .img-thumbnail {
     margin-bottom: .5em;
+}
+
+#top_right_logo {
+    float: right;
+    margin-top: -.1em;
+
+    img {
+        max-height: 2.4em;
+    }
 }
