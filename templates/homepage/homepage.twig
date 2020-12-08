@@ -8,98 +8,87 @@
 
 {% block main %}
     <div id="homepage">
+        <h1 class="main-title">{{ page_title }}</h1>
+
+        <h2 class="mb-4">Who Already Delegates Boring Work to Rector?</h2>
+
+        <div class="row" id="company_logos" class="mt-5">
+            <div class="align-self-center col-6 col-md-3 mb-4">
+                <img src="/assets/images/logo/eonx.png" alt="">
+            </div>
+
+            <div class="align-self-center col-6 col-md-3 mb-4">
+                <img src="/assets/images/logo/amateri.png" alt="">
+            </div>
+
+            <div class="align-self-center col-6 col-md-3 mb-4">
+                <img src="/assets/images/logo/luzanky.png" alt="">
+            </div>
+
+            <div class="align-self-center col-6 col-md-3 mb-4">
+                <img src="/assets/images/logo/spaceflow.png" alt="">
+            </div>
+        </div>
+
+    <div class="container">
+        <div class="text-center">
+            <h2>How will Rector make&nbsp;your&nbsp;Life&nbsp;Easier?</h2>
+        </div>
+
         <div class="row">
-            <div class="col-12">
-                <h1 class="main-title">{{ page_title }}</h1>
+            <div class="col-12 col-md-6">
+                <div class="card mb-5 md-md-0"ht">
+                    <div class="card-body">
+                        <h3 class="text-bold text-center mt-3 mb-4">
+                            <em class="fas fa-code fa-fw"></em>
+                            &nbsp;
+                            For CTOs
+                        </h3>
+
+                        <ul class="list-group">
+                            <li>Do you want to migrate your code from PHP 5.3 to 7.4?</li>
+                            <li>Do you want to use the newest Symfony code without reading all the <code>CHANGELOG.md</code> files?</li>
+                            <li>Do you want to turn static to constructor injection in 1000 classes in seconds?</li>
+                            <li>Refactor custom code at scale without rebasing?</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <div class="card mb-5 md-md-0"t">
+                    <div class="card-body">
+                        <h3 class="text-bold text-center mt-3 mb-4">
+                            <em class="fas fa-user-tie fa-fw"></em>
+                            &nbsp;
+                            For CEOs
+                        </h3>
+
+                        <ul class="list-group">
+                            <li>Are you stuck on legacy code because you have to "delivery features"?</li>
+                            <li>Do you use old framework, that slows down your product?</li>
+                            <li>Does your team complain about legacy code, but you just can't stop development for 6 months?</li>
+                            <li>Do you want keep delivering features and migrate framework at the same time?</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-4 mb-3">
+                {#                                <a href="{{ path('for_companies') }}" class="btn btn-primary">#}
+                <a href="{{ path('contact') }}" class="btn btn-success btn-lg">
+                    Contact us and Jump over Competition
+                </a>
             </div>
         </div>
+
+        <h2 class="text-center">
+            What Rector Users Say?
+        </h2>
+
+        <br>
+        <br>
+
+        {% include "_snippets/tweets.twig" %}
     </div>
-
-    <section class="section bg-light text-center">
-        <div class="container">
-            <h2 class="mb-4">Who Already Delegates Boring Work to Rector?</h2>
-
-            <div class="row" id="company_logos" class="mt-5">
-                <div class="align-self-center col-6 col-md-3 mb-4">
-                    <img src="/assets/images/logo/eonx.png" alt="">
-                </div>
-
-                <div class="align-self-center col-6 col-md-3 mb-4">
-                    <img src="/assets/images/logo/amateri.png" alt="">
-                </div>
-
-                <div class="align-self-center col-6 col-md-3 mb-4">
-                    <img src="/assets/images/logo/luzanky.png" alt="">
-                </div>
-
-                <div class="align-self-center col-6 col-md-3 mb-4">
-                    <img src="/assets/images/logo/spaceflow.png" alt="">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section" id="services">
-        <div class="container">
-            <div class="text-center">
-                <h2>How will Rector make&nbsp;your&nbsp;Life&nbsp;Easier?</h2>
-            </div>
-
-            <div class="row">
-                <div class="col-12 col-md-6">
-                    <div class="card mb-5 md-md-0"ht">
-                        <div class="card-body">
-                            <h3 class="text-bold text-center mt-3 mb-4">
-                                <em class="fas fa-code fa-fw"></em>
-                                &nbsp;
-                                For CTOs
-                            </h3>
-
-                            <ul class="list-group">
-                                <li>Do you want to migrate your code from PHP 5.3 to 7.4?</li>
-                                <li>Do you want to use the newest Symfony code without reading all the <code>CHANGELOG.md</code> files?</li>
-                                <li>Do you want to turn static to constructor injection in 1000 classes in seconds?</li>
-                                <li>Refactor custom code at scale without rebasing?</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6">
-                    <div class="card mb-5 md-md-0"t">
-                        <div class="card-body">
-                            <h3 class="text-bold text-center mt-3 mb-4">
-                                <em class="fas fa-user-tie fa-fw"></em>
-                                &nbsp;
-                                For CEOs
-                            </h3>
-
-                            <ul class="list-group">
-                                <li>Are you stuck on legacy code because you have to "delivery features"?</li>
-                                <li>Do you use old framework, that slows down your product?</li>
-                                <li>Does your team complain about legacy code, but you just can't stop development for 6 months?</li>
-                                <li>Do you want keep delivering features and migrate framework at the same time?</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="text-center mt-4 mb-3">
-                    {#                                <a href="{{ path('for_companies') }}" class="btn btn-primary">#}
-                    <a href="{{ path('contact') }}" class="btn btn-success btn-lg">
-                        Contact us and Jump over Competition
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <h2 class="text-center">
-        What Rector Users Say?
-    </h2>
-
-    <br>
-    <br>
-
-    {% include "_snippets/tweets.twig" %}
 {% endblock %}
