@@ -12,6 +12,7 @@ use Rector\Website\Demo\Repository\RectorRunRepository;
 use Rector\Website\Demo\ValueObject\DemoFormData;
 use Rector\Website\Demo\ValueObjectFactory\DemoFormDataFactory;
 use Rector\Website\Demo\ValueObjectFactory\RectorRunFactory;
+use Rector\Website\Exception\ShouldNotHappenException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -45,10 +46,12 @@ final class DemoController extends AbstractController
     public function __invoke(Request $request, ?RectorRun $rectorRun = null): Response
     {
         $form = $this->demoFormDataFactory->createFromRectorRun($rectorRun);
+
         $demoForm = $this->createForm(DemoFormType::class, $form, [
             // this is needed for manual render
             'action' => $this->generateUrl(self::ROUTE_DEMO),
         ]);
+
         $demoForm->handleRequest($request);
         if ($demoForm->isSubmitted() && $demoForm->isValid()) {
             return $this->processFormAndReturnRoute($demoForm);
@@ -63,8 +66,11 @@ final class DemoController extends AbstractController
 
     private function processFormAndReturnRoute(FormInterface $form): RedirectResponse
     {
-        /** @var DemoFormData $demoFormData */
         $demoFormData = $form->getData();
+        if (! $demoFormData instanceof DemoFormData) {
+            throw new ShouldNotHappenException();
+        }
+
         $config = $demoFormData->getConfig();
 
         $rectorRun = $this->rectorRunFactory->create($config, $demoFormData);
