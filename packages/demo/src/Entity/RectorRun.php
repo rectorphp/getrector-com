@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Jean85\Version;
 use Nette\Utils\Json;
 use Nette\Utils\Strings;
+use Symfony\Bridge\Doctrine\IdGenerator\UuidV4Generator;
 use Symfony\Component\Stopwatch\StopwatchEvent;
 use Symfony\Component\Uid\Uuid;
 
@@ -17,6 +18,14 @@ use Symfony\Component\Uid\Uuid;
  */
 class RectorRun
 {
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="uuid", unique=true)
+     * @ORM\GeneratedValue(strategy="CUSTOM")
+     * @ORM\CustomIdGenerator(class=UuidV4Generator::class)
+     */
+    private Uuid $id;
+
     /**
      * @ORM\Column(type="text", nullable=true)
      */
@@ -38,11 +47,6 @@ class RectorRun
     private ?float $elapsedTime;
 
     public function __construct(
-        /**
-         * @ORM\Id
-         * @ORM\Column(type="uuid")
-         */
-        private Uuid $id,
         /**
          * @ORM\Column(type="datetime_immutable")
          */
