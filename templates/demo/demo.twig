@@ -3,7 +3,13 @@
 {% set page_title %}Try Rector Online{% endset %}
 
 {% block main %}
-    <div id="rector_run_form">
+    {% if rector_run is not null %}
+        <div class="pt-2 pull-right mono-font text-smaller">
+            Permalink: <a href="{{ path('demo_detail', {'rectorRun': rector_run.id }) }}">{{ rector_run.id }}</a>
+        </div>
+    {% endif %}
+
+    <div id="rector_run_form" class="mt-4">
         {{ form_start(demo_form) }}
         {{ form_row(demo_form.content) }}
 
@@ -16,13 +22,6 @@
         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
         <div class="mt-5">
-            {% if rector_run is not null %}
-                <div class="pt-2 pull-right" style="float:right;">
-                    Permalink:
-                    <a href="{{ path('demo_detail', {'rectorRun': rector_run.id }) }}">{{ rector_run.id }}</a>
-                </div>
-            {% endif %}
-
             {{ form_row(demo_form.process) }}
         </div>
 
@@ -32,13 +31,11 @@
     {% include "_snippets/homepage_separator.twig" %}
 
     {% if rector_run is not null %}
-        <div class="mt-5 mb-0 pl-5 pr-5 pb-4" id="demo_result">
-            <br>
-
+        <div class="mb-0" id="demo_result">
             <h3 id="result">Result</h3>
 
             {% if rector_run.version is not null %}
-                <p class="rector-version">
+                <p class="rector-version mono-font">
                     Used Rector version:
                     <a href="https://github.com/rectorphp/rector/tree/{{ rector_run.version.commitHash }}">{{ rector_run.version.fullVersion }}</a>
                 </p>

@@ -101,7 +101,6 @@ ENV SENTRY_RELEASE=${commitHash}
 
 COPY . .
 
-
 ####
 ## Local build + xdebug - we do not need COPY files because we will get them from volume
 ####
