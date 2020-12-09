@@ -38,13 +38,7 @@ a, a:hover, a:focus, button, button:focus {
 ============================*/
 
 #company_logos img {
-    width: 10em;
-    height: 2em;
-    object-fit: scale-down;
-
-    @include media-breakpoint-down(md) {
-        padding: 0 .1em;
-    }
+    width: 100%;
 }
 
 h1, h2, h3 {
