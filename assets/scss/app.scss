@@ -34,21 +34,6 @@ a, a:hover, a:focus, button, button:focus {
 }
 
 /*==========================
-        2.HELPER
-============================*/
-
-/*==========================
-        4.HOME
-============================*/
-
-.home-bg-img {
-    background-image: url('/assets/images/home-bg3.jpg');
-    background-size: cover;
-    background-position: top center;
-}
-
-
-/*==========================
         20.RESPONSIVE
 ============================*/
 
@@ -66,32 +51,9 @@ h1, h2, h3 {
     font-family: 'Inter', sans-serif;
 }
 
-h2 {
-    margin-top: 1.3rem;
-    font-weight: 500;
-    line-height: 1.3em;
-}
-
 h3 {
     font-size: 1.4rem;
     line-height: 1.7em;
-}
-
-.blockquote {
-    font-size: 1.3em;
-    line-height: 1.5em;
-}
-
-.blockquote strong, nobr {
-    font-size: 1em;
-}
-
-#reference strong {
-    font-size: 1em;
-}
-
-.btn span {
-    font-size: 1em;
 }
 
 /* inspired by backers from https://nette.org/ */
@@ -131,20 +93,11 @@ body {
     }
 }
 
-.section:not(.bg-light) {
-    background-position: top left;
-    background-repeat: repeat;
-}
-
 h1 {
     font-size: 2.8em;
     line-height: 1.4em;
     font-weight: 300;
     padding-bottom: .5em;
-
-    strong {
-        font-size: 1em;
-    }
 
     @include media-breakpoint-down(md) {
         font-size: 2.5em;
@@ -156,8 +109,8 @@ h1 {
 
     &.main-title {
         margin-top: 2em;
-        font-size: 3.6rem;
-        line-height: 1.25em;
+        font-size: 3.9rem;
+        line-height: 1.3em;
         font-weight: 800;
 
         @include media-breakpoint-down(md) {
@@ -175,14 +128,14 @@ h1 {
 }
 
 h2 {
-    font-size: 2.1em;
+    font-size: 1.9em;
 
     @include media-breakpoint-down(md) {
-        font-size: 1.8em;
+        font-size: 1.6em;
     }
 
     @include media-breakpoint-down(sm) {
-        font-size: 1.4em;
+        font-size: 1.3em;
     }
 }
 
@@ -201,12 +154,7 @@ ul.list-noindent {
 
 /*!* not sure why, but em in footer are bigger; this is to make the width the same size as rest *!*/
 #footer .container {
-    max-width: 50em;
     font-size: .8em;
-}
-
-q.blockquote {
-    display: block;
 }
 
 .bg-black {
@@ -270,8 +218,17 @@ q.blockquote {
     h2 {
         margin: 2em 0;
         text-align: center;
+        font-size: 2.2em;
 
         font-weight: 500 !important;
+
+        @include media-breakpoint-down(md) {
+            font-size: 2em;
+        }
+
+        @include media-breakpoint-down(sm) {
+            font-size: 1.8em;
+        }
     }
 
     h3 {
@@ -285,6 +242,14 @@ q.blockquote {
     .blockquote {
         font-size: 1.4em;
         margin-bottom: 1em;
+
+        @include media-breakpoint-down(md) {
+            font-size: 1.3em;
+        }
+
+        @include media-breakpoint-down(sm) {
+            font-size: 1.2em;
+        }
     }
 
     .img-face-smaller-right {
