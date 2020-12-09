@@ -14,15 +14,20 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
 <link rel="mask-icon" href="/assets/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
 
-<meta name="twitter:site" content="@rectorphp">
-
-{% set social_image %}{{ site_url }}/assets/images/logo/rector/rector-no_frame_vector_for_circles.png{% endset %}
+{# see https://webmasters.stackexchange.com/a/77547/115572 for random() #}
+{% set social_image %}{{ site_url }}/assets/images/logo/rector/rector-no_frame_vector_for_circles.png?{{ random() }}{% endset %}
 
 {# socials sharing - Twitter at least #}
 <meta property="og:type" content="website">
+<meta property="twitter:card" content="summary">
+
+<meta name="twitter:site" content="@rectorphp">
+
 <meta property="og:title" content="{{ full_title }}">
+<meta property="twitter:title" content="{{ full_title }}">
+
 <meta property="og:image" content="{{ social_image }}">
+<meta name="twitter:image" content="{{ social_image }}">
 
 {# https://wordpress.stackexchange.com/a/271508 #}
 <link rel="image_src" href="{{ social_image }}">
-<meta name="twitter:image" content="{{ social_image }}">
