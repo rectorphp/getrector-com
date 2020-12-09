@@ -161,28 +161,6 @@ ul.list-noindent {
     background-color: #333;
 }
 
-.text-bold {
-    font-weight: bold;
-}
-
-
-/* show/hidden menu; ref https://stackoverflow.com/a/35362821/1348344 */
-@media (max-width: 768px) {
-    .hidden-sm-down {
-        display: none !important;
-    }
-}
-
-@media (min-width: 769px) {
-    .hidden-md-up {
-        display: none !important;
-    }
-}
-
-.bg-light {
-    background: #DDD;
-}
-
 .text-bigger {
     font-size: 1.4em;
 
@@ -408,4 +386,17 @@ label.required:before {
 // full height background for removed and added lines
 .token.deleted, .token.added {
     display: inline-block;
+}
+
+/* show/hidden menu; ref https://stackoverflow.com/a/35362821/1348344 */
+@media (min-width: 640px) {
+    .hidden-md-up {
+        display: none !important;
+    }
+}
+
+@media (max-width: 639px) {
+    .hidden-sm-down {
+        display: none !important;
+    }
 }
