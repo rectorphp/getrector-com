@@ -33,17 +33,15 @@ final class ContactController extends AbstractController
                 throw new ShouldNotHappenException();
             }
 
-            // @todo create midration
             $this->contactMessageRepository->save($contactMessage);
-
             $this->addFlash('success', 'Your message is on the way!');
-            // form was submitted
 
             return $this->redirectToRoute(RouteName::CONTACT);
         }
 
         return $this->render('homepage/contact.twig', [
             'contact_form' => $form->createView(),
+            'page_title' => "Let's Make Impossible Happen",
         ]);
     }
 }
