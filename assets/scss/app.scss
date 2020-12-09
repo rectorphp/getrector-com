@@ -147,18 +147,42 @@ h1 {
     }
 
     @include media-breakpoint-down(md) {
-        font-size: 2.4em;
+        font-size: 2.5em;
     }
 
     @include media-breakpoint-down(sm) {
-        font-size: 1.7em;
+        font-size: 2em;
     }
 
     &.main-title {
         margin-top: 2em;
-        font-size: 3.5em;
+        font-size: 3.6rem;
         line-height: 1.25em;
         font-weight: 800;
+
+        @include media-breakpoint-down(md) {
+            font-size: 3em;
+        }
+
+        @include media-breakpoint-down(sm) {
+            font-size: 2.5em;
+        }
+
+        @include media-breakpoint-down(xs) {
+            font-size: 2.2em;
+        }
+    }
+}
+
+h2 {
+    font-size: 2.1em;
+
+    @include media-breakpoint-down(md) {
+        font-size: 1.8em;
+    }
+
+    @include media-breakpoint-down(sm) {
+        font-size: 1.4em;
     }
 }
 
@@ -217,6 +241,14 @@ q.blockquote {
     strong {
         font-size: 1em;
     }
+
+    @include media-breakpoint-down(md) {
+        font-size: 1.3em;
+    }
+
+    @include media-breakpoint-down(sm) {
+        font-size: 1.2em;
+    }
 }
 
 .img-face {
@@ -236,7 +268,6 @@ q.blockquote {
     clear: both;
 
     h2 {
-        font-size: 2.4rem;
         margin: 2em 0;
         text-align: center;
 
