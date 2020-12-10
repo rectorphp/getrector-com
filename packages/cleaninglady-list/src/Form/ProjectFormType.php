@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Rector\Website\CleaningLadyList\Form;
 
 use Rector\Website\CleaningLadyList\Entity\Project;
+use Rector\Website\ValueObject\FormChoiceChoices;
+use Rector\Website\ValueObject\FormPlaceholder;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -19,55 +21,38 @@ final class ProjectFormType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $formBuilder, array $options): void
     {
-        $formBuilder->add('title', TextType::class, [
-            'label' => false,
-            'attr' => [
-                'placeholder' => 'Project Title',
-            ],
+        $formBuilder->add('name', TextType::class, [
+            'label' => 'Project Name',
         ]);
-        $formBuilder->add('currentFramework', ChoiceType::class, [
-            'label' => false,
-            'placeholder' => 'Framework',
-            'choices' => [
-                'Symfony' => 'Symfony',
-                'CodeIgniter' => 'CodeIgniter',
-                'Laravel' => 'Laravel',
-                'Zend' => 'Zend',
-                'Phalcon' => 'Phalcon',
-                'CakePHP' => 'CakePHP',
-                'Yii' => 'Yii',
-            ],
-        ]);
+
         $formBuilder->add('currentPhpVersion', ChoiceType::class, [
-            'label' => false,
-            'placeholder' => 'PHP version',
-            'choices' => [
-                '5.6' => '5.6',
-                '7.0' => '7.0',
-                '7.1' => '7.1',
-                '7.2' => '7.2',
-                '7.3' => '7.3',
-                '7.4' => '7.4',
-            ],
+            'label' => 'Current PHP version',
+            'placeholder' => FormPlaceholder::PICK_ONE,
+            'choices' => FormChoiceChoices::PHP_VERSION_CHOICES,
         ]);
-        $formBuilder->add('desiredFramework', ChoiceType::class, [
-            'label' => false,
-            'placeholder' => 'Framework',
-            'choices' => [
-                'Symfony' => 'Symfony',
-            ],
+
+        $formBuilder->add('targetPhpVersion', ChoiceType::class, [
+            'label' => 'Target PHP version',
+            'placeholder' => FormPlaceholder::PICK_ONE,
+            'choices' => FormChoiceChoices::PHP_VERSION_CHOICES,
         ]);
-        $formBuilder->add('desiredPhpVersion', ChoiceType::class, [
-            'label' => false,
-            'placeholder' => 'PHP version',
-            'choices' => [
-                '7.4' => '7.4',
-            ],
+
+        $formBuilder->add('currentFramework', ChoiceType::class, [
+            'label' => 'Current Framework',
+            'placeholder' => FormPlaceholder::PICK_ONE,
+            'choices' => FormChoiceChoices::CURRENT_FRAMEWORK_CHOICES,
         ]);
+
+        $formBuilder->add('targetFramework', ChoiceType::class, [
+            'label' => 'Target Framework',
+            'placeholder' => FormPlaceholder::PICK_ONE,
+            'choices' => FormChoiceChoices::TARGET_FRAMEWORK_CHOICES,
+        ]);
+
         $formBuilder->add('save', SubmitType::class, [
-            'label' => 'create',
+            'label' => 'Create',
             'attr' => [
-                'class' => 'btn btn-success btn-block',
+                'class' => 'btn btn-success btn-lg mt-3',
             ],
         ]);
     }
