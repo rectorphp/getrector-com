@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace Rector\Website\CleaningLadyList\Controller;
 
+use Nette\Utils\Json;
 use Rector\Website\CleaningLadyList\Repository\CheckboxRepository;
 use Rector\Website\CleaningLadyList\Repository\ProjectCheckboxRepository;
 use Rector\Website\CleaningLadyList\Repository\ProjectRepository;
+use Rector\Website\ValueObject\RouteName;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,11 +23,11 @@ final class CheckboxCheckController extends AbstractController
     ) {
     }
 
-    #[Route('project/checkbox/check', name: 'project.checkbox.check')]
+    #[Route('project/checkbox/check', name: RouteName::CHECKBOX_CHECK)]
     public function __invoke(Request $request): JsonResponse
     {
-        $getContent = $request->getContent();
-        $content = json_decode($getContent . '', false, 512, JSON_THROW_ON_ERROR);
+        $content = Json::decode((string) $request->getContent());
+
         $submittedToken = $content->token;
         $projectCheckboxId = $content->projectCheckboxId;
         if ($this->isCsrfTokenValid('check-blank-token', $submittedToken)) {

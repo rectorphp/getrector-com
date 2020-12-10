@@ -20,4 +20,9 @@ final class RouteName
      * @var string
      */
     public const LISTS = 'lists';
+
+    /**
+     * @var string
+     */
+    public const CHECKBOX_CHECK = 'checkbox_check';
 }

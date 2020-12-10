@@ -22,7 +22,7 @@ class Project implements TimestampableInterface
      * @ORM\Id
      * @ORM\Column(type="uuid")
      */
-    private ?Uuid $id;
+    private Uuid $id;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -66,7 +66,7 @@ class Project implements TimestampableInterface
         $this->projectCheckboxes = new ArrayCollection();
     }
 
-    public function getId(): ?Uuid
+    public function getId(): Uuid
     {
         return $this->id;
     }
