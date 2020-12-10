@@ -57,5 +57,5 @@ class ContactMessage implements TimestampableInterface
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    public ?int $targetPhpVersion;
+    public ?int $targetPhpVersion = null;
 }
