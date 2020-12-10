@@ -7,7 +7,7 @@ namespace Rector\Website\CleaningLadyList\Repository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ObjectRepository;
 use Rector\Website\CleaningLadyList\Entity\ProjectCheckbox;
-use Rector\Website\CleaningLadyList\Exception\ShouldNotHappenException;
+use Rector\Website\Exception\ShouldNotHappenException;
 
 final class ProjectCheckboxRepository
 {

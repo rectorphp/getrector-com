@@ -10,14 +10,14 @@ use Rector\Website\CleaningLadyList\Form\ProjectFormType;
 use Rector\Website\CleaningLadyList\Repository\CheckboxRepository;
 use Rector\Website\CleaningLadyList\Repository\ProjectCheckboxRepository;
 use Rector\Website\CleaningLadyList\Repository\ProjectRepository;
+use Rector\Website\ValueObject\RouteName;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-final class ProjectController extends AbstractController
+final class ListsController extends AbstractController
 {
     public function __construct(
         private CheckboxRepository $checkboxRepository,
@@ -26,8 +26,8 @@ final class ProjectController extends AbstractController
     ) {
     }
 
-    #[Route(path: 'cleaning-lady-list', name: 'lists')]
-    public function create(Request $request): Response
+    #[Route(path: 'cleaning-lady-list', name: RouteName::LISTS)]
+    public function __invoke(Request $request): Response
     {
         $project = new Project();
         $projectForm = $this->createForm(ProjectFormType::class, $project);
@@ -41,29 +41,6 @@ final class ProjectController extends AbstractController
         ]);
     }
 
-    #[Route('project/checkbox/check', name: 'project.checkbox.check')]
-    public function checkProjectCheckbox(Request $request): JsonResponse
-    {
-        $getContent = $request->getContent();
-        $content = json_decode($getContent . '', false, 512, JSON_THROW_ON_ERROR);
-        $submittedToken = $content->token;
-        $projectCheckboxId = $content->projectCheckboxId;
-        if ($this->isCsrfTokenValid('check-blank-token', $submittedToken)) {
-            $projectCheckbox = $this->projectCheckboxRepository->get($projectCheckboxId);
-            $projectCheckbox->inverseCompleteAt();
-
-            $this->projectCheckboxRepository->save($projectCheckbox);
-
-            return $this->json([
-                'success' => true,
-                'result' => $projectCheckbox->getCompleteAtAsString(),
-            ]);
-        }
-        return $this->json([
-            'success' => false,
-        ]);
-    }
-
     private function processFormRequest(Project $project): RedirectResponse
     {
         $desiredFramework = $project->getDesiredFramework();
@@ -74,13 +51,12 @@ final class ProjectController extends AbstractController
             $projectCheckbox->setProject($project);
             $projectCheckbox->addCheckbox($checkbox);
 
-            $this->projectCheckboxRepository->persist($projectCheckbox);
+            $this->projectCheckboxRepository->save($projectCheckbox);
         }
 
-        $project->setTimezone('Prague');
         $this->projectRepository->save($project);
 
-        return $this->redirectToRoute('project.show', [
+        return $this->redirectToRoute(RouteName::LIST_DETAIL, [
             'id' => $project->getId(),
         ]);
     }

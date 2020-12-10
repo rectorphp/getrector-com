@@ -12,15 +12,25 @@ parameters:
     excludes_analyse:
         - "packages/demo/data/DemoFile.php"
 
+<<<<<<< HEAD
     reportUnmatchedIgnoredErrors: false
 
+=======
+>>>>>>> 216071d... static and controller fixes
     ignoreErrors:
         - '#Method Rector\\Website\\Demo\\Process\\RectorProcessRunner\:\:createProcess\(\) return type has no value type specified in iterable type Symfony\\Component\\Process\\Process#'
         - '#Method Rector\\Website\\Demo\\Form\\DemoFormType\:\:buildForm\(\) has parameter \$formBuilder with no value type specified in iterable type Symfony\\Component\\Form\\FormBuilderInterface#'
         - '#Method Rector\\Website\\Form\\ContactFormType\:\:buildForm\(\) has parameter \$formBuilder with no value type specified in iterable type Symfony\\Component\\Form\\FormBuilderInterface#'
         - '#Method Rector\\Website\\Demo\\Controller\\DemoController\:\:processFormAndReturnRoute\(\) has parameter \$form with no value type specified in iterable type Symfony\\Component\\Form\\FormInterface#'
+<<<<<<< HEAD
         - '#Content of method "save\(\)" is duplicated with method "save\(\)" in "Rector\\Website\\Repository\\ContactMessageRepository" class\. Use unique content or abstract service instead#'
         # false positive
         - '#The path "/\.\./config/\{packages\}/" was not found#'
         - '#The path "/\.\./config/\{routes\}/" was not found#'
 
+=======
+
+        - '#Property Rector\\Website\\CleaningLadyList\\Repository\\CheckboxRepository\:\:\$entityRepository \(Doctrine\\ORM\\EntityRepository<Rector\\Website\\CleaningLadyList\\Entity\\Checkbox\>\) does not accept Doctrine\\Persistence\\ObjectRepository<Rector\\Website\\CleaningLadyList\\Entity\\Checkbox\>#'
+        # phsptan bug
+        - '#Method Rector\\Website\\CleaningLadyList\\Form\\ProjectFormType\:\:buildForm\(\) has parameter \$formBuilder with no value type specified in iterable type Symfony\\Component\\Form\\FormBuilderInterface#'
+>>>>>>> 216071d... static and controller fixes

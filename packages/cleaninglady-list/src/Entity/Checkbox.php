@@ -47,7 +47,7 @@ class Checkbox
      * @ORM\ManyToMany(targetEntity=ProjectCheckbox::class, mappedBy="checkboxes")
      * @var Collection<int, ProjectCheckbox>|ProjectCheckbox[]
      */
-    private array $projectCheckboxes;
+    private Collection $projectCheckboxes;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)

@@ -29,9 +29,9 @@ class ProjectCheckbox
 
     /**
      * @ORM\ManyToMany(targetEntity=Checkbox::class, inversedBy="projectCheckboxes")
-     * @var Collection<int, Checkbox>|Checkbox[]
+     * @var Collection<int, Checkbox>
      */
-    private array $checkboxes;
+    private Collection $checkboxes;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)

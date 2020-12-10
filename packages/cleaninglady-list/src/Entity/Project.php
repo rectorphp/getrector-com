@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Rector\Website\CleaningLadyList\Entity;
 
-use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -59,7 +58,7 @@ class Project implements TimestampableInterface
      * @ORM\OneToMany(targetEntity=ProjectCheckbox::class, mappedBy="project")
      * @var Collection<int, ProjectCheckbox>|ProjectCheckbox[]
      */
-    private array $projectCheckboxes;
+    private Collection $projectCheckboxes;
 
     public function __construct()
     {
@@ -122,18 +121,8 @@ class Project implements TimestampableInterface
         $this->desiredPhpVersion = $desiredPhpVersion;
     }
 
-    public function getDate(): ?DateTimeInterface
-    {
-        return $this->dateTime;
-    }
-
-    public function setDate(DateTimeInterface $dateTime): void
-    {
-        $this->dateTime = $dateTime;
-    }
-
     /**
-     * @return Collection<int, ProjectCheckbox>|ProjectCheckbox[]
+     * @return Collection<int, ProjectCheckbox>
      */
     public function getProjectCheckboxes(): Collection
     {
