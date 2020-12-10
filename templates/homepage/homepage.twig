@@ -23,6 +23,22 @@
 
         {% include "_snippets/homepage_separator.twig" %}
 
+        <h2><span class="text-rector-blue">Learn</span> from Our Experience</h2>
+
+        {% for post in last_3_posts %}
+            <div class="mb-5">
+                {# @var post \Rector\Website\Blog\ValueObject\Post  #}
+                <p class="text-bigger">
+                    <a href="{{ path('post', {'postSlug': post.slug }) }}">{{ post.title }}</a>
+                </p>
+                <time datetime="{{ post.dateTime|date('Y-m-D') }}" class="mono-font text-grey">
+                    {{ post.dateTime|date }}
+                </time>
+            </div>
+        {% endfor %}
+
+        {% include "_snippets/homepage_separator.twig" %}
+
         <div id="how"></div>
         <h2>How will Rector <span class="text-rector-blue">make&nbsp;your&nbsp;Life&nbsp;Easier</span>?</h2>
 
