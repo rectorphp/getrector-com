@@ -46,7 +46,7 @@ final class ContactFormType extends AbstractType
             'placeholder' => self::PICK_ONE_PLACEHOLDER,
             'required' => true,
             'choices' => [
-                'Smaller then 100 000 lines' => 100_000,
+                'Smaller than 100 000 lines' => 100_000,
                 '< 250 000 lines' => 250_000,
                 '< 500 000 lines' => 500_000,
                 '< 1 000 000 lines' => 1_500_000,
