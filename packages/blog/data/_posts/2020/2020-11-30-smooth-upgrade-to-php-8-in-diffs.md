@@ -325,6 +325,7 @@ These 3 rules are not compatible with PHP 8 yet. So better skip them in `ecs.php
 
 - `PhpCsFixer\Fixer\ClassNotation\ClassAttributesSeparationFixer`
 - `PhpCsFixer\Fixer\Operator\BinaryOperatorSpacesFixer`
+- `PhpCsFixer\Fixer\Operator\TernaryOperatorSpacesFixer`
 - `SlevomatCodingStandard\Sniffs\Classes\DisallowMultiPropertyDefinitionSniff`
 
 ## Resolve Hard Conflicts With `composer install`
