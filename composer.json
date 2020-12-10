@@ -78,7 +78,11 @@
             "Rector\\Website\\": "src",
             "Rector\\Website\\Blog\\": "packages/blog/src",
             "Rector\\Website\\Demo\\": "packages/demo/src",
+<<<<<<< HEAD
             "Rector\\Website\\GithubMagicLink\\": "packages/github-magic-link/src"
+=======
+            "Rector\\Website\\CleaningLadyList\\": "packages/cleaninglady-list/src"
+>>>>>>> 9d00220... [CleaningLadyList] Init
         }
     },
     "autoload-dev": {

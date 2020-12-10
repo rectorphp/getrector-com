@@ -1,0 +1,24 @@
+{% extends 'base.twig' %}
+
+{% block title %}Cleaning Lady List{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6">
+                {{ form(project_form) }}
+            </div>
+            <div class="col-md-6">
+                <h1>Cleaning Lady List</h1>
+                <p>
+                    Want to migrate a PHP project, but don't know where to begin?
+                    The Cleaning Lady List give you a sharable checklist of steps to achieve a clean, high
+                    quality and maintainable migration. </br> Create a project to start.
+                </p>
+                <div class="text-center">
+                    <img src="{{ asset('images/clean-3.jpg') }}" class="img-fluid" width="80%"/>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
