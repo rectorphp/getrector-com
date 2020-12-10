@@ -46,6 +46,14 @@ final class PostRepository
         return null;
     }
 
+    /**
+     * @return Post[]
+     */
+    public function fetchLast(int $count): array
+    {
+        return array_slice($this->fetchAll(), 0, $count);
+    }
+
     private function createPosts(): void
     {
         $posts = [];
