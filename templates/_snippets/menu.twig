@@ -10,7 +10,7 @@
                     <a href="{{ path('mission') }}" class="nav-link">Mission</a>
                 </li>
 
-                <li class="nav-item {% if is_current_routes(["demo", "demo_detail"]) %}active{% endif %}">
+                <li class="nav-item {% if is_current_routes(["demo", "demo_detail"]) %}active{% endif %} hidden-sm-down">
                     <a href="{{ path('demo') }}" class="nav-link">Demo</a>
                 </li>
 
@@ -19,7 +19,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="http://github.com/rectorphp/rector" class="nav-link mr-3">
+                    <a href="http://github.com/rectorphp/rector" class="nav-link">
                         <em class="fab fa-github fa-lg"></em>
                     </a>
                 </li>
