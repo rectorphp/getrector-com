@@ -32,12 +32,14 @@ final class ListsController extends AbstractController
         $project = new Project();
         $projectForm = $this->createForm(ProjectFormType::class, $project);
         $projectForm->handleRequest($request);
+
         if ($projectForm->isSubmitted() && $projectForm->isValid()) {
             return $this->processFormRequest($project);
         }
 
         return $this->render('project/create.twig', [
             'project_form' => $projectForm->createView(),
+            'page_title' => 'Cleaning Lady List',
         ]);
     }
 

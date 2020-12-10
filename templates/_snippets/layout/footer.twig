@@ -21,6 +21,12 @@
                 <a href="http://facebook.com/rectorphp" class="p-2">
                     <em class="fab fa-facebook fa-fw fa-lg"></em>
                 </a>
+
+                {% if random(50, 100) > 80 %}
+                    <a href="{{ path(constant('Rector\\Website\\ValueObject\\RouteName::LISTS')) }}">
+                        <em class="fas fa-broom fa-fw fa-lg"></em>
+                    </a>
+                {% endif %}
             </div>
 
             <div class="col-12 col-md-6 text-center text-md-right mt-5 mt-md-0">
