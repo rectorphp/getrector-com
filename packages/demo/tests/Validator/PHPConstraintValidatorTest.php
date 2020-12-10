@@ -31,10 +31,10 @@ final class PHPConstraintValidatorTest extends AbstractKernelTestCase
      */
     public function testValidPHPSyntax(SmartFileInfo $smartFileInfo): void
     {
-        $demoFormData = $this->createRectorRun($smartFileInfo->getContents(), '<?php echo 1;');
-        $constraints = $this->validator->validate($demoFormData);
+        $rectorRun = $this->createRectorRun($smartFileInfo->getContents(), '<?php echo 1;');
+        $constraintViolationList = $this->validator->validate($rectorRun);
 
-        $this->assertCount(0, $constraints);
+        $this->assertCount(0, $constraintViolationList);
     }
 
     /**
@@ -50,13 +50,13 @@ final class PHPConstraintValidatorTest extends AbstractKernelTestCase
      */
     public function testMissingPHPOpeningTag(string $content): void
     {
-        $demoFormData = $this->createRectorRun($content, '');
-        $constraints = $this->validator->validate($demoFormData);
+        $rectorRun = $this->createRectorRun($content, '');
+        $constraintViolationList = $this->validator->validate($rectorRun);
 
-        $this->assertCount(2, $constraints);
+        $this->assertCount(2, $constraintViolationList);
 
         /** @var ConstraintViolation $constraintViolation */
-        $constraintViolation = $constraints->get(0);
+        $constraintViolation = $constraintViolationList->get(0);
 
         $this->assertSame('Add opening "<?php" tag', $constraintViolation->getMessage());
     }
@@ -75,13 +75,13 @@ final class PHPConstraintValidatorTest extends AbstractKernelTestCase
      */
     public function testInvalidPHPSyntax(string $content): void
     {
-        $demoFormData = $this->createRectorRun($content, '<?php echo 1;');
-        $constraints = $this->validator->validate($demoFormData);
+        $rectorRun = $this->createRectorRun($content, '<?php echo 1;');
+        $constraintViolationList = $this->validator->validate($rectorRun);
 
-        $this->assertCount(1, $constraints);
+        $this->assertCount(1, $constraintViolationList);
 
         /** @var ConstraintViolation $constraintViolation */
-        $constraintViolation = $constraints->get(0);
+        $constraintViolation = $constraintViolationList->get(0);
 
         /** @see https://phpunit.readthedocs.io/en/8.5/assertions.html#assertstringmatchesformat */
         $message = (string) $constraintViolation->getMessage();

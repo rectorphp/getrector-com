@@ -23,7 +23,14 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         SetList::DEAD_CODE,
         SetList::CODE_QUALITY,
         SetList::CODING_STYLE,
+        SetList::DEAD_DOC_BLOCK,
+        SetList::NAMING,
         SetList::TYPE_DECLARATION,
+        SetList::PHP_70,
+        SetList::PHP_71,
+        SetList::PHP_72,
+        SetList::PHP_73,
+        SetList::PHP_74,
         SetList::PHP_80,
     ]);
 

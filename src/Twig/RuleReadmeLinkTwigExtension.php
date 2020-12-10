@@ -21,7 +21,7 @@ final class RuleReadmeLinkTwigExtension extends AbstractExtension
      */
     public function getFilters(): array
     {
-        $githubReadmeLinkFilter = new TwigFilter('github_readme_link', function (string $rectorClass): string {
+        $twigFilter = new TwigFilter('github_readme_link', function (string $rectorClass): string {
             $shortClassName = Strings::after($rectorClass, '\\', -1);
 
             if (! is_string($shortClassName)) {
@@ -31,6 +31,6 @@ final class RuleReadmeLinkTwigExtension extends AbstractExtension
             return self::README_URL . '#' . Strings::webalize($shortClassName);
         });
 
-        return [$githubReadmeLinkFilter];
+        return [$twigFilter];
     }
 }

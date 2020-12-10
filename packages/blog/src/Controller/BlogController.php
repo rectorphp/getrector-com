@@ -19,7 +19,7 @@ final class BlogController extends AbstractController
     public function __invoke(): Response
     {
         return $this->render('blog/blog.twig', [
-            'posts' => $this->postRepository->fetchAll(),
+            'posts' => $this->postRepository->getPosts(),
         ]);
     }
 }

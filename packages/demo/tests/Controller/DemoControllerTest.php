@@ -15,10 +15,10 @@ final class DemoControllerTest extends WebTestCase
 {
     public function test(): void
     {
-        $client = static::createClient();
+        $kernelBrowser = static::createClient();
 
         // must be path of the controller
-        $client->request('GET', '/demo');
+        $kernelBrowser->request('GET', '/demo');
 
         $this->assertResponseIsSuccessful();
     }
@@ -28,11 +28,11 @@ final class DemoControllerTest extends WebTestCase
      */
     public function testFormSubmit(string $contentData, string $configData): void
     {
-        $client = static::createClient();
-        $client->request('GET', '/demo');
+        $kernelBrowser = static::createClient();
+        $kernelBrowser->request('GET', '/demo');
 
         # use name="..." of the form
-        $client->submitForm('demo_form[process]', [
+        $kernelBrowser->submitForm('demo_form[process]', [
             'demo_form[content]' => $contentData,
             'demo_form[config]' => $configData,
         ]);

@@ -20,7 +20,7 @@ final class PostRepository
     /**
      * @var Post[]
      */
-    private $posts = [];
+    private array $posts = [];
 
     public function __construct(private FinderSanitizer $finderSanitizer, private PostFactory $postFactory)
     {
@@ -30,7 +30,7 @@ final class PostRepository
     /**
      * @return Post[]
      */
-    public function fetchAll(): array
+    public function getPosts(): array
     {
         return $this->posts;
     }
@@ -51,7 +51,7 @@ final class PostRepository
      */
     public function fetchLast(int $count): array
     {
-        return array_slice($this->fetchAll(), 0, $count);
+        return array_slice($this->getPosts(), 0, $count);
     }
 
     private function createPosts(): void
@@ -84,9 +84,10 @@ final class PostRepository
      */
     private function sortByDateTimeFromNewest(array $posts): array
     {
-        usort($posts, function (Post $firstPost, Post $secondPost): int {
-            return $secondPost->getDateTime() <=> $firstPost->getDateTime();
-        });
+        usort(
+            $posts,
+            fn (Post $firstPost, Post $secondPost): int => $secondPost->getDateTime() <=> $firstPost->getDateTime()
+        );
 
         return $posts;
     }
