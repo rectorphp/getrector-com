@@ -10,6 +10,7 @@
         "doctrine/cache": "^1.10",
         "doctrine/doctrine-bundle": "^2.2",
         "doctrine/orm": "^2.8",
+        "easycorp/easyadmin-bundle": "^3.0",
         "erusev/parsedown-extra": "^0.8.1",
         "knplabs/doctrine-behaviors": "^2.0.8",
         "nyholm/psr7": "^1.3",
