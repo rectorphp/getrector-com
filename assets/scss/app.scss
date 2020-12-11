@@ -291,6 +291,17 @@ h2 a, a {
     }
 }
 
+#functional_page {
+    margin-top: 2em;
+    margin-bottom: 2em;
+
+    h1 {
+        margin-bottom: 2em;
+        font-weight: 500 !important;
+        color: #24292e;
+    }
+}
+
 #post, #blog, #contact, #mission, #cleaning_lady_list {
     margin-top: 2em;
     margin-bottom: 6em;

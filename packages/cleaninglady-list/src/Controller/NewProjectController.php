@@ -57,7 +57,7 @@ final class NewProjectController extends AbstractController
 
         $this->projectRepository->save($project);
 
-        return $this->redirectToRoute(RouteName::LIST_DETAIL, [
+        return $this->redirectToRoute(RouteName::PROJECT_DETAIL, [
             'id' => $project->getId(),
         ]);
     }

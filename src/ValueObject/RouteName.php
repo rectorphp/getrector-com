@@ -14,7 +14,7 @@ final class RouteName
     /**
      * @var string
      */
-    public const LIST_DETAIL = 'list_detail';
+    public const PROJECT_DETAIL = 'project_detail';
 
     /**
      * @var string

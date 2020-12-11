@@ -11,19 +11,19 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-final class ListDetailController extends AbstractController
+final class ProjectDetailController extends AbstractController
 {
     public function __construct(private CheckboxRepository $checkboxRepository)
     {
     }
 
-    #[Route('list/{id}', name: RouteName::LIST_DETAIL)]
+    #[Route('cleaning-lady-list/{id}', name: RouteName::PROJECT_DETAIL)]
     public function __invoke(Project $project): Response
     {
         $currentFramework = (string) $project->getCurrentFramework();
 
         $checkboxes = $this->checkboxRepository->findByFramework($currentFramework);
-        return $this->render('project/show.twig', [
+        return $this->render('project/project_detail.twig', [
             'project' => $project,
             'checkboxes' => $checkboxes,
         ]);
