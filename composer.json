@@ -82,6 +82,7 @@
     "autoload": {
         "psr-4": {
             "Rector\\Website\\": "src",
+            "Rector\\Website\\Admin\\": "packages/admin/src",
             "Rector\\Website\\Blog\\": "packages/blog/src",
             "Rector\\Website\\Demo\\": "packages/demo/src",
 <<<<<<< HEAD
