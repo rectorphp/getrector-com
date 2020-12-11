@@ -17,7 +17,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-final class CreateProjectController extends AbstractController
+final class NewProjectController extends AbstractController
 {
     public function __construct(
         private CheckboxRepository $checkboxRepository,
@@ -26,7 +26,7 @@ final class CreateProjectController extends AbstractController
     ) {
     }
 
-    #[Route(path: 'cleaning-lady-list', name: RouteName::CREATE_PROJECT)]
+    #[Route(path: 'cleaning-lady-list/new', name: RouteName::NEW_PROJECT)]
     public function __invoke(Request $request): Response
     {
         $project = new Project();
@@ -39,7 +39,7 @@ final class CreateProjectController extends AbstractController
 
         return $this->render('project/new_project.twig', [
             'project_form' => $projectForm->createView(),
-            'page_title' => 'Cleaning Lady List',
+            'page_title' => 'New List',
         ]);
     }
 

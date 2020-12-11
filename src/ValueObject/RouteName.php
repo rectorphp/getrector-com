@@ -19,7 +19,12 @@ final class RouteName
     /**
      * @var string
      */
-    public const CREATE_PROJECT = 'lists';
+    public const NEW_PROJECT = 'new_project';
+
+    /**
+     * @var string
+     */
+    public const PROJECTS = 'projects';
 
     /**
      * @var string
