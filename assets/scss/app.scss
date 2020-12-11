@@ -403,3 +403,17 @@ label.required:before {
         display: none !important;
     }
 }
+
+@media (max-width: 639px) {
+    .mobile-fixed-top {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+
+    .mobile-margin-top {
+        margin-top: 8.3em;
+    }
+}
