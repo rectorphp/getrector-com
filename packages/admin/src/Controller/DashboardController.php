@@ -13,6 +13,6 @@ final class DashboardController extends AbstractDashboardController
     #[Route(path: 'admin', name: 'admin')]
     public function index(): Response
     {
-        return parent::index();
+        return $this->render('@EasyAdmin/page/content.html.twig');
     }
 }
