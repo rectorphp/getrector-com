@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Rector\Website\ValueObject\TwigExtension;
+use Rector\Website\ValueObject\Symfony\TwigExtension;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
 return static function (ContainerConfigurator $containerConfigurator): void {

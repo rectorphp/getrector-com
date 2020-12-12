@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Rector\Website\Form;
 
 use Rector\Website\Entity\ContactMessage;
+use Rector\Website\ValueObject\FormChoices;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -15,22 +16,6 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 final class ContactFormType extends AbstractType
 {
-    /**
-     * @var array<string, int>
-     */
-    private const PHP_VERSION_CHOICES = [
-        '5.3' => 50300,
-        '5.4' => 50400,
-        '5.5' => 50500,
-        '5.6' => 50600,
-        '7.0' => 70000,
-        '7.1' => 70100,
-        '7.2' => 70200,
-        '7.3' => 70300,
-        '7.4' => 70400,
-        '8.0' => 80000,
-    ];
-
     /**
      * @var string
      */
@@ -50,7 +35,9 @@ final class ContactFormType extends AbstractType
                 '< 250 000 lines' => 250_000,
                 '< 500 000 lines' => 500_000,
                 '< 1 000 000 lines' => 1_500_000,
-                'More than million lines' => 9_999_999,
+                '< 2 500 000 lines' => 2_500_000,
+                '< 5 000 000 lines' => 5_500_000,
+                'More than 5 million lines' => 9_999_999,
             ],
         ]);
 
@@ -64,13 +51,13 @@ final class ContactFormType extends AbstractType
         $formBuilder->add('currentPhpVersion', ChoiceType::class, [
             'label' => 'Current PHP version',
             'placeholder' => self::PICK_ONE_PLACEHOLDER,
-            'choices' => self::PHP_VERSION_CHOICES,
+            'choices' => FormChoices::CURRENT_PHP_VERSION,
         ]);
 
         $formBuilder->add('targetPhpVersion', ChoiceType::class, [
             'label' => 'Goal PHP version',
             'placeholder' => 'If relevant...',
-            'choices' => self::PHP_VERSION_CHOICES,
+            'choices' => FormChoices::TARGET_PHP_VERSION,
             'required' => false,
         ]);
 
