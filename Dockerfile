@@ -60,8 +60,6 @@ COPY composer.json composer.lock phpunit.xml ./
 RUN composer install --prefer-dist --no-dev --no-autoloader --no-scripts --no-progress --ignore-platform-req php \
     && composer clear-cache
 
-RUN php bin/console assets:install
-
 COPY --from=node-build /build/public/build ./public/build
 
 RUN mkdir -p ./var/cache \
