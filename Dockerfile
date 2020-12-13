@@ -38,49 +38,37 @@ RUN chmod 777 /usr/local/bin/docker-*entrypoint
 ####
 ## Build js+css assets
 ####
-FROM node:10.15.3 as node-build
+FROM node:14-alpine as js-builder
 
 WORKDIR /build
 
+# Install npm packages
 COPY package.json yarn.* webpack.config.js ./
 RUN yarn install
 
+# Production yarn build
 COPY ./assets ./assets
 
 RUN yarn run build
 
 
 ####
-## Build app itself
+## Build app itself - containing source codes and is designed to leverage Docker layers caching
 ####
 FROM dev as production
 
-COPY composer.json composer.lock phpunit.xml ./
+RUN mkdir -p ./var/cache ./var/log ./var/demo
+RUN chown -R 777 ./var
 
-RUN composer install --prefer-dist --no-dev --no-autoloader --no-scripts --no-progress --ignore-platform-req php \
-    && composer clear-cache
-
-COPY --from=node-build /build/public/build ./public/build
-
-RUN mkdir -p ./var/cache \
-    ./var/log \
-    ./var/sessions \
-    ./var/demo \
-        && composer dump-autoload -o --no-dev \
-        && chown -R www-data ./var
+COPY --from=js-builder /build/public ./public
 
 # To track releases
 ARG commitHash=""
 ENV SENTRY_RELEASE=${commitHash}
 
+# Install composer packages
+COPY composer.json composer.lock ./
+RUN composer install --prefer-dist --no-dev --no-autoloader --no-scripts --no-progress --no-suggest
+RUN composer dump-autoload --optimize --no-dev
+
 COPY . .
-
-####
-## Local build + xdebug - we do not need COPY files because we will get them from volume
-####
-FROM production as dev-xdebug
-
-COPY ./.docker/php/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
-
-RUN pecl -q install xdebug \
-    && docker-php-ext-enable xdebug
