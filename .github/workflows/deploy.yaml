@@ -25,27 +25,8 @@ jobs:
 
             - name: Build and push image
               run: |
-                # Cache multi-stage builds: https://pythonspeed.com/articles/faster-multi-stage-builds/
-
-                docker pull rector/getrector.org:production || true
-                docker pull rector/getrector.org:node-build || true
                 docker pull rector/getrector.org:latest || true
-
-                docker build . --tag rector/getrector.org:production --target base \
-                  --cache-from rector/getrector.org:production
-
-                docker build . --tag rector/getrector.org:node-build --target node-build \
-                  --cache-from rector/getrector.org:production \
-                  --cache-from rector/getrector.org:node-build
-
-                docker build . --tag rector/getrector.org:latest --target production \
-                  --build-arg commitHash=${{ github.sha }} \
-                  --cache-from rector/getrector.org:production \
-                  --cache-from rector/getrector.org:node-build \
-                  --cache-from rector/getrector.org:latest
-
-                docker push rector/getrector.org:production
-                docker push rector/getrector.org:node-build
+                docker build . --tag rector/getrector.com:latest --cache-from rector/getrector.com:latest
                 docker push rector/getrector.org:latest
 
             - name: Deploy
