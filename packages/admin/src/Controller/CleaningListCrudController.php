@@ -10,12 +10,13 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Rector\Website\CleaningLadyList\Entity\Checkbox;
+use Rector\Website\CleaningLadyList\Entity\CleaningList;
 
-final class CheckboxCrudController extends AbstractCrudController
+final class CleaningListCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return Checkbox::class;
+        return CleaningList::class;
     }
 
     /**
@@ -24,8 +25,7 @@ final class CheckboxCrudController extends AbstractCrudController
     public function configureFields(string $pageName): array
     {
         return [
-            TextField::new('task'),
-            TextEditorField::new('description')
+            TextField::new('name'),
         ];
     }
 }

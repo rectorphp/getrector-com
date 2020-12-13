@@ -33,10 +33,10 @@ class Checkbox
     private ?string $description = null;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     * @var string
+     * @ORM\ManyToOne(targetEntity="Rector\Website\CleaningLadyList\Entity\CleaningList", inversedBy="checkboxes")
+     * @var CleaningList
      */
-    private ?string $category = null;
+    private CleaningList $cleaningList;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
