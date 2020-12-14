@@ -68,7 +68,7 @@ ENV SENTRY_RELEASE=${commitHash}
 
 # Install composer packages
 COPY composer.json composer.lock ./
-RUN composer install --prefer-dist --no-dev --no-autoloader --no-scripts --no-progress --no-suggest
+RUN composer install --prefer-dist --no-dev --no-autoloader --no-scripts --no-progress --ignore-platform-req php
 RUN composer dump-autoload --optimize --no-dev
 
 COPY . .
