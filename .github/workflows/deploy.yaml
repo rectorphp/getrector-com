@@ -25,7 +25,7 @@ jobs:
 
             - name: Build and push image
               run: |
-                docker build . --tag rector/getrector.com:latest --build-arg commitHash=${{ github.sha }}
+                docker build . --tag rector/getrector.org:latest --build-arg commitHash=${{ github.sha }}
                 docker push rector/getrector.org:latest
 
             - name: Deploy
