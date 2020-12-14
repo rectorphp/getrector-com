@@ -58,7 +58,6 @@ RUN yarn run build
 FROM dev as production
 
 RUN mkdir -p ./var/cache ./var/log ./var/demo
-RUN chown -R 777 ./var
 
 COPY --from=js-builder /build/public ./public
 
@@ -70,5 +69,7 @@ ENV SENTRY_RELEASE=${commitHash}
 COPY composer.json composer.lock ./
 RUN composer install --prefer-dist --no-dev --no-autoloader --no-scripts --no-progress --ignore-platform-req php
 RUN composer dump-autoload --optimize --no-dev
+
+RUN chmod -R 777 ./var
 
 COPY . .
