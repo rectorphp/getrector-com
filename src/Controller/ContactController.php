@@ -23,7 +23,6 @@ final class ContactController extends AbstractController
     #[Route(path: 'contact', name: RouteName::CONTACT)]
     public function __invoke(Request $request): Response
     {
-        //, $contactFormData);
         $form = $this->createForm(ContactFormType::class);
 
         $form->handleRequest($request);
