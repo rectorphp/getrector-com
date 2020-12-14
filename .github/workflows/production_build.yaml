@@ -12,8 +12,7 @@ jobs:
 
             - name: Build image
               run: |
-                docker pull rector/getrector.org:latest || true
-                docker build . --tag image --cache-from rector/getrector.org:latest
+                docker build . --tag image --build-arg commitHash=${{ github.sha }}
 
             - name: Warmup cache
               run: docker run -e APP_ENV=prod image bin/console cache:warmup
