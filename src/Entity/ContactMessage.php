@@ -60,7 +60,7 @@ class ContactMessage implements TimestampableInterface
     private ?int $targetPhpVersion = null;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", options={"default"=0})
      */
     private bool $isReplied = false;
 
