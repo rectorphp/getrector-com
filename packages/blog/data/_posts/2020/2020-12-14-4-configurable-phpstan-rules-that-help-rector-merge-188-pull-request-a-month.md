@@ -74,7 +74,7 @@ services:
                 'Hoa\Protocol\Node\Node': 'PhpParser\Node'
 ```
 
-It works in 100 % of cases. We never had to use the left type in our code.
+The [PreferredClassRule](https://github.com/symplify/symplify/blob/master/packages/phpstan-rules/src/Rules/PreferredClassRule.php) works in 100 % of our cases. We never had to use the left type in our code.
 
 ## 2. From Class to its Test and Back Again
 
@@ -102,7 +102,7 @@ services:
 
 <br>
 
-An unintended side effect of this PHPStan rule is that **every Rector rule is tested**.
+An unintended side effect of the [SeeAnnotationToTestRule](https://github.com/symplify/symplify/blob/master/packages/phpstan-rules/src/Rules/SeeAnnotationToTestRule.php) is that **every Rector rule is tested**.
 
 Do you want to add this PHPStan rule yourself but don't like hundreds of PHPStan errors in your CI?
 Use [this Rector rule to complete `@see` annotations](https://github.com/rectorphp/rector/blob/master/docs/rector_rules_overview.md#addseetestannotationrector) for you.
@@ -140,7 +140,7 @@ final class SomeRectorTest extends AbstractRectorTestCase
 
 It didn't cause any runtime troubles, but it was a code smell. To avoid [more broken windows](https://blog.codinghorror.com/the-broken-window-theory/), we've added a custom PHPStan rule.
 
-This rule check classes of specific type, and makes sure there **is exactly 1 method** used from defined list:
+This [OnlyOneClassMethodRule](https://github.com/symplify/symplify/blob/master/packages/phpstan-rules/src/Rules/OnlyOneClassMethodRule.php) checks classes of specific type(s), and makes sure there **is exactly 1 method** used from defined list:
 
 ```yaml
 # phpstan.neon
@@ -203,7 +203,7 @@ What about this?
 ```
 
 Yes, why would you check `MethodCall` that it's `MethodCall` again? It might be evident in the post example with ten lines and nothing else. But in real life, we can easily miss it in any pull-request of 30+ lines.
-Now PHPStan has again our back:
+Now PHPStan has again our back with the [CheckTypehintCallerTypeRule](https://github.com/symplify/symplify/blob/master/packages/phpstan-rules/src/Rules/CheckTypehintCallerTypeRule.php):
 
 ```yaml
 # phpstan.neon
