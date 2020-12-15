@@ -140,7 +140,7 @@ final class SomeRectorTest extends AbstractRectorTestCase
 
 It didn't cause any runtime troubles, but it was a code smell. To avoid [more broken windows](https://blog.codinghorror.com/the-broken-window-theory/), we've added a custom PHPStan rule.
 
-This (OnlyOneClassMethodRule)[https://github.com/symplify/symplify/blob/master/packages/phpstan-rules/src/Rules/OnlyOneClassMethodRule.php] checks classes of specific type(s), and makes sure there **is exactly 1 method** used from defined list:
+This [OnlyOneClassMethodRule](https://github.com/symplify/symplify/blob/master/packages/phpstan-rules/src/Rules/OnlyOneClassMethodRule.php) checks classes of specific type(s), and makes sure there **is exactly 1 method** used from defined list:
 
 ```yaml
 # phpstan.neon
@@ -203,7 +203,7 @@ What about this?
 ```
 
 Yes, why would you check `MethodCall` that it's `MethodCall` again? It might be evident in the post example with ten lines and nothing else. But in real life, we can easily miss it in any pull-request of 30+ lines.
-Now PHPStan has again our back with the (CheckTypehintCallerTypeRule)[https://github.com/symplify/symplify/blob/master/packages/phpstan-rules/src/Rules/CheckTypehintCallerTypeRule.php]:
+Now PHPStan has again our back with the [CheckTypehintCallerTypeRule](https://github.com/symplify/symplify/blob/master/packages/phpstan-rules/src/Rules/CheckTypehintCallerTypeRule.php):
 
 ```yaml
 # phpstan.neon
