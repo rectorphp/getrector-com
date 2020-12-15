@@ -1,7 +1,3 @@
-# not really needed
-yarn.lock
-package-lock.json
-
 vendor/
 
 .idea
