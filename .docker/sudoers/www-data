@@ -1,0 +1,1 @@
+www-data ALL=(ALL) NOPASSWD: /var/www/getrector.org/bin/run-demo.sh

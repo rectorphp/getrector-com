@@ -22,4 +22,7 @@ if [[ -v DATABASE_HOST ]]; then
     php bin/console doctrine:schema:update --dump-sql --force
 fi
 
+## Because this entrypoint is called as root, it will create /var/cache/prod owned by ROOT
+chmod -R 777 var/cache
+
 exec "$@"
