@@ -72,10 +72,10 @@ Saying that yesterday [we dropped YAML config support from Rector core](https://
 
 What if you have a lot of custom setup in `rector.yaml`? Is there a list of changes that you need to do manually?
 
-Don't worry. We're all lazy here. [Migrify toolkit](https://tomasvotruba.com/blog/2020/07/27/how-to-switch-from-yaml-xml-configs-to-php-today-with-migrify/) got you covered:
+Don't worry. We're all lazy here. [Symplify toolkit](https://tomasvotruba.com/blog/2020/07/27/how-to-switch-from-yaml-xml-configs-to-php-today-with-migrify/) got you covered:
 
 ```bash
-composer require migrify/config-transformer --dev
+composer require symplify/config-transformer --dev
 ```
 
 Then provide files/directories with YAML files you want to switch to PHP:
