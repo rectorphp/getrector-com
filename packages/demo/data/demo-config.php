@@ -17,5 +17,5 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $parameters->set(Option::SETS, [SetList::DEAD_CODE]);
 
     // B. or single rule
-    // $services->set(TypedProperty::class);
+    $services->set(TypedProperty::class);
 };
