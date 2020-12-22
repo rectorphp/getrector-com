@@ -18,13 +18,15 @@
         {{ form_end(demo_form) }}
     </div>
 
-    {# @var rector_run \Rector\Website\Demo\Entity\RectorRun  #}
+    {# @var rector_run \Rector\Website\Demo\Entity\RectorRun #}
+
     {% if rector_run.hasRun %}
         <div class="mt-4 mb-5" id="demo_result">
             {% if rector_run.successful %}
                 <pre><code class="language-diff">{{ rector_run.contentDiff }}</code></pre>
             {% else %}
                 <div class="alert alert-danger">
+                    <strong>Fatal error:</strong>
                     {{ rector_run.fatalErrorMessage }}
                 </div>
             {% endif %}
