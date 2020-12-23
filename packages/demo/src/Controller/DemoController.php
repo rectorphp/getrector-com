@@ -17,6 +17,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * @see \Rector\Website\Demo\Tests\Controller\DemoControllerTest
+ */
 final class DemoController extends AbstractController
 {
     /**

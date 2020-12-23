@@ -38,6 +38,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         DeclareStrictTypesFixer::class => [
             // smaller content
             __DIR__ . '/packages/demo/data/demo-config.php',
+            __DIR__ . '/packages/demo/data/DemoFile.php',
         ],
 
         // bugged and replaced by PHPStan + Rector

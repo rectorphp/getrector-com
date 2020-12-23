@@ -134,12 +134,16 @@ h2 {
 }
 
 .container {
-    max-width: 52em;
+    max-width: 55em;
 }
 
 ul.list-noindent {
     margin-left: 1.2em;
     padding-left: 0;
+
+    li {
+        line-height: 1.7em;
+    }
 }
 
 .reference-text {
@@ -263,6 +267,11 @@ ul.list-noindent {
 
 .cm-negative {
     background: #ffd4d4;
+    display: inline-block;
+}
+
+.cm-positive {
+    background: #e8ffd4;
     display: inline-block;
 }
 
@@ -411,6 +420,7 @@ label.required:before {
         right: 0;
         left: 0;
         z-index: 1030;
+
     }
 
     .mobile-margin-top {
