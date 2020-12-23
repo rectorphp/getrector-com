@@ -14,7 +14,7 @@
         </div>
 
         {% if rector_run.successful %}
-            <div class="card mb-4">
+            <div class="card bg-warning border-warning mb-4">
                 <div class="card-header text-bold">What Rector Changes?</div>
                 <div class="card-body p-0">
                     <textarea class="codemirror_diff ">{{ rector_run.contentDiff }}</textarea>
@@ -40,7 +40,7 @@
 
         <div class="card mb-5">
             <div class="card-header">
-                Config <code>rector.php</code>
+                Config&nbsp;&nbsp;<code>rector.php</code>
 
                 <a href="https://github.com/rectorphp/rector#full-config-configuration" class="pull-right">
                     What can be here?
