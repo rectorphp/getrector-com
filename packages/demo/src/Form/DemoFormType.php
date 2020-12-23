@@ -24,7 +24,6 @@ final class DemoFormType extends AbstractType
             'required' => true,
             'empty_data' => '',
             'attr' => [
-                'rows' => 30,
                 'class' => 'codemirror_php',
             ],
         ]);

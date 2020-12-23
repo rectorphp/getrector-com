@@ -141,6 +141,10 @@ class RectorRun implements TimestampableInterface
 
     public function hasRun(): bool
     {
+        if ($this->fatalErrorMessage !== null) {
+            return true;
+        }
+
         return $this->jsonResult !== [];
     }
 }
