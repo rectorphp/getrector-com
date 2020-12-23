@@ -13,23 +13,29 @@
             </div>
         </div>
 
+        {# @var rector_run \Rector\Website\Demo\Entity\RectorRun #}
         {% if rector_run.successful %}
             <div class="card bg-warning border-warning mb-4">
-                <div class="card-header text-bold">What Rector Changes?</div>
+                <div class="card-header text-bold">
+                    What Rector Changes?
+
+                    <a href="{{ rector_run|issue_link }}" class="btn btn-sm btn-light pull-right">Is this wrong? <strong>Create an issue</strong></a>
+                </div>
                 <div class="card-body p-0">
                     <textarea class="codemirror_diff ">{{ rector_run.contentDiff }}</textarea>
                 </div>
             </div>
 
-            {% if rector_run.appliedRules is not empty %}
+            {# @var rector_run \Rector\Website\Demo\Entity\RectorRun #}
+            {% if rector_run.appliedShortRules is not empty %}
                 <div class="pt-0 pb-4">
                     <p class="mb-2">Applied Rules:</p>
 
                     <ul class="list-noindent">
-                        {% for applied_rule in rector_run.appliedRules %}
+                        {% for applied_short_rule in rector_run.appliedShortRules %}
                             <li>
-                                <a href="{{ applied_rule|github_readme_link }}">
-                                    {{ applied_rule|short_rule }}
+                                <a href="{{ applied_short_rule|github_readme_link }}">
+                                    {{ applied_short_rule }}
                                 </a>
                             </li>
                         {% endfor %}

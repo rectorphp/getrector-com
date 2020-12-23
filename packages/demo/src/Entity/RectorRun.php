@@ -7,8 +7,10 @@ namespace Rector\Website\Demo\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Contract\Entity\TimestampableInterface;
 use Knp\DoctrineBehaviors\Model\Timestampable\TimestampableTrait;
+use Nette\Utils\Strings;
 use Rector\Website\Demo\Utils\FileDiffCleaner;
 use Rector\Website\Demo\Validator\Constraint\PHPConstraint;
+use Rector\Website\Exception\ShouldNotHappenException;
 use Symfony\Bridge\Doctrine\IdGenerator\UuidV4Generator;
 use Symfony\Component\Uid\Uuid;
 
@@ -121,6 +123,21 @@ class RectorRun implements TimestampableInterface
         return (array) $result;
     }
 
+    /**
+     * @return string[]
+     */
+    public function getAppliedShortRules(): array
+    {
+        $appliedShortRules = [];
+
+        foreach ($this->getAppliedRules() as $appliedRule) {
+            $appliedShortRules[] = $this->resolveShortRule($appliedRule);
+        }
+
+        return $appliedShortRules;
+    }
+
+
     public function setContent(string $content): void
     {
         $this->content = $content;
@@ -146,5 +163,16 @@ class RectorRun implements TimestampableInterface
         }
 
         return $this->jsonResult !== [];
+    }
+
+    private function resolveShortRule(string $rectorClass): string
+    {
+        $shortClassName = Strings::after($rectorClass, '\\', -1);
+
+        if (! is_string($shortClassName)) {
+            throw new ShouldNotHappenException();
+        }
+
+        return $shortClassName;
     }
 }
