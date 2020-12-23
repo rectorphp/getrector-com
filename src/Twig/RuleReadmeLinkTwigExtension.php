@@ -21,16 +21,27 @@ final class RuleReadmeLinkTwigExtension extends AbstractExtension
      */
     public function getFilters(): array
     {
-        $twigFilter = new TwigFilter('github_readme_link', function (string $rectorClass): string {
-            $shortClassName = Strings::after($rectorClass, '\\', -1);
-
-            if (! is_string($shortClassName)) {
-                throw new ShouldNotHappenException();
-            }
-
+        $githubReadmeLinkTwigFilter = new TwigFilter('github_readme_link', function (string $rectorClass): string {
+            $shortClassName = $this->resolveShortRule($rectorClass);
             return self::README_URL . '#' . Strings::webalize($shortClassName);
         });
 
-        return [$twigFilter];
+        $shortRuleTwigFilter = new TwigFilter('short_rule', function (string $rectorClass): string {
+            return $this->resolveShortRule($rectorClass);
+        });
+
+
+        return [$githubReadmeLinkTwigFilter, $shortRuleTwigFilter];
+    }
+
+    private function resolveShortRule(string $rectorClass): string
+    {
+        $shortClassName = Strings::after($rectorClass, '\\', -1);
+
+        if (!is_string($shortClassName)) {
+            throw new ShouldNotHappenException();
+        }
+
+        return $shortClassName;
     }
 }

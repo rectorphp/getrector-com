@@ -5,47 +5,69 @@
 {% block main %}
     <div id="rector_run_form" class="mt-4 mb-5">
         {{ form_start(demo_form) }}
-        {{ form_row(demo_form.content) }}
-        {{ form_row(demo_form.config) }}
 
-        {# @see http://symfony.com/doc/current/security/csrf.html#csrf-protection-in-login-forms #}
-        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-
-        <div class="mt-5 text-center">
-            {{ form_row(demo_form.process) }}
+        <div class="card mb-5">
+            <div class="card-header">Input Code</div>
+            <div class="card-body p-0 mb-0">
+                {{ form_row(demo_form.content) }}
+            </div>
         </div>
 
-        {{ form_end(demo_form) }}
-    </div>
-
-    {# @var rector_run \Rector\Website\Demo\Entity\RectorRun #}
-
-    {% if rector_run.hasRun %}
-        <div class="mt-4 mb-5" id="demo_result">
-            {% if rector_run.successful %}
-                <pre><code class="language-diff">{{ rector_run.contentDiff }}</code></pre>
-            {% else %}
-                <div class="alert alert-danger">
-                    <strong>Fatal error:</strong>
-                    {{ rector_run.fatalErrorMessage }}
+        {% if rector_run.successful %}
+            <div class="card mb-4">
+                <div class="card-header text-bold">What Rector Changes?</div>
+                <div class="card-body p-0">
+                    <textarea class="codemirror_diff ">{{ rector_run.contentDiff }}</textarea>
                 </div>
-            {% endif %}
+            </div>
 
             {% if rector_run.appliedRules is not empty %}
-                <div class="mt-5">
-                    <h2 class="mb-4">Applied Rules</h2>
+                <div class="pt-0 pb-4">
+                    <p class="mb-2">Applied Rules:</p>
 
                     <ul class="list-noindent">
                         {% for applied_rule in rector_run.appliedRules %}
                             <li>
                                 <a href="{{ applied_rule|github_readme_link }}">
-                                    {{ applied_rule }}
+                                    {{ applied_rule|short_rule }}
                                 </a>
                             </li>
                         {% endfor %}
                     </ul>
                 </div>
             {% endif %}
+        {% endif %}
+
+        <div class="card mb-5">
+            <div class="card-header">
+                Config <code>rector.php</code>
+
+                <a href="https://github.com/rectorphp/rector#full-config-configuration" class="pull-right">
+                    What can be here?
+                </a>
+            </div>
+
+            <div class="card-body p-0">
+                {{ form_row(demo_form.config) }}
+            </div>
         </div>
-    {% endif %}
+
+        {# @see http://symfony.com/doc/current/security/csrf.html#csrf-protection-in-login-forms #}
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+        <div class="mt-3 mb-5 text-center">
+            {{ form_row(demo_form.process) }}
+        </div>
+
+        {{ form_end(demo_form) }}
+
+        {# @var rector_run \Rector\Website\Demo\Entity\RectorRun #}
+
+        {% if rector_run.hasRun and rector_run.successful != true %}
+            <div class="alert alert-danger">
+                <strong>Fatal error:</strong>
+                {{ rector_run.fatalErrorMessage }}
+            </div>
+        {% endif %}
+    </div>
 {% endblock %}

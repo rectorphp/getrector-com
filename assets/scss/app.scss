@@ -242,29 +242,28 @@ ul.list-noindent {
 }
 
 #rector_run_form {
-    margin-bottom: 0;
-
-    /* code highlight */
     .CodeMirror {
-        border: 1px solid grey;
+        border: 1px solid #eee;
+        height: auto;
         font-size: .8em;
-
-        height: 100%;
-
-        &.codemirror_php {
-            min-height: 25em;
-        }
     }
 
-    .codemirror_yaml {
-        .CodeMirror {
-            min-height: 5em;
-        }
+    .card-header {
+        font-size: 1.1em;
+    }
+
+    .card .form-group {
+        margin-bottom: 0;
     }
 }
 
-#demo_result {
-    min-height: 15em;
+.text-bold {
+    font-weight: bold;
+}
+
+.cm-negative {
+    background: #ffd4d4;
+    display: inline-block;
 }
 
 .invalid-feedback {

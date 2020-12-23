@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use PhpCsFixer\Fixer\ClassNotation\ClassAttributesSeparationFixer;
 use PhpCsFixer\Fixer\Operator\UnaryOperatorSpacesFixer;
+use PhpCsFixer\Fixer\Strict\DeclareStrictTypesFixer;
 use SlevomatCodingStandard\Sniffs\Classes\DisallowMultiPropertyDefinitionSniff;
 use SlevomatCodingStandard\Sniffs\Classes\UnusedPrivateElementsSniff;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
@@ -33,6 +34,11 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         DisallowMultiPropertyDefinitionSniff::class . '.DisallowedMultiPropertyDefinition',
 
         UnaryOperatorSpacesFixer::class,
+
+        DeclareStrictTypesFixer::class => [
+            // smaller content
+            __DIR__ . '/packages/demo/data/demo-config.php',
+        ],
 
         // bugged and replaced by PHPStan + Rector
         UnusedPrivateElementsSniff::class,

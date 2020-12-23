@@ -13,36 +13,28 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/mode/clike/clike.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/mode/php/php.min.js"></script>
 
-{# yaml #}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/mode/yaml/yaml.min.js"></script>
+{# diff #}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/mode/diff/diff.min.js"></script>
 
 {# @see https://codemirror.net/mode/ #}
 <script type="text/javascript">
     $('.codemirror_php').each(function(index, elem){
         CodeMirror.fromTextArea(elem, {
-            lineNumbers: true,
             mode: 'application/x-httpd-php',
-            lineSeparator: "\n",
-            indentWithTabs: true,
             indentUnit: 4,
             matchBrackets: true,
-            theme: 'solarized',
             inputStyle: 'contenteditable',
-            viewportMargin: Infinity
+            viewportMargin: Infinity,
         });
     });
 
-    $('.codemirror_yaml').each(function(index, elem){
+    $('.codemirror_diff').each(function(index, elem){
         CodeMirror.fromTextArea(elem, {
-            lineNumbers: true,
-            mode: 'text/x-yaml',
+            mode: 'text/x-diff',
             lineSeparator: "\n",
-            indentWithTabs: true,
             indentUnit: 4,
             matchBrackets: true,
-            theme: 'solarized',
-            inputStyle: 'contenteditable',
-            viewportMargin: Infinity
+            viewportMargin: Infinity,
         });
     });
 </script>
