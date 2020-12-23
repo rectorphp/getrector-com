@@ -140,6 +140,10 @@ h2 {
 ul.list-noindent {
     margin-left: 1.2em;
     padding-left: 0;
+
+    li {
+        line-height: 1.7em;
+    }
 }
 
 .reference-text {
@@ -416,6 +420,7 @@ label.required:before {
         right: 0;
         left: 0;
         z-index: 1030;
+
     }
 
     .mobile-margin-top {

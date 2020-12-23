@@ -10,9 +10,11 @@ use Knp\DoctrineBehaviors\Model\Timestampable\TimestampableTrait;
 use Nette\Utils\Strings;
 use Rector\Website\Demo\Utils\FileDiffCleaner;
 use Rector\Website\Demo\Validator\Constraint\PHPConstraint;
+use Rector\Website\Demo\ValueObject\AppliedRule;
 use Rector\Website\Exception\ShouldNotHappenException;
 use Symfony\Bridge\Doctrine\IdGenerator\UuidV4Generator;
 use Symfony\Component\Uid\Uuid;
+use Symplify\SymplifyKernel\Strings\StringsConverter;
 
 /**
  * @ORM\Entity
@@ -22,9 +24,25 @@ class RectorRun implements TimestampableInterface
     use TimestampableTrait;
 
     /**
+     * @see https://regex101.com/r/13A0W9/1
+     */
+    private const CLASS_NAME_REGEX = '#class\s+(?<' . self::PART_CLASS_NAME . '>\w+)#';
+
+    /**
+     * @var string
+     */
+    private const PART_CLASS_NAME = 'class_name';
+
+
+    /**
      * @var string
      */
     private const NO_CHANGE_CONTENT = '// no change';
+
+    /**
+     * @var string
+     */
+    private const DEFAULT_FILE_NAME = 'demo_fixture';
 
     /**
      * @ORM\Id
@@ -111,7 +129,7 @@ class RectorRun implements TimestampableInterface
     }
 
     /**
-     * @return string[]
+     * @return AppliedRule[]
      */
     public function getAppliedRules(): array
     {
@@ -120,23 +138,15 @@ class RectorRun implements TimestampableInterface
         }
 
         $result = $this->jsonResult['file_diffs'][0]['applied_rectors'] ?? [];
-        return (array) $result;
-    }
+        $result = (array) $result;
 
-    /**
-     * @return string[]
-     */
-    public function getAppliedShortRules(): array
-    {
-        $appliedShortRules = [];
-
-        foreach ($this->getAppliedRules() as $appliedRule) {
-            $appliedShortRules[] = $this->resolveShortRule($appliedRule);
+        $appliedRules = [];
+        foreach ($result as $item) {
+            $appliedRules[] = new AppliedRule($item);
         }
 
-        return $appliedShortRules;
+        return $appliedRules;
     }
-
 
     public function setContent(string $content): void
     {
@@ -165,14 +175,46 @@ class RectorRun implements TimestampableInterface
         return $this->jsonResult !== [];
     }
 
-    private function resolveShortRule(string $rectorClass): string
+    public function setId(Uuid $uuid): void
     {
-        $shortClassName = Strings::after($rectorClass, '\\', -1);
+        $this->id = $uuid;
+    }
 
-        if (! is_string($shortClassName)) {
-            throw new ShouldNotHappenException();
+    public function canCreateFixture(): bool
+    {
+        return $this->getExpectedRectorTestPath() !== null;
+    }
+
+    public function getExpectedRectorTestNamespace(): string
+    {
+        $onlyAppliedRule = $this->getAppliedRules()[0] ?? null;
+        if ($onlyAppliedRule === null) {
+            throw new ShouldNotHappenException('Single applied rule is required to make a test fixture link');
         }
 
-        return $shortClassName;
+        return $onlyAppliedRule->getTestFixtureNamespace();
+    }
+
+    public function getExpectedRectorTestPath(): ?string
+    {
+        $appliedRules = $this->getAppliedRules();
+        $onlyAppliedRule = $appliedRules[0] ?? null;
+        if ($onlyAppliedRule === null) {
+            return null;
+        }
+
+        return $onlyAppliedRule->getTestFixtureDirectoryPath();
+    }
+
+    public function getFixtureFileName(): string
+    {
+        $matches = Strings::match($this->content, self::CLASS_NAME_REGEX);
+
+        $baseFilename = $matches[self::PART_CLASS_NAME] ?? self::DEFAULT_FILE_NAME;
+
+        $stringsConverter = new StringsConverter();
+        $underscoredName = $stringsConverter->camelCaseToGlue($baseFilename, '_');
+
+        return $underscoredName . '.php.inc';
     }
 }

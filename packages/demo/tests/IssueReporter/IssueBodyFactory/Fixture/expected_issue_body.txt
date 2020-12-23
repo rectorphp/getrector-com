@@ -1,0 +1,32 @@
+# Bug Report
+
+<!-- First, thank you for reporting a bug. That takes time and we appreciate that! -->
+
+| Subject        | Details                                                         |
+| :------------- | :---------------------------------------------------------------|
+| Rector version | e.g. 0.9.5 (invoke `vendor/bin/rector --version`)              |
+| Installed as   | composer dependency / prefixed Rector                           |
+
+## Minimal PHP Code Causing Issue
+
+See https://getrector.org/demo/%s
+
+```php
+<?php
+
+class AnyClass
+{
+    public function run()
+    {
+        echo 'some PHP';
+    }
+}
+```
+
+### Responsible rules
+
+* TypedPropertyRector
+
+## Expected Behavior
+
+<!-- How should Rector change the code? Or should Rector skip it? -->

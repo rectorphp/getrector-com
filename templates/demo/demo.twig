@@ -18,28 +18,36 @@
             <div class="card bg-warning border-warning mb-4">
                 <div class="card-header text-bold">
                     What Rector Changes?
-
-                    <a href="{{ rector_run|issue_link }}" class="btn btn-sm btn-light pull-right">Is this wrong? <strong>Create an issue</strong></a>
                 </div>
                 <div class="card-body p-0">
-                    <textarea class="codemirror_diff ">{{ rector_run.contentDiff }}</textarea>
+                    <textarea class="codemirror_diff">{{ rector_run.contentDiff }}</textarea>
                 </div>
             </div>
 
             {# @var rector_run \Rector\Website\Demo\Entity\RectorRun #}
-            {% if rector_run.appliedShortRules is not empty %}
-                <div class="pt-0 pb-4">
-                    <p class="mb-2">Applied Rules:</p>
+            {% if rector_run.appliedRules is not empty %}
+                <div class="row">
+                    <div class="pt-0 pb-4 col-12 col-sm-6">
+                        <p class="mb-2">Applied Rules:</p>
 
-                    <ul class="list-noindent">
-                        {% for applied_short_rule in rector_run.appliedShortRules %}
-                            <li>
-                                <a href="{{ applied_short_rule|github_readme_link }}">
-                                    {{ applied_short_rule }}
-                                </a>
-                            </li>
-                        {% endfor %}
-                    </ul>
+                        <ul class="list-noindent">
+                            {% for applied_rule in rector_run.appliedRules %}
+                                <li>
+                                    {# @var applied_rule \Rector\Website\Demo\ValueObject\AppliedRule #}
+                                    <a href="{{ applied_rule.getGitHubReadmeLink }}">
+                                        {{ applied_rule.shortClass }}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="pt-0 pb-4 col-12 col-sm-6">
+                        <p class="mb-2">Is the result wrong?</p>
+                        <a href="{{ rector_run|issue_link }}" class="btn btn-danger">Create an issue</a>
+                        {% if rector_run.canCreateFixture %}
+                            <a href="{{ rector_run|test_fixture_link }}" class="btn btn-primary ml-3">Create a Test</a>
+                        {% endif %}
+                    </div>
                 </div>
             {% endif %}
         {% endif %}
@@ -49,7 +57,7 @@
                 Config&nbsp;&nbsp;<code>rector.php</code>
 
                 <a href="https://github.com/rectorphp/rector#full-config-configuration" class="pull-right">
-                    What can be here?
+                    What parameters can you use?
                 </a>
             </div>
 
@@ -75,5 +83,7 @@
                 {{ rector_run.fatalErrorMessage }}
             </div>
         {% endif %}
+
+        <br>
     </div>
 {% endblock %}

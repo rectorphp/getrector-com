@@ -1,0 +1,22 @@
+<?php
+
+namespace Rector\Php74\Tests\Rector\Property\TypedPropertyRector\Fixture;
+
+class AnyClass
+{
+    public function run()
+    {
+        echo 'some PHP';
+    }
+}
+
+?>
+-----
+<?php
+
+namespace Rector\Php74\Tests\Rector\Property\TypedPropertyRector\Fixture;
+
+// what is expected code?
+// should remain the same? delete part bellow ----- (included)
+
+?>
