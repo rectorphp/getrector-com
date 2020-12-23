@@ -30,7 +30,6 @@ final class RuleReadmeLinkTwigExtension extends AbstractExtension
             return $this->resolveShortRule($rectorClass);
         });
 
-
         return [$githubReadmeLinkTwigFilter, $shortRuleTwigFilter];
     }
 
@@ -38,7 +37,7 @@ final class RuleReadmeLinkTwigExtension extends AbstractExtension
     {
         $shortClassName = Strings::after($rectorClass, '\\', -1);
 
-        if (!is_string($shortClassName)) {
+        if (! is_string($shortClassName)) {
             throw new ShouldNotHappenException();
         }
 
