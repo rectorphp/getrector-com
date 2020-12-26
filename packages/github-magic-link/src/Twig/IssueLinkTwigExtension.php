@@ -25,9 +25,9 @@ final class IssueLinkTwigExtension extends AbstractExtension
      */
     public function getFilters(): array
     {
-        $twigFilter = new TwigFilter(self::ISSUE_LINK, function (RectorRun $rectorRun): string {
-            return $this->issueLinkFactory->create($rectorRun);
-        });
+        $twigFilter = new TwigFilter(self::ISSUE_LINK, fn (RectorRun $rectorRun): string => $this->issueLinkFactory->create(
+            $rectorRun
+        ));
 
         return [$twigFilter];
     }
