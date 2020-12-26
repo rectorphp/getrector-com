@@ -25,7 +25,9 @@ final class FixtureLinkTwigExtension extends AbstractExtension
      */
     public function getFilters(): array
     {
-        $twigFilter = new TwigFilter(self::PR_LINK, fn(RectorRun $rectorRun): string => $this->fixtureLinkFactory->create($rectorRun));
+        $twigFilter = new TwigFilter(self::PR_LINK, fn (RectorRun $rectorRun): string => $this->fixtureLinkFactory->create(
+            $rectorRun
+        ));
 
         return [$twigFilter];
     }
