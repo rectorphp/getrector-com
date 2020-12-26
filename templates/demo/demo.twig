@@ -44,8 +44,9 @@
                     <div class="pt-0 pb-4 col-12 col-sm-6">
                         <p class="mb-2">Is the result wrong?</p>
                         <a href="{{ rector_run|issue_link }}" class="btn btn-danger">Create an issue</a>
+
                         {% if rector_run.canCreateFixture %}
-                            <a href="{{ rector_run|test_fixture_link }}" class="btn btn-primary ml-3">Create a Test</a>
+                            <a href="{{ rector_run|pr_link }}" class="btn btn-primary ml-3">Create a Test</a>
                         {% endif %}
                     </div>
                 </div>
@@ -56,7 +57,7 @@
             <div class="card-header">
                 Config&nbsp;&nbsp;<code>rector.php</code>
 
-                <a href="https://github.com/rectorphp/rector#full-config-configuration" class="pull-right">
+                <a href="https://github.com/rectorphp/rector#full-config-configuration" class="pull-right text-smaller">
                     What parameters can you use?
                 </a>
             </div>

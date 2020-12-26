@@ -2,10 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Demo\IssueReporter;
+namespace Rector\Website\GithubMagicLink\LinkFactory;
 
 use Rector\Website\Demo\Entity\RectorRun;
 use Rector\Website\Demo\ValueObject\AppliedRule;
+use Rector\Website\GithubMagicLink\BodyFactory\IssueBodyFactory;
 
 final class IssueLinkFactory
 {
@@ -13,6 +14,7 @@ final class IssueLinkFactory
      * @var string
      */
     private const BASE_URL = 'https://github.com/rectorphp/rector/issues/new?labels=bug&template=1_Bug_report.md';
+
     public function __construct(private IssueBodyFactory $issueBodyFactory)
     {
     }

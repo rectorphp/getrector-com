@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Demo\Tests\IssueReporter\FixtureBodyFactory;
+namespace Rector\Website\GithubMagicLink\Tests\BodyFactory\FixtureBodyFactory;
 
-use Rector\Website\Demo\IssueReporter\FixtureBodyFactory;
 use Rector\Website\Demo\Tests\Helpers\DummyRectorRunFactory;
 use Rector\Website\GetRectorKernel;
+use Rector\Website\GithubMagicLink\BodyFactory\FixtureBodyFactory;
 use Symplify\PackageBuilder\Testing\AbstractKernelTestCase;
 
 final class FixtureBodyFactoryTest extends AbstractKernelTestCase

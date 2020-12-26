@@ -77,13 +77,15 @@
         "psr-4": {
             "Rector\\Website\\": "src",
             "Rector\\Website\\Blog\\": "packages/blog/src",
-            "Rector\\Website\\Demo\\": "packages/demo/src"
+            "Rector\\Website\\Demo\\": "packages/demo/src",
+            "Rector\\Website\\GithubMagicLink\\": "packages/github-magic-link/src"
         }
     },
     "autoload-dev": {
         "psr-4": {
             "Rector\\Website\\Tests\\": "tests",
-            "Rector\\Website\\Demo\\Tests\\": "packages/demo/tests"
+            "Rector\\Website\\Demo\\Tests\\": "packages/demo/tests",
+            "Rector\\Website\\GithubMagicLink\\Tests\\": "packages/github-magic-link/tests"
         }
     },
     "scripts": {
