@@ -24,6 +24,7 @@ class ContactMessage implements TimestampableInterface
      * @ORM\CustomIdGenerator(class=UuidV4Generator::class)
      */
     private Uuid $id;
+
     /**
      * @ORM\Column(type="text")
      */

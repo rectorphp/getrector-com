@@ -182,7 +182,7 @@ class RectorRun implements TimestampableInterface
 
     public function canCreateFixture(): bool
     {
-        return $this->getExpectedRectorTestPath() !== null;
+        return count($this->getAppliedRules()) === 1;
     }
 
     public function getExpectedRectorTestNamespace(): string
@@ -195,15 +195,24 @@ class RectorRun implements TimestampableInterface
         return $onlyAppliedRule->getTestFixtureNamespace();
     }
 
-    public function getExpectedRectorTestPath(): ?string
+    public function getExpectedRectorTestPath(): string
     {
-        $appliedRules = $this->getAppliedRules();
-        $onlyAppliedRule = $appliedRules[0] ?? null;
+        $onlyAppliedRule = $this->getAppliedRules()[0] ?? null;
         if ($onlyAppliedRule === null) {
-            return null;
+            throw new ShouldNotHappenException('Test can be create only if exactly 1 rule is responsible');
         }
 
         return $onlyAppliedRule->getTestFixtureDirectoryPath();
+    }
+
+    public function getRectorShortClass(): string
+    {
+        $onlyAppliedRule = $this->getAppliedRules()[0] ?? null;
+        if ($onlyAppliedRule === null) {
+            throw new ShouldNotHappenException('Single applied rule is required to make a test fixture link');
+        }
+
+        return $onlyAppliedRule->getShortClass();
     }
 
     public function getFixtureFileName(): string

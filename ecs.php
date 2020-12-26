@@ -47,6 +47,8 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         ClassAttributesSeparationFixer::class => [
             __DIR__ . '/packages/demo/src/Lint/ForbiddenPHPFunctionsChecker.php',
             __DIR__ . '/packages/demo/src/Controller/DemoController.php',
+            // broken on attributes
+            __DIR__ . '/packages/demo/src/Entity/RectorRun.php',
         ],
     ]);
 };

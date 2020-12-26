@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Demo\IssueReporter;
+namespace Rector\Website\GithubMagicLink\BodyFactory;
 
 use Rector\Website\Demo\Entity\RectorRun;
 
@@ -12,10 +12,10 @@ final class IssueBodyFactory
      * Copied from original issue template https://github.com/rectorphp/rector/.github/ISSUE_TEMPLATE/1_Bug_report.md
      * @var string
      */
-    private const ISSUE_BASIC_TABLE = '| Subject        | Details                                                         |
-| :------------- | :---------------------------------------------------------------|
-| Rector version | e.g. 0.9.5 (invoke `vendor/bin/rector --version`)              |
-| Installed as   | composer dependency / prefixed Rector                           |';
+    private const ISSUE_BASIC_TABLE = '| Subject        | Details              |
+| :------------- | :--------------------|
+| Rector version | last dev-master      |
+| Installed as   | composer dependency  |';
 
     public function create(RectorRun $rectorRun): string
     {
@@ -33,7 +33,7 @@ final class IssueBodyFactory
         if ($appliedRules !== []) {
             $bodyLines[] = '### Responsible rules';
             foreach ($appliedRules as $appliedRule) {
-                $bodyLines[] = '* ' . $appliedRule->getShortClass();
+                $bodyLines[] = '* `' . $appliedRule->getShortClass() . '`';
             }
         }
 

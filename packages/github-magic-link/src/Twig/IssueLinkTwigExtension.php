@@ -1,0 +1,37 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Rector\Website\GithubMagicLink\Twig;
+
+use Rector\Website\Demo\Entity\RectorRun;
+use Rector\Website\GithubMagicLink\LinkFactory\IssueLinkFactory;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFilter;
+
+final class IssueLinkTwigExtension extends AbstractExtension
+{
+    /**
+     * @var string
+     */
+    private const ISSUE_LINK = 'issue_link';
+
+    private IssueLinkFactory $issueLinkFactory;
+
+    public function __construct(IssueLinkFactory $issueLinkFactory)
+    {
+        $this->issueLinkFactory = $issueLinkFactory;
+    }
+
+    /**
+     * @return TwigFilter[]
+     */
+    public function getFilters(): array
+    {
+        $twigFilter = new TwigFilter(self::ISSUE_LINK, function (RectorRun $rectorRun): string {
+            return $this->issueLinkFactory->create($rectorRun);
+        });
+
+        return [$twigFilter];
+    }
+}
