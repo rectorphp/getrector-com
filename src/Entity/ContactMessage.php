@@ -70,9 +70,9 @@ class ContactMessage implements TimestampableInterface
         return $this->id;
     }
 
-    public function setId(Uuid $id): void
+    public function setId(Uuid $uuid): void
     {
-        $this->id = $id;
+        $this->id = $uuid;
     }
 
     public function getMessage(): string

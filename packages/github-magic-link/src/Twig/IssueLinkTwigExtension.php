@@ -16,11 +16,8 @@ final class IssueLinkTwigExtension extends AbstractExtension
      */
     private const ISSUE_LINK = 'issue_link';
 
-    private IssueLinkFactory $issueLinkFactory;
-
-    public function __construct(IssueLinkFactory $issueLinkFactory)
+    public function __construct(private IssueLinkFactory $issueLinkFactory)
     {
-        $this->issueLinkFactory = $issueLinkFactory;
     }
 
     /**

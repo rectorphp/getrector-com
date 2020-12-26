@@ -25,6 +25,7 @@ class RectorRun implements TimestampableInterface
 
     /**
      * @see https://regex101.com/r/13A0W9/1
+     * @var string
      */
     private const CLASS_NAME_REGEX = '#class\s+(?<' . self::PART_CLASS_NAME . '>\w+)#';
 

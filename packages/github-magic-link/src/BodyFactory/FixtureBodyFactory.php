@@ -12,6 +12,9 @@ use Rector\Website\Demo\Entity\RectorRun;
  */
 final class FixtureBodyFactory
 {
+    /**
+     * @var string
+     */
     public const CHANGE_HALF_FIXTURE = <<<'CODE_SAMPLE'
 <?php
 
