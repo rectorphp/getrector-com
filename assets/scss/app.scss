@@ -215,19 +215,6 @@ ul.list-noindent {
         line-height: 1.4em;
     }
 
-    .blockquote {
-        font-size: 1.4em;
-        margin-bottom: 1em;
-
-        @include media-breakpoint-down(md) {
-            font-size: 1.3em;
-        }
-
-        @include media-breakpoint-down(sm) {
-            font-size: 1.2em;
-        }
-    }
-
     .img-face-smaller-right {
         float: right;
         max-width: 5em;
@@ -238,6 +225,19 @@ ul.list-noindent {
         float: left;
         max-width: 5em;
         margin: .1em auto 2.8em auto;
+    }
+}
+
+.blockquote {
+    font-size: 1.4em;
+    margin-bottom: 1em;
+
+    @include media-breakpoint-down(md) {
+        font-size: 1.3em;
+    }
+
+    @include media-breakpoint-down(sm) {
+        font-size: 1.2em;
     }
 }
 
