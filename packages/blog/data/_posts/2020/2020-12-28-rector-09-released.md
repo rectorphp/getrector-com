@@ -45,13 +45,13 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 
 ## Debuggable Rector Prefixed
 
-The PHAR file is a file that contains PHP code in a single RAR file, thus the PH+AR acronym. Working with PHAR in PHP has it's edge cases. Do you use a real path? [realpath in PHAR does not work](https://bugs.php.net/bug.php?id=52769). Everything has to be relative to some PHAR root. Another bunch of bugs happen [in Symfony](https://tomasvotruba.com/blog/2019/12/02/how-to-box-symfony-app-to-phar-without-killing-yourself/), thanks to `glob` and slash juggling. We had to think about these traps in everyday Rector coding.
+The PHAR file is a file that contains PHP code in a single RAR file, thus the PH+AR acronym. Working with PHAR in PHP has it's edge cases. Do you use a real path? [realpath in PHAR does not work](https://bugs.php.net/bug.php?id=52769). Everything has to be relative to some PHAR root. Another bunch of bugs happen [in Symfony](https://tomasvotruba.com/blog/2019/12/02/how-to-box-symfony-app-to-phar-without-killing-yourself/), thanks to `glob` and slash juggling. The PHAR itself caused over [143 issues](https://github.com/rectorphp/rector/search?q=prefixed+is%3Aissue&type=Issues) so far.
 
 ### Dump in PHAR? Forget it
 
 Rector is designed to work with **the worst code possible**. It's improving on every release but still fails with a fatal error on new edge cases that we haven't thought of.
 
-How would you **debug a line in prefixed Rector**? Just `dump` the broken line? Simple and fast. But, how can we **edit a RAR file**? It's not possible to do directly. First, we need to unpack the file, edit it, then pack it again. The same rules apply for PHAR.
+How would you **debug a line in prefixed Rector**? Simple and fast `dump()` on the broken line? But, how can we **edit a RAR file**? It's not possible to do directly. First, we need to unpack the file, edit it, then pack it again. The same rules apply for PHAR.
 
 We want to make working with Rector in legacy projects more accessible. That's why [we're moving to scoped version](https://github.com/rectorphp/rector/pull/4559/files).
 
