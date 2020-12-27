@@ -6,6 +6,7 @@ namespace Rector\Website\Demo\ValueObject;
 
 use Nette\Utils\Strings;
 use Rector\Website\Exception\ShouldNotHappenException;
+use Symplify\SymplifyKernel\Strings\StringsConverter;
 
 final class AppliedRule
 {
@@ -49,7 +50,10 @@ final class AppliedRule
     public function getTestFixtureDirectoryPath(): string
     {
         $classParts = explode('\\', $this->class);
-        $rulesDirectory = 'rules/' . strtolower($classParts[1]);
+
+        $stringsConverter = new StringsConverter();
+        $category = $stringsConverter->camelCaseToGlue($classParts[1], '-');
+        $rulesDirectory = 'rules/' . $category;
 
         $nodeClass = $classParts[3];
         $shortClass = $classParts[4];

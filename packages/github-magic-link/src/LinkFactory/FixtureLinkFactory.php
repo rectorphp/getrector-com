@@ -35,8 +35,7 @@ final class FixtureLinkFactory
 
         return self::BASE_URL . '/'
             . $expectedRectorTestPath
-            . '?filename='
-            . $rectorRun->getFixtureFileName()
+            . '?filename=Fixture/' . $rectorRun->getFixtureFileName()
             . '&value=' . urlencode($content)
             . '&message=' . urlencode($message)
             . '&description=' . urlencode($description);
