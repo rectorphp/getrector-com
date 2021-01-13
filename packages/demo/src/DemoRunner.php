@@ -11,8 +11,9 @@ use Throwable;
 
 final class DemoRunner
 {
-    public function __construct(private RectorProcessRunner $rectorProcessRunner)
-    {
+    public function __construct(
+        private RectorProcessRunner $rectorProcessRunner
+    ) {
     }
 
     public function processRectorRun(RectorRun $rectorRun): void

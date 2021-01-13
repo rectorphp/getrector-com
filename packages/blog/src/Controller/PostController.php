@@ -11,11 +11,12 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class PostController extends AbstractController
 {
-    public function __construct(private PostRepository $postRepository)
-    {
+    public function __construct(
+        private PostRepository $postRepository
+    ) {
     }
 
-    #[Route('blog/{postSlug}', name: 'post', requirements: [
+    #[Route('blog/{postSlug}', name: \Rector\Website\ValueObject\Routing\RouteName::POST, requirements: [
         'postSlug' => '.+',
     ])]
     public function __invoke(string $postSlug): Response

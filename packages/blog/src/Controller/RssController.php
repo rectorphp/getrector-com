@@ -13,11 +13,12 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class RssController extends AbstractController
 {
-    public function __construct(private PostRepository $postRepository)
-    {
+    public function __construct(
+        private PostRepository $postRepository
+    ) {
     }
 
-    #[Route('rss.xml', name: 'rss')]
+    #[Route('rss.xml', name: \Rector\Website\ValueObject\Routing\RouteName::RSS)]
     public function __invoke(): Response
     {
         $posts = $this->postRepository->getPosts();

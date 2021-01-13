@@ -7,6 +7,7 @@ use Rector\Core\Configuration\Option;
 use Rector\DeadCode\Rector\Class_\RemoveUnusedDoctrineEntityMethodAndPropertyRector;
 use Rector\Generic\Rector\FuncCall\FuncCallToStaticCallRector;
 use Rector\Set\ValueObject\SetList;
+use Rector\SymfonyCodeQuality\Rector\Attribute\ExtractAttributeRouteNameConstantsRector;
 use Rector\Transform\ValueObject\FuncCallToStaticCall;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use function Symfony\Component\DependencyInjection\Loader\Configurator\inline_service;
@@ -45,6 +46,8 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     ]);
 
     $services = $containerConfigurator->services();
+
+    $services->set(ExtractAttributeRouteNameConstantsRector::class);
 
     $services->set(FuncCallToStaticCallRector::class)
         ->call('configure', [[

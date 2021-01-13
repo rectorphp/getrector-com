@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class MissionController extends AbstractController
 {
-    #[Route(path: 'mission', name: 'mission')]
+    #[Route(path: 'mission', name: \Rector\Website\ValueObject\Routing\RouteName::MISSION)]
     public function __invoke(): Response
     {
         return $this->render('homepage/mission.twig');

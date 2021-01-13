@@ -17,3 +17,4 @@ parameters:
         - '#Method Rector\\Website\\Demo\\Form\\DemoFormType\:\:buildForm\(\) has parameter \$formBuilder with no value type specified in iterable type Symfony\\Component\\Form\\FormBuilderInterface#'
         - '#Method Rector\\Website\\Form\\ContactFormType\:\:buildForm\(\) has parameter \$formBuilder with no value type specified in iterable type Symfony\\Component\\Form\\FormBuilderInterface#'
         - '#Method Rector\\Website\\Demo\\Controller\\DemoController\:\:processFormAndReturnRoute\(\) has parameter \$form with no value type specified in iterable type Symfony\\Component\\Form\\FormInterface#'
+        - '#Content of method "save\(\)" is duplicated with method "save\(\)" in "Rector\\Website\\Repository\\ContactMessageRepository" class\. Use unique content or abstract service instead#'
