@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Website\Blog\Controller;
 
+use Rector\Website\ValueObject\Routing\RouteName;
 use Rector\Website\Blog\Repository\PostRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,7 +17,7 @@ final class BlogController extends AbstractController
     ) {
     }
 
-    #[Route('blog', name: \Rector\Website\ValueObject\Routing\RouteName::BLOG)]
+    #[Route('blog', name: RouteName::BLOG)]
     public function __invoke(): Response
     {
         return $this->render('blog/blog.twig', [

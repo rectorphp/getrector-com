@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Website\Controller;
 
+use Rector\Website\ValueObject\Routing\RouteName;
 use Rector\Website\Entity\ContactMessage;
 use Rector\Website\Exception\ShouldNotHappenException;
 use Rector\Website\Form\ContactFormType;
@@ -20,7 +21,7 @@ final class ContactController extends AbstractController
     ) {
     }
 
-    #[Route(path: 'contact', name: \Rector\Website\ValueObject\Routing\RouteName::CONTACT)]
+    #[Route(path: 'contact', name: RouteName::CONTACT)]
     public function __invoke(Request $request): Response
     {
         $form = $this->createForm(ContactFormType::class);
@@ -35,7 +36,7 @@ final class ContactController extends AbstractController
             $this->contactMessageRepository->save($contactMessage);
             $this->addFlash('success', 'Your message is on the way!');
 
-            return $this->redirectToRoute(\Rector\Website\ValueObject\Routing\RouteName::CONTACT);
+            return $this->redirectToRoute(RouteName::CONTACT);
         }
 
         return $this->render('homepage/contact.twig', [

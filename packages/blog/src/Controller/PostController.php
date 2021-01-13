@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Website\Blog\Controller;
 
+use Rector\Website\ValueObject\Routing\RouteName;
 use Rector\Website\Blog\Repository\PostRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,7 +17,7 @@ final class PostController extends AbstractController
     ) {
     }
 
-    #[Route('blog/{postSlug}', name: \Rector\Website\ValueObject\Routing\RouteName::POST, requirements: [
+    #[Route('blog/{postSlug}', name: RouteName::POST, requirements: [
         'postSlug' => '.+',
     ])]
     public function __invoke(string $postSlug): Response

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Website\Blog\Controller;
 
+use Rector\Website\ValueObject\Routing\RouteName;
 use DateTimeInterface;
 use Rector\Website\Blog\Repository\PostRepository;
 use Rector\Website\Blog\ValueObject\Post;
@@ -18,7 +19,7 @@ final class RssController extends AbstractController
     ) {
     }
 
-    #[Route('rss.xml', name: \Rector\Website\ValueObject\Routing\RouteName::RSS)]
+    #[Route('rss.xml', name: RouteName::RSS)]
     public function __invoke(): Response
     {
         $posts = $this->postRepository->getPosts();

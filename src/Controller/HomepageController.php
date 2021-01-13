@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Website\Controller;
 
+use Rector\Website\ValueObject\Routing\RouteName;
 use Rector\Website\Blog\Repository\PostRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,7 +17,7 @@ final class HomepageController extends AbstractController
     ) {
     }
 
-    #[Route(path: '/', name: \Rector\Website\ValueObject\Routing\RouteName::HOMEPAGE)]
+    #[Route(path: '/', name: RouteName::HOMEPAGE)]
     public function __invoke(): Response
     {
         return $this->render('homepage/homepage.twig', [
