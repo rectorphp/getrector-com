@@ -1,4 +1,5 @@
 vendor/
+package-lock.json
 
 .idea
 
