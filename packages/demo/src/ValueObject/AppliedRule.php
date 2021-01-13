@@ -17,8 +17,9 @@ final class AppliedRule
 
     private string $shortClass;
 
-    public function __construct(private string $class)
-    {
+    public function __construct(
+        private string $class
+    ) {
         $shortClassName = Strings::after($class, '\\', -1);
         if (! is_string($shortClassName)) {
             throw new ShouldNotHappenException();

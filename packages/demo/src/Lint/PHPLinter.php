@@ -18,8 +18,9 @@ final class PHPLinter
      */
     private const OPENING_PHP_TAG_REGEX = '#(\s+)?\<\?php#';
 
-    public function __construct(private SmartFileSystem $smartFileSystem)
-    {
+    public function __construct(
+        private SmartFileSystem $smartFileSystem
+    ) {
     }
 
     public function checkContentSyntax(string $content): void

@@ -9,8 +9,9 @@ use Rector\Website\Entity\ContactMessage;
 
 final class ContactMessageRepository
 {
-    public function __construct(private EntityManagerInterface $entityManager)
-    {
+    public function __construct(
+        private EntityManagerInterface $entityManager
+    ) {
     }
 
     public function save(ContactMessage $contactMessage): void

@@ -7,17 +7,19 @@ namespace Rector\Website\Blog\Controller;
 use DateTimeInterface;
 use Rector\Website\Blog\Repository\PostRepository;
 use Rector\Website\Blog\ValueObject\Post;
+use Rector\Website\ValueObject\Routing\RouteName;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 final class RssController extends AbstractController
 {
-    public function __construct(private PostRepository $postRepository)
-    {
+    public function __construct(
+        private PostRepository $postRepository
+    ) {
     }
 
-    #[Route('rss.xml', name: 'rss')]
+    #[Route('rss.xml', name: RouteName::RSS)]
     public function __invoke(): Response
     {
         $posts = $this->postRepository->getPosts();

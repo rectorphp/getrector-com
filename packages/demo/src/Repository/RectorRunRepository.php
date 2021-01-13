@@ -11,8 +11,9 @@ use Symfony\Component\Uid\Uuid;
 
 final class RectorRunRepository
 {
-    public function __construct(private EntityManagerInterface $entityManager)
-    {
+    public function __construct(
+        private EntityManagerInterface $entityManager
+    ) {
     }
 
     public function save(RectorRun $rectorRun): void

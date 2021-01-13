@@ -19,8 +19,9 @@ final class RectorRunFactory
      */
     public const CONFIG_FILE_PATH = __DIR__ . '/../../data/demo-config.php';
 
-    public function __construct(private SmartFileSystem $smartFileSystem)
-    {
+    public function __construct(
+        private SmartFileSystem $smartFileSystem
+    ) {
     }
 
     public function createEmpty(): RectorRun

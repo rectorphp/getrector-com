@@ -10,6 +10,7 @@ use Rector\Website\Demo\Form\DemoFormType;
 use Rector\Website\Demo\Repository\RectorRunRepository;
 use Rector\Website\Demo\ValueObjectFactory\RectorRunFactory;
 use Rector\Website\Exception\ShouldNotHappenException;
+use Rector\Website\ValueObject\Routing\RouteName;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -22,16 +23,6 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 final class DemoController extends AbstractController
 {
-    /**
-     * @var string
-     */
-    private const ROUTE_DEMO_DETAIL = 'demo_detail';
-
-    /**
-     * @var string
-     */
-    private const ROUTE_DEMO = 'demo';
-
     public function __construct(
         private RectorRunRepository $rectorRunRepository,
         private DemoRunner $demoRunner,
@@ -39,8 +30,8 @@ final class DemoController extends AbstractController
     ) {
     }
 
-    #[Route('demo/{rectorRun}', name: self::ROUTE_DEMO_DETAIL, methods: ['GET'])]
-    #[Route(self::ROUTE_DEMO, name: self::ROUTE_DEMO, methods: ['GET', 'POST'])]
+    #[Route('demo/{rectorRun}', name: RouteName::DEMO_DETAIL, methods: ['GET'])]
+    #[Route('demo', name: RouteName::DEMO, methods: ['GET', 'POST'])]
     public function __invoke(Request $request, ?RectorRun $rectorRun = null): Response
     {
         if ($rectorRun === null) {
@@ -49,7 +40,7 @@ final class DemoController extends AbstractController
 
         $demoForm = $this->createForm(DemoFormType::class, $rectorRun, [
             // this is needed for manual render
-            'action' => $this->generateUrl(self::ROUTE_DEMO),
+            'action' => $this->generateUrl(RouteName::DEMO),
         ]);
 
         $demoForm->handleRequest($request);
@@ -74,7 +65,7 @@ final class DemoController extends AbstractController
 
         $this->rectorRunRepository->save($rectorRun);
 
-        return $this->redirectToRoute(self::ROUTE_DEMO_DETAIL, [
+        return $this->redirectToRoute(RouteName::DEMO_DETAIL, [
             'rectorRun' => $rectorRun->getId(),
         ]);
     }
