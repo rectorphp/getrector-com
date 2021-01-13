@@ -29,7 +29,7 @@ class CompanyInfo
 
 In this way, We can avoid using an incorrect card number.
 
-# Symfony `#[Route]` Reborn
+## Symfony `#[Route]` Reborn
 
 Now back to Symfony. With Symfony 5.2, we have a new option use Routes. Instead of the old ~~comment~~ annotation way:
 
@@ -104,7 +104,7 @@ Can you see it? The route used has a "mission".
 
 You're probably thinking, the IDE plugin would handle this, right? Well, you might be right, but on Symfony 5.2, it's broken and does not collect routes.
 
-<blockquote class="blockquote text-center">
+<blockquote class="blockquote text-center mt-4 mb-4">
     IDE plugin should only compensate missing PHP features,<br>
     not duplicate them with code smell approach.
 </blockquote>
