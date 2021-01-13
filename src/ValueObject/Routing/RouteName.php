@@ -40,4 +40,14 @@ final class RouteName
      * @var string
      */
     public const CONTACT = 'contact';
+
+    /**
+     * @var string
+     */
+    public const DEMO_DETAIL = 'demo_detail';
+
+    /**
+     * @var string
+     */
+    public const DEMO = 'demo';
 }

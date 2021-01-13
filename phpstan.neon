@@ -12,6 +12,8 @@ parameters:
     excludes_analyse:
         - "packages/demo/data/DemoFile.php"
 
+    reportUnmatchedIgnoredErrors: false
+
     ignoreErrors:
         - '#Method Rector\\Website\\Demo\\Process\\RectorProcessRunner\:\:createProcess\(\) return type has no value type specified in iterable type Symfony\\Component\\Process\\Process#'
         - '#Method Rector\\Website\\Demo\\Form\\DemoFormType\:\:buildForm\(\) has parameter \$formBuilder with no value type specified in iterable type Symfony\\Component\\Form\\FormBuilderInterface#'

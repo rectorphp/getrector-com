@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Rector\Website\Blog\Controller;
 
-use Rector\Website\ValueObject\Routing\RouteName;
 use DateTimeInterface;
 use Rector\Website\Blog\Repository\PostRepository;
 use Rector\Website\Blog\ValueObject\Post;
+use Rector\Website\ValueObject\Routing\RouteName;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;

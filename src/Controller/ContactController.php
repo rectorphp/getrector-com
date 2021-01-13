@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Rector\Website\Controller;
 
-use Rector\Website\ValueObject\Routing\RouteName;
 use Rector\Website\Entity\ContactMessage;
 use Rector\Website\Exception\ShouldNotHappenException;
 use Rector\Website\Form\ContactFormType;
 use Rector\Website\Repository\ContactMessageRepository;
+use Rector\Website\ValueObject\Routing\RouteName;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
