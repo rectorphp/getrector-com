@@ -59,4 +59,10 @@ final class TwigExtension
      * @api
      */
     public const NUMBER_FORMAT = 'number_format';
+
+    /**
+     * @var string
+     * @api
+     */
+    public const PATHS = 'paths';
 }

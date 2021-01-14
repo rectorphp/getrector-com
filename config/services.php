@@ -11,6 +11,8 @@ use Symplify\PackageBuilder\Console\Style\SymfonyStyleFactory;
 use Symplify\PackageBuilder\Reflection\PrivatesAccessor;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
+    $containerConfigurator->import(__DIR__ . '/../packages/*/config/*.php');
+
     $parameters = $containerConfigurator->parameters();
 
     $parameters->set(Option::LOCAL_DEMO_DIR, '%kernel.project_dir%/var/demo');

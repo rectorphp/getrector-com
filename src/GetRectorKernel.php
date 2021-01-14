@@ -4,61 +4,30 @@ declare(strict_types=1);
 
 namespace Rector\Website;
 
-use Iterator;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
-use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\HttpKernel\Bundle\BundleInterface;
+use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symfony\Component\HttpKernel\Kernel;
-use Symfony\Component\Routing\RouteCollectionBuilder;
-use Symplify\Autodiscovery\Discovery;
+use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
 use Symplify\AutowireArrayParameter\DependencyInjection\CompilerPass\AutowireArrayParameterCompilerPass;
-use Symplify\FlexLoader\Flex\FlexLoader;
 
 final class GetRectorKernel extends Kernel
 {
     use MicroKernelTrait;
 
-    private FlexLoader $flexLoader;
-
-    private Discovery $discovery;
-
-    public function __construct(string $environment, bool $debug)
+    protected function configureContainer(ContainerConfigurator $containerConfigurator): void
     {
-        parent::__construct($environment, $debug);
+        $containerConfigurator->import(__DIR__ . '/../config/services.php');
 
-        $this->flexLoader = new FlexLoader($environment, $this->getProjectDir());
-        $this->discovery = new Discovery($this->getProjectDir());
+        $containerConfigurator->import(__DIR__ . '/../config/packages/*.php');
+        $containerConfigurator->import(__DIR__ . '/../config/{packages}/' . $this->environment . '/*.php');
     }
 
-    /**
-     * @return Iterator<BundleInterface>
-     */
-    public function registerBundles(): Iterator
+    protected function configureRoutes(RoutingConfigurator $routingConfigurator): void
     {
-        return $this->flexLoader->loadBundles();
-    }
+        $routingConfigurator->import(__DIR__ . '/../config/routes.php');
 
-    protected function configureContainer(ContainerBuilder $containerBuilder, LoaderInterface $loader): void
-    {
-        $this->discovery->discoverEntityMappings($containerBuilder);
-        $this->discovery->discoverTemplates($containerBuilder);
-        $this->discovery->discoverTranslations($containerBuilder);
-
-        $this->flexLoader->loadConfigs($containerBuilder, $loader, [
-            // project's packages
-            $this->getProjectDir() . '/packages/*/config/*',
-        ]);
-    }
-
-    protected function configureRoutes(RouteCollectionBuilder $routeCollectionBuilder): void
-    {
-        $this->discovery->discoverRoutes($routeCollectionBuilder);
-
-        $this->flexLoader->loadRoutes($routeCollectionBuilder, [
-            // project's packages
-            //            $this->getProjectDir() . '/packages/*/src/Controller/*',
-        ]);
+        $routingConfigurator->import(__DIR__ . '/../config/{routes}/' . $this->environment . '/*.php', 'glob');
     }
 
     protected function build(ContainerBuilder $containerBuilder): void

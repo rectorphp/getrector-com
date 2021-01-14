@@ -2,12 +2,13 @@
 
 declare(strict_types=1);
 
+use Rector\Website\ValueObject\Symfony\DoctrineExtension;
 use Symfony\Bridge\Doctrine\Types\UuidType;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
-    $containerConfigurator->extension('doctrine', [
-        'dbal' => [
+    $containerConfigurator->extension(DoctrineExtension::NAME, [
+        DoctrineExtension::DBAL => [
             'driver' => 'pdo_mysql',
             'server_version' => '5.7',
             'host' => '%env(DATABASE_HOST)%',
@@ -20,13 +21,18 @@ return static function (ContainerConfigurator $containerConfigurator): void {
                 'uuid' => UuidType::class,
             ],
         ],
-    ]);
-
-    $containerConfigurator->extension('doctrine', [
-        'orm' => [
+        DoctrineExtension::ORM => [
             'auto_generate_proxy_classes' => true,
             'naming_strategy' => 'doctrine.orm.naming_strategy.underscore',
             'auto_mapping' => true,
+            'mappings' => [
+                'demo' => [
+                    'is_bundle' => false,
+                    'type' => 'annotation',
+                    'dir' => __DIR__ . '/../../packages/demo/src/Entity',
+                    'prefix' => 'Rector\Website\Demo\Entity',
+                ],
+            ],
         ],
     ]);
 };
