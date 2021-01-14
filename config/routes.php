@@ -2,13 +2,11 @@
 
 declare(strict_types=1);
 
-use Symfony\Bundle\FrameworkBundle\Controller\TemplateController;
+use Rector\Website\ValueObject\Symfony\RoutingExtension;
 use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
 
 return static function (RoutingConfigurator $routingConfigurator): void {
-    $routingConfigurator->add('research_thank_you', 'research/thank-you')
-        ->controller(TemplateController::class)
-        ->defaults([
-            'template' => 'research/thank-you.twig',
-        ]);
+    $routingConfigurator->import(__DIR__ . '/../src/Controller', RoutingExtension::ANNOTATION_TYPE);
+    $routingConfigurator->import(__DIR__ . '/../packages/blog/src/Controller', RoutingExtension::ANNOTATION_TYPE);
+    $routingConfigurator->import(__DIR__ . '/../packages/demo/src/Controller', RoutingExtension::ANNOTATION_TYPE);
 };
