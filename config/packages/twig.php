@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-use Rector\Website\ValueObject\Symfony\TwigExtension;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+use Symplify\Amnesia\ValueObject\Symfony\Extension\Twig\NumberFormat;
+use Symplify\Amnesia\ValueObject\Symfony\Extension\TwigExtension;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
     $containerConfigurator->extension(TwigExtension::NAME, [
@@ -22,9 +23,9 @@ return static function (ContainerConfigurator $containerConfigurator): void {
             'format' => 'F d, Y',
         ],
         TwigExtension::NUMBER_FORMAT => [
-            'decimals' => 0,
-            'decimal_point' => ',',
-            'thousands_separator' => ' ',
+            NumberFormat::DECIMALS => 0,
+            NumberFormat::DECIMAL_POINT => ',',
+            NumberFormat::THOUSANDS_SEPARATOR => ' ',
         ],
     ]);
 };
