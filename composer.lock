@@ -9016,12 +9016,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/amnesia.git",
-                "reference": "6a4abdac30d2def5da61a9330ab8eb36079785f7"
+                "reference": "3cd929a397a6610a8f532708fdf9e25418970997"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/amnesia/zipball/6a4abdac30d2def5da61a9330ab8eb36079785f7",
-                "reference": "6a4abdac30d2def5da61a9330ab8eb36079785f7",
+                "url": "https://api.github.com/repos/symplify/amnesia/zipball/3cd929a397a6610a8f532708fdf9e25418970997",
+                "reference": "3cd929a397a6610a8f532708fdf9e25418970997",
                 "shasum": ""
             },
             "require": {
@@ -9058,7 +9058,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-01-17T20:56:24+00:00"
+            "time": "2021-01-17T21:02:30+00:00"
         },
         {
             "name": "symplify/astral",

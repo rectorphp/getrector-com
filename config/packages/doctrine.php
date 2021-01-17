@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use Symfony\Bridge\Doctrine\Types\UuidType;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+use Symplify\Amnesia\ValueObject\Symfony\Extension\Doctrine\DBAL;
 use Symplify\Amnesia\ValueObject\Symfony\Extension\Doctrine\Mapping;
 use Symplify\Amnesia\ValueObject\Symfony\Extension\Doctrine\ORM;
 use Symplify\Amnesia\ValueObject\Symfony\Extension\DoctrineExtension;
@@ -11,15 +12,15 @@ use Symplify\Amnesia\ValueObject\Symfony\Extension\DoctrineExtension;
 return static function (ContainerConfigurator $containerConfigurator): void {
     $containerConfigurator->extension(DoctrineExtension::NAME, [
         DoctrineExtension::DBAL => [
-            'driver' => 'pdo_mysql',
-            'server_version' => '5.7',
-            'host' => '%env(DATABASE_HOST)%',
-            'port' => '%env(DATABASE_PORT)%',
-            'dbname' => '%env(DATABASE_DBNAME)%',
-            'user' => '%env(DATABASE_USER)%',
-            'password' => '%env(DATABASE_PASSWORD)%',
-            'charset' => '%env(DATABASE_CHARSET)%',
-            'types' => [
+            DBAL::DRIVER => 'pdo_mysql',
+            DBAL::SERVER_VERSION => '5.7',
+            DBAL::HOST => '%env(DATABASE_HOST)%',
+            DBAL::PORT => '%env(DATABASE_PORT)%',
+            DBAL::DBNAME => '%env(DATABASE_DBNAME)%',
+            DBAL::USER => '%env(DATABASE_USER)%',
+            DBAL::PASSWORD => '%env(DATABASE_PASSWORD)%',
+            DBAL::CHARSET => '%env(DATABASE_CHARSET)%',
+            DBAL::TYPES => [
                 'uuid' => UuidType::class,
             ],
         ],
