@@ -32,6 +32,12 @@ return static function (ContainerConfigurator $containerConfigurator): void {
                     'dir' => __DIR__ . '/../../packages/demo/src/Entity',
                     'prefix' => 'Rector\Website\Demo\Entity',
                 ],
+                'contact' => [
+                    'is_bundle' => false,
+                    'type' => 'annotation',
+                    'dir' => __DIR__ . '/../../src/Entity',
+                    'prefix' => 'Rector\Website\Entity',
+                ],
             ],
         ],
     ]);
