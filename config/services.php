@@ -7,6 +7,7 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use function Symfony\Component\DependencyInjection\Loader\Configurator\service;
 use Symfony\Component\Security\Core\Security;
+use function Symplify\Amnesia\Functions\env;
 use Symplify\PackageBuilder\Console\Style\SymfonyStyleFactory;
 use Symplify\PackageBuilder\Reflection\PrivatesAccessor;
 
@@ -16,7 +17,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $parameters = $containerConfigurator->parameters();
 
     $parameters->set(Option::LOCAL_DEMO_DIR, '%kernel.project_dir%/var/demo');
-    $parameters->set(Option::HOST_DEMO_DIR, '%env(HOST_DEMO_DIR)%');
+    $parameters->set(Option::HOST_DEMO_DIR, env('HOST_DEMO_DIR'));
     $parameters->set(Option::RECTOR_DEMO_DOCKER_IMAGE, 'rector/rector-secured:latest');
     $parameters->set(Option::DEMO_EXECUTABLE_PATH, '%kernel.project_dir%/bin/run-demo.sh');
 
