@@ -3,28 +3,29 @@
 declare(strict_types=1);
 
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+use Symplify\Amnesia\ValueObject\Symfony\Extension\FrameworkExtension;
 use function Symplify\Amnesia\Functions\env;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
-    $containerConfigurator->extension('framework', [
-        'secret' => env('APP_SECRET'),
-        'csrf_protection' => [
+    $containerConfigurator->extension(FrameworkExtension::NAME, [
+        FrameworkExtension::SECRET => env('APP_SECRET'),
+        FrameworkExtension::CSRF_PROTECTION => [
             'enabled' => true,
         ],
-        'http_method_override' => true,
-        'trusted_hosts' => null,
-        'session' => [
+        FrameworkExtension::HTTP_METHOD_OVERRIDE => true,
+        FrameworkExtension::TRUSTED_HOSTS => null,
+        FrameworkExtension::SESSION => [
             'handler_id' => null,
         ],
-        'esi' => [
+        FrameworkExtension::ESI => [
             'enabled' => true,
         ],
-        'fragments' => [
+        FrameworkExtension::FRAGMENTS => [
             'enabled' => true,
         ],
-        'php_errors' => [
+        FrameworkExtension::PHP_ERRORS => [
             'log' => true,
         ],
-        'ide' => 'phpstorm',
+        FrameworkExtension::IDE => 'phpstorm',
     ]);
 };
