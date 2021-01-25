@@ -17,7 +17,9 @@ final class Post
         private DateTimeInterface $dateTime,
         private string $perex,
         private string $htmlContent,
-        private string $absoluteUrl
+        private string $absoluteUrl,
+        private ?string $contributor = null,
+        private ?int $pullRequestId = null,
     ) {
         $this->plaintextContent = strip_tags($htmlContent);
     }
@@ -70,5 +72,24 @@ final class Post
     public function getTweetLink(): string
     {
         return 'https://twitter.com/intent/tweet?text=' . $this->title . '&url=' . $this->absoluteUrl . '&hashtags=rectorphp';
+    }
+
+    public function getContributor(): ?string
+    {
+        return $this->contributor;
+    }
+
+    public function getPullRequestId(): ?int
+    {
+        return $this->pullRequestId;
+    }
+
+    public function isContribution(): bool
+    {
+        if ($this->contributor === null) {
+            return false;
+        }
+
+        return $this->pullRequestId !== null;
     }
 }
