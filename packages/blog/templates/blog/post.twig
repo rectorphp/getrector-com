@@ -23,6 +23,24 @@
         <div class="perex">{{ post.perex|markdown|raw }}</div>
 
         <div class="text-body">
+            {% if post.isContribution %}
+                <div class="card pull-right ml-3" id="contribution_box">
+                    <div class="card-body text-smaller">
+                        <div style="float: left">
+                            <img src="https://github.com/{{ post.contributor }}.png" class="rounded-circle mt-1 mr-3" style="max-width: 2.3em">
+                        </div>
+
+                        <div style="float: left">
+                            Contributed by<br>
+                            <strong>
+                                <a href="https://github.com/{{ post.contributor }}">{{ post.contributor }}</a>
+                            </strong>
+                            in <a href="https://github.com/rectorphp/rector/pull/{{ post.pullRequestId }}">#{{ post.pullRequestId }}</a>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+
             {{ post.htmlContent|raw }}
         </div>
 

@@ -5,8 +5,8 @@ perex: |
     Nette 3.1 was released almost a month ago. Packages using it had enough time to give support to small BC breaks and now it's ready to run on your project.
     Let's look at what has changed and how to upgrade today.
 
-contributed_by: "lulco"
-contributed_pr: 5195
+contributor: "lulco"
+pull_request_id: 5195
 ---
 
 If you're not on Nette 3.1, hurry up. Why? There is a security issue in 3.0.x version:
@@ -15,7 +15,7 @@ If you're not on Nette 3.1, hurry up. Why? There is a security issue in 3.0.x ve
 
 <br>
 
-On the positive side, Nette is **rising to more active frameworks** and is right behind Laravel. Give Nette core developers your appreciation by upgrading to the new version as soon as possible.
+But that's not the only reason to upgrade. Nette is **rising to more active half** of PHP frameworks and is right behind Laravel. Give Nette core developers your appreciation by upgrading to the new version as soon as possible.
 
 <a href="https://tomasvotruba.com/php-framework-trends">
 <img src="/assets/images/blog/2021/nette_31_trends.png" class="img-thumbnail mt-3 mb-3">

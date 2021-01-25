@@ -75,7 +75,10 @@ final class PostFactory
 
         $absoluteUrl = $this->createAbsoluteUrl($slug);
 
-        return new Post($id, $title, $slug, $dateTime, $perex, $htmlContent, $absoluteUrl);
+        $contributor = $configuration['contributor'] ?? null;
+        $pullRequestId = $configuration['pull_request_id'] ?? null;
+
+        return new Post($id, $title, $slug, $dateTime, $perex, $htmlContent, $absoluteUrl, $contributor, $pullRequestId);
     }
 
     /**
