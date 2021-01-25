@@ -191,11 +191,16 @@ That's why some classes had to be renamed too:
 ```
 
 ```diff
--$this->response->setCookie($key, $data, $expire, null, null, $this->request->isSecured(), false, 'Lax');
-+$this->response->setCookie($key, $data, $expire, null, null, $this->request->isSecured(), false);
-
--$this->response->setCookie($key, $data, $expire, null, null, $this->request->isSecured(), true, 'Lax');
-+$this->response->setCookie($key, $data, $expire, null, null, $this->request->isSecured());
+ $this->response->setCookie(
+     $key,
+     $data,
+     $expire,
+     null,
+     null,
+     $this->request->isSecured(),
+-    true,
+-    'Lax',
+);
 ```
 
 <br>

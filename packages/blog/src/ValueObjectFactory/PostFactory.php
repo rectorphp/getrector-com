@@ -78,7 +78,17 @@ final class PostFactory
         $contributor = $configuration['contributor'] ?? null;
         $pullRequestId = $configuration['pull_request_id'] ?? null;
 
-        return new Post($id, $title, $slug, $dateTime, $perex, $htmlContent, $absoluteUrl, $contributor, $pullRequestId);
+        return new Post(
+            $id,
+            $title,
+            $slug,
+            $dateTime,
+            $perex,
+            $htmlContent,
+            $absoluteUrl,
+            $contributor,
+            $pullRequestId
+        );
     }
 
     /**
