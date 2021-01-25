@@ -21,15 +21,15 @@ final class ErrorMessageNormalizer
             return $errorMessage;
         }
 
-        $type = lcfirst($match['type']);
+        $type = ucfirst($match['type']);
         $classLikeName = $match['class_like_name'];
+        $classCode = lcfirst($type) . ' ' . $classLikeName . ' {}';
 
         return sprintf(
-            '%s "%s" is missing. Complete it to code input, e.g. "%s %s {}"',
-            ucfirst($type),
-            $classLikeName,
+            '%s "%s" is missing. Complete it to code input, e.g. "%s"',
             $type,
-            $classLikeName
+            $classLikeName,
+            $classCode
         );
     }
 }
