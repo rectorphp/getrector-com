@@ -3,8 +3,8 @@
 declare(strict_types=1);
 
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
-use Symplify\Amnesia\ValueObject\Symfony\Extension\FrameworkExtension;
 use function Symplify\Amnesia\Functions\env;
+use Symplify\Amnesia\ValueObject\Symfony\Extension\FrameworkExtension;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
     $containerConfigurator->extension(FrameworkExtension::NAME, [
