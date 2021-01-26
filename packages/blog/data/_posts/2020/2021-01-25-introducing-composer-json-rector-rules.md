@@ -130,17 +130,17 @@ What if something similar was possible for `composer.json`? Something we could c
 
 Those Rector rules could be named like:
 
-- `ChangePackageVersionRector`
-- `ReplacePackageAndVersionRector`
-- `RemovePackageRector`
+- `ChangePackageVersionComposerRector`
+- `ReplacePackageAndVersionComposerRector`
+- `RemovePackageComposerRector`
 
 They would be easily configurable:
 
 ```php
 // rector.php
 
-use Rector\Composer\Rector\ChangePackageVersionRector;
-use Rector\Composer\Rector\RemovePackageRector;
+use Rector\Composer\Rector\ChangePackageVersionComposerRector;
+use Rector\Composer\Rector\RemovePackageComposerRector;
 use Rector\Composer\ValueObject\PackageAndVersion;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symplify\SymfonyPhpConfig\ValueObjectInliner;
@@ -148,9 +148,9 @@ use Symplify\SymfonyPhpConfig\ValueObjectInliner;
 return static function (ContainerConfigurator $containerConfigurator): void {
     $services = $containerConfigurator->services();
 
-    $services->set(ChangePackageVersionRector::class)
+    $services->set(ChangePackageVersionComposerRector::class)
         ->call('configure', [[
-            ChangePackageVersionRector::PACKAGES_AND_VERSIONS => ValueObjectInliner::inline([
+            ChangePackageVersionComposerRector::PACKAGES_AND_VERSIONS => ValueObjectInliner::inline([
                 new PackageAndVersion('nette/application', '^3.1'),
                 new PackageAndVersion('nette/di', '^3.0'),
                 new PackageAndVersion('nette/http', '^3.1'),
@@ -160,9 +160,9 @@ return static function (ContainerConfigurator $containerConfigurator): void {
             ]),
         ]]);
 
-    $services->set(RemovePackageRector::class)
+    $services->set(RemovePackageComposerRector::class)
         ->call('configure', [[
-            RemovePackageRector::PACKAGE_NAMES => ['nette/component-model', 'nette/neon'],
+            RemovePackageComposerRector::PACKAGE_NAMES => ['nette/component-model', 'nette/neon'],
         ]]);
 };
 ```
