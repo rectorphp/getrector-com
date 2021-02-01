@@ -1,7 +1,6 @@
 # [GetRector.org](https://getrector.org)
 
 [![Coverage Status](https://coveralls.io/repos/github/rectorphp/getrector.org/badge.svg?branch=master)](https://coveralls.io/github/rectorphp/getrector.org?branch=master)
-[![SonarCube](https://img.shields.io/badge/SonarCube_Debt-%3C20min-brightgreen.svg?style=flat-square)](https://sonarcloud.io/dashboard?id=rectorphp_getrector_org)
 
 
 ## How to Run Locally?
