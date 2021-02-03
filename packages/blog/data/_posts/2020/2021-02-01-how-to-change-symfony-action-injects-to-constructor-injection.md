@@ -52,10 +52,6 @@ It's natural to **try new patterns with an open heart** and validate them in pra
 How would you change all your 50 controllers with action injections...
 
 ```php
-<?php
-
-namespace App\Controller;
-
 final class SomeController
 {
     public function detail(int $id, Request $request, ProductRepository $productRepository)
@@ -70,10 +66,6 @@ final class SomeController
 **...to the constructor injection:**
 
 ```php
-<?php
-
-namespace App\Controller;
-
 final class SomeController
 {
     public function __construct(
@@ -91,13 +83,18 @@ final class SomeController
 ```
 
 
-## How to Waste a Week in one Team
+## How to Waste a Week in one Team?
 
-- 50 controllers, four action methods per each → 200 services
-- some of them are duplicated
-- identify services, [`Request` objects](https://symfony.com/doc/current/controller.html#controller-request-argument) and [Argument Resolver objects](https://symfony.com/doc/current/controller/argument_value_resolver.html)
-- code-reviews and discussions that might take up to 5-10 days
-- and rebase on new merged PRs... well, you have 4-10 hours of team-work wasted ahead of you.
+Let's say your project is fairly small, e.g. 50 controllers, there are four action methods per each. So you have to refactor 200 service arguments to constructor injection. You decided to do it manually.
+
+- some of the services them are duplicated
+- you have to identify 3 parts
+    - services
+    - [`Request` objects](https://symfony.com/doc/current/controller.html#controller-request-argument)
+    - and [Argument Resolver objects](https://symfony.com/doc/current/controller/argument_value_resolver.html)
+
+- there will be code-reviews and discussions that might take up to 5-10 days
+- and of course, rebase on new merged PRs... you have another 4-10 hours of team-work wasted ahead of you
 
 <br>
 
@@ -113,16 +110,9 @@ composer install rector/rector --dev
 
 ### 2. Prepare Config
 
-Add the `action-injection-to-constructor-injection` set and configure your Kernel class name.
+Enable the set and configure your Kernel class name in `rector.php` config:
 
 ```php
-<?php
-
-// rector.php
-
-
-declare(strict_types=1);
-
 use Rector\Core\Configuration\Option;
 use Rector\Set\ValueObject\SetList;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
@@ -150,10 +140,6 @@ vendor/bin/rector process /app
 You will see diffs like:
 
 ```diff
- <?php
-
- namespace App\Controller;
-
  final class SomeController
  {
 +    public function __construct(
