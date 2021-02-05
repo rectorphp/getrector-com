@@ -18,3 +18,10 @@ MySQL runs on port 3306, if you need to change that, you can use `GETRECTOR_ORG_
 ```bash
 GETRECTOR_ORG_MYSQL_PORT=12345 docker-compose up
 ```
+
+### Troubleshooting
+
+Sometimes, you might have outdated Docker images locally, to update, please run:
+```bash
+bin/pull-docker-images.sh
+```
