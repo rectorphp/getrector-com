@@ -81,7 +81,7 @@
         {% if rector_run.hasRun and rector_run.successful != true %}
             <div class="alert alert-danger">
                 <strong>Fatal error:</strong>
-                {{ rector_run.fatalErrorMessage }}
+                {{ rector_run.fatalErrorMessage | nl2br }}
             </div>
         {% endif %}
 
