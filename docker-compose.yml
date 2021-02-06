@@ -14,6 +14,7 @@ services:
         environment:
             XDEBUG_CONFIG: "remote_host=host.docker.internal"
             PHP_IDE_CONFIG: "serverName=getrector_org"
+            HOST_DEMO_DIR: "${PWD}/var/demo"
         ports:
             - "8080:80"
         volumes:
