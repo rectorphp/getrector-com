@@ -26,7 +26,7 @@ final class SomeController
 
 <br>
 
-It looks sexy and fun at first, but in few months, it will reveal its true face [as an ugly code smell](https://tomasvotruba.om/blog/2018/04/23/how-to-slowly-turn-your-symfony-project-to-legacy-with-action-injection/):
+It looks sexy and fun at first, but in few months, it will reveal its true face [as an ugly code smell](https://tomasvotruba.com/blog/2018/04/23/how-to-slowly-turn-your-symfony-project-to-legacy-with-action-injection/):
 
 <br>
 
