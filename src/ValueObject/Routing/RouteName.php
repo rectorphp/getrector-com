@@ -50,4 +50,9 @@ final class RouteName
      * @var string
      */
     public const DEMO = 'demo';
+
+    /**
+     * @var string
+     */
+    public const FOR_COMPANIES = 'for_companies';
 }

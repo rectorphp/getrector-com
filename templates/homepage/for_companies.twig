@@ -1,0 +1,185 @@
+{% extends "base.twig" %}
+
+{% block main %}
+    <div id="for-companies">
+        <h1 class="main-title">
+            Is your Project Successful,<br>
+            but Programmers Hate it?
+        </h1>
+
+        <p class="mt-5 text-bigger">
+            Our clients used to have similar problem
+        </p>
+
+        <br>
+        <br>
+        <br>
+
+        <div class="row">
+            <div class="col-sm-4">
+                <img src="/assets/images/logo/logo_bigger/eonx.png" class="img-fluid">
+            </div>
+            <div class="col-sm-8">
+                <h2 class="text-left">EonX</h2>
+                <p>Australia</p>
+
+                <h3>
+                    <strong>Upgrade Laravel 5.5 to Laravel 5.8</strong>
+                </h3>
+
+                <p class="text-semi-bigger mt-4 mb-4">
+                    EonX develops fully branded enterprise platforms for organisations looking to better connect, reward and securely transact with their members, customers and employees.
+                </p>
+
+                <h3>What other Problems we Solved?</h3>
+
+                <ul>
+                    <li>Implementation of ECS, PHPStan and Rector</li>
+                    <li>Standardisation of namespace</li>
+                    <li>Standardisation of tests</li>
+                </ul>
+            </div>
+        </div>
+
+        <hr class="mt-5 mb-5">
+
+        <div class="row">
+            <div class="col-sm-4">
+                <img src="/assets/images/logo/logo_bigger/amateri.jpg" class="img-fluid">
+            </div>
+            <div class="col-sm-8">
+                <h2 class="text-left">Amateri.cz</h2>
+                <p>Czech Republic</p>
+
+                <h3>
+                    <strong>Upgrade from Nette 2.4 to Nette 3.1</strong>
+                </h3>
+
+                <p class="text-semi-bigger mt-4 mb-4">
+                    The biggest Czech sex community.
+                </p>
+
+                <h3>What other Problems we Solved?</h3>
+
+                <ul>
+                    <li>Implementation of Docker tests in CI Container</li>
+                    <li>Implementation of ECS, PHPStan and Rector</li>
+                    <li>Setting of GitHub Action</li>
+                    <li>Standardisation of the code to PSR-4</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="text-center mt-5">
+            <a href="{{ path('contact') }}" class="btn btn-success btn-lg m-auto">
+                Contact us to Get an Upgrade too
+            </a>
+        </div>
+
+        <hr class="mt-5 mb-5">
+
+        <div class="row">
+            <div class="col-sm-4">
+                <img src="/assets/images/logo/logo_bigger/jcid.png" class="img-fluid">
+            </div>
+            <div class="col-sm-8">
+                <h2 class="text-left">JCID</h2>
+                <p>Netherlands</p>
+
+                <h3>
+                    <strong>Upgrade from Symfony 2.7 to Symfony 3.4</strong>
+                </h3>
+
+                <p class="text-semi-bigger mt-4 mb-4">
+                    We are specialized, reliable, innovative and customer-oriented.
+                    This is reflected in our products, but also in our services. The customer comes first with us. Through extensive internet applications, JCID can offer flexible services that are tailored to specific wishes and needs of our customers.
+                </p>
+
+                <h3>What other Problems we Solved?</h3>
+
+                <ul>
+                    <li>Conversion of XML to YAML/PHP configuration</li>
+                    <li>Implementation of Gitlab CI with ECS, PHPStan and Rector</li>
+                </ul>
+            </div>
+        </div>
+
+        <hr class="mt-5 mb-5">
+
+        <div class="row">
+            <div class="col-sm-4">
+                <img src="/assets/images/logo/logo_bigger/spaceflow.png" class="img-fluid">
+            </div>
+            <div class="col-sm-8">
+                <h2 class="text-left">Spaceflow</h2>
+                <p>Prague</p>
+
+                <h3>
+                    <strong>Upgrade from Symfony 3.4 to Symfony 4.4</strong>
+                </h3>
+
+                <p class="text-semi-bigger mt-4 mb-4">
+                    Spaceflow is a tenant experience app that connects buildings with their occupiers.
+                </p>
+
+                <h3>What other Problems we Solved?</h3>
+
+                <ul>
+                    <li>Migration from Doctrine ID to UUID</li>
+                    <li>Implementation of Gitlab CI with ECS, PHPStan and Rector</li>
+                    <li>Replacement of messy classes with PSR-4</li>
+                </ul>
+            </div>
+        </div>
+
+        <br>
+        <br>
+
+        <div class="text-center">
+            <a href="{{ path('contact') }}" class="btn btn-success btn-lg m-auto">
+                Contact us to Join Our Clients
+            </a>
+        </div>
+
+        <br>
+        <br>
+
+        <hr>
+
+        <br>
+        <br>
+        <br>
+
+        <p>We're learning from every single migrate project, so you will get the most skilled team to help you. We share our experience back with PHP community.</p>
+
+        <br>
+
+        <div class="row">
+            <div class="col-6">
+                <a href="https://leanpub.com/rector-the-power-of-automated-refactoring">
+                    <img src="/assets/images/logo/logo_bigger/rector_book.png" class="img-fluid img-thumbnail">
+                </a>
+            </div>
+
+            <div class="col-6">
+                <h2>Upcoming Book Publicadtion</h2>
+
+                <p>In this book, seasoned developers Matthias Noback and Tomáš Votruba give you all the information you need to become a Rector power user.</p>
+
+                <h3>What will You Learn?</h3>
+
+                <ul>
+                    <li>How to make Rector part of your daily development workflow</li>
+                    <li>How to create Rector rules that replace repetitive manual refactoring work</li>
+                    <li>How to automate even more with Rector by adding it to your project's build process</li>
+                </ul>
+
+                <a class="btn btn-primary mt-4" href="https://leanpub.com/rector-the-power-of-automated-refactoring">Get Early Sign on</a>
+            </div>
+        </div>
+
+        <br>
+        <br>
+
+    </div>
+{% endblock %}
