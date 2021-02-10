@@ -5,11 +5,7 @@ declare(strict_types=1);
 use Rector\CodingStyle\Rector\Function_\CamelCaseFunctionNamingToUnderscoreRector;
 use Rector\Core\Configuration\Option;
 use Rector\DeadCode\Rector\Class_\RemoveUnusedDoctrineEntityMethodAndPropertyRector;
-<<<<<<< HEAD
-=======
-use Rector\Generic\Rector\FuncCall\FuncCallToStaticCallRector;
 use Rector\Naming\Rector\Class_\RenamePropertyToMatchTypeRector;
->>>>>>> fae03cc... fixup! fixup! use Json utils
 use Rector\Set\ValueObject\SetList;
 use Rector\SymfonyCodeQuality\Rector\Attribute\ExtractAttributeRouteNameConstantsRector;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
