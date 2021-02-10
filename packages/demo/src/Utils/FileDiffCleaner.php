@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Rector\Website\Demo\Utils;
 
 use Nette\Utils\Strings;
+use Rector\Website\Demo\Entity\RectorRun;
 
 /**
  * @see \Rector\Website\Demo\Tests\Utils\FileDiffCleanerTest
@@ -29,6 +30,12 @@ final class FileDiffCleaner
      */
     private const SPACING_BRACKET_REGEX = '#\-}\n\+}#';
 
+    /**
+     * @var string
+     * @see https://regex101.com/r/pEset9/1
+     */
+    private const DIFF_LINE_START_REGEX = '#^(\-|\+)#';
+
     public function clean(string $fileDiff): string
     {
         $fileDiff = Strings::replace($fileDiff, self::DIFF_START_REGEX, '');
@@ -36,6 +43,26 @@ final class FileDiffCleaner
 
         $fileDiff = rtrim($fileDiff) . PHP_EOL;
 
-        return Strings::replace($fileDiff, self::SPACING_BRACKET_REGEX, '}');
+        $fileDiff = Strings::replace($fileDiff, self::SPACING_BRACKET_REGEX, '}');
+
+        // nothing to diff here?
+        if ($this->hasDiff($fileDiff)) {
+            return $fileDiff;
+        }
+
+        return RectorRun::NO_CHANGE_CONTENT;
+    }
+
+    private function hasDiff(string $fileDiff): bool
+    {
+        $fileDiffLines = explode(PHP_EOL, $fileDiff);
+
+        foreach ($fileDiffLines as $fileDiffLine) {
+            if (Strings::match($fileDiffLine, self::DIFF_LINE_START_REGEX)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

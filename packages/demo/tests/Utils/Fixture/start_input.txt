@@ -2,5 +2,7 @@
 +++ New
 @@ -5,7 +5,5 @@
 public function run() { return 5; - - return 10; } }
+-0
 -----
 public function run() { return 5; - - return 10; } }
+-0

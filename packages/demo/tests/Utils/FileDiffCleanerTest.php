@@ -11,19 +11,15 @@ use Symplify\EasyTesting\DataProvider\StaticFixtureFinder;
 use Symplify\EasyTesting\StaticFixtureSplitter;
 use Symplify\PackageBuilder\Testing\AbstractKernelTestCase;
 use Symplify\SmartFileSystem\SmartFileInfo;
-use Symplify\SmartFileSystem\SmartFileSystem;
 
 final class FileDiffCleanerTest extends AbstractKernelTestCase
 {
     private FileDiffCleaner $fileDiffCleaner;
 
-    private SmartFileSystem $smartFileSystem;
-
     protected function setUp(): void
     {
         $this->bootKernel(GetRectorKernel::class);
         $this->fileDiffCleaner = self::$container->get(FileDiffCleaner::class);
-        $this->smartFileSystem = self::$container->get(SmartFileSystem::class);
     }
 
     /**
@@ -36,6 +32,10 @@ final class FileDiffCleanerTest extends AbstractKernelTestCase
         $expectedContent = $inputAndExpected->getExpected();
 
         $cleanedContent = $this->fileDiffCleaner->clean($inputContent);
+
+        $cleanedContent = trim($cleanedContent);
+        $expectedContent = trim($expectedContent);
+
         $this->assertSame($expectedContent, $cleanedContent);
     }
 

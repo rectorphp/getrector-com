@@ -23,6 +23,12 @@ class RectorRun implements TimestampableInterface
 {
     use TimestampableTrait;
 
+
+    /**
+     * @var string
+     */
+    public const NO_CHANGE_CONTENT = '// no change';
+
     /**
      * @see https://regex101.com/r/13A0W9/1
      * @var string
@@ -33,12 +39,6 @@ class RectorRun implements TimestampableInterface
      * @var string
      */
     private const PART_CLASS_NAME = 'class_name';
-
-
-    /**
-     * @var string
-     */
-    private const NO_CHANGE_CONTENT = '// no change';
 
     /**
      * @var string
@@ -85,9 +85,6 @@ class RectorRun implements TimestampableInterface
     {
         $fileDiff = $this->jsonResult['file_diffs'][0]['diff'] ?? null;
         if (is_string($fileDiff)) {
-            var_dump($fileDiff);
-            die;
-
             $fileDiffCleaner = new FileDiffCleaner();
             return $fileDiffCleaner->clean($fileDiff);
         }
