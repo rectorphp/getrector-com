@@ -176,18 +176,18 @@ ul.list-noindent {
 }
 
 .text-semi-bigger {
-    font-size: 1.25em;
+    font-size: 1.15em;
 
     strong {
         font-size: 1em;
     }
 
     @include media-breakpoint-down(md) {
-        font-size: 1.15em;
+        font-size: 1.1em;
     }
 
     @include media-breakpoint-down(sm) {
-        font-size: 1.1em;
+        font-size: 1.5em;
     }
 }
 
