@@ -34,7 +34,7 @@ services:
         volumes:
             - ./.docker/mysql-data:/var/lib/mysql
         ports:
-            - 3336:3306
+            - "${GETRECTOR_ORG_MYSQL_PORT:-3306}:3306"
 
     js-watch:
         image: node:14-alpine

@@ -9,7 +9,7 @@ public/build/
 public/adminer/
 
 ## Docker
-docker-compose.yml
+docker-compose.override.yml
 .docker/mysql-data
 
 .env.local
