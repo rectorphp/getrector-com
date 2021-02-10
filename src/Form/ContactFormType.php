@@ -26,21 +26,6 @@ final class ContactFormType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $formBuilder, array $options): void
     {
-        $formBuilder->add('projectSize', ChoiceType::class, [
-            'label' => 'Project size',
-            'placeholder' => self::PICK_ONE_PLACEHOLDER,
-            'required' => true,
-            'choices' => [
-                'Smaller than 100 000 lines' => 100_000,
-                '< 250 000 lines' => 250_000,
-                '< 500 000 lines' => 500_000,
-                '< 1 000 000 lines' => 1_500_000,
-                '< 2 500 000 lines' => 2_500_000,
-                '< 5 000 000 lines' => 5_500_000,
-                'More than 5 million lines' => 9_999_999,
-            ],
-        ]);
-
         $formBuilder->add('framework', TextType::class, [
             'label' => 'Used PHP framework',
             'attr' => [
@@ -52,13 +37,6 @@ final class ContactFormType extends AbstractType
             'label' => 'Current PHP version',
             'placeholder' => self::PICK_ONE_PLACEHOLDER,
             'choices' => FormChoices::CURRENT_PHP_VERSION,
-        ]);
-
-        $formBuilder->add('targetPhpVersion', ChoiceType::class, [
-            'label' => 'Goal PHP version',
-            'placeholder' => 'If relevant...',
-            'choices' => FormChoices::TARGET_PHP_VERSION,
-            'required' => false,
         ]);
 
         $formBuilder->add('message', TextareaType::class, [

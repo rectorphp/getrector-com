@@ -21,16 +21,4 @@ final class FormChoices
         '7.4' => 70400,
         '8.0' => 80000,
     ];
-
-    /**
-     * @var array<string, int>
-     */
-    public const TARGET_PHP_VERSION = [
-        '7.0' => 70000,
-        '7.1' => 70100,
-        '7.2' => 70200,
-        '7.3' => 70300,
-        '7.4' => 70400,
-        '8.0' => 80000,
-    ];
 }
