@@ -7,51 +7,43 @@ namespace Rector\Website\Demo\Tests\Utils;
 use Iterator;
 use Rector\Website\Demo\Utils\FileDiffCleaner;
 use Rector\Website\GetRectorKernel;
+use Symplify\EasyTesting\DataProvider\StaticFixtureFinder;
+use Symplify\EasyTesting\StaticFixtureSplitter;
 use Symplify\PackageBuilder\Testing\AbstractKernelTestCase;
-use Symplify\SmartFileSystem\SmartFileSystem;
+use Symplify\SmartFileSystem\SmartFileInfo;
 
 final class FileDiffCleanerTest extends AbstractKernelTestCase
 {
     private FileDiffCleaner $fileDiffCleaner;
 
-    private SmartFileSystem $smartFileSystem;
-
     protected function setUp(): void
     {
         $this->bootKernel(GetRectorKernel::class);
         $this->fileDiffCleaner = self::$container->get(FileDiffCleaner::class);
-        $this->smartFileSystem = self::$container->get(SmartFileSystem::class);
     }
 
     /**
      * @dataProvider provideData()
      */
-    public function test(string $inputFile, string $expectedFile): void
+    public function test(SmartFileInfo $smartFileInfo): void
     {
-        $inputContent = $this->smartFileSystem->readFile($inputFile);
+        $inputAndExpected = StaticFixtureSplitter::splitFileInfoToInputAndExpected($smartFileInfo);
+        $inputContent = $inputAndExpected->getInput();
+        $expectedContent = $inputAndExpected->getExpected();
+
         $cleanedContent = $this->fileDiffCleaner->clean($inputContent);
 
-        $this->assertStringEqualsFile($expectedFile, $cleanedContent);
+        $cleanedContent = trim($cleanedContent);
+        $expectedContent = trim($expectedContent);
+
+        $this->assertSame($expectedContent, $cleanedContent);
     }
 
     /**
-     * @return Iterator<mixed>
+     * @return Iterator<SmartFileInfo>
      */
     public function provideData(): Iterator
     {
-        yield [
-            __DIR__ . '/FileDiffCleanerSource/start_input.txt',
-            __DIR__ . '/FileDiffCleanerSource/expected_output.txt',
-        ];
-
-        yield [
-            __DIR__ . '/FileDiffCleanerSource/newline_input.txt',
-            __DIR__ . '/FileDiffCleanerSource/expected_output.txt',
-        ];
-
-        yield [
-            __DIR__ . '/FileDiffCleanerSource/endline_input.txt',
-            __DIR__ . '/FileDiffCleanerSource/endline_output.txt',
-        ];
+        return StaticFixtureFinder::yieldDirectory(__DIR__ . '/Fixture', '*.txt');
     }
 }

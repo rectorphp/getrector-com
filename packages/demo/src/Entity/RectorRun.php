@@ -23,6 +23,12 @@ class RectorRun implements TimestampableInterface
 {
     use TimestampableTrait;
 
+
+    /**
+     * @var string
+     */
+    public const NO_CHANGE_CONTENT = '// no change';
+
     /**
      * @see https://regex101.com/r/13A0W9/1
      * @var string
@@ -33,12 +39,6 @@ class RectorRun implements TimestampableInterface
      * @var string
      */
     private const PART_CLASS_NAME = 'class_name';
-
-
-    /**
-     * @var string
-     */
-    private const NO_CHANGE_CONTENT = '// no change';
 
     /**
      * @var string

@@ -14,7 +14,8 @@ Voilá!
 Web: [localhost:8080](http://localhost:8080)
 Adminer: [localhost:8081](http://localhost:8081) (host: mysql, user: root, pass: root)
 
-MySQL runs on port 3306, if you need to change that, you can use `GETRECTOR_ORG_MYSQL_PORT` env var:
+MySQL runs on port 3307, if you need to change that, you can use `GETRECTOR_ORG_MYSQL_PORT` env var:
+
 ```bash
 GETRECTOR_ORG_MYSQL_PORT=12345 docker-compose up
 ```
