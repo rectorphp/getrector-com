@@ -13,8 +13,9 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class ProjectDetailController extends AbstractController
 {
-    public function __construct(private CheckboxRepository $checkboxRepository)
-    {
+    public function __construct(
+        private CheckboxRepository $checkboxRepository
+    ) {
     }
 
     #[Route('cleaning-lady-list/{id}', name: RouteName::PROJECT_DETAIL)]

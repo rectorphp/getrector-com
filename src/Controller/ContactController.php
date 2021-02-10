@@ -16,14 +16,9 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class ContactController extends AbstractController
 {
-<<<<<<< HEAD
     public function __construct(
         private ContactMessageRepository $contactMessageRepository,
     ) {
-=======
-    public function __construct(private ContactMessageRepository $contactMessageRepository)
-    {
->>>>>>> 3d5ea48... merge base layouts, prepare entry form
     }
 
     #[Route(path: 'contact', name: RouteName::CONTACT)]

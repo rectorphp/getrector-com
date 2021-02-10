@@ -34,7 +34,6 @@ class Checkbox
 
     /**
      * @ORM\ManyToOne(targetEntity="Rector\Website\CleaningLadyList\Entity\CleaningList", inversedBy="checkboxes")
-     * @var CleaningList
      */
     private CleaningList $cleaningList;
 

@@ -16,8 +16,9 @@ final class ProjectRepository
      */
     private ObjectRepository $entityRepository;
 
-    public function __construct(private EntityManagerInterface $entityManager)
-    {
+    public function __construct(
+        private EntityManagerInterface $entityManager
+    ) {
         $this->entityRepository = $entityManager->getRepository(Project::class);
     }
 
