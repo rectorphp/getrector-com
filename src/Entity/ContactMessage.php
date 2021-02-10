@@ -42,11 +42,6 @@ class ContactMessage implements TimestampableInterface
     private string $email;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    private int $projectSize;
-
-    /**
      * @ORM\Column(type="string")
      */
     private string $framework;
@@ -55,11 +50,6 @@ class ContactMessage implements TimestampableInterface
      * @ORM\Column(type="integer")
      */
     private int $currentPhpVersion;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private ?int $targetPhpVersion = null;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
@@ -106,16 +96,6 @@ class ContactMessage implements TimestampableInterface
         $this->email = $email;
     }
 
-    public function getProjectSize(): int
-    {
-        return $this->projectSize;
-    }
-
-    public function setProjectSize(int $projectSize): void
-    {
-        $this->projectSize = $projectSize;
-    }
-
     public function getFramework(): string
     {
         return $this->framework;
@@ -134,16 +114,6 @@ class ContactMessage implements TimestampableInterface
     public function setCurrentPhpVersion(int $currentPhpVersion): void
     {
         $this->currentPhpVersion = $currentPhpVersion;
-    }
-
-    public function getTargetPhpVersion(): ?int
-    {
-        return $this->targetPhpVersion;
-    }
-
-    public function setTargetPhpVersion(?int $targetPhpVersion): void
-    {
-        $this->targetPhpVersion = $targetPhpVersion;
     }
 
     public function getRepliedAt(): ?DateTimeInterface
