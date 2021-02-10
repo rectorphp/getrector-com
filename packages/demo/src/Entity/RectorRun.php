@@ -85,6 +85,9 @@ class RectorRun implements TimestampableInterface
     {
         $fileDiff = $this->jsonResult['file_diffs'][0]['diff'] ?? null;
         if (is_string($fileDiff)) {
+            var_dump($fileDiff);
+            die;
+
             $fileDiffCleaner = new FileDiffCleaner();
             return $fileDiffCleaner->clean($fileDiff);
         }

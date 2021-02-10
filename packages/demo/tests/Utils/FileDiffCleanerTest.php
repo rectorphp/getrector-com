@@ -7,7 +7,10 @@ namespace Rector\Website\Demo\Tests\Utils;
 use Iterator;
 use Rector\Website\Demo\Utils\FileDiffCleaner;
 use Rector\Website\GetRectorKernel;
+use Symplify\EasyTesting\DataProvider\StaticFixtureFinder;
+use Symplify\EasyTesting\StaticFixtureSplitter;
 use Symplify\PackageBuilder\Testing\AbstractKernelTestCase;
+use Symplify\SmartFileSystem\SmartFileInfo;
 use Symplify\SmartFileSystem\SmartFileSystem;
 
 final class FileDiffCleanerTest extends AbstractKernelTestCase
@@ -26,32 +29,21 @@ final class FileDiffCleanerTest extends AbstractKernelTestCase
     /**
      * @dataProvider provideData()
      */
-    public function test(string $inputFile, string $expectedFile): void
+    public function test(SmartFileInfo $smartFileInfo): void
     {
-        $inputContent = $this->smartFileSystem->readFile($inputFile);
-        $cleanedContent = $this->fileDiffCleaner->clean($inputContent);
+        $inputAndExpected = StaticFixtureSplitter::splitFileInfoToInputAndExpected($smartFileInfo);
+        $inputContent = $inputAndExpected->getInput();
+        $expectedContent = $inputAndExpected->getExpected();
 
-        $this->assertStringEqualsFile($expectedFile, $cleanedContent);
+        $cleanedContent = $this->fileDiffCleaner->clean($inputContent);
+        $this->assertSame($expectedContent, $cleanedContent);
     }
 
     /**
-     * @return Iterator<mixed>
+     * @return Iterator<SmartFileInfo>
      */
     public function provideData(): Iterator
     {
-        yield [
-            __DIR__ . '/FileDiffCleanerSource/start_input.txt',
-            __DIR__ . '/FileDiffCleanerSource/expected_output.txt',
-        ];
-
-        yield [
-            __DIR__ . '/FileDiffCleanerSource/newline_input.txt',
-            __DIR__ . '/FileDiffCleanerSource/expected_output.txt',
-        ];
-
-        yield [
-            __DIR__ . '/FileDiffCleanerSource/endline_input.txt',
-            __DIR__ . '/FileDiffCleanerSource/endline_output.txt',
-        ];
+        return StaticFixtureFinder::yieldDirectory(__DIR__ . '/Fixture', '*.txt');
     }
 }

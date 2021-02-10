@@ -1,2 +1,4 @@
 public function run() { return 5; - - return 10; } }
 \ No newline at end of file
+-----
+public function run() { return 5; - - return 10; } }
