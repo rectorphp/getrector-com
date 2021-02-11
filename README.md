@@ -1,7 +1,4 @@
-# [GetRector.org](https://getrector.org)
-
-[![Coverage Status](https://coveralls.io/repos/github/rectorphp/getrector.org/badge.svg?branch=master)](https://coveralls.io/github/rectorphp/getrector.org?branch=master)
-
+# [getrector.org](https://getrector.org) Website
 
 ## Run via docker
 
@@ -23,6 +20,7 @@ GETRECTOR_ORG_MYSQL_PORT=12345 docker-compose up
 ### Troubleshooting
 
 Sometimes, you might have outdated Docker images locally, to update, please run:
+
 ```bash
 bin/pull-docker-images.sh
 ```
