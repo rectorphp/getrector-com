@@ -23,6 +23,27 @@ To change published MySQL port use:
 GETRECTOR_ORG_MYSQL_PORT=33306 docker-compose up
 ```
 
+### Running with Xdebug
+If you want to use xdebug, here is example `docker-compose.override.yml` that will enable xdebug (do not forget to change ip address):
+```
+version: "3.7"
+services:
+    web:
+        build:
+            context: .
+            target: xdebug
+            dockerfile: Dockerfile
+        environment:
+            XDEBUG_CONFIG: "client_host=172.16.165.1"
+            PHP_IDE_CONFIG: "serverName=getrector_org"
+
+```
+
+Then re-build your image so it contains xdebug extension:
+```
+docker-compose down
+docker-compose up --build
+```
 
 ### Troubleshooting
 
