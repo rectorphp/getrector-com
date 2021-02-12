@@ -9,12 +9,12 @@ services:
             dockerfile: Dockerfile
         entrypoint: ["docker-dev-php-entrypoint"]
         command: ["apache2-foreground"]
-        env_file:
-            - .env
         environment:
             XDEBUG_CONFIG: "remote_host=host.docker.internal"
             PHP_IDE_CONFIG: "serverName=getrector_org"
-            HOST_DEMO_DIR: "${PWD}/var/demo"
+            DATABASE_HOST: "mysql"
+            DATABASE_USER: "root"
+            DATABASE_PASSWORD: "root"
         ports:
             - "8080:80"
         volumes:
