@@ -12,7 +12,6 @@ services:
         environment:
             XDEBUG_CONFIG: "remote_host=host.docker.internal"
             PHP_IDE_CONFIG: "serverName=getrector_org"
-            HOST_DEMO_DIR: "./var/demo"
             DATABASE_HOST: "mysql"
             DATABASE_USER: "root"
             DATABASE_PASSWORD: "root"
