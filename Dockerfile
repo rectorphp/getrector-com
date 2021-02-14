@@ -55,6 +55,17 @@ COPY ./.docker/docker-dev-php-entrypoint /usr/local/bin/docker-dev-php-entrypoin
 # this is always run "docker run/docker-compose ..."
 RUN chmod 777 /usr/local/bin/docker-*entrypoint
 
+
+####
+## Xdebug
+####
+FROM dev as xdebug
+
+RUN pecl install xdebug
+
+COPY .docker/php/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
+
+
 ####
 ## Build js+css assets
 ####

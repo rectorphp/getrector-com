@@ -10,8 +10,6 @@ services:
         entrypoint: ["docker-dev-php-entrypoint"]
         command: ["apache2-foreground"]
         environment:
-            XDEBUG_CONFIG: "remote_host=host.docker.internal"
-            PHP_IDE_CONFIG: "serverName=getrector_org"
             DATABASE_HOST: "mysql"
             DATABASE_USER: "root"
             DATABASE_PASSWORD: "root"
