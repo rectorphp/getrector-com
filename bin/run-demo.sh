@@ -32,6 +32,8 @@ shift $((OPTIND - 1))
 docker run \
     --name ${NAME} \
     --volume ${VOLUME_SOURCE}:/project \
+    --env COLUMNS=110 \
+    --env LINES=100 \
     ${DOCKER_IMAGE} \
     process /project/rector_analyzed_file.php \
     --autoload-file /project/rector_analyzed_file.php \
