@@ -6,6 +6,12 @@
 docker-compose up
 ```
 
+If you haven't checked out this repository in `/var/www/getrector.org`
+then you will need to overwrite the `HOST_DEMO_DIR` in `.env.local` with `$PWD/var/demo`:
+```dotenv
+HOST_DEMO_DIR="/Users/username/getrector.org/var/demo"
+```
+
 Voilá!
 
 Web: [localhost:8080](http://localhost:8080)
