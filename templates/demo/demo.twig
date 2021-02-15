@@ -6,6 +6,15 @@
     <div id="rector_run_form" class="mt-4 mb-5">
         {{ form_start(demo_form) }}
 
+        {# @var rector_run \Rector\Website\Demo\Entity\RectorRun #}
+
+        {% if rector_run.hasRun and rector_run.successful != true %}
+            <div class="alert alert-danger">
+                <strong>Fatal error:</strong>
+                {{ rector_run.fatalErrorMessage | trim | nl2br }}
+            </div>
+        {% endif %}
+
         <div class="card mb-5">
             <div class="card-header">Input Code</div>
             <div class="card-body p-0 mb-0">
@@ -75,15 +84,6 @@
         </div>
 
         {{ form_end(demo_form) }}
-
-        {# @var rector_run \Rector\Website\Demo\Entity\RectorRun #}
-
-        {% if rector_run.hasRun and rector_run.successful != true %}
-            <div class="alert alert-danger">
-                <strong>Fatal error:</strong>
-                {{ rector_run.fatalErrorMessage | nl2br }}
-            </div>
-        {% endif %}
 
         <br>
     </div>
