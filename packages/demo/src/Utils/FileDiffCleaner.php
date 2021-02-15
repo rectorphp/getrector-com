@@ -13,10 +13,16 @@ use Rector\Website\Demo\Entity\RectorRun;
 final class FileDiffCleaner
 {
     /**
-     * @see https://regex101.com/r/sI6GVY/1/
+     * @see https://regex101.com/r/59jq4J/1
      * @var string
      */
-    private const DIFF_START_REGEX = '#^.*?@@\n#Us';
+    private const DIFF_HEADER_ORIGINAL_REGEX = '#--- Original\n#s';
+
+    /**
+     * @see https://regex101.com/r/QMXRXr/1
+     * @var string
+     */
+    private const DIFF_HEADER_NEW_REGEX = '#\+\+\+ New\n#s';
 
     /**
      * @see https://regex101.com/r/wtTr3f/1
@@ -38,7 +44,8 @@ final class FileDiffCleaner
 
     public function clean(string $fileDiff): string
     {
-        $fileDiff = Strings::replace($fileDiff, self::DIFF_START_REGEX, '');
+        $fileDiff = Strings::replace($fileDiff, self::DIFF_HEADER_ORIGINAL_REGEX, '');
+        $fileDiff = Strings::replace($fileDiff, self::DIFF_HEADER_NEW_REGEX, '');
         $fileDiff = Strings::replace($fileDiff, self::NO_NEWLINE_REGEX, '');
 
         $fileDiff = rtrim($fileDiff) . PHP_EOL;
