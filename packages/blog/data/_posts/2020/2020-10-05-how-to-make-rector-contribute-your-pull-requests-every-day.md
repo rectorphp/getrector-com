@@ -45,7 +45,7 @@ The workflow is simple:
 
 **Let's talk real code now.**
 
-We have a [dedicated GitHub action](https://github.com/symplify/symplify/blob/master/.github/workflows/rector_ci.yaml) to handle this process.
+We have a [dedicated GitHub action](https://github.com/symplify/symplify/blob/master/.github/workflows/rector.yaml) to handle this process.
 
 **Do you want to try it?** Copy it, create [new access token](https://github.com/settings/tokens), add `ACCESS_TOKEN` env variable to [repository Secrets](https://github.com/symplify/symplify/settings/secrets), and you're ready to make your first actively reviewed pull-request.
 
