@@ -8,6 +8,7 @@ use Rector\Website\Entity\ContactMessage;
 use Rector\Website\Exception\ShouldNotHappenException;
 use Rector\Website\Form\ContactFormType;
 use Rector\Website\Repository\ContactMessageRepository;
+use Rector\Website\ValueObject\MailContact;
 use Rector\Website\ValueObject\Routing\RouteName;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,6 +19,7 @@ final class ContactController extends AbstractController
 {
     public function __construct(
         private ContactMessageRepository $contactMessageRepository,
+        private MailerSender $mailerSender
     ) {
     }
 
@@ -34,6 +36,8 @@ final class ContactController extends AbstractController
             }
 
             $this->contactMessageRepository->save($contactMessage);
+            $this->mailerSender->sendContactMessageTo($contactMessage, MailContact::MARKETING);
+
             $this->addFlash('success', 'Your message is on the way!');
 
             return $this->redirectToRoute(RouteName::CONTACT);
