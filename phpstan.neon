@@ -24,7 +24,10 @@ parameters:
         - '#The path "/\.\./config/\{packages\}/" was not found#'
         - '#The path "/\.\./config/\{routes\}/" was not found#'
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 51da1fa... fix phpstan
         -
              message: '#Do not use chained method calls\. Put each on separated lines#'
              paths:
