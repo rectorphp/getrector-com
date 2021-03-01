@@ -51,11 +51,6 @@ class ContactMessage implements TimestampableInterface
      */
     private int $currentPhpVersion;
 
-    /**
-     * @ORM\Column(type="datetime", nullable=true)
-     */
-    private ?DateTimeInterface $repliedAt = null;
-
     public function getId(): Uuid
     {
         return $this->id;
@@ -114,15 +109,5 @@ class ContactMessage implements TimestampableInterface
     public function setCurrentPhpVersion(int $currentPhpVersion): void
     {
         $this->currentPhpVersion = $currentPhpVersion;
-    }
-
-    public function getRepliedAt(): ?DateTimeInterface
-    {
-        return $this->repliedAt;
-    }
-
-    public function setRepliedAt(?DateTimeInterface $repliedAt): void
-    {
-        $this->repliedAt = $repliedAt;
     }
 }
