@@ -35,7 +35,10 @@ services:
             - "${GETRECTOR_ORG_MYSQL_PORT:-3307}:3306"
 
     js-watch:
-        image: node:14-alpine
+        image: getrector_org/js-builder
+        build:
+            context: .
+            target: js-builder
         restart: unless-stopped
         working_dir: /var/www/getrector.org
         volumes:
