@@ -24,3 +24,27 @@ parameters:
         - '#The path "/\.\./config/\{packages\}/" was not found#'
         - '#The path "/\.\./config/\{routes\}/" was not found#'
 
+
+        -
+             message: '#Do not use chained method calls\. Put each on separated lines#'
+             paths:
+                 - src/Mailing/MailSender.php
+
+        # buggy, fix in symplify first
+        - '#Do not inherit from abstract class, better use composition#'
+
+        -
+            message: '#"%s" in sprintf\(\) format must be quoted#'
+            paths:
+                - packages/demo/src/Error/ErrorMessageNormalizer.php
+
+        -
+            message: '#Use required typed property over of nullable property#'
+            paths:
+                - packages/demo/src/Entity
+
+        -
+            message: '#Parameter "(.*?)" cannot be nullable#'
+            paths:
+                - packages/blog/src/ValueObject/Post.php
+                - packages/demo/src/Controller/DemoController.php

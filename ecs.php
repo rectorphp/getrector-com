@@ -22,9 +22,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         __DIR__ . '/rector.php',
     ]);
 
-    $parameters->set(Option::SETS, [
-        SetList::PSR_12, SetList::PHP_70, SetList::PHP_71, SetList::SYMPLIFY, SetList::COMMON, SetList::CLEAN_CODE,
-    ]);
+    $parameters->set(Option::SETS, [SetList::PSR_12, SetList::SYMPLIFY, SetList::COMMON, SetList::CLEAN_CODE]);
 
     $parameters->set(Option::SKIP, [
         __DIR__ . '/config/bundles.php',
