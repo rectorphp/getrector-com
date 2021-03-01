@@ -16,6 +16,15 @@
         <!-- ###+ sentry/sentry-symfony ### -->
         <env name="SENTRY_DSN" value=""/>
         <!-- ###- sentry/sentry-symfony ### -->
+
+        <!-- ###+ symfony/mailer ### -->
+        <!-- MAILER_DSN=smtp://localhost -->
+        <!-- ###- symfony/mailer ### -->
+
+        <!-- ###+ symfony/mailgun-mailer ### -->
+        <!-- MAILER_DSN=mailgun://KEY:DOMAIN@default?region=us -->
+        <!-- MAILER_DSN=mailgun+smtp://USERNAME:PASSWORD@default?region=us -->
+        <!-- ###- symfony/mailgun-mailer ### -->
     </php>
 
     <testsuites>

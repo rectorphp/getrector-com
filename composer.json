@@ -29,6 +29,7 @@
         "symfony/framework-bundle": "^5.2",
         "symfony/http-kernel": "^5.2",
         "symfony/intl": "^5.2",
+        "symfony/mailer": "^5.2",
         "symfony/mime": "^5.2",
         "symfony/process": "^5.2",
         "symfony/security-bundle": "^5.2",

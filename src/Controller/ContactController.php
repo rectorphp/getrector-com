@@ -7,6 +7,7 @@ namespace Rector\Website\Controller;
 use Rector\Website\Entity\ContactMessage;
 use Rector\Website\Exception\ShouldNotHappenException;
 use Rector\Website\Form\ContactFormType;
+use Rector\Website\Mailing\MailSender;
 use Rector\Website\Repository\ContactMessageRepository;
 use Rector\Website\ValueObject\MailContact;
 use Rector\Website\ValueObject\Routing\RouteName;
@@ -19,7 +20,7 @@ final class ContactController extends AbstractController
 {
     public function __construct(
         private ContactMessageRepository $contactMessageRepository,
-        private MailerSender $mailerSender
+        private MailSender $mailSender
     ) {
     }
 
@@ -36,7 +37,7 @@ final class ContactController extends AbstractController
             }
 
             $this->contactMessageRepository->save($contactMessage);
-            $this->mailerSender->sendContactMessageTo($contactMessage, MailContact::MARKETING);
+            $this->mailSender->sendContactMessageTo($contactMessage, MailContact::MARKETING);
 
             $this->addFlash('success', 'Your message is on the way!');
 
