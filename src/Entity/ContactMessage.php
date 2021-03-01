@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Rector\Website\Entity;
 
-use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Contract\Entity\TimestampableInterface;
 use Knp\DoctrineBehaviors\Model\Timestampable\TimestampableTrait;
@@ -50,11 +49,6 @@ class ContactMessage implements TimestampableInterface
      * @ORM\Column(type="integer")
      */
     private int $currentPhpVersion;
-
-    /**
-     * @ORM\Column(type="datetime", nullable=true)
-     */
-    private ?DateTimeInterface $repliedAt = null;
 
     public function getId(): Uuid
     {
@@ -114,15 +108,5 @@ class ContactMessage implements TimestampableInterface
     public function setCurrentPhpVersion(int $currentPhpVersion): void
     {
         $this->currentPhpVersion = $currentPhpVersion;
-    }
-
-    public function getRepliedAt(): ?DateTimeInterface
-    {
-        return $this->repliedAt;
-    }
-
-    public function setRepliedAt(?DateTimeInterface $repliedAt): void
-    {
-        $this->repliedAt = $repliedAt;
     }
 }
