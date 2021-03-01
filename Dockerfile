@@ -71,6 +71,9 @@ COPY .docker/php/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 ####
 FROM node:14-alpine as js-builder
 
+RUN apk add --no-cache python3 make gcc g++
+ENV PYTHON="/usr/bin/python3"
+
 WORKDIR /build
 
 # Install npm packages
