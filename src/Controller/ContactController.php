@@ -37,7 +37,7 @@ final class ContactController extends AbstractController
             }
 
             $this->contactMessageRepository->save($contactMessage);
-            $this->mailSender->sendContactMessageTo($contactMessage, MailContact::MARKETING);
+            $this->mailSender->sendContactMessageTo($contactMessage, MailContact::MAIN);
 
             $this->addFlash('success', 'Your message is on the way!');
 

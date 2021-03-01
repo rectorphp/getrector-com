@@ -9,5 +9,10 @@ final class MailContact
     /**
      * @var string
      */
-    public const MARKETING = 'michla@getrector.org';
+    public const MAIN = 'tomas@getrector.org';
+
+    /**
+     * @var string
+     */
+    public const MARKETING = 'michal@getrector.org';
 }
