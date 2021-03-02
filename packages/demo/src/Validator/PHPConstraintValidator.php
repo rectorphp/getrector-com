@@ -5,10 +5,8 @@ declare(strict_types=1);
 namespace Rector\Website\Demo\Validator;
 
 use Nette\Utils\Strings;
-use Rector\Website\Demo\Exception\ForbiddenPHPFunctionException;
 use Rector\Website\Demo\Exception\Linter\MissingPHPOpeningTagException;
 use Rector\Website\Demo\Exception\LintingException;
-use Rector\Website\Demo\Lint\ForbiddenPHPFunctionsChecker;
 use Rector\Website\Demo\Lint\PHPLinter;
 use Rector\Website\Demo\Validator\Constraint\PHPConstraint;
 use Symfony\Component\Validator\Constraint;
@@ -28,8 +26,7 @@ final class PHPConstraintValidator extends ConstraintValidator
     private const PHP_PARSE_ERROR_REGEX = '#PHP Parse error\:\s+syntax error\,\s+#';
 
     public function __construct(
-        private PHPLinter $phpLinter,
-        private ForbiddenPHPFunctionsChecker $forbiddenPHPFunctionsChecker
+        private PHPLinter $phpLinter
     ) {
     }
 
@@ -41,12 +38,8 @@ final class PHPConstraintValidator extends ConstraintValidator
     {
         try {
             $this->phpLinter->checkContentSyntax($value);
-            $this->forbiddenPHPFunctionsChecker->checkCode($value);
         } catch (MissingPHPOpeningTagException) {
             $constraintViolation = $this->context->buildViolation('Add opening "<?php" tag');
-            $constraintViolation->addViolation();
-        } catch (ForbiddenPHPFunctionException $forbiddenphpFunctionException) {
-            $constraintViolation = $this->context->buildViolation($forbiddenphpFunctionException->getMessage());
             $constraintViolation->addViolation();
         } catch (LintingException $lintingException) {
             $usefulLinterMessage = $this->clearLinterMessage($lintingException->getMessage());

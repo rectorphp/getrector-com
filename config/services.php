@@ -16,24 +16,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 
     $parameters = $containerConfigurator->parameters();
 
-    $parameters->set(Option::LOCAL_DEMO_DIR, '%kernel.project_dir%/var/demo');
-    $parameters->set(Option::HOST_DEMO_DIR, env('HOST_DEMO_DIR'));
-    $parameters->set(Option::RECTOR_DEMO_DOCKER_IMAGE, 'rector/rector-secured:latest');
-    $parameters->set(Option::DEMO_EXECUTABLE_PATH, '%kernel.project_dir%/bin/run-demo.sh');
-
-    $parameters->set(Option::FORBIDDEN_FUNCTIONS, [
-        'exec',
-        'passthru',
-        'shell_exec',
-        'system',
-        'proc_open',
-        'popen',
-        'curl_exec',
-        'curl_multi_exec',
-        'parse_ini_file',
-        'show_source',
-        'mail',
-    ]);
+    $parameters->set(Option::DEMO_DIR, '%kernel.project_dir%/var/demo');
 
     $services = $containerConfigurator->services();
 
