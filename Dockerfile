@@ -24,25 +24,6 @@ RUN apt-get update && apt-get install -y \
         zip \
     && docker-php-ext-enable zip # opcache
 
-# Install docker, required for running demo
- RUN apt-get update && apt-get install -y \
-         apt-transport-https \
-         ca-certificates \
-         curl \
-         gnupg2 \
-         software-properties-common \
-     && curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg > /tmp/dkey; apt-key add /tmp/dkey \
-     && add-apt-repository \
-         "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") \
-         $(lsb_release -cs) \
-         stable" \
-     && apt-get update && apt-get -y install \
-         docker-ce-cli
-
-# Allow www-data to run bin/run-demo.sh with sudo
-COPY ./.docker/sudoers/www-data /etc/sudoers.d/www-data
-RUN chmod 440 /etc/sudoers.d/www-data
-
 # Installing composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
@@ -84,7 +65,6 @@ RUN yarn install
 COPY ./assets ./assets
 
 RUN yarn run build
-
 
 ####
 ## Build app itself - containing source codes and is designed to leverage Docker layers caching
