@@ -16,13 +16,16 @@ final class MailSender
     ) {
     }
 
-    public function sendContactMessageTo(ContactMessage $contactMessage, string $toEmailAddress): void
+    /**
+     * @param string[] $toEmailAddresses
+     */
+    public function sendContactMessageTo(ContactMessage $contactMessage, array $toEmailAddresses): void
     {
         $fromEmailAddress = new Address($contactMessage->getEmail(), $contactMessage->getName());
 
         $email = new Email();
         $email->from('contact-form@getrector.org')
-            ->to($toEmailAddress)
+            ->to(...$toEmailAddresses)
             ->subject('Rector contact form')
             ->replyTo($fromEmailAddress)
             ->text($contactMessage->getMessage());
