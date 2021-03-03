@@ -30,7 +30,7 @@ jobs:
 
                     -
                         name: 'Lint Twig'
-                        run: bin/console lint:twig
+                        run: bin/console lint:twig templates
 
                     -
                         name: 'Lint Dependency Injection Container'
