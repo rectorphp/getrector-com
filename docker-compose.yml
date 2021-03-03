@@ -22,6 +22,7 @@ services:
             - /var/www/getrector.org/var/cache
         depends_on:
             - mysql
+            - mailhog
 
     mysql:
         image: mysql:5.7
@@ -51,3 +52,10 @@ services:
         restart: unless-stopped
         ports:
             - 8081:8080
+
+    mailhog:
+        image: mailhog/mailhog:latest
+        ports:
+            - 1025:1025
+            - 8025:8025
+

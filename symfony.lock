@@ -80,6 +80,9 @@
     "doctrine/sql-formatter": {
         "version": "1.1.1"
     },
+    "egulias/email-validator": {
+        "version": "2.1.25"
+    },
     "erusev/parsedown": {
         "version": "1.7.4"
     },
@@ -512,6 +515,27 @@
     },
     "symfony/intl": {
         "version": "5.0-dev"
+    },
+    "symfony/mailer": {
+        "version": "4.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "4.3",
+            "ref": "15658c2a0176cda2e7dba66276a2030b52bd81b2"
+        },
+        "files": [
+            "config/packages/mailer.yaml"
+        ]
+    },
+    "symfony/mailgun-mailer": {
+        "version": "4.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "4.4",
+            "ref": "addcb559b32d9dbb4843826b063565e1b15a2a57"
+        }
     },
     "symfony/mime": {
         "version": "5.0-dev"

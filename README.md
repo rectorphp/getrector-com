@@ -16,6 +16,8 @@ Voilá!
 
 Web: [localhost:8080](http://localhost:8080)
 Adminer: [localhost:8081](http://localhost:8081) (host: `mysql`, user: `root`, pass: `root`)
+Mailhog: [localhost:8025](http://localhost:8025)
+
 
 MySQL is published to localhost on port 3307.
 
