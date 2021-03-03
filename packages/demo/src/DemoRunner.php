@@ -15,10 +15,10 @@ use Rector\Core\DependencyInjection\RectorContainerFactory;
 use Rector\Website\Demo\Entity\RectorRun;
 use Rector\Website\Demo\Error\ErrorMessageNormalizer;
 use Rector\Website\Demo\ValueObject\Option;
+use function Sentry\captureException;
 use Symplify\PackageBuilder\Parameter\ParameterProvider;
 use Symplify\SmartFileSystem\SmartFileInfo;
 use Symplify\SmartFileSystem\SmartFileSystem;
-use function Sentry\captureException;
 use Throwable;
 
 final class DemoRunner
@@ -87,9 +87,7 @@ final class DemoRunner
     private function processFile(string $fileToAnalyzePath, string $configPath): string
     {
         $rectorConfigsResolver = new RectorConfigsResolver();
-        $configFileInfos = $rectorConfigsResolver->resolveFromConfigFileInfo(
-            new SmartFileInfo($configPath)
-        );
+        $configFileInfos = $rectorConfigsResolver->resolveFromConfigFileInfo(new SmartFileInfo($configPath));
 
         // TODO: ask Tomas if there is other way than creating container for every run - its the most time consuming operation in the run
         // Build DI container
@@ -106,9 +104,7 @@ final class DemoRunner
         $rector = $container->get(RectorApplication::class);
 
         // Goal is to process string
-        $rector->runOnFileInfos([
-            new SmartFileInfo($fileToAnalyzePath),
-        ]);
+        $rector->runOnFileInfos([new SmartFileInfo($fileToAnalyzePath)]);
 
         /** @var ErrorAndDiffCollector $errorAndDiffCollector */
         $errorAndDiffCollector = $container->get(ErrorAndDiffCollector::class);
