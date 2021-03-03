@@ -6,17 +6,11 @@
 docker-compose up
 ```
 
-If you haven't checked out this repository in `/var/www/getrector.org`
-then you will need to overwrite the `HOST_DEMO_DIR` in `.env.local` with `$PWD/var/demo`:
-```dotenv
-HOST_DEMO_DIR="/Users/username/getrector.org/var/demo"
-```
-
 Voilá!
 
-Web: [localhost:8080](http://localhost:8080)
-Adminer: [localhost:8081](http://localhost:8081) (host: `mysql`, user: `root`, pass: `root`)
-Mailhog: [localhost:8025](http://localhost:8025)
+- Web: [localhost:8080](http://localhost:8080)
+- Adminer: [localhost:8081](http://localhost:8081) (host: `mysql`, user: `root`, pass: `root`)
+- Mailhog: [localhost:8025](http://localhost:8025)
 
 
 MySQL is published to localhost on port 3307.
