@@ -14,6 +14,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $parameters->set(Option::ENABLE_CACHE, true);
     $parameters->set(Option::AUTO_IMPORT_NAMES, true);
     $parameters->set(Option::PATHS, [__DIR__ . '/src', __DIR__ . '/packages']);
+    $parameters->set(Option::PHPSTAN_FOR_RECTOR_PATH, __DIR__ . '/phpstan.neon.dist');
 
     $parameters->set(Option::SETS, [
         SetList::DEAD_CODE,
