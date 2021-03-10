@@ -15,7 +15,7 @@ final class BookController extends AbstractController
     public function __invoke(): Response
     {
         return $this->render('homepage/book.twig', [
-            'page_title' => 'The Power of Automated Refactoring'
+            'page_title' => 'The Power of Automated Refactoring',
         ]);
     }
 }

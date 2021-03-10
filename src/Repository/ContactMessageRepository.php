@@ -16,9 +16,6 @@ final class ContactMessageRepository
 
     public function save(ContactMessage $contactMessage): void
     {
-        $entityRepository = $this->entityManager->getRepository();
-        $entityRepository->createQueryBuilder();
-
         $this->entityManager->persist($contactMessage);
         $this->entityManager->flush();
     }

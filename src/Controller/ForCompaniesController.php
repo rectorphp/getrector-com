@@ -16,14 +16,15 @@ final class ForCompaniesController extends AbstractController
 {
     public function __construct(
         private ContactFormProcessor $contactFormProcessor
-    )
-    {
+    ) {
     }
 
     #[Route(path: 'for-companies', name: RouteName::FOR_COMPANIES)]
     public function __invoke(Request $request): Response
     {
-        $form = $this->createForm(ContactFormType::class);
+        $form = $this->createForm(ContactFormType::class, null, [
+            'for_companies' => true,
+        ]);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {

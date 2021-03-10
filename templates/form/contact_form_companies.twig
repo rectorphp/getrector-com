@@ -1,0 +1,17 @@
+{{ form_start(contact_form) }}
+    <div class="row">
+        <div class="col-12 form-group">
+            {{ form_row(contact_form.message) }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6 form-group">
+            {{ form_row(contact_form.name) }}
+        </div>
+
+        <div class="col-6 form-group">
+            {{ form_row(contact_form.email) }}
+        </div>
+    </div>
+{{ form_end(contact_form) }}

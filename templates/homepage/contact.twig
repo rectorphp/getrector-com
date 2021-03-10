@@ -12,33 +12,7 @@
 
                 <p class="mb-5">Tell us your biggest problems you struggle with. <strong>You can be honest with us</strong>, we've seen a lot of legacy projects. We'll get in touch with you within 3 days.</p>
 
-                {{ form_start(contact_form) }}
-                    <div class="row">
-                        <div class="col-6 form-group">
-                            {{ form_row(contact_form.currentPhpVersion) }}
-                        </div>
-
-                        <div class="col-6 form-group">
-                            {{ form_row(contact_form.framework) }}
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-12 form-group">
-                            {{ form_row(contact_form.message) }}
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-6 form-group">
-                            {{ form_row(contact_form.name) }}
-                        </div>
-
-                        <div class="col-6 form-group">
-                            {{ form_row(contact_form.email) }}
-                        </div>
-                    </div>
-                {{ form_end(contact_form) }}
+                {{ include('form/contact_form.twig') }}
             </div>
         </div>
 
@@ -48,7 +22,7 @@
         <br>
 
         <div class="row">
-            <div class="col-6">
+            <div class="col-12 col-sm-4">
                 <h2>Tomas Votruba</h2>
                 <p class="text-bigger">Chief Cleaning Officer</p>
 
@@ -65,7 +39,13 @@
                 </div>
             </div>
 
-            <div class="col-6" id="company-details">
+            <div class="col-12 col-sm-4">
+                <h2>Michal Moravec</h2>
+                <p class="text-bigger">Chief Marketing Officer</p>
+
+            </div>
+
+            <div class="col-12 col-sm-4" id="company-details">
                 <h2>Company Details</h2>
 
                 <p class="text-bigger">Edukai, s.r.o.</p>
