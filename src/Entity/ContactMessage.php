@@ -41,14 +41,14 @@ class ContactMessage implements TimestampableInterface
     private string $email;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      */
-    private string $framework;
+    private ?string $framework = null;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
-    private int $currentPhpVersion;
+    private ?int $currentPhpVersion = null;
 
     public function getId(): Uuid
     {
@@ -90,22 +90,22 @@ class ContactMessage implements TimestampableInterface
         $this->email = $email;
     }
 
-    public function getFramework(): string
+    public function getFramework(): ?string
     {
         return $this->framework;
     }
 
-    public function setFramework(string $framework): void
+    public function setFramework(?string $framework): void
     {
         $this->framework = $framework;
     }
 
-    public function getCurrentPhpVersion(): int
+    public function getCurrentPhpVersion(): ?int
     {
         return $this->currentPhpVersion;
     }
 
-    public function setCurrentPhpVersion(int $currentPhpVersion): void
+    public function setCurrentPhpVersion(?int $currentPhpVersion): void
     {
         $this->currentPhpVersion = $currentPhpVersion;
     }

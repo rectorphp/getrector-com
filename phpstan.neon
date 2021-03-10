@@ -13,6 +13,7 @@ parameters:
         - "packages/demo/data/DemoFile.php"
 
     reportUnmatchedIgnoredErrors: false
+    checkGenericClassInNonGenericObjectType: false
 
     ignoreErrors:
         - '#Method Rector\\Website\\Demo\\Process\\RectorProcessRunner\:\:createProcess\(\) return type has no value type specified in iterable type Symfony\\Component\\Process\\Process#'
@@ -41,9 +42,15 @@ parameters:
             message: '#Use required typed property over of nullable property#'
             paths:
                 - packages/demo/src/Entity
+                - src/Entity
 
         -
             message: '#Parameter "(.*?)" cannot be nullable#'
             paths:
                 - packages/blog/src/ValueObject/Post.php
+                - src/Entity
                 - packages/demo/src/Controller/DemoController.php
+
+        - '#Method Rector\\Website\\FormProcessor\\ContactFormProcessor\:\:process\(\) has parameter \$form with no value type specified in iterable type Symfony\\Component\\Form\\FormInterface#'
+        - '#Property Rector\\Website\\FormProcessor\\ContactFormProcessor\:\:\$session type has no value type specified in iterable type Symfony\\Component\\HttpFoundation\\Session\\Session#'
+        - '#Method Rector\\Website\\FormProcessor\\ContactFormProcessor\:\:__construct\(\) has parameter \$session with no value type specified in iterable type Symfony\\Component\\HttpFoundation\\Session\\Session#'

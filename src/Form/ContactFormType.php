@@ -26,18 +26,22 @@ final class ContactFormType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $formBuilder, array $options): void
     {
-        $formBuilder->add('framework', TextType::class, [
-            'label' => 'Used PHP framework',
-            'attr' => [
-                'placeholder' => 'E.g. Symfony 2.8',
-            ],
-        ]);
+        $forCompanies = $options['for_companies'];
 
-        $formBuilder->add('currentPhpVersion', ChoiceType::class, [
-            'label' => 'Current PHP version',
-            'placeholder' => self::PICK_ONE_PLACEHOLDER,
-            'choices' => FormChoices::CURRENT_PHP_VERSION,
-        ]);
+        if ($forCompanies === false) {
+            $formBuilder->add('framework', TextType::class, [
+                'label' => 'Used PHP framework',
+                'attr' => [
+                    'placeholder' => 'E.g. Symfony 2.8',
+                ],
+            ]);
+
+            $formBuilder->add('currentPhpVersion', ChoiceType::class, [
+                'label' => 'Current PHP version',
+                'placeholder' => self::PICK_ONE_PLACEHOLDER,
+                'choices' => FormChoices::CURRENT_PHP_VERSION,
+            ]);
+        }
 
         $formBuilder->add('message', TextareaType::class, [
             'label' => 'What do you need help with?',
@@ -68,6 +72,8 @@ final class ContactFormType extends AbstractType
     {
         $optionsResolver->setDefaults([
             'data_class' => ContactMessage::class,
+            // @see https://stackoverflow.com/questions/48864637/symfony-4-multiple-forms-of-same-type-with-dynamic-display-fields
+            'for_companies' => false,
         ]);
     }
 }

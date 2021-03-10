@@ -231,18 +231,18 @@ ul.list-noindent {
         font-weight: 200;
         line-height: 1.4em;
     }
+}
 
-    .img-face-smaller-right {
-        float: right;
-        max-width: 5em;
-        margin: .1em auto 2.8em auto;
-    }
+.img-face-smaller-right {
+    float: right;
+    max-width: 5em;
+    margin: .1em auto 2.8em auto;
+}
 
-    .img-face-smaller-left {
-        float: left;
-        max-width: 5em;
-        margin: .1em auto 2.8em auto;
-    }
+.img-face-smaller-left {
+    float: left;
+    max-width: 5em;
+    margin: .1em auto 2.8em auto;
 }
 
 .blockquote {
@@ -461,4 +461,37 @@ label.required:before {
     .card-body {
         padding: .7em 1em;
     }
+}
+
+#references {
+    .company-logo {
+        float: right;
+        max-width: 10em;
+        margin-right: 1em;
+        margin-top: .4em;
+    }
+
+    .company-description {
+        font-style: italic;
+        color: #555;
+    }
+
+    .company-quote {
+        font-size: 1.2em;
+    }
+
+    .company-quote-card {
+        margin: 1.5em 3em 0 3em;
+        padding-bottom: 0;
+    }
+
+    .company-quote-card-body {
+        padding: 1.5em 1em 0 2em;
+    }
+}
+
+.second-claim-title {
+    font-size: 3.5em;
+    font-weight: 300;
+    margin-top: 0;
 }

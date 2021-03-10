@@ -55,4 +55,9 @@ final class RouteName
      * @var string
      */
     public const FOR_COMPANIES = 'for_companies';
+
+    /**
+     * @var string
+     */
+    public const BOOK = 'book';
 }
