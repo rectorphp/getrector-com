@@ -4,12 +4,8 @@ declare(strict_types=1);
 
 namespace Rector\Website\Controller;
 
-use Rector\Website\Entity\ContactMessage;
-use Rector\Website\Exception\ShouldNotHappenException;
 use Rector\Website\Form\ContactFormType;
-use Rector\Website\Mailing\MailSender;
-use Rector\Website\Repository\ContactMessageRepository;
-use Rector\Website\ValueObject\MailContact;
+use Rector\Website\FormProcessor\ContactFormProcessor;
 use Rector\Website\ValueObject\Routing\RouteName;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,8 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 final class ContactController extends AbstractController
 {
     public function __construct(
-        private ContactMessageRepository $contactMessageRepository,
-        private MailSender $mailSender
+        private ContactFormProcessor $contactFormProcessor
     ) {
     }
 
@@ -31,17 +26,7 @@ final class ContactController extends AbstractController
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $contactMessage = $form->getData();
-            if (! $contactMessage instanceof ContactMessage) {
-                throw new ShouldNotHappenException();
-            }
-
-            $this->contactMessageRepository->save($contactMessage);
-            $this->mailSender->sendContactMessageTo($contactMessage, [MailContact::MAIN, MailContact::MARKETING]);
-
-            $this->addFlash('success', 'Your message is on the way!');
-
-            return $this->redirectToRoute(RouteName::CONTACT);
+            return $this->contactFormProcessor->process($form, RouteName::CONTACT);
         }
 
         return $this->render('homepage/contact.twig', [

@@ -1,184 +1,218 @@
 {% extends "base.twig" %}
 
 {% block main %}
-    <div id="for-companies">
+    <div id="for-companies" >
         <h1 class="main-title">
             Is your Project Successful,<br>
             but Programmers Hate it?
         </h1>
 
         <p class="mt-5 text-bigger">
-            Our clients used to have similar problem
+            Our clients used to have similar problem...
         </p>
 
+        <p class="text-right text-bigger">
+        Now they don't ↓
+        </p>
+
+
         <br>
-        <br>
-        <br>
-
-        <div class="row">
-            <div class="col-sm-4">
-                <img src="/assets/images/logo/logo_bigger/eonx.png" class="img-fluid">
-            </div>
-            <div class="col-sm-8">
-                <h2 class="text-left">EonX</h2>
-                <p>Australia</p>
-
-                <h3>
-                    <strong>Upgrade Laravel 5.5 to Laravel 5.8</strong>
-                </h3>
-
-                <p class="text-semi-bigger mt-4 mb-4">
-                    EonX develops fully branded enterprise platforms for organisations looking to better connect, reward and securely transact with their members, customers and employees.
-                </p>
-
-                <h3>What other Problems we Solved?</h3>
-
-                <ul>
-                    <li>Implementation of ECS, PHPStan and Rector</li>
-                    <li>Standardisation of namespace</li>
-                    <li>Standardisation of tests</li>
-                </ul>
-            </div>
-        </div>
 
         <hr class="mt-5 mb-5">
 
-        <div class="row">
-            <div class="col-sm-4">
-                <img src="/assets/images/logo/logo_bigger/amateri.jpg" class="img-fluid">
+        <div id="references">
+            <div class="row">
+                <div class="col-sm-4">
+                    <a href="https://eonx.com/">
+                        <img src="/assets/images/logo/logo_bigger/eonx.png" class="img-fluid company-logo">
+                    </a>
+                </div>
+                <div class="col-sm-8">
+                    <h2 class="text-left">EonX</h2>
+                    <p>Australia</p>
+
+                    <h3>
+                        <strong>Upgrade Laravel 5.5 to Laravel 5.8</strong>
+                    </h3>
+
+                    <p class="company-description mt-4 mb-4">
+                        EonX develops fully branded enterprise platforms for organisations looking to better connect, reward and securely transact with their members, customers and employees.
+                    </p>
+
+                    <h3>What other Problems we Solved?</h3>
+
+                    <ul>
+                        <li>Implementation of ECS, PHPStan and Rector</li>
+                        <li>Standardisation of namespace</li>
+                        <li>Standardisation of tests</li>
+                    </ul>
+                </div>
             </div>
-            <div class="col-sm-8">
-                <h2 class="text-left">Amateri.cz</h2>
-                <p>Czech Republic</p>
 
-                <h3>
-                    <strong>Upgrade from Nette 2.4 to Nette 3.1</strong>
-                </h3>
+            <div class="card company-quote-card">
+                <div class="card-body company-quote-card-body">
+                    <blockquote class="blockquote company-quote">
+                        <img src="https://user-images.githubusercontent.com/77585053/110624235-38a3b200-819e-11eb-9ecc-a8f7b62d3da3.jpeg" class="rounded-circle img-face-smaller-left shadow-sm mr-5" alt="">
 
-                <p class="text-semi-bigger mt-4 mb-4">
-                    The biggest Czech sex community.
-                </p>
-
-                <h3>What other Problems we Solved?</h3>
-
-                <ul>
-                    <li>Implementation of Docker tests in CI Container</li>
-                    <li>Implementation of ECS, PHPStan and Rector</li>
-                    <li>Setting of GitHub Action</li>
-                    <li>Standardisation of the code to PSR-4</li>
-                </ul>
+                        <p>
+                            "From upgrading our legacy projects and <strong>improving team's productivity, to making code review easier and more reliable</strong>, Rector is in the center within our PHP ecosystem."
+                        </p>
+                        <footer class="blockquote-footer">
+                            Nathan Page,
+                            Technical Lead at EONX
+                        </footer>
+                    </blockquote>
+                </div>
             </div>
-        </div>
 
-        <div class="text-center mt-5">
-            <a href="{{ path('contact') }}" class="btn btn-success btn-lg m-auto">
-                Contact us to Get an Upgrade too
-            </a>
-        </div>
 
-        <hr class="mt-5 mb-5">
+            <hr class="mt-5 mb-5">
 
-        <div class="row">
-            <div class="col-sm-4">
-                <img src="/assets/images/logo/logo_bigger/jcid.png" class="img-fluid">
+            <div class="row">
+                <div class="col-sm-4">
+                    <a href="https://www.amateri.com/">
+                        <img src="/assets/images/logo/logo_bigger/amateri.jpg" class="img-fluid company-logo">
+                    </a>
+                </div>
+                <div class="col-sm-8">
+                    <h2 class="text-left">Amateri.cz</h2>
+                    <p>Czech Republic</p>
+
+                    <h3>
+                        <strong>Upgrade from Nette 2.4 to Nette 3.1</strong>
+                    </h3>
+
+                    <p class="company-description mt-4 mb-4">
+                        The biggest Czech sex community.
+                    </p>
+
+                    <h3>What other Problems we Solved?</h3>
+
+                    <ul>
+                        <li>Implementation of Docker tests in CI Container</li>
+                        <li>Implementation of ECS, PHPStan and Rector</li>
+                        <li>Migration to GitHub Actions with complete CI pipeline setup</li>
+                        <li>Standardisation of the code to PSR-4</li>
+                    </ul>
+                </div>
             </div>
-            <div class="col-sm-8">
-                <h2 class="text-left">JCID</h2>
-                <p>Netherlands</p>
 
-                <h3>
-                    <strong>Upgrade from Symfony 2.7 to Symfony 3.4</strong>
-                </h3>
+            <br>
+            <br>
 
-                <p class="text-semi-bigger mt-4 mb-4">
-                    JCID is a web development company that is engaged daily in developing custom solutions that eliminate labor-intensive problems within business operations.
-                </p>
-
-                <h3>What other Problems we Solved?</h3>
-
-                <ul>
-                    <li>Conversion of XML to YAML/PHP configuration</li>
-                    <li>Implementation of Gitlab CI with ECS, PHPStan and Rector</li>
-                </ul>
-            </div>
-        </div>
-
-        <hr class="mt-5 mb-5">
-
-        <div class="row">
-            <div class="col-sm-4">
-                <img src="/assets/images/logo/logo_bigger/spaceflow.png" class="img-fluid">
-            </div>
-            <div class="col-sm-8">
-                <h2 class="text-left">Spaceflow</h2>
-                <p>Prague</p>
-
-                <h3>
-                    <strong>Upgrade from Symfony 3.4 to Symfony 4.4</strong>
-                </h3>
-
-                <p class="text-semi-bigger mt-4 mb-4">
-                    Spaceflow is a tenant experience app that connects buildings with their occupiers.
-                </p>
-
-                <h3>What other Problems we Solved?</h3>
-
-                <ul>
-                    <li>Migration from Doctrine ID to UUID</li>
-                    <li>Implementation of Gitlab CI with ECS, PHPStan and Rector</li>
-                    <li>Replacement of messy classes with PSR-4</li>
-                </ul>
-            </div>
-        </div>
-
-        <br>
-        <br>
-
-        <div class="text-center">
-            <a href="{{ path('contact') }}" class="btn btn-success btn-lg m-auto">
-                Contact us to Join Our Clients
-            </a>
-        </div>
-
-        <br>
-        <br>
-
-        <hr>
-
-        <br>
-        <br>
-        <br>
-
-        <p>We're learning from every single migrate project, so you will get the most skilled team to help you. We share our experience back with PHP community.</p>
-
-        <br>
-
-        <div class="row">
-            <div class="col-6">
-                <a href="https://leanpub.com/rector-the-power-of-automated-refactoring">
-                    <img src="/assets/images/logo/logo_bigger/rector_book.png" class="img-fluid img-thumbnail">
+            <div class="text-center">
+                <a href="{{ path('contact') }}" class="btn btn-success btn-lg m-auto">
+                    Contact us
                 </a>
             </div>
 
-            <div class="col-6">
-                <h2>Upcoming Book Publicadtion</h2>
+            <br>
 
-                <p>In this book, seasoned developers Matthias Noback and Tomáš Votruba give you all the information you need to become a Rector power user.</p>
+            <hr class="mt-5 mb-5">
 
-                <h3>What will You Learn?</h3>
+            <div class="row">
+                <div class="col-2">
+                    <a href="https://leanpub.com/rector-the-power-of-automated-refactoring">
+                        <img src="/assets/images/logo/logo_bigger/rector_book.png" class="img-thumbnail mt-2">
+                    </a>
+                </div>
 
-                <ul>
-                    <li>How to make Rector part of your daily development workflow</li>
-                    <li>How to create Rector rules that replace repetitive manual refactoring work</li>
-                    <li>How to automate even more with Rector by adding it to your project's build process</li>
-                </ul>
+                <div class="col-10">
+                    <h3>How Migrations make Development Cheaper? Soon in a Book</h3>
 
-                <a class="btn btn-primary mt-4" href="https://leanpub.com/rector-the-power-of-automated-refactoring">Get Early Sign on</a>
+                    <p>We're learning from every single migration, so you will get <strong>the most skilled team to help you</strong>. We share our experience back with PHP community - soon to by written by Matthias Noback and Tomáš Votruba.</p>
+
+                    <a class="btn btn-primary mt-3" href="{{ path('book') }}">Reserve First Edition</a>
+                </div>
+            </div>
+
+            <hr class="mt-5 mb-5">
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <a href="https://spaceflow.io/">
+                        <img src="/assets/images/logo/logo_bigger/spaceflow.png" class="img-fluid company-logo">
+                    </a>
+                </div>
+                <div class="col-sm-8">
+                    <h2 class="text-left">Spaceflow</h2>
+                    <p>New York</p>
+
+                    <h3>
+                        <strong>Upgrade from Symfony 3.4 to Symfony 4.4</strong>
+                    </h3>
+
+                    <p class="company-description mt-4 mb-4">
+                        Spaceflow is a tenant experience app that connects buildings with their occupiers.
+                    </p>
+
+                    <h3>What other Problems we Solved?</h3>
+
+                    <ul>
+                        <li>Migration from Doctrine ID to UUID</li>
+                        <li>Implementation of Gitlab CI with ECS, PHPStan and Rector</li>
+                        <li>Replacement of messy classes with PSR-4</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card company-quote-card">
+                <div class="card-body company-quote-card-body">
+                    <blockquote class="blockquote company-quote">
+                        <img src="https://user-images.githubusercontent.com/77585053/110624233-37728500-819e-11eb-9efb-269e161c2ad4.jpeg" class="rounded-circle img-face-smaller-left shadow-sm mr-5" alt="">
+
+                        <p>
+                            "Thanks to Rector, we were able to quite simply refactor the core of our API, which <strong>saved a lot of work</strong> that our developers would otherwise have to do manually."
+                        </p>
+                        <footer class="blockquote-footer">
+                            Milan Mimra,
+                            CTO at Spaceflow
+                        </footer>
+                    </blockquote>
+                </div>
+            </div>
+
+            <hr class="mt-5 mb-5">
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <a href="https://werkenbij.jcid.nl/">
+                        <img src="/assets/images/logo/logo_bigger/jcid.png" class="img-fluid company-logo">
+                    </a>
+                </div>
+                <div class="col-sm-8">
+                    <h2 class="text-left">JCID</h2>
+                    <p>Netherlands</p>
+
+                    <h3>
+                        <strong>Upgrade from Symfony 2.7 to Symfony 3.4</strong>
+                    </h3>
+
+                    <p class="company-description mt-4 mb-4">
+                        JCID is a web development company that is engaged daily in developing custom solutions that eliminate labor-intensive problems within business operations.
+                    </p>
+
+                    <h3>What other Problems we Solved?</h3>
+
+                    <ul>
+                        <li>Conversion of XML to YAML/PHP configuration</li>
+                        <li>Implementation of Gitlab CI with ECS, PHPStan and Rector</li>
+                    </ul>
+                </div>
             </div>
         </div>
 
         <br>
         <br>
+
+        <h1 class="main-title">Have You Reached a Dead End?</h1>
+
+        <p class="mt-2 second-claim-title">
+            We'll put you back on track.
+        </p>
+        <br>
+
+
 
     </div>
 {% endblock %}
