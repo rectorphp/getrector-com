@@ -11,6 +11,7 @@ use Rector\Website\Repository\ContactMessageRepository;
 use Rector\Website\ValueObject\MailContact;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
@@ -19,6 +20,9 @@ final class ContactFormProcessor
     public function __construct(
         private ContactMessageRepository $contactMessageRepository,
         private MailSender $mailSender,
+        /**
+         * @var Session
+         */
         private SessionInterface $session,
         private UrlGeneratorInterface $urlGenerator
     ) {
@@ -35,7 +39,7 @@ final class ContactFormProcessor
         $this->mailSender->sendContactMessageTo($contactMessage, [MailContact::MAIN, MailContact::MARKETING]);
 
         $flashBag = $this->session->getFlashBag();
-        $flashBag->add('success', 'Your message is on the way!');
+        $flashBag->add('success', 'Your message is on the way! We\'ll get back to you withing 48 hours.');
 
         $url = $this->urlGenerator->generate($redirectRoute);
         return new RedirectResponse($url);
