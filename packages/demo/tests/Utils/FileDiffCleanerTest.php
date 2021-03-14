@@ -40,7 +40,7 @@ final class FileDiffCleanerTest extends AbstractKernelTestCase
     }
 
     /**
-     * @return Iterator<SmartFileInfo>
+     * @return Iterator<SmartFileInfo[]>
      */
     public function provideData(): Iterator
     {

@@ -5,15 +5,17 @@ declare(strict_types=1);
 namespace Rector\Website\Blog\Controller;
 
 use Rector\Website\Blog\Repository\PostRepository;
+use Rector\Website\Twig\ResponseRenderer;
 use Rector\Website\ValueObject\Routing\RouteName;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 
-final class PostController extends AbstractController
+final class PostController
 {
     public function __construct(
-        private PostRepository $postRepository
+        private PostRepository $postRepository,
+        private ResponseRenderer $responseRenderer
     ) {
     }
 
@@ -25,9 +27,10 @@ final class PostController extends AbstractController
         $post = $this->postRepository->findBySlug($postSlug);
         if ($post === null) {
             $message = sprintf("Post with slug '%s' not found", $postSlug);
-            throw $this->createNotFoundException($message);
+            throw new NotFoundHttpException($message);
         }
-        return $this->render('blog/post.twig', [
+
+        return $this->responseRenderer->render('blog/post.twig', [
             'post' => $post,
         ]);
     }
