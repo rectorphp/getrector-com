@@ -35,15 +35,6 @@ parameters:
              paths:
                  - src/Mailing/MailSender.php
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-        # buggy, fix in symplify first
-        #- '#Do not inherit from abstract class, better use composition#'
-
->>>>>>> dea0b9d... static fixes
-=======
->>>>>>> 7e4560f... misc
         -
             message: '#"%s" in sprintf\(\) format must be quoted#'
             paths:
@@ -72,17 +63,8 @@ parameters:
             message: '#Do not inherit from abstract class, better use composition#'
             paths:
                 - packages/demo/src/Validator
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 7e4560f... misc
 
         -
             message: '#Attribute must have all names explicitly defined#'
             paths:
                 - packages/demo/src/Validator/Constraint/PHPConstraint.php
-<<<<<<< HEAD
-=======
->>>>>>> dea0b9d... static fixes
-=======
->>>>>>> 7e4560f... misc
