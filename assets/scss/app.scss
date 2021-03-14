@@ -495,3 +495,14 @@ label.required:before {
     font-weight: 300;
     margin-top: 0;
 }
+
+#share_buttons {
+    a {
+        color: #999;
+        margin-right: .8em;
+
+        &:hover {
+            color: #555;
+        }
+    }
+}

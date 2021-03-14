@@ -74,6 +74,16 @@ final class Post
         return 'https://twitter.com/intent/tweet?text=' . $this->title . '&url=' . $this->absoluteUrl . '&hashtags=rectorphp';
     }
 
+    public function getFacebookLink(): string
+    {
+        return 'https://www.facebook.com/sharer/sharer.php?u=' . $this->absoluteUrl;
+    }
+
+    public function getLinkedinLink(): string
+    {
+        return 'https://www.linkedin.com/shareArticle?url=' . $this->absoluteUrl . '/&title=' . $this->title;
+    }
+
     public function getContributor(): ?string
     {
         return $this->contributor;
