@@ -30,8 +30,8 @@ final class DemoController extends AbstractController
     ) {
     }
 
-    #[Route('demo/{rectorRun}', name: RouteName::DEMO_DETAIL, methods: ['GET'])]
-    #[Route('demo', name: RouteName::DEMO, methods: ['GET', 'POST'])]
+    #[Route(path: 'demo/{rectorRun}', name: RouteName::DEMO_DETAIL, methods: ['GET'])]
+    #[Route(path: 'demo', name: RouteName::DEMO, methods: ['GET', 'POST'])]
     public function __invoke(Request $request, ?RectorRun $rectorRun = null): Response
     {
         if ($rectorRun === null) {

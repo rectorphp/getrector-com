@@ -17,7 +17,7 @@ final class BlogController extends AbstractController
     ) {
     }
 
-    #[Route('blog', name: RouteName::BLOG)]
+    #[Route(path: 'blog', name: RouteName::BLOG)]
     public function __invoke(): Response
     {
         return $this->render('blog/blog.twig', [

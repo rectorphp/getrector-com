@@ -17,7 +17,7 @@ final class PostController extends AbstractController
     ) {
     }
 
-    #[Route('blog/{postSlug}', name: RouteName::POST, requirements: [
+    #[Route(path: 'blog/{postSlug}', name: RouteName::POST, requirements: [
         'postSlug' => '.+',
     ])]
     public function __invoke(string $postSlug): Response

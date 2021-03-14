@@ -19,7 +19,7 @@ final class RssController extends AbstractController
     ) {
     }
 
-    #[Route('rss.xml', name: RouteName::RSS)]
+    #[Route(path: 'rss.xml', name: RouteName::RSS)]
     public function __invoke(): Response
     {
         $posts = $this->postRepository->getPosts();

@@ -2,6 +2,11 @@ includes:
      - vendor/symplify/phpstan-extensions/config/config.neon
      - vendor/symplify/phpstan-rules/config/symplify-rules.neon
 
+services:
+    -
+        class: Symplify\PHPStanRules\Rules\NoInheritanceRule
+        tags: [phpstan.rules.rule]
+
 parameters:
     paths:
         - "src"
