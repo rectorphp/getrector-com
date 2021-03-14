@@ -240,7 +240,7 @@ run($name);
 -   /**
 -    * @Route(path="blog/{postSlug}", name="post")
 -    */
-+    #[Route('blog/{postSlug}', name: 'post')]
++    #[Route(path: 'blog/{postSlug}', name: 'post')]
      public function __invoke(): Response
      {
          // ...

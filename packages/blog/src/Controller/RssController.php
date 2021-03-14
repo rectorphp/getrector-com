@@ -7,23 +7,25 @@ namespace Rector\Website\Blog\Controller;
 use DateTimeInterface;
 use Rector\Website\Blog\Repository\PostRepository;
 use Rector\Website\Blog\ValueObject\Post;
+use Rector\Website\Twig\ResponseRenderer;
 use Rector\Website\ValueObject\Routing\RouteName;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-final class RssController extends AbstractController
+final class RssController
 {
     public function __construct(
-        private PostRepository $postRepository
+        private PostRepository $postRepository,
+        private ResponseRenderer $responseRenderer
     ) {
     }
 
-    #[Route('rss.xml', name: RouteName::RSS)]
+    #[Route(path: 'rss.xml', name: RouteName::RSS)]
     public function __invoke(): Response
     {
         $posts = $this->postRepository->getPosts();
-        return $this->render('blog/rss.twig', [
+
+        return $this->responseRenderer->render('blog/rss.twig', [
             'posts' => $posts,
             'most_recent_post_date_time' => $this->getMostRecentPostDateTime($posts),
         ]);

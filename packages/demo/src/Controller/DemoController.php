@@ -10,37 +10,42 @@ use Rector\Website\Demo\Form\DemoFormType;
 use Rector\Website\Demo\Repository\RectorRunRepository;
 use Rector\Website\Demo\ValueObjectFactory\RectorRunFactory;
 use Rector\Website\Exception\ShouldNotHappenException;
+use Rector\Website\Twig\ResponseRenderer;
 use Rector\Website\ValueObject\Routing\RouteName;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
  * @see \Rector\Website\Demo\Tests\Controller\DemoControllerTest
  */
-final class DemoController extends AbstractController
+final class DemoController
 {
     public function __construct(
         private RectorRunRepository $rectorRunRepository,
         private DemoRunner $demoRunner,
-        private RectorRunFactory $rectorRunFactory
+        private RectorRunFactory $rectorRunFactory,
+        private ResponseRenderer $responseRenderer,
+        private FormFactoryInterface $formFactory,
+        private UrlGeneratorInterface $urlGenerator
     ) {
     }
 
-    #[Route('demo/{rectorRun}', name: RouteName::DEMO_DETAIL, methods: ['GET'])]
-    #[Route('demo', name: RouteName::DEMO, methods: ['GET', 'POST'])]
+    #[Route(path: 'demo/{rectorRun}', name: RouteName::DEMO_DETAIL, methods: ['GET'])]
+    #[Route(path: 'demo', name: RouteName::DEMO, methods: ['GET', 'POST'])]
     public function __invoke(Request $request, ?RectorRun $rectorRun = null): Response
     {
         if ($rectorRun === null) {
             $rectorRun = $this->rectorRunFactory->createEmpty();
         }
 
-        $demoForm = $this->createForm(DemoFormType::class, $rectorRun, [
+        $demoForm = $this->formFactory->create(DemoFormType::class, $rectorRun, [
             // this is needed for manual render
-            'action' => $this->generateUrl(RouteName::DEMO),
+            'action' => $this->urlGenerator->generate(RouteName::DEMO),
         ]);
 
         $demoForm->handleRequest($request);
@@ -48,7 +53,7 @@ final class DemoController extends AbstractController
             return $this->processFormAndReturnRoute($demoForm);
         }
 
-        return $this->render('demo/demo.twig', [
+        return $this->responseRenderer->render('demo/demo.twig', [
             'demo_form' => $demoForm->createView(),
             'rector_run' => $rectorRun,
         ]);
@@ -62,11 +67,12 @@ final class DemoController extends AbstractController
         }
 
         $this->demoRunner->processRectorRun($rectorRun);
-
         $this->rectorRunRepository->save($rectorRun);
 
-        return $this->redirectToRoute(RouteName::DEMO_DETAIL, [
+        $demoDetailUrl = $this->urlGenerator->generate(RouteName::DEMO_DETAIL, [
             'rectorRun' => $rectorRun->getId(),
         ]);
+
+        return new RedirectResponse($demoDetailUrl);
     }
 }

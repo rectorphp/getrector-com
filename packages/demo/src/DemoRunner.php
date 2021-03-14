@@ -104,7 +104,7 @@ final class DemoRunner
         $rector = $container->get(RectorApplication::class);
 
         // Goal is to process string
-        $rector->runOnFileInfos([new SmartFileInfo($fileToAnalyzePath)]);
+        $rector->runOnPaths([$fileToAnalyzePath]);
 
         /** @var ErrorAndDiffCollector $errorAndDiffCollector */
         $errorAndDiffCollector = $container->get(ErrorAndDiffCollector::class);

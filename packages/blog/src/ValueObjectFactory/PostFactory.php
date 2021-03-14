@@ -92,11 +92,9 @@ final class PostFactory
     }
 
     /**
-     * Before:
-     * <h1>Hey</h1>
+     * Before: <h1>Hey</h1>
      *
-     * After:
-     * <h1 id="hey">Hey</h1>
+     * After: <h1 id="hey">Hey</h1>
      *
      * Then the headline can be anchored in url as "#hey"
      */
