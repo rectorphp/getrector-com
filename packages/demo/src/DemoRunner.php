@@ -117,10 +117,7 @@ final class DemoRunner
         // Because report ECHO it, we need to capture
         ob_start();
         $outputFormatter->report($errorAndDiffCollector);
-        $result = (string) ob_get_contents();
-        ob_clean();
-
-        return $result;
+        return (string) ob_get_clean();
     }
 
     private function disableProgressBar(Configuration $configuration): void
