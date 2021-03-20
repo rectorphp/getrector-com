@@ -22,6 +22,9 @@ use Symplify\SmartFileSystem\SmartFileInfo;
 use Symplify\SmartFileSystem\SmartFileSystem;
 use Throwable;
 
+/**
+ * @see \Rector\Website\Demo\Tests\DemoRunnerTest
+ */
 final class DemoRunner
 {
     /**
