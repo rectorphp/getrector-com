@@ -34,6 +34,7 @@ final class FileDiffCleanerTest extends AbstractKernelTestCase
         $cleanedContent = $this->fileDiffCleaner->clean($inputContent);
 
         $cleanedContent = trim($cleanedContent);
+
         $expectedContent = trim($expectedContent);
 
         $this->assertSame($expectedContent, $cleanedContent);
