@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Rector\Website\Demo\Tests;
@@ -23,6 +24,6 @@ class DemoRunnerTest extends KernelTestCase
         $demoRunner->processRectorRun($rectorRun);
 
         $fatalErrorMessage = $rectorRun->getFatalErrorMessage();
-        self::assertNull($fatalErrorMessage, sprintf('Fatal error when running demo: %s', $fatalErrorMessage));
+        self::assertNull($fatalErrorMessage, sprintf('Fatal error when running demo: "%s"', $fatalErrorMessage));
     }
 }
