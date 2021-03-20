@@ -17,6 +17,7 @@ use Rector\Website\Demo\Error\ErrorMessageNormalizer;
 use Rector\Website\Demo\ValueObject\Option;
 use function Sentry\captureException;
 use Symplify\PackageBuilder\Parameter\ParameterProvider;
+use Symplify\PackageBuilder\Reflection\PrivatesAccessor;
 use Symplify\SmartFileSystem\SmartFileInfo;
 use Symplify\SmartFileSystem\SmartFileSystem;
 use Throwable;
@@ -124,9 +125,7 @@ final class DemoRunner
 
     private function disableProgressBar(Configuration $configuration): void
     {
-        $reflection = new \ReflectionClass($configuration);
-        $property = $reflection->getProperty('showProgressBar');
-        $property->setAccessible(true);
-        $property->setValue($configuration, false);
+        $privatesAccessor = new PrivatesAccessor();
+        $privatesAccessor->setPrivateProperty($configuration, 'showProgressBar', false);
     }
 }

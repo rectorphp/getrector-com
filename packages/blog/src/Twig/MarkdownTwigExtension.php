@@ -18,8 +18,10 @@ final class MarkdownTwigExtension extends AbstractExtension
     /**
      * @return TwigFilter[]
      */
-    public function getFilters(): iterable
+    public function getFilters(): array
     {
-        yield new TwigFilter('markdown', fn (?string $content): string => $this->parsedownExtra->parse($content));
+        return [
+            new TwigFilter('markdown', fn (?string $content): string => $this->parsedownExtra->parse($content)),
+        ];
     }
 }

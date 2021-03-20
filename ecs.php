@@ -5,8 +5,6 @@ declare(strict_types=1);
 use PhpCsFixer\Fixer\ClassNotation\ClassAttributesSeparationFixer;
 use PhpCsFixer\Fixer\Operator\UnaryOperatorSpacesFixer;
 use PhpCsFixer\Fixer\Strict\DeclareStrictTypesFixer;
-use SlevomatCodingStandard\Sniffs\Classes\DisallowMultiPropertyDefinitionSniff;
-use SlevomatCodingStandard\Sniffs\Classes\UnusedPrivateElementsSniff;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symplify\EasyCodingStandard\ValueObject\Option;
 use Symplify\EasyCodingStandard\ValueObject\Set\SetList;
@@ -29,8 +27,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 
         // broken on PHP 8.0
         ClassAttributesSeparationFixer::class,
-        DisallowMultiPropertyDefinitionSniff::class . '.DisallowedMultiPropertyDefinition',
-
         UnaryOperatorSpacesFixer::class,
 
         DeclareStrictTypesFixer::class => [
@@ -38,9 +34,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
             __DIR__ . '/packages/demo/data/demo-config.php',
             __DIR__ . '/packages/demo/data/DemoFile.php',
         ],
-
-        // bugged and replaced by PHPStan + Rector
-        UnusedPrivateElementsSniff::class,
 
         ClassAttributesSeparationFixer::class => [
             __DIR__ . '/packages/demo/src/Lint/ForbiddenPHPFunctionsChecker.php',

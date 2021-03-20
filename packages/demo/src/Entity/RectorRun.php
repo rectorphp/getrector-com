@@ -138,12 +138,12 @@ class RectorRun implements TimestampableInterface
             return [];
         }
 
-        $result = $this->jsonResult['file_diffs'][0]['applied_rectors'] ?? [];
-        $result = (array) $result;
+        $appliedRectors = $this->jsonResult['file_diffs'][0]['applied_rectors'] ?? [];
+        $appliedRectors = (array) $appliedRectors;
 
         $appliedRules = [];
-        foreach ($result as $item) {
-            $appliedRules[] = new AppliedRule($item);
+        foreach ($appliedRectors as $appliedRector) {
+            $appliedRules[] = new AppliedRule($appliedRector);
         }
 
         return $appliedRules;
