@@ -2,6 +2,9 @@
 
 declare(strict_types=1);
 
+use PHPUnit\Framework\TestCase;
+use Rector\CodingStyle\Rector\MethodCall\PreferThisOrSelfMethodCallRector;
+use Rector\CodingStyle\ValueObject\PreferenceSelfThis;
 use Rector\Core\Configuration\Option;
 use Rector\Privatization\Rector\Class_\FinalizeClassesWithoutChildrenRector;
 use Rector\Set\ValueObject\SetList;
@@ -10,6 +13,13 @@ use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigura
 return static function (ContainerConfigurator $containerConfigurator): void {
     $services = $containerConfigurator->services();
     $services->set(FinalizeClassesWithoutChildrenRector::class);
+
+    $services->set(PreferThisOrSelfMethodCallRector::class)
+        ->call('configure', [[
+            PreferThisOrSelfMethodCallRector::TYPE_TO_PREFERENCE => [
+                TestCase::class => PreferenceSelfThis::PREFER_THIS,
+            ],
+        ]]);
 
     $parameters = $containerConfigurator->parameters();
     $parameters->set(Option::AUTO_IMPORT_NAMES, true);

@@ -3692,12 +3692,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "49c81bec47c7781e934eadbed85569047d156847"
+                "reference": "ef1e4b42c080bf1ce58fa5e9c860bb584472a840"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/49c81bec47c7781e934eadbed85569047d156847",
-                "reference": "49c81bec47c7781e934eadbed85569047d156847",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/ef1e4b42c080bf1ce58fa5e9c860bb584472a840",
+                "reference": "ef1e4b42c080bf1ce58fa5e9c860bb584472a840",
                 "shasum": ""
             },
             "require": {
@@ -3810,7 +3810,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-03-20T18:28:36+00:00"
+            "time": "2021-03-20T18:36:04+00:00"
         },
         {
             "name": "rector/rector-cakephp",
