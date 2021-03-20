@@ -2,17 +2,28 @@
 
 declare(strict_types=1);
 
-use Rector\CodingStyle\Rector\Function_\CamelCaseFunctionNamingToUnderscoreRector;
+use PHPUnit\Framework\TestCase;
+use Rector\CodingStyle\Rector\MethodCall\PreferThisOrSelfMethodCallRector;
+use Rector\CodingStyle\ValueObject\PreferenceSelfThis;
 use Rector\Core\Configuration\Option;
-use Rector\DeadCode\Rector\Class_\RemoveUnusedDoctrineEntityMethodAndPropertyRector;
+use Rector\Privatization\Rector\Class_\FinalizeClassesWithoutChildrenRector;
 use Rector\Set\ValueObject\SetList;
-use Rector\SymfonyCodeQuality\Rector\Attribute\ExtractAttributeRouteNameConstantsRector;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
+    $services = $containerConfigurator->services();
+    $services->set(FinalizeClassesWithoutChildrenRector::class);
+
+    $services->set(PreferThisOrSelfMethodCallRector::class)
+        ->call('configure', [[
+            PreferThisOrSelfMethodCallRector::TYPE_TO_PREFERENCE => [
+                TestCase::class => PreferenceSelfThis::PREFER_THIS,
+            ],
+        ]]);
+
     $parameters = $containerConfigurator->parameters();
-    $parameters->set(Option::ENABLE_CACHE, true);
     $parameters->set(Option::AUTO_IMPORT_NAMES, true);
+
     $parameters->set(Option::PATHS, [__DIR__ . '/src', __DIR__ . '/packages']);
 
     $parameters->set(Option::SETS, [
@@ -29,17 +40,5 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         SetList::PHP_80,
     ]);
 
-    $parameters->set(Option::SKIP, [
-        '*/var/cache/*',
-        __DIR__ . '/packages/demo/data/DemoFile.php',
-
-        // false positive removal
-        RemoveUnusedDoctrineEntityMethodAndPropertyRector::class,
-
-        // rename internal function to non-existing
-        CamelCaseFunctionNamingToUnderscoreRector::class,
-    ]);
-
-    $services = $containerConfigurator->services();
-    $services->set(ExtractAttributeRouteNameConstantsRector::class);
+    $parameters->set(Option::SKIP, ['*/var/cache/*', __DIR__ . '/packages/demo/data/DemoFile.php']);
 };

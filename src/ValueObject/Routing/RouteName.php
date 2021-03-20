@@ -19,11 +19,6 @@ final class RouteName
     /**
      * @var string
      */
-    public const MISSION = 'mission';
-
-    /**
-     * @var string
-     */
     public const RSS = 'rss';
 
     /**

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Rector\Website\Demo\Tests;
@@ -7,11 +8,11 @@ use Rector\Website\Demo\DemoRunner;
 use Rector\Website\Demo\ValueObjectFactory\RectorRunFactory;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
-class DemoRunnerTest extends KernelTestCase
+final class DemoRunnerTest extends KernelTestCase
 {
     public function test(): void
     {
-        self::bootKernel();
+        $this->bootKernel();
 
         $container = self::$container;
 
@@ -23,6 +24,8 @@ class DemoRunnerTest extends KernelTestCase
         $demoRunner->processRectorRun($rectorRun);
 
         $fatalErrorMessage = $rectorRun->getFatalErrorMessage();
-        self::assertNull($fatalErrorMessage, sprintf('Fatal error when running demo: %s', $fatalErrorMessage));
+
+        $errorMessage = sprintf('Fatal error when running demo: "%s"', $fatalErrorMessage);
+        $this->assertNull($fatalErrorMessage, $errorMessage);
     }
 }

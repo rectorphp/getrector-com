@@ -15,7 +15,7 @@ final class DemoControllerTest extends WebTestCase
 {
     public function test(): void
     {
-        $kernelBrowser = static::createClient();
+        $kernelBrowser = $this->createClient();
 
         // must be path of the controller
         $kernelBrowser->request('GET', '/demo');
@@ -28,7 +28,7 @@ final class DemoControllerTest extends WebTestCase
      */
     public function testFormSubmit(string $contentData, string $configData): void
     {
-        $kernelBrowser = static::createClient();
+        $kernelBrowser = $this->createClient();
         $kernelBrowser->request('GET', '/demo');
 
         # use name="..." of the form
