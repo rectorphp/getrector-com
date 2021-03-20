@@ -19,7 +19,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         SetList::DEAD_CODE,
         SetList::CODE_QUALITY,
         SetList::CODING_STYLE,
-        SetList::DEAD_DOC_BLOCK,
         SetList::NAMING,
         SetList::TYPE_DECLARATION,
         SetList::PHP_70,
