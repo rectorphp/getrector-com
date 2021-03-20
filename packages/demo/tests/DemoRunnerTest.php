@@ -22,6 +22,7 @@ class DemoRunnerTest extends KernelTestCase
 
         $demoRunner->processRectorRun($rectorRun);
 
-        self::assertNull($rectorRun->getFatalErrorMessage());
+        $fatalErrorMessage = $rectorRun->getFatalErrorMessage();
+        self::assertNull($fatalErrorMessage, sprintf('Fatal error when running demo: %s', $fatalErrorMessage));
     }
 }
