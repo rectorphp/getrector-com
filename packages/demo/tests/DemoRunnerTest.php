@@ -8,7 +8,7 @@ use Rector\Website\Demo\DemoRunner;
 use Rector\Website\Demo\ValueObjectFactory\RectorRunFactory;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
-class DemoRunnerTest extends KernelTestCase
+final class DemoRunnerTest extends KernelTestCase
 {
     public function test(): void
     {
