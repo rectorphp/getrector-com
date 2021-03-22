@@ -478,11 +478,19 @@ label.required:before {
 
     .company-quote {
         font-size: 1.2em;
+
+        @media (max-width: 750px) {
+            font-size: 1em;
+        }
     }
 
     .company-quote-card {
         margin: 1.5em 3em 0 3em;
         padding-bottom: 0;
+
+        @media (max-width: 750px) {
+            margin: 1.5em 0 0 0;
+        }
     }
 
     .company-quote-card-body {
