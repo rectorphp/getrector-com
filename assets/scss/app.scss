@@ -454,6 +454,29 @@ label.required:before {
     }
 }
 
+.face {
+    width: 10em;
+    height: 10em;
+    display: inline-block;
+    background-size: contain;
+
+    &.tomas-face {
+        background-image: url('../../public/assets/images/faces/tomas.jpg');
+        &:hover {
+            background-image: url('../../public/assets/images/faces/tomas_with_mask.png');
+        }
+    }
+
+    &.michal-face {
+        background-image: url('../../public/assets/images/faces/michal.jpg');
+        &:hover {
+            background-image: url('../../public/assets/images/faces/michal_with_mask.jpg');
+        }
+    }
+}
+
+
+
 #contribution_box {
     background-color: #fff7c4;
     width: 12em;
