@@ -461,16 +461,16 @@ label.required:before {
     background-size: contain;
 
     &.tomas-face {
-        background-image: url('../../public/assets/images/faces/tomas.jpg');
+        background-image: url('https://user-images.githubusercontent.com/924196/112137773-f5e7ce00-8bd0-11eb-980d-f6f1a4fb3f0d.jpg');
         &:hover {
-            background-image: url('../../public/assets/images/faces/tomas_with_mask.png');
+            background-image: url('https://user-images.githubusercontent.com/924196/112137775-f5e7ce00-8bd0-11eb-8f7e-f3a6f71f0aff.png');
         }
     }
 
     &.michal-face {
-        background-image: url('../../public/assets/images/faces/michal.jpg');
+        background-image: url('https://user-images.githubusercontent.com/924196/112137764-f41e0a80-8bd0-11eb-9c1d-c6575d5a199c.jpg');
         &:hover {
-            background-image: url('../../public/assets/images/faces/michal_with_mask.jpg');
+            background-image: url('https://user-images.githubusercontent.com/924196/112137770-f54f3780-8bd0-11eb-98bb-a630669692d7.jpg');
         }
     }
 }
