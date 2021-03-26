@@ -137,7 +137,7 @@ Congrats! Now you delegate active code-reviews to Rector.
 To make the most of it, notice the most repeated comments in passive code-reviews and make Rector rules out of it.
 **You'll save time, work and code-reviews become more joyful and lighter**. As a side effect, you can now focus on topics that computers can't automate (yet) - architecture and design.
 
-That's all, folks - now go and try out [the Github Action for yourself](https://github.com/symplify/symplify/blob/master/.github/workflows/rector_ci.yaml).
+That's all, folks - now go and try out [the Github Action for yourself](https://github.com/symplify/symplify/blob/master/.github/workflows/rector.yaml).
 
 <br>
 
