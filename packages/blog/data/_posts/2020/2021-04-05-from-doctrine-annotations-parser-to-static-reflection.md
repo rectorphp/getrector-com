@@ -82,7 +82,7 @@ This solution was terrible, but it did the job.
 
 ## Broken Spaces on Reprint
 
-Last but now least, spaces were completely removed on re-print:
+Last but not least, spaces were completely removed on re-print:
 
 ```diff
 -* @ORM\Table(name = "my_entity", indexes = {@ORM\Index(
