@@ -20,7 +20,7 @@ final class PostController
     }
 
     #[Route(path: 'blog/{postSlug}', name: RouteName::POST, requirements: [
-        'postSlug' => '.+',
+        'postSlug' => '(\d+\/\d+.+|[\w\-]+)',
     ])]
     public function __invoke(string $postSlug): Response
     {
