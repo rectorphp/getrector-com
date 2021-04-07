@@ -128,7 +128,7 @@ That would enable format-preserving and nested values juggling, which Doctrine A
 
 We [proposed the attributes in phpdoc-parser 2 years ago](https://github.com/phpstan/phpdoc-parser/issues/11), but it didn't get any traction as phpdoc-parser was also a read-only tool like Doctrine Annotations.
 
-Luckily, it got **revived and [we contributed](https://github.com/phpstan/phpdoc-parser/pull/65) a month ago** and was released under phpdoc-parser 0.5!
+Luckily, it got **revived and [we contributed attributes on each node](https://github.com/phpstan/phpdoc-parser/pull/65) a month ago** and was released under phpdoc-parser 0.5!
 
 
 ## 2. Rewrite Doctrine/Annotation in phpdoc-parser
