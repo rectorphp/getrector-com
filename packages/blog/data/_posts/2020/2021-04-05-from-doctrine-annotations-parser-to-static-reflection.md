@@ -142,7 +142,7 @@ We also needed values of annotation values using a custom lexer based on phpdoc-
 
 <br>
 
-To make it happen, we had to rewrite [DocParser](https://github.com/doctrine/annotations/blob/1.13.x/lib/Doctrine/Common/Annotations/DocParser.php) from Doctrine to phpdoc-parser syntax. That included parsing values, arrays, curly arrays with keys, constants, brackets, quotes, and newlines between them.
+To make it happen, **we had to rewrite [DocParser](https://github.com/doctrine/annotations/blob/1.13.x/lib/Doctrine/Common/Annotations/DocParser.php) from Doctrine to phpdoc-parser syntax**. That included parsing values, arrays, curly arrays with keys, constants, brackets, quotes, and newlines between them.
 
 <br>
 
