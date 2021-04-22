@@ -3,8 +3,8 @@ name: Production build
 on:
   push: null
   schedule:
-        # https://crontab.guru/every-7-days
-        -   cron: "0 0 * * 0"
+        # https://crontab.guru/daily
+        -   cron: "0 0 * * *"
 
 jobs:
     warmup:
