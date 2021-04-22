@@ -1,6 +1,10 @@
 name: Production build
 
-on: push
+on:
+  push: null
+  schedule:
+        # https://crontab.guru/every-7-days
+        -   cron: "0 0 * * 0"
 
 jobs:
     warmup:
