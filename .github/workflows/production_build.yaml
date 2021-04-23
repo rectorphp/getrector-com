@@ -1,9 +1,7 @@
 name: Production build
 
 on:
-    push:
-      branches:
-        - main
+    push: null
     schedule:
         # https://crontab.guru/daily
         -   cron: "0 0 * * *"
@@ -25,6 +23,7 @@ jobs:
             - uses: stefanzweifel/git-auto-commit-action@v2.3.0
               with:
                 commit_message: Apply automatic update
+                branch: main
               env:
                 GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
