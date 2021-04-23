@@ -7,12 +7,25 @@ on:
         -   cron: "0 0 * * *"
 
 jobs:
-    warmup:
-        name: Cache warmup
+    production_build:
+        name: Porduction Build
         runs-on: ubuntu-latest
 
         steps:
             - uses: actions/checkout@v2
+
+            - uses: shivammathur/setup-php@v2
+              with:
+                php-version: 8.0
+
+            - run: composer update
+
+            - uses: stefanzweifel/git-auto-commit-action@v2.3.0
+              with:
+                commit_message: Apply automatic update
+                branch: ${{ github.head_ref }}
+              env:
+                GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
             - name: Build image
               run: |
