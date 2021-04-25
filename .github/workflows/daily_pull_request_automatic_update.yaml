@@ -1,4 +1,4 @@
-name: Daily Pull Requests Automatic Update
+name: Daily Pull Request Automatic Update
 
 on:
     schedule:
