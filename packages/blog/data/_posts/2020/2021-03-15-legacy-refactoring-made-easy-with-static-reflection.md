@@ -72,7 +72,19 @@ Rector is using PHPStan to analyse types for couple of years now. PHPStan implem
 
 <br>
 
-Are you interested in **implementation**? Check [the pull-request](https://github.com/rectorphp/rector/pull/5665).
+## How to Include Custom Autoload?
+
+Static reflection now only parses the files found in `AUTOLOAD_PATHS`. That means those files are not executed and not included anymore. In some cases like custom autoload or files with defined constant, you still need to include them.
+
+To keep this working, move these files to `BOOTSTRAP_FILES` parameter:
+
+```diff
+-$parameters->set(Option::AUTOLOAD_PATHS, [
++$parameters->set(Option::BOOTSTRAP_FILES, [
+     __DIR__ . '/constants.php',
+     __DIR__ . '/project/special/autoload.php',
+ ]);
+```
 
 <br>
 
