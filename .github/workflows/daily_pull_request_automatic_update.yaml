@@ -17,7 +17,7 @@ jobs:
                 actions:
                     -
                         run: "composer update"
-                        branch: 'automated-regenerated-nodes-composer-update'
+                        branch: 'automated-regenerated-composer-lock'
 
         name: ${{ matrix.actions.name }}
         runs-on: ubuntu-latest
