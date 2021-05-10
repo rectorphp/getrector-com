@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace Rector\Website\Blog\ValueObjectFactory;
 
+use Nette\Utils\DateTime;
 use Nette\Utils\Strings;
 use ParsedownExtra;
 use Rector\Website\Blog\FileSystem\PathAnalyzer;
 use Rector\Website\Blog\ValueObject\Post;
 use Rector\Website\Demo\ValueObject\Option;
 use Rector\Website\Exception\ShouldNotHappenException;
+use Rector\Website\ValueObject\Routing\RouteName;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Yaml\Yaml;
 use Symplify\PackageBuilder\Parameter\ParameterProvider;
@@ -78,6 +80,14 @@ final class PostFactory
         $contributor = $configuration['contributor'] ?? null;
         $pullRequestId = $configuration['pull_request_id'] ?? null;
 
+        if (isset($configuration['updated_since'])) {
+            $updatedSince = new DateTime($configuration['updated_since']);
+        } else {
+            $updatedSince = null;
+        }
+
+        $updatedMessage = $configuration['updated_message'] ?? null;
+
         return new Post(
             $id,
             $title,
@@ -87,7 +97,9 @@ final class PostFactory
             $htmlContent,
             $absoluteUrl,
             $contributor,
-            $pullRequestId
+            $pullRequestId,
+            $updatedSince,
+            $updatedMessage
         );
     }
 
@@ -113,7 +125,7 @@ final class PostFactory
     {
         $siteUrl = rtrim($this->siteUrl, '/');
 
-        return $siteUrl . $this->router->generate('post', [
+        return $siteUrl . $this->router->generate(RouteName::POST, [
             'postSlug' => $slug,
         ]);
     }

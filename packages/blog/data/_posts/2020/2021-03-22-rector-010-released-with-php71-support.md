@@ -47,7 +47,7 @@ php --version
 
 composer require symfony/console:^2.8
 
-composer require rector/rector-prefixed:^0.10
+composer require rector/rector-prefixed:^0.10 --dev
 ```
 
 The big advantage of this approach is that code is **still editable in the vendor**. Do you have any troubles or debugging your own Rector rule? Edit `vendor/rector/rector-prefixed` code like your own.

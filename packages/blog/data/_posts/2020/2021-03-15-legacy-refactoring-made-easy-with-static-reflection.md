@@ -91,10 +91,10 @@ To keep this working, move these files to `BOOTSTRAP_FILES` parameter:
 Do you want **to try it out**? This week the Rector 0.10 is released with static reflection on-board:
 
 ```bash
-composer require rector/rector:^0.10
+composer require rector/rector:^0.10 --dev
 
 # or prefixed version
-composer require rector/rector-prefixed:^0.10
+composer require rector/rector-prefixed:^0.10 --dev
 ```
 
 <br>
