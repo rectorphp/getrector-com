@@ -20,7 +20,6 @@ final class DemoRunnerTest extends KernelTestCase
         $rectorRunFactory = $container->get(RectorRunFactory::class);
 
         $rectorRun = $rectorRunFactory->createEmpty();
-
         $demoRunner->processRectorRun($rectorRun);
 
         $fatalErrorMessage = $rectorRun->getFatalErrorMessage();

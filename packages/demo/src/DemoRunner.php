@@ -11,6 +11,7 @@ use Rector\Core\Application\FileProcessor;
 use Rector\Core\Bootstrap\RectorConfigsResolver;
 use Rector\Core\Configuration\Configuration;
 use Rector\Core\DependencyInjection\RectorContainerFactory;
+use Rector\Core\Provider\CurrentFileProvider;
 use Rector\Core\ValueObjectFactory\Application\FileFactory;
 use Rector\Core\ValueObjectFactory\ProcessResultFactory;
 use Rector\Website\Demo\Entity\RectorRun;
@@ -116,8 +117,13 @@ final class DemoRunner
         /** @var ProcessResultFactory $fileFactory */
         $processResultFactory = $container->get(ProcessResultFactory::class);
 
+        /** @var CurrentFileProvider $currentFileProvider */
+        $currentFileProvider = $container->get(CurrentFileProvider::class);
+
         // Goal is to process string
         foreach ($files as $file) {
+            $currentFileProvider->setFile($file);
+            $fileProcessor->parseFileInfoToLocalCache($file);
             $fileProcessor->refactor($file);
         }
 
