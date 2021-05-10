@@ -6,12 +6,14 @@ namespace Rector\Website\Demo;
 
 use Nette\Utils\Json;
 use Nette\Utils\Random;
-use Rector\ChangesReporting\Application\ErrorAndDiffCollector;
 use Rector\ChangesReporting\Output\JsonOutputFormatter;
-use Rector\Core\Application\RectorApplication;
+use Rector\Core\Application\FileProcessor;
 use Rector\Core\Bootstrap\RectorConfigsResolver;
 use Rector\Core\Configuration\Configuration;
 use Rector\Core\DependencyInjection\RectorContainerFactory;
+use Rector\Core\Provider\CurrentFileProvider;
+use Rector\Core\ValueObjectFactory\Application\FileFactory;
+use Rector\Core\ValueObjectFactory\ProcessResultFactory;
 use Rector\Website\Demo\Entity\RectorRun;
 use Rector\Website\Demo\Error\ErrorMessageNormalizer;
 use Rector\Website\Demo\ValueObject\Option;
@@ -53,7 +55,8 @@ final class DemoRunner
             $jsonResult = $this->processFilesContents($rectorRun->getContent(), $rectorRun->getConfig());
             $rectorRun->setJsonResult($jsonResult);
         } catch (Throwable $throwable) {
-            $rectorRun->setFatalErrorMessage($throwable->getMessage());
+            $normalizedMessage = $this->errorMessageNormalizer->normalize($throwable->getMessage());
+            $rectorRun->setFatalErrorMessage($normalizedMessage);
 
             // @TODO change to monolog
             // Log to sentry
@@ -104,14 +107,27 @@ final class DemoRunner
         // TODO: find better way how to disable progress bar
         $this->disableProgressBar($configuration);
 
-        /** @var RectorApplication $rector */
-        $rector = $container->get(RectorApplication::class);
+        /** @var FileProcessor $fileProcessor */
+        $fileProcessor = $container->get(FileProcessor::class);
+
+        /** @var FileFactory $fileFactory */
+        $fileFactory = $container->get(FileFactory::class);
+        $files = $fileFactory->createFromPaths([$fileToAnalyzePath]);
+
+        /** @var ProcessResultFactory $fileFactory */
+        $processResultFactory = $container->get(ProcessResultFactory::class);
+
+        /** @var CurrentFileProvider $currentFileProvider */
+        $currentFileProvider = $container->get(CurrentFileProvider::class);
 
         // Goal is to process string
-        $rector->runOnPaths([$fileToAnalyzePath]);
+        foreach ($files as $file) {
+            $currentFileProvider->setFile($file);
+            $fileProcessor->parseFileInfoToLocalCache($file);
+            $fileProcessor->refactor($file);
+        }
 
-        /** @var ErrorAndDiffCollector $errorAndDiffCollector */
-        $errorAndDiffCollector = $container->get(ErrorAndDiffCollector::class);
+        $processResult = $processResultFactory->create($files);
 
         /** @var JsonOutputFormatter $outputFormatter */
         $outputFormatter = $container->get(JsonOutputFormatter::class);
@@ -119,7 +135,7 @@ final class DemoRunner
         // TODO: report() should return output instead of echo it
         // Because report ECHO it, we need to capture
         ob_start();
-        $outputFormatter->report($errorAndDiffCollector);
+        $outputFormatter->report($processResult);
         return (string) ob_get_clean();
     }
 
