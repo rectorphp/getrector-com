@@ -2,14 +2,14 @@
 id: 22
 title: "Prefixed Rector by Default"
 perex: |
-    This is a big step up in making Rector developer experience smooth and intuitive. It will also ease development for Rector contributors. We won't have think about dependencies in `composer.json` anymore.
+    Today we're introducing a big step up in making Rector developer experience more smooth and intuitive. It will also ease development for Rector contributors. We won't have to think about dependencies in `composer.json` anymore.
     <br><br>
-    Do these goals in contradiction? Quite the contrary.
+    Are these goals in contradiction? Quite the contrary.
 ---
 
-*This move was inspired by PHPStan development and release repository setup.*
+*This move was inspired by [PHPStan 0.12 development and release repository setup](https://phpstan.org/blog/phpstan-0-12-released#phar-distribution-by-default).*
 
-Prefixed version allows to use Rector on older version than Rector is being developed. E.g. if you need to refactor your project on 7.1.
+The prefixed version allows to use of Rector on an older version than Rector is being developed. E.g., if you need to refactor your project on 7.1.
 
 If you have symfony/console 2.8 and wanted to install `rector/rector` on your project, it would fail:
 
@@ -29,7 +29,7 @@ composer require rector/rector-prefixed --dev
 
 <em class="fas fa-fw fa-check text-success fa-2x"></em>
 
-The ultimate problem with this setup is a terrible user experience [with hidden knowledge](@todo memory lock post). As a user I don't want to think about different names for the same package. Would you install `symfony/console` or `symfony/console-prefixed` based on conflicts on install? No.
+The ultimate problem with this setup is a terrible user experience [with hidden knowledge](@todo memory lock post). As a user, I don't want to think about different names for the same package. Would you install `symfony/console` or `symfony/console-prefixed` based on conflicts on install? No.
 
 ## Single Distribution Package
 
@@ -59,7 +59,7 @@ Last big change was a repository switch. The original `rector/rector` repository
 
 ## How to Upgrade?
 
-Next version is still in progress and will be released during May 2021. We're now testing the dev version to be sure there are no glitches when the stable tag is out.
+The next version is still in progress and will be released in May 2021. We're now testing the dev version to ensure there are no glitches when the stable tag is out.
 
 There are 2 ways to upgrade, depending on which version you use.
 
