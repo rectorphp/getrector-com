@@ -144,7 +144,7 @@ Docker is very problematic to set up because projects that are legacy and need o
 That's why we started a focus on downgrades in the Autumn 2020. The PHP 7.1 version is [almost ready](https://github.com/rectorphp/rector/pull/4447). Then we plan to continue to PHP 7.0 and PHP 5.6. The goal is to allow more accessible  composer-like installation even on lower PHP:
 
 ```bash
-composer require rector/rector-php56
+composer require rector/rector-php56 --dev
 ```
 
 This way, **even the oldest project could upgrade from PHP 5.6 to 7.2 only with composer**.

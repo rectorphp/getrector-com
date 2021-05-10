@@ -15,7 +15,7 @@ If you have symfony/console 2.8 and wanted to install `rector/rector` on your pr
 
 ```bash
 composer require symfony/console:2.8
-composer require rector/rector
+composer require rector/rector --dev
 ```
 
 <em class="fas fa-fw fa-times text-danger fa-2x"></em>
@@ -24,7 +24,7 @@ That's where [prefixed version](/blog/2020/01/20/how-to-install-rector-despite-c
 
 ```bash
 composer require symfony/console:2.8
-composer require rector/rector-prefixed
+composer require rector/rector-prefixed --dev
 ```
 
 <em class="fas fa-fw fa-check text-success fa-2x"></em>
@@ -37,7 +37,7 @@ We knew this must be a **single way** to install Rector:
 
 ```bash
 composer require symfony/console:2.8
-composer require rector/rector
+composer require rector/rector --dev
 ```
 
 <em class="fas fa-fw fa-check text-success fa-2x"></em>
@@ -59,19 +59,25 @@ Last big change was a repository switch. The original `rector/rector` repository
 
 ## How to Upgrade?
 
-Next version is still in progress and will be released during May 2021.
-Do you use prefixed version?
+Next version is still in progress and will be released during May 2021. We're now testing the dev version to be sure there are no glitches when the stable tag is out.
+
+There are 2 ways to upgrade, depending on which version you use.
+
+For prefixed version:
 
 ```bash
 composer remove rector/rector-prefixed
-composer require rector/rector:^0.11
+composer require rector/rector:^0.11 --dev
 ```
 
-Do you use normal Rector?
+For normal version:
 
 ```bash
-composer update rector/rector:^0.11
+composer update rector/rector:^0.11 --dev
 ```
+
+From now on, every next Rector release will be under `rector/rector` package name. One less thing to worry about before
+you instantly upgrade your code.
 
 <br>
 

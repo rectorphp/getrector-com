@@ -158,7 +158,7 @@ Rector is now prefixed and published as per-commit into [distributoin repository
 You can **install it** despite having conflicting packages:
 
 ```bash
-composer require rector/rector
+composer require rector/rector --dev
 ```
 
 <br>
