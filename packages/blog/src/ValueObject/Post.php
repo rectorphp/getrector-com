@@ -20,6 +20,8 @@ final class Post
         private string $absoluteUrl,
         private ?string $contributor = null,
         private ?int $pullRequestId = null,
+        private ?DateTimeInterface $updatedSince = null,
+        private ?string $updatedMessage = null,
     ) {
         $this->plaintextContent = strip_tags($htmlContent);
     }
@@ -101,5 +103,20 @@ final class Post
         }
 
         return $this->pullRequestId !== null;
+    }
+
+    public function isUpdated(): bool
+    {
+        return $this->updatedSince !== null;
+    }
+
+    public function getUpdatedSince(): ?DateTimeInterface
+    {
+        return $this->updatedSince;
+    }
+
+    public function getUpdatedMessage(): ?string
+    {
+        return $this->updatedMessage;
     }
 }

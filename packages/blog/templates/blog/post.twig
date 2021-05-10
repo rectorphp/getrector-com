@@ -34,6 +34,22 @@
 
         </div>
 
+        {% if post.updated %}
+            <div class="card border-success card-bigger mt-5">
+                <div class="card-header text-white bg-success">
+                    <strong>{{ post.updatedSince|date("F Y") }} Update</strong>
+                </div>
+                {% if post.updatedMessage is not null %}
+                    <div class="card-body pb-2">
+                        {{ post.updatedMessage|markdown|raw }}
+                    </div>
+                {% endif %}
+            </div>
+
+            <br>
+        {% endif %}
+
+
         <div class="perex">{{ post.perex|markdown|raw }}</div>
 
         <div class="text-body">
