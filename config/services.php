@@ -14,11 +14,9 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $containerConfigurator->import(__DIR__ . '/../packages/*/config/*.php');
 
     $parameters = $containerConfigurator->parameters();
-
     $parameters->set(Option::DEMO_DIR, '%kernel.project_dir%/var/demo');
 
     $services = $containerConfigurator->services();
-
     $services->defaults()
         ->public()
         ->autowire()
@@ -29,10 +27,9 @@ return static function (ContainerConfigurator $containerConfigurator): void {
             [__DIR__ . '/../src/GetRectorKernel.php', __DIR__ . '/../src/ValueObject', __DIR__ . '/../src/Entity']
         );
 
-    $services->set(SymfonyStyleFactory::class);
-
     $services->set(PrivatesAccessor::class);
 
+    $services->set(SymfonyStyleFactory::class);
     $services->set(SymfonyStyle::class)
         ->factory([service(SymfonyStyleFactory::class), 'create']);
 

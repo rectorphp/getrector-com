@@ -7,13 +7,13 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             -   uses: actions/checkout@v2
+
             -   uses: shivammathur/setup-php@v2
                 with:
                     php-version: 8.0
-                    coverage: none # default is xdebug
-                    extensions: mbstring # needed by phpunit
+                    coverage: none
 
-            -   run: composer install --no-progress
+            -   run: composer install --no-progress --ansi
 
             # for controller tests
             -   run: npm install
