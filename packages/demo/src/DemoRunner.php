@@ -71,11 +71,12 @@ final class DemoRunner
         $temporaryFilePaths = [$analyzedFilePath, $configPath];
 
         $process = new Process([
-            'vendor/bin/rector',
+            '../vendor/bin/rector',
             'process',
             $analyzedFilePath,
             '--config',
-            $configPath, 'output-format',
+            $configPath,
+            '--output-format',
             'json',
         ]);
 
