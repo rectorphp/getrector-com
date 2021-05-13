@@ -13,7 +13,11 @@
         "knplabs/doctrine-behaviors": "^2.2",
         "nyholm/psr7": "^1.4",
         "psr/simple-cache": "^1.0",
+<<<<<<< HEAD
         "rector/rector": "^0.10.21",
+=======
+        "rector/rector": "^0.11.1",
+>>>>>>> e13c73e (Use Rector 0.11)
         "sensio/framework-extra-bundle": "^5.6",
         "sentry/sentry-symfony": "^4.0",
         "symfony/asset": "^5.2",
@@ -57,7 +61,7 @@
         "symplify/symplify-kernel": "^9.3"
     },
     "require-dev": {
-        "phpstan/phpstan": "0.12.85",
+        "phpstan/phpstan": "0.12.86",
         "phpstan/phpstan-doctrine": "^0.12.33",
         "phpunit/phpunit": "^9.5",
         "roave/security-advisories": "dev-master",
