@@ -6,18 +6,20 @@ namespace Rector\Website\Demo\Tests;
 
 use Rector\Website\Demo\DemoRunner;
 use Rector\Website\Demo\ValueObjectFactory\RectorRunFactory;
-use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
+use Rector\Website\GetRectorKernel;
+use Symplify\PackageBuilder\Testing\AbstractKernelTestCase;
 
-final class DemoRunnerTest extends KernelTestCase
+final class DemoRunnerTest extends AbstractKernelTestCase
 {
     public function test(): void
     {
-        $this->bootKernel();
+        $this->bootKernel(GetRectorKernel::class);
 
-        $container = self::$container;
+        /** @var DemoRunner $demoRunner */
+        $demoRunner = $this->getService(DemoRunner::class);
 
-        $demoRunner = $container->get(DemoRunner::class);
-        $rectorRunFactory = $container->get(RectorRunFactory::class);
+        /** @var RectorRunFactory $rectorRunFactory */
+        $rectorRunFactory = $this->getService(RectorRunFactory::class);
 
         $rectorRun = $rectorRunFactory->createEmpty();
         $demoRunner->processRectorRun($rectorRun);

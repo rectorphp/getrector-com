@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 use PhpCsFixer\Fixer\ClassNotation\ClassAttributesSeparationFixer;
-use PhpCsFixer\Fixer\Operator\UnaryOperatorSpacesFixer;
 use PhpCsFixer\Fixer\Strict\DeclareStrictTypesFixer;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symplify\EasyCodingStandard\ValueObject\Option;
@@ -20,14 +19,13 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         __DIR__ . '/rector.php',
     ]);
 
-    $parameters->set(Option::SETS, [SetList::PSR_12, SetList::SYMPLIFY, SetList::COMMON, SetList::CLEAN_CODE]);
+    $containerConfigurator->import(SetList::PSR_12);
+    $containerConfigurator->import(SetList::SYMPLIFY);
+    $containerConfigurator->import(SetList::COMMON);
+    $containerConfigurator->import(SetList::CLEAN_CODE);
 
     $parameters->set(Option::SKIP, [
         __DIR__ . '/config/bundles.php',
-
-        // broken on PHP 8.0
-        ClassAttributesSeparationFixer::class,
-        UnaryOperatorSpacesFixer::class,
 
         DeclareStrictTypesFixer::class => [
             // smaller content
@@ -36,7 +34,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         ],
 
         ClassAttributesSeparationFixer::class => [
-            __DIR__ . '/packages/demo/src/Lint/ForbiddenPHPFunctionsChecker.php',
             __DIR__ . '/packages/demo/src/Controller/DemoController.php',
             // broken on attributes
             __DIR__ . '/packages/demo/src/Entity/RectorRun.php',
