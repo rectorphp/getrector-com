@@ -8,13 +8,17 @@ use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigura
 use function Symfony\Component\DependencyInjection\Loader\Configurator\service;
 use Symfony\Component\Security\Core\Security;
 use Symplify\PackageBuilder\Console\Style\SymfonyStyleFactory;
+use Symplify\PackageBuilder\Parameter\ParameterProvider;
 use Symplify\PackageBuilder\Reflection\PrivatesAccessor;
+use Symplify\SmartFileSystem\Finder\FinderSanitizer;
+use Symplify\SmartFileSystem\SmartFileSystem;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
     $containerConfigurator->import(__DIR__ . '/../packages/*/config/*.php');
 
     $parameters = $containerConfigurator->parameters();
     $parameters->set(Option::DEMO_DIR, '%kernel.project_dir%/var/demo');
+    $parameters->set(Option::SITE_URL, 'https://getrector.org');
 
     $services = $containerConfigurator->services();
     $services->defaults()
@@ -27,6 +31,11 @@ return static function (ContainerConfigurator $containerConfigurator): void {
             [__DIR__ . '/../src/GetRectorKernel.php', __DIR__ . '/../src/ValueObject', __DIR__ . '/../src/Entity']
         );
 
+    $services->load('Rector\Website\\', __DIR__ . '/../packages/')
+        ->exclude(
+            [__DIR__ . '/../packages/*/ValueObject', __DIR__ . '/../packages/*/Entity']
+        );
+
     $services->set(PrivatesAccessor::class);
 
     $services->set(SymfonyStyleFactory::class);
@@ -34,4 +43,10 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         ->factory([service(SymfonyStyleFactory::class), 'create']);
 
     $services->set(Security::class);
+
+    $services->set(ParsedownExtra::class, ParsedownExtra::class);
+
+    $services->set(FinderSanitizer::class);
+    $services->set(SmartFileSystem::class);
+    $services->set(ParameterProvider::class);
 };

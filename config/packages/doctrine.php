@@ -33,7 +33,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
                 'demo' => [
                     Mapping::IS_BUNDLE => false,
                     Mapping::TYPE => Mapping::TYPE_ANNOTATION,
-                    Mapping::DIR => __DIR__ . '/../../packages/demo/src/Entity',
+                    Mapping::DIR => __DIR__ . '/../../packages/Demo/Entity',
                     Mapping::PREFIX => 'Rector\Website\Demo\Entity',
                 ],
                 'contact' => [

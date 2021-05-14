@@ -38,5 +38,5 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $containerConfigurator->import(SetList::PHP_74);
     $containerConfigurator->import(SetList::PHP_80);
 
-    $parameters->set(Option::SKIP, ['*/var/cache/*', __DIR__ . '/packages/demo/data/DemoFile.php']);
+    $parameters->set(Option::SKIP, ['*/var/cache/*', __DIR__ . '/packages/Demo/data/DemoFile.php']);
 };

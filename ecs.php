@@ -29,14 +29,14 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 
         DeclareStrictTypesFixer::class => [
             // smaller content
-            __DIR__ . '/packages/demo/data/demo-config.php',
-            __DIR__ . '/packages/demo/data/DemoFile.php',
+            __DIR__ . '/packages/Demo/data/demo-config.php',
+            __DIR__ . '/packages/Demo/data/DemoFile.php',
         ],
 
         ClassAttributesSeparationFixer::class => [
-            __DIR__ . '/packages/demo/src/Controller/DemoController.php',
+            __DIR__ . '/packages/Demo/src/Controller/DemoController.php',
             // broken on attributes
-            __DIR__ . '/packages/demo/src/Entity/RectorRun.php',
+            __DIR__ . '/packages/Demo/src/Entity/RectorRun.php',
         ],
     ]);
 };
