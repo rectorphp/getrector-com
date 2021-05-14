@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\GitHubMagicLink\Tests\BodyFactory\IssueBodyFactory;
+namespace Rector\Website\Tests\GitHubMagicLink\BodyFactory\IssueBodyFactory;
 
-use Rector\Website\Demo\Tests\Helpers\DummyRectorRunFactory;
+use Rector\Website\Tests\Demo\Helpers\DummyRectorRunFactory;
 use Rector\Website\GetRectorKernel;
 use Rector\Website\GitHubMagicLink\BodyFactory\IssueBodyFactory;
 use Symplify\PackageBuilder\Testing\AbstractKernelTestCase;

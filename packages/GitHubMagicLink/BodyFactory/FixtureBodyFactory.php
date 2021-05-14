@@ -8,7 +8,7 @@ use Nette\Utils\Strings;
 use Rector\Website\Demo\Entity\RectorRun;
 
 /**
- * @see \Rector\Website\GitHubMagicLink\Tests\BodyFactory\FixtureBodyFactory\FixtureBodyFactoryTest
+ * @see \Rector\Website\Tests\GitHubMagicLink\BodyFactory\FixtureBodyFactory\FixtureBodyFactoryTest
  */
 final class FixtureBodyFactory
 {

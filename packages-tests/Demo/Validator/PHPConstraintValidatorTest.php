@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Demo\Tests\Validator;
+namespace Rector\Website\Tests\Demo\Validator;
 
 use Iterator;
 use Rector\Website\Demo\Entity\RectorRun;

@@ -16,7 +16,7 @@ use Symplify\SmartFileSystem\SmartFileSystem;
 use Throwable;
 
 /**
- * @see \Rector\Website\Demo\Tests\DemoRunnerTest
+ * @see \Rector\Website\Tests\Demo\DemoRunnerTest
  */
 final class DemoRunner
 {

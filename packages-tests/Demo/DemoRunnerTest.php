@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Demo\Tests;
+namespace Rector\Website\Tests\Demo;
 
 use Rector\Website\Demo\DemoRunner;
 use Rector\Website\Demo\ValueObjectFactory\RectorRunFactory;

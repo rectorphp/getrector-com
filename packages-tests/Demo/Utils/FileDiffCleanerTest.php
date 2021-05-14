@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Demo\Tests\Utils;
+namespace Rector\Website\Tests\Demo\Utils;
 
 use Iterator;
 use Rector\Website\Demo\Utils\FileDiffCleaner;

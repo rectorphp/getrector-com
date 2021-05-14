@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Demo\Tests\Controller;
+namespace Rector\Website\Tests\Demo\Controller;
 
 use Iterator;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;

@@ -7,6 +7,6 @@ use Symplify\Amnesia\ValueObject\Symfony\Routing;
 
 return static function (RoutingConfigurator $routingConfigurator): void {
     $routingConfigurator->import(__DIR__ . '/../src/Controller', Routing::TYPE_ANNOTATION);
-    $routingConfigurator->import(__DIR__ . '/../packages/Blog/src/Controller', Routing::TYPE_ANNOTATION);
-    $routingConfigurator->import(__DIR__ . '/../packages/Demo/src/Controller', Routing::TYPE_ANNOTATION);
+    $routingConfigurator->import(__DIR__ . '/../packages/Blog/Controller', Routing::TYPE_ANNOTATION);
+    $routingConfigurator->import(__DIR__ . '/../packages/Demo/Controller', Routing::TYPE_ANNOTATION);
 };

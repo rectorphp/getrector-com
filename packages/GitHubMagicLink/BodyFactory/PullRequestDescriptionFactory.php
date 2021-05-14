@@ -7,7 +7,7 @@ namespace Rector\Website\GitHubMagicLink\BodyFactory;
 use Rector\Website\Demo\Entity\RectorRun;
 
 /**
- * @see \Rector\Website\GitHubMagicLink\Tests\BodyFactory\PullRequestDescriptionFactory\PullRequestDescriptionFactoryTest
+ * @see \Rector\Website\Tests\GitHubMagicLink\BodyFactory\PullRequestDescriptionFactory\PullRequestDescriptionFactoryTest
  */
 final class PullRequestDescriptionFactory
 {

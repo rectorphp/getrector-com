@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Demo\Tests\Helpers;
+namespace Rector\Website\Tests\Demo\Helpers;
 
 use Rector\Php74\Rector\Property\TypedPropertyRector;
 use Rector\Website\Demo\Entity\RectorRun;

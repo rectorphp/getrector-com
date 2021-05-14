@@ -29,7 +29,7 @@
 
     <testsuites>
         <testsuite name="main">
-            <directory>packages/*/tests</directory>
+            <directory>packages-tests</directory>
         </testsuite>
     </testsuites>
 </phpunit>

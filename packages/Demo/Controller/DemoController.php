@@ -21,7 +21,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
- * @see \Rector\Website\Demo\Tests\Controller\DemoControllerTest
+ * @see \Rector\Website\Tests\Demo\Controller\DemoControllerTest
  */
 final class DemoController
 {
