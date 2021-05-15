@@ -16,6 +16,7 @@ jobs:
             matrix:
                 actions:
                     -
+                        name: "Update Rector Dependencies"
                         run: "composer update"
                         branch: 'automated-regenerated-composer-lock'
 
