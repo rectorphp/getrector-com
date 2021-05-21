@@ -275,16 +275,16 @@
         },
         {
             "name": "doctrine/cache",
-            "version": "1.11.1",
+            "version": "1.11.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/cache.git",
-                "reference": "163074496dc7c3c7b8ccbf3d4376c0187424ed81"
+                "reference": "9c53086695937c50c47936ed86d96150ffbcf60d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/cache/zipball/163074496dc7c3c7b8ccbf3d4376c0187424ed81",
-                "reference": "163074496dc7c3c7b8ccbf3d4376c0187424ed81",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/9c53086695937c50c47936ed86d96150ffbcf60d",
+                "reference": "9c53086695937c50c47936ed86d96150ffbcf60d",
                 "shasum": ""
             },
             "require": {
@@ -354,7 +354,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/cache/issues",
-                "source": "https://github.com/doctrine/cache/tree/1.11.1"
+                "source": "https://github.com/doctrine/cache/tree/1.11.2"
             },
             "funding": [
                 {
@@ -370,7 +370,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-05-18T16:45:32+00:00"
+            "time": "2021-05-20T14:57:29+00:00"
         },
         {
             "name": "doctrine/collections",
@@ -10096,16 +10096,16 @@
         },
         {
             "name": "phpstan/phpstan-doctrine",
-            "version": "0.12.34",
+            "version": "0.12.37",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan-doctrine.git",
-                "reference": "9d798be80c14aa2ce870edbc71d91504b474d634"
+                "reference": "37a3116d0e27b02ef19455e33294bc4c378e1826"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan-doctrine/zipball/9d798be80c14aa2ce870edbc71d91504b474d634",
-                "reference": "9d798be80c14aa2ce870edbc71d91504b474d634",
+                "url": "https://api.github.com/repos/phpstan/phpstan-doctrine/zipball/37a3116d0e27b02ef19455e33294bc4c378e1826",
+                "reference": "37a3116d0e27b02ef19455e33294bc4c378e1826",
                 "shasum": ""
             },
             "require": {
@@ -10157,9 +10157,9 @@
             "description": "Doctrine extensions for PHPStan",
             "support": {
                 "issues": "https://github.com/phpstan/phpstan-doctrine/issues",
-                "source": "https://github.com/phpstan/phpstan-doctrine/tree/0.12.34"
+                "source": "https://github.com/phpstan/phpstan-doctrine/tree/0.12.37"
             },
-            "time": "2021-05-17T12:19:18+00:00"
+            "time": "2021-05-20T14:58:03+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -10588,12 +10588,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "62148111d4ef79d664b0da42729ce5e0705ad4aa"
+                "reference": "6e52ab3a11a0d4fb0d9b2fb199a5887b8e01b1ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/62148111d4ef79d664b0da42729ce5e0705ad4aa",
-                "reference": "62148111d4ef79d664b0da42729ce5e0705ad4aa",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/6e52ab3a11a0d4fb0d9b2fb199a5887b8e01b1ae",
+                "reference": "6e52ab3a11a0d4fb0d9b2fb199a5887b8e01b1ae",
                 "shasum": ""
             },
             "conflict": {
@@ -10937,7 +10937,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-05-19T23:05:50+00:00"
+            "time": "2021-05-20T18:43:44+00:00"
         },
         {
             "name": "sebastian/cli-parser",
