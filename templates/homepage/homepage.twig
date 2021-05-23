@@ -3,19 +3,14 @@
 {% block main %}
     <div id="homepage">
         <h1 class="main-title">
-            We'll Speed up
-            your&nbsp;Development
+            How can We <span class="text-rector-green">Upgrade Code</span>
             <br>
-            by 300 %
+            With Single CLI Command?
         </h1>
-
-        <p class="mt-5">
-            <a href="#how" class="text-bigger">That's a bold claim... How exactly?</a>
-        </p>
 
         {% include "_snippets/homepage_separator.twig" %}
 
-        <h2>Our Mission? <span class="text-rector-blue">Remove Legacy</span> in Daily Work</h2>
+        <h2>Our Mission: <span class="text-rector-blue">Remove "Legacy"</span> from Vocabulary</h2>
 
         <div class="blockquote">
             We're here to help every company and developer on the planet to get rid of any legacy PHP. Remove maintenance, cut costs of features to fractions and shift focus back to <strong>feature delivery and sustainable code that is joy to read</strong>.
@@ -23,15 +18,7 @@
 
         {% include "_snippets/homepage_separator.twig" %}
 
-        <h2><span class="text-rector-blue">Join Companies</span> with&nbsp;Rectified&nbsp;Code</h2>
-
-        <div id="company_logos">
-            <img src="{{ asset('assets/images/homepage/company_lines.png') }}" alt="">
-        </div>
-
-        {% include "_snippets/homepage_separator.twig" %}
-
-        <h2><span class="text-rector-blue">Learn</span> from Our Experience</h2>
+        <h2><span class="text-rector-blue">Avoid Mistakes</span> we Discovered for You</h2>
 
         {% for post in last_3_posts %}
             <div class="mb-5">

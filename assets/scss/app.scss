@@ -52,6 +52,9 @@ h3 {
 
 /* inspired by backers from https://nette.org/ */
 #company_logos {
+    margin-top: 3em;
+    margin-bottom: 3em;
+
     img {
         filter: grayscale(100%);
         opacity: .70;
