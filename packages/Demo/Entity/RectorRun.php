@@ -42,7 +42,7 @@ class RectorRun implements TimestampableInterface
      */
     private const DEFAULT_FILE_NAME = 'demo_fixture';
 
-    #[ORM\ID]
+    #[ORM\Id]
     #[ORM\Column(type: 'uuid', unique: true)]
     #[ORM\GeneratedValue(strategy: 'CUSTOM')]
     #[ORM\CustomIdGenerator(class: UuidV4Generator::class)]

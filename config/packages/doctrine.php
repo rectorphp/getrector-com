@@ -32,13 +32,13 @@ return static function (ContainerConfigurator $containerConfigurator): void {
             ORM::MAPPINGS => [
                 'demo' => [
                     Mapping::IS_BUNDLE => false,
-                    Mapping::TYPE => Mapping::TYPE_ANNOTATION,
+                    Mapping::TYPE => 'attribute',
                     Mapping::DIR => __DIR__ . '/../../packages/Demo/Entity',
                     Mapping::PREFIX => 'Rector\Website\Demo\Entity',
                 ],
                 'contact' => [
                     Mapping::IS_BUNDLE => false,
-                    Mapping::TYPE => Mapping::TYPE_ANNOTATION,
+                    Mapping::TYPE => 'attribute',
                     Mapping::DIR => __DIR__ . '/../../src/Entity',
                     Mapping::PREFIX => 'Rector\Website\Entity',
                 ],
