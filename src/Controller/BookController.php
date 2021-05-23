@@ -20,7 +20,7 @@ final class BookController
     public function __invoke(): Response
     {
         return $this->responseRenderer->render('homepage/book.twig', [
-            'page_title' => 'The Power of Automated Refactoring',
+            'page_title' => 'The Power of Automated&nbsp;Refactoring',
         ]);
     }
 }
