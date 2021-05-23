@@ -33,6 +33,16 @@ a, a:hover, a:focus, button, button:focus {
     box-shadow: none !important;
 }
 
+.alert a, .alert a:active, .alert a:focus, {
+    color: inherit;
+    text-decoration: underline !important;
+
+    &:hover {
+        color: inherit;
+        text-decoration: none !important;
+    }
+}
+
 /*==========================
         20.RESPONSIVE
 ============================*/
