@@ -16,7 +16,7 @@ final class FixtureLinkFactory
     /**
      * @var string
      */
-    private const BASE_URL = 'https://github.com/rectorphp/rector/new/main';
+    private const BASE_URL = 'https://github.com/rectorphp/rector-src/new/main';
 
     public function __construct(
         private FixtureBodyFactory $fixtureBodyFactory,
