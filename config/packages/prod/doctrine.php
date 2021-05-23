@@ -32,17 +32,4 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 
     $services->set('doctrine.system_cache_pool', DoctrineProvider::class)
         ->args([service('doctrine.system_cache_pool')]);
-
-    $containerConfigurator->extension('framework', [
-        'cache' => [
-            'pools' => [
-                'doctrine.result_cache_pool' => [
-                    'adapter' => 'cache.app',
-                ],
-                'doctrine.system_cache_pool' => [
-                    'adapter' => 'cache.system',
-                ],
-            ],
-        ],
-    ]);
 };
