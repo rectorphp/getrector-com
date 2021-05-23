@@ -31,7 +31,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         ->args([service('doctrine.result_cache_pool')]);
 
     $services->set('doctrine.system_cache_provider', DoctrineProvider::class)
-        ->private()
         ->args([service('doctrine.system_cache_pool')]);
 
     $containerConfigurator->extension('framework', [
