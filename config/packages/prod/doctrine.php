@@ -11,26 +11,26 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         'orm' => [
             'metadata_cache_driver' => [
                 'type' => 'service',
-                'id' => 'doctrine.system_cache_provider',
+                'id' => 'doctrine.system_cache_pool',
             ],
             'query_cache_driver' => [
                 'type' => 'service',
-                'id' => 'doctrine.system_cache_provider',
+                'id' => 'doctrine.system_cache_pool',
             ],
             'result_cache_driver' => [
                 'type' => 'service',
-                'id' => 'doctrine.result_cache_provider',
+                'id' => 'doctrine.result_cache_pool',
             ],
         ],
     ]);
 
     $services = $containerConfigurator->services();
 
-    $services->set('doctrine.result_cache_provider', DoctrineProvider::class)
+    $services->set('doctrine.result_cache_pool', DoctrineProvider::class)
         ->private()
         ->args([service('doctrine.result_cache_pool')]);
 
-    $services->set('doctrine.system_cache_provider', DoctrineProvider::class)
+    $services->set('doctrine.system_cache_pool', DoctrineProvider::class)
         ->args([service('doctrine.system_cache_pool')]);
 
     $containerConfigurator->extension('framework', [
