@@ -3,7 +3,7 @@
 {% block main %}
     <div id="homepage">
         <h1 class="main-title">
-            How can We <span class="text-rector-green">Upgrade Code</span>
+            How can We <span class="text-rector-green" id="typewriter"></span>
             <br>
             With Single CLI Command?
         </h1>
@@ -18,7 +18,18 @@
 
         {% include "_snippets/homepage_separator.twig" %}
 
-        <h2><span class="text-rector-blue">Avoid Mistakes</span> we Discovered for You</h2>
+        <h2>
+            Read <span class="text-rector-blue">First Rector Book</span>
+
+            <img src="">
+
+        </h2>
+
+        {% include "_snippets/homepage_separator.twig" %}
+
+        <h2>
+            Learn <span class="text-rector-blue">Cool Tips</span> from Blog
+        </h2>
 
         {% for post in last_3_posts %}
             <div class="mb-5">
@@ -125,4 +136,24 @@
             </footer>
         </blockquote>
     </div>
+
+    <script>
+        var app = document.getElementById('typewriter');
+
+        var typewriter = new Typewriter(app, {
+            loop: true,
+            cursor: '*',
+        });
+
+        // @see https://safi.me.uk/typewriterjs/
+        typewriter.typeString('Upgrade PHP')
+            .pauseFor(2000)
+            .deleteChars(3)
+            .typeString('FW')
+            .pauseFor(2000)
+            .deleteAll()
+            .typeString('Remove Legacy')
+            .pauseFor(2000)
+            .start();
+    </script>
 {% endblock %}
