@@ -11,15 +11,15 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $containerConfigurator->extension('doctrine', [
         'orm' => [
             'metadata_cache_driver' => [
-                'type' => 'service',
+                'type' => 'pool',
                 'id' => 'doctrine.system_cache_pool',
             ],
             'query_cache_driver' => [
-                'type' => 'service',
+                'type' => 'pool',
                 'id' => 'doctrine.system_cache_pool',
             ],
             'result_cache_driver' => [
-                'type' => 'service',
+                'type' => 'pool',
                 'id' => 'doctrine.result_cache_pool',
             ],
         ],
