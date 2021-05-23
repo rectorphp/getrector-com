@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 use Symfony\Component\Cache\DoctrineProvider;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
-use Symplify\Amnesia\ValueObject\Symfony\Extension\FrameworkExtension;
 use function Symfony\Component\DependencyInjection\Loader\Configurator\service;
+use Symplify\Amnesia\ValueObject\Symfony\Extension\FrameworkExtension;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
     $containerConfigurator->extension('doctrine', [
@@ -47,5 +47,4 @@ return static function (ContainerConfigurator $containerConfigurator): void {
             ],
         ],
     ]);
-
 };
