@@ -16,9 +16,7 @@ use Symfony\Bridge\Doctrine\IdGenerator\UuidV4Generator;
 use Symfony\Component\Uid\Uuid;
 use Symplify\SymplifyKernel\Strings\StringsConverter;
 
-/**
- * @ORM\Entity
- */
+#[ORM\Entity]
 class RectorRun implements TimestampableInterface
 {
     use TimestampableTrait;
@@ -44,36 +42,27 @@ class RectorRun implements TimestampableInterface
      */
     private const DEFAULT_FILE_NAME = 'demo_fixture';
 
-    /**
-     * @ORM\Id
-     * @ORM\Column(type="uuid", unique=true)
-     * @ORM\GeneratedValue(strategy="CUSTOM")
-     * @ORM\CustomIdGenerator(class=UuidV4Generator::class)
-     */
+    #[ORM\ID]
+    #[ORM\Column(type: 'uuid', unique: true)]
+    #[ORM\GeneratedValue(strategy: 'CUSTOM')]
+    #[ORM\CustomIdGenerator(class: UuidV4Generator::class)]
     private Uuid $id;
 
     /**
-     * @ORM\Column(type="json")
      * @var mixed[]
      */
+
+    #[ORM\Column(type: 'json')]
     private array $jsonResult = [];
 
-    /**
-     * @ORM\Column(type="text", nullable=true)
-     */
+    #[ORM\Column(type: 'text', nullable: true)]
     private ?string $fatalErrorMessage = null;
 
-    /**
-     * @ORM\Column(type="text")
-     */
-
+    #[ORM\Column(type: 'text')]
     #[PHPConstraint]
     private string $config;
 
-    /**
-     * @ORM\Column(type="text")
-     */
-
+    #[ORM\Column(type: 'text')]
     #[PHPConstraint]
     private string $content;
 
