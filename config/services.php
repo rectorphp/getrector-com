@@ -32,9 +32,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         );
 
     $services->load('Rector\Website\\', __DIR__ . '/../packages/')
-        ->exclude(
-            [__DIR__ . '/../packages/*/ValueObject', __DIR__ . '/../packages/*/Entity']
-        );
+        ->exclude([__DIR__ . '/../packages/*/ValueObject', __DIR__ . '/../packages/*/Entity']);
 
     $services->set(PrivatesAccessor::class);
 
