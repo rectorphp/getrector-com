@@ -4,8 +4,11 @@ declare(strict_types=1);
 
 namespace Rector\Website\Form;
 
+use Karser\Recaptcha3Bundle\Form\Recaptcha3Type;
+use Karser\Recaptcha3Bundle\Validator\Constraints\Recaptcha3;
 use Rector\Website\Entity\ContactMessage;
 use Rector\Website\ValueObject\FormChoices;
+use Rector\Website\ValueObject\Routing\RouteName;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -26,22 +29,18 @@ final class ContactFormType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $formBuilder, array $options): void
     {
-        $forCompanies = $options['for_companies'];
+        $formBuilder->add('framework', TextType::class, [
+            'label' => 'Used PHP framework',
+            'attr' => [
+                'placeholder' => 'E.g. Symfony 2.8',
+            ],
+        ]);
 
-        if ($forCompanies === false) {
-            $formBuilder->add('framework', TextType::class, [
-                'label' => 'Used PHP framework',
-                'attr' => [
-                    'placeholder' => 'E.g. Symfony 2.8',
-                ],
-            ]);
-
-            $formBuilder->add('currentPhpVersion', ChoiceType::class, [
-                'label' => 'Current PHP version',
-                'placeholder' => self::PICK_ONE_PLACEHOLDER,
-                'choices' => FormChoices::CURRENT_PHP_VERSION,
-            ]);
-        }
+        $formBuilder->add('currentPhpVersion', ChoiceType::class, [
+            'label' => 'Current PHP version',
+            'placeholder' => self::PICK_ONE_PLACEHOLDER,
+            'choices' => FormChoices::CURRENT_PHP_VERSION,
+        ]);
 
         $formBuilder->add('message', TextareaType::class, [
             'label' => 'What do you need help with?',
@@ -66,14 +65,17 @@ final class ContactFormType extends AbstractType
                 'class' => 'btn btn-success btn-lg',
             ],
         ]);
+
+        $formBuilder->add('captcha', Recaptcha3Type::class, [
+            'constraints' => new Recaptcha3(),
+            'action_name' => RouteName::CONTACT,
+        ]);
     }
 
     public function configureOptions(OptionsResolver $optionsResolver): void
     {
         $optionsResolver->setDefaults([
             'data_class' => ContactMessage::class,
-            // @see https://stackoverflow.com/questions/48864637/symfony-4-multiple-forms-of-same-type-with-dynamic-display-fields
-            'for_companies' => false,
         ]);
     }
 }

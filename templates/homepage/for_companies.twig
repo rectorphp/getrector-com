@@ -4,7 +4,7 @@
     <div id="for-companies" >
         <h1 class="main-title">
             Is your Project Successful,<br>
-            but Programmers Hate it?
+            but Programmers Struggle?
         </h1>
 
         <p class="mt-5 text-bigger">
@@ -101,33 +101,6 @@
             </div>
 
             <br>
-            <br>
-
-            <div class="text-center">
-                <a href="{{ path('contact') }}" class="btn btn-success btn-lg m-auto">
-                    Contact us
-                </a>
-            </div>
-
-            <br>
-
-            <hr class="mt-5 mb-5">
-
-            <div class="row">
-                <div class="col-2">
-                    <a href="https://leanpub.com/rector-the-power-of-automated-refactoring">
-                        <img src="/assets/images/logo/logo_bigger/rector_book.png" class="img-thumbnail mt-2">
-                    </a>
-                </div>
-
-                <div class="col-10">
-                    <h3>How Migrations make Development Cheaper? Soon in a Book</h3>
-
-                    <p>We're learning from every single migration, so you will get <strong>the most skilled team to help you</strong>. We share our experience back with PHP community - soon to by written by Matthias Noback and Tomáš Votruba.</p>
-
-                    <a class="btn btn-primary mt-3" href="{{ path('book') }}">Reserve First Edition</a>
-                </div>
-            </div>
 
             <hr class="mt-5 mb-5">
 
@@ -208,25 +181,23 @@
         <br>
         <br>
 
-        <h1 class="main-title">Have You Reached a Dead End?</h1>
+        <div class="text-center">
+            <h1 class="main-title">Ready to Make&nbsp;the&nbsp;Change?</h1>
 
-        <p class="second-claim-title">
-            We'll put you back on track.
-        </p>
+            <p class="second-claim-title">We're here to Keep You Safe</p>
 
-        <br>
-        <br>
+            <br>
 
-        <div class="row">
-            <div class="col-12 col-sm-8">
-                <h2>Request Free Meeting</h2>
-                <br>
-                {{ include('form/contact_form_companies.twig') }}
-            </div>
+            <a href="{{ path(constant('Rector\\Website\\ValueObject\\Routing\\RouteName::CONTACT')) }}" class="btn btn-success btn-lg m-auto">
+                Contact us for Free Meeting
+            </a>
+
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
         </div>
-
-        <br>
-        <br>
-        <br>
     </div>
 {% endblock %}

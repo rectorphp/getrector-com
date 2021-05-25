@@ -36,10 +36,10 @@ final class ContactFormProcessor
         }
 
         $this->contactMessageRepository->save($contactMessage);
-        $this->mailSender->sendContactMessageTo($contactMessage, [MailContact::MAIN, MailContact::MARKETING]);
+        $this->mailSender->sendContactMessageTo($contactMessage, [MailContact::MAIN]);
 
         $flashBag = $this->session->getFlashBag();
-        $flashBag->add('success', "Your message is on the way! We'll get back to you withing 48 hours.");
+        $flashBag->add('success', 'Your message is on the way! Expect our reply withing 48 hours.');
 
         $url = $this->urlGenerator->generate($redirectRoute);
         return new RedirectResponse($url);

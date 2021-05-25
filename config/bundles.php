@@ -1,5 +1,7 @@
 <?php
 
+use Karser\Recaptcha3Bundle\KarserRecaptcha3Bundle;
+
 return [
     Symfony\Bundle\FrameworkBundle\FrameworkBundle::class => ['all' => true],
     Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle::class => ['all' => true],
@@ -11,4 +13,5 @@ return [
     Knp\DoctrineBehaviors\DoctrineBehaviorsBundle::class => ['all' => true],
     Symfony\Bundle\DebugBundle\DebugBundle::class => ['dev' => true, 'test' => true],
     Symfony\Bundle\WebProfilerBundle\WebProfilerBundle::class => ['dev' => true, 'test' => true],
+    KarserRecaptcha3Bundle::class => ['all' => true],
 ];
