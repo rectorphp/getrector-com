@@ -10,6 +10,25 @@
 
         {% include "_snippets/homepage_separator.twig" %}
 
+        <div class="text-bigger">
+            <p>
+                Rector is a CLI tool written in PHP. It can instantly upgrade old PHP code and handle automated refactorings. It's fast and precise - changes <strong>5000 files under minute</strong>.
+            </p>
+
+            <p>
+                The code is <a href="http://github.com/rectorphp/rector">open-sourced on GitHub</a>.
+                Add it to your project today to save hours of work:
+            </p>
+
+            <div>
+                <code>
+                    composer require rector/rector --dev
+                </code>
+            </div>
+        </div>
+
+        {% include "_snippets/homepage_separator.twig" %}
+
         <h2>Our Mission: <span class="text-rector-blue">Remove "Legacy"</span> from Vocabulary</h2>
 
         <div class="blockquote">
@@ -61,14 +80,16 @@
         </h2>
 
         {% for post in last_3_posts %}
-            <div class="mb-5">
-                {# @var post \Rector\Website\Blog\ValueObject\Post  #}
-                <p class="text-bigger">
-                    <a href="{{ path('post', {'postSlug': post.slug }) }}">{{ post.title }}</a>
-                </p>
-                <time datetime="{{ post.dateTime|date('Y-m-D') }}" class="mono-font text-grey">
-                    {{ post.dateTime|date }}
-                </time>
+            <div class="mb-4 row">
+                <div class="col-2">
+                    {# @var post \Rector\Website\Blog\ValueObject\Post  #}
+                    <time datetime="{{ post.dateTime|date('Y-m-D') }}" class="mono-font text-grey">
+                        {{ post.dateTime|date('F d') }}
+                    </time>
+                </div>
+                <div class="col-10">
+                    <a class="text-bigger" href="{{ path('post', {'postSlug': post.slug }) }}">{{ post.title }}</a>
+                </div>
             </div>
         {% endfor %}
 
