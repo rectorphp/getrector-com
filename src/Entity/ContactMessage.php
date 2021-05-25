@@ -5,13 +5,12 @@ declare(strict_types=1);
 namespace Rector\Website\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\ORM\Mapping\Entity;
 use Knp\DoctrineBehaviors\Contract\Entity\TimestampableInterface;
 use Knp\DoctrineBehaviors\Model\Timestampable\TimestampableTrait;
 use Symfony\Bridge\Doctrine\IdGenerator\UuidV4Generator;
 use Symfony\Component\Uid\Uuid;
 
-#[Entity]
+#[ORM\Entity]
 class ContactMessage implements TimestampableInterface
 {
     use TimestampableTrait;

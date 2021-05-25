@@ -10,8 +10,9 @@ use Rector\Website\Demo\Form\DemoFormType;
 use Rector\Website\Demo\Repository\RectorRunRepository;
 use Rector\Website\Demo\ValueObjectFactory\RectorRunFactory;
 use Rector\Website\Exception\ShouldNotHappenException;
-use Rector\Website\Twig\ResponseRenderer;
+
 use Rector\Website\ValueObject\Routing\RouteName;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -23,13 +24,12 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 /**
  * @see \Rector\Website\Tests\Demo\Controller\DemoControllerTest
  */
-final class DemoController
+final class DemoController extends AbstractController
 {
     public function __construct(
         private RectorRunRepository $rectorRunRepository,
         private DemoRunner $demoRunner,
         private RectorRunFactory $rectorRunFactory,
-        private ResponseRenderer $responseRenderer,
         private FormFactoryInterface $formFactory,
         private UrlGeneratorInterface $urlGenerator
     ) {
@@ -53,7 +53,7 @@ final class DemoController
             return $this->processFormAndReturnRoute($demoForm);
         }
 
-        return $this->responseRenderer->render('demo/demo.twig', [
+        return $this->render('demo/demo.twig', [
             'demo_form' => $demoForm->createView(),
             'rector_run' => $rectorRun,
         ]);

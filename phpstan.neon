@@ -58,3 +58,11 @@ parameters:
             message: '#Do not inherit from abstract class, better use composition#'
             paths:
                 - packages/Demo/Validator
+
+
+        -
+            message: '#Do not inherit from abstract class, better use composition#'
+            paths:
+                 - src/Controller
+                 - packages/Blog/Controller/
+                 - packages/Demo/Controller/
