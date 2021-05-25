@@ -33,6 +33,7 @@ final class ContactController extends AbstractController
             if ($lastResponse instanceof \ReCaptcha\Response && ! $lastResponse->isSuccess()) {
                 // probably a bot
                 $this->addFlash('error', 'Google now sees you as a bot, so your message was not sent.');
+                return $this->redirectToRoute(RouteName::CONTACT);
             }
 
             return $this->contactFormProcessor->process($form, RouteName::CONTACT);

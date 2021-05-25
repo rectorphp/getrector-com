@@ -76,11 +76,6 @@ final class ContactFormType extends AbstractType
     {
         $optionsResolver->setDefaults([
             'data_class' => ContactMessage::class,
-            // @see https://stackoverflow.com/questions/48864637/symfony-4-multiple-forms-of-same-type-with-dynamic-display-fields
-            'attr' => [
-                // for captcha form detection
-                'id' => 'contact_form',
-            ],
         ]);
     }
 }
