@@ -24,14 +24,4 @@
             {{ form_row(contact_form.email) }}
         </div>
     </div>
-
-    {# see Google Catpcha https://developers.google.com/recaptcha/docs/v3#}
-    <script src="https://www.google.com/recaptcha/api.js"></script>
-
-    <script type="application/javascript">
-        function onSubmit(token) {
-            alert(token);
-            document.getElementById("contact_form").submit();
-        }
-     </script>
 {{ form_end(contact_form) }}
