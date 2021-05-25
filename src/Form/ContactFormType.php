@@ -62,8 +62,13 @@ final class ContactFormType extends AbstractType
 
         $formBuilder->add('submit', SubmitType::class, [
             'label' => 'Send Message',
+            // see https://developers.google.com/recaptcha/docs/v3
             'attr' => [
-                'class' => 'btn btn-success btn-lg',
+                'class' => 'btn btn-success btn-lg g-recaptcha',
+                // see https://www.google.com/recaptcha/admin/create - v3
+                'data-sitekey' => '6LdXOu4aAAAAAOjxa3tfd3PGtI_A1L7g9f-FM4tr',
+                'data-callback' => 'onSubmit',
+                'data-action' => 'submit',
             ],
         ]);
     }
@@ -74,6 +79,10 @@ final class ContactFormType extends AbstractType
             'data_class' => ContactMessage::class,
             // @see https://stackoverflow.com/questions/48864637/symfony-4-multiple-forms-of-same-type-with-dynamic-display-fields
             'for_companies' => false,
+            'attr' => [
+                // for captcha form detection
+                'id' => 'contact_form',
+            ],
         ]);
     }
 }
