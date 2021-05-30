@@ -3137,12 +3137,11 @@ import-local@^3.0.2:
     pkg-dir "^4.2.0"
     resolve-cwd "^3.0.0"
 
-imports-loader@^2.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/imports-loader/-/imports-loader-2.0.0.tgz#f2f5152c6d8798a286b28a44eeae62142b60aa2c"
-  integrity sha512-ZwEx0GfsJ1QckGqHSS1uu1sjpUgT3AYFOr3nT07dVnfeyc/bOICSw48067hr0u7DW8TZVzNVvdnvA62U9lG8nQ==
+imports-loader@^3.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/imports-loader/-/imports-loader-3.0.0.tgz#069c314cb55a80e59ae72b5313273dafff8b3fc4"
+  integrity sha512-PhDB+rxpc95/1cM8ehxWAcuDIDi3eXhqHhax09iyUeAYBJ2bT6QbBp7aDj8IfU9Ns+2l1K226GhoWVAU823CTA==
   dependencies:
-    loader-utils "^2.0.0"
     source-map "^0.6.1"
     strip-comments "^2.0.1"
 
