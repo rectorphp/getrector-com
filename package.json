@@ -15,7 +15,7 @@
         "bootstrap-sass": "^3.4.1",
         "bootswatch": "^3.4.1",
         "imports-loader": "^2.0",
-        "node-sass": "^5.0",
+        "node-sass": "^6.0",
         "sass-loader": "^11.0"
     },
     "scripts": {
