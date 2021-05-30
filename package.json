@@ -13,7 +13,7 @@
     "devDependencies": {
         "@symfony/webpack-encore": "^1.0",
         "bootstrap-sass": "^3.4.1",
-        "bootswatch": "^3.4.1",
+        "bootswatch": "^5.0.1",
         "imports-loader": "^2.0",
         "node-sass": "^5.0",
         "sass-loader": "^11.0"

@@ -1520,10 +1520,10 @@ bootstrap@^4.3.1:
   resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.6.0.tgz#97b9f29ac98f98dfa43bf7468262d84392552fd7"
   integrity sha512-Io55IuQY3kydzHtbGvQya3H+KorS/M9rSNyfCGCg9WZ4pyT/lCxIlpJgG1GXW/PswzC84Tr2fBYi+7+jFVQQBw==
 
-bootswatch@^3.4.1:
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/bootswatch/-/bootswatch-3.4.1.tgz#50aed16fb04ec791c3dd8831515c29d4a757fdb9"
-  integrity sha512-0hL4A8OUiqABgPipGrojf/hyhr5RS257xCNARlbK34HaMfhV5fXvwEooN4/ri9+jgX47J4Wg24ZPmfZ2xD2cKw==
+bootswatch@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/bootswatch/-/bootswatch-5.0.1.tgz#56c06e200fe33401c9397a39f115e82e97648628"
+  integrity sha512-qTTUvlBzyd7VR8S089uYRmCYmrAZruPhqEE9yCdek0fm4ELbJ3hGKAILT/tEv3N3r5Aps4teybQr/uCG3e9IaA==
 
 brace-expansion@^1.1.7:
   version "1.1.11"
