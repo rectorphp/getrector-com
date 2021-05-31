@@ -84,6 +84,9 @@ composer require rector/rector --dev
 
 ```bash
 vendor/bin/rector init
+
+# on Windows?
+vendor\bin\rector init
 ```
 
 3. Add your set to the config:
