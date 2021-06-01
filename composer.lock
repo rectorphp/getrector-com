@@ -6157,16 +6157,16 @@
         },
         {
             "name": "symfony/password-hasher",
-            "version": "v5.3.0-RC1",
+            "version": "v5.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/password-hasher.git",
-                "reference": "fd127dd91cc3603871bbaade6720a9a9ba132292"
+                "reference": "d487faef0347d5351d3e361e123a73496595509f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/password-hasher/zipball/fd127dd91cc3603871bbaade6720a9a9ba132292",
-                "reference": "fd127dd91cc3603871bbaade6720a9a9ba132292",
+                "url": "https://api.github.com/repos/symfony/password-hasher/zipball/d487faef0347d5351d3e361e123a73496595509f",
+                "reference": "d487faef0347d5351d3e361e123a73496595509f",
                 "shasum": ""
             },
             "require": {
@@ -6210,7 +6210,7 @@
                 "password"
             ],
             "support": {
-                "source": "https://github.com/symfony/password-hasher/tree/v5.3.0-RC1"
+                "source": "https://github.com/symfony/password-hasher/tree/v5.3.0"
             },
             "funding": [
                 {
@@ -6226,7 +6226,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-05-02T11:08:50+00:00"
+            "time": "2021-05-26T17:43:10+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -6883,16 +6883,16 @@
         },
         {
             "name": "symfony/polyfill-php80",
-            "version": "v1.22.1",
+            "version": "v1.23.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php80.git",
-                "reference": "dc3063ba22c2a1fd2f45ed856374d79114998f91"
+                "reference": "eca0bf41ed421bed1b57c4958bab16aa86b757d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php80/zipball/dc3063ba22c2a1fd2f45ed856374d79114998f91",
-                "reference": "dc3063ba22c2a1fd2f45ed856374d79114998f91",
+                "url": "https://api.github.com/repos/symfony/polyfill-php80/zipball/eca0bf41ed421bed1b57c4958bab16aa86b757d0",
+                "reference": "eca0bf41ed421bed1b57c4958bab16aa86b757d0",
                 "shasum": ""
             },
             "require": {
@@ -6901,7 +6901,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "1.22-dev"
+                    "dev-main": "1.23-dev"
                 },
                 "thanks": {
                     "name": "symfony/polyfill",
@@ -6946,7 +6946,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-php80/tree/v1.22.1"
+                "source": "https://github.com/symfony/polyfill-php80/tree/v1.23.0"
             },
             "funding": [
                 {
@@ -6962,7 +6962,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-01-07T16:49:33+00:00"
+            "time": "2021-02-19T12:13:01+00:00"
         },
         {
             "name": "symfony/polyfill-uuid",
@@ -7558,16 +7558,16 @@
         },
         {
             "name": "symfony/security-core",
-            "version": "v5.3.0-RC1",
+            "version": "v5.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security-core.git",
-                "reference": "e1756537e6296e7c936dcc64e53d291a3b98ad70"
+                "reference": "cb23eaff3fe09ba81b5c25ffe25c1c5b9b1cdfc5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security-core/zipball/e1756537e6296e7c936dcc64e53d291a3b98ad70",
-                "reference": "e1756537e6296e7c936dcc64e53d291a3b98ad70",
+                "url": "https://api.github.com/repos/symfony/security-core/zipball/cb23eaff3fe09ba81b5c25ffe25c1c5b9b1cdfc5",
+                "reference": "cb23eaff3fe09ba81b5c25ffe25c1c5b9b1cdfc5",
                 "shasum": ""
             },
             "require": {
@@ -7631,7 +7631,7 @@
             "description": "Symfony Security Component - Core Library",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/security-core/tree/v5.3.0-RC1"
+                "source": "https://github.com/symfony/security-core/tree/v5.3.0"
             },
             "funding": [
                 {
@@ -7647,7 +7647,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-05-19T12:09:49+00:00"
+            "time": "2021-05-26T17:43:10+00:00"
         },
         {
             "name": "symfony/security-csrf",
