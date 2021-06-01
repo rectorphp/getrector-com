@@ -4,7 +4,7 @@
         "ajv": "^6.10.1",
         "bootstrap": "^4.3.1",
         "jquery": "^3.4.1",
-        "typed.js": "^2.0.11",
+        "typed.js": "^2.0.12",
         "@fortawesome/fontawesome-free": "^5.9.0",
         "@fortawesome/free-brands-svg-icons": "^5.9.0",
         "@fortawesome/free-regular-svg-icons": "^5.9.0",
