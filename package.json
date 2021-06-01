@@ -1,7 +1,7 @@
 {
     "name": "getrector-org",
     "dependencies": {
-        "ajv": "^6.10.1",
+        "ajv": "^8.5.0",
         "bootstrap": "^4.3.1",
         "jquery": "^3.4.1",
         "typed.js": "^2.0.11",
