@@ -16,7 +16,7 @@
         "bootswatch": "^3.4.1",
         "imports-loader": "^2.0",
         "node-sass": "^5.0",
-        "sass-loader": "^11.0"
+        "sass-loader": "^11.1"
     },
     "scripts": {
         "dev-server": "encore dev-server",
