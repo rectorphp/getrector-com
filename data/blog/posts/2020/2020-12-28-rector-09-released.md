@@ -30,16 +30,11 @@ We tested this set for the last 30 days, solved bugs one by one, and applied in 
 Do you want to upgrade to PHP 8? It's ready!
 
 ```php
-use Rector\Core\Configuration\Option;
 use Rector\Set\ValueObject\SetList;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
-    $parameters = $containerConfigurator->parameters();
-
-    $parameters->set(Option::SETS, [
-        SetList::PHP_80,
-    ]);
+    $containerConfigurator->import(SetList::PHP_80);
 };
 ```
 

@@ -217,13 +217,11 @@ Eager to try it on your project? This time try it without any `composer.json` mo
 1. Add `NETTE_31` set your `rector.php`
 
 ```php
-use Rector\Core\Configuration\Option;
-use Rector\Set\ValueObject\SetList;
+use Rector\Nette\Set\NetteSetList;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
-    $parameters = $containerConfigurator->parameters();
-    $parameters->set(Option::SETS, [SetList::NETTE_31]);
+    $containerConfigurator->import(NetteSetList::NETTE_31);
  };
 ```
 
