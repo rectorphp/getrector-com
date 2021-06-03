@@ -23,16 +23,11 @@ vendor/bin/rector init
 2. Update `rector.php` with PHP 8 set:
 
 ```diff
- use Rector\Core\Configuration\Option;
 +use Rector\Set\ValueObject\SetList;
  use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
  return static function (ContainerConfigurator $containerConfigurator): void {
-     $parameters = $containerConfigurator->parameters();
-
-     $parameters->set(Option::SETS, [
-+        SetList::PHP_80,
-     ]);
++    $containerConfigurator->import(SetList::PHP_80);
  };
 ```
 

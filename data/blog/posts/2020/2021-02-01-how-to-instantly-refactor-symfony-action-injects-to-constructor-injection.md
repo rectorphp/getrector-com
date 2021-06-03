@@ -113,18 +113,14 @@ composer install rector/rector --dev
 Enable the set and configure your Kernel class name in `rector.php` config:
 
 ```php
-use Rector\Core\Configuration\Option;
 use Rector\Set\ValueObject\SetList;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
 return function (ContainerConfigurator $containerConfigurator): void {
-    $parameters = $containerConfigurator->parameters();
-
-    $parameters->set(Option::SETS, [
-        SetList::ACTION_INJECTION_TO_CONSTRUCTOR_INJECTION
-    ]);
+    $containerConfigurator->import(SetList::ACTION_INJECTION_TO_CONSTRUCTOR_INJECTION);
 
     // the default value
+    $parameters = $containerConfigurator->parameters();
     $parameters->set('kernel_class', 'App\Kernel');
 };
 ```
