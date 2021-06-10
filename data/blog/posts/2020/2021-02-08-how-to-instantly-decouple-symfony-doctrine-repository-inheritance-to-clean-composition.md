@@ -73,7 +73,7 @@ composer install rector/rector --dev
 ```php
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Rector\Doctrine\Rector\MethodCall\ReplaceParentRepositoryCallsByRepositoryPropertyRector;
-use Rector\DoctrineCodeQuality\Rector\Class_\MoveRepositoryFromParentToConstructorRector;
+use Rector\Doctrine\Rector\Class_\MoveRepositoryFromParentToConstructorRector;
 
 return function (ContainerConfigurator $containerConfigurator): void {
     $services = $containerConfigurator->services();
