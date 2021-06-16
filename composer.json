@@ -14,7 +14,7 @@
         "knplabs/doctrine-behaviors": "^2.2",
         "nyholm/psr7": "^1.4",
         "rector/rector": "^0.11.5",
-        "sensio/framework-extra-bundle": "^5.6",
+        "sensio/framework-extra-bundle": "^6.1",
         "sentry/sentry-symfony": "^4.0",
         "symfony/asset": "^5.3",
         "symfony/cache": "^5.3",
