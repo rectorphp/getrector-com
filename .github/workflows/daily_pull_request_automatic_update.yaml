@@ -41,6 +41,7 @@ jobs:
             # see https://github.com/peter-evans/create-pull-request
             -
                 name: Create pull-request
+                id: cpr
                 uses: peter-evans/create-pull-request@v3
                 with:
                     token: ${{ secrets.GITHUB_TOKEN }}
