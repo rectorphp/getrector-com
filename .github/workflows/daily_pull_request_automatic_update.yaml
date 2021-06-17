@@ -3,7 +3,7 @@ name: Daily Pull Request Automatic Update
 on:
     schedule:
         # https://crontab.guru/every-day
-        -   cron: "0 0 */3 * *"
+        -   cron: "0 0 * * *"
 
 env:
     # see https://github.com/composer/composer/issues/9368#issuecomment-718112361
