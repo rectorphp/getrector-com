@@ -1,10 +1,9 @@
-name: Per Three Day Pull Request Automatic Update
+name: Daily Pull Request Automatic Update
 
 on:
     schedule:
-        # https://crontab.guru/#0_0_*/3_*_*
-        # on each early next month, restart with 1st day
-        -   cron: "0 0 */3 * *"
+        # https://crontab.guru/every-day
+        -   cron: "0 0 * * *"
 
 env:
     # see https://github.com/composer/composer/issues/9368#issuecomment-718112361
@@ -42,6 +41,7 @@ jobs:
             # see https://github.com/peter-evans/create-pull-request
             -
                 name: Create pull-request
+                id: cpr
                 uses: peter-evans/create-pull-request@v3
                 with:
                     token: ${{ secrets.GITHUB_TOKEN }}
@@ -50,3 +50,12 @@ jobs:
                     branch: ${{ matrix.actions.branch }}
                     title: '[automated] ${{ matrix.actions.name }}'
                     delete-branch: true
+
+            -
+                name: Enable Pull Request Automerge
+                if: steps.cpr.outputs.pull-request-operation == 'created'
+                uses: peter-evans/enable-pull-request-automerge@v1
+                with:
+                    token: ${{ secrets.ACCESS_TOKEN }}
+                    pull-request-number: ${{ steps.cpr.outputs.pull-request-number }}
+                    merge-method: squash
