@@ -41,7 +41,7 @@ final class AppliedRule
     {
         $classParts = explode('\\', $this->class);
 
-        array_splice($classParts, 2, 0, ['Tests']);
+        array_splice($classParts, 1, 0, ['Tests']);
         $classParts[] = 'Fixture';
 
         return implode('\\', $classParts);
