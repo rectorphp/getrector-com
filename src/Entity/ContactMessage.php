@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping\GeneratedValue;
 use Doctrine\ORM\Mapping\Id;
 use Knp\DoctrineBehaviors\Contract\Entity\TimestampableInterface;
 use Knp\DoctrineBehaviors\Model\Timestampable\TimestampableTrait;
-use Symfony\Bridge\Doctrine\IdGenerator\UuidV4Generator;
+use Symfony\Bridge\Doctrine\IdGenerator\UuidGenerator;
 use Symfony\Component\Uid\Uuid;
 
 #[Entity]
@@ -22,7 +22,7 @@ class ContactMessage implements TimestampableInterface
     #[Id]
     #[Column(type: 'uuid', unique: true)]
     #[GeneratedValue(strategy: 'CUSTOM')]
-    #[CustomIdGenerator(class: UuidV4Generator::class)]
+    #[CustomIdGenerator(class: UuidGenerator::class)]
     private Uuid $id;
 
     #[Column(type: 'text')]

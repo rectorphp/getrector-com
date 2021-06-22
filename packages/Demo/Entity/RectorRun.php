@@ -12,7 +12,7 @@ use Rector\Website\Demo\Utils\FileDiffCleaner;
 use Rector\Website\Demo\Validator\Constraint\PHPConstraint;
 use Rector\Website\Demo\ValueObject\AppliedRule;
 use Rector\Website\Exception\ShouldNotHappenException;
-use Symfony\Bridge\Doctrine\IdGenerator\UuidV4Generator;
+use Symfony\Bridge\Doctrine\IdGenerator\UuidGenerator;
 use Symfony\Component\Uid\Uuid;
 use Symplify\SymplifyKernel\Strings\StringsConverter;
 
@@ -45,7 +45,7 @@ class RectorRun implements TimestampableInterface
     #[ORM\Id]
     #[ORM\Column(type: 'uuid', unique: true)]
     #[ORM\GeneratedValue(strategy: 'CUSTOM')]
-    #[ORM\CustomIdGenerator(class: UuidV4Generator::class)]
+    #[ORM\CustomIdGenerator(class: UuidGenerator::class)]
     private Uuid $id;
 
     /**
