@@ -1,6 +1,9 @@
 name: Production build
 
-on: push
+on:
+    push:
+        branches:
+            - main
 
 jobs:
     warmup:
