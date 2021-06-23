@@ -44,7 +44,7 @@ jobs:
                 id: cpr
                 uses: peter-evans/create-pull-request@v3
                 with:
-                    token: ${{ secrets.GITHUB_TOKEN }}
+                    token: ${{ secrets.ACCESS_TOKEN }}
                     commit-message: "[automated] ${{ matrix.actions.name }}"
                     base: 'main'
                     branch: ${{ matrix.actions.branch }}
