@@ -1,4 +1,4 @@
-name: Production build
+name: Cache warmup
 
 on:
     pull_request: null
