@@ -1,6 +1,7 @@
 name: Production build
 
 on:
+    pull_request: null
     push:
         branches:
             - main
