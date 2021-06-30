@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "828c160ab5ef42a444b3d62a25108fe6",
+    "content-hash": "8e04eb141c955b4c0efbeb4fa1e7b928",
     "packages": [
         {
             "name": "brick/math",
@@ -2959,16 +2959,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "0.12.86",
+            "version": "0.12.90",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "a84fdc53ecca7643dbc89ef8880d8b393a6c155a"
+                "reference": "f0e4b56630fc3d4eb5be86606d07212ac212ede4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/a84fdc53ecca7643dbc89ef8880d8b393a6c155a",
-                "reference": "a84fdc53ecca7643dbc89ef8880d8b393a6c155a",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/f0e4b56630fc3d4eb5be86606d07212ac212ede4",
+                "reference": "f0e4b56630fc3d4eb5be86606d07212ac212ede4",
                 "shasum": ""
             },
             "require": {
@@ -2999,11 +2999,15 @@
             "description": "PHPStan - PHP Static Analysis Tool",
             "support": {
                 "issues": "https://github.com/phpstan/phpstan/issues",
-                "source": "https://github.com/phpstan/phpstan/tree/0.12.86"
+                "source": "https://github.com/phpstan/phpstan/tree/0.12.90"
             },
             "funding": [
                 {
                     "url": "https://github.com/ondrejmirtes",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/phpstan",
                     "type": "github"
                 },
                 {
@@ -3015,7 +3019,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-05-08T11:29:01+00:00"
+            "time": "2021-06-18T07:15:38+00:00"
         },
         {
             "name": "psr/cache",
@@ -10036,7 +10040,7 @@
         },
         {
             "name": "symplify/symfony-php-config",
-            "version": "v9.3.22",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/symfony-php-config.git",
@@ -10059,6 +10063,7 @@
                 "phpunit/phpunit": "^9.5",
                 "symfony/http-kernel": "^4.4|^5.2"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -13050,16 +13055,16 @@
         },
         {
             "name": "symplify/easy-coding-standard",
-            "version": "v9.3.27",
+            "version": "9.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/easy-coding-standard.git",
-                "reference": "ceba2b787230709eff475ea75897f4a51e7439c9"
+                "reference": "f5642d83cb52a9a103c3e2c1e547a23b010c5011"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/easy-coding-standard/zipball/ceba2b787230709eff475ea75897f4a51e7439c9",
-                "reference": "ceba2b787230709eff475ea75897f4a51e7439c9",
+                "url": "https://api.github.com/repos/symplify/easy-coding-standard/zipball/f5642d83cb52a9a103c3e2c1e547a23b010c5011",
+                "reference": "f5642d83cb52a9a103c3e2c1e547a23b010c5011",
                 "shasum": ""
             },
             "require": {
@@ -13084,7 +13089,7 @@
             ],
             "description": "Prefixed scoped version of ECS package",
             "support": {
-                "source": "https://github.com/symplify/easy-coding-standard/tree/v9.3.27"
+                "source": "https://github.com/symplify/easy-coding-standard/tree/9.4.1"
             },
             "funding": [
                 {
@@ -13096,28 +13101,28 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-06-26T21:21:15+00:00"
+            "time": "2021-06-29T12:49:47+00:00"
         },
         {
             "name": "symplify/phpstan-extensions",
-            "version": "v9.3.19",
+            "version": "v9.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/phpstan-extensions.git",
-                "reference": "4960c212d4d361e21d270d467486353798e28075"
+                "reference": "31853a33015d089cf139413700db183c9a6ee8eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/phpstan-extensions/zipball/4960c212d4d361e21d270d467486353798e28075",
-                "reference": "4960c212d4d361e21d270d467486353798e28075",
+                "url": "https://api.github.com/repos/symplify/phpstan-extensions/zipball/31853a33015d089cf139413700db183c9a6ee8eb",
+                "reference": "31853a33015d089cf139413700db183c9a6ee8eb",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.3",
-                "phpstan/phpstan": "0.12.86",
-                "symplify/astral": "^9.3.19",
-                "symplify/package-builder": "^9.3.19",
-                "symplify/smart-file-system": "^9.3.19"
+                "php": ">=8.0",
+                "phpstan/phpstan": "^0.12.90",
+                "symplify/astral": "^9.4.1",
+                "symplify/package-builder": "^9.4.1",
+                "symplify/smart-file-system": "^9.4.1"
             },
             "require-dev": {
                 "phpunit/phpunit": "^9.5"
@@ -13125,7 +13130,7 @@
             "type": "phpstan-extension",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "9.4-dev"
+                    "dev-main": "9.5-dev"
                 },
                 "phpstan": {
                     "includes": [
@@ -13144,7 +13149,7 @@
             ],
             "description": "Pre-escaped error messages in 'symplify' error format, container aware test case and other useful extensions for PHPStan",
             "support": {
-                "source": "https://github.com/symplify/phpstan-extensions/tree/v9.3.19"
+                "source": "https://github.com/symplify/phpstan-extensions/tree/v9.4.1"
             },
             "funding": [
                 {
@@ -13156,48 +13161,49 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-06-05T13:51:39+00:00"
+            "time": "2021-06-29T17:57:36+00:00"
         },
         {
             "name": "symplify/phpstan-rules",
-            "version": "v9.3.19",
+            "version": "v9.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/phpstan-rules.git",
-                "reference": "52267ab21d4c092391795c7c14641a88c3dcfead"
+                "reference": "b2e291dacc863cb2b8c60b8302237ddaa2948f1d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/phpstan-rules/zipball/52267ab21d4c092391795c7c14641a88c3dcfead",
-                "reference": "52267ab21d4c092391795c7c14641a88c3dcfead",
+                "url": "https://api.github.com/repos/symplify/phpstan-rules/zipball/b2e291dacc863cb2b8c60b8302237ddaa2948f1d",
+                "reference": "b2e291dacc863cb2b8c60b8302237ddaa2948f1d",
                 "shasum": ""
             },
             "require": {
                 "nette/utils": "^3.2",
                 "nikic/php-parser": "4.10.5",
-                "php": ">=7.3",
+                "php": ">=8.0",
                 "phpstan/phpdoc-parser": "^0.5",
-                "phpstan/phpstan": "0.12.86",
-                "symplify/astral": "^9.3.19",
-                "symplify/composer-json-manipulator": "^9.3.19",
-                "symplify/package-builder": "^9.3.19",
-                "symplify/rule-doc-generator-contracts": "^9.3.19",
-                "symplify/smart-file-system": "^9.3.19",
-                "webmozart/assert": "^1.9"
+                "phpstan/phpstan": "^0.12.90",
+                "symplify/astral": "^9.4.1",
+                "symplify/composer-json-manipulator": "^9.4.1",
+                "symplify/package-builder": "^9.4.1",
+                "symplify/rule-doc-generator-contracts": "^9.4.1",
+                "symplify/simple-php-doc-parser": "^9.4.1",
+                "symplify/smart-file-system": "^9.4.1",
+                "webmozart/assert": "^1.10"
             },
             "require-dev": {
                 "nette/application": "^3.1",
                 "nette/forms": "^3.1",
                 "phpunit/phpunit": "^9.5",
-                "symfony/framework-bundle": "^4.4|^5.2",
-                "symplify/easy-testing": "^9.3.19",
-                "symplify/phpstan-extensions": "^9.3.19",
-                "symplify/rule-doc-generator": "^9.3.19"
+                "symfony/framework-bundle": "^5.3",
+                "symplify/easy-testing": "^9.4.1",
+                "symplify/phpstan-extensions": "^9.4.1",
+                "symplify/rule-doc-generator": "^9.4.1"
             },
             "type": "phpstan-extension",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "9.4-dev"
+                    "dev-main": "9.5-dev"
                 },
                 "phpstan": {
                     "includes": [
@@ -13220,7 +13226,7 @@
             ],
             "description": "Set of Symplify rules for PHPStan",
             "support": {
-                "source": "https://github.com/symplify/phpstan-rules/tree/v9.3.19"
+                "source": "https://github.com/symplify/phpstan-rules/tree/v9.4.1"
             },
             "funding": [
                 {
@@ -13232,7 +13238,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-06-05T13:51:42+00:00"
+            "time": "2021-06-29T17:57:45+00:00"
         },
         {
             "name": "theseer/tokenizer",
