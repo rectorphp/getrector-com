@@ -447,49 +447,6 @@ label.required:before {
     }
 }
 
-@media (max-width: 639px) {
-    .mobile-fixed-top {
-        position: fixed;
-        top: 0;
-        right: 0;
-        left: 0;
-        z-index: 1030;
-
-    }
-
-    .mobile-margin-top {
-        margin-top: 8.3em;
-    }
-
-    .nav-item {
-        padding-top: .5em;
-        padding-bottom: .5em;
-    }
-}
-
-.face {
-    width: 10em;
-    height: 10em;
-    display: inline-block;
-    background-size: contain;
-
-    &.tomas-face {
-        background-image: url('https://user-images.githubusercontent.com/924196/112137773-f5e7ce00-8bd0-11eb-980d-f6f1a4fb3f0d.jpg');
-        &:hover {
-            background-image: url('https://user-images.githubusercontent.com/924196/112137775-f5e7ce00-8bd0-11eb-8f7e-f3a6f71f0aff.png');
-        }
-    }
-
-    &.michal-face {
-        background-image: url('https://user-images.githubusercontent.com/924196/112137770-f54f3780-8bd0-11eb-98bb-a630669692d7.jpg');
-        &:hover {
-            background-image: url('https://user-images.githubusercontent.com/924196/112137764-f41e0a80-8bd0-11eb-9c1d-c6575d5a199c.jpg');
-        }
-    }
-}
-
-
-
 #contribution_box {
     background-color: #fff7c4;
     width: 12em;
