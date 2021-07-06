@@ -46,6 +46,10 @@ final class DemoRunner
     {
         try {
             $jsonResult = $this->processFilesContents($rectorRun->getContent(), $rectorRun->getConfig());
+            if (isset($jsonResult['fatal_errors'])) {
+                $rectorRun->setFatalErrorMessage($jsonResult['fatal_errors'][0]);
+            }
+
             $rectorRun->setJsonResult($jsonResult);
         } catch (Throwable $throwable) {
             $normalizedMessage = $this->errorMessageNormalizer->normalize($throwable->getMessage());
@@ -92,12 +96,6 @@ final class DemoRunner
             return [];
         }
 
-        try {
-            return Json::decode($output, Json::FORCE_ARRAY);
-        } catch (JsonException $jsonException) {
-            if (str_contains($output, '[ERROR]')) {
-                throw new RunnerException($output);
-            }
-        }
+        return Json::decode($output, Json::FORCE_ARRAY);
     }
 }
