@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Rector\Website\Controller;
 
-use Karser\Recaptcha3Bundle\Validator\Constraints\Recaptcha3Validator;
 use Rector\Website\Form\ContactFormType;
 use Rector\Website\FormProcessor\ContactFormProcessor;
 
@@ -18,7 +17,6 @@ final class ContactController extends AbstractController
 {
     public function __construct(
         private ContactFormProcessor $contactFormProcessor,
-        private Recaptcha3Validator $recaptcha3Validator,
     ) {
     }
 
@@ -29,13 +27,6 @@ final class ContactController extends AbstractController
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $lastResponse = $this->recaptcha3Validator->getLastResponse();
-            if ($lastResponse instanceof \ReCaptcha\Response && ! $lastResponse->isSuccess()) {
-                // probably a bot
-                $this->addFlash('error', 'Google now sees you as a bot, so your message was not sent.');
-                return $this->redirectToRoute(RouteName::CONTACT);
-            }
-
             return $this->contactFormProcessor->process($form, RouteName::CONTACT);
         }
 
