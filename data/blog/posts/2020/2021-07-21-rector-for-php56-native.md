@@ -45,11 +45,13 @@ We want to release this package as a [sponsorware](https://github.com/sponsorwar
 
 At the time we publish this, [we have 22 sponsors](https://github.com/sponsors/TomasVotruba/).
 
-When we **reach 45 sponsors**, we'll release the rector-php56 version in a matter of 4 weeks for testing and give exclusive access to all sponsors at the time of release and onward. Testing and bug fixes included.
+When we **reach 45 sponsors**, we'll release the [rector-php56](https://github.com/rectorphp/rector-php56) version in a matter of 4 weeks for testing and give exclusive access to all sponsors at the time of release and onward. Testing and bug fixes included.
 
 ### 2. Open-Source Threshold
 
-When we **reach 70 sponsors**, we'll release rector-php56 as an open-source package under MIT license.
+When we **reach 70 sponsors**, we'll release [rector-php56](https://github.com/rectorphp/rector-php56) as an open-source package under MIT license.
+
+The repository for release is here: [rectorphp/rector-php5](https://github.com/rectorphp/rector-php5).
 
 <br>
 
