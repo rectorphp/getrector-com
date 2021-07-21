@@ -17,7 +17,7 @@ jobs:
                 actions:
                     -
                         name: "Update Rector Dependencies"
-                        run: "composer update rector/rector --with-all-dependencies"
+                        run: "composer update rector/rector  symplify/amnesia symplify/autowire-array-parameter symplify/composer-json-manipulator symplify/easy-testing symplify/markdown-diff symplify/package-builder symplify/php-config-printer symplify/rule-doc-generator symplify/simple-php-doc-parser symplify/skipper symplify/smart-file-system symplify/symfony-php-config symplify/symplify-kernel symplify/coding-standard symplify/easy-coding-standard symplify/phpstan-extensions symplify/phpstan-rules --with-all-dependencies"
                         branch: 'automated-regenerated-composer-lock'
 
         name: ${{ matrix.actions.name }}
