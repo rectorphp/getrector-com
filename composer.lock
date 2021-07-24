@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "34f6669e3ccb6587ebea458fb85a586d",
+    "content-hash": "3f4322beb4f2efd3075b3ae3e115243d",
     "packages": [
         {
             "name": "brick/math",
@@ -2836,16 +2836,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "0.12.91",
+            "version": "0.12.93",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "8226701cd228a0d63c2df995de7ab6070c69ac6a"
+                "reference": "7b7602f05d340ffa418c59299f8c053ac6c3e7ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/8226701cd228a0d63c2df995de7ab6070c69ac6a",
-                "reference": "8226701cd228a0d63c2df995de7ab6070c69ac6a",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/7b7602f05d340ffa418c59299f8c053ac6c3e7ea",
+                "reference": "7b7602f05d340ffa418c59299f8c053ac6c3e7ea",
                 "shasum": ""
             },
             "require": {
@@ -2876,7 +2876,7 @@
             "description": "PHPStan - PHP Static Analysis Tool",
             "support": {
                 "issues": "https://github.com/phpstan/phpstan/issues",
-                "source": "https://github.com/phpstan/phpstan/tree/0.12.91"
+                "source": "https://github.com/phpstan/phpstan/tree/0.12.93"
             },
             "funding": [
                 {
@@ -2896,7 +2896,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-07-04T15:31:48+00:00"
+            "time": "2021-07-20T10:49:53+00:00"
         },
         {
             "name": "psr/cache",
@@ -3470,21 +3470,21 @@
         },
         {
             "name": "rector/rector",
-            "version": "0.11.38",
+            "version": "0.11.39",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "26b3ebb197ff812982fe79af757c4e301f6a4c84"
+                "reference": "cae78baa4479d7dec86fe4ab3bd41032a3859719"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/26b3ebb197ff812982fe79af757c4e301f6a4c84",
-                "reference": "26b3ebb197ff812982fe79af757c4e301f6a4c84",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/cae78baa4479d7dec86fe4ab3bd41032a3859719",
+                "reference": "cae78baa4479d7dec86fe4ab3bd41032a3859719",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.1|^8.0",
-                "phpstan/phpstan": "0.12.91"
+                "phpstan/phpstan": "0.12.93"
             },
             "conflict": {
                 "phpstan/phpdoc-parser": "<=0.5.3",
@@ -3517,7 +3517,7 @@
             "description": "Prefixed and PHP 7.1 downgraded version of rector/rector",
             "support": {
                 "issues": "https://github.com/rectorphp/rector/issues",
-                "source": "https://github.com/rectorphp/rector/tree/0.11.38"
+                "source": "https://github.com/rectorphp/rector/tree/0.11.39"
             },
             "funding": [
                 {
@@ -3525,7 +3525,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-07-21T14:29:45+00:00"
+            "time": "2021-07-24T12:10:31+00:00"
         },
         {
             "name": "sebastian/diff",
@@ -9187,7 +9187,7 @@
         },
         {
             "name": "symplify/astral",
-            "version": "dev-main",
+            "version": "9.4.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/astral.git",
@@ -9212,7 +9212,6 @@
                 "phpunit/phpunit": "^9.5",
                 "symplify/easy-testing": "^9.4.23"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -9246,7 +9245,7 @@
         },
         {
             "name": "symplify/autowire-array-parameter",
-            "version": "dev-main",
+            "version": "9.4.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/autowire-array-parameter.git",
@@ -9267,7 +9266,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^9.5"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -9285,7 +9283,7 @@
             ],
             "description": "Autowire array parameters for your Symfony applications",
             "support": {
-                "source": "https://github.com/symplify/autowire-array-parameter/tree/main"
+                "source": "https://github.com/symplify/autowire-array-parameter/tree/9.4.23"
             },
             "funding": [
                 {
@@ -9301,7 +9299,7 @@
         },
         {
             "name": "symplify/composer-json-manipulator",
-            "version": "dev-main",
+            "version": "9.4.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/composer-json-manipulator.git",
@@ -9326,7 +9324,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^9.5"
             },
-            "default-branch": true,
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -9344,7 +9341,7 @@
             ],
             "description": "Package to load, merge and save composer.json file(s)",
             "support": {
-                "source": "https://github.com/symplify/composer-json-manipulator/tree/main"
+                "source": "https://github.com/symplify/composer-json-manipulator/tree/9.4.23"
             },
             "funding": [
                 {
@@ -9360,7 +9357,7 @@
         },
         {
             "name": "symplify/console-package-builder",
-            "version": "dev-main",
+            "version": "9.4.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/console-package-builder.git",
@@ -9383,7 +9380,6 @@
                 "symfony/http-kernel": "^5.3",
                 "symplify/package-builder": "^9.4.23"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -9407,7 +9403,7 @@
         },
         {
             "name": "symplify/easy-testing",
-            "version": "dev-main",
+            "version": "9.4.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/easy-testing.git",
@@ -9434,7 +9430,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^9.5"
             },
-            "default-branch": true,
             "bin": [
                 "bin/easy-testing"
             ],
@@ -9455,7 +9450,7 @@
             ],
             "description": "Testing made easy",
             "support": {
-                "source": "https://github.com/symplify/easy-testing/tree/main"
+                "source": "https://github.com/symplify/easy-testing/tree/9.4.23"
             },
             "funding": [
                 {
@@ -9471,7 +9466,7 @@
         },
         {
             "name": "symplify/markdown-diff",
-            "version": "dev-main",
+            "version": "9.4.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/markdown-diff.git",
@@ -9494,7 +9489,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^9.5"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -9512,7 +9506,7 @@
             ],
             "description": "Package to print diffs for Markdown",
             "support": {
-                "source": "https://github.com/symplify/markdown-diff/tree/main"
+                "source": "https://github.com/symplify/markdown-diff/tree/9.4.23"
             },
             "funding": [
                 {
@@ -9588,7 +9582,7 @@
         },
         {
             "name": "symplify/php-config-printer",
-            "version": "dev-main",
+            "version": "9.4.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/php-config-printer.git",
@@ -9613,7 +9607,6 @@
                 "phpunit/phpunit": "^9.5",
                 "symplify/easy-testing": "^9.4.23"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -9632,13 +9625,13 @@
             "description": "Print Symfony services array with configuration to to plain PHP file format thanks to this simple php-parser wrapper",
             "support": {
                 "issues": "https://github.com/symplify/php-config-printer/issues",
-                "source": "https://github.com/symplify/php-config-printer/tree/main"
+                "source": "https://github.com/symplify/php-config-printer/tree/9.4.23"
             },
             "time": "2021-07-24T11:01:50+00:00"
         },
         {
             "name": "symplify/rule-doc-generator",
-            "version": "dev-main",
+            "version": "9.4.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/rule-doc-generator.git",
@@ -9668,7 +9661,6 @@
                 "phpstan/phpstan": "^0.12.91",
                 "phpunit/phpunit": "^9.5"
             },
-            "default-branch": true,
             "bin": [
                 "bin/rule-doc-generator"
             ],
@@ -9689,7 +9681,7 @@
             ],
             "description": "Documentation generator for coding standard or static analysis rules",
             "support": {
-                "source": "https://github.com/symplify/rule-doc-generator/tree/main"
+                "source": "https://github.com/symplify/rule-doc-generator/tree/9.4.23"
             },
             "funding": [
                 {
@@ -9755,7 +9747,7 @@
         },
         {
             "name": "symplify/simple-php-doc-parser",
-            "version": "dev-main",
+            "version": "9.4.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/simple-php-doc-parser.git",
@@ -9779,7 +9771,6 @@
                 "phpunit/phpunit": "^9.5",
                 "symplify/easy-testing": "^9.4.23"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -9797,7 +9788,7 @@
             ],
             "description": "Service integration of phpstan/phpdoc-parser, with few extra goodies for practical simple use",
             "support": {
-                "source": "https://github.com/symplify/simple-php-doc-parser/tree/main"
+                "source": "https://github.com/symplify/simple-php-doc-parser/tree/9.4.23"
             },
             "funding": [
                 {
@@ -9813,7 +9804,7 @@
         },
         {
             "name": "symplify/skipper",
-            "version": "dev-main",
+            "version": "9.4.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/skipper.git",
@@ -9839,7 +9830,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^9.5"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -9857,7 +9847,7 @@
             ],
             "description": "Skip files by rule class, directory, file or fnmatch",
             "support": {
-                "source": "https://github.com/symplify/skipper/tree/main"
+                "source": "https://github.com/symplify/skipper/tree/9.4.23"
             },
             "funding": [
                 {
@@ -12882,7 +12872,7 @@
         },
         {
             "name": "symplify/coding-standard",
-            "version": "dev-main",
+            "version": "9.4.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/coding-standard.git",
@@ -12914,7 +12904,6 @@
                 "symplify/rule-doc-generator": "^9.4.23",
                 "symplify/smart-file-system": "^9.4.23"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -12932,7 +12921,7 @@
             ],
             "description": "Set of Symplify rules for PHP_CodeSniffer and PHP CS Fixer.",
             "support": {
-                "source": "https://github.com/symplify/coding-standard/tree/main"
+                "source": "https://github.com/symplify/coding-standard/tree/9.4.23"
             },
             "funding": [
                 {
@@ -12998,7 +12987,7 @@
         },
         {
             "name": "symplify/phpstan-extensions",
-            "version": "dev-main",
+            "version": "9.4.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/phpstan-extensions.git",
@@ -13020,7 +13009,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^9.5"
             },
-            "default-branch": true,
             "type": "phpstan-extension",
             "extra": {
                 "branch-alias": {
@@ -13043,7 +13031,7 @@
             ],
             "description": "Pre-escaped error messages in 'symplify' error format, container aware test case and other useful extensions for PHPStan",
             "support": {
-                "source": "https://github.com/symplify/phpstan-extensions/tree/main"
+                "source": "https://github.com/symplify/phpstan-extensions/tree/9.4.23"
             },
             "funding": [
                 {
@@ -13059,7 +13047,7 @@
         },
         {
             "name": "symplify/phpstan-rules",
-            "version": "dev-main",
+            "version": "9.4.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/phpstan-rules.git",
@@ -13094,7 +13082,6 @@
                 "symplify/phpstan-extensions": "^9.4.23",
                 "symplify/rule-doc-generator": "^9.4.23"
             },
-            "default-branch": true,
             "type": "phpstan-extension",
             "extra": {
                 "branch-alias": {
@@ -13121,7 +13108,7 @@
             ],
             "description": "Set of Symplify rules for PHPStan",
             "support": {
-                "source": "https://github.com/symplify/phpstan-rules/tree/main"
+                "source": "https://github.com/symplify/phpstan-rules/tree/9.4.23"
             },
             "funding": [
                 {
