@@ -4447,12 +4447,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "01de5c712338a28286d548b434d8e49281b6d46d"
+                "reference": "4a27529aab5ea9748a9bad6e3b8b8e72d240a311"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/01de5c712338a28286d548b434d8e49281b6d46d",
-                "reference": "01de5c712338a28286d548b434d8e49281b6d46d",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/4a27529aab5ea9748a9bad6e3b8b8e72d240a311",
+                "reference": "4a27529aab5ea9748a9bad6e3b8b8e72d240a311",
                 "shasum": ""
             },
             "require": {
@@ -4527,7 +4527,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-07-21T12:43:48+00:00"
+            "time": "2021-07-23T15:55:57+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
