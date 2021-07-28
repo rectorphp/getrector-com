@@ -110,12 +110,39 @@ class RectorRun implements TimestampableInterface
             return false;
         }
 
-        return $this->jsonResult !== [];
+        if ($this->jsonResult === []) {
+            return false;
+        }
+
+        if (! isset($this->jsonResult['errors'])) {
+            return true;
+        }
+
+        return count($this->jsonResult['errors']) === 0;
     }
 
     public function getFatalErrorMessage(): ?string
     {
         return $this->fatalErrorMessage;
+    }
+
+    /**
+     * @return string[]
+     */
+    public function getErrors(): array
+    {
+        $jsonErrors = $this->jsonResult['errors'] ?? [];
+
+        $errors = [];
+        foreach ($jsonErrors as $jsonError) {
+            // clear server paths for easier read
+            $rawMessage = $jsonError['message'];
+            // @see https://regex101.com/r/Viu6Tc/1
+            $clearMessage = Strings::replace($rawMessage, '#\/(.*?)vendor/#i', '');
+            $errors[] = $clearMessage;
+        }
+
+        return $errors;
     }
 
     public function setFatalErrorMessage(string $fatalErrorMessage): void
