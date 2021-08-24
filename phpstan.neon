@@ -1,8 +1,3 @@
-services:
-    -
-        class: Symplify\PHPStanRules\Rules\NoInheritanceRule
-        tags: [phpstan.rules.rule]
-
 parameters:
     paths:
         - src
@@ -17,48 +12,8 @@ parameters:
     checkGenericClassInNonGenericObjectType: false
 
     ignoreErrors:
-        - '#Method Rector\\Website\\Demo\\Form\\DemoFormType\:\:buildForm\(\) has parameter \$formBuilder with no value type specified in iterable type Symfony\\Component\\Form\\FormBuilderInterface#'
-        - '#Method Rector\\Website\\Form\\ContactFormType\:\:buildForm\(\) has parameter \$formBuilder with no value type specified in iterable type Symfony\\Component\\Form\\FormBuilderInterface#'
         - '#Method Rector\\Website\\Demo\\Controller\\DemoController\:\:processFormAndReturnRoute\(\) has parameter \$form with no value type specified in iterable type Symfony\\Component\\Form\\FormInterface#'
-
-        -
-             message: '#Do not use chained method calls\. Put each on separated lines#'
-             paths:
-                 - src/Mailing/MailSender.php
-
-        -
-            message: '#"%s" in sprintf\(\) format must be quoted#'
-            paths:
-                - packages/Demo/Error/ErrorMessageNormalizer.php
-
-        -
-            message: '#Use required typed property over of nullable property#'
-            paths:
-                - packages/Demo/Entity
-                - src/Entity
-
-        -
-            message: '#Parameter "(.*?)" cannot be nullable#'
-            paths:
-                - packages/Blog/ValueObject/Post.php
-                - src/Entity
-                - packages/Demo/Controller/DemoController.php
 
         - '#Method Rector\\Website\\FormProcessor\\ContactFormProcessor\:\:process\(\) has parameter \$form with no value type specified in iterable type Symfony\\Component\\Form\\FormInterface#'
         - '#Property Rector\\Website\\FormProcessor\\ContactFormProcessor\:\:\$session type has no value type specified in iterable type Symfony\\Component\\HttpFoundation\\Session\\Session#'
         - '#Method Rector\\Website\\FormProcessor\\ContactFormProcessor\:\:__construct\(\) has parameter \$session with no value type specified in iterable type Symfony\\Component\\HttpFoundation\\Session\\Session#'
-        - '#Use decoupled factory service to create "Symfony\\Component\\HttpFoundation\\Response" object#'
-
-        # fixed in symplify master
-        -
-            message: '#Do not inherit from abstract class, better use composition#'
-            paths:
-                - packages/Demo/Validator
-
-
-        -
-            message: '#Do not inherit from abstract class, better use composition#'
-            paths:
-                 - src/Controller
-                 - packages/Blog/Controller/
-                 - packages/Demo/Controller/
