@@ -3486,16 +3486,16 @@
         },
         {
             "name": "rector/rector",
-            "version": "0.11.55",
+            "version": "0.11.56",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "fe8c0e8c986661e21f0724d01532c8a0a9506840"
+                "reference": "9f601b77550dbfa6e096028f8aaecf7021c1bc46"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/fe8c0e8c986661e21f0724d01532c8a0a9506840",
-                "reference": "fe8c0e8c986661e21f0724d01532c8a0a9506840",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/9f601b77550dbfa6e096028f8aaecf7021c1bc46",
+                "reference": "9f601b77550dbfa6e096028f8aaecf7021c1bc46",
                 "shasum": ""
             },
             "require": {
@@ -3533,7 +3533,7 @@
             "description": "Prefixed and PHP 7.1 downgraded version of rector/rector",
             "support": {
                 "issues": "https://github.com/rectorphp/rector/issues",
-                "source": "https://github.com/rectorphp/rector/tree/0.11.55"
+                "source": "https://github.com/rectorphp/rector/tree/0.11.56"
             },
             "funding": [
                 {
@@ -3541,7 +3541,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-09-27T16:07:45+00:00"
+            "time": "2021-09-28T19:06:03+00:00"
         },
         {
             "name": "sebastian/diff",
