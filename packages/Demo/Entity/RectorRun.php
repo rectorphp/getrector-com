@@ -55,7 +55,6 @@ class RectorRun implements TimestampableInterface
     /**
      * @var mixed[]
      */
-
     #[Column(type: 'json')]
     private array $jsonResult = [];
 
