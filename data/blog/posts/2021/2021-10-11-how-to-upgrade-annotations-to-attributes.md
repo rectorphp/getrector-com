@@ -20,8 +20,6 @@ One package that added support for attributes is Doctrine:
 +#[ORM\Column(type: "string")]
 ```
 
-Now, let's go to upgrade itself. It's effortless.
-
 ## Upgrade from Annotations to Attributes in 3 Steps
 
 ### 1. Configure `rector.php` to include the packages you use:
@@ -68,7 +66,7 @@ vendor/bin/rector process
 
 This enables new Symfony [auto-detection feature](https://github.com/symfony/symfony/pull/42054).
 
-That's it! Now your codebase uses nice and shiny PHP 8 native attributes.
+And that's it! Now your codebase uses nice and shiny PHP 8 native attributes.
 
 <br>
 
