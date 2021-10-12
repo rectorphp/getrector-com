@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f2e5f09b06de84c802423db1462958a8",
+    "content-hash": "8460845db5b310f397aecc632c79ad0e",
     "packages": [
         {
             "name": "brick/math",
@@ -3558,16 +3558,16 @@
         },
         {
             "name": "rector/rector",
-            "version": "0.11.57",
+            "version": "0.11.58",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "e2239d52a1205ed0625f75f1c6cff3a57d4edc86"
+                "reference": "15a8647cf05641db35f091edf0a558ffa9619fee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/e2239d52a1205ed0625f75f1c6cff3a57d4edc86",
-                "reference": "e2239d52a1205ed0625f75f1c6cff3a57d4edc86",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/15a8647cf05641db35f091edf0a558ffa9619fee",
+                "reference": "15a8647cf05641db35f091edf0a558ffa9619fee",
                 "shasum": ""
             },
             "require": {
@@ -3579,7 +3579,9 @@
                 "phpstan/phpstan": "<=0.12.82",
                 "rector/rector-cakephp": "*",
                 "rector/rector-doctrine": "*",
+                "rector/rector-laravel": "*",
                 "rector/rector-nette": "*",
+                "rector/rector-phpoffice": "*",
                 "rector/rector-phpunit": "*",
                 "rector/rector-prefixed": "*",
                 "rector/rector-symfony": "*"
@@ -3605,7 +3607,7 @@
             "description": "Prefixed and PHP 7.1 downgraded version of rector/rector",
             "support": {
                 "issues": "https://github.com/rectorphp/rector/issues",
-                "source": "https://github.com/rectorphp/rector/tree/0.11.57"
+                "source": "https://github.com/rectorphp/rector/tree/0.11.58"
             },
             "funding": [
                 {
@@ -3613,7 +3615,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-10-05T11:30:03+00:00"
+            "time": "2021-10-12T20:26:47+00:00"
         },
         {
             "name": "sebastian/diff",
@@ -7610,12 +7612,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security-bundle.git",
-                "reference": "36c0c58adeb70d392f1b5a65ee9fb0a6852781fc"
+                "reference": "8f5919643ea2e7fa4ca80e39cdf03141a55834a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security-bundle/zipball/36c0c58adeb70d392f1b5a65ee9fb0a6852781fc",
-                "reference": "36c0c58adeb70d392f1b5a65ee9fb0a6852781fc",
+                "url": "https://api.github.com/repos/symfony/security-bundle/zipball/8f5919643ea2e7fa4ca80e39cdf03141a55834a4",
+                "reference": "8f5919643ea2e7fa4ca80e39cdf03141a55834a4",
                 "shasum": ""
             },
             "require": {
@@ -7704,7 +7706,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-10-11T16:44:59+00:00"
+            "time": "2021-10-12T08:11:20+00:00"
         },
         {
             "name": "symfony/security-core",
@@ -7944,12 +7946,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security-http.git",
-                "reference": "344e7e7663a38470b3aee68a5afe5eeb4384e2d1"
+                "reference": "303edcd901f24bb9ea034d5beff71c7579c5ae30"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security-http/zipball/344e7e7663a38470b3aee68a5afe5eeb4384e2d1",
-                "reference": "344e7e7663a38470b3aee68a5afe5eeb4384e2d1",
+                "url": "https://api.github.com/repos/symfony/security-http/zipball/303edcd901f24bb9ea034d5beff71c7579c5ae30",
+                "reference": "303edcd901f24bb9ea034d5beff71c7579c5ae30",
                 "shasum": ""
             },
             "require": {
@@ -8021,7 +8023,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-10-10T16:41:01+00:00"
+            "time": "2021-10-12T08:11:20+00:00"
         },
         {
             "name": "symfony/service-contracts",
@@ -9482,12 +9484,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/composer-json-manipulator.git",
-                "reference": "beb04452f976c1138e9cdc625b529202d2717dbe"
+                "reference": "3681618d55b8eded608914b7e2bf28fe7fe9e4a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/composer-json-manipulator/zipball/beb04452f976c1138e9cdc625b529202d2717dbe",
-                "reference": "beb04452f976c1138e9cdc625b529202d2717dbe",
+                "url": "https://api.github.com/repos/symplify/composer-json-manipulator/zipball/3681618d55b8eded608914b7e2bf28fe7fe9e4a5",
+                "reference": "3681618d55b8eded608914b7e2bf28fe7fe9e4a5",
                 "shasum": ""
             },
             "require": {
@@ -9563,7 +9565,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-10-11T13:48:15+00:00"
+            "time": "2021-10-12T08:49:14+00:00"
         },
         {
             "name": "symplify/console-package-builder",
@@ -13662,12 +13664,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/easy-coding-standard.git",
-                "reference": "d3ae37d7289816e9e9ad1dce543d81ba29022b7a"
+                "reference": "58762376cd58f11ae14467b2b00d067c56166b35"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/easy-coding-standard/zipball/d3ae37d7289816e9e9ad1dce543d81ba29022b7a",
-                "reference": "d3ae37d7289816e9e9ad1dce543d81ba29022b7a",
+                "url": "https://api.github.com/repos/symplify/easy-coding-standard/zipball/58762376cd58f11ae14467b2b00d067c56166b35",
+                "reference": "58762376cd58f11ae14467b2b00d067c56166b35",
                 "shasum": ""
             },
             "require": {
@@ -13710,7 +13712,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-10-12T07:55:31+00:00"
+            "time": "2021-10-12T17:03:10+00:00"
         },
         {
             "name": "symplify/latte-phpstan-compiler",

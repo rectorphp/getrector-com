@@ -20,8 +20,7 @@ use Symfony\Bridge\Doctrine\IdGenerator\UuidGenerator;
 use Symfony\Component\Uid\Uuid;
 use Symplify\SymplifyKernel\Strings\StringsConverter;
 
-#[Entity]
-class RectorRun implements TimestampableInterface
+#[Entity]final class RectorRun implements TimestampableInterface
 {
     use TimestampableTrait;
 
@@ -117,7 +116,7 @@ class RectorRun implements TimestampableInterface
             return true;
         }
 
-        return count($this->jsonResult['errors']) === 0;
+        return (is_countable($this->jsonResult['errors']) ? count($this->jsonResult['errors']) : 0) === 0;
     }
 
     public function getFatalErrorMessage(): ?string
@@ -209,7 +208,7 @@ class RectorRun implements TimestampableInterface
     public function getExpectedRectorTestNamespace(): string
     {
         $onlyAppliedRule = $this->getAppliedRules()[0] ?? null;
-        if ($onlyAppliedRule === null) {
+        if (! $onlyAppliedRule instanceof AppliedRule) {
             throw new ShouldNotHappenException('Single applied rule is required to make a test fixture link');
         }
 
@@ -219,7 +218,7 @@ class RectorRun implements TimestampableInterface
     public function getExpectedRectorTestPath(): string
     {
         $onlyAppliedRule = $this->getAppliedRules()[0] ?? null;
-        if ($onlyAppliedRule === null) {
+        if (! $onlyAppliedRule instanceof AppliedRule) {
             throw new ShouldNotHappenException('Test can be create only if exactly 1 rule is responsible');
         }
 
@@ -229,7 +228,7 @@ class RectorRun implements TimestampableInterface
     public function getRectorShortClass(): string
     {
         $onlyAppliedRule = $this->getAppliedRules()[0] ?? null;
-        if ($onlyAppliedRule === null) {
+        if (! $onlyAppliedRule instanceof AppliedRule) {
             throw new ShouldNotHappenException('Single applied rule is required to make a test fixture link');
         }
 

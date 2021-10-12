@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Rector\Website\Blog\Controller;
 
 use Rector\Website\Blog\Repository\PostRepository;
+use Rector\Website\Blog\ValueObject\Post;
 
 use Rector\Website\ValueObject\Routing\RouteName;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -25,7 +26,7 @@ final class PostController extends AbstractController
     public function __invoke(string $postSlug): Response
     {
         $post = $this->postRepository->findBySlug($postSlug);
-        if ($post === null) {
+        if (! $post instanceof Post) {
             $message = sprintf("Post with slug '%s' not found", $postSlug);
             throw new NotFoundHttpException($message);
         }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Website\Blog\ValueObjectFactory;
 
+use DateTimeInterface;
 use Nette\Utils\DateTime;
 use Nette\Utils\Strings;
 use ParsedownExtra;
@@ -64,7 +65,7 @@ final class PostFactory
         $slug = $this->pathAnalyzer->getSlug($smartFileInfo);
 
         $dateTime = $this->pathAnalyzer->detectDate($smartFileInfo);
-        if ($dateTime === null) {
+        if (! $dateTime instanceof DateTimeInterface) {
             throw new ShouldNotHappenException();
         }
 
@@ -80,11 +81,7 @@ final class PostFactory
         $contributor = $configuration['contributor'] ?? null;
         $pullRequestId = $configuration['pull_request_id'] ?? null;
 
-        if (isset($configuration['updated_since'])) {
-            $updatedSince = new DateTime($configuration['updated_since']);
-        } else {
-            $updatedSince = null;
-        }
+        $updatedSince = isset($configuration['updated_since']) ? new DateTime($configuration['updated_since']) : null;
 
         $updatedMessage = $configuration['updated_message'] ?? null;
 
