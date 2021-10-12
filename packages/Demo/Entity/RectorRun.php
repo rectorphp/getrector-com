@@ -20,7 +20,8 @@ use Symfony\Bridge\Doctrine\IdGenerator\UuidGenerator;
 use Symfony\Component\Uid\Uuid;
 use Symplify\SymplifyKernel\Strings\StringsConverter;
 
-#[Entity]final class RectorRun implements TimestampableInterface
+#[Entity]
+class RectorRun implements TimestampableInterface
 {
     use TimestampableTrait;
 
@@ -116,7 +117,10 @@ use Symplify\SymplifyKernel\Strings\StringsConverter;
             return true;
         }
 
-        return (is_countable($this->jsonResult['errors']) ? count($this->jsonResult['errors']) : 0) === 0;
+        /** @var mixed[] $errors */
+        $errors = $this->jsonResult['errors'];
+
+        return $errors === [];
     }
 
     public function getFatalErrorMessage(): ?string

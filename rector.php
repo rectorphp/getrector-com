@@ -9,6 +9,7 @@ use Rector\Core\Configuration\Option;
 use Rector\Privatization\Rector\Class_\FinalizeClassesWithoutChildrenRector;
 use Rector\Set\ValueObject\LevelSetList;
 use Rector\Set\ValueObject\SetList;
+use Rector\Symfony\Set\SymfonySetList;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symplify\SymfonyPhpConfig\ValueObjectInliner;
 
@@ -28,7 +29,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 
     $parameters->set(Option::PATHS, [__DIR__ . '/src', __DIR__ . '/packages']);
 
-    $containerConfigurator->import(\Rector\Symfony\Set\SymfonySetList::SYMFONY_52_VALIDATOR_ATTRIBUTES);
+    $containerConfigurator->import(SymfonySetList::ANNOTATIONS_TO_ATTRIBUTES);
     $containerConfigurator->import(SetList::DEAD_CODE);
     $containerConfigurator->import(SetList::CODE_QUALITY);
     $containerConfigurator->import(SetList::CODING_STYLE);

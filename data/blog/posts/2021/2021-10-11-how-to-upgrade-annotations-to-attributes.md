@@ -48,11 +48,14 @@ Now, let's go to upgrade itself. It's effortless.
 
 ```php
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+use Rector\Doctrine\Set\DoctrineSetList;
+use Rector\Symfony\Set\SymfonySetList;
+use Rector\Nette\Set\NetteSetList
 
 return static function (ContainerConfigurator $containerConfigurator): void {
-    $containerConfigurator->import(\Rector\Doctrine\Set\DoctrineSetList::ENTITY_ANNOTATIONS_TO_ATTRIBUTES);
-    $containerConfigurator->import(\Rector\Symfony\Set\SymfonySetList::ANNOTATIONS_TO_ATTRIBUTES);
-    $containerConfigurator->import(\Rector\Nette\Set\NetteSetList::ANNOTATIONS_TO_ATTRIBUTES);
+    $containerConfigurator->import(DoctrineSetList::ANNOTATIONS_TO_ATTRIBUTES);
+    $containerConfigurator->import(SymfonySetList::ANNOTATIONS_TO_ATTRIBUTES);
+    $containerConfigurator->import(NetteSetList::ANNOTATIONS_TO_ATTRIBUTES);
 };
 ```
 
