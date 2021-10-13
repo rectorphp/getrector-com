@@ -44,7 +44,7 @@ Now, let's go to upgrade itself. It's effortless.
 
 ## Upgrade from Annotations to Attributes in 3 Steps
 
-1. Configure `rector.php` to include the packages you use:
+### 1. Configure `rector.php` to include the packages you use:
 
 ```php
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
@@ -61,7 +61,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 
 <br>
 
-2. Run Rector to upgrade your code
+### 2. Run Rector to upgrade your code
 
 ```bash
 vendor/bin/rector process
@@ -69,7 +69,7 @@ vendor/bin/rector process
 
 <br>
 
-3. Handle Extra Manual Steps
+### 3. Handle Manual Steps
 
 * Do you use `doctrine/orm`? Be sure to use [at least version 2.9](https://github.com/doctrine/orm/releases/tag/2.9.0), where attributes were released.
 
