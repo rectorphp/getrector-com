@@ -45,7 +45,7 @@ final class RoutingTwigExtension extends AbstractExtension
     private function isCurrentRoute(string $desiredRouteName): bool
     {
         $currentRequest = $this->requestStack->getCurrentRequest();
-        if ($currentRequest === null) {
+        if (! $currentRequest instanceof Request) {
             throw new ShouldNotHappenException();
         }
 

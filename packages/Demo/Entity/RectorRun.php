@@ -117,7 +117,10 @@ class RectorRun implements TimestampableInterface
             return true;
         }
 
-        return count($this->jsonResult['errors']) === 0;
+        /** @var mixed[] $errors */
+        $errors = $this->jsonResult['errors'];
+
+        return $errors === [];
     }
 
     public function getFatalErrorMessage(): ?string
@@ -209,7 +212,7 @@ class RectorRun implements TimestampableInterface
     public function getExpectedRectorTestNamespace(): string
     {
         $onlyAppliedRule = $this->getAppliedRules()[0] ?? null;
-        if ($onlyAppliedRule === null) {
+        if (! $onlyAppliedRule instanceof AppliedRule) {
             throw new ShouldNotHappenException('Single applied rule is required to make a test fixture link');
         }
 
@@ -219,7 +222,7 @@ class RectorRun implements TimestampableInterface
     public function getExpectedRectorTestPath(): string
     {
         $onlyAppliedRule = $this->getAppliedRules()[0] ?? null;
-        if ($onlyAppliedRule === null) {
+        if (! $onlyAppliedRule instanceof AppliedRule) {
             throw new ShouldNotHappenException('Test can be create only if exactly 1 rule is responsible');
         }
 
@@ -229,7 +232,7 @@ class RectorRun implements TimestampableInterface
     public function getRectorShortClass(): string
     {
         $onlyAppliedRule = $this->getAppliedRules()[0] ?? null;
-        if ($onlyAppliedRule === null) {
+        if (! $onlyAppliedRule instanceof AppliedRule) {
             throw new ShouldNotHappenException('Single applied rule is required to make a test fixture link');
         }
 

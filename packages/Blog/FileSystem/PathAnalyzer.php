@@ -40,7 +40,7 @@ final class PathAnalyzer
     {
         $date = $this->detectDate($fileInfo);
 
-        if ($date === null) {
+        if (! $date instanceof \DateTimeInterface) {
             throw new ShouldNotHappenException();
         }
 
