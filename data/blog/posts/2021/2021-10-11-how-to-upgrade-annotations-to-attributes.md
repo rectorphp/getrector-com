@@ -16,7 +16,7 @@ One package that added support for attributes is Doctrine:
 +use Doctrine\ORM\Mapping\Column;
 
 -/**
-- *  @ORM\Column(type="string")
+- * @ORM\Column(type="string")
 - */
 +#[Column(type="string")]
 ```
