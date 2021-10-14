@@ -18,7 +18,7 @@ One package that added support for attributes is Doctrine:
 -/**
 - * @ORM\Column(type="string")
 - */
-+#[Column(type="string")]
++#[Column(type: "string")]
 ```
 
 Why is the alias gone? In the past, the aliases were used to keep annotations easier to recognize from non-annotations tags like:
