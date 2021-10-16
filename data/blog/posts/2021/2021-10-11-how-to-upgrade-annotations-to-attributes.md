@@ -50,7 +50,7 @@ Now, let's go to upgrade itself. It's effortless.
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Rector\Doctrine\Set\DoctrineSetList;
 use Rector\Symfony\Set\SymfonySetList;
-use Rector\Nette\Set\NetteSetList
+use Rector\Nette\Set\NetteSetList;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
     $containerConfigurator->import(DoctrineSetList::ANNOTATIONS_TO_ATTRIBUTES);
