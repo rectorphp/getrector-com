@@ -82,10 +82,11 @@ vendor/bin/rector process
          mappings:
              App:
 -                type: annotation
-+                type: attribute
 ```
 
-And that's it! Now your codebase uses nice and shiny PHP 8 native attributes.
+This enables new Symfony [auto-detection feature](https://github.com/symfony/symfony/pull/42054).
+
+That's it! Now your codebase uses nice and shiny PHP 8 native attributes.
 
 <br>
 
