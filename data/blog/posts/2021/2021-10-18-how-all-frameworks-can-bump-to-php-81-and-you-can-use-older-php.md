@@ -161,10 +161,7 @@ The PHP 8.0 release has one extra step - downgrade code to PHP 8.0
 We create a `rector-downgrade.php` config with downgrade set:
 
 ```php
-use Rector\Core\Configuration\Option;
-use Rector\Core\Contract\Rector\ConfigurableRectorInterface;
 use Rector\Set\ValueObject\DowngradeLevelSetList;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
