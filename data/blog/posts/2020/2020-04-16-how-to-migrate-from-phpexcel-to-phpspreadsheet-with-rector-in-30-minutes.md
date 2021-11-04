@@ -89,7 +89,7 @@ vendor/bin/rector init
 vendor\bin\rector init
 ```
 
-3. Add your set to the config:
+3. Add your set to the `rector.php` config:
 
 ```php
 use Rector\Set\ValueObject\SetList;
