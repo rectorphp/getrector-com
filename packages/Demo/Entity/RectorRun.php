@@ -21,7 +21,7 @@ use Symfony\Component\Uid\Uuid;
 use Symplify\PackageBuilder\Strings\StringFormatConverter;
 
 #[Entity]
-final class RectorRun implements TimestampableInterface
+class RectorRun implements TimestampableInterface
 {
     use TimestampableTrait;
 
