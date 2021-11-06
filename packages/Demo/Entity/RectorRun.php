@@ -21,7 +21,7 @@ use Symfony\Component\Uid\Uuid;
 use Symplify\PackageBuilder\Strings\StringFormatConverter;
 
 #[Entity]
-class RectorRun implements TimestampableInterface
+final class RectorRun implements TimestampableInterface
 {
     use TimestampableTrait;
 
@@ -245,8 +245,8 @@ class RectorRun implements TimestampableInterface
 
         $baseFilename = $matches[self::PART_CLASS_NAME] ?? self::DEFAULT_FILE_NAME;
 
-        $stringsConverter = new StringFormatConverter();
-        $underscoredName = $stringsConverter->camelCaseToUnderscore($baseFilename);
+        $stringFormatConverter = new StringFormatConverter();
+        $underscoredName = $stringFormatConverter->camelCaseToUnderscore($baseFilename);
 
         return $underscoredName . '.php.inc';
     }
