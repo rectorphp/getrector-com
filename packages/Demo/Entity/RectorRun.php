@@ -18,7 +18,7 @@ use Rector\Website\Demo\ValueObject\AppliedRule;
 use Rector\Website\Exception\ShouldNotHappenException;
 use Symfony\Bridge\Doctrine\IdGenerator\UuidGenerator;
 use Symfony\Component\Uid\Uuid;
-use Symplify\SymplifyKernel\Strings\StringsConverter;
+use Symplify\PackageBuilder\Strings\StringFormatConverter;
 
 #[Entity]
 class RectorRun implements TimestampableInterface
@@ -245,8 +245,8 @@ class RectorRun implements TimestampableInterface
 
         $baseFilename = $matches[self::PART_CLASS_NAME] ?? self::DEFAULT_FILE_NAME;
 
-        $stringsConverter = new StringsConverter();
-        $underscoredName = $stringsConverter->camelCaseToGlue($baseFilename, '_');
+        $stringFormatConverter = new StringFormatConverter();
+        $underscoredName = $stringFormatConverter->camelCaseToUnderscore($baseFilename);
 
         return $underscoredName . '.php.inc';
     }

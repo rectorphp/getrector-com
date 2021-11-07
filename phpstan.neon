@@ -3,10 +3,7 @@ parameters:
         - src
         - packages
 
-    level: max
-
-    excludes_analyse:
-        - "packages/demo/data/DemoFile.php"
+    level: 8
 
     reportUnmatchedIgnoredErrors: false
     checkGenericClassInNonGenericObjectType: false
