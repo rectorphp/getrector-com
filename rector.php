@@ -6,6 +6,7 @@ use PHPUnit\Framework\TestCase;
 use Rector\CodingStyle\Enum\PreferenceSelfThis;
 use Rector\CodingStyle\Rector\MethodCall\PreferThisOrSelfMethodCallRector;
 use Rector\Core\Configuration\Option;
+use Rector\Php81\Rector\ClassConst\FinalizePublicClassConstantRector;
 use Rector\Privatization\Rector\Class_\FinalizeClassesWithoutChildrenRector;
 use Rector\Set\ValueObject\LevelSetList;
 use Rector\Set\ValueObject\SetList;
@@ -38,5 +39,11 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 
     $containerConfigurator->import(LevelSetList::UP_TO_PHP_80);
 
-    $parameters->set(Option::SKIP, ['*/var/cache/*', __DIR__ . '/packages/Demo/data/DemoFile.php']);
+    $parameters->set(Option::SKIP, [
+        '*/var/cache/*',
+        __DIR__ . '/packages/Demo/data/DemoFile.php',
+        FinalizePublicClassConstantRector::class => [
+            __DIR__ . '/packages/Demo/Entity/RectorRun.php',
+        ]
+    ]);
 };
