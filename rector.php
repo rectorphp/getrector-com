@@ -41,6 +41,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 
     $parameters->set(Option::SKIP, [
         '*/var/cache/*',
+        __DIR__ . '/packages/Demo/data/DemoFile.php',
         FinalizePublicClassConstantRector::class => [
             __DIR__ . '/packages/Demo/Entity/RectorRun.php',
         ]

@@ -5,6 +5,9 @@ parameters:
 
     level: 8
 
+    excludePaths:
+        - "packages/demo/data/DemoFile.php"
+
     reportUnmatchedIgnoredErrors: false
     checkGenericClassInNonGenericObjectType: false
 
