@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8d3fccd200a2d0dac3e82c570ab9cb63",
+    "content-hash": "c9236a58701acc67f4241549be439771",
     "packages": [
         {
             "name": "brick/math",
@@ -1924,16 +1924,16 @@
         },
         {
             "name": "knplabs/doctrine-behaviors",
-            "version": "2.3.3",
+            "version": "2.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/DoctrineBehaviors.git",
-                "reference": "16cf5617882d4e5828215f2018cb58b3d24c0ee7"
+                "reference": "2e1cb37ce6040ef3565c5ade0bc084c22af1c7a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/DoctrineBehaviors/zipball/16cf5617882d4e5828215f2018cb58b3d24c0ee7",
-                "reference": "16cf5617882d4e5828215f2018cb58b3d24c0ee7",
+                "url": "https://api.github.com/repos/KnpLabs/DoctrineBehaviors/zipball/2e1cb37ce6040ef3565c5ade0bc084c22af1c7a8",
+                "reference": "2e1cb37ce6040ef3565c5ade0bc084c22af1c7a8",
                 "shasum": ""
             },
             "require": {
@@ -1945,12 +1945,12 @@
                 "nette/utils": "^3.2",
                 "php": ">=8.0",
                 "ramsey/uuid": "^4.2",
-                "symfony/cache": "^5.3",
-                "symfony/dependency-injection": "^5.3",
-                "symfony/framework-bundle": "^5.3",
-                "symfony/http-kernel": "^5.3",
-                "symfony/security-core": "^5.3",
-                "symfony/string": "^5.3",
+                "symfony/cache": "^5.3|^6.0",
+                "symfony/dependency-injection": "^5.3|^6.0",
+                "symfony/framework-bundle": "^5.3|^6.0",
+                "symfony/http-kernel": "^5.3|^6.0",
+                "symfony/security-core": "^5.3|^6.0",
+                "symfony/string": "^5.3|^6.0",
                 "symfony/translation-contracts": "^2.4"
             },
             "require-dev": {
@@ -2005,9 +2005,9 @@
             ],
             "support": {
                 "issues": "https://github.com/KnpLabs/DoctrineBehaviors/issues",
-                "source": "https://github.com/KnpLabs/DoctrineBehaviors/tree/2.3.3"
+                "source": "https://github.com/KnpLabs/DoctrineBehaviors/tree/2.4.0"
             },
-            "time": "2021-08-11T13:40:52+00:00"
+            "time": "2021-11-07T10:40:25+00:00"
         },
         {
             "name": "nette/finder",
@@ -2912,16 +2912,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.0.2",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "e9e2a501102ba0b126b2f63a7f0a3b151056fe91"
+                "reference": "cb317029197236c571c1b9305b8dd12850d8d85c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/e9e2a501102ba0b126b2f63a7f0a3b151056fe91",
-                "reference": "e9e2a501102ba0b126b2f63a7f0a3b151056fe91",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/cb317029197236c571c1b9305b8dd12850d8d85c",
+                "reference": "cb317029197236c571c1b9305b8dd12850d8d85c",
                 "shasum": ""
             },
             "require": {
@@ -2952,7 +2952,7 @@
             "description": "PHPStan - PHP Static Analysis Tool",
             "support": {
                 "issues": "https://github.com/phpstan/phpstan/issues",
-                "source": "https://github.com/phpstan/phpstan/tree/1.0.2"
+                "source": "https://github.com/phpstan/phpstan/tree/1.1.1"
             },
             "funding": [
                 {
@@ -2972,7 +2972,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-11-03T16:09:51+00:00"
+            "time": "2021-11-06T22:46:47+00:00"
         },
         {
             "name": "psr/cache",
@@ -3558,21 +3558,20 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "9ef85318a2c7bf1a68b690e74969fdde915eb286"
+                "reference": "4a6ab9985634a0d9d0de24e8724a3765a9d77c6e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/9ef85318a2c7bf1a68b690e74969fdde915eb286",
-                "reference": "9ef85318a2c7bf1a68b690e74969fdde915eb286",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/4a6ab9985634a0d9d0de24e8724a3765a9d77c6e",
+                "reference": "4a6ab9985634a0d9d0de24e8724a3765a9d77c6e",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.1|^8.0",
-                "phpstan/phpstan": "^1.0"
+                "phpstan/phpstan": "^1.1.1"
             },
             "conflict": {
-                "phpstan/phpdoc-parser": "<=0.5.3",
-                "phpstan/phpstan": "<=0.12.99",
+                "phpstan/phpdoc-parser": "<1.2",
                 "rector/rector-cakephp": "*",
                 "rector/rector-doctrine": "*",
                 "rector/rector-laravel": "*",
@@ -3612,7 +3611,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-11-06T09:49:44+00:00"
+            "time": "2021-11-07T06:43:37+00:00"
         },
         {
             "name": "sebastian/diff",
