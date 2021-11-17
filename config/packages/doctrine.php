@@ -36,12 +36,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
                     Mapping::DIR => __DIR__ . '/../../packages/Demo/Entity',
                     Mapping::PREFIX => 'Rector\Website\Demo\Entity',
                 ],
-                'contact' => [
-                    Mapping::IS_BUNDLE => false,
-                    Mapping::TYPE => 'attribute',
-                    Mapping::DIR => __DIR__ . '/../../src/Entity',
-                    Mapping::PREFIX => 'Rector\Website\Entity',
-                ],
             ],
         ],
     ]);
