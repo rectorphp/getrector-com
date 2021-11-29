@@ -16,9 +16,9 @@ use Rector\Website\Demo\Utils\FileDiffCleaner;
 use Rector\Website\Demo\Validator\Constraint\PHPConstraint;
 use Rector\Website\Demo\ValueObject\AppliedRule;
 use Rector\Website\Exception\ShouldNotHappenException;
+use Rector\Website\Utils\StringsConverter;
 use Symfony\Bridge\Doctrine\IdGenerator\UuidGenerator;
 use Symfony\Component\Uid\Uuid;
-use Symplify\SymplifyKernel\Strings\StringsConverter;
 
 #[Entity]
 class RectorRun implements TimestampableInterface

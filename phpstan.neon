@@ -3,9 +3,9 @@ parameters:
         - src
         - packages
 
-    level: max
+    level: 8
 
-    excludes_analyse:
+    excludePaths:
         - "packages/demo/data/DemoFile.php"
 
     reportUnmatchedIgnoredErrors: false
