@@ -5,9 +5,11 @@ declare(strict_types=1);
 namespace Rector\Website\Demo;
 
 use Nette\Utils\Json;
+use Nette\Utils\JsonException;
 use Nette\Utils\Random;
 use Rector\Website\Demo\Entity\RectorRun;
 use Rector\Website\Demo\Error\ErrorMessageNormalizer;
+use Rector\Website\Demo\Exception\RunnerException;
 use Rector\Website\Demo\ValueObject\Option;
 use function Sentry\captureException;
 use Symfony\Component\Process\Process;
@@ -94,6 +96,16 @@ final class DemoRunner
             return [];
         }
 
-        return Json::decode($output, Json::FORCE_ARRAY);
+        // is valid json?
+        try {
+            return Json::decode($output, Json::FORCE_ARRAY);
+        } catch (JsonException $jsonException) {
+            if ($jsonException->getMessage() === 'Syntax error') {
+                $errorMessage = 'Invalid json syntax in "vendor/bin/rector" process output: ' . PHP_EOL . PHP_EOL . $output;
+                throw new RunnerException($errorMessage);
+            }
+
+            throw $jsonException;
+        }
     }
 }
