@@ -12,33 +12,13 @@ perex: |
 One package that added support for attributes is Doctrine:
 
 ```diff
--use Doctrine\ORM\Mapping as ORM;
-+use Doctrine\ORM\Mapping\Column;
+ use Doctrine\ORM\Mapping as ORM;
 
 -/**
 - * @ORM\Column(type="string")
 - */
-+#[Column(type: "string")]
++#[ORM\Column(type: "string")]
 ```
-
-Why is the alias gone? In the past, the aliases were used to keep annotations easier to recognize from non-annotations tags like:
-
-```php
-/**
- * @ORM\Entity
- * @var int
- */
-private $name;
-```
-
-Nowadays, we can easily read the PHP code syntax form, and we can drop the alias:
-
-```php
-#[Entity]
-private int $name;
-```
-
-We decided to follow this 1-way to use attributes in Rector, so make attributes syntax consistent across various vendor packages.
 
 Now, let's go to upgrade itself. It's effortless.
 
@@ -50,12 +30,14 @@ Now, let's go to upgrade itself. It's effortless.
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Rector\Doctrine\Set\DoctrineSetList;
 use Rector\Symfony\Set\SymfonySetList;
+use Rector\Symfony\Set\SensiolabsSetList;
 use Rector\Nette\Set\NetteSetList;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
     $containerConfigurator->import(DoctrineSetList::ANNOTATIONS_TO_ATTRIBUTES);
     $containerConfigurator->import(SymfonySetList::ANNOTATIONS_TO_ATTRIBUTES);
     $containerConfigurator->import(NetteSetList::ANNOTATIONS_TO_ATTRIBUTES);
+    $containerConfigurator->import(SensiolabsSetList::FRAMEWORK_EXTRA_61);
 };
 ```
 
