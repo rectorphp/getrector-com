@@ -1,21 +1,21 @@
 {
     "name": "getrector-org",
     "dependencies": {
-        "ajv": "^6.10.1",
-        "bootstrap": "^4.3.1",
-        "jquery": "^3.4.1",
-        "typed.js": "^2.0.11",
         "@fortawesome/fontawesome-free": "^5.9.0",
         "@fortawesome/free-brands-svg-icons": "^5.9.0",
         "@fortawesome/free-regular-svg-icons": "^5.9.0",
-        "@fortawesome/free-solid-svg-icons": "^5.9.0"
+        "@fortawesome/free-solid-svg-icons": "^5.9.0",
+        "ajv": "^6.10.1",
+        "bootstrap": "^4.3.1",
+        "jquery": "^3.4.1",
+        "typed.js": "^2.0.11"
     },
     "devDependencies": {
         "@symfony/webpack-encore": "^1.0",
         "bootstrap-sass": "^3.4.1",
         "bootswatch": "^3.4.1",
         "imports-loader": "^2.0",
-        "node-sass": "^5.0",
+        "node-sass": "^7.0.0",
         "sass-loader": "^11.0"
     },
     "scripts": {
