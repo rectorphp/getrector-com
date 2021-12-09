@@ -33,12 +33,9 @@ use Rector\Renaming\Rector\Name\RenameClassRector;
 // first config
 $services = $containerConfigurator->services();
 $services->set(RenameClassRector::class)
-    ->call('configure', [[
-        RenameClassRector::OLD_TO_NEW_CLASSES => [
-            'old_2' => 'new_2',
-        ],
-    ],
-]);
+    ->configure([
+        'old_2' => 'new_2',
+    ]);
 ```
 
 <br>
@@ -48,12 +45,9 @@ If you have 2 configs with same method call and same argument, **only the latest
 ```php
 // another config
 $services->set(RenameClassRector::class)
-    ->call('configure', [[
-        RenameClassRector::OLD_TO_NEW_CLASSES => [
+    ->configure([
             'old_1' => 'new_1',
-        ],
-    ],
-]);
+    ]);
 ```
 
 **We fixed this behavior from "override" to "merge"** with [custom file loader](https://github.com/rectorphp/rector/pull/4081/files#diff-1f79bb7ffdca1f08c0a6ac35bbb2d928). It collects all the arguments and sets them once in the end before the container is compiled.
@@ -158,11 +152,9 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $services = $containerConfigurator->services();
 
     $services->set(RenameClassConstantRector::class)
-        ->call('configure', [[
-            RenameClassConstantRector::CLASS_CONSTANT_RENAME => inline_value_objects([
-                new ClassConstantRename('Cake\View\View', 'NAME_ELEMENT', 'TYPE_ELEMENT')
-            ])
-        ]]);
+        ->configure([
+            new ClassConstantRename('Cake\View\View', 'NAME_ELEMENT', 'TYPE_ELEMENT')
+        ]);
 };
 ```
 

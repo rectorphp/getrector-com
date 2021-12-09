@@ -142,6 +142,22 @@ Do you want to sure it too?
 composer require symplify/symfony-php-config
 ```
 
+## 4. Simple `configure()` Method
+
+Since Rector 0.12 you can use `->configure()` method, that handles the complexity for you:
+
+```php
+$services->set(FuncCallToStaticCallRector::class)
+    ->configure([
+        new FuncCallToStaticCall('dump', 'Tracy\Debugger', 'dump'),
+        // it handles multiple items without duplicated call
+        new FuncCallToStaticCall('d', 'Tracy\Debugger', 'dump'),
+        new FuncCallToStaticCall('dd', 'Tracy\Debugger', 'dump'),
+    ]);
+```
+
+Instead of complexity keys, constants and inliners, just pass it array of value objects.
+
 And you're set!
 
 <br>

@@ -80,19 +80,17 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $services = $containerConfigurator->services();
 
     $services->set(RenameClassRector::class)
-        ->call('configure', [[
-            RenameClassRector::OLD_TO_NEW_CLASSES => [
-                'App' => 'Illuminate\Support\Facades\App',
-                'Artisan' => 'Illuminate\Support\Facades\Artisan',
-                'Auth' => 'Illuminate\Support\Facades\Auth',
-                'Blade' => 'Illuminate\Support\Facades\Blade',
-                'Broadcast' => 'Illuminate\Support\Facades\Broadcast',
-                'Bus' => 'Illuminate\Support\Facades\Bus',
-                'Cache' => 'Illuminate\Support\Facades\Cache',
-                'Config' => 'Illuminate\Support\Facades\Config',
-                // ...
-            ]
-        ]]);
+        ->configure([
+            'App' => 'Illuminate\Support\Facades\App',
+            'Artisan' => 'Illuminate\Support\Facades\Artisan',
+            'Auth' => 'Illuminate\Support\Facades\Auth',
+            'Blade' => 'Illuminate\Support\Facades\Blade',
+            'Broadcast' => 'Illuminate\Support\Facades\Broadcast',
+            'Bus' => 'Illuminate\Support\Facades\Bus',
+            'Cache' => 'Illuminate\Support\Facades\Cache',
+            'Config' => 'Illuminate\Support\Facades\Config',
+            // ...
+        ]);
 };
 ```
 

@@ -112,11 +112,9 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $services = $containerConfigurator->services();
 
     $services->set(RenameClassRector::class)
-        ->call('configure', [[
-            RenameClassRector::OLD_TO_NEW_CLASSES => [
-                'App\SomeOldClass' => 'App\SomeNewClass',
-            ],
-        ]]);
+        ->configure([
+            'App\SomeOldClass' => 'App\SomeNewClass',
+        ]);
 };
 ```
 
@@ -149,21 +147,19 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $services = $containerConfigurator->services();
 
     $services->set(ChangePackageVersionComposerRector::class)
-        ->call('configure', [[
-            ChangePackageVersionComposerRector::PACKAGES_AND_VERSIONS => ValueObjectInliner::inline([
-                new PackageAndVersion('nette/application', '^3.1'),
-                new PackageAndVersion('nette/di', '^3.0'),
-                new PackageAndVersion('nette/http', '^3.1'),
-                new PackageAndVersion('nette/utils', '^3.2'),
-                new PackageAndVersion('contributte/console', '^0.9'),
-                new PackageAndVersion('nettrine/annotations', '^0.7'),
-            ]),
-        ]]);
+        ->configure([
+            new PackageAndVersion('nette/application', '^3.1'),
+            new PackageAndVersion('nette/di', '^3.0'),
+            new PackageAndVersion('nette/http', '^3.1'),
+            new PackageAndVersion('nette/utils', '^3.2'),
+            new PackageAndVersion('contributte/console', '^0.9'),
+            new PackageAndVersion('nettrine/annotations', '^0.7'),
+        ]);
 
     $services->set(RemovePackageComposerRector::class)
-        ->call('configure', [[
-            RemovePackageComposerRector::PACKAGE_NAMES => ['nette/component-model', 'nette/neon'],
-        ]]);
+        ->configure([
+            'nette/component-model', 'nette/neon',
+        ]);
 };
 ```
 
