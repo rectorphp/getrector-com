@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1b457c4087e95f2fa39e3a75a963ed0f",
+    "content-hash": "53fb7d1df5089e447a01c9c9a4c6d426",
     "packages": [
         {
             "name": "brick/math",
@@ -3494,16 +3494,16 @@
         },
         {
             "name": "rector/rector",
-            "version": "dev-main",
+            "version": "0.12.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "ce00c3f29af7e56eea45f783a528117fb82f37d9"
+                "reference": "d88fbe1bcde87e11cbdfa1bf2f51c990f33f426d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/ce00c3f29af7e56eea45f783a528117fb82f37d9",
-                "reference": "ce00c3f29af7e56eea45f783a528117fb82f37d9",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/d88fbe1bcde87e11cbdfa1bf2f51c990f33f426d",
+                "reference": "d88fbe1bcde87e11cbdfa1bf2f51c990f33f426d",
                 "shasum": ""
             },
             "require": {
@@ -3521,7 +3521,6 @@
                 "rector/rector-prefixed": "*",
                 "rector/rector-symfony": "*"
             },
-            "default-branch": true,
             "bin": [
                 "bin/rector"
             ],
@@ -3543,7 +3542,7 @@
             "description": "Prefixed and PHP 7.1 downgraded version of rector/rector",
             "support": {
                 "issues": "https://github.com/rectorphp/rector/issues",
-                "source": "https://github.com/rectorphp/rector/tree/main"
+                "source": "https://github.com/rectorphp/rector/tree/0.12.7"
             },
             "funding": [
                 {
@@ -3551,7 +3550,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-12-10T01:48:50+00:00"
+            "time": "2021-12-09T20:25:42+00:00"
         },
         {
             "name": "sebastian/diff",
@@ -14471,7 +14470,6 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "rector/rector": 20,
         "roave/security-advisories": 20
     },
     "prefer-stable": true,
