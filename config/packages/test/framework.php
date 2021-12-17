@@ -7,11 +7,8 @@ use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigura
 return static function (ContainerConfigurator $containerConfigurator): void {
     $containerConfigurator->extension('framework', [
         'test' => null,
-    ]);
-
-    $containerConfigurator->extension('framework', [
         'session' => [
-            'storage_id' => 'session.storage.mock_file',
+            'storage_factory_id' => 'session.storage.factory.mock_file',
         ],
     ]);
 };

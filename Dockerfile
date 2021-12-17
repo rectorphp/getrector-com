@@ -77,7 +77,6 @@ COPY --from=js-builder /build/public ./public
 
 # To track releases
 ARG commitHash=""
-ENV SENTRY_RELEASE=${commitHash}
 
 # Install composer packages
 COPY composer.json composer.lock ./

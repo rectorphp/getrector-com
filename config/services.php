@@ -40,11 +40,14 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $services->set(SymfonyStyle::class)
         ->factory([service(SymfonyStyleFactory::class), 'create']);
 
-    $services->set(Security::class);
+    $services->set(Security::class)
+        ->arg('$container', service('service_container'));
 
     $services->set(ParsedownExtra::class, ParsedownExtra::class);
 
     $services->set(FinderSanitizer::class);
     $services->set(SmartFileSystem::class);
-    $services->set(ParameterProvider::class);
+
+    $services->set(ParameterProvider::class)
+        ->arg('$container', service('service_container'));
 };
