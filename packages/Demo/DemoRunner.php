@@ -11,7 +11,6 @@ use Rector\Website\Demo\Entity\RectorRun;
 use Rector\Website\Demo\Error\ErrorMessageNormalizer;
 use Rector\Website\Demo\Exception\RunnerException;
 use Rector\Website\Demo\ValueObject\Option;
-use function Sentry\captureException;
 use Symfony\Component\Process\Process;
 use Symplify\PackageBuilder\Parameter\ParameterProvider;
 use Symplify\SmartFileSystem\SmartFileSystem;
@@ -55,9 +54,7 @@ final class DemoRunner
             $normalizedMessage = $this->errorMessageNormalizer->normalize($throwable->getMessage());
             $rectorRun->setFatalErrorMessage($normalizedMessage);
 
-            // @TODO change to monolog
-            // Log to sentry
-            captureException($throwable);
+            // @TODO log to monolog
         }
     }
 
