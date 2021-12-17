@@ -15,7 +15,7 @@
         "nyholm/psr7": "^1.4",
         "phpstan/extension-installer": "^1.1",
         "rector/rector": "^0.12.7",
-        "sensio/framework-extra-bundle": "^6.2",
+        "sensio/framework-extra-bundle": "dev-master#c030f45",
         "sentry/sentry-symfony": "^4.2",
         "symfony/asset": "^6.0",
         "symfony/cache": "^6.0",

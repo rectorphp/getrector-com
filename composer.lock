@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1f6d432efe95a715a8010e2a45217b0d",
+    "content-hash": "776ae0d7c86edf24b541fb21e8aafdb9",
     "packages": [
         {
             "name": "brick/math",
@@ -3625,16 +3625,16 @@
         },
         {
             "name": "sensio/framework-extra-bundle",
-            "version": "v6.2.3",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioFrameworkExtraBundle.git",
-                "reference": "eeab0bbe6ac94a600a7da7aac020646dcd739484"
+                "reference": "c030f45"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioFrameworkExtraBundle/zipball/eeab0bbe6ac94a600a7da7aac020646dcd739484",
-                "reference": "eeab0bbe6ac94a600a7da7aac020646dcd739484",
+                "url": "https://api.github.com/repos/sensiolabs/SensioFrameworkExtraBundle/zipball/c030f45",
+                "reference": "c030f45",
                 "shasum": ""
             },
             "require": {
@@ -3666,6 +3666,7 @@
                 "symfony/yaml": "^4.4|^5.0|^6.0",
                 "twig/twig": "^1.34|^2.4|^3.0"
             },
+            "default-branch": true,
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -14232,6 +14233,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "sensio/framework-extra-bundle": 20,
         "roave/security-advisories": 20
     },
     "prefer-stable": true,
