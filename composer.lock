@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "776ae0d7c86edf24b541fb21e8aafdb9",
+    "content-hash": "7f93b6856af1dfcba5504f99979108fd",
     "packages": [
         {
             "name": "brick/math",
@@ -3629,12 +3629,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioFrameworkExtraBundle.git",
-                "reference": "c030f45"
+                "reference": "a96694e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioFrameworkExtraBundle/zipball/c030f45",
-                "reference": "c030f45",
+                "url": "https://api.github.com/repos/sensiolabs/SensioFrameworkExtraBundle/zipball/a96694e",
+                "reference": "a96694e",
                 "shasum": ""
             },
             "require": {
