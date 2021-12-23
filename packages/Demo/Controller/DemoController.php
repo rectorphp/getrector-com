@@ -20,6 +20,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\Uid\Uuid;
 
 /**
  * @see \Rector\Website\Tests\Demo\Controller\DemoControllerTest
@@ -35,12 +36,17 @@ final class DemoController extends AbstractController
     ) {
     }
 
-    #[Route(path: 'demo/{rectorRun}', name: RouteName::DEMO_DETAIL, methods: ['GET'])]
+    /**
+     * Waits on https://github.com/symfony/symfony/pull/43854 to merge in Symfony 6.1
+     */
+    #[Route(path: 'demo/{rectorRunUuid}', name: RouteName::DEMO_DETAIL, methods: ['GET'])]
     #[Route(path: 'demo', name: RouteName::DEMO, methods: ['GET', 'POST'])]
-    public function __invoke(Request $request, ?RectorRun $rectorRun = null): Response
+    public function __invoke(Request $request, ?string $rectorRunUuid = null): Response
     {
-        if ($rectorRun === null) {
+        if ($rectorRunUuid === null) {
             $rectorRun = $this->rectorRunFactory->createEmpty();
+        } else {
+            $rectorRun = $this->rectorRunRepository->get(Uuid::fromString($rectorRunUuid));
         }
 
         $demoForm = $this->formFactory->create(DemoFormType::class, $rectorRun, [
