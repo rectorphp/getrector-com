@@ -43,7 +43,11 @@ final class DemoController extends AbstractController
     #[Route(path: 'demo', name: RouteName::DEMO, methods: ['GET', 'POST'])]
     public function __invoke(Request $request, ?string $rectorRunUuid = null): Response
     {
-        if ($rectorRunUuid === null) {
+        if ($request->query->get('rectorRun')) {
+            $rectorRunUuid = $request->get('rectorRun');
+        }
+
+        if ($rectorRunUuid === null || ! Uuid::isValid($rectorRunUuid)) {
             $rectorRun = $this->rectorRunFactory->createEmpty();
         } else {
             $rectorRun = $this->rectorRunRepository->get(Uuid::fromString($rectorRunUuid));
