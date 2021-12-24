@@ -47,7 +47,7 @@ final class DemoController extends AbstractController
             $rectorRunUuid = $request->query->get('rectorRun');
         }
 
-        if ($rectorRunUuid === null || ! Uuid::isValid($rectorRunUuid)) {
+        if ($rectorRunUuid === null || ! Uuid::isValid((string) $rectorRunUuid)) {
             $rectorRun = $this->rectorRunFactory->createEmpty();
         } else {
             $rectorRun = $this->rectorRunRepository->get(Uuid::fromString($rectorRunUuid));
