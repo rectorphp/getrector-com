@@ -44,7 +44,7 @@ final class DemoController extends AbstractController
     public function __invoke(Request $request, ?string $rectorRunUuid = null): Response
     {
         if ($request->query->get('rectorRun')) {
-            $rectorRunUuid = $request->get('rectorRun');
+            $rectorRunUuid = $request->query->get('rectorRun');
         }
 
         if ($rectorRunUuid === null || ! Uuid::isValid($rectorRunUuid)) {
