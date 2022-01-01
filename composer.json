@@ -90,7 +90,11 @@
         "rector": "vendor/bin/rector process --ansi"
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "composer/package-versions-deprecated": true,
+            "phpstan/extension-installer": true
+        }
     },
     "extra": {
         "symfony": {
