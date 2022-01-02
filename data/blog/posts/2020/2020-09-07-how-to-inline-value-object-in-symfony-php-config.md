@@ -10,6 +10,10 @@ perex: |
     What can we do about it?
 ---
 
+<div class="alert alert-success mt-3 mb-5" role="alert">
+    Since Rector 0.12 we deal with value objects for you with <code>configure()</code> method. <strong>The configuration is simpler and input is validated</strong>.
+</div>
+
 ## Why are Value Objects in Configuration Priceless?
 
 Let's say we want to rename `dump()` func call to `Tracy\Debugger::dump()`.
