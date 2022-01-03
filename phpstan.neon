@@ -17,8 +17,3 @@ parameters:
         - '#Method Rector\\Website\\FormProcessor\\ContactFormProcessor\:\:process\(\) has parameter \$form with no value type specified in iterable type Symfony\\Component\\Form\\FormInterface#'
         - '#Property Rector\\Website\\FormProcessor\\ContactFormProcessor\:\:\$session type has no value type specified in iterable type Symfony\\Component\\HttpFoundation\\Session\\Session#'
         - '#Method Rector\\Website\\FormProcessor\\ContactFormProcessor\:\:__construct\(\) has parameter \$session with no value type specified in iterable type Symfony\\Component\\HttpFoundation\\Session\\Session#'
-
-services:
-    -
-        class: Symplify\PHPStanRules\Rules\Missing\CheckReferencedClassInAnnotationRule
-        tags: [phpstan.rules.rule]
