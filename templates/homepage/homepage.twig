@@ -50,7 +50,7 @@
             <div class="col-12 col-md-7 mt-4 mt-md-0">
                 <p class="text-bigger">
                     <strong>
-                    In May 2021 we've released very first book:<br>
+                    In May 2021 we've released a book:<br>
                     <a href="https://leanpub.com/rector-the-power-of-automated-refactoring?utm_source=getrectororg_homepage">Rector - The Power of Automated Refactoring</a>
                     </strong>
                 </p>
@@ -58,7 +58,7 @@
                 <p>What's inside the book?</p>
                 <ul>
                     <li>How Rector works internally?</li>
-                    <li>How to create your own rulesand how test them?</li>
+                    <li>How to create your own rules and how test them?</li>
                     <li>Why Rector was born?</li>
                     <li>How will next 5 years of PHP shape differently?</li>
                 </ul>
@@ -80,16 +80,15 @@
         </h2>
 
         {% for post in last_3_posts %}
-            <div class="mb-4 row">
-                <div class="col-2">
-                    {# @var post \Rector\Website\Blog\ValueObject\Post  #}
-                    <time datetime="{{ post.dateTime|date('Y-m-D') }}" class="mono-font text-grey">
-                        {{ post.dateTime|date('F d') }}
-                    </time>
-                </div>
-                <div class="col-10">
-                    <a class="text-bigger" href="{{ path('post', {'postSlug': post.slug }) }}">{{ post.title }}</a>
-                </div>
+            <div class="mb-4">
+                <a class="text-bigger text-bold" href="{{ path('post', {'postSlug': post.slug }) }}">{{ post.title }}</a>
+
+                <br>
+
+                {# @var post \Rector\Website\Blog\ValueObject\Post  #}
+                <time datetime="{{ post.dateTime|date('Y-m-D') }}" class="mono-font text-grey">
+                    {{ post.dateTime|date('F d') }}
+                </time>
             </div>
         {% endfor %}
 
