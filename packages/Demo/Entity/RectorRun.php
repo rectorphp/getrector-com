@@ -4,11 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Website\Demo\Entity;
 
-use Doctrine\ORM\Mapping\Column;
-use Doctrine\ORM\Mapping\CustomIdGenerator;
-use Doctrine\ORM\Mapping\Entity;
-use Doctrine\ORM\Mapping\GeneratedValue;
-use Doctrine\ORM\Mapping\Id;
+use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Contract\Entity\TimestampableInterface;
 use Knp\DoctrineBehaviors\Model\Timestampable\TimestampableTrait;
 use Nette\Utils\Strings;
@@ -20,7 +16,7 @@ use Rector\Website\Utils\StringsConverter;
 use Symfony\Bridge\Doctrine\IdGenerator\UuidGenerator;
 use Symfony\Component\Uid\Uuid;
 
-#[Entity]
+#[ORM\Entity]
 class RectorRun implements TimestampableInterface
 {
     use TimestampableTrait;
@@ -46,26 +42,26 @@ class RectorRun implements TimestampableInterface
      */
     private const DEFAULT_FILE_NAME = 'demo_fixture';
 
-    #[Id]
-    #[Column(type: 'uuid', unique: true)]
-    #[GeneratedValue(strategy: 'CUSTOM')]
-    #[CustomIdGenerator(class: UuidGenerator::class)]
+    #[ORM\Id]
+    #[ORM\Column(type: 'uuid', unique: true)]
+    #[ORM\GeneratedValue(strategy: 'CUSTOM')]
+    #[ORM\CustomIdGenerator(class: UuidGenerator::class)]
     private Uuid $id;
 
     /**
      * @var mixed[]
      */
-    #[Column(type: 'json')]
+    #[ORM\Column(type: 'json')]
     private array $jsonResult = [];
 
-    #[Column(type: 'text', nullable: true)]
+    #[ORM\Column(type: 'text', nullable: true)]
     private ?string $fatalErrorMessage = null;
 
-    #[Column(type: 'text')]
+    #[ORM\Column(type: 'text')]
     #[PHPConstraint]
     private string $config;
 
-    #[Column(type: 'text')]
+    #[ORM\Column(type: 'text')]
     #[PHPConstraint]
     private string $content;
 
