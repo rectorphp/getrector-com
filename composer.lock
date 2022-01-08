@@ -471,16 +471,16 @@
         },
         {
             "name": "doctrine/dbal",
-            "version": "3.2.0",
+            "version": "3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "5d54f63541d7bed1156cb5c9b79274ced61890e4"
+                "reference": "4caf37acf14b513a91dd4f087f7eda424fa25542"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/5d54f63541d7bed1156cb5c9b79274ced61890e4",
-                "reference": "5d54f63541d7bed1156cb5c9b79274ced61890e4",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/4caf37acf14b513a91dd4f087f7eda424fa25542",
+                "reference": "4caf37acf14b513a91dd4f087f7eda424fa25542",
                 "shasum": ""
             },
             "require": {
@@ -495,14 +495,14 @@
             "require-dev": {
                 "doctrine/coding-standard": "9.0.0",
                 "jetbrains/phpstorm-stubs": "2021.1",
-                "phpstan/phpstan": "1.2.0",
+                "phpstan/phpstan": "1.3.0",
                 "phpstan/phpstan-strict-rules": "^1.1",
-                "phpunit/phpunit": "9.5.10",
+                "phpunit/phpunit": "9.5.11",
                 "psalm/plugin-phpunit": "0.16.1",
-                "squizlabs/php_codesniffer": "3.6.1",
+                "squizlabs/php_codesniffer": "3.6.2",
                 "symfony/cache": "^5.2|^6.0",
                 "symfony/console": "^2.0.5|^3.0|^4.0|^5.0|^6.0",
-                "vimeo/psalm": "4.13.0"
+                "vimeo/psalm": "4.16.1"
             },
             "suggest": {
                 "symfony/console": "For helpful console commands such as SQL execution and import of files."
@@ -562,7 +562,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/dbal/issues",
-                "source": "https://github.com/doctrine/dbal/tree/3.2.0"
+                "source": "https://github.com/doctrine/dbal/tree/3.2.1"
             },
             "funding": [
                 {
@@ -578,7 +578,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-11-26T21:00:12+00:00"
+            "time": "2022-01-05T08:52:06+00:00"
         },
         {
             "name": "doctrine/deprecations",
@@ -625,16 +625,16 @@
         },
         {
             "name": "doctrine/doctrine-bundle",
-            "version": "2.5.4",
+            "version": "2.5.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineBundle.git",
-                "reference": "f6191c50600bad1c0195638413f53aee6158b909"
+                "reference": "5c086cbbe5327937dd6f90da075f7d421b0f28bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/f6191c50600bad1c0195638413f53aee6158b909",
-                "reference": "f6191c50600bad1c0195638413f53aee6158b909",
+                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/5c086cbbe5327937dd6f90da075f7d421b0f28bc",
+                "reference": "5c086cbbe5327937dd6f90da075f7d421b0f28bc",
                 "shasum": ""
             },
             "require": {
@@ -647,7 +647,7 @@
                 "symfony/cache": "^4.3.3|^5.0|^6.0",
                 "symfony/config": "^4.4.3|^5.0|^6.0",
                 "symfony/console": "^3.4.30|^4.3.3|^5.0|^6.0",
-                "symfony/dependency-injection": "^4.3.3|^5.0|^6.0",
+                "symfony/dependency-injection": "^4.4.18|^5.0|^6.0",
                 "symfony/deprecation-contracts": "^2.1|^3",
                 "symfony/doctrine-bridge": "^4.4.22|^5.2.7|^6.0",
                 "symfony/framework-bundle": "^3.4.30|^4.3.3|^5.0|^6.0",
@@ -718,7 +718,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/DoctrineBundle/issues",
-                "source": "https://github.com/doctrine/DoctrineBundle/tree/2.5.4"
+                "source": "https://github.com/doctrine/DoctrineBundle/tree/2.5.5"
             },
             "funding": [
                 {
@@ -734,7 +734,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-12-30T18:43:28+00:00"
+            "time": "2022-01-06T08:56:31+00:00"
         },
         {
             "name": "doctrine/event-manager",
@@ -2066,16 +2066,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.3.2",
+            "version": "1.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "84eaa569d48ea79d3bebe2c3ec5d302537a6ae8a"
+                "reference": "151a51f6149855785fbd883e79768c0abc96b75f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/84eaa569d48ea79d3bebe2c3ec5d302537a6ae8a",
-                "reference": "84eaa569d48ea79d3bebe2c3ec5d302537a6ae8a",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/151a51f6149855785fbd883e79768c0abc96b75f",
+                "reference": "151a51f6149855785fbd883e79768c0abc96b75f",
                 "shasum": ""
             },
             "require": {
@@ -2106,7 +2106,7 @@
             "description": "PHPStan - PHP Static Analysis Tool",
             "support": {
                 "issues": "https://github.com/phpstan/phpstan/issues",
-                "source": "https://github.com/phpstan/phpstan/tree/1.3.2"
+                "source": "https://github.com/phpstan/phpstan/tree/1.3.3"
             },
             "funding": [
                 {
@@ -2126,7 +2126,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-01-06T17:11:15+00:00"
+            "time": "2022-01-07T09:49:03+00:00"
         },
         {
             "name": "psr/cache",
@@ -2617,16 +2617,16 @@
         },
         {
             "name": "rector/rector",
-            "version": "0.12.11",
+            "version": "0.12.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "348f392aa15fa19e9bd7489aa7bc69bc31c148a4"
+                "reference": "efcc6f135a76bfd031c31fc182ce7a6fd02b3ce5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/348f392aa15fa19e9bd7489aa7bc69bc31c148a4",
-                "reference": "348f392aa15fa19e9bd7489aa7bc69bc31c148a4",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/efcc6f135a76bfd031c31fc182ce7a6fd02b3ce5",
+                "reference": "efcc6f135a76bfd031c31fc182ce7a6fd02b3ce5",
                 "shasum": ""
             },
             "require": {
@@ -2665,7 +2665,7 @@
             "description": "Prefixed and PHP 7.1 downgraded version of rector/rector",
             "support": {
                 "issues": "https://github.com/rectorphp/rector/issues",
-                "source": "https://github.com/rectorphp/rector/tree/0.12.11"
+                "source": "https://github.com/rectorphp/rector/tree/0.12.12"
             },
             "funding": [
                 {
@@ -2673,7 +2673,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-01-05T18:37:59+00:00"
+            "time": "2022-01-07T16:49:17+00:00"
         },
         {
             "name": "sebastian/diff",
@@ -4668,20 +4668,23 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.23.0",
+            "version": "v1.24.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
-                "reference": "46cd95797e9df938fdd2b03693b5fca5e64b01ce"
+                "reference": "30885182c981ab175d4d034db0f6f469898070ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/46cd95797e9df938fdd2b03693b5fca5e64b01ce",
-                "reference": "46cd95797e9df938fdd2b03693b5fca5e64b01ce",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/30885182c981ab175d4d034db0f6f469898070ab",
+                "reference": "30885182c981ab175d4d034db0f6f469898070ab",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1"
+            },
+            "provide": {
+                "ext-ctype": "*"
             },
             "suggest": {
                 "ext-ctype": "For best performance"
@@ -4727,7 +4730,7 @@
                 "portable"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.23.0"
+                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.24.0"
             },
             "funding": [
                 {
@@ -4743,20 +4746,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-02-19T12:13:01+00:00"
+            "time": "2021-10-20T20:35:02+00:00"
         },
         {
             "name": "symfony/polyfill-intl-grapheme",
-            "version": "v1.23.1",
+            "version": "v1.24.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-intl-grapheme.git",
-                "reference": "16880ba9c5ebe3642d1995ab866db29270b36535"
+                "reference": "81b86b50cf841a64252b439e738e97f4a34e2783"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-intl-grapheme/zipball/16880ba9c5ebe3642d1995ab866db29270b36535",
-                "reference": "16880ba9c5ebe3642d1995ab866db29270b36535",
+                "url": "https://api.github.com/repos/symfony/polyfill-intl-grapheme/zipball/81b86b50cf841a64252b439e738e97f4a34e2783",
+                "reference": "81b86b50cf841a64252b439e738e97f4a34e2783",
                 "shasum": ""
             },
             "require": {
@@ -4808,7 +4811,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-intl-grapheme/tree/v1.23.1"
+                "source": "https://github.com/symfony/polyfill-intl-grapheme/tree/v1.24.0"
             },
             "funding": [
                 {
@@ -4824,20 +4827,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-05-27T12:26:48+00:00"
+            "time": "2021-11-23T21:10:46+00:00"
         },
         {
             "name": "symfony/polyfill-intl-icu",
-            "version": "v1.23.0",
+            "version": "v1.24.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-intl-icu.git",
-                "reference": "4a80a521d6176870b6445cfb469c130f9cae1dda"
+                "reference": "c023a439b8551e320cc3c8433b198e408a623af1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-intl-icu/zipball/4a80a521d6176870b6445cfb469c130f9cae1dda",
-                "reference": "4a80a521d6176870b6445cfb469c130f9cae1dda",
+                "url": "https://api.github.com/repos/symfony/polyfill-intl-icu/zipball/c023a439b8551e320cc3c8433b198e408a623af1",
+                "reference": "c023a439b8551e320cc3c8433b198e408a623af1",
                 "shasum": ""
             },
             "require": {
@@ -4895,7 +4898,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-intl-icu/tree/v1.23.0"
+                "source": "https://github.com/symfony/polyfill-intl-icu/tree/v1.24.0"
             },
             "funding": [
                 {
@@ -4911,20 +4914,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-05-24T10:04:56+00:00"
+            "time": "2021-10-26T17:16:04+00:00"
         },
         {
             "name": "symfony/polyfill-intl-idn",
-            "version": "v1.23.0",
+            "version": "v1.24.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-intl-idn.git",
-                "reference": "65bd267525e82759e7d8c4e8ceea44f398838e65"
+                "reference": "749045c69efb97c70d25d7463abba812e91f3a44"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-intl-idn/zipball/65bd267525e82759e7d8c4e8ceea44f398838e65",
-                "reference": "65bd267525e82759e7d8c4e8ceea44f398838e65",
+                "url": "https://api.github.com/repos/symfony/polyfill-intl-idn/zipball/749045c69efb97c70d25d7463abba812e91f3a44",
+                "reference": "749045c69efb97c70d25d7463abba812e91f3a44",
                 "shasum": ""
             },
             "require": {
@@ -4982,7 +4985,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-intl-idn/tree/v1.23.0"
+                "source": "https://github.com/symfony/polyfill-intl-idn/tree/v1.24.0"
             },
             "funding": [
                 {
@@ -4998,11 +5001,11 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-05-27T09:27:20+00:00"
+            "time": "2021-09-14T14:02:44+00:00"
         },
         {
             "name": "symfony/polyfill-intl-normalizer",
-            "version": "v1.23.0",
+            "version": "v1.24.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-intl-normalizer.git",
@@ -5066,7 +5069,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-intl-normalizer/tree/v1.23.0"
+                "source": "https://github.com/symfony/polyfill-intl-normalizer/tree/v1.24.0"
             },
             "funding": [
                 {
@@ -5086,20 +5089,23 @@
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.23.1",
+            "version": "v1.24.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "9174a3d80210dca8daa7f31fec659150bbeabfc6"
+                "reference": "0abb51d2f102e00a4eefcf46ba7fec406d245825"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/9174a3d80210dca8daa7f31fec659150bbeabfc6",
-                "reference": "9174a3d80210dca8daa7f31fec659150bbeabfc6",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/0abb51d2f102e00a4eefcf46ba7fec406d245825",
+                "reference": "0abb51d2f102e00a4eefcf46ba7fec406d245825",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1"
+            },
+            "provide": {
+                "ext-mbstring": "*"
             },
             "suggest": {
                 "ext-mbstring": "For best performance"
@@ -5146,7 +5152,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.23.1"
+                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.24.0"
             },
             "funding": [
                 {
@@ -5162,11 +5168,11 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-05-27T12:26:48+00:00"
+            "time": "2021-11-30T18:21:41+00:00"
         },
         {
             "name": "symfony/polyfill-php72",
-            "version": "v1.23.0",
+            "version": "v1.24.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php72.git",
@@ -5222,7 +5228,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-php72/tree/v1.23.0"
+                "source": "https://github.com/symfony/polyfill-php72/tree/v1.24.0"
             },
             "funding": [
                 {
@@ -5242,16 +5248,16 @@
         },
         {
             "name": "symfony/polyfill-php80",
-            "version": "v1.23.1",
+            "version": "v1.24.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php80.git",
-                "reference": "1100343ed1a92e3a38f9ae122fc0eb21602547be"
+                "reference": "57b712b08eddb97c762a8caa32c84e037892d2e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php80/zipball/1100343ed1a92e3a38f9ae122fc0eb21602547be",
-                "reference": "1100343ed1a92e3a38f9ae122fc0eb21602547be",
+                "url": "https://api.github.com/repos/symfony/polyfill-php80/zipball/57b712b08eddb97c762a8caa32c84e037892d2e9",
+                "reference": "57b712b08eddb97c762a8caa32c84e037892d2e9",
                 "shasum": ""
             },
             "require": {
@@ -5305,7 +5311,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-php80/tree/v1.23.1"
+                "source": "https://github.com/symfony/polyfill-php80/tree/v1.24.0"
             },
             "funding": [
                 {
@@ -5321,20 +5327,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-07-28T13:41:28+00:00"
+            "time": "2021-09-13T13:58:33+00:00"
         },
         {
             "name": "symfony/polyfill-php81",
-            "version": "v1.23.0",
+            "version": "v1.24.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php81.git",
-                "reference": "e66119f3de95efc359483f810c4c3e6436279436"
+                "reference": "5de4ba2d41b15f9bd0e19b2ab9674135813ec98f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php81/zipball/e66119f3de95efc359483f810c4c3e6436279436",
-                "reference": "e66119f3de95efc359483f810c4c3e6436279436",
+                "url": "https://api.github.com/repos/symfony/polyfill-php81/zipball/5de4ba2d41b15f9bd0e19b2ab9674135813ec98f",
+                "reference": "5de4ba2d41b15f9bd0e19b2ab9674135813ec98f",
                 "shasum": ""
             },
             "require": {
@@ -5384,7 +5390,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-php81/tree/v1.23.0"
+                "source": "https://github.com/symfony/polyfill-php81/tree/v1.24.0"
             },
             "funding": [
                 {
@@ -5400,24 +5406,27 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-05-21T13:25:03+00:00"
+            "time": "2021-09-13T13:58:11+00:00"
         },
         {
             "name": "symfony/polyfill-uuid",
-            "version": "v1.23.0",
+            "version": "v1.24.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-uuid.git",
-                "reference": "9165effa2eb8a31bb3fa608df9d529920d21ddd9"
+                "reference": "7529922412d23ac44413d0f308861d50cf68d3ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-uuid/zipball/9165effa2eb8a31bb3fa608df9d529920d21ddd9",
-                "reference": "9165effa2eb8a31bb3fa608df9d529920d21ddd9",
+                "url": "https://api.github.com/repos/symfony/polyfill-uuid/zipball/7529922412d23ac44413d0f308861d50cf68d3ee",
+                "reference": "7529922412d23ac44413d0f308861d50cf68d3ee",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1"
+            },
+            "provide": {
+                "ext-uuid": "*"
             },
             "suggest": {
                 "ext-uuid": "For best performance"
@@ -5463,7 +5472,7 @@
                 "uuid"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-uuid/tree/v1.23.0"
+                "source": "https://github.com/symfony/polyfill-uuid/tree/v1.24.0"
             },
             "funding": [
                 {
@@ -5479,7 +5488,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-02-19T12:13:01+00:00"
+            "time": "2021-10-20T20:35:02+00:00"
         },
         {
             "name": "symfony/process",
@@ -7325,52 +7334,52 @@
         },
         {
             "name": "symplify/amnesia",
-            "version": "10.0.8",
+            "version": "10.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/amnesia.git",
-                "reference": "5fccee7080f9beb2b30bf05e6c845d3cd03793cd"
+                "reference": "54a3630fc805d9d098bc33813ee280374ef1d8ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/amnesia/zipball/5fccee7080f9beb2b30bf05e6c845d3cd03793cd",
-                "reference": "5fccee7080f9beb2b30bf05e6c845d3cd03793cd",
+                "url": "https://api.github.com/repos/symplify/amnesia/zipball/54a3630fc805d9d098bc33813ee280374ef1d8ef",
+                "reference": "54a3630fc805d9d098bc33813ee280374ef1d8ef",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.0"
             },
             "conflict": {
-                "symplify/astral": "<10.0.8",
-                "symplify/autowire-array-parameter": "<10.0.8",
-                "symplify/coding-standard": "<10.0.8",
-                "symplify/composer-json-manipulator": "<10.0.8",
-                "symplify/config-transformer": "<10.0.8",
-                "symplify/console-color-diff": "<10.0.8",
-                "symplify/easy-ci": "<10.0.8",
-                "symplify/easy-coding-standard": "<10.0.8",
-                "symplify/easy-parallel": "<10.0.8",
-                "symplify/easy-testing": "<10.0.8",
-                "symplify/git-wrapper": "<10.0.8",
-                "symplify/latte-phpstan-compiler": "<10.0.8",
-                "symplify/markdown-diff": "<10.0.8",
-                "symplify/monorepo-builder": "<10.0.8",
-                "symplify/neon-config-dumper": "<10.0.8",
-                "symplify/package-builder": "<10.0.8",
-                "symplify/php-config-printer": "<10.0.8",
-                "symplify/phpstan-extensions": "<10.0.8",
-                "symplify/phpstan-latte-rules": "<10.0.8",
-                "symplify/phpstan-rules": "<10.0.8",
-                "symplify/rule-doc-generator": "<10.0.8",
-                "symplify/rule-doc-generator-contracts": "<10.0.8",
-                "symplify/simple-php-doc-parser": "<10.0.8",
-                "symplify/skipper": "<10.0.8",
-                "symplify/smart-file-system": "<10.0.8",
-                "symplify/symfony-php-config": "<10.0.8",
-                "symplify/symfony-static-dumper": "<10.0.8",
-                "symplify/symplify-kernel": "<10.0.8",
-                "symplify/template-phpstan-compiler": "<10.0.8",
-                "symplify/vendor-patches": "<10.0.8"
+                "symplify/astral": "<10.0.9",
+                "symplify/autowire-array-parameter": "<10.0.9",
+                "symplify/coding-standard": "<10.0.9",
+                "symplify/composer-json-manipulator": "<10.0.9",
+                "symplify/config-transformer": "<10.0.9",
+                "symplify/console-color-diff": "<10.0.9",
+                "symplify/easy-ci": "<10.0.9",
+                "symplify/easy-coding-standard": "<10.0.9",
+                "symplify/easy-parallel": "<10.0.9",
+                "symplify/easy-testing": "<10.0.9",
+                "symplify/git-wrapper": "<10.0.9",
+                "symplify/latte-phpstan-compiler": "<10.0.9",
+                "symplify/markdown-diff": "<10.0.9",
+                "symplify/monorepo-builder": "<10.0.9",
+                "symplify/neon-config-dumper": "<10.0.9",
+                "symplify/package-builder": "<10.0.9",
+                "symplify/php-config-printer": "<10.0.9",
+                "symplify/phpstan-extensions": "<10.0.9",
+                "symplify/phpstan-latte-rules": "<10.0.9",
+                "symplify/phpstan-rules": "<10.0.9",
+                "symplify/rule-doc-generator": "<10.0.9",
+                "symplify/rule-doc-generator-contracts": "<10.0.9",
+                "symplify/simple-php-doc-parser": "<10.0.9",
+                "symplify/skipper": "<10.0.9",
+                "symplify/smart-file-system": "<10.0.9",
+                "symplify/symfony-php-config": "<10.0.9",
+                "symplify/symfony-static-dumper": "<10.0.9",
+                "symplify/symplify-kernel": "<10.0.9",
+                "symplify/template-phpstan-compiler": "<10.0.9",
+                "symplify/vendor-patches": "<10.0.9"
             },
             "type": "library",
             "extra": {
@@ -7392,7 +7401,7 @@
             ],
             "description": "Relief for your long-term memory",
             "support": {
-                "source": "https://github.com/symplify/amnesia/tree/10.0.8"
+                "source": "https://github.com/symplify/amnesia/tree/10.0.9"
             },
             "funding": [
                 {
@@ -7404,20 +7413,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-12-31T12:13:58+00:00"
+            "time": "2022-01-07T14:33:28+00:00"
         },
         {
             "name": "symplify/astral",
-            "version": "10.0.8",
+            "version": "10.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/astral.git",
-                "reference": "6316303eb56640bdfda641839d013d01e8b3fc7b"
+                "reference": "c3c36ce495fa715822fe58a426d1dbf119435724"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/astral/zipball/6316303eb56640bdfda641839d013d01e8b3fc7b",
-                "reference": "6316303eb56640bdfda641839d013d01e8b3fc7b",
+                "url": "https://api.github.com/repos/symplify/astral/zipball/c3c36ce495fa715822fe58a426d1dbf119435724",
+                "reference": "c3c36ce495fa715822fe58a426d1dbf119435724",
                 "shasum": ""
             },
             "require": {
@@ -7426,44 +7435,44 @@
                 "php": ">=8.0",
                 "phpstan/phpstan": "^1.3",
                 "symfony/dependency-injection": "^5.4|^6.0",
-                "symplify/package-builder": "^10.0.8",
-                "symplify/smart-file-system": "^10.0.8",
-                "symplify/symplify-kernel": "^10.0.8"
+                "symplify/package-builder": "^10.0.9",
+                "symplify/smart-file-system": "^10.0.9",
+                "symplify/symplify-kernel": "^10.0.9"
             },
             "conflict": {
-                "symplify/amnesia": "<10.0.8",
-                "symplify/autowire-array-parameter": "<10.0.8",
-                "symplify/coding-standard": "<10.0.8",
-                "symplify/composer-json-manipulator": "<10.0.8",
-                "symplify/config-transformer": "<10.0.8",
-                "symplify/console-color-diff": "<10.0.8",
-                "symplify/easy-ci": "<10.0.8",
-                "symplify/easy-coding-standard": "<10.0.8",
-                "symplify/easy-parallel": "<10.0.8",
-                "symplify/easy-testing": "<10.0.8",
-                "symplify/git-wrapper": "<10.0.8",
-                "symplify/latte-phpstan-compiler": "<10.0.8",
-                "symplify/markdown-diff": "<10.0.8",
-                "symplify/monorepo-builder": "<10.0.8",
-                "symplify/neon-config-dumper": "<10.0.8",
-                "symplify/php-config-printer": "<10.0.8",
-                "symplify/phpstan-extensions": "<10.0.8",
-                "symplify/phpstan-latte-rules": "<10.0.8",
-                "symplify/phpstan-rules": "<10.0.8",
-                "symplify/rule-doc-generator": "<10.0.8",
-                "symplify/rule-doc-generator-contracts": "<10.0.8",
-                "symplify/simple-php-doc-parser": "<10.0.8",
-                "symplify/skipper": "<10.0.8",
+                "symplify/amnesia": "<10.0.9",
+                "symplify/autowire-array-parameter": "<10.0.9",
+                "symplify/coding-standard": "<10.0.9",
+                "symplify/composer-json-manipulator": "<10.0.9",
+                "symplify/config-transformer": "<10.0.9",
+                "symplify/console-color-diff": "<10.0.9",
+                "symplify/easy-ci": "<10.0.9",
+                "symplify/easy-coding-standard": "<10.0.9",
+                "symplify/easy-parallel": "<10.0.9",
+                "symplify/easy-testing": "<10.0.9",
+                "symplify/git-wrapper": "<10.0.9",
+                "symplify/latte-phpstan-compiler": "<10.0.9",
+                "symplify/markdown-diff": "<10.0.9",
+                "symplify/monorepo-builder": "<10.0.9",
+                "symplify/neon-config-dumper": "<10.0.9",
+                "symplify/php-config-printer": "<10.0.9",
+                "symplify/phpstan-extensions": "<10.0.9",
+                "symplify/phpstan-latte-rules": "<10.0.9",
+                "symplify/phpstan-rules": "<10.0.9",
+                "symplify/rule-doc-generator": "<10.0.9",
+                "symplify/rule-doc-generator-contracts": "<10.0.9",
+                "symplify/simple-php-doc-parser": "<10.0.9",
+                "symplify/skipper": "<10.0.9",
                 "symplify/smart-file-system": "<9.4.70",
-                "symplify/symfony-php-config": "<10.0.8",
-                "symplify/symfony-static-dumper": "<10.0.8",
+                "symplify/symfony-php-config": "<10.0.9",
+                "symplify/symfony-static-dumper": "<10.0.9",
                 "symplify/symplify-kernel": "<9.4.70",
-                "symplify/template-phpstan-compiler": "<10.0.8",
-                "symplify/vendor-patches": "<10.0.8"
+                "symplify/template-phpstan-compiler": "<10.0.9",
+                "symplify/vendor-patches": "<10.0.9"
             },
             "require-dev": {
                 "phpunit/phpunit": "^9.5",
-                "symplify/easy-testing": "^10.0.8"
+                "symplify/easy-testing": "^10.0.9"
             },
             "type": "phpstan-extension",
             "extra": {
@@ -7487,7 +7496,7 @@
             ],
             "description": "Toolking for smart daily work with AST",
             "support": {
-                "source": "https://github.com/symplify/astral/tree/10.0.8"
+                "source": "https://github.com/symplify/astral/tree/10.0.9"
             },
             "funding": [
                 {
@@ -7499,7 +7508,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-12-31T12:13:55+00:00"
+            "time": "2022-01-07T14:33:38+00:00"
         },
         {
             "name": "symplify/autowire-array-parameter",
@@ -7507,12 +7516,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/autowire-array-parameter.git",
-                "reference": "12514d2baddea8c3e39ef58415aef45ee2598d6b"
+                "reference": "906ca0648cd72b9017ae09c6167499124c0c140e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/autowire-array-parameter/zipball/12514d2baddea8c3e39ef58415aef45ee2598d6b",
-                "reference": "12514d2baddea8c3e39ef58415aef45ee2598d6b",
+                "url": "https://api.github.com/repos/symplify/autowire-array-parameter/zipball/906ca0648cd72b9017ae09c6167499124c0c140e",
+                "reference": "906ca0648cd72b9017ae09c6167499124c0c140e",
                 "shasum": ""
             },
             "require": {
@@ -7522,35 +7531,35 @@
                 "symplify/package-builder": "^10.1"
             },
             "conflict": {
-                "symplify/amnesia": "<10.0.8",
-                "symplify/astral": "<10.0.8",
-                "symplify/coding-standard": "<10.0.8",
-                "symplify/composer-json-manipulator": "<10.0.8",
-                "symplify/config-transformer": "<10.0.8",
-                "symplify/console-color-diff": "<10.0.8",
-                "symplify/easy-ci": "<10.0.8",
-                "symplify/easy-coding-standard": "<10.0.8",
-                "symplify/easy-parallel": "<10.0.8",
-                "symplify/easy-testing": "<10.0.8",
-                "symplify/git-wrapper": "<10.0.8",
-                "symplify/latte-phpstan-compiler": "<10.0.8",
-                "symplify/markdown-diff": "<10.0.8",
-                "symplify/monorepo-builder": "<10.0.8",
-                "symplify/neon-config-dumper": "<10.0.8",
-                "symplify/php-config-printer": "<10.0.8",
-                "symplify/phpstan-extensions": "<10.0.8",
-                "symplify/phpstan-latte-rules": "<10.0.8",
-                "symplify/phpstan-rules": "<10.0.8",
-                "symplify/rule-doc-generator": "<10.0.8",
-                "symplify/rule-doc-generator-contracts": "<10.0.8",
-                "symplify/simple-php-doc-parser": "<10.0.8",
-                "symplify/skipper": "<10.0.8",
-                "symplify/smart-file-system": "<10.0.8",
-                "symplify/symfony-php-config": "<10.0.8",
-                "symplify/symfony-static-dumper": "<10.0.8",
-                "symplify/symplify-kernel": "<10.0.8",
-                "symplify/template-phpstan-compiler": "<10.0.8",
-                "symplify/vendor-patches": "<10.0.8"
+                "symplify/amnesia": "<10.0.9",
+                "symplify/astral": "<10.0.9",
+                "symplify/coding-standard": "<10.0.9",
+                "symplify/composer-json-manipulator": "<10.0.9",
+                "symplify/config-transformer": "<10.0.9",
+                "symplify/console-color-diff": "<10.0.9",
+                "symplify/easy-ci": "<10.0.9",
+                "symplify/easy-coding-standard": "<10.0.9",
+                "symplify/easy-parallel": "<10.0.9",
+                "symplify/easy-testing": "<10.0.9",
+                "symplify/git-wrapper": "<10.0.9",
+                "symplify/latte-phpstan-compiler": "<10.0.9",
+                "symplify/markdown-diff": "<10.0.9",
+                "symplify/monorepo-builder": "<10.0.9",
+                "symplify/neon-config-dumper": "<10.0.9",
+                "symplify/php-config-printer": "<10.0.9",
+                "symplify/phpstan-extensions": "<10.0.9",
+                "symplify/phpstan-latte-rules": "<10.0.9",
+                "symplify/phpstan-rules": "<10.0.9",
+                "symplify/rule-doc-generator": "<10.0.9",
+                "symplify/rule-doc-generator-contracts": "<10.0.9",
+                "symplify/simple-php-doc-parser": "<10.0.9",
+                "symplify/skipper": "<10.0.9",
+                "symplify/smart-file-system": "<10.0.9",
+                "symplify/symfony-php-config": "<10.0.9",
+                "symplify/symfony-static-dumper": "<10.0.9",
+                "symplify/symplify-kernel": "<10.0.9",
+                "symplify/template-phpstan-compiler": "<10.0.9",
+                "symplify/vendor-patches": "<10.0.9"
             },
             "require-dev": {
                 "phpunit/phpunit": "^9.5"
@@ -7585,7 +7594,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-12-31T12:17:54+00:00"
+            "time": "2022-01-08T00:52:36+00:00"
         },
         {
             "name": "symplify/composer-json-manipulator",
@@ -7593,12 +7602,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/composer-json-manipulator.git",
-                "reference": "4d6bb0861fb9d8dc34b92643a243c1fc6af8be20"
+                "reference": "8192a788a1619e701a29c8f5b7e47f81d605c6c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/composer-json-manipulator/zipball/4d6bb0861fb9d8dc34b92643a243c1fc6af8be20",
-                "reference": "4d6bb0861fb9d8dc34b92643a243c1fc6af8be20",
+                "url": "https://api.github.com/repos/symplify/composer-json-manipulator/zipball/8192a788a1619e701a29c8f5b7e47f81d605c6c6",
+                "reference": "8192a788a1619e701a29c8f5b7e47f81d605c6c6",
                 "shasum": ""
             },
             "require": {
@@ -7612,34 +7621,34 @@
                 "symplify/symplify-kernel": "^10.1"
             },
             "conflict": {
-                "symplify/amnesia": "<10.0.8",
-                "symplify/astral": "<10.0.8",
-                "symplify/autowire-array-parameter": "<10.0.8",
-                "symplify/coding-standard": "<10.0.8",
-                "symplify/config-transformer": "<10.0.8",
-                "symplify/console-color-diff": "<10.0.8",
-                "symplify/easy-ci": "<10.0.8",
-                "symplify/easy-coding-standard": "<10.0.8",
-                "symplify/easy-parallel": "<10.0.8",
-                "symplify/easy-testing": "<10.0.8",
-                "symplify/git-wrapper": "<10.0.8",
-                "symplify/latte-phpstan-compiler": "<10.0.8",
-                "symplify/markdown-diff": "<10.0.8",
-                "symplify/monorepo-builder": "<10.0.8",
-                "symplify/neon-config-dumper": "<10.0.8",
-                "symplify/php-config-printer": "<10.0.8",
-                "symplify/phpstan-extensions": "<10.0.8",
-                "symplify/phpstan-latte-rules": "<10.0.8",
-                "symplify/phpstan-rules": "<10.0.8",
-                "symplify/rule-doc-generator": "<10.0.8",
-                "symplify/rule-doc-generator-contracts": "<10.0.8",
-                "symplify/simple-php-doc-parser": "<10.0.8",
-                "symplify/skipper": "<10.0.8",
-                "symplify/symfony-php-config": "<10.0.8",
-                "symplify/symfony-static-dumper": "<10.0.8",
+                "symplify/amnesia": "<10.0.9",
+                "symplify/astral": "<10.0.9",
+                "symplify/autowire-array-parameter": "<10.0.9",
+                "symplify/coding-standard": "<10.0.9",
+                "symplify/config-transformer": "<10.0.9",
+                "symplify/console-color-diff": "<10.0.9",
+                "symplify/easy-ci": "<10.0.9",
+                "symplify/easy-coding-standard": "<10.0.9",
+                "symplify/easy-parallel": "<10.0.9",
+                "symplify/easy-testing": "<10.0.9",
+                "symplify/git-wrapper": "<10.0.9",
+                "symplify/latte-phpstan-compiler": "<10.0.9",
+                "symplify/markdown-diff": "<10.0.9",
+                "symplify/monorepo-builder": "<10.0.9",
+                "symplify/neon-config-dumper": "<10.0.9",
+                "symplify/php-config-printer": "<10.0.9",
+                "symplify/phpstan-extensions": "<10.0.9",
+                "symplify/phpstan-latte-rules": "<10.0.9",
+                "symplify/phpstan-rules": "<10.0.9",
+                "symplify/rule-doc-generator": "<10.0.9",
+                "symplify/rule-doc-generator-contracts": "<10.0.9",
+                "symplify/simple-php-doc-parser": "<10.0.9",
+                "symplify/skipper": "<10.0.9",
+                "symplify/symfony-php-config": "<10.0.9",
+                "symplify/symfony-static-dumper": "<10.0.9",
                 "symplify/symplify-kernel": "<9.4.70",
-                "symplify/template-phpstan-compiler": "<10.0.8",
-                "symplify/vendor-patches": "<10.0.8"
+                "symplify/template-phpstan-compiler": "<10.0.9",
+                "symplify/vendor-patches": "<10.0.9"
             },
             "require-dev": {
                 "phpunit/phpunit": "^9.5"
@@ -7674,7 +7683,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-12-31T12:18:02+00:00"
+            "time": "2022-01-08T00:52:40+00:00"
         },
         {
             "name": "symplify/easy-testing",
@@ -7682,12 +7691,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/easy-testing.git",
-                "reference": "c62b463ca629ae1fd1ff0bac8ac292d78ffdb849"
+                "reference": "3149f568c21d769fca79063487775a0346a29dc6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/easy-testing/zipball/c62b463ca629ae1fd1ff0bac8ac292d78ffdb849",
-                "reference": "c62b463ca629ae1fd1ff0bac8ac292d78ffdb849",
+                "url": "https://api.github.com/repos/symplify/easy-testing/zipball/3149f568c21d769fca79063487775a0346a29dc6",
+                "reference": "3149f568c21d769fca79063487775a0346a29dc6",
                 "shasum": ""
             },
             "require": {
@@ -7701,33 +7710,33 @@
                 "symplify/symplify-kernel": "^10.1"
             },
             "conflict": {
-                "symplify/amnesia": "<10.0.8",
-                "symplify/astral": "<10.0.8",
-                "symplify/autowire-array-parameter": "<10.0.8",
-                "symplify/coding-standard": "<10.0.8",
-                "symplify/composer-json-manipulator": "<10.0.8",
-                "symplify/config-transformer": "<10.0.8",
-                "symplify/console-color-diff": "<10.0.8",
-                "symplify/easy-ci": "<10.0.8",
-                "symplify/easy-coding-standard": "<10.0.8",
-                "symplify/easy-parallel": "<10.0.8",
-                "symplify/git-wrapper": "<10.0.8",
-                "symplify/latte-phpstan-compiler": "<10.0.8",
-                "symplify/markdown-diff": "<10.0.8",
-                "symplify/monorepo-builder": "<10.0.8",
-                "symplify/neon-config-dumper": "<10.0.8",
-                "symplify/php-config-printer": "<10.0.8",
-                "symplify/phpstan-extensions": "<10.0.8",
-                "symplify/phpstan-latte-rules": "<10.0.8",
-                "symplify/phpstan-rules": "<10.0.8",
-                "symplify/rule-doc-generator": "<10.0.8",
-                "symplify/rule-doc-generator-contracts": "<10.0.8",
-                "symplify/simple-php-doc-parser": "<10.0.8",
-                "symplify/skipper": "<10.0.8",
-                "symplify/symfony-php-config": "<10.0.8",
-                "symplify/symfony-static-dumper": "<10.0.8",
-                "symplify/template-phpstan-compiler": "<10.0.8",
-                "symplify/vendor-patches": "<10.0.8"
+                "symplify/amnesia": "<10.0.9",
+                "symplify/astral": "<10.0.9",
+                "symplify/autowire-array-parameter": "<10.0.9",
+                "symplify/coding-standard": "<10.0.9",
+                "symplify/composer-json-manipulator": "<10.0.9",
+                "symplify/config-transformer": "<10.0.9",
+                "symplify/console-color-diff": "<10.0.9",
+                "symplify/easy-ci": "<10.0.9",
+                "symplify/easy-coding-standard": "<10.0.9",
+                "symplify/easy-parallel": "<10.0.9",
+                "symplify/git-wrapper": "<10.0.9",
+                "symplify/latte-phpstan-compiler": "<10.0.9",
+                "symplify/markdown-diff": "<10.0.9",
+                "symplify/monorepo-builder": "<10.0.9",
+                "symplify/neon-config-dumper": "<10.0.9",
+                "symplify/php-config-printer": "<10.0.9",
+                "symplify/phpstan-extensions": "<10.0.9",
+                "symplify/phpstan-latte-rules": "<10.0.9",
+                "symplify/phpstan-rules": "<10.0.9",
+                "symplify/rule-doc-generator": "<10.0.9",
+                "symplify/rule-doc-generator-contracts": "<10.0.9",
+                "symplify/simple-php-doc-parser": "<10.0.9",
+                "symplify/skipper": "<10.0.9",
+                "symplify/symfony-php-config": "<10.0.9",
+                "symplify/symfony-static-dumper": "<10.0.9",
+                "symplify/template-phpstan-compiler": "<10.0.9",
+                "symplify/vendor-patches": "<10.0.9"
             },
             "require-dev": {
                 "phpunit/phpunit": "^9.5"
@@ -7765,20 +7774,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-12-31T12:18:15+00:00"
+            "time": "2022-01-08T00:52:43+00:00"
         },
         {
             "name": "symplify/markdown-diff",
-            "version": "10.0.8",
+            "version": "10.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/markdown-diff.git",
-                "reference": "6379eed02f1c7823a01bd0468d62c6e5af74aeed"
+                "reference": "fb8ed4c5094c2a8c58d5c44f4fe9819814e8ff6e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/markdown-diff/zipball/6379eed02f1c7823a01bd0468d62c6e5af74aeed",
-                "reference": "6379eed02f1c7823a01bd0468d62c6e5af74aeed",
+                "url": "https://api.github.com/repos/symplify/markdown-diff/zipball/fb8ed4c5094c2a8c58d5c44f4fe9819814e8ff6e",
+                "reference": "fb8ed4c5094c2a8c58d5c44f4fe9819814e8ff6e",
                 "shasum": ""
             },
             "require": {
@@ -7786,38 +7795,38 @@
                 "php": ">=8.0",
                 "sebastian/diff": "^4.0",
                 "symfony/dependency-injection": "^5.4|^6.0",
-                "symplify/package-builder": "^10.0.8"
+                "symplify/package-builder": "^10.0.9"
             },
             "conflict": {
-                "symplify/amnesia": "<10.0.8",
-                "symplify/astral": "<10.0.8",
-                "symplify/autowire-array-parameter": "<10.0.8",
-                "symplify/coding-standard": "<10.0.8",
-                "symplify/composer-json-manipulator": "<10.0.8",
-                "symplify/config-transformer": "<10.0.8",
-                "symplify/console-color-diff": "<10.0.8",
-                "symplify/easy-ci": "<10.0.8",
-                "symplify/easy-coding-standard": "<10.0.8",
-                "symplify/easy-parallel": "<10.0.8",
-                "symplify/easy-testing": "<10.0.8",
-                "symplify/git-wrapper": "<10.0.8",
-                "symplify/latte-phpstan-compiler": "<10.0.8",
-                "symplify/monorepo-builder": "<10.0.8",
-                "symplify/neon-config-dumper": "<10.0.8",
-                "symplify/php-config-printer": "<10.0.8",
-                "symplify/phpstan-extensions": "<10.0.8",
-                "symplify/phpstan-latte-rules": "<10.0.8",
-                "symplify/phpstan-rules": "<10.0.8",
-                "symplify/rule-doc-generator": "<10.0.8",
-                "symplify/rule-doc-generator-contracts": "<10.0.8",
-                "symplify/simple-php-doc-parser": "<10.0.8",
-                "symplify/skipper": "<10.0.8",
-                "symplify/smart-file-system": "<10.0.8",
-                "symplify/symfony-php-config": "<10.0.8",
-                "symplify/symfony-static-dumper": "<10.0.8",
-                "symplify/symplify-kernel": "<10.0.8",
-                "symplify/template-phpstan-compiler": "<10.0.8",
-                "symplify/vendor-patches": "<10.0.8"
+                "symplify/amnesia": "<10.0.9",
+                "symplify/astral": "<10.0.9",
+                "symplify/autowire-array-parameter": "<10.0.9",
+                "symplify/coding-standard": "<10.0.9",
+                "symplify/composer-json-manipulator": "<10.0.9",
+                "symplify/config-transformer": "<10.0.9",
+                "symplify/console-color-diff": "<10.0.9",
+                "symplify/easy-ci": "<10.0.9",
+                "symplify/easy-coding-standard": "<10.0.9",
+                "symplify/easy-parallel": "<10.0.9",
+                "symplify/easy-testing": "<10.0.9",
+                "symplify/git-wrapper": "<10.0.9",
+                "symplify/latte-phpstan-compiler": "<10.0.9",
+                "symplify/monorepo-builder": "<10.0.9",
+                "symplify/neon-config-dumper": "<10.0.9",
+                "symplify/php-config-printer": "<10.0.9",
+                "symplify/phpstan-extensions": "<10.0.9",
+                "symplify/phpstan-latte-rules": "<10.0.9",
+                "symplify/phpstan-rules": "<10.0.9",
+                "symplify/rule-doc-generator": "<10.0.9",
+                "symplify/rule-doc-generator-contracts": "<10.0.9",
+                "symplify/simple-php-doc-parser": "<10.0.9",
+                "symplify/skipper": "<10.0.9",
+                "symplify/smart-file-system": "<10.0.9",
+                "symplify/symfony-php-config": "<10.0.9",
+                "symplify/symfony-static-dumper": "<10.0.9",
+                "symplify/symplify-kernel": "<10.0.9",
+                "symplify/template-phpstan-compiler": "<10.0.9",
+                "symplify/vendor-patches": "<10.0.9"
             },
             "require-dev": {
                 "phpunit/phpunit": "^9.5"
@@ -7839,7 +7848,7 @@
             ],
             "description": "Package to print diffs for Markdown",
             "support": {
-                "source": "https://github.com/symplify/markdown-diff/tree/10.0.8"
+                "source": "https://github.com/symplify/markdown-diff/tree/10.0.9"
             },
             "funding": [
                 {
@@ -7851,7 +7860,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-12-31T12:14:47+00:00"
+            "time": "2022-01-07T14:33:53+00:00"
         },
         {
             "name": "symplify/package-builder",
@@ -7859,12 +7868,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/package-builder.git",
-                "reference": "3b9c044a097a8d1fbd82a6fb07a7d4d4927bc6c7"
+                "reference": "b89daf0a3a18a8d6846296acfe39ebdc2e1ff84b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/package-builder/zipball/3b9c044a097a8d1fbd82a6fb07a7d4d4927bc6c7",
-                "reference": "3b9c044a097a8d1fbd82a6fb07a7d4d4927bc6c7",
+                "url": "https://api.github.com/repos/symplify/package-builder/zipball/b89daf0a3a18a8d6846296acfe39ebdc2e1ff84b",
+                "reference": "b89daf0a3a18a8d6846296acfe39ebdc2e1ff84b",
                 "shasum": ""
             },
             "require": {
@@ -7879,34 +7888,34 @@
                 "symplify/symplify-kernel": "^10.1"
             },
             "conflict": {
-                "symplify/amnesia": "<10.0.8",
-                "symplify/astral": "<10.0.8",
-                "symplify/autowire-array-parameter": "<10.0.8",
-                "symplify/coding-standard": "<10.0.8",
-                "symplify/composer-json-manipulator": "<10.0.8",
-                "symplify/config-transformer": "<10.0.8",
-                "symplify/console-color-diff": "<10.0.8",
-                "symplify/easy-ci": "<10.0.8",
-                "symplify/easy-coding-standard": "<10.0.8",
-                "symplify/easy-parallel": "<10.0.8",
-                "symplify/git-wrapper": "<10.0.8",
-                "symplify/latte-phpstan-compiler": "<10.0.8",
-                "symplify/markdown-diff": "<10.0.8",
-                "symplify/monorepo-builder": "<10.0.8",
-                "symplify/neon-config-dumper": "<10.0.8",
-                "symplify/php-config-printer": "<10.0.8",
-                "symplify/phpstan-extensions": "<10.0.8",
-                "symplify/phpstan-latte-rules": "<10.0.8",
-                "symplify/phpstan-rules": "<10.0.8",
-                "symplify/rule-doc-generator": "<10.0.8",
-                "symplify/rule-doc-generator-contracts": "<10.0.8",
-                "symplify/simple-php-doc-parser": "<10.0.8",
-                "symplify/skipper": "<10.0.8",
-                "symplify/smart-file-system": "<10.0.8",
-                "symplify/symfony-php-config": "<10.0.8",
-                "symplify/symfony-static-dumper": "<10.0.8",
-                "symplify/template-phpstan-compiler": "<10.0.8",
-                "symplify/vendor-patches": "<10.0.8"
+                "symplify/amnesia": "<10.0.9",
+                "symplify/astral": "<10.0.9",
+                "symplify/autowire-array-parameter": "<10.0.9",
+                "symplify/coding-standard": "<10.0.9",
+                "symplify/composer-json-manipulator": "<10.0.9",
+                "symplify/config-transformer": "<10.0.9",
+                "symplify/console-color-diff": "<10.0.9",
+                "symplify/easy-ci": "<10.0.9",
+                "symplify/easy-coding-standard": "<10.0.9",
+                "symplify/easy-parallel": "<10.0.9",
+                "symplify/git-wrapper": "<10.0.9",
+                "symplify/latte-phpstan-compiler": "<10.0.9",
+                "symplify/markdown-diff": "<10.0.9",
+                "symplify/monorepo-builder": "<10.0.9",
+                "symplify/neon-config-dumper": "<10.0.9",
+                "symplify/php-config-printer": "<10.0.9",
+                "symplify/phpstan-extensions": "<10.0.9",
+                "symplify/phpstan-latte-rules": "<10.0.9",
+                "symplify/phpstan-rules": "<10.0.9",
+                "symplify/rule-doc-generator": "<10.0.9",
+                "symplify/rule-doc-generator-contracts": "<10.0.9",
+                "symplify/simple-php-doc-parser": "<10.0.9",
+                "symplify/skipper": "<10.0.9",
+                "symplify/smart-file-system": "<10.0.9",
+                "symplify/symfony-php-config": "<10.0.9",
+                "symplify/symfony-static-dumper": "<10.0.9",
+                "symplify/template-phpstan-compiler": "<10.0.9",
+                "symplify/vendor-patches": "<10.0.9"
             },
             "require-dev": {
                 "phpunit/phpunit": "^9.5"
@@ -7941,20 +7950,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-12-31T12:18:33+00:00"
+            "time": "2022-01-08T00:52:38+00:00"
         },
         {
             "name": "symplify/php-config-printer",
-            "version": "10.0.8",
+            "version": "10.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/php-config-printer.git",
-                "reference": "62270b603c5f07ca792297ea17fb43869116538a"
+                "reference": "416e417b0585c9e31b848514474e8e9d6e6c3556"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/php-config-printer/zipball/62270b603c5f07ca792297ea17fb43869116538a",
-                "reference": "62270b603c5f07ca792297ea17fb43869116538a",
+                "url": "https://api.github.com/repos/symplify/php-config-printer/zipball/416e417b0585c9e31b848514474e8e9d6e6c3556",
+                "reference": "416e417b0585c9e31b848514474e8e9d6e6c3556",
                 "shasum": ""
             },
             "require": {
@@ -7962,42 +7971,42 @@
                 "nikic/php-parser": "^4.13.2",
                 "php": ">=8.0",
                 "symfony/yaml": "^5.4|^6.0",
-                "symplify/astral": "^10.0.8",
-                "symplify/symplify-kernel": "^10.0.8"
+                "symplify/astral": "^10.0.9",
+                "symplify/symplify-kernel": "^10.0.9"
             },
             "conflict": {
-                "symplify/amnesia": "<10.0.8",
-                "symplify/autowire-array-parameter": "<10.0.8",
-                "symplify/coding-standard": "<10.0.8",
-                "symplify/composer-json-manipulator": "<10.0.8",
-                "symplify/config-transformer": "<10.0.8",
-                "symplify/console-color-diff": "<10.0.8",
-                "symplify/easy-ci": "<10.0.8",
-                "symplify/easy-coding-standard": "<10.0.8",
-                "symplify/easy-parallel": "<10.0.8",
-                "symplify/easy-testing": "<10.0.8",
-                "symplify/git-wrapper": "<10.0.8",
-                "symplify/latte-phpstan-compiler": "<10.0.8",
-                "symplify/markdown-diff": "<10.0.8",
-                "symplify/monorepo-builder": "<10.0.8",
-                "symplify/neon-config-dumper": "<10.0.8",
-                "symplify/package-builder": "<10.0.8",
-                "symplify/phpstan-extensions": "<10.0.8",
-                "symplify/phpstan-latte-rules": "<10.0.8",
-                "symplify/phpstan-rules": "<10.0.8",
-                "symplify/rule-doc-generator": "<10.0.8",
-                "symplify/rule-doc-generator-contracts": "<10.0.8",
-                "symplify/simple-php-doc-parser": "<10.0.8",
-                "symplify/skipper": "<10.0.8",
-                "symplify/smart-file-system": "<10.0.8",
-                "symplify/symfony-php-config": "<10.0.8",
-                "symplify/symfony-static-dumper": "<10.0.8",
-                "symplify/template-phpstan-compiler": "<10.0.8",
-                "symplify/vendor-patches": "<10.0.8"
+                "symplify/amnesia": "<10.0.9",
+                "symplify/autowire-array-parameter": "<10.0.9",
+                "symplify/coding-standard": "<10.0.9",
+                "symplify/composer-json-manipulator": "<10.0.9",
+                "symplify/config-transformer": "<10.0.9",
+                "symplify/console-color-diff": "<10.0.9",
+                "symplify/easy-ci": "<10.0.9",
+                "symplify/easy-coding-standard": "<10.0.9",
+                "symplify/easy-parallel": "<10.0.9",
+                "symplify/easy-testing": "<10.0.9",
+                "symplify/git-wrapper": "<10.0.9",
+                "symplify/latte-phpstan-compiler": "<10.0.9",
+                "symplify/markdown-diff": "<10.0.9",
+                "symplify/monorepo-builder": "<10.0.9",
+                "symplify/neon-config-dumper": "<10.0.9",
+                "symplify/package-builder": "<10.0.9",
+                "symplify/phpstan-extensions": "<10.0.9",
+                "symplify/phpstan-latte-rules": "<10.0.9",
+                "symplify/phpstan-rules": "<10.0.9",
+                "symplify/rule-doc-generator": "<10.0.9",
+                "symplify/rule-doc-generator-contracts": "<10.0.9",
+                "symplify/simple-php-doc-parser": "<10.0.9",
+                "symplify/skipper": "<10.0.9",
+                "symplify/smart-file-system": "<10.0.9",
+                "symplify/symfony-php-config": "<10.0.9",
+                "symplify/symfony-static-dumper": "<10.0.9",
+                "symplify/template-phpstan-compiler": "<10.0.9",
+                "symplify/vendor-patches": "<10.0.9"
             },
             "require-dev": {
                 "phpunit/phpunit": "^9.5",
-                "symplify/easy-testing": "^10.0.8"
+                "symplify/easy-testing": "^10.0.9"
             },
             "type": "library",
             "extra": {
@@ -8017,22 +8026,22 @@
             "description": "Print Symfony services array with configuration to to plain PHP file format thanks to this simple php-parser wrapper",
             "support": {
                 "issues": "https://github.com/symplify/php-config-printer/issues",
-                "source": "https://github.com/symplify/php-config-printer/tree/10.0.8"
+                "source": "https://github.com/symplify/php-config-printer/tree/10.0.9"
             },
-            "time": "2021-12-31T12:15:13+00:00"
+            "time": "2022-01-07T14:34:12+00:00"
         },
         {
             "name": "symplify/rule-doc-generator",
-            "version": "10.0.8",
+            "version": "10.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/rule-doc-generator.git",
-                "reference": "b624d611c82bb94f95bf5f50c1c3390feab8f9fa"
+                "reference": "4c64bf87597d11ffd5c29ea6a51da1f03d534736"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/rule-doc-generator/zipball/b624d611c82bb94f95bf5f50c1c3390feab8f9fa",
-                "reference": "b624d611c82bb94f95bf5f50c1c3390feab8f9fa",
+                "url": "https://api.github.com/repos/symplify/rule-doc-generator/zipball/4c64bf87597d11ffd5c29ea6a51da1f03d534736",
+                "reference": "4c64bf87597d11ffd5c29ea6a51da1f03d534736",
                 "shasum": ""
             },
             "require": {
@@ -8043,38 +8052,38 @@
                 "symfony/dependency-injection": "^5.4|^6.0",
                 "symfony/string": "^5.4|^6.0",
                 "symfony/translation-contracts": "^2.5|^3.0",
-                "symplify/markdown-diff": "^10.0.8",
-                "symplify/package-builder": "^10.0.8",
-                "symplify/php-config-printer": "^10.0.8",
-                "symplify/rule-doc-generator-contracts": "^10.0.8",
-                "symplify/smart-file-system": "^10.0.8",
-                "symplify/symplify-kernel": "^10.0.8"
+                "symplify/markdown-diff": "^10.0.9",
+                "symplify/package-builder": "^10.0.9",
+                "symplify/php-config-printer": "^10.0.9",
+                "symplify/rule-doc-generator-contracts": "^10.0.9",
+                "symplify/smart-file-system": "^10.0.9",
+                "symplify/symplify-kernel": "^10.0.9"
             },
             "conflict": {
-                "symplify/amnesia": "<10.0.8",
-                "symplify/astral": "<10.0.8",
-                "symplify/autowire-array-parameter": "<10.0.8",
-                "symplify/coding-standard": "<10.0.8",
-                "symplify/composer-json-manipulator": "<10.0.8",
-                "symplify/config-transformer": "<10.0.8",
-                "symplify/console-color-diff": "<10.0.8",
-                "symplify/easy-ci": "<10.0.8",
-                "symplify/easy-coding-standard": "<10.0.8",
-                "symplify/easy-parallel": "<10.0.8",
-                "symplify/easy-testing": "<10.0.8",
-                "symplify/git-wrapper": "<10.0.8",
-                "symplify/latte-phpstan-compiler": "<10.0.8",
-                "symplify/monorepo-builder": "<10.0.8",
-                "symplify/neon-config-dumper": "<10.0.8",
-                "symplify/phpstan-extensions": "<10.0.8",
-                "symplify/phpstan-latte-rules": "<10.0.8",
-                "symplify/phpstan-rules": "<10.0.8",
-                "symplify/simple-php-doc-parser": "<10.0.8",
-                "symplify/skipper": "<10.0.8",
-                "symplify/symfony-php-config": "<10.0.8",
-                "symplify/symfony-static-dumper": "<10.0.8",
-                "symplify/template-phpstan-compiler": "<10.0.8",
-                "symplify/vendor-patches": "<10.0.8"
+                "symplify/amnesia": "<10.0.9",
+                "symplify/astral": "<10.0.9",
+                "symplify/autowire-array-parameter": "<10.0.9",
+                "symplify/coding-standard": "<10.0.9",
+                "symplify/composer-json-manipulator": "<10.0.9",
+                "symplify/config-transformer": "<10.0.9",
+                "symplify/console-color-diff": "<10.0.9",
+                "symplify/easy-ci": "<10.0.9",
+                "symplify/easy-coding-standard": "<10.0.9",
+                "symplify/easy-parallel": "<10.0.9",
+                "symplify/easy-testing": "<10.0.9",
+                "symplify/git-wrapper": "<10.0.9",
+                "symplify/latte-phpstan-compiler": "<10.0.9",
+                "symplify/monorepo-builder": "<10.0.9",
+                "symplify/neon-config-dumper": "<10.0.9",
+                "symplify/phpstan-extensions": "<10.0.9",
+                "symplify/phpstan-latte-rules": "<10.0.9",
+                "symplify/phpstan-rules": "<10.0.9",
+                "symplify/simple-php-doc-parser": "<10.0.9",
+                "symplify/skipper": "<10.0.9",
+                "symplify/symfony-php-config": "<10.0.9",
+                "symplify/symfony-static-dumper": "<10.0.9",
+                "symplify/template-phpstan-compiler": "<10.0.9",
+                "symplify/vendor-patches": "<10.0.9"
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^3.4",
@@ -8101,7 +8110,7 @@
             ],
             "description": "Documentation generator for coding standard or static analysis rules",
             "support": {
-                "source": "https://github.com/symplify/rule-doc-generator/tree/10.0.8"
+                "source": "https://github.com/symplify/rule-doc-generator/tree/10.0.9"
             },
             "funding": [
                 {
@@ -8113,20 +8122,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-12-31T12:15:30+00:00"
+            "time": "2022-01-07T14:34:19+00:00"
         },
         {
             "name": "symplify/rule-doc-generator-contracts",
-            "version": "10.0.8",
+            "version": "10.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/rule-doc-generator-contracts.git",
-                "reference": "aa66737a04c5717805112e55b5a62a05e57a8606"
+                "reference": "5be94d236a216630c23fcfce873964c4aafb5420"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/rule-doc-generator-contracts/zipball/aa66737a04c5717805112e55b5a62a05e57a8606",
-                "reference": "aa66737a04c5717805112e55b5a62a05e57a8606",
+                "url": "https://api.github.com/repos/symplify/rule-doc-generator-contracts/zipball/5be94d236a216630c23fcfce873964c4aafb5420",
+                "reference": "5be94d236a216630c23fcfce873964c4aafb5420",
                 "shasum": ""
             },
             "require": {
@@ -8134,36 +8143,36 @@
                 "php": ">=8.0"
             },
             "conflict": {
-                "symplify/amnesia": "<10.0.8",
-                "symplify/astral": "<10.0.8",
-                "symplify/autowire-array-parameter": "<10.0.8",
-                "symplify/coding-standard": "<10.0.8",
-                "symplify/composer-json-manipulator": "<10.0.8",
-                "symplify/config-transformer": "<10.0.8",
-                "symplify/console-color-diff": "<10.0.8",
-                "symplify/easy-ci": "<10.0.8",
-                "symplify/easy-coding-standard": "<10.0.8",
-                "symplify/easy-parallel": "<10.0.8",
-                "symplify/easy-testing": "<10.0.8",
-                "symplify/git-wrapper": "<10.0.8",
-                "symplify/latte-phpstan-compiler": "<10.0.8",
-                "symplify/markdown-diff": "<10.0.8",
-                "symplify/monorepo-builder": "<10.0.8",
-                "symplify/neon-config-dumper": "<10.0.8",
-                "symplify/package-builder": "<10.0.8",
-                "symplify/php-config-printer": "<10.0.8",
-                "symplify/phpstan-extensions": "<10.0.8",
-                "symplify/phpstan-latte-rules": "<10.0.8",
-                "symplify/phpstan-rules": "<10.0.8",
-                "symplify/rule-doc-generator": "<10.0.8",
-                "symplify/simple-php-doc-parser": "<10.0.8",
-                "symplify/skipper": "<10.0.8",
-                "symplify/smart-file-system": "<10.0.8",
-                "symplify/symfony-php-config": "<10.0.8",
-                "symplify/symfony-static-dumper": "<10.0.8",
-                "symplify/symplify-kernel": "<10.0.8",
-                "symplify/template-phpstan-compiler": "<10.0.8",
-                "symplify/vendor-patches": "<10.0.8"
+                "symplify/amnesia": "<10.0.9",
+                "symplify/astral": "<10.0.9",
+                "symplify/autowire-array-parameter": "<10.0.9",
+                "symplify/coding-standard": "<10.0.9",
+                "symplify/composer-json-manipulator": "<10.0.9",
+                "symplify/config-transformer": "<10.0.9",
+                "symplify/console-color-diff": "<10.0.9",
+                "symplify/easy-ci": "<10.0.9",
+                "symplify/easy-coding-standard": "<10.0.9",
+                "symplify/easy-parallel": "<10.0.9",
+                "symplify/easy-testing": "<10.0.9",
+                "symplify/git-wrapper": "<10.0.9",
+                "symplify/latte-phpstan-compiler": "<10.0.9",
+                "symplify/markdown-diff": "<10.0.9",
+                "symplify/monorepo-builder": "<10.0.9",
+                "symplify/neon-config-dumper": "<10.0.9",
+                "symplify/package-builder": "<10.0.9",
+                "symplify/php-config-printer": "<10.0.9",
+                "symplify/phpstan-extensions": "<10.0.9",
+                "symplify/phpstan-latte-rules": "<10.0.9",
+                "symplify/phpstan-rules": "<10.0.9",
+                "symplify/rule-doc-generator": "<10.0.9",
+                "symplify/simple-php-doc-parser": "<10.0.9",
+                "symplify/skipper": "<10.0.9",
+                "symplify/smart-file-system": "<10.0.9",
+                "symplify/symfony-php-config": "<10.0.9",
+                "symplify/symfony-static-dumper": "<10.0.9",
+                "symplify/symplify-kernel": "<10.0.9",
+                "symplify/template-phpstan-compiler": "<10.0.9",
+                "symplify/vendor-patches": "<10.0.9"
             },
             "type": "library",
             "extra": {
@@ -8182,7 +8191,7 @@
             ],
             "description": "Contracts for production code of RuleDocGenerator",
             "support": {
-                "source": "https://github.com/symplify/rule-doc-generator-contracts/tree/10.0.8"
+                "source": "https://github.com/symplify/rule-doc-generator-contracts/tree/10.0.9"
             },
             "funding": [
                 {
@@ -8194,20 +8203,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-12-31T12:15:26+00:00"
+            "time": "2022-01-07T14:34:17+00:00"
         },
         {
             "name": "symplify/simple-php-doc-parser",
-            "version": "10.0.8",
+            "version": "10.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/simple-php-doc-parser.git",
-                "reference": "d1fdd95d4030f2fe754f414dd93967237a597090"
+                "reference": "e6a65b92b46ea0c8cc939f6613d1c33e92656d03"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/simple-php-doc-parser/zipball/d1fdd95d4030f2fe754f414dd93967237a597090",
-                "reference": "d1fdd95d4030f2fe754f414dd93967237a597090",
+                "url": "https://api.github.com/repos/symplify/simple-php-doc-parser/zipball/e6a65b92b46ea0c8cc939f6613d1c33e92656d03",
+                "reference": "e6a65b92b46ea0c8cc939f6613d1c33e92656d03",
                 "shasum": ""
             },
             "require": {
@@ -8215,42 +8224,42 @@
                 "phpstan/phpdoc-parser": "^1.2",
                 "symfony/config": "^5.4|^6.0",
                 "symfony/dependency-injection": "^5.4|^6.0",
-                "symplify/package-builder": "^10.0.8"
+                "symplify/package-builder": "^10.0.9"
             },
             "conflict": {
-                "symplify/amnesia": "<10.0.8",
-                "symplify/astral": "<10.0.8",
-                "symplify/autowire-array-parameter": "<10.0.8",
-                "symplify/coding-standard": "<10.0.8",
-                "symplify/composer-json-manipulator": "<10.0.8",
-                "symplify/config-transformer": "<10.0.8",
-                "symplify/console-color-diff": "<10.0.8",
-                "symplify/easy-ci": "<10.0.8",
-                "symplify/easy-coding-standard": "<10.0.8",
-                "symplify/easy-parallel": "<10.0.8",
-                "symplify/easy-testing": "<10.0.8",
-                "symplify/git-wrapper": "<10.0.8",
-                "symplify/latte-phpstan-compiler": "<10.0.8",
-                "symplify/markdown-diff": "<10.0.8",
-                "symplify/monorepo-builder": "<10.0.8",
-                "symplify/neon-config-dumper": "<10.0.8",
-                "symplify/php-config-printer": "<10.0.8",
-                "symplify/phpstan-extensions": "<10.0.8",
-                "symplify/phpstan-latte-rules": "<10.0.8",
-                "symplify/phpstan-rules": "<10.0.8",
-                "symplify/rule-doc-generator": "<10.0.8",
-                "symplify/rule-doc-generator-contracts": "<10.0.8",
-                "symplify/skipper": "<10.0.8",
-                "symplify/smart-file-system": "<10.0.8",
-                "symplify/symfony-php-config": "<10.0.8",
-                "symplify/symfony-static-dumper": "<10.0.8",
-                "symplify/symplify-kernel": "<10.0.8",
-                "symplify/template-phpstan-compiler": "<10.0.8",
-                "symplify/vendor-patches": "<10.0.8"
+                "symplify/amnesia": "<10.0.9",
+                "symplify/astral": "<10.0.9",
+                "symplify/autowire-array-parameter": "<10.0.9",
+                "symplify/coding-standard": "<10.0.9",
+                "symplify/composer-json-manipulator": "<10.0.9",
+                "symplify/config-transformer": "<10.0.9",
+                "symplify/console-color-diff": "<10.0.9",
+                "symplify/easy-ci": "<10.0.9",
+                "symplify/easy-coding-standard": "<10.0.9",
+                "symplify/easy-parallel": "<10.0.9",
+                "symplify/easy-testing": "<10.0.9",
+                "symplify/git-wrapper": "<10.0.9",
+                "symplify/latte-phpstan-compiler": "<10.0.9",
+                "symplify/markdown-diff": "<10.0.9",
+                "symplify/monorepo-builder": "<10.0.9",
+                "symplify/neon-config-dumper": "<10.0.9",
+                "symplify/php-config-printer": "<10.0.9",
+                "symplify/phpstan-extensions": "<10.0.9",
+                "symplify/phpstan-latte-rules": "<10.0.9",
+                "symplify/phpstan-rules": "<10.0.9",
+                "symplify/rule-doc-generator": "<10.0.9",
+                "symplify/rule-doc-generator-contracts": "<10.0.9",
+                "symplify/skipper": "<10.0.9",
+                "symplify/smart-file-system": "<10.0.9",
+                "symplify/symfony-php-config": "<10.0.9",
+                "symplify/symfony-static-dumper": "<10.0.9",
+                "symplify/symplify-kernel": "<10.0.9",
+                "symplify/template-phpstan-compiler": "<10.0.9",
+                "symplify/vendor-patches": "<10.0.9"
             },
             "require-dev": {
                 "phpunit/phpunit": "^9.5",
-                "symplify/easy-testing": "^10.0.8"
+                "symplify/easy-testing": "^10.0.9"
             },
             "type": "library",
             "extra": {
@@ -8269,7 +8278,7 @@
             ],
             "description": "Service integration of phpstan/phpdoc-parser, with few extra goodies for practical simple use",
             "support": {
-                "source": "https://github.com/symplify/simple-php-doc-parser/tree/10.0.8"
+                "source": "https://github.com/symplify/simple-php-doc-parser/tree/10.0.9"
             },
             "funding": [
                 {
@@ -8281,20 +8290,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-12-31T12:15:32+00:00"
+            "time": "2022-01-07T14:34:18+00:00"
         },
         {
             "name": "symplify/skipper",
-            "version": "10.0.8",
+            "version": "10.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/skipper.git",
-                "reference": "b0917317aa6ad511b6506f661f08bcd5c7f1fe38"
+                "reference": "f2c9c9af41f8ea9946b5fdc3fa0069f942f2e72d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/skipper/zipball/b0917317aa6ad511b6506f661f08bcd5c7f1fe38",
-                "reference": "b0917317aa6ad511b6506f661f08bcd5c7f1fe38",
+                "url": "https://api.github.com/repos/symplify/skipper/zipball/f2c9c9af41f8ea9946b5fdc3fa0069f942f2e72d",
+                "reference": "f2c9c9af41f8ea9946b5fdc3fa0069f942f2e72d",
                 "shasum": ""
             },
             "require": {
@@ -8304,38 +8313,38 @@
                 "symfony/dependency-injection": "^5.4|^6.0",
                 "symfony/filesystem": "^5.4|^6.0",
                 "symfony/finder": "^5.4|^6.0",
-                "symplify/package-builder": "^10.0.8",
-                "symplify/smart-file-system": "^10.0.8",
-                "symplify/symplify-kernel": "^10.0.8"
+                "symplify/package-builder": "^10.0.9",
+                "symplify/smart-file-system": "^10.0.9",
+                "symplify/symplify-kernel": "^10.0.9"
             },
             "conflict": {
-                "symplify/amnesia": "<10.0.8",
-                "symplify/astral": "<10.0.8",
-                "symplify/autowire-array-parameter": "<10.0.8",
-                "symplify/coding-standard": "<10.0.8",
-                "symplify/composer-json-manipulator": "<10.0.8",
-                "symplify/config-transformer": "<10.0.8",
-                "symplify/console-color-diff": "<10.0.8",
-                "symplify/easy-ci": "<10.0.8",
-                "symplify/easy-coding-standard": "<10.0.8",
-                "symplify/easy-parallel": "<10.0.8",
-                "symplify/easy-testing": "<10.0.8",
-                "symplify/git-wrapper": "<10.0.8",
-                "symplify/latte-phpstan-compiler": "<10.0.8",
-                "symplify/markdown-diff": "<10.0.8",
-                "symplify/monorepo-builder": "<10.0.8",
-                "symplify/neon-config-dumper": "<10.0.8",
-                "symplify/php-config-printer": "<10.0.8",
-                "symplify/phpstan-extensions": "<10.0.8",
-                "symplify/phpstan-latte-rules": "<10.0.8",
-                "symplify/phpstan-rules": "<10.0.8",
-                "symplify/rule-doc-generator": "<10.0.8",
-                "symplify/rule-doc-generator-contracts": "<10.0.8",
-                "symplify/simple-php-doc-parser": "<10.0.8",
-                "symplify/symfony-php-config": "<10.0.8",
-                "symplify/symfony-static-dumper": "<10.0.8",
-                "symplify/template-phpstan-compiler": "<10.0.8",
-                "symplify/vendor-patches": "<10.0.8"
+                "symplify/amnesia": "<10.0.9",
+                "symplify/astral": "<10.0.9",
+                "symplify/autowire-array-parameter": "<10.0.9",
+                "symplify/coding-standard": "<10.0.9",
+                "symplify/composer-json-manipulator": "<10.0.9",
+                "symplify/config-transformer": "<10.0.9",
+                "symplify/console-color-diff": "<10.0.9",
+                "symplify/easy-ci": "<10.0.9",
+                "symplify/easy-coding-standard": "<10.0.9",
+                "symplify/easy-parallel": "<10.0.9",
+                "symplify/easy-testing": "<10.0.9",
+                "symplify/git-wrapper": "<10.0.9",
+                "symplify/latte-phpstan-compiler": "<10.0.9",
+                "symplify/markdown-diff": "<10.0.9",
+                "symplify/monorepo-builder": "<10.0.9",
+                "symplify/neon-config-dumper": "<10.0.9",
+                "symplify/php-config-printer": "<10.0.9",
+                "symplify/phpstan-extensions": "<10.0.9",
+                "symplify/phpstan-latte-rules": "<10.0.9",
+                "symplify/phpstan-rules": "<10.0.9",
+                "symplify/rule-doc-generator": "<10.0.9",
+                "symplify/rule-doc-generator-contracts": "<10.0.9",
+                "symplify/simple-php-doc-parser": "<10.0.9",
+                "symplify/symfony-php-config": "<10.0.9",
+                "symplify/symfony-static-dumper": "<10.0.9",
+                "symplify/template-phpstan-compiler": "<10.0.9",
+                "symplify/vendor-patches": "<10.0.9"
             },
             "require-dev": {
                 "phpunit/phpunit": "^9.5"
@@ -8357,7 +8366,7 @@
             ],
             "description": "Skip files by rule class, directory, file or fnmatch",
             "support": {
-                "source": "https://github.com/symplify/skipper/tree/10.0.8"
+                "source": "https://github.com/symplify/skipper/tree/10.0.9"
             },
             "funding": [
                 {
@@ -8369,7 +8378,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-12-31T12:15:47+00:00"
+            "time": "2022-01-07T14:34:19+00:00"
         },
         {
             "name": "symplify/smart-file-system",
@@ -8377,12 +8386,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/smart-file-system.git",
-                "reference": "3332ee2669aeb7670924813fa5a40bcb1927fee8"
+                "reference": "1c385ee3092f41a3e02e3a22bb2e3c2f7905c327"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/smart-file-system/zipball/3332ee2669aeb7670924813fa5a40bcb1927fee8",
-                "reference": "3332ee2669aeb7670924813fa5a40bcb1927fee8",
+                "url": "https://api.github.com/repos/symplify/smart-file-system/zipball/1c385ee3092f41a3e02e3a22bb2e3c2f7905c327",
+                "reference": "1c385ee3092f41a3e02e3a22bb2e3c2f7905c327",
                 "shasum": ""
             },
             "require": {
@@ -8392,36 +8401,36 @@
                 "symfony/finder": "^5.4|^6.0"
             },
             "conflict": {
-                "symplify/amnesia": "<10.0.8",
-                "symplify/astral": "<10.0.8",
-                "symplify/autowire-array-parameter": "<10.0.8",
-                "symplify/coding-standard": "<10.0.8",
-                "symplify/composer-json-manipulator": "<10.0.8",
-                "symplify/config-transformer": "<10.0.8",
-                "symplify/console-color-diff": "<10.0.8",
-                "symplify/easy-ci": "<10.0.8",
-                "symplify/easy-coding-standard": "<10.0.8",
-                "symplify/easy-parallel": "<10.0.8",
-                "symplify/easy-testing": "<10.0.8",
-                "symplify/git-wrapper": "<10.0.8",
-                "symplify/latte-phpstan-compiler": "<10.0.8",
-                "symplify/markdown-diff": "<10.0.8",
-                "symplify/monorepo-builder": "<10.0.8",
-                "symplify/neon-config-dumper": "<10.0.8",
-                "symplify/package-builder": "<10.0.8",
-                "symplify/php-config-printer": "<10.0.8",
-                "symplify/phpstan-extensions": "<10.0.8",
-                "symplify/phpstan-latte-rules": "<10.0.8",
-                "symplify/phpstan-rules": "<10.0.8",
-                "symplify/rule-doc-generator": "<10.0.8",
-                "symplify/rule-doc-generator-contracts": "<10.0.8",
-                "symplify/simple-php-doc-parser": "<10.0.8",
-                "symplify/skipper": "<10.0.8",
-                "symplify/symfony-php-config": "<10.0.8",
-                "symplify/symfony-static-dumper": "<10.0.8",
-                "symplify/symplify-kernel": "<10.0.8",
-                "symplify/template-phpstan-compiler": "<10.0.8",
-                "symplify/vendor-patches": "<10.0.8"
+                "symplify/amnesia": "<10.0.9",
+                "symplify/astral": "<10.0.9",
+                "symplify/autowire-array-parameter": "<10.0.9",
+                "symplify/coding-standard": "<10.0.9",
+                "symplify/composer-json-manipulator": "<10.0.9",
+                "symplify/config-transformer": "<10.0.9",
+                "symplify/console-color-diff": "<10.0.9",
+                "symplify/easy-ci": "<10.0.9",
+                "symplify/easy-coding-standard": "<10.0.9",
+                "symplify/easy-parallel": "<10.0.9",
+                "symplify/easy-testing": "<10.0.9",
+                "symplify/git-wrapper": "<10.0.9",
+                "symplify/latte-phpstan-compiler": "<10.0.9",
+                "symplify/markdown-diff": "<10.0.9",
+                "symplify/monorepo-builder": "<10.0.9",
+                "symplify/neon-config-dumper": "<10.0.9",
+                "symplify/package-builder": "<10.0.9",
+                "symplify/php-config-printer": "<10.0.9",
+                "symplify/phpstan-extensions": "<10.0.9",
+                "symplify/phpstan-latte-rules": "<10.0.9",
+                "symplify/phpstan-rules": "<10.0.9",
+                "symplify/rule-doc-generator": "<10.0.9",
+                "symplify/rule-doc-generator-contracts": "<10.0.9",
+                "symplify/simple-php-doc-parser": "<10.0.9",
+                "symplify/skipper": "<10.0.9",
+                "symplify/symfony-php-config": "<10.0.9",
+                "symplify/symfony-static-dumper": "<10.0.9",
+                "symplify/symplify-kernel": "<10.0.9",
+                "symplify/template-phpstan-compiler": "<10.0.9",
+                "symplify/vendor-patches": "<10.0.9"
             },
             "require-dev": {
                 "nette/finder": "^2.5",
@@ -8445,7 +8454,7 @@
             ],
             "description": "Sanitized FileInfo with safe getRealPath() and other handy methods",
             "support": {
-                "source": "https://github.com/symplify/smart-file-system/tree/10.0.8"
+                "source": "https://github.com/symplify/smart-file-system/tree/10.0.9"
             },
             "funding": [
                 {
@@ -8457,7 +8466,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-12-31T12:15:53+00:00"
+            "time": "2022-01-07T14:34:32+00:00"
         },
         {
             "name": "symplify/symfony-php-config",
@@ -8541,12 +8550,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/symplify-kernel.git",
-                "reference": "8f315002a3d3ca01579b8cd0c1d1ed972c571281"
+                "reference": "be8537b9555a29dc11633be91c6482d2e60d37b8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/symplify-kernel/zipball/8f315002a3d3ca01579b8cd0c1d1ed972c571281",
-                "reference": "8f315002a3d3ca01579b8cd0c1d1ed972c571281",
+                "url": "https://api.github.com/repos/symplify/symplify-kernel/zipball/be8537b9555a29dc11633be91c6482d2e60d37b8",
+                "reference": "be8537b9555a29dc11633be91c6482d2e60d37b8",
                 "shasum": ""
             },
             "require": {
@@ -8560,32 +8569,32 @@
                 "webmozart/assert": "^1.10"
             },
             "conflict": {
-                "symplify/amnesia": "<10.0.8",
-                "symplify/astral": "<10.0.8",
-                "symplify/coding-standard": "<10.0.8",
-                "symplify/config-transformer": "<10.0.8",
-                "symplify/console-color-diff": "<10.0.8",
-                "symplify/easy-ci": "<10.0.8",
-                "symplify/easy-coding-standard": "<10.0.8",
-                "symplify/easy-parallel": "<10.0.8",
-                "symplify/easy-testing": "<10.0.8",
-                "symplify/git-wrapper": "<10.0.8",
-                "symplify/latte-phpstan-compiler": "<10.0.8",
-                "symplify/markdown-diff": "<10.0.8",
-                "symplify/monorepo-builder": "<10.0.8",
-                "symplify/neon-config-dumper": "<10.0.8",
-                "symplify/php-config-printer": "<10.0.8",
-                "symplify/phpstan-extensions": "<10.0.8",
-                "symplify/phpstan-latte-rules": "<10.0.8",
-                "symplify/phpstan-rules": "<10.0.8",
-                "symplify/rule-doc-generator": "<10.0.8",
-                "symplify/rule-doc-generator-contracts": "<10.0.8",
-                "symplify/simple-php-doc-parser": "<10.0.8",
-                "symplify/skipper": "<10.0.8",
-                "symplify/symfony-php-config": "<10.0.8",
-                "symplify/symfony-static-dumper": "<10.0.8",
-                "symplify/template-phpstan-compiler": "<10.0.8",
-                "symplify/vendor-patches": "<10.0.8"
+                "symplify/amnesia": "<10.0.9",
+                "symplify/astral": "<10.0.9",
+                "symplify/coding-standard": "<10.0.9",
+                "symplify/config-transformer": "<10.0.9",
+                "symplify/console-color-diff": "<10.0.9",
+                "symplify/easy-ci": "<10.0.9",
+                "symplify/easy-coding-standard": "<10.0.9",
+                "symplify/easy-parallel": "<10.0.9",
+                "symplify/easy-testing": "<10.0.9",
+                "symplify/git-wrapper": "<10.0.9",
+                "symplify/latte-phpstan-compiler": "<10.0.9",
+                "symplify/markdown-diff": "<10.0.9",
+                "symplify/monorepo-builder": "<10.0.9",
+                "symplify/neon-config-dumper": "<10.0.9",
+                "symplify/php-config-printer": "<10.0.9",
+                "symplify/phpstan-extensions": "<10.0.9",
+                "symplify/phpstan-latte-rules": "<10.0.9",
+                "symplify/phpstan-rules": "<10.0.9",
+                "symplify/rule-doc-generator": "<10.0.9",
+                "symplify/rule-doc-generator-contracts": "<10.0.9",
+                "symplify/simple-php-doc-parser": "<10.0.9",
+                "symplify/skipper": "<10.0.9",
+                "symplify/symfony-php-config": "<10.0.9",
+                "symplify/symfony-static-dumper": "<10.0.9",
+                "symplify/template-phpstan-compiler": "<10.0.9",
+                "symplify/vendor-patches": "<10.0.9"
             },
             "require-dev": {
                 "phpunit/phpunit": "^9.5"
@@ -8610,20 +8619,20 @@
             "support": {
                 "source": "https://github.com/symplify/symplify-kernel/tree/main"
             },
-            "time": "2021-12-31T12:19:15+00:00"
+            "time": "2022-01-08T00:53:18+00:00"
         },
         {
             "name": "twig/twig",
-            "version": "v3.3.4",
+            "version": "v3.3.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "65cb6f0b956485e1664f13d023c55298a4bb59ca"
+                "reference": "8f168c6ffa3ce76d1786b3cd52275424a3fc675b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/65cb6f0b956485e1664f13d023c55298a4bb59ca",
-                "reference": "65cb6f0b956485e1664f13d023c55298a4bb59ca",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/8f168c6ffa3ce76d1786b3cd52275424a3fc675b",
+                "reference": "8f168c6ffa3ce76d1786b3cd52275424a3fc675b",
                 "shasum": ""
             },
             "require": {
@@ -8674,7 +8683,7 @@
             ],
             "support": {
                 "issues": "https://github.com/twigphp/Twig/issues",
-                "source": "https://github.com/twigphp/Twig/tree/v3.3.4"
+                "source": "https://github.com/twigphp/Twig/tree/v3.3.7"
             },
             "funding": [
                 {
@@ -8686,7 +8695,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-11-25T13:46:55+00:00"
+            "time": "2022-01-03T21:15:37+00:00"
         },
         {
             "name": "webmozart/assert",
@@ -8821,16 +8830,16 @@
         },
         {
             "name": "composer/semver",
-            "version": "3.2.6",
+            "version": "3.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/semver.git",
-                "reference": "83e511e247de329283478496f7a1e114c9517506"
+                "reference": "deac27056b57e46faf136fae7b449eeaa71661ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/semver/zipball/83e511e247de329283478496f7a1e114c9517506",
-                "reference": "83e511e247de329283478496f7a1e114c9517506",
+                "url": "https://api.github.com/repos/composer/semver/zipball/deac27056b57e46faf136fae7b449eeaa71661ee",
+                "reference": "deac27056b57e46faf136fae7b449eeaa71661ee",
                 "shasum": ""
             },
             "require": {
@@ -8882,7 +8891,7 @@
             "support": {
                 "irc": "irc://irc.freenode.org/composer",
                 "issues": "https://github.com/composer/semver/issues",
-                "source": "https://github.com/composer/semver/tree/3.2.6"
+                "source": "https://github.com/composer/semver/tree/3.2.7"
             },
             "funding": [
                 {
@@ -8898,20 +8907,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-10-25T11:34:17+00:00"
+            "time": "2022-01-04T09:57:54+00:00"
         },
         {
             "name": "composer/xdebug-handler",
-            "version": "2.0.3",
+            "version": "2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/xdebug-handler.git",
-                "reference": "6555461e76962fd0379c444c46fd558a0fcfb65e"
+                "reference": "0c1a3925ec58a4ec98e992b9c7d171e9e184be0a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/xdebug-handler/zipball/6555461e76962fd0379c444c46fd558a0fcfb65e",
-                "reference": "6555461e76962fd0379c444c46fd558a0fcfb65e",
+                "url": "https://api.github.com/repos/composer/xdebug-handler/zipball/0c1a3925ec58a4ec98e992b9c7d171e9e184be0a",
+                "reference": "0c1a3925ec58a4ec98e992b9c7d171e9e184be0a",
                 "shasum": ""
             },
             "require": {
@@ -8948,7 +8957,7 @@
             "support": {
                 "irc": "irc://irc.freenode.org/composer",
                 "issues": "https://github.com/composer/xdebug-handler/issues",
-                "source": "https://github.com/composer/xdebug-handler/tree/2.0.3"
+                "source": "https://github.com/composer/xdebug-handler/tree/2.0.4"
             },
             "funding": [
                 {
@@ -8964,7 +8973,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-12-08T13:07:32+00:00"
+            "time": "2022-01-04T17:06:45+00:00"
         },
         {
             "name": "friendsofphp/php-cs-fixer",
@@ -9057,16 +9066,16 @@
         },
         {
             "name": "latte/latte",
-            "version": "v2.10.7",
+            "version": "v2.10.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/latte.git",
-                "reference": "a69d0b9598652438b5754ae5c1abc217d5003d98"
+                "reference": "596b28bf098ebb852732d60b00538139a009c4db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/latte/zipball/a69d0b9598652438b5754ae5c1abc217d5003d98",
-                "reference": "a69d0b9598652438b5754ae5c1abc217d5003d98",
+                "url": "https://api.github.com/repos/nette/latte/zipball/596b28bf098ebb852732d60b00538139a009c4db",
+                "reference": "596b28bf098ebb852732d60b00538139a009c4db",
                 "shasum": ""
             },
             "require": {
@@ -9135,9 +9144,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/latte/issues",
-                "source": "https://github.com/nette/latte/tree/v2.10.7"
+                "source": "https://github.com/nette/latte/tree/v2.10.8"
             },
-            "time": "2021-12-21T11:22:49+00:00"
+            "time": "2022-01-04T14:13:28+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -9762,16 +9771,16 @@
         },
         {
             "name": "phpdocumentor/type-resolver",
-            "version": "1.5.1",
+            "version": "1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/TypeResolver.git",
-                "reference": "a12f7e301eb7258bb68acd89d4aefa05c2906cae"
+                "reference": "93ebd0014cab80c4ea9f5e297ea48672f1b87706"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/a12f7e301eb7258bb68acd89d4aefa05c2906cae",
-                "reference": "a12f7e301eb7258bb68acd89d4aefa05c2906cae",
+                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/93ebd0014cab80c4ea9f5e297ea48672f1b87706",
+                "reference": "93ebd0014cab80c4ea9f5e297ea48672f1b87706",
                 "shasum": ""
             },
             "require": {
@@ -9806,9 +9815,9 @@
             "description": "A PSR-5 based resolver of Class names, Types and Structural Element Names",
             "support": {
                 "issues": "https://github.com/phpDocumentor/TypeResolver/issues",
-                "source": "https://github.com/phpDocumentor/TypeResolver/tree/1.5.1"
+                "source": "https://github.com/phpDocumentor/TypeResolver/tree/1.6.0"
             },
-            "time": "2021-10-02T14:08:47+00:00"
+            "time": "2022-01-04T19:58:01+00:00"
         },
         {
             "name": "phpspec/prophecy",
@@ -10373,12 +10382,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "31d9d9e2977ae7d796d82271be09e46f4bdf41b3"
+                "reference": "11696ae4d8970456cbd1919c17e6bb2ddb63553a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/31d9d9e2977ae7d796d82271be09e46f4bdf41b3",
-                "reference": "31d9d9e2977ae7d796d82271be09e46f4bdf41b3",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/11696ae4d8970456cbd1919c17e6bb2ddb63553a",
+                "reference": "11696ae4d8970456cbd1919c17e6bb2ddb63553a",
                 "shasum": ""
             },
             "conflict": {
@@ -10390,6 +10399,7 @@
                 "amphp/artax": "<1.0.6|>=2,<2.0.6",
                 "amphp/http": "<1.0.1",
                 "amphp/http-client": ">=4,<4.4",
+                "anchorcms/anchor-cms": "<=0.12.7",
                 "api-platform/core": ">=2.2,<2.2.10|>=2.3,<2.3.6",
                 "area17/twill": "<1.2.5|>=2,<2.5.3",
                 "asymmetricrypt/asymmetricrypt": ">=0,<9.9.99",
@@ -10402,6 +10412,7 @@
                 "bk2k/bootstrap-package": ">=7.1,<7.1.2|>=8,<8.0.8|>=9,<9.0.4|>=9.1,<9.1.3|>=10,<10.0.10|>=11,<11.0.3",
                 "bolt/bolt": "<3.7.2",
                 "bolt/core": "<4.1.13",
+                "bottelet/flarepoint": "<2.2.1",
                 "brightlocal/phpwhois": "<=4.2.5",
                 "buddypress/buddypress": "<7.2.1",
                 "bugsnag/bugsnag-laravel": ">=2,<2.0.2",
@@ -10415,6 +10426,7 @@
                 "cesnet/simplesamlphp-module-proxystatistics": "<3.1",
                 "codeception/codeception": "<3.1.3|>=4,<4.1.22",
                 "codeigniter/framework": "<=3.0.6",
+                "codeigniter4/framework": "<4.1.6",
                 "codiad/codiad": "<=2.8.4",
                 "composer/composer": "<1.10.23|>=2-alpha.1,<2.1.9",
                 "concrete5/concrete5": "<8.5.5",
@@ -10444,7 +10456,7 @@
                 "drupal/drupal": ">=7,<7.80|>=8,<8.9.16|>=9,<9.1.12|>=9.2,<9.2.4",
                 "dweeves/magmi": "<=0.7.24",
                 "ecodev/newsletter": "<=4",
-                "elgg/elgg": "<3.3.23|>=4,<4.0.5",
+                "elgg/elgg": "<3.3.24|>=4,<4.0.5",
                 "endroid/qr-code-bundle": "<3.4.2",
                 "enshrined/svg-sanitize": "<0.13.1",
                 "erusev/parsedown": "<1.7.2",
@@ -10483,6 +10495,7 @@
                 "friendsoftypo3/mediace": ">=7.6.2,<7.6.5",
                 "froala/wysiwyg-editor": "<3.2.7",
                 "fuel/core": "<1.8.1",
+                "gaoming13/wechat-php-sdk": "<=1.10.2",
                 "getgrav/grav": "<=1.7.24",
                 "getkirby/cms": "<3.5.8",
                 "getkirby/panel": "<2.5.14",
@@ -10494,6 +10507,7 @@
                 "grumpydictator/firefly-iii": "<5.6.5",
                 "guzzlehttp/guzzle": ">=4-rc.2,<4.2.4|>=5,<5.3.1|>=6,<6.2.1",
                 "helloxz/imgurl": "<=2.31",
+                "hillelcoren/invoice-ninja": "<5.3.35",
                 "hjue/justwriting": "<=1",
                 "hov/jobfair": "<1.0.13|>=2,<2.0.2",
                 "ibexa/post-install": "<=1.0.4",
@@ -10521,6 +10535,7 @@
                 "laminas/laminas-http": "<2.14.2",
                 "laravel/framework": "<6.20.42|>=7,<7.30.6|>=8,<8.75",
                 "laravel/socialite": ">=1,<1.0.99|>=2,<2.0.10",
+                "latte/latte": "<2.10.8",
                 "lavalite/cms": "<=5.8",
                 "lcobucci/jwt": ">=3.4,<3.4.6|>=4,<4.0.4|>=4.1,<4.1.5",
                 "league/commonmark": "<0.18.3",
@@ -10543,13 +10558,14 @@
                 "mittwald/typo3_forum": "<1.2.1",
                 "modx/revolution": "<2.8",
                 "monolog/monolog": ">=1.8,<1.12",
-                "moodle/moodle": "<3.5.17|>=3.7,<3.7.9|>=3.8,<3.8.8|>=3.9,<3.9.5|>=3.10-beta,<3.10.2",
+                "moodle/moodle": "<3.7.9|>=3.8,<3.8.8|>=3.9,<3.9.5|>=3.10-beta,<3.10.2",
                 "namshi/jose": "<2.2",
                 "neoan3-apps/template": "<1.1.1",
                 "neos/flow": ">=1,<1.0.4|>=1.1,<1.1.1|>=2,<2.0.1|>=2.3,<2.3.16|>=3,<3.0.12|>=3.1,<3.1.10|>=3.2,<3.2.13|>=3.3,<3.3.13|>=4,<4.0.6",
                 "neos/form": ">=1.2,<4.3.3|>=5,<5.0.9|>=5.1,<5.1.3",
                 "neos/neos": ">=1.1,<1.1.3|>=1.2,<1.2.13|>=2,<2.0.4|>=2.3,<2.9.99|>=3,<3.0.20|>=3.1,<3.1.18|>=3.2,<3.2.14|>=3.3,<3.3.23|>=4,<4.0.17|>=4.1,<4.1.16|>=4.2,<4.2.12|>=4.3,<4.3.3",
                 "neos/swiftmailer": ">=4.1,<4.1.99|>=5.4,<5.4.5",
+                "netgen/tagsbundle": ">=3.4,<3.4.11|>=4,<4.0.15",
                 "nette/application": ">=2,<2.0.19|>=2.1,<2.1.13|>=2.2,<2.2.10|>=2.3,<2.3.14|>=2.4,<2.4.16|>=3,<3.0.6",
                 "nette/nette": ">=2,<2.0.19|>=2.1,<2.1.13",
                 "nilsteampassnet/teampass": "<=2.1.27.36",
@@ -10568,7 +10584,7 @@
                 "openmage/magento-lts": "<19.4.15|>=20,<20.0.13",
                 "orchid/platform": ">=9,<9.4.4",
                 "oro/crm": ">=1.7,<1.7.4|>=3.1,<4.1.17|>=4.2,<4.2.7",
-                "oro/platform": ">=1.7,<1.7.4",
+                "oro/platform": ">=1.7,<1.7.4|>=3.1,<3.1.21|>=4.1,<4.1.14|>=4.2,<4.2.8",
                 "padraic/humbug_get_contents": "<1.1.2",
                 "pagarme/pagarme-php": ">=0,<3",
                 "pagekit/pagekit": "<=1.0.18",
@@ -10590,8 +10606,8 @@
                 "phpunit/phpunit": ">=4.8.19,<4.8.28|>=5.0.10,<5.6.3",
                 "phpwhois/phpwhois": "<=4.2.5",
                 "phpxmlrpc/extras": "<0.6.1",
-                "pimcore/pimcore": "<10.2.6",
-                "pocketmine/pocketmine-mp": "<4.0.3",
+                "pimcore/pimcore": "<10.2.7",
+                "pocketmine/pocketmine-mp": "<4.0.5",
                 "pressbooks/pressbooks": "<5.18",
                 "prestashop/autoupgrade": ">=4,<4.10.1",
                 "prestashop/contactform": ">1.0.1,<4.3",
@@ -10608,7 +10624,7 @@
                 "pusher/pusher-php-server": "<2.2.1",
                 "pwweb/laravel-core": "<=0.3.6-beta",
                 "rainlab/debugbar-plugin": "<3.1",
-                "remdex/livehelperchat": "<=3.90",
+                "remdex/livehelperchat": "<3.91",
                 "rmccue/requests": ">=1.6,<1.8",
                 "robrichards/xmlseclibs": "<3.0.4",
                 "sabberworm/php-css-parser": ">=1,<1.0.1|>=2,<2.0.1|>=3,<3.0.1|>=4,<4.0.1|>=5,<5.0.9|>=5.1,<5.1.3|>=5.2,<5.2.1|>=6,<6.0.2|>=7,<7.0.4|>=8,<8.0.1|>=8.1,<8.1.1|>=8.2,<8.2.1|>=8.3,<8.3.1",
@@ -10619,8 +10635,8 @@
                 "shopware/core": "<=6.4.6",
                 "shopware/platform": "<=6.4.6",
                 "shopware/production": "<=6.3.5.2",
-                "shopware/shopware": "<5.7.6",
-                "showdoc/showdoc": "<=2.9.13",
+                "shopware/shopware": "<5.7.7",
+                "showdoc/showdoc": "<2.10",
                 "silverstripe/admin": ">=1,<1.8.1",
                 "silverstripe/assets": ">=1,<1.4.7|>=1.5,<1.5.2",
                 "silverstripe/cms": "<4.3.6|>=4.4,<4.4.4",
@@ -10645,7 +10661,7 @@
                 "socialiteproviders/steam": "<1.1",
                 "spoonity/tcpdf": "<6.2.22",
                 "squizlabs/php_codesniffer": ">=1,<2.8.1|>=3,<3.0.1",
-                "ssddanbrown/bookstack": "<21.11.3",
+                "ssddanbrown/bookstack": "<21.12.1",
                 "stormpath/sdk": ">=0,<9.9.99",
                 "studio-42/elfinder": "<2.1.59",
                 "subrion/cms": "<=4.2.1",
@@ -10713,6 +10729,8 @@
                 "typo3/swiftmailer": ">=4.1,<4.1.99|>=5.4,<5.4.5",
                 "typo3fluid/fluid": ">=2,<2.0.8|>=2.1,<2.1.7|>=2.2,<2.2.4|>=2.3,<2.3.7|>=2.4,<2.4.4|>=2.5,<2.5.11|>=2.6,<2.6.10",
                 "ua-parser/uap-php": "<3.8",
+                "unisharp/laravel-filemanager": "<=2.3",
+                "userfrosting/userfrosting": ">=0.3.1,<4.6.3",
                 "usmanhalalit/pixie": "<1.0.3|>=2,<2.0.2",
                 "vanilla/safecurl": "<0.9.2",
                 "verot/class.upload.php": "<=1.0.3|>=2,<=2.0.4",
@@ -10797,7 +10815,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-12-22T21:13:38+00:00"
+            "time": "2022-01-08T00:53:14+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -12033,54 +12051,54 @@
         },
         {
             "name": "symplify/coding-standard",
-            "version": "10.0.8",
+            "version": "10.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/coding-standard.git",
-                "reference": "3c26ae47c5493fab46cfb11d669baaa2ab95bba6"
+                "reference": "c4b5aa3a4b74627ea16a790beaf2082ef7fb0fce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/coding-standard/zipball/3c26ae47c5493fab46cfb11d669baaa2ab95bba6",
-                "reference": "3c26ae47c5493fab46cfb11d669baaa2ab95bba6",
+                "url": "https://api.github.com/repos/symplify/coding-standard/zipball/c4b5aa3a4b74627ea16a790beaf2082ef7fb0fce",
+                "reference": "c4b5aa3a4b74627ea16a790beaf2082ef7fb0fce",
                 "shasum": ""
             },
             "require": {
                 "friendsofphp/php-cs-fixer": "^3.4",
                 "nette/utils": "^3.2",
                 "php": ">=8.0",
-                "symplify/autowire-array-parameter": "^10.0.8",
-                "symplify/package-builder": "^10.0.8",
-                "symplify/rule-doc-generator-contracts": "^10.0.8",
-                "symplify/symplify-kernel": "^10.0.8"
+                "symplify/autowire-array-parameter": "^10.0.9",
+                "symplify/package-builder": "^10.0.9",
+                "symplify/rule-doc-generator-contracts": "^10.0.9",
+                "symplify/symplify-kernel": "^10.0.9"
             },
             "conflict": {
-                "symplify/amnesia": "<10.0.8",
-                "symplify/astral": "<10.0.8",
-                "symplify/composer-json-manipulator": "<10.0.8",
-                "symplify/config-transformer": "<10.0.8",
-                "symplify/console-color-diff": "<10.0.8",
-                "symplify/easy-ci": "<10.0.8",
-                "symplify/easy-coding-standard": "<10.0.8",
-                "symplify/easy-parallel": "<10.0.8",
-                "symplify/easy-testing": "<10.0.8",
-                "symplify/git-wrapper": "<10.0.8",
-                "symplify/latte-phpstan-compiler": "<10.0.8",
-                "symplify/markdown-diff": "<10.0.8",
-                "symplify/monorepo-builder": "<10.0.8",
-                "symplify/neon-config-dumper": "<10.0.8",
-                "symplify/php-config-printer": "<10.0.8",
-                "symplify/phpstan-extensions": "<10.0.8",
-                "symplify/phpstan-latte-rules": "<10.0.8",
-                "symplify/phpstan-rules": "<10.0.8",
-                "symplify/rule-doc-generator": "<10.0.8",
-                "symplify/simple-php-doc-parser": "<10.0.8",
-                "symplify/skipper": "<10.0.8",
-                "symplify/smart-file-system": "<10.0.8",
-                "symplify/symfony-php-config": "<10.0.8",
-                "symplify/symfony-static-dumper": "<10.0.8",
-                "symplify/template-phpstan-compiler": "<10.0.8",
-                "symplify/vendor-patches": "<10.0.8"
+                "symplify/amnesia": "<10.0.9",
+                "symplify/astral": "<10.0.9",
+                "symplify/composer-json-manipulator": "<10.0.9",
+                "symplify/config-transformer": "<10.0.9",
+                "symplify/console-color-diff": "<10.0.9",
+                "symplify/easy-ci": "<10.0.9",
+                "symplify/easy-coding-standard": "<10.0.9",
+                "symplify/easy-parallel": "<10.0.9",
+                "symplify/easy-testing": "<10.0.9",
+                "symplify/git-wrapper": "<10.0.9",
+                "symplify/latte-phpstan-compiler": "<10.0.9",
+                "symplify/markdown-diff": "<10.0.9",
+                "symplify/monorepo-builder": "<10.0.9",
+                "symplify/neon-config-dumper": "<10.0.9",
+                "symplify/php-config-printer": "<10.0.9",
+                "symplify/phpstan-extensions": "<10.0.9",
+                "symplify/phpstan-latte-rules": "<10.0.9",
+                "symplify/phpstan-rules": "<10.0.9",
+                "symplify/rule-doc-generator": "<10.0.9",
+                "symplify/simple-php-doc-parser": "<10.0.9",
+                "symplify/skipper": "<10.0.9",
+                "symplify/smart-file-system": "<10.0.9",
+                "symplify/symfony-php-config": "<10.0.9",
+                "symplify/symfony-static-dumper": "<10.0.9",
+                "symplify/template-phpstan-compiler": "<10.0.9",
+                "symplify/vendor-patches": "<10.0.9"
             },
             "require-dev": {
                 "doctrine/orm": "^2.10",
@@ -12088,10 +12106,10 @@
                 "nette/bootstrap": "^3.1",
                 "phpunit/phpunit": "^9.5",
                 "symfony/framework-bundle": "^5.4|^6.0",
-                "symplify/easy-coding-standard": "^10.0.8",
-                "symplify/rule-doc-generator": "^10.0.8",
-                "symplify/smart-file-system": "^10.0.8",
-                "symplify/symplify-kernel": "^10.0.8"
+                "symplify/easy-coding-standard": "^10.0.9",
+                "symplify/rule-doc-generator": "^10.0.9",
+                "symplify/smart-file-system": "^10.0.9",
+                "symplify/symplify-kernel": "^10.0.9"
             },
             "type": "library",
             "extra": {
@@ -12110,7 +12128,7 @@
             ],
             "description": "Set of Symplify rules for PHP_CodeSniffer and PHP CS Fixer.",
             "support": {
-                "source": "https://github.com/symplify/coding-standard/tree/10.0.8"
+                "source": "https://github.com/symplify/coding-standard/tree/10.0.9"
             },
             "funding": [
                 {
@@ -12122,20 +12140,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-12-31T12:14:11+00:00"
+            "time": "2022-01-07T14:33:44+00:00"
         },
         {
             "name": "symplify/easy-coding-standard",
-            "version": "10.0.8",
+            "version": "10.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/easy-coding-standard.git",
-                "reference": "12ef3b0f500d485e6313926e5f2900a74c578394"
+                "reference": "f0c71b040655e2780a4b701ecf8027ac8e23eedc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/easy-coding-standard/zipball/12ef3b0f500d485e6313926e5f2900a74c578394",
-                "reference": "12ef3b0f500d485e6313926e5f2900a74c578394",
+                "url": "https://api.github.com/repos/symplify/easy-coding-standard/zipball/f0c71b040655e2780a4b701ecf8027ac8e23eedc",
+                "reference": "f0c71b040655e2780a4b701ecf8027ac8e23eedc",
                 "shasum": ""
             },
             "require": {
@@ -12165,7 +12183,7 @@
             ],
             "description": "Prefixed scoped version of ECS package",
             "support": {
-                "source": "https://github.com/symplify/easy-coding-standard/tree/10.0.8"
+                "source": "https://github.com/symplify/easy-coding-standard/tree/10.0.9"
             },
             "funding": [
                 {
@@ -12177,20 +12195,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-12-31T12:19:54+00:00"
+            "time": "2022-01-07T16:01:56+00:00"
         },
         {
             "name": "symplify/latte-phpstan-compiler",
-            "version": "10.0.8",
+            "version": "10.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/latte-phpstan-compiler.git",
-                "reference": "2efab06b5d02ea12ae428e2f58ffbd666daf4a0e"
+                "reference": "685161f7b9ac79cd393eae1ed29d874611f674ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/latte-phpstan-compiler/zipball/2efab06b5d02ea12ae428e2f58ffbd666daf4a0e",
-                "reference": "2efab06b5d02ea12ae428e2f58ffbd666daf4a0e",
+                "url": "https://api.github.com/repos/symplify/latte-phpstan-compiler/zipball/685161f7b9ac79cd393eae1ed29d874611f674ed",
+                "reference": "685161f7b9ac79cd393eae1ed29d874611f674ed",
                 "shasum": ""
             },
             "require": {
@@ -12199,45 +12217,45 @@
                 "nette/utils": "^3.2",
                 "php": ">=8.0",
                 "phpstan/phpstan": "^1.3",
-                "symplify/astral": "^10.0.8",
-                "symplify/template-phpstan-compiler": "^10.0.8"
+                "symplify/astral": "^10.0.9",
+                "symplify/template-phpstan-compiler": "^10.0.9"
             },
             "conflict": {
-                "symplify/amnesia": "<10.0.8",
+                "symplify/amnesia": "<10.0.9",
                 "symplify/astral": "<9.4.69",
-                "symplify/autowire-array-parameter": "<10.0.8",
-                "symplify/coding-standard": "<10.0.8",
-                "symplify/composer-json-manipulator": "<10.0.8",
-                "symplify/config-transformer": "<10.0.8",
-                "symplify/console-color-diff": "<10.0.8",
-                "symplify/easy-ci": "<10.0.8",
-                "symplify/easy-coding-standard": "<10.0.8",
-                "symplify/easy-parallel": "<10.0.8",
-                "symplify/easy-testing": "<10.0.8",
-                "symplify/git-wrapper": "<10.0.8",
-                "symplify/markdown-diff": "<10.0.8",
-                "symplify/monorepo-builder": "<10.0.8",
-                "symplify/neon-config-dumper": "<10.0.8",
-                "symplify/package-builder": "<10.0.8",
-                "symplify/php-config-printer": "<10.0.8",
-                "symplify/phpstan-extensions": "<10.0.8",
-                "symplify/phpstan-latte-rules": "<10.0.8",
-                "symplify/phpstan-rules": "<10.0.8",
-                "symplify/rule-doc-generator": "<10.0.8",
-                "symplify/rule-doc-generator-contracts": "<10.0.8",
-                "symplify/simple-php-doc-parser": "<10.0.8",
-                "symplify/skipper": "<10.0.8",
-                "symplify/smart-file-system": "<10.0.8",
-                "symplify/symfony-php-config": "<10.0.8",
-                "symplify/symfony-static-dumper": "<10.0.8",
-                "symplify/symplify-kernel": "<10.0.8",
-                "symplify/vendor-patches": "<10.0.8"
+                "symplify/autowire-array-parameter": "<10.0.9",
+                "symplify/coding-standard": "<10.0.9",
+                "symplify/composer-json-manipulator": "<10.0.9",
+                "symplify/config-transformer": "<10.0.9",
+                "symplify/console-color-diff": "<10.0.9",
+                "symplify/easy-ci": "<10.0.9",
+                "symplify/easy-coding-standard": "<10.0.9",
+                "symplify/easy-parallel": "<10.0.9",
+                "symplify/easy-testing": "<10.0.9",
+                "symplify/git-wrapper": "<10.0.9",
+                "symplify/markdown-diff": "<10.0.9",
+                "symplify/monorepo-builder": "<10.0.9",
+                "symplify/neon-config-dumper": "<10.0.9",
+                "symplify/package-builder": "<10.0.9",
+                "symplify/php-config-printer": "<10.0.9",
+                "symplify/phpstan-extensions": "<10.0.9",
+                "symplify/phpstan-latte-rules": "<10.0.9",
+                "symplify/phpstan-rules": "<10.0.9",
+                "symplify/rule-doc-generator": "<10.0.9",
+                "symplify/rule-doc-generator-contracts": "<10.0.9",
+                "symplify/simple-php-doc-parser": "<10.0.9",
+                "symplify/skipper": "<10.0.9",
+                "symplify/smart-file-system": "<10.0.9",
+                "symplify/symfony-php-config": "<10.0.9",
+                "symplify/symfony-static-dumper": "<10.0.9",
+                "symplify/symplify-kernel": "<10.0.9",
+                "symplify/vendor-patches": "<10.0.9"
             },
             "require-dev": {
                 "phpunit/phpunit": "^9.5",
-                "symplify/easy-testing": "^10.0.8",
-                "symplify/phpstan-extensions": "^10.0.8",
-                "symplify/phpstan-rules": "^10.0.8"
+                "symplify/easy-testing": "^10.0.9",
+                "symplify/phpstan-extensions": "^10.0.9",
+                "symplify/phpstan-rules": "^10.0.9"
             },
             "type": "phpstan-extension",
             "extra": {
@@ -12261,7 +12279,7 @@
             ],
             "description": "Compile latte template to PHPStan-compatible PHP code to allow its static analysis",
             "support": {
-                "source": "https://github.com/symplify/latte-phpstan-compiler/tree/10.0.8"
+                "source": "https://github.com/symplify/latte-phpstan-compiler/tree/10.0.9"
             },
             "funding": [
                 {
@@ -12273,57 +12291,57 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-12-31T12:14:48+00:00"
+            "time": "2022-01-07T14:33:56+00:00"
         },
         {
             "name": "symplify/phpstan-extensions",
-            "version": "10.0.8",
+            "version": "10.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/phpstan-extensions.git",
-                "reference": "f60b0e58d7bbcbedcf9e552c078aa48bc04459ed"
+                "reference": "89a6f0e5be90bbd5708ab73b1fa56e909e861643"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/phpstan-extensions/zipball/f60b0e58d7bbcbedcf9e552c078aa48bc04459ed",
-                "reference": "f60b0e58d7bbcbedcf9e552c078aa48bc04459ed",
+                "url": "https://api.github.com/repos/symplify/phpstan-extensions/zipball/89a6f0e5be90bbd5708ab73b1fa56e909e861643",
+                "reference": "89a6f0e5be90bbd5708ab73b1fa56e909e861643",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.0",
                 "phpstan/phpstan": "^1.3",
-                "symplify/astral": "^10.0.8",
-                "symplify/package-builder": "^10.0.8",
-                "symplify/smart-file-system": "^10.0.8"
+                "symplify/astral": "^10.0.9",
+                "symplify/package-builder": "^10.0.9",
+                "symplify/smart-file-system": "^10.0.9"
             },
             "conflict": {
-                "symplify/amnesia": "<10.0.8",
-                "symplify/autowire-array-parameter": "<10.0.8",
-                "symplify/coding-standard": "<10.0.8",
-                "symplify/composer-json-manipulator": "<10.0.8",
-                "symplify/config-transformer": "<10.0.8",
-                "symplify/console-color-diff": "<10.0.8",
-                "symplify/easy-ci": "<10.0.8",
-                "symplify/easy-coding-standard": "<10.0.8",
-                "symplify/easy-parallel": "<10.0.8",
-                "symplify/easy-testing": "<10.0.8",
-                "symplify/git-wrapper": "<10.0.8",
-                "symplify/latte-phpstan-compiler": "<10.0.8",
-                "symplify/markdown-diff": "<10.0.8",
-                "symplify/monorepo-builder": "<10.0.8",
-                "symplify/neon-config-dumper": "<10.0.8",
-                "symplify/php-config-printer": "<10.0.8",
-                "symplify/phpstan-latte-rules": "<10.0.8",
-                "symplify/phpstan-rules": "<10.0.8",
-                "symplify/rule-doc-generator": "<10.0.8",
-                "symplify/rule-doc-generator-contracts": "<10.0.8",
-                "symplify/simple-php-doc-parser": "<10.0.8",
-                "symplify/skipper": "<10.0.8",
-                "symplify/symfony-php-config": "<10.0.8",
-                "symplify/symfony-static-dumper": "<10.0.8",
-                "symplify/symplify-kernel": "<10.0.8",
-                "symplify/template-phpstan-compiler": "<10.0.8",
-                "symplify/vendor-patches": "<10.0.8"
+                "symplify/amnesia": "<10.0.9",
+                "symplify/autowire-array-parameter": "<10.0.9",
+                "symplify/coding-standard": "<10.0.9",
+                "symplify/composer-json-manipulator": "<10.0.9",
+                "symplify/config-transformer": "<10.0.9",
+                "symplify/console-color-diff": "<10.0.9",
+                "symplify/easy-ci": "<10.0.9",
+                "symplify/easy-coding-standard": "<10.0.9",
+                "symplify/easy-parallel": "<10.0.9",
+                "symplify/easy-testing": "<10.0.9",
+                "symplify/git-wrapper": "<10.0.9",
+                "symplify/latte-phpstan-compiler": "<10.0.9",
+                "symplify/markdown-diff": "<10.0.9",
+                "symplify/monorepo-builder": "<10.0.9",
+                "symplify/neon-config-dumper": "<10.0.9",
+                "symplify/php-config-printer": "<10.0.9",
+                "symplify/phpstan-latte-rules": "<10.0.9",
+                "symplify/phpstan-rules": "<10.0.9",
+                "symplify/rule-doc-generator": "<10.0.9",
+                "symplify/rule-doc-generator-contracts": "<10.0.9",
+                "symplify/simple-php-doc-parser": "<10.0.9",
+                "symplify/skipper": "<10.0.9",
+                "symplify/symfony-php-config": "<10.0.9",
+                "symplify/symfony-static-dumper": "<10.0.9",
+                "symplify/symplify-kernel": "<10.0.9",
+                "symplify/template-phpstan-compiler": "<10.0.9",
+                "symplify/vendor-patches": "<10.0.9"
             },
             "require-dev": {
                 "phpunit/phpunit": "^9.5"
@@ -12350,7 +12368,7 @@
             ],
             "description": "Pre-escaped error messages in 'symplify' error format, container aware test case and other useful extensions for PHPStan",
             "support": {
-                "source": "https://github.com/symplify/phpstan-extensions/tree/10.0.8"
+                "source": "https://github.com/symplify/phpstan-extensions/tree/10.0.9"
             },
             "funding": [
                 {
@@ -12362,20 +12380,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-12-31T12:15:18+00:00"
+            "time": "2022-01-07T14:34:06+00:00"
         },
         {
             "name": "symplify/phpstan-rules",
-            "version": "10.0.8",
+            "version": "10.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/phpstan-rules.git",
-                "reference": "6bebb6f0b5ed9ab7c993ecfdff662979c87585a8"
+                "reference": "306b226b6fd6dc476a7314b80c46409920073534"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/phpstan-rules/zipball/6bebb6f0b5ed9ab7c993ecfdff662979c87585a8",
-                "reference": "6bebb6f0b5ed9ab7c993ecfdff662979c87585a8",
+                "url": "https://api.github.com/repos/symplify/phpstan-rules/zipball/306b226b6fd6dc476a7314b80c46409920073534",
+                "reference": "306b226b6fd6dc476a7314b80c46409920073534",
                 "shasum": ""
             },
             "require": {
@@ -12384,47 +12402,47 @@
                 "php": ">=8.0",
                 "phpstan/phpdoc-parser": "^1.2",
                 "phpstan/phpstan": "^1.3",
-                "symplify/astral": "^10.0.8",
-                "symplify/composer-json-manipulator": "^10.0.8",
-                "symplify/package-builder": "^10.0.8",
-                "symplify/rule-doc-generator-contracts": "^10.0.8",
-                "symplify/simple-php-doc-parser": "^10.0.8",
-                "symplify/smart-file-system": "^10.0.8",
+                "symplify/astral": "^10.0.9",
+                "symplify/composer-json-manipulator": "^10.0.9",
+                "symplify/package-builder": "^10.0.9",
+                "symplify/rule-doc-generator-contracts": "^10.0.9",
+                "symplify/simple-php-doc-parser": "^10.0.9",
+                "symplify/smart-file-system": "^10.0.9",
                 "webmozart/assert": "^1.10"
             },
             "conflict": {
-                "symplify/amnesia": "<10.0.8",
-                "symplify/autowire-array-parameter": "<10.0.8",
-                "symplify/coding-standard": "<10.0.8",
-                "symplify/config-transformer": "<10.0.8",
-                "symplify/console-color-diff": "<10.0.8",
-                "symplify/easy-ci": "<10.0.8",
-                "symplify/easy-coding-standard": "<10.0.8",
-                "symplify/easy-parallel": "<10.0.8",
-                "symplify/easy-testing": "<10.0.8",
-                "symplify/git-wrapper": "<10.0.8",
-                "symplify/latte-phpstan-compiler": "<10.0.8",
-                "symplify/markdown-diff": "<10.0.8",
-                "symplify/monorepo-builder": "<10.0.8",
-                "symplify/neon-config-dumper": "<10.0.8",
-                "symplify/php-config-printer": "<10.0.8",
-                "symplify/phpstan-extensions": "<10.0.8",
-                "symplify/phpstan-latte-rules": "<10.0.8",
-                "symplify/rule-doc-generator": "<10.0.8",
-                "symplify/skipper": "<10.0.8",
-                "symplify/symfony-php-config": "<10.0.8",
-                "symplify/symfony-static-dumper": "<10.0.8",
-                "symplify/symplify-kernel": "<10.0.8",
-                "symplify/template-phpstan-compiler": "<10.0.8",
-                "symplify/vendor-patches": "<10.0.8"
+                "symplify/amnesia": "<10.0.9",
+                "symplify/autowire-array-parameter": "<10.0.9",
+                "symplify/coding-standard": "<10.0.9",
+                "symplify/config-transformer": "<10.0.9",
+                "symplify/console-color-diff": "<10.0.9",
+                "symplify/easy-ci": "<10.0.9",
+                "symplify/easy-coding-standard": "<10.0.9",
+                "symplify/easy-parallel": "<10.0.9",
+                "symplify/easy-testing": "<10.0.9",
+                "symplify/git-wrapper": "<10.0.9",
+                "symplify/latte-phpstan-compiler": "<10.0.9",
+                "symplify/markdown-diff": "<10.0.9",
+                "symplify/monorepo-builder": "<10.0.9",
+                "symplify/neon-config-dumper": "<10.0.9",
+                "symplify/php-config-printer": "<10.0.9",
+                "symplify/phpstan-extensions": "<10.0.9",
+                "symplify/phpstan-latte-rules": "<10.0.9",
+                "symplify/rule-doc-generator": "<10.0.9",
+                "symplify/skipper": "<10.0.9",
+                "symplify/symfony-php-config": "<10.0.9",
+                "symplify/symfony-static-dumper": "<10.0.9",
+                "symplify/symplify-kernel": "<10.0.9",
+                "symplify/template-phpstan-compiler": "<10.0.9",
+                "symplify/vendor-patches": "<10.0.9"
             },
             "require-dev": {
                 "myclabs/php-enum": "^1.8",
                 "phpunit/phpunit": "^9.5",
                 "symfony/framework-bundle": "^5.4|^6.0",
-                "symplify/easy-testing": "^10.0.8",
-                "symplify/phpstan-extensions": "^10.0.8",
-                "symplify/rule-doc-generator": "^10.0.8"
+                "symplify/easy-testing": "^10.0.9",
+                "symplify/phpstan-extensions": "^10.0.9",
+                "symplify/rule-doc-generator": "^10.0.9"
             },
             "type": "phpstan-extension",
             "extra": {
@@ -12455,7 +12473,7 @@
             ],
             "description": "Set of Symplify rules for PHPStan",
             "support": {
-                "source": "https://github.com/symplify/phpstan-rules/tree/10.0.8"
+                "source": "https://github.com/symplify/phpstan-rules/tree/10.0.9"
             },
             "funding": [
                 {
@@ -12467,64 +12485,64 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-12-31T12:15:33+00:00"
+            "time": "2022-01-07T14:34:15+00:00"
         },
         {
             "name": "symplify/template-phpstan-compiler",
-            "version": "10.0.8",
+            "version": "10.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/template-phpstan-compiler.git",
-                "reference": "0c59da1289fc50e9f65b45ab416b54e3a0bba89d"
+                "reference": "13a7f62a8a13513ab68afa3f2a9b32d84c37083b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/template-phpstan-compiler/zipball/0c59da1289fc50e9f65b45ab416b54e3a0bba89d",
-                "reference": "0c59da1289fc50e9f65b45ab416b54e3a0bba89d",
+                "url": "https://api.github.com/repos/symplify/template-phpstan-compiler/zipball/13a7f62a8a13513ab68afa3f2a9b32d84c37083b",
+                "reference": "13a7f62a8a13513ab68afa3f2a9b32d84c37083b",
                 "shasum": ""
             },
             "require": {
                 "nette/utils": "^3.2",
                 "php": ">=8.0",
                 "phpstan/phpstan": "^1.3",
-                "symplify/astral": "^10.0.8"
+                "symplify/astral": "^10.0.9"
             },
             "conflict": {
-                "symplify/amnesia": "<10.0.8",
+                "symplify/amnesia": "<10.0.9",
                 "symplify/astral": "<9.4.69",
-                "symplify/autowire-array-parameter": "<10.0.8",
-                "symplify/coding-standard": "<10.0.8",
-                "symplify/composer-json-manipulator": "<10.0.8",
-                "symplify/config-transformer": "<10.0.8",
-                "symplify/console-color-diff": "<10.0.8",
-                "symplify/easy-ci": "<10.0.8",
-                "symplify/easy-coding-standard": "<10.0.8",
-                "symplify/easy-parallel": "<10.0.8",
-                "symplify/easy-testing": "<10.0.8",
-                "symplify/git-wrapper": "<10.0.8",
-                "symplify/latte-phpstan-compiler": "<10.0.8",
-                "symplify/markdown-diff": "<10.0.8",
-                "symplify/monorepo-builder": "<10.0.8",
-                "symplify/neon-config-dumper": "<10.0.8",
-                "symplify/package-builder": "<10.0.8",
-                "symplify/php-config-printer": "<10.0.8",
-                "symplify/phpstan-extensions": "<10.0.8",
-                "symplify/phpstan-latte-rules": "<10.0.8",
-                "symplify/phpstan-rules": "<10.0.8",
-                "symplify/rule-doc-generator": "<10.0.8",
-                "symplify/rule-doc-generator-contracts": "<10.0.8",
-                "symplify/simple-php-doc-parser": "<10.0.8",
-                "symplify/skipper": "<10.0.8",
-                "symplify/smart-file-system": "<10.0.8",
-                "symplify/symfony-php-config": "<10.0.8",
-                "symplify/symfony-static-dumper": "<10.0.8",
-                "symplify/symplify-kernel": "<10.0.8",
-                "symplify/vendor-patches": "<10.0.8"
+                "symplify/autowire-array-parameter": "<10.0.9",
+                "symplify/coding-standard": "<10.0.9",
+                "symplify/composer-json-manipulator": "<10.0.9",
+                "symplify/config-transformer": "<10.0.9",
+                "symplify/console-color-diff": "<10.0.9",
+                "symplify/easy-ci": "<10.0.9",
+                "symplify/easy-coding-standard": "<10.0.9",
+                "symplify/easy-parallel": "<10.0.9",
+                "symplify/easy-testing": "<10.0.9",
+                "symplify/git-wrapper": "<10.0.9",
+                "symplify/latte-phpstan-compiler": "<10.0.9",
+                "symplify/markdown-diff": "<10.0.9",
+                "symplify/monorepo-builder": "<10.0.9",
+                "symplify/neon-config-dumper": "<10.0.9",
+                "symplify/package-builder": "<10.0.9",
+                "symplify/php-config-printer": "<10.0.9",
+                "symplify/phpstan-extensions": "<10.0.9",
+                "symplify/phpstan-latte-rules": "<10.0.9",
+                "symplify/phpstan-rules": "<10.0.9",
+                "symplify/rule-doc-generator": "<10.0.9",
+                "symplify/rule-doc-generator-contracts": "<10.0.9",
+                "symplify/simple-php-doc-parser": "<10.0.9",
+                "symplify/skipper": "<10.0.9",
+                "symplify/smart-file-system": "<10.0.9",
+                "symplify/symfony-php-config": "<10.0.9",
+                "symplify/symfony-static-dumper": "<10.0.9",
+                "symplify/symplify-kernel": "<10.0.9",
+                "symplify/vendor-patches": "<10.0.9"
             },
             "require-dev": {
                 "phpunit/phpunit": "^9.5",
-                "symplify/easy-testing": "^10.0.8",
-                "symplify/phpstan-extensions": "^10.0.8"
+                "symplify/easy-testing": "^10.0.9",
+                "symplify/phpstan-extensions": "^10.0.9"
             },
             "type": "phpstan-extension",
             "extra": {
@@ -12549,9 +12567,9 @@
             "description": "Internal package for template to PHPStan-compatible compilers",
             "support": {
                 "issues": "https://github.com/symplify/template-phpstan-compiler/issues",
-                "source": "https://github.com/symplify/template-phpstan-compiler/tree/10.0.8"
+                "source": "https://github.com/symplify/template-phpstan-compiler/tree/10.0.9"
             },
-            "time": "2021-12-31T12:16:07+00:00"
+            "time": "2022-01-07T14:34:25+00:00"
         },
         {
             "name": "theseer/tokenizer",
