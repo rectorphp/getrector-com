@@ -25,10 +25,6 @@ jobs:
                         run: composer rector
 
                     -
-                        name: 'Doctrine Validate Schema'
-                        run: bin/console doctrine:schema:validate --skip-sync --ansi
-
-                    -
                         name: 'Lint Twig'
                         run: bin/console lint:twig templates
 
