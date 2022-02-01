@@ -17,7 +17,6 @@
         "symfony/http-kernel": "^6.0",
         "symfony/process": "^6.0",
         "symfony/templating": "^6.0",
-        "symfony/twig-bridge": "^6.0",
         "symfony/twig-bundle": "^6.0",
         "symfony/uid": "^6.0",
         "symfony/web-profiler-bundle": "^6.0",
