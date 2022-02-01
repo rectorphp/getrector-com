@@ -8,16 +8,12 @@ use Nette\Utils\Strings;
 use Rector\Website\Demo\Exception\Linter\MissingPHPOpeningTagException;
 use Rector\Website\Demo\Exception\LintingException;
 use Rector\Website\Demo\Lint\PHPLinter;
-use Rector\Website\Demo\Validator\Constraint\PHPConstraint;
-use Symfony\Component\Validator\Constraint;
-use Symfony\Component\Validator\ConstraintValidator;
+use Rector\Website\Exception\ShouldNotHappenException;
 
 /**
- * @see https://symfony.com/doc/current/validation/custom_constraint.html#creating-the-validator-itself
- *
  * @see \Rector\Website\Tests\Demo\Validator\PHPConstraintValidatorTest
  */
-final class PHPConstraintValidator extends ConstraintValidator
+final class PHPConstraintValidator
 {
     /**
      * @see https://regex101.com/r/Y1Qmks/1
@@ -30,23 +26,16 @@ final class PHPConstraintValidator extends ConstraintValidator
     ) {
     }
 
-    /**
-     * @param string $value
-     * @param PHPConstraint $constraint
-     */
-    public function validate($value, Constraint $constraint): void
+    public function validate(string $value): void
     {
         try {
             $this->phpLinter->checkContentSyntax($value);
         } catch (MissingPHPOpeningTagException) {
-            $constraintViolation = $this->context->buildViolation('Add opening "<?php" tag');
-            $constraintViolation->addViolation();
+            throw new ShouldNotHappenException('Add opening "<?php" tag');
         } catch (LintingException $lintingException) {
-            $usefulLinterMessage = $this->clearLinterMessage($lintingException->getMessage());
-
-            $constraintViolation = $this->context->buildViolation('Fix PHP syntax: %error%');
-            $constraintViolation->setParameter('%error%', $usefulLinterMessage);
-            $constraintViolation->addViolation();
+            $errorMessage = 'Fix PHP syntax: ' . $lintingException->getMessage();
+            $usefulLinterMessage = $this->clearLinterMessage($errorMessage);
+            throw new ShouldNotHappenException($usefulLinterMessage);
         }
     }
 

@@ -7,10 +7,8 @@ namespace Rector\Website\Demo\Controller;
 use Rector\Website\Demo\DemoRunner;
 use Rector\Website\Demo\Entity\RectorRun;
 use Rector\Website\Demo\Form\DemoFormType;
-use Rector\Website\Demo\Repository\RectorRunRepository;
 use Rector\Website\Demo\ValueObjectFactory\RectorRunFactory;
 use Rector\Website\Exception\ShouldNotHappenException;
-
 use Rector\Website\ValueObject\Routing\RouteName;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormFactoryInterface;
@@ -28,7 +26,6 @@ use Symfony\Component\Uid\Uuid;
 final class DemoController extends AbstractController
 {
     public function __construct(
-        private readonly RectorRunRepository $rectorRunRepository,
         private readonly DemoRunner $demoRunner,
         private readonly RectorRunFactory $rectorRunFactory,
         private readonly FormFactoryInterface $formFactory,
@@ -46,7 +43,8 @@ final class DemoController extends AbstractController
         if ($rectorRunUuid === null || ! Uuid::isValid($rectorRunUuid)) {
             $rectorRun = $this->rectorRunFactory->createEmpty();
         } else {
-            $rectorRun = $this->rectorRunRepository->get(Uuid::fromString($rectorRunUuid));
+            $uuid = Uuid::fromString($rectorRunUuid);
+            // @todo load record from database by uuid
         }
 
         $demoForm = $this->formFactory->create(DemoFormType::class, $rectorRun, [
@@ -73,7 +71,7 @@ final class DemoController extends AbstractController
         }
 
         $this->demoRunner->processRectorRun($rectorRun);
-        $this->rectorRunRepository->save($rectorRun);
+        // @todo save rector run
 
         $demoDetailUrl = $this->urlGenerator->generate(RouteName::DEMO_DETAIL, [
             'rectorRunUuid' => $rectorRun->getId(),

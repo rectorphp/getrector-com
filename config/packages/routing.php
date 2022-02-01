@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
@@ -11,3 +12,5 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         ],
     ]);
 };
+=======
+>>>>>>> demo-runner WIP

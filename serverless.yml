@@ -1,0 +1,22 @@
+# inspired by https://github.com/phpstan/phpstan/blob/master/playground-runner/serverless.yml
+
+service: rector-runner
+
+provider:
+    name: aws
+    region: eu-west-1
+    # see https://bref.sh/docs/news/01-bref-1.0.html#amazon-linux-2
+    runtime: provided.al
+    stage: prod
+    versionFunctions: false
+
+plugins:
+    - ./vendor/bref/bref
+
+functions:
+    main:
+        handler: bref.php
+        description: ''
+        timeout: 20
+        layers:
+            - ${bref:layer.php-81}

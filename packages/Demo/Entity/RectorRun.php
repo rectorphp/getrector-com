@@ -43,8 +43,26 @@ final class RectorRun
 
     private ?string $fatalErrorMessage = null;
 
+<<<<<<< HEAD
+<<<<<<< HEAD
     private string $config;
 
+=======
+    #[PHPConstraint]
+    private string $config;
+
+    #[PHPConstraint]
+>>>>>>> remove doctrine annotations
+=======
+    /**
+     * @todo validate with @see \Rector\Website\Demo\Validator\PHPConstraintValidator
+     */
+    private string $config;
+
+    /**
+     * @todo validate with @see \Rector\Website\Demo\Validator\PHPConstraintValidator
+     */
+>>>>>>> ref
     private string $content;
 
     public function getId(): Uuid

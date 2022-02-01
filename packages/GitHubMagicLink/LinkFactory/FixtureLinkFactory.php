@@ -9,7 +9,7 @@ use Rector\Website\GitHubMagicLink\BodyFactory\FixtureBodyFactory;
 use Rector\Website\GitHubMagicLink\BodyFactory\PullRequestDescriptionFactory;
 
 /**
- * @see \Rector\Website\GitHubMagicLink\Twig\FixtureLinkTwigExtension
+ * @see \Rector\Website\GitHubMagicLink\Twig\GitHubLinkTwigExtension
  */
 final class FixtureLinkFactory
 {
