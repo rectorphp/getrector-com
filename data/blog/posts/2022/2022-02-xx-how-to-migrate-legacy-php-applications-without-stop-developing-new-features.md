@@ -18,7 +18,7 @@ migration would be a difficult decision.
 
 Let’s see the concept first,
 
-(I’ll recreate the figure)
+<img src="/assets/images/blog/2022/automated_migration_concept.png" alt="" style="max-width: 35em" class="img-thumbnail">
 
 The most important thing was to avoid conflicts. We were careful not to edit the same file in the “Development branch”
 and the “Migration branch”. We continued developing new features as usual in the “Development branch” directory for
