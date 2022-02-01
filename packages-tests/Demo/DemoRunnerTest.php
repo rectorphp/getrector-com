@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Rector\Website\Tests\Demo;
 
-use Rector\Website\Demo\DemoRunner;
-use Rector\Website\Demo\ValueObjectFactory\RectorRunFactory;
+use Rector\WebsiteDemo\DemoRunner;
+use Rector\WebsiteDemo\ValueObjectFactory\RectorRunFactory;
 use Rector\Website\GetRectorKernel;
 use Symplify\PackageBuilder\Testing\AbstractKernelTestCase;
 

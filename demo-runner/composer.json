@@ -1,0 +1,21 @@
+{
+    "name": "rector/website-demo-runner",
+    "description": "Microservice to process Rector Demo request to JSON result",
+    "require": {
+        "php": "^8.0",
+        "bref/bref": "^1.5",
+        "symfony/process": "^6.0",
+        "nette/utils": "^3.0",
+        "jean85/pretty-package-versions": "^2.0",
+        "symplify/smart-file-system": "^10.0",
+        "rector/rector": "^0.12.15"
+    },
+    "require-dev": {
+        "tracy/tracy": "^2.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "Rector\\WebsiteDemoRunner\\": "src"
+        }
+    }
+}

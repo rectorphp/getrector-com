@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Website\Demo\Form;
 
-use Rector\Website\Demo\Entity\RectorRun;
+use Rector\WebsiteDemoRunner\Entity\RectorRun;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;

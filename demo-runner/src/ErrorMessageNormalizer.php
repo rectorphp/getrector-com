@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Demo\Error;
+namespace Rector\WebsiteDemoRunner;
 
 use Nette\Utils\Strings;
 

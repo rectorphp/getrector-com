@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Rector\Website\GitHubMagicLink\LinkFactory;
 
-use Rector\Website\Demo\Entity\RectorRun;
 use Rector\Website\GitHubMagicLink\BodyFactory\FixtureBodyFactory;
 use Rector\Website\GitHubMagicLink\BodyFactory\PullRequestDescriptionFactory;
 
@@ -24,7 +23,7 @@ final class FixtureLinkFactory
     ) {
     }
 
-    public function create(RectorRun $rectorRun): string
+    public function create(\Rector\WebsiteDemoRunner\Entity\RectorRun $rectorRun): string
     {
         $content = $this->fixtureBodyFactory->create($rectorRun);
 

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Rector\Website\Tests\Demo\Utils;
 
 use Iterator;
-use Rector\Website\Demo\Utils\FileDiffCleaner;
+use Rector\WebsiteDemo\Utils\FileDiffCleaner;
 use Rector\Website\GetRectorKernel;
 use Symplify\EasyTesting\DataProvider\StaticFixtureFinder;
 use Symplify\EasyTesting\StaticFixtureSplitter;

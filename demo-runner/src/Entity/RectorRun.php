@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Demo\Entity;
+namespace Rector\WebsiteDemoRunner\Entity;
 
 use Nette\Utils\Strings;
 use Rector\Website\Demo\Utils\FileDiffCleaner;
@@ -43,6 +43,7 @@ final class RectorRun
 
     private ?string $fatalErrorMessage = null;
 
+<<<<<<< HEAD:packages/Demo/Entity/RectorRun.php
 <<<<<<< HEAD
 <<<<<<< HEAD
     private string $config;
@@ -64,6 +65,13 @@ final class RectorRun
      */
 >>>>>>> ref
     private string $content;
+=======
+    public function __construct(
+        private string $config,
+        private string $content,
+    ) {
+    }
+>>>>>>> separate demo-runner to own directory:demo-runner/src/Entity/RectorRun.php
 
     public function getId(): Uuid
     {
@@ -207,6 +215,7 @@ final class RectorRun
 
     public function getExpectedRectorTestNamespace(): string
     {
+        // @todo allow for multiple rules too, just create different config file + issue location in tests/IssuesXYZ
         $onlyAppliedRule = $this->getAppliedRules()[0] ?? null;
         if (! $onlyAppliedRule instanceof AppliedRule) {
             throw new ShouldNotHappenException('Single applied rule is required to make a test fixture link');

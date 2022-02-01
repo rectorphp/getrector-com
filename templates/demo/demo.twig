@@ -6,7 +6,7 @@
     <div id="rector_run_form" class="mt-4 mb-5">
         {{ form_start(demo_form) }}
 
-        {# @var rector_run \Rector\Website\Demo\Entity\RectorRun #}
+        {# @var rector_run \Rector\WebsiteDemo\Entity\RectorRun #}
 
         {% if rector_run.hasRun and rector_run.successful != true %}
             <div class="alert alert-danger mb-5">
@@ -34,7 +34,7 @@
             </div>
         </div>
 
-        {# @var rector_run \Rector\Website\Demo\Entity\RectorRun #}
+        {# @var rector_run \Rector\WebsiteDemo\Entity\RectorRun #}
         {% if rector_run.successful %}
             <div class="card bg-warning border-warning mb-4">
                 <div class="card-header text-bold">
@@ -45,7 +45,7 @@
                 </div>
             </div>
 
-            {# @var rector_run \Rector\Website\Demo\Entity\RectorRun #}
+            {# @var rector_run \Rector\WebsiteDemo\Entity\RectorRun #}
             {% if rector_run.appliedRules is not empty %}
                 <div class="row">
                     <div class="pt-0 pb-4 col-12 col-sm-6">
@@ -54,7 +54,7 @@
                         <ul class="list-noindent">
                             {% for applied_rule in rector_run.appliedRules %}
                                 <li>
-                                    {# @var applied_rule \Rector\Website\Demo\ValueObject\AppliedRule #}
+                                    {# @var applied_rule \Rector\WebsiteDemo\ValueObject\AppliedRule #}
                                     <a href="{{ applied_rule.getGitHubReadmeLink }}">
                                         {{ applied_rule.shortClass }}
                                     </a>

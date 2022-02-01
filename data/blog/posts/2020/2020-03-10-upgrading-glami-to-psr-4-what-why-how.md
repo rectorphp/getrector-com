@@ -39,7 +39,7 @@ Example is worth 1000 words here:
       <td>./vendor/Symfony/Core/Request.php</td>
     </tr>
     <tr>
-      <td>Rector\Website\Demo\Controller\DemoController</td>
+      <td>Rector\WebsiteDemo\Controller\DemoController</td>
       <td>Rector\Website</td>
       <td>./src</td>
       <td>./src/Controller/DemoController.php</td>

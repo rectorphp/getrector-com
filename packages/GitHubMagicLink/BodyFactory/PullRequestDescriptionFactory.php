@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Website\GitHubMagicLink\BodyFactory;
 
-use Rector\Website\Demo\Entity\RectorRun;
+use Rector\WebsiteDemoRunner\Entity\RectorRun;
 
 /**
  * @see \Rector\Website\Tests\GitHubMagicLink\BodyFactory\PullRequestDescriptionFactory\PullRequestDescriptionFactoryTest

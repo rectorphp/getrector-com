@@ -8,8 +8,8 @@ use Iterator;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
- * @see \Rector\Website\Demo\Controller\DemoController
- * @see \Rector\Website\Demo\Form\DemoFormType
+ * @see \Rector\WebsiteDemo\Controller\DemoController
+ * @see \Rector\WebsiteDemo\Form\DemoFormType
  */
 final class DemoControllerTest extends WebTestCase
 {

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Website\Demo\ValueObjectFactory;
 
-use Rector\Website\Demo\Entity\RectorRun;
+use Rector\WebsiteDemoRunner\Entity\RectorRun;
 use Symplify\SmartFileSystem\SmartFileSystem;
 
 final class RectorRunFactory

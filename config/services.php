@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Rector\Website\Demo\ValueObject\Option;
+use Rector\WebsiteDemo\ValueObject\Option;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use function Symfony\Component\DependencyInjection\Loader\Configurator\service;

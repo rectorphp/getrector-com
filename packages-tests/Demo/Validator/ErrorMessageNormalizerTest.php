@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace Rector\Website\Tests\Demo\Validator;
 
 use Iterator;
-use Rector\Website\Demo\Error\ErrorMessageNormalizer;
+use Rector\WebsiteDemo\Error\ErrorMessageNormalizer;
 use Rector\Website\GetRectorKernel;
 use Symplify\PackageBuilder\Testing\AbstractKernelTestCase;
 
 /**
- * @see \Rector\Website\Demo\Error\ErrorMessageNormalizer
+ * @see \Rector\WebsiteDemo\Error\ErrorMessageNormalizer
  */
 final class ErrorMessageNormalizerTest extends AbstractKernelTestCase
 {

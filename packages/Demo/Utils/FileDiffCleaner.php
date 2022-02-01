@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Rector\Website\Demo\Utils;
 
 use Nette\Utils\Strings;
-use Rector\Website\Demo\Entity\RectorRun;
+use Rector\WebsiteDemoRunner\Entity\RectorRun;
 
 /**
  * @see \Rector\Website\Tests\Demo\Utils\FileDiffCleanerTest
