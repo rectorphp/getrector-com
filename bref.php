@@ -5,6 +5,10 @@
 declare(strict_types=1);
 
 use Jean85\PrettyVersions;
+use Rector\Core\Application\ApplicationFileProcessor;
+use Rector\Core\Kernel\RectorKernel;
+use Rector\Core\ValueObject\Configuration;
+use Rector\Core\ValueObjectFactory\Application\FileFactory;
 
 require __DIR__.'/vendor/autoload.php';
 
@@ -26,6 +30,7 @@ function clearTemp(): void
     }
 }
 
+// this closure is run with Bref, must be exact format
 return function ($event) use ($rectorVersion) {
     clearTemp();
 
@@ -37,37 +42,42 @@ return function ($event) use ($rectorVersion) {
     $rootDir = getenv('LAMBDA_TASK_ROOT');
 
     $rectorConfigFileContent = $event['config'];
-    $rectorConfigFile = '/tmp/rector-bref/rector-config-tmp.php';
+    $rectorConfigFilePath = '/tmp/rector-bref/rector-config-tmp.php';
 
-    file_put_contents($rectorConfigFile, $rectorConfigFileContent);
+    file_put_contents($rectorConfigFilePath, $rectorConfigFileContent);
 
     // @todo autoload files?
     require_once 'phar://' . $rootDir . '/vendor/phpstan/phpstan/phpstan.phar/stubs/runtime/ReflectionUnionType.php';
 
-//    $containerFactory = new \PHPStan\DependencyInjection\ContainerFactory('/tmp');
-//    $container = $containerFactory->create('/tmp', [sprintf('%s/config.level%s.neon', $containerFactory->getConfigDirectory(), $level), $finalConfigFile], [$codePath]);
+    $rectorKernel = new RectorKernel();
+    $container = $rectorKernel->createFromConfigs([$rectorConfigFilePath]);
 
-//    /** @var \PHPStan\Analyser\Analyser $analyser */
-//    $analyser = $container->getByType(\PHPStan\Analyser\Analyser::class);
-//    $results = $analyser->analyse([$codePath], null, null, false, [$codePath])->getErrors();
+    /** @var ApplicationFileProcessor $applicationFileProcessor */
+    $applicationFileProcessor = $container->get(ApplicationFileProcessor::class);
 
-    error_clear_last();
+    /** @var FileFactory $fileFactory */
+    $fileFactory = $container->get(FileFactory::class);
 
-    $errors = [];
-    foreach ($results as $result) {
-        if (is_string($result)) {
-            $errors[] = [
-                'message' => $result,
-                'line' => 1,
-            ];
-            continue;
-        }
+    $configuration = new Configuration();
+    $files = $fileFactory->createFromPaths([$rectorConfigFilePath], $configuration);
 
-        $errors[] = [
-            'message' => $result->getMessage(),
-            'line' => $result->getLine(),
-        ];
+    $systemErrorsAndFileDiffs = $applicationFileProcessor->processFiles($files, $configuration);
+
+    $fileDiffs = [];
+    /** @var \Rector\Core\ValueObject\Reporting\FileDiff $fileDiff */
+    foreach ($systemErrorsAndFileDiffs['file_diffs'] as $fileDiff) {
+        $fileDiffs[] = $fileDiff->jsonSerialize();
     }
 
-    return ['result' => $errors, 'version' => $rectorVersion];
+    $systemErrors = [];
+    /** @var \Rector\Core\ValueObject\Error\SystemError $systemError */
+    foreach ($systemErrorsAndFileDiffs['system_errors'] as $systemError) {
+        $systemErrors[] = $systemError->jsonSerialize();
+    }
+
+    return [
+        'file_diffs' => $fileDiffs,
+        'system_errors' => $systemErrors,
+        'version' => $rectorVersion,
+    ];
 };
