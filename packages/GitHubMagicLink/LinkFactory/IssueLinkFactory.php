@@ -16,7 +16,7 @@ final class IssueLinkFactory
     private const BASE_URL = 'https://github.com/rectorphp/rector/issues/new?labels=bug&template=1_Bug_report.md';
 
     public function __construct(
-        private IssueBodyFactory $issueBodyFactory
+        private readonly IssueBodyFactory $issueBodyFactory
     ) {
     }
 

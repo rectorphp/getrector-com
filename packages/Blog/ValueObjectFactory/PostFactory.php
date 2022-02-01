@@ -36,12 +36,12 @@ final class PostFactory
      */
     private const HEADLINE_REGEX = '#<h(?<level>\d+)>(?<headline>.*?)<\/h\d+>#';
 
-    private string $siteUrl;
+    private readonly string $siteUrl;
 
     public function __construct(
-        private ParsedownExtra $parsedownExtra,
-        private PathAnalyzer $pathAnalyzer,
-        private RouterInterface $router,
+        private readonly ParsedownExtra $parsedownExtra,
+        private readonly PathAnalyzer $pathAnalyzer,
+        private readonly RouterInterface $router,
         ParameterProvider $parameterProvider
     ) {
         $siteUrl = $parameterProvider->provideStringParameter(Option::SITE_URL);

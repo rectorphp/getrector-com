@@ -17,7 +17,7 @@ final class FixtureLinkTwigExtension extends AbstractExtension
     private const PR_LINK = 'pr_link';
 
     public function __construct(
-        private FixtureLinkFactory $fixtureLinkFactory
+        private readonly FixtureLinkFactory $fixtureLinkFactory
     ) {
     }
 

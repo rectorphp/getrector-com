@@ -15,7 +15,7 @@ final class RectorRunRepository
         // @todo save
     }
 
-    public function get(Uuid $uuid): RectorRun
+    public function get(Uuid $uuid): never
     {
         // @todo fetch
         throw new NotFoundHttpException();

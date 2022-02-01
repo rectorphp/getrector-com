@@ -19,8 +19,8 @@ final class FixtureLinkFactory
     private const BASE_URL = 'https://github.com/rectorphp/rector-src/new/main';
 
     public function __construct(
-        private FixtureBodyFactory $fixtureBodyFactory,
-        private PullRequestDescriptionFactory $pullRequestDescriptionFactory
+        private readonly FixtureBodyFactory $fixtureBodyFactory,
+        private readonly PullRequestDescriptionFactory $pullRequestDescriptionFactory
     ) {
     }
 

@@ -8,20 +8,20 @@ use DateTimeInterface;
 
 final class Post
 {
-    private string $plaintextContent;
+    private readonly string $plaintextContent;
 
     public function __construct(
-        private int $id,
-        private string $title,
-        private string $slug,
-        private DateTimeInterface $dateTime,
-        private string $perex,
-        private string $htmlContent,
-        private string $absoluteUrl,
-        private ?string $contributor = null,
-        private ?int $pullRequestId = null,
-        private ?DateTimeInterface $updatedSince = null,
-        private ?string $updatedMessage = null,
+        private readonly int $id,
+        private readonly string $title,
+        private readonly string $slug,
+        private readonly DateTimeInterface $dateTime,
+        private readonly string $perex,
+        private readonly string $htmlContent,
+        private readonly string $absoluteUrl,
+        private readonly ?string $contributor = null,
+        private readonly ?int $pullRequestId = null,
+        private readonly ?DateTimeInterface $updatedSince = null,
+        private readonly ?string $updatedMessage = null,
     ) {
         $this->plaintextContent = strip_tags($htmlContent);
     }

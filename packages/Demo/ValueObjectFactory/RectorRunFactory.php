@@ -20,7 +20,7 @@ final class RectorRunFactory
     public const CONFIG_FILE_PATH = __DIR__ . '/../../../data/demo/demo-config.php';
 
     public function __construct(
-        private SmartFileSystem $smartFileSystem
+        private readonly SmartFileSystem $smartFileSystem
     ) {
     }
 

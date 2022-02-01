@@ -19,7 +19,7 @@ final class PHPLinter
     private const OPENING_PHP_TAG_REGEX = '#(\s+)?\<\?php#';
 
     public function __construct(
-        private SmartFileSystem $smartFileSystem
+        private readonly SmartFileSystem $smartFileSystem
     ) {
     }
 
