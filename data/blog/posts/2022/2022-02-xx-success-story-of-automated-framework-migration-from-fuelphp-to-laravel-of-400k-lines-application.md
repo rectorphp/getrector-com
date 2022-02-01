@@ -93,6 +93,9 @@ For this refactoring, we created two rector rules.
 1. Swap `from` and `select_array` and rename `from` to `table`
 2. Convert `select_array` to `select`
 
+<img src="/assets/images/blog/2022/query_builder_custom_rector_example.png" alt="" style="max-width: 35em" class="img-thumbnail">
+
+
 ### Swap `from` and `select_array` and rename `from` to `table`
 
 The first rule can be written like this.
