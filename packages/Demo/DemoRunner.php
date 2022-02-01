@@ -9,8 +9,8 @@ use Nette\Utils\JsonException;
 use Nette\Utils\Random;
 use Rector\Website\Demo\Entity\RectorRun;
 use Rector\Website\Demo\Error\ErrorMessageNormalizer;
-use Rector\Website\Demo\Exception\RunnerException;
 use Rector\Website\Demo\ValueObject\Option;
+use Rector\Website\Exception\ShouldNotHappenException;
 use Symfony\Component\Process\Process;
 use Symplify\PackageBuilder\Parameter\ParameterProvider;
 use Symplify\SmartFileSystem\SmartFileSystem;
@@ -99,7 +99,7 @@ final class DemoRunner
         } catch (JsonException $jsonException) {
             if ($jsonException->getMessage() === 'Syntax error') {
                 $errorMessage = 'Invalid json syntax in "vendor/bin/rector" process output: ' . PHP_EOL . PHP_EOL . $output;
-                throw new RunnerException($errorMessage);
+                throw new ShouldNotHappenException($errorMessage);
             }
 
             throw $jsonException;
