@@ -7,6 +7,3 @@ parameters:
 
     excludePaths:
         - "packages/demo/data/DemoFile.php"
-
-    reportUnmatchedIgnoredErrors: false
-    checkGenericClassInNonGenericObjectType: false
