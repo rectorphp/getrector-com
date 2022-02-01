@@ -8,10 +8,6 @@ public/bundles/
 public/build/
 public/adminer/
 
-## Docker
-docker-compose.override.yml
-.docker/mysql-data
-
 .env.local
 .env.local.php
 .env.*.local
