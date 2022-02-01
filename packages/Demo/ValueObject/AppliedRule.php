@@ -14,10 +14,10 @@ final class AppliedRule
      */
     private const README_URL = 'https://github.com/rectorphp/rector/blob/main/docs/rector_rules_overview.md';
 
-    private string $shortClass;
+    private readonly string $shortClass;
 
     public function __construct(
-        private string $class
+        private readonly string $class
     ) {
         $shortClassName = Strings::after($class, '\\', -1);
         if (! is_string($shortClassName)) {

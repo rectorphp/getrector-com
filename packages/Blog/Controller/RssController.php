@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 final class RssController extends AbstractController
 {
     public function __construct(
-        private PostRepository $postRepository,
+        private readonly PostRepository $postRepository,
     ) {
     }
 

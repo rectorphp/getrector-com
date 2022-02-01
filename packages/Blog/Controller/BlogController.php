@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 final class BlogController extends AbstractController
 {
     public function __construct(
-        private PostRepository $postRepository,
+        private readonly PostRepository $postRepository,
     ) {
     }
 

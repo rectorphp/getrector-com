@@ -23,8 +23,8 @@ final class PostRepository
     private array $posts = [];
 
     public function __construct(
-        private FinderSanitizer $finderSanitizer,
-        private PostFactory $postFactory
+        private readonly FinderSanitizer $finderSanitizer,
+        private readonly PostFactory $postFactory
     ) {
         $this->createPosts();
     }

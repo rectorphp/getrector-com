@@ -31,11 +31,11 @@ final class DemoRunner
      */
     private const CONFIG_NAME = 'rector.php';
 
-    private string $demoDir;
+    private readonly string $demoDir;
 
     public function __construct(
-        private ErrorMessageNormalizer $errorMessageNormalizer,
-        private SmartFileSystem $smartFileSystem,
+        private readonly ErrorMessageNormalizer $errorMessageNormalizer,
+        private readonly SmartFileSystem $smartFileSystem,
         ParameterProvider $parameterProvider
     ) {
         $this->demoDir = $parameterProvider->provideStringParameter(Option::DEMO_DIR);

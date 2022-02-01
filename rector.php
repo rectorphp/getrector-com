@@ -25,6 +25,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 
     $parameters = $containerConfigurator->parameters();
     $parameters->set(Option::AUTO_IMPORT_NAMES, true);
+    $parameters->set(Option::PARALLEL, true);
 
     $parameters->set(Option::PATHS, [__DIR__ . '/src', __DIR__ . '/packages']);
 
@@ -37,7 +38,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $containerConfigurator->import(SetList::NAMING);
     $containerConfigurator->import(SetList::TYPE_DECLARATION);
 
-    $containerConfigurator->import(LevelSetList::UP_TO_PHP_80);
+    $containerConfigurator->import(LevelSetList::UP_TO_PHP_81);
 
     $parameters->set(Option::SKIP, ['*/var/cache/*', __DIR__ . '/packages/Demo/data/DemoFile.php']);
 };

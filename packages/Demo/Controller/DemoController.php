@@ -28,11 +28,11 @@ use Symfony\Component\Uid\Uuid;
 final class DemoController extends AbstractController
 {
     public function __construct(
-        private RectorRunRepository $rectorRunRepository,
-        private DemoRunner $demoRunner,
-        private RectorRunFactory $rectorRunFactory,
-        private FormFactoryInterface $formFactory,
-        private UrlGeneratorInterface $urlGenerator
+        private readonly RectorRunRepository $rectorRunRepository,
+        private readonly DemoRunner $demoRunner,
+        private readonly RectorRunFactory $rectorRunFactory,
+        private readonly FormFactoryInterface $formFactory,
+        private readonly UrlGeneratorInterface $urlGenerator
     ) {
     }
 

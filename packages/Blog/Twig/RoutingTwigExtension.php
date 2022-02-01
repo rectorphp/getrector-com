@@ -13,7 +13,7 @@ use Twig\TwigFunction;
 final class RoutingTwigExtension extends AbstractExtension
 {
     public function __construct(
-        private RequestStack $requestStack
+        private readonly RequestStack $requestStack
     ) {
     }
 
