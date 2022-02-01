@@ -15,6 +15,8 @@ final class DemoControllerTest extends WebTestCase
 {
     public function test(): void
     {
+        $this->markTestSkipped('Will be moved to Bref');
+
         $kernelBrowser = $this->createClient();
 
         // must be path of the controller
