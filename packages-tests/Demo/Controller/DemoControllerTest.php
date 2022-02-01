@@ -30,6 +30,8 @@ final class DemoControllerTest extends WebTestCase
      */
     public function testFormSubmit(string $contentData, string $configData): void
     {
+        $this->markTestSkipped('Will be moved to Bref');
+
         $kernelBrowser = $this->createClient();
         $kernelBrowser->request('GET', '/demo');
 
