@@ -84,9 +84,6 @@
             </div>
         </div>
 
-        {# @see http://symfony.com/doc/current/security/csrf.html#csrf-protection-in-login-forms #}
-        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-
         <div class="mt-3 mb-5 text-center">
             {{ form_row(demo_form.process) }}
         </div>
