@@ -17,7 +17,6 @@
         "symfony/http-kernel": "^6.0",
         "symfony/process": "^6.0",
         "symfony/templating": "^6.0",
-        "symfony/twig-bridge": "^6.0",
         "symfony/twig-bundle": "^6.0",
         "symfony/uid": "^6.0",
         "symfony/web-profiler-bundle": "^6.0",
@@ -26,22 +25,17 @@
         "symplify/amnesia": "^10.0",
         "symplify/autowire-array-parameter": "^10.0",
         "symplify/package-builder": "^10.0",
-        "symplify/smart-file-system": "^10.0",
-        "symplify/symplify-kernel": "^10.0"
+        "symplify/smart-file-system": "^10.0"
     },
     "require-dev": {
         "phpstan/extension-installer": "^1.1",
         "symplify/easy-testing": "^10.0",
-        "phpstan/phpstan": "^1.0",
+        "phpstan/phpstan": "^1.4",
         "phpunit/phpunit": "^9.5",
         "roave/security-advisories": "dev-master",
-        "symfony/browser-kit": "^6.0",
-        "symfony/css-selector": "^6.0",
-        "symfony/expression-language": "^6.0",
         "symplify/coding-standard": "^10.0",
         "symplify/easy-coding-standard": "^10.0",
         "symplify/phpstan-extensions": "^10.0",
-        "symplify/latte-phpstan-compiler": "^10.0",
         "symplify/phpstan-rules": "^10.0"
     },
     "autoload": {

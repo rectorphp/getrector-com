@@ -10,9 +10,8 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $containerConfigurator->extension(TwigExtension::NAME, [
         TwigExtension::FORM_THEMES => ['bootstrap_4_layout.html.twig'],
         TwigExtension::DEFAULT_PATH => '%kernel.project_dir%/templates',
-        TwigExtension::PATHS => [__DIR__ . '/../../templates'],
         TwigExtension::DEBUG => '%kernel.debug%',
-        TwigExtension::STRICT_VARIABLES => '%kernel.debug%',
+        TwigExtension::STRICT_VARIABLES => true,
         TwigExtension::EXCEPTION_CONTROLLER => null,
         TwigExtension::GLOBALS => [
             'site_url' => 'https://getrector.org',
