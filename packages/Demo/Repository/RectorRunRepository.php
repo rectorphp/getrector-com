@@ -10,6 +10,14 @@ use Symfony\Component\Uid\Uuid;
 
 final class RectorRunRepository
 {
+<<<<<<< HEAD
+=======
+    public function __construct(
+        private readonly EntityManagerInterface $entityManager
+    ) {
+    }
+
+>>>>>>> enable parallel on PHP 8.1
     public function save(RectorRun $rectorRun): void
     {
         // @todo save

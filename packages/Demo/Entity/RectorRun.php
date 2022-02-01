@@ -16,7 +16,7 @@ final class RectorRun
     /**
      * @var string
      */
-    public const NO_CHANGE_CONTENT = '// no change';
+    final public const NO_CHANGE_CONTENT = '// no change';
 
     /**
      * @see https://regex101.com/r/13A0W9/1
