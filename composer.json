@@ -5,33 +5,8 @@
     "require": {
         "php": "^8.1",
         "ext-json": "*",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
         "erusev/parsedown-extra": "^0.8.1",
-<<<<<<< HEAD
         "rector/rector": "^0.12.15",
-=======
-=======
-        "ext-pdo": "*",
-        "ext-pdo_mysql": "*",
-=======
->>>>>>> cleanup unused dependencies
-=======
-        "bref/bref": "^1.5",
->>>>>>> cleanup composer etc
-=======
->>>>>>> separate demo-runner to own directory
-        "erusev/parsedown-extra": "^0.8.1",
-        "phpstan/extension-installer": "^1.1",
-<<<<<<< HEAD
->>>>>>> remove Doctrine
-        "rector/rector": "^0.12.10",
-=======
-        "rector/rector": "^0.12.15",
->>>>>>> cleanup unused dependencies
->>>>>>> demo-runner WIP
         "symfony/asset": "^6.0",
         "symfony/cache": "^6.0",
         "symfony/debug-bundle": "^6.0",
@@ -42,10 +17,6 @@
         "symfony/http-kernel": "^6.0",
         "symfony/process": "^6.0",
         "symfony/templating": "^6.0",
-<<<<<<< HEAD
-=======
-        "symfony/twig-bridge": "^6.0",
->>>>>>> remove Doctrine
         "symfony/twig-bundle": "^6.0",
         "symfony/uid": "^6.0",
         "symfony/web-profiler-bundle": "^6.0",
@@ -53,29 +24,13 @@
         "symfony/yaml": "^6.0",
         "symplify/amnesia": "^10.0",
         "symplify/autowire-array-parameter": "^10.0",
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-        "symplify/composer-json-manipulator": "^10.0",
-        "symplify/markdown-diff": "^10.0",
->>>>>>> remove Doctrine
         "symplify/package-builder": "^10.0",
         "symplify/smart-file-system": "^10.0"
-=======
-        "symplify/package-builder": "^10.0",
-        "symplify/smart-file-system": "^10.0",
-        "symplify/symplify-kernel": "^10.0"
->>>>>>> cleanup unused dependencies
     },
     "require-dev": {
-<<<<<<< HEAD
         "phpstan/extension-installer": "^1.1",
         "symplify/easy-testing": "^10.0",
         "phpstan/phpstan": "^1.4",
-=======
-        "phpstan/phpstan": "^1.4",
-        "symplify/easy-testing": "^10.0",
->>>>>>> remove Doctrine
         "phpunit/phpunit": "^9.5",
         "roave/security-advisories": "dev-master",
         "symplify/coding-standard": "^10.0",

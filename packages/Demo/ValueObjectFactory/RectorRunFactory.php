@@ -30,10 +30,6 @@ final class RectorRunFactory
         $content = $this->smartFileSystem->readFile(self::CONTENT_FILE_PATH);
         $config = $this->smartFileSystem->readFile(self::CONFIG_FILE_PATH);
 
-        $rectorRun = new RectorRun();
-        $rectorRun->setContent($content);
-        $rectorRun->setConfig($config);
-
-        return $rectorRun;
+        return new RectorRun($content, $config);
     }
 }

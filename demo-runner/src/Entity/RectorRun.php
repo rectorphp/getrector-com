@@ -43,35 +43,11 @@ final class RectorRun
 
     private ?string $fatalErrorMessage = null;
 
-<<<<<<< HEAD:packages/Demo/Entity/RectorRun.php
-<<<<<<< HEAD
-<<<<<<< HEAD
-    private string $config;
-
-=======
-    #[PHPConstraint]
-    private string $config;
-
-    #[PHPConstraint]
->>>>>>> remove doctrine annotations
-=======
-    /**
-     * @todo validate with @see \Rector\Website\Demo\Validator\PHPConstraintValidator
-     */
-    private string $config;
-
-    /**
-     * @todo validate with @see \Rector\Website\Demo\Validator\PHPConstraintValidator
-     */
->>>>>>> ref
-    private string $content;
-=======
     public function __construct(
         private string $config,
         private string $content,
     ) {
     }
->>>>>>> separate demo-runner to own directory:demo-runner/src/Entity/RectorRun.php
 
     public function getId(): Uuid
     {
