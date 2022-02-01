@@ -51,3 +51,6 @@ public/build
 npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###
+
+# new deploy to AWS Lambda
+/demo-runner
