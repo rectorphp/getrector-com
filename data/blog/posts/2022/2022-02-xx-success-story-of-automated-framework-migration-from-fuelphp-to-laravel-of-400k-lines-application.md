@@ -46,18 +46,17 @@ Also, FuelPHP is a rather lightweight framework, and automated migration to Lara
 
 99% of the PHP files were converted automatically, editing 200k+ lines of code.
 
-* Automated migration by Custom Rector rules (2000+files)
+* Automated migration by Custom Rector rules (2000+ files)
   * Fuel Query Builder -> Laravel Query Builder 
   * Non psr-4 -> psr-4 
-    * We created a dummy autoloader to run Rector, because we
-did not install FuelPHP
+    * We created a dummy autoloader to run Rector, because we did not install FuelPHP
     * Adding namespaces, and moving files to the correct dir Converting Config
   * `File, Response` Class -> Laravel `Response` facades or helpers
   * `Input, Upload` Class -> Laravel `Request`  facades or helpers 
   * FuelPHP Exceptions -> Mapped to Laravel Exceptions 
   * There were a lot of other ad-hoc rules specific to our code
 
-* Manual migration (~10 files)
+* Manual migration (~20 files)
   * Routes 
     * There are no routes in FuelPHP 
   * Some parts of authentication 
@@ -70,7 +69,7 @@ Let’s look into them in detail.
 
 ### Query Builder custom Rector rule example
 
-Migrating the query builder was like a puzzle. We created a bunch of small refactoring rules and put the pieces together to modify the whole query.
+Creating custom Rector rules to migrate the query builder was like creating a piece of puzzle. We created a bunch of small refactoring rules and put the pieces together to modify the whole query.
 
 For example, we wanted to convert
 
@@ -213,7 +212,7 @@ public function refactor(Node $selectArrayNode): ?Node
 }
 ```
 
-### Developing new features and running migration at same time
+## Developing new features and running migration at same time
 
 This was the most significant and wonderful benefit of automated migration. 
 It’s explained in detail in the [previous post](todo), so please take a look if you haven’t read it yet!
@@ -261,7 +260,7 @@ There were minor differences between frameworks, difficult to notice while writi
 For instance, 
 
 * FuelPHP return empty array response `response([])` with status code “204 No Contents” while Laravel does not
-* FuelPHP `DB::insert` returns array of `[‘id’, ‘affected rows’]` while Laravel `DB::insertGetId returns just ‘id’`
+* FuelPHP `DB::insert` returns array of `['id', 'affected rows']` while Laravel `DB::insertGetId returns just 'id'`
 * …etc. 
 
 For these differences, QA testing and canary release was very important. We iterated over and over testing and fixing the custom rules to achieve the complete migration.
