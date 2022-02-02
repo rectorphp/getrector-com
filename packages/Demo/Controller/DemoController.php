@@ -49,9 +49,7 @@ final class DemoController extends AbstractController
                 $errorMessage = sprintf('Rector run "%s" was not found. Try to run code again for new result', $uuid);
                 $this->addFlash('danger', $errorMessage);
 
-                return $this->redirectToRoute(RouteName::DEMO_DETAIL, [
-                    'uuid' => null,
-                ]);
+                return $this->redirectToRoute(RouteName::DEMO);
             }
         }
 
