@@ -80,7 +80,7 @@ final class DemoRunner
         $temporaryFilePaths = [$analyzedFilePath, $configPath];
 
         $process = new Process([
-            '../vendor/bin/rector',
+            'vendor/bin/rector',
             'process',
             $analyzedFilePath,
             '--config',
