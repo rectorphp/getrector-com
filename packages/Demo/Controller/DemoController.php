@@ -77,13 +77,15 @@ final class DemoController extends AbstractController
         ], __DIR__ . '/../../../demo-runner');
 
         $brefProcess->run();
-
         $match = Strings::match(trim($brefProcess->getOutput()), '#\{(.*?)\}$#ms');
 
-        dump($match[0]);
-        die;
+        // validate with https://jsonlint.com/
+        $json = $match[0];
+        // see https://stackoverflow.com/a/48699371/1348344
+        $json = preg_replace('/[[:cntrl:]]/', '', $json);
 
-        $json = Json::decode($match[0]);
+        // yes! :) -
+        $json = Json::decode($json, Json::FORCE_ARRAY);
         dump($json);
         die;
 
