@@ -64,8 +64,6 @@ final class DemoRunner
         $analyzedFilePath = sys_get_temp_dir() . '/rector-demo/' . $identifier . '/' . self::ANALYZED_FILE_NAME;
         $configPath = sys_get_temp_dir() . '/rector-demo/' . $identifier . '/' . self::CONFIG_NAME;
 
-        dump($analyzedFilePath);
-
         $this->smartFileSystem->dumpFile($analyzedFilePath, $fileContent);
         $this->smartFileSystem->dumpFile($configPath, $configContent);
 

@@ -27,6 +27,7 @@ jobs:
                 run: |
                     echo ::set-output name=json_var::'[{ "content": "<?php namespace Demo; class AnotherClass {};", "config": <?php ;" }]'
 
-            # test bref command
+            # test bref command - see serverless.yml > functions > "main"
+            # this CLI command will be called on form submit and result returned rendered back in the form :)
             -   run: vendor/bin/bref local main ${{ steps.set.outputs.json_var}}
                 working-directory: demo-runner

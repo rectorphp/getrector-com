@@ -62,6 +62,8 @@ return function ($event) use ($rectorVersion) {
     $jsonResult = $rectorRun->getJsonResult();
 
     return [
+        'file_content' => $rectorRun->getContent(),
+        'config_content' => $rectorRun->getConfig(),
         'file_diffs' => $jsonResult['file_diffs'] ?? [],
         'system_errors' => $rectorRun->getFatalErrorMessages(),
         'version' => $rectorVersion,
