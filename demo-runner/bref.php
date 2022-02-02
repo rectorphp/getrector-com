@@ -56,14 +56,16 @@ return function ($event) use ($rectorVersion) {
     // require_once 'phar://' . $rootDir . '/vendor/phpstan/phpstan/phpstan.phar/stubs/runtime/ReflectionUnionType.php';
 
     $demoRunner = new DemoRunner(new ErrorMessageNormalizer(), new SmartFileSystem());
-    $rectorRun = new RectorRun($event['content'], $event['config']);
+
+    $content = urldecode($event['content']);
+    $config = urldecode($event['config']);
+
+    $rectorRun = new RectorRun($content, $config);
     $demoRunner->processRectorRun($rectorRun);
 
     $jsonResult = $rectorRun->getJsonResult();
 
     return [
-        'file_content' => $rectorRun->getContent(),
-        'config_content' => $rectorRun->getConfig(),
         'file_diffs' => $jsonResult['file_diffs'] ?? [],
         'system_errors' => $rectorRun->getFatalErrorMessages(),
         'version' => $rectorVersion,
