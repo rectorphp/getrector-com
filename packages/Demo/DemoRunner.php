@@ -9,6 +9,7 @@ use Nette\Utils\JsonException;
 use Nette\Utils\Random;
 use Rector\Website\Demo\Entity\RectorRun;
 use Rector\Website\Demo\Error\ErrorMessageNormalizer;
+use Rector\Website\Demo\Exception\Process\RectorRunFailedException;
 use Rector\Website\Demo\ValueObject\Option;
 use Rector\Website\Exception\ShouldNotHappenException;
 use Symfony\Component\Process\Process;
@@ -30,6 +31,11 @@ final class DemoRunner
      * @var string
      */
     private const CONFIG_NAME = 'rector.php';
+
+    /**
+     * @var int
+     */
+    private const EXIT_CODE_SUCCESS = 0;
 
     private readonly string $demoDir;
 
@@ -74,7 +80,7 @@ final class DemoRunner
         $temporaryFilePaths = [$analyzedFilePath, $configPath];
 
         $process = new Process([
-            '../vendor/bin/rector',
+            'vendor/bin/rector',
             'process',
             $analyzedFilePath,
             '--config',
@@ -87,6 +93,11 @@ final class DemoRunner
 
         // remove temporary files
         $this->smartFileSystem->remove($temporaryFilePaths);
+
+        // error
+        if ($process->getExitCode() !== self::EXIT_CODE_SUCCESS) {
+            throw new RectorRunFailedException($process->getErrorOutput() ?: $process->getOutput());
+        }
 
         $output = $process->getOutput();
         if ($output === '') {

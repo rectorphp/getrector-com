@@ -11,12 +11,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         FrameworkExtension::SECRET => env('APP_SECRET'),
         FrameworkExtension::HTTP_METHOD_OVERRIDE => true,
         FrameworkExtension::TRUSTED_HOSTS => null,
-        FrameworkExtension::SESSION => [
-            'handler_id' => null,
-        ],
-        FrameworkExtension::ESI => [
-            'enabled' => true,
-        ],
         FrameworkExtension::FRAGMENTS => [
             'enabled' => true,
         ],
