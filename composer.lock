@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3bb77fd1c73d6167f1dc099ad5230d7f",
+    "content-hash": "6082452350fad1f3d974c3123b190d43",
     "packages": [
         {
             "name": "cweagans/composer-patches",
@@ -8225,6 +8225,47 @@
                 }
             ],
             "time": "2022-01-30T20:53:20+00:00"
+        },
+        {
+            "name": "symplify/easy-ci",
+            "version": "10.0.20",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symplify/easy-ci.git",
+                "reference": "98079e9d5044da2bbacaec401273f5a11ca03ccd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symplify/easy-ci/zipball/98079e9d5044da2bbacaec401273f5a11ca03ccd",
+                "reference": "98079e9d5044da2bbacaec401273f5a11ca03ccd",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "bin": [
+                "bin/easy-ci"
+            ],
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Toolkit of commands that should not be missed in you CI",
+            "support": {
+                "source": "https://github.com/symplify/easy-ci/tree/10.0.20"
+            },
+            "funding": [
+                {
+                    "url": "https://www.paypal.me/rectorphp",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/tomasvotruba",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-01-30T20:48:10+00:00"
         },
         {
             "name": "symplify/easy-coding-standard",

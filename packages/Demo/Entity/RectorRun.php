@@ -148,16 +148,6 @@ final class RectorRun implements JsonSerializable
         return $appliedRules;
     }
 
-    public function setContent(string $content): void
-    {
-        $this->content = $content;
-    }
-
-    public function setConfig(string $config): void
-    {
-        $this->config = $config;
-    }
-
     /**
      * @param mixed[] $jsonResult
      */
@@ -173,11 +163,6 @@ final class RectorRun implements JsonSerializable
         }
 
         return $this->jsonResult !== [];
-    }
-
-    public function setUuid(Uuid $uuid): void
-    {
-        $this->uuid = $uuid;
     }
 
     public function canCreateFixture(): bool
