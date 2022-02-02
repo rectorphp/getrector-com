@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6082452350fad1f3d974c3123b190d43",
+    "content-hash": "c6f750810caf9d43ca4e22141fcaff88",
     "packages": [
         {
             "name": "cweagans/composer-patches",
@@ -8228,21 +8228,22 @@
         },
         {
             "name": "symplify/easy-ci",
-            "version": "10.0.20",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/easy-ci.git",
-                "reference": "98079e9d5044da2bbacaec401273f5a11ca03ccd"
+                "reference": "4d6cb93c15912dc1686a41d4dd502bd9597554ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/easy-ci/zipball/98079e9d5044da2bbacaec401273f5a11ca03ccd",
-                "reference": "98079e9d5044da2bbacaec401273f5a11ca03ccd",
+                "url": "https://api.github.com/repos/symplify/easy-ci/zipball/4d6cb93c15912dc1686a41d4dd502bd9597554ff",
+                "reference": "4d6cb93c15912dc1686a41d4dd502bd9597554ff",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1"
             },
+            "default-branch": true,
             "bin": [
                 "bin/easy-ci"
             ],
@@ -8253,7 +8254,7 @@
             ],
             "description": "Toolkit of commands that should not be missed in you CI",
             "support": {
-                "source": "https://github.com/symplify/easy-ci/tree/10.0.20"
+                "source": "https://github.com/symplify/easy-ci/tree/main"
             },
             "funding": [
                 {
@@ -8265,7 +8266,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-01-30T20:48:10+00:00"
+            "time": "2022-02-02T17:08:50+00:00"
         },
         {
             "name": "symplify/easy-coding-standard",
@@ -8738,7 +8739,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "roave/security-advisories": 20
+        "roave/security-advisories": 20,
+        "symplify/easy-ci": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
