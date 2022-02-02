@@ -36,14 +36,23 @@ final class DemoController extends AbstractController
     /**
      * Waits on https://github.com/symfony/symfony/pull/43854 to merge in Symfony 6.1
      */
-    #[Route(path: 'demo/{rectorRunUuid}', name: RouteName::DEMO_DETAIL, methods: ['GET'])]
+    #[Route(path: 'demo/{uuid}', name: RouteName::DEMO_DETAIL, methods: ['GET'])]
     #[Route(path: 'demo', name: RouteName::DEMO, methods: ['GET', 'POST'])]
-    public function __invoke(Request $request, ?string $rectorRunUuid = null): Response
+    public function __invoke(Request $request, ?string $uuid = null): Response
     {
-        if ($rectorRunUuid === null || ! Uuid::isValid($rectorRunUuid)) {
+        if ($uuid === null || ! Uuid::isValid($uuid)) {
             $rectorRun = $this->rectorRunFactory->createEmpty();
         } else {
-            $rectorRun = $this->rectorRunRepository->get(Uuid::fromString($rectorRunUuid));
+            $rectorRun = $this->rectorRunRepository->get(Uuid::fromString($uuid));
+            if ($rectorRun === null) {
+                // item not found
+                $errorMessage = sprintf('Rector run "%s" was not found. Try to run code again for new result', $uuid);
+                $this->addFlash('danger', $errorMessage);
+
+                return $this->redirectToRoute(RouteName::DEMO_DETAIL, [
+                    'uuid' => null,
+                ]);
+            }
         }
 
         $demoForm = $this->formFactory->create(DemoFormType::class, $rectorRun, [
@@ -73,10 +82,8 @@ final class DemoController extends AbstractController
         $this->demoRunner->processRectorRun($rectorRun);
         $this->rectorRunRepository->save($rectorRun);
 
-        $demoDetailUrl = $this->urlGenerator->generate(RouteName::DEMO_DETAIL, [
-            'rectorRunUuid' => $rectorRun->getUuid(),
+        return $this->redirectToRoute(RouteName::DEMO_DETAIL, [
+            'uuid' => $rectorRun->getUuid(),
         ]);
-
-        return new RedirectResponse($demoDetailUrl);
     }
 }

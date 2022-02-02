@@ -7,7 +7,6 @@ namespace Rector\Website\Demo\Repository;
 use Jajo\JSONDB;
 use Nette\Utils\FileSystem;
 use Rector\Website\Demo\Entity\RectorRun;
-use Rector\Website\Demo\Exception\EntityNotFoundException;
 use Symfony\Component\Uid\Uuid;
 
 final class RectorRunRepository
@@ -39,7 +38,7 @@ final class RectorRunRepository
         $this->jsonDb->insert(self::TABLE_FILE, $rectorRun->jsonSerialize());
     }
 
-    public function get(Uuid $uuid): RectorRun
+    public function get(Uuid $uuid): RectorRun|null
     {
         $rows = $this->jsonDb->select('*')
             ->from(self::TABLE_FILE)
@@ -49,8 +48,7 @@ final class RectorRunRepository
             ->get();
 
         if ($rows === []) {
-            $errorMessage = sprintf('Rector run was not found for "%s"', $uuid->__toString());
-            throw new EntityNotFoundException($errorMessage);
+            return null;
         }
 
         $row = $rows[0];

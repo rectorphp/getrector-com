@@ -80,7 +80,8 @@ final class DemoRunner
         $temporaryFilePaths = [$analyzedFilePath, $configPath];
 
         $process = new Process([
-            'vendor/bin/rector',
+            // paths for phpunit differs based on test/demo, not sure why
+            \defined('PHPUNIT_COMPOSER_INSTALL') ? 'vendor/bin/rector' : '../vendor/bin/rector',
             'process',
             $analyzedFilePath,
             '--config',
