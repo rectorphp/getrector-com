@@ -26,9 +26,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         ->autoconfigure();
 
     $services->load('Rector\Website\\', __DIR__ . '/../src/')
-        ->exclude(
-            [__DIR__ . '/../src/GetRectorKernel.php', __DIR__ . '/../src/ValueObject', __DIR__ . '/../src/Entity']
-        );
+        ->exclude([__DIR__ . '/../src/GetRectorKernel.php', __DIR__ . '/../src/ValueObject']);
 
     $services->load('Rector\Website\\', __DIR__ . '/../packages/')
         ->exclude([__DIR__ . '/../packages/*/ValueObject', __DIR__ . '/../packages/*/Entity']);
@@ -46,4 +44,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 
     $services->set(ParameterProvider::class)
         ->arg('$container', service('service_container'));
+
+    $services->set(\Jajo\JSONDB::class)
+        ->arg('$dir', __DIR__ . '/../data/json-database');
 };

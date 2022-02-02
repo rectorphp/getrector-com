@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Rector\Website\Demo\ValueObjectFactory;
 
 use Rector\Website\Demo\Entity\RectorRun;
+use Symfony\Component\Uid\Uuid;
 use Symplify\SmartFileSystem\SmartFileSystem;
 
 final class RectorRunFactory
@@ -30,10 +31,6 @@ final class RectorRunFactory
         $content = $this->smartFileSystem->readFile(self::CONTENT_FILE_PATH);
         $config = $this->smartFileSystem->readFile(self::CONFIG_FILE_PATH);
 
-        $rectorRun = new RectorRun();
-        $rectorRun->setContent($content);
-        $rectorRun->setConfig($config);
-
-        return $rectorRun;
+        return new RectorRun(Uuid::v4(), $content, $config);
     }
 }

@@ -1,0 +1,29 @@
+[
+    {
+        "uuid": "b7d3363c-0492-4dc0-bee4-f49a935281eb",
+        "content": "<?php\r\n\r\nfinal class DemoFile\r\n{\r\n    public function run()\r\n    {\r\n        return 5;\r\n\r\n        \/\/ we never get here\r\n        return 10;\r\n    }\r\n}\r\n",
+        "config": "<?php\r\n\r\nuse Rector\\Php74\\Rector\\Property\\TypedPropertyRector;\r\nuse Rector\\Set\\ValueObject\\SetList;\r\nuse Symfony\\Component\\DependencyInjection\\Loader\\Configurator\\ContainerConfigurator;\r\n\r\nreturn static function (ContainerConfigurator $containerConfigurator): void {\r\n    $parameters = $containerConfigurator->parameters();\r\n    $services = $containerConfigurator->services();\r\n\r\n    \/\/ A. run whole set\r\n    $containerConfigurator->import(SetList::DEAD_CODE);\r\n\r\n    \/\/ B. or single rule\r\n    $services->set(TypedPropertyRector::class);\r\n};\r\n",
+        "json_result": {
+            "totals": {
+                "changed_files": 1,
+                "removed_and_added_files_count": 0,
+                "removed_node_count": 0,
+                "errors": 0
+            },
+            "file_diffs": [
+                {
+                    "file": "..\/var\/demo\/z1zwkwdhrxpp01a3re4a\/rector_analyzed_file.php",
+                    "diff": "--- Original\n+++ New\n@@ -5,8 +5,5 @@\n     public function run()\r\n     {\r\n         return 5;\r\n-\r\n-        \/\/ we never get here\r\n-        return 10;\r\n     }\r\n }\r\n",
+                    "applied_rectors": [
+                        "Rector\\DeadCode\\Rector\\FunctionLike\\RemoveCodeAfterReturnRector"
+                    ],
+                    "applied_rectors_with_changelog": []
+                }
+            ],
+            "changed_files": [
+                "..\/var\/demo\/z1zwkwdhrxpp01a3re4a\/rector_analyzed_file.php"
+            ]
+        },
+        "fatal_error_message": null
+    }
+]

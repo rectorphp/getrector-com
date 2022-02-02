@@ -16,7 +16,7 @@ final class PullRequestDescriptionFactory
         $bodyLines = [];
 
         $bodyLines[] = '# Failing Test for ' . $rectorRun->getRectorShortClass();
-        $bodyLines[] = 'Based on https://getrector.org/demo/' . $rectorRun->getId();
+        $bodyLines[] = 'Based on https://getrector.org/demo/' . $rectorRun->getUuid();
 
         $body = implode(PHP_EOL . PHP_EOL, $bodyLines);
         return $body . PHP_EOL;

@@ -9,12 +9,9 @@ use Rector\Website\Demo\Entity\RectorRun;
 use Rector\Website\Demo\Form\DemoFormType;
 use Rector\Website\Demo\Repository\RectorRunRepository;
 use Rector\Website\Demo\ValueObjectFactory\RectorRunFactory;
-use Rector\Website\Exception\ShouldNotHappenException;
-
 use Rector\Website\ValueObject\Routing\RouteName;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormFactoryInterface;
-use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -54,9 +51,15 @@ final class DemoController extends AbstractController
             'action' => $this->urlGenerator->generate(RouteName::DEMO),
         ]);
 
-        $demoForm->handleRequest($request);
-        if ($demoForm->isSubmitted() && $demoForm->isValid()) {
-            return $this->processFormAndReturnRoute($demoForm);
+        // process form submit
+        if ($request->isMethod(Request::METHOD_POST)) {
+            $demoFromData = $request->request->all()['demo_form'];
+            $content = $demoFromData['content'];
+            $config = $demoFromData['config'];
+
+            $rectorRun = new RectorRun(Uuid::v4(), $content, $config);
+
+            return $this->processFormAndReturnRoute($rectorRun);
         }
 
         return $this->render('demo/demo.twig', [
@@ -65,18 +68,13 @@ final class DemoController extends AbstractController
         ]);
     }
 
-    private function processFormAndReturnRoute(FormInterface $form): RedirectResponse
+    private function processFormAndReturnRoute(RectorRun $rectorRun): RedirectResponse
     {
-        $rectorRun = $form->getData();
-        if (! $rectorRun instanceof RectorRun) {
-            throw new ShouldNotHappenException();
-        }
-
         $this->demoRunner->processRectorRun($rectorRun);
         $this->rectorRunRepository->save($rectorRun);
 
         $demoDetailUrl = $this->urlGenerator->generate(RouteName::DEMO_DETAIL, [
-            'rectorRunUuid' => $rectorRun->getId(),
+            'rectorRunUuid' => $rectorRun->getUuid(),
         ]);
 
         return new RedirectResponse($demoDetailUrl);
