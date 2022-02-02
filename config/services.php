@@ -44,7 +44,4 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 
     $services->set(ParameterProvider::class)
         ->arg('$container', service('service_container'));
-
-    $services->set(\Jajo\JSONDB::class)
-        ->arg('$dir', __DIR__ . '/../data/json-database');
 };

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Rector\Website\Demo\Repository;
 
 use Jajo\JSONDB;
+use Nette\Utils\FileSystem;
 use Rector\Website\Demo\Entity\RectorRun;
 use Rector\Website\Demo\Exception\EntityNotFoundException;
 use Symfony\Component\Uid\Uuid;
@@ -16,10 +17,21 @@ final class RectorRunRepository
      */
     private const TABLE_FILE = 'rector_runs.json';
 
-    public function __construct(
-        // @see https://github.com/donjajo/php-jsondb
-        private JSONDB $jsonDb
-    ) {
+    // @see https://github.com/donjajo/php-jsondb
+    private JSONDB $jsonDb;
+
+    public function __construct()
+    {
+        $storageDirectory = __DIR__ . '/../../../data/json-database';
+        $this->jsonDb = new JSONDB($storageDirectory);
+
+        $repositoryStorageFile = $storageDirectory . '/' . self::TABLE_FILE;
+
+        // create empty file on boot
+        if (! file_exists($repositoryStorageFile)) {
+            FileSystem::createDir(dirname($repositoryStorageFile));
+            file_put_contents($repositoryStorageFile, '[]');
+        }
     }
 
     public function save(RectorRun $rectorRun): void
@@ -36,7 +48,7 @@ final class RectorRunRepository
             ])
             ->get();
 
-        if ($rows === null) {
+        if ($rows === []) {
             $errorMessage = sprintf('Rector run was not found for "%s"', $uuid->__toString());
             throw new EntityNotFoundException($errorMessage);
         }
