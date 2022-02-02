@@ -42,13 +42,13 @@ final class DemoRunner
         try {
             $jsonResult = $this->processFilesContents($rectorRun->getContent(), $rectorRun->getConfig());
             if (isset($jsonResult['fatal_errors'])) {
-                $rectorRun->setFatalErrorMessage($jsonResult['fatal_errors'][0]);
+                $rectorRun->setFatalErrorMessages($jsonResult['fatal_errors'][0]);
             }
 
             $rectorRun->setJsonResult($jsonResult);
         } catch (\Throwable $throwable) {
             $normalizedMessage = $this->errorMessageNormalizer->normalize($throwable->getMessage());
-            $rectorRun->setFatalErrorMessage($normalizedMessage);
+            $rectorRun->setFatalErrorMessages($normalizedMessage);
 
             // @todo log sentry...?
         }
@@ -61,13 +61,13 @@ final class DemoRunner
     {
         $identifier = Random::generate(20);
 
-        $analyzedFilePath = sys_get_temp_dir() . '/tmp/rector-demo/' . $identifier . '/' . self::ANALYZED_FILE_NAME;
-        $configPath = sys_get_temp_dir() . '/tmp/rector-demo/' . $identifier . '/' . self::CONFIG_NAME;
+        $analyzedFilePath = sys_get_temp_dir() . '/rector-demo/' . $identifier . '/' . self::ANALYZED_FILE_NAME;
+        $configPath = sys_get_temp_dir() . '/rector-demo/' . $identifier . '/' . self::CONFIG_NAME;
+
+        dump($analyzedFilePath);
 
         $this->smartFileSystem->dumpFile($analyzedFilePath, $fileContent);
         $this->smartFileSystem->dumpFile($configPath, $configContent);
-
-        $temporaryFilePaths = [$analyzedFilePath, $configPath];
 
         $process = new Process([
             'vendor/bin/rector',
@@ -82,7 +82,7 @@ final class DemoRunner
         $process->run();
 
         // remove temporary files
-        $this->smartFileSystem->remove($temporaryFilePaths);
+        $this->smartFileSystem->remove([$analyzedFilePath, $configPath]);
 
         // error
         if ($process->getExitCode() !== self::EXIT_CODE_SUCCESS) {

@@ -41,11 +41,14 @@ final class RectorRun
      */
     private array $jsonResult = [];
 
-    private ?string $fatalErrorMessage = null;
+    /**
+     * @var string[]
+     */
+    private array $fatalErrorMessages = [];
 
     public function __construct(
-        private string $config,
         private string $content,
+        private string $config,
     ) {
     }
 
@@ -85,7 +88,7 @@ final class RectorRun
 
     public function isSuccessful(): bool
     {
-        if ($this->fatalErrorMessage !== null) {
+        if ($this->fatalErrorMessages !== []) {
             return false;
         }
 
@@ -103,9 +106,12 @@ final class RectorRun
         return $errors === [];
     }
 
-    public function getFatalErrorMessage(): ?string
+    /**
+     * @return string[]
+     */
+    public function getFatalErrorMessages(): array
     {
-        return $this->fatalErrorMessage;
+        return $this->fatalErrorMessages;
     }
 
     /**
@@ -127,9 +133,9 @@ final class RectorRun
         return $errors;
     }
 
-    public function setFatalErrorMessage(string $fatalErrorMessage): void
+    public function setFatalErrorMessages(string $fatalErrorMessages): void
     {
-        $this->fatalErrorMessage = $fatalErrorMessage;
+        $this->fatalErrorMessages[] = $fatalErrorMessages;
     }
 
     /**
@@ -172,7 +178,7 @@ final class RectorRun
 
     public function hasRun(): bool
     {
-        if ($this->fatalErrorMessage !== null) {
+        if ($this->fatalErrorMessages !== null) {
             return true;
         }
 
