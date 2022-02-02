@@ -28,10 +28,9 @@ jobs:
                         name: 'Lint Twig'
                         run: bin/console lint:twig templates
 
-# enable after symplify fixes skipped classes
-#                    -
-#                        name: 'Check Active Classes'
-#                        run: bin/console lint:twig templates
+                    -
+                        name: 'Check Active Classes'
+                        run: bin/console lint:twig templates
 
                     -
                         name: 'Lint Dependency Injection Container'
