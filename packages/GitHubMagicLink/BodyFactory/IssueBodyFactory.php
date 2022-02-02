@@ -27,7 +27,7 @@ final class IssueBodyFactory
         $bodyLines[] = self::ISSUE_BASIC_TABLE;
 
         $bodyLines[] = '## Minimal PHP Code Causing Issue';
-        $bodyLines[] = 'See https://getrector.org/demo/' . $rectorRun->getId();
+        $bodyLines[] = 'See https://getrector.org/demo/' . $rectorRun->getUuid();
         $bodyLines[] = '```php' . PHP_EOL . rtrim($rectorRun->getContent()) . PHP_EOL . '```';
 
         $appliedRules = $rectorRun->getAppliedRules();

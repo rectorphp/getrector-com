@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Website\Demo\Entity;
 
+use JsonSerializable;
 use Nette\Utils\Strings;
 use Rector\Website\Demo\Utils\FileDiffCleaner;
 use Rector\Website\Demo\ValueObject\AppliedRule;
@@ -11,7 +12,7 @@ use Rector\Website\Exception\ShouldNotHappenException;
 use Rector\Website\Utils\StringsConverter;
 use Symfony\Component\Uid\Uuid;
 
-final class RectorRun
+final class RectorRun implements JsonSerializable
 {
     /**
      * @var string
@@ -34,22 +35,19 @@ final class RectorRun
      */
     private const DEFAULT_FILE_NAME = 'demo_fixture';
 
-    private Uuid $id;
+    public function __construct(
+        private Uuid $uuid,
+        private string $content,
+        private string $config,
+        /** @var array<string, mixed> */
+        private array $jsonResult = [],
+        private string|null $fatalErrorMessage = null
+    ) {
+    }
 
-    /**
-     * @var mixed[]
-     */
-    private array $jsonResult = [];
-
-    private ?string $fatalErrorMessage = null;
-
-    private string $config;
-
-    private string $content;
-
-    public function getId(): Uuid
+    public function getUuid(): Uuid
     {
-        return $this->id;
+        return $this->uuid;
     }
 
     public function getContentDiff(): string
@@ -177,9 +175,9 @@ final class RectorRun
         return $this->jsonResult !== [];
     }
 
-    public function setId(Uuid $uuid): void
+    public function setUuid(Uuid $uuid): void
     {
-        $this->id = $uuid;
+        $this->uuid = $uuid;
     }
 
     public function canCreateFixture(): bool
@@ -227,5 +225,19 @@ final class RectorRun
         $underscoredName = $stringsConverter->camelCaseToGlue($baseFilename, '_');
 
         return $underscoredName . '.php.inc';
+    }
+
+    /**
+     * @return array{uuid: string, content: string, config: string, json_result: mixed[], fatal_error_message: string|null}
+     */
+    public function jsonSerialize(): array
+    {
+        return [
+            'uuid' => $this->uuid->jsonSerialize(),
+            'content' => $this->content,
+            'config' => $this->config,
+            'json_result' => $this->jsonResult,
+            'fatal_error_message' => $this->fatalErrorMessage,
+        ];
     }
 }

@@ -9,12 +9,9 @@ use Rector\Website\Demo\Entity\RectorRun;
 use Rector\Website\Demo\Form\DemoFormType;
 use Rector\Website\Demo\Repository\RectorRunRepository;
 use Rector\Website\Demo\ValueObjectFactory\RectorRunFactory;
-use Rector\Website\Exception\ShouldNotHappenException;
-
 use Rector\Website\ValueObject\Routing\RouteName;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormFactoryInterface;
-use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -39,14 +36,23 @@ final class DemoController extends AbstractController
     /**
      * Waits on https://github.com/symfony/symfony/pull/43854 to merge in Symfony 6.1
      */
-    #[Route(path: 'demo/{rectorRunUuid}', name: RouteName::DEMO_DETAIL, methods: ['GET'])]
+    #[Route(path: 'demo/{uuid}', name: RouteName::DEMO_DETAIL, methods: ['GET'])]
     #[Route(path: 'demo', name: RouteName::DEMO, methods: ['GET', 'POST'])]
-    public function __invoke(Request $request, ?string $rectorRunUuid = null): Response
+    public function __invoke(Request $request, ?string $uuid = null): Response
     {
-        if ($rectorRunUuid === null || ! Uuid::isValid($rectorRunUuid)) {
+        if ($uuid === null || ! Uuid::isValid($uuid)) {
             $rectorRun = $this->rectorRunFactory->createEmpty();
         } else {
-            $rectorRun = $this->rectorRunRepository->get(Uuid::fromString($rectorRunUuid));
+            $rectorRun = $this->rectorRunRepository->get(Uuid::fromString($uuid));
+            if ($rectorRun === null) {
+                // item not found
+                $errorMessage = sprintf('Rector run "%s" was not found. Try to run code again for new result', $uuid);
+                $this->addFlash('danger', $errorMessage);
+
+                return $this->redirectToRoute(RouteName::DEMO_DETAIL, [
+                    'uuid' => null,
+                ]);
+            }
         }
 
         $demoForm = $this->formFactory->create(DemoFormType::class, $rectorRun, [
@@ -54,9 +60,15 @@ final class DemoController extends AbstractController
             'action' => $this->urlGenerator->generate(RouteName::DEMO),
         ]);
 
-        $demoForm->handleRequest($request);
-        if ($demoForm->isSubmitted() && $demoForm->isValid()) {
-            return $this->processFormAndReturnRoute($demoForm);
+        // process form submit
+        if ($request->isMethod(Request::METHOD_POST)) {
+            $demoFromData = $request->request->all()['demo_form'];
+            $content = $demoFromData['content'];
+            $config = $demoFromData['config'];
+
+            $rectorRun = new RectorRun(Uuid::v4(), $content, $config);
+
+            return $this->processFormAndReturnRoute($rectorRun);
         }
 
         return $this->render('demo/demo.twig', [
@@ -65,20 +77,13 @@ final class DemoController extends AbstractController
         ]);
     }
 
-    private function processFormAndReturnRoute(FormInterface $form): RedirectResponse
+    private function processFormAndReturnRoute(RectorRun $rectorRun): RedirectResponse
     {
-        $rectorRun = $form->getData();
-        if (! $rectorRun instanceof RectorRun) {
-            throw new ShouldNotHappenException();
-        }
-
         $this->demoRunner->processRectorRun($rectorRun);
         $this->rectorRunRepository->save($rectorRun);
 
-        $demoDetailUrl = $this->urlGenerator->generate(RouteName::DEMO_DETAIL, [
-            'rectorRunUuid' => $rectorRun->getId(),
+        return $this->redirectToRoute(RouteName::DEMO_DETAIL, [
+            'uuid' => $rectorRun->getUuid(),
         ]);
-
-        return new RedirectResponse($demoDetailUrl);
     }
 }

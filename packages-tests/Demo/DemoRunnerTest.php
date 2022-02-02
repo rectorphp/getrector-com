@@ -11,18 +11,23 @@ use Symplify\PackageBuilder\Testing\AbstractKernelTestCase;
 
 final class DemoRunnerTest extends AbstractKernelTestCase
 {
-    public function test(): void
+    private DemoRunner $demoRunner;
+
+    private RectorRunFactory $rectorRunFactory;
+
+    protected function setUp(): void
     {
         $this->bootKernel(GetRectorKernel::class);
 
-        /** @var DemoRunner $demoRunner */
-        $demoRunner = $this->getService(DemoRunner::class);
+        $this->demoRunner = $this->getService(DemoRunner::class);
+        $this->rectorRunFactory = $this->getService(RectorRunFactory::class);
+    }
 
-        /** @var RectorRunFactory $rectorRunFactory */
-        $rectorRunFactory = $this->getService(RectorRunFactory::class);
 
-        $rectorRun = $rectorRunFactory->createEmpty();
-        $demoRunner->processRectorRun($rectorRun);
+    public function test(): void
+    {
+        $rectorRun = $this->rectorRunFactory->createEmpty();
+        $this->demoRunner->processRectorRun($rectorRun);
 
         $fatalErrorMessage = $rectorRun->getFatalErrorMessage();
 
