@@ -8,6 +8,7 @@ use Jean85\PrettyVersions;
 use Rector\WebsiteDemoRunner\DemoRunner;
 use Rector\WebsiteDemoRunner\Entity\RectorRun;
 use Rector\WebsiteDemoRunner\ErrorMessageNormalizer;
+use Rector\WebsiteDemoRunner\Exception\DemoRunnerException;
 use Symplify\SmartFileSystem\SmartFileSystem;
 
 require __DIR__ . '/vendor/autoload.php';
@@ -42,20 +43,20 @@ $rectorVersion = PrettyVersions::getVersion('rector/rector')->getPrettyVersion()
 return function ($event) use ($rectorVersion) {
     prepareTempDirectory();
 
-    // the event uses items from form
+    if (! is_array($event) || ! isset($event['content']) || ! isset($event['config'])) {
+        throw new DemoRunnerException(
+            'Missing "content" and "config" json input, e.g. "{"content": "<?php file ...", "config": "<?php rector.php config"}")'
+        );
+    }
 
     // @todo what for?
     $rootDir = getenv('LAMBDA_TASK_ROOT');
-
-    // @todo temporarily files here - fix submit form, then should be removed after ?? ...
-    $processedFileContent = $event['content'] ?? file_get_contents(__DIR__ . '/../data/demo/DemoFile.php');
-    $rectorConfigFileContent = $event['config'] ?? file_get_contents(__DIR__ . '/../data/demo/demo-config.php');
 
     // @todo autoload files?
     // require_once 'phar://' . $rootDir . '/vendor/phpstan/phpstan/phpstan.phar/stubs/runtime/ReflectionUnionType.php';
 
     $demoRunner = new DemoRunner(new ErrorMessageNormalizer(), new SmartFileSystem());
-    $rectorRun = new RectorRun($rectorConfigFileContent, $processedFileContent);
+    $rectorRun = new RectorRun($event['content'], $event['config']);
     $demoRunner->processRectorRun($rectorRun);
 
     $jsonResult = $rectorRun->getJsonResult();
