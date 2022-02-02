@@ -101,7 +101,7 @@ final class DemoRunner
 
         $output = $process->getOutput();
         if ($output === '') {
-            return [];
+            throw new RectorRunFailedException('Empty result returned');
         }
 
         // is valid json?
