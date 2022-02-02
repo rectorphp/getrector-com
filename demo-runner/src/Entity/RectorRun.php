@@ -178,7 +178,7 @@ final class RectorRun
 
     public function hasRun(): bool
     {
-        if ($this->fatalErrorMessages !== null) {
+        if ($this->fatalErrorMessages !== []) {
             return true;
         }
 

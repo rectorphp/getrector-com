@@ -8,7 +8,6 @@ use Symplify\Amnesia\ValueObject\Symfony\Extension\TwigExtension;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
     $containerConfigurator->extension(TwigExtension::NAME, [
-        TwigExtension::FORM_THEMES => ['bootstrap_4_layout.html.twig'],
         TwigExtension::DEFAULT_PATH => '%kernel.project_dir%/templates',
         TwigExtension::DEBUG => '%kernel.debug%',
         TwigExtension::STRICT_VARIABLES => true,

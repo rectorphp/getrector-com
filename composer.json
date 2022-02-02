@@ -12,7 +12,6 @@
         "symfony/debug-bundle": "^6.0",
         "symfony/dependency-injection": "^6.0",
         "symfony/dotenv": "^6.0",
-        "symfony/form": "^6.0",
         "symfony/framework-bundle": "^6.0",
         "symfony/http-kernel": "^6.0",
         "symfony/process": "^6.0",

@@ -4,7 +4,7 @@
 
 {% block main %}
     <div id="rector_run_form" class="mt-4 mb-5">
-        {{ form_start(demo_form) }}
+        <form name="demo_form" method="post" action="{{ path('demo') }}">
 
         {# @var rector_run \Rector\WebsiteDemo\Entity\RectorRun #}
 
@@ -12,7 +12,9 @@
             <div class="alert alert-danger mb-5">
                 <strong>Rector could not run due to error:</strong>
 
-                {{ rector_run.fatalErrorMessage | trim | nl2br }}
+                {% for fatal_error_message in rector_run.fatalErrorMessages %}
+                    {{ fatal_error_message | trim | nl2br }}
+                {% endfor %}
 
                 {% if rector_run.getErrors != [] %}
                     <ul class="mt-3 ml-0 pl-4">
@@ -27,10 +29,12 @@
             </div>
         {% endif %}
 
-        <div class="card mb-5">
-            <div class="card-header">Input Code</div>
+        <div class="card mb-3">
+            <div class="card-header pt-2 pb-2 pl-3">Input Code</div>
             <div class="card-body p-0 mb-0">
-                {{ form_row(demo_form.content) }}
+                <div class="form-group">
+                    <textarea id="demo_form_content" name="demo_form[content]" required="required" class="codemirror_php form-control">{{ rector_run.content }}</textarea>
+                </div>
             </div>
         </div>
 
@@ -75,20 +79,24 @@
         {% endif %}
 
         <div class="card mb-5">
-            <div class="card-header">
+            <div class="card-header pt-2 pb-2 pl-3">
                 Config&nbsp;&nbsp;<code>rector.php</code>
             </div>
 
             <div class="card-body p-0">
-                {{ form_row(demo_form.config) }}
+                <div class="form-group">
+                    <textarea id="demo_form_config" name="demo_form[config]" required="required" class="codemirror_php form-control">{{ rector_run.config }}</textarea>
+                </div>
             </div>
         </div>
 
         <div class="mt-3 mb-5 text-center">
-            {{ form_row(demo_form.process) }}
+            <div class="form-group">
+                <button type="submit" id="demo_form_process" name="demo_form[process]" class="btn btn-lg btn-success m-auto btn-demo-submit btn">Process</button>
+            </div>
         </div>
 
-        {{ form_end(demo_form) }}
+        </form>
 
         <br>
     </div>
