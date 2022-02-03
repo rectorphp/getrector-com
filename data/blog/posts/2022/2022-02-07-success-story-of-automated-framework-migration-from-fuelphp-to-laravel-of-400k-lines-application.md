@@ -178,53 +178,7 @@ public function refactor(Node $selectArrayNode): ?Node
 
 Great! Now we can convert the whole query running these 2 rules.
 
-<br>
-
-Rector can perform much more flexible refactoring. For example, sometimes, the array arg of the `select_array` method is passed by variables.
-
-```php
-select_array($array)
-```
-
-Then we can convert them:
-
-```php
-select(...$array)
-```
-
-<br>
-
-We'll add a little code to handle that case.
-
-```php
-public function refactor(Node $selectArrayNode): ?Node
-{
-    if (!$this->isName($selectArrayNode->name, 'select_array')) {
-        return null;
-    }
-
-    if (count($selectArrayNode->args) !== 1) {
-        return null;
-    }
-
-    $value = $selectArrayNode->args[0]->value;
-    if ($value instanceof Node\Expr\Array_) {
-        $selectArrayNode->args = array_map(
-            fn(Node\Expr\ArrayItem $item) => new Node\Arg($item->value),
-            $value->items
-        );
-    } elseif ($value instanceof Node\Expr\Variable) {
-        $selectArrayNode->args[0]->unpack = true;
-    } else {
-        return null;
-    }
-
-    $selectArrayNode->name = new Node\Identifier('select');
-    return $selectArrayNode;
-}
-```
-
-## Developing new Features and Running Migration at the Same Time
+## New Features and Running Migration at the Same Time?
 
 This is the most significant and wonderful benefit of automated migration.
 It's explained in detail in the [previous post](/blog/how-to-migrate-legacy-php-applications-without-stopping-development-of-new-features), so please take a look if you haven't read it yet!
