@@ -55,7 +55,8 @@ An automated migration by custom Rector rules of 2000+ files included:
 * Fuel Query Builder → Laravel Query Builder
 * Non psr-4 → psr-4
     * We created a dummy autoloader to run Rector, because we did not install FuelPHP
-    * Adding namespaces, and moving files to the correct dir Converting Config
+    * Adding namespaces, and moving files to the correct dir 
+    * Converting Config
 * `File, Response` Class → Laravel `Response` facades or helpers
 * `Input, Upload` Class → Laravel `Request`  facades or helpers
 * FuelPHP Exceptions → Mapped to Laravel Exceptions
