@@ -17,7 +17,7 @@ Our application was a monolithic application consisting of the backend of web se
 
 * **Framework**: FuelPHP → Laravel
 * **PHP Version**: PHP 7.0 → PHP 7.4
-* Application:
+* **Application**:
     * Released in 2015/11
     * 2000+ PHP files, 400k+ lines of PHP codes
 * **Time Schedule**
