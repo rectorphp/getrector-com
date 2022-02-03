@@ -5,90 +5,95 @@ perex: |
     Today, I'm very excited to talk about the full story of our successful automated framework migration how Rector saved our product by refactoring our 400k+lines PHP web application!
 ---
 
+*This is an guest post by [rajyan](https://twitter.com/unagiunag), who used Rector to migrate an extensive PHP application from FuelPHP to Laravel.*
+
+<br>
+
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">For some framework switch is impossible. <br>Others can do it with zero downtime 👏 <a href="https://t.co/votwydILzX">https://t.co/votwydILzX</a></p>&mdash; Rector (@rectorphp) <a href="https://twitter.com/rectorphp/status/1479052818422116352?ref_src=twsrc%5Etfw">January 6, 2022</a></blockquote>
 
-## Summary of the migration project
+## Summary of the Migration Project
 
 Our application was a monolithic application consisting of the backend of web service, native App API, intra-company support tools, and batch jobs for web and app.
 
-* Framework
-    * FuelPHP -> Laravel
-* PHP version
-    * PHP7.0 -> PHP7.4
-* Application
+* **Framework**: FuelPHP → Laravel
+* **PHP Version**: PHP 7.0 → PHP 7.4
+* Application:
     * Released in 2015/11
     * 2000+ PHP files, 400k+ lines of PHP codes
-* Schedule
-    * 2021/01 ~ 2021/11
-    * Migrated intracompany tools at 2021/09 (QA from
-      2021/07 ~)
+* **Time Schedule**
+    * 2021/01-11
+    * Migrated internal tools at 2021/09 (QA from 2021/07 ~)
     * Start canary release of Web and API from 2021/11/1 (QA from 2021/08 ~)
-    * Switched to Laravel with 100% release at 2021/11/16
-* Members
+    * Switched to Laravel with 100 % release at 2021/11/16
+* **Team Members**
     * 1~2 engineers + 1 senior engineer for advice
-* Special notes
+* **Special notes**
     * Running the migration and developing new features at the same time
     * Zero downtime by releasing old and new environments in the canary release
 
-## Why did we choose Rector?
+## Why did we Choose Rector?
 
-Why did we choose Rector? Why did we decide to automate the migration? The reason was simple.
+Why did we decide to automate the migration? The reason was simple.
 
 Our application was too large to migrate manually, and automation was needed to make the migration successful.
 Even more, we estimated that it might take about a year for migration without automation, even if all team members worked for migration.
 
 **If it's the same speed as human work, why not try something new that might be faster?**
 
-## Fully automated migration
+## Fully Automated Migration
 
-At first, we were using Rector only to convert DB query builders of FuelPHP to Laravel and manually modify controllers, configs, “Facades” (≒ “Classes” in FuelPHP).
-However, as I wrote custom Rector rules, I noticed AST's power and flexibility and realized that full automation might be possible.
+At first, we were using Rector only to convert DB query builders of FuelPHP to Laravel and manually modify controllers, configs, "Facades" (~= "Classes" in FuelPHP).
+However, as I wrote custom Rector rules, I noticed AST power and flexibility and realized that full automation might be possible.
 Also, FuelPHP is a relatively lightweight framework, and automated migration to Laravel, which has more features, was imaginable.
 
 ## FuelPHP to Laravel
 
-99% of the PHP files were converted automatically, editing 200k+ lines of code.
+**99% of the PHP files were converted automatically**, editing 200k+ lines of code.
 
-* Automated migration by Custom Rector rules (2000+ files)
-    * Fuel Query Builder -> Laravel Query Builder
-    * Non psr-4 -> psr-4
-        * We created a dummy autoloader to run Rector, because we did not install FuelPHP
-        * Adding namespaces, and moving files to the correct dir Converting Config
-    * `File, Response` Class -> Laravel `Response` facades or helpers
-    * `Input, Upload` Class -> Laravel `Request`  facades or helpers
-    * FuelPHP Exceptions -> Mapped to Laravel Exceptions
-    * There were a lot of other ad-hoc rules specific to our code
+Automated migration by Custom Rector rules (2000+ files) included:
 
-* Manual migration (~20 files)
-    * Routes
-        * There are no routes in FuelPHP
-    * Some parts of authentication
-    * Some parts of config
-    * FuelPHP specific classes.
-        * ex. `Format`, `Agent`
-        * wrote a custom facade in Laravel
+* Fuel Query Builder → Laravel Query Builder
+* Non psr-4 → psr-4
+    * We created a dummy autoloader to run Rector, because we did not install FuelPHP
+    * Adding namespaces, and moving files to the correct dir Converting Config
+* `File, Response` Class → Laravel `Response` facades or helpers
+* `Input, Upload` Class → Laravel `Request`  facades or helpers
+* FuelPHP Exceptions → Mapped to Laravel Exceptions
+* There were a lot of other ad-hoc rules specific to our code
+
+<br>
+
+The Manual migration (~20 files):
+
+* Routes
+    * There are no routes in FuelPHP
+* Some parts of authentication
+* Some parts of config
+* FuelPHP specific classes.
+    * ex. `Format`, `Agent`
+    * wrote a custom facade in Laravel
 
 Let's look into them in detail.
 
-### Rector Rule Example: Query Builder
+## Rector Use Case: Migrate a Query Builder
 
-Creating custom Rector rules to migrate the query builder was like creating a piece of a puzzle. We created many small refactoring rules and put the pieces together to modify the whole query.
+Creating custom Rector rules to migrate the query builder was like creating a piece of a puzzle. We created **many small refactoring rules** and put the pieces together to modify the whole query.
 
-For example, we wanted to convert:
-
-FuelPHP
+For example, we wanted to convert FuelPHP...
 
 ```php
 \DB::select_array(['id', 'name'])->from('user');
 ```
 
-to
+<br>
 
-Laravel
+...to Laravel:
 
 ```php
 \DB::table('user')->select_array(['id', 'name']);
 ```
+
+<br>
 
 For this refactoring, we created two rector rules.
 
@@ -98,7 +103,7 @@ For this refactoring, we created two rector rules.
 <img src="/assets/images/blog/2022/query_builder_custom_rector_example.png" alt="" style="max-width: 25em" class="img-thumbnail">
 
 
-### Swap `from` and `select_array` and Rename `from` to `table`
+### 1. Swap `from` and `select_array` and Rename `from` to `table`
 
 The first rule can be written like this:
 
@@ -136,7 +141,7 @@ Get method calls and check if the name is `from`. If the variable node of the me
 
 It's simple, isn't it?
 
-### Convert `select_array` to `select`
+### 2. Convert `select_array` to `select`
 
 Then let's modify `select_array` to `select`. You need to expand the array to args and rename the method.
 
@@ -171,7 +176,9 @@ public function refactor(Node $selectArrayNode): ?Node
 }
 ```
 
-Great! Now we can convert the whole query running these two rules.
+Great! Now we can convert the whole query running these 2 rules.
+
+<br>
 
 Rector can perform much more flexible refactoring. For example, sometimes, the array arg of the `select_array` method is passed by variables.
 
@@ -185,7 +192,9 @@ Then we can convert them:
 select(...$array)
 ```
 
-Just add a little code to handle that case.
+<br>
+
+We'll add a little code to handle that case.
 
 ```php
 public function refactor(Node $selectArrayNode): ?Node
@@ -204,7 +213,7 @@ public function refactor(Node $selectArrayNode): ?Node
             fn(Node\Expr\ArrayItem $item) => new Node\Arg($item->value),
             $value->items
         );
-    } else if ($value instanceof Node\Expr\Variable) {
+    } elseif ($value instanceof Node\Expr\Variable) {
         $selectArrayNode->args[0]->unpack = true;
     } else {
         return null;
@@ -237,7 +246,7 @@ We created a baseline first and ran them after running Rector. We could find cod
 Rector rule tests gave great confidence that the modification in the migration itself is working.
 We wrote about 80 Rector rules to migrate the application, and the tests helped us find rules broken by dependencies and breaking changes of Rector's updates.
 
-### AST aka Abstract Syntax Tree
+### Abstract Syntax Tree (AST)
 
 A deep understanding of AST and Rector itself is essential to write custom Rector rules.
 
@@ -247,7 +256,7 @@ Also, I read a lot of codes of Rector, php-parser, PHPStan, and Larastan to unde
 
 But as a shortcut, there is a [book about Rector](https://leanpub.com/rector-the-power-of-automated-refactoring) that explains AST and other vital things about Rectory. Let's read the Rector book!
 
-## Things struggled during Automated migration
+## Things we Struggled With
 
 ### Codes too complicated to convert by Rector
 
@@ -256,7 +265,7 @@ The important thing was that we were editing these codes in the "Development bra
 
 In some situations, writing custom rules is too tricky and expensive. We edited those in the migration branch and skipped automated migration for those files (about 10-20 files). It is essential to set a boundary, **what should be automated and what should be done manually**.
 
-### Minor differences between frameworks
+### Minor Differences between Frameworks
 
 There were minor differences between frameworks, which were difficult to notice while writing custom rules.
 
@@ -268,7 +277,7 @@ For instance,
 
 For these differences, QA testing and canary release were crucial. We iterated testing over and over and fixed the custom rules to achieve the complete migration.
 
-### Rector bugs and breaking changes
+### Rector Bugs and Breaking Changes
 
 We started the migration with Rector 0.9.x, and it's 0.12.x now! At 2020-2021, Rector was changing and evolving at a very high speed, and sometimes there were unstable versions with bugs. Also, some of our custom rules relied on Rector core codes, so there were significant breaking changes during the migration.
 
@@ -291,6 +300,10 @@ Cons
 * Requires understanding of AST
     * Let's read the Rector book!
 
-To be honest, I don't have any big cons for automated migration. It was a great experience, and I can say that we could not finish our migration without Rector. Thank you!
+<br>
+
+To be honest, I don't have any big cons for automated migration. It was a great experience, and I can say that we could not finish our migration without Rector.
+
+Thank you!
 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
