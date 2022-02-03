@@ -50,7 +50,7 @@ However, as I wrote custom Rector rules, I noticed AST power and flexibility and
 
 **99% of the PHP files were converted automatically**, editing 200k+ lines of code.
 
-An automated migration by Custom Rector rules of 2000+ files included:
+An automated migration by custom Rector rules of 2000+ files included:
 
 * Fuel Query Builder → Laravel Query Builder
 * Non psr-4 → psr-4
