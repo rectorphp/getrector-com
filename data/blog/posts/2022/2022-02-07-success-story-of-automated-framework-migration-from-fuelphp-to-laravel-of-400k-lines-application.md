@@ -50,7 +50,7 @@ Also, FuelPHP is a relatively lightweight framework, and automated migration to 
 
 **99% of the PHP files were converted automatically**, editing 200k+ lines of code.
 
-Automated migration by Custom Rector rules (2000+ files) included:
+An automated migration by Custom Rector rules of 2000+ files included:
 
 * Fuel Query Builder → Laravel Query Builder
 * Non psr-4 → psr-4
@@ -63,7 +63,7 @@ Automated migration by Custom Rector rules (2000+ files) included:
 
 <br>
 
-The Manual migration (~20 files):
+A manual migration of ~20 files:
 
 * Routes
     * There are no routes in FuelPHP
@@ -75,7 +75,7 @@ The Manual migration (~20 files):
 
 Let's look into them in detail.
 
-## Rector Use Case: Migrate a Query Builder
+## Let's write a Rule to Migrate a Query Builder
 
 Creating custom Rector rules to migrate the query builder was like creating a piece of a puzzle. We created **many small refactoring rules** and put the pieces together to modify the whole query.
 
@@ -143,7 +143,7 @@ It's simple, isn't it?
 
 ### 2. Convert `select_array` to `select`
 
-Then let's modify `select_array` to `select`. You need to expand the array to args and rename the method.
+Then let's modify `select_array` to `select`. You need to expand the array to args and rename the method:
 
 ```php
 public function getNodeTypes(): array
@@ -178,10 +178,10 @@ public function refactor(Node $selectArrayNode): ?Node
 
 Great! Now we can convert the whole query running these 2 rules.
 
-## New Features and Running Migration at the Same Time?
+## New Features and Migration at the Same Time?
 
 This is the most significant and wonderful benefit of automated migration.
-It's explained in detail in the [previous post](/blog/how-to-migrate-legacy-php-applications-without-stopping-development-of-new-features), so please take a look if you haven't read it yet!
+It's explained in detail in the [previous post](/blog/how-to-migrate-legacy-php-applications-without-stopping-development-of-new-features), so take a look if you haven't read it yet!
 
 ## What was Important for Automated migration?
 
@@ -195,26 +195,32 @@ Sadly, our project did not have enough tests…
 It was another hero of the project besides Rector.
 We created a baseline first and ran them after running Rector. We could find codes broken by running Rector and fix the Rector rules.
 
-### Rector rule tests
+### Rector rule Tests
 
-Rector rule tests gave great confidence that the modification in the migration itself is working.
-We wrote about 80 Rector rules to migrate the application, and the tests helped us find rules broken by dependencies and breaking changes of Rector's updates.
+**Rector rule tests gave great confidence** that the modification in the migration itself is working.
+
+We wrote about **80 Rector rules** to migrate the application, and the tests helped us find rules broken by dependencies and breaking changes of Rector's updates.
 
 ### Abstract Syntax Tree (AST)
 
 A deep understanding of AST and Rector itself is essential to write custom Rector rules.
 
-The most efficient way for me to learn them was to write the test fixtures of the Rector rules and dump them by nikic/php-parser.
-Trial and error writing rules and dumping the AST was an excellent way to understand the structure.
+The most efficient way for me to learn them was to write the test fixtures of the Rector rules and dump them by nikic/php-parser. Trial and error writing rules and dumping the AST was an excellent way to understand the structure.
+
 Also, I read a lot of codes of Rector, php-parser, PHPStan, and Larastan to understand how they are using, working with AST.
 
 But as a shortcut, there is a [book about Rector](https://leanpub.com/rector-the-power-of-automated-refactoring) that explains AST and other vital things about Rectory. Let's read the Rector book!
 
-## Things we Struggled With
+## What have we Struggled with?
 
-### Codes too complicated to convert by Rector
+### Codes too Complicated to Convert by Rector
 
-Sometimes some codes were too complicated to write a Rector rule. In these cases, we refactored the code itself to make it possible to convert by Rector or delete them if we could. We deleted 100k+ lines of code during the migration!
+Sometimes some codes were too complicated to write a Rector rule. In these cases, we refactored the code itself to make it possible to convert by Rector or delete them if we could.
+
+<blockquote class="blockquote text-center mt-5 mb-5">
+    We deleted 100k+ lines of code during the migration!
+</blockquote>
+
 The important thing was that we were editing these codes in the "Development branch" to refactor and deploy the code in FuelPHP to confirm that the code was working before the migration release.
 
 In some situations, writing custom rules is too tricky and expensive. We edited those in the migration branch and skipped automated migration for those files (about 10-20 files). It is essential to set a boundary, **what should be automated and what should be done manually**.
@@ -235,7 +241,7 @@ For these differences, QA testing and canary release were crucial. We iterated t
 
 We started the migration with Rector 0.9.x, and it's 0.12.x now! At 2020-2021, Rector was changing and evolving at a very high speed, and sometimes there were unstable versions with bugs. Also, some of our custom rules relied on Rector core codes, so there were significant breaking changes during the migration.
 
-However, issues were already recognized by the community most times, and the fixes were extremely fast.
+However, issues were already recognized by the community, and the fixes were extremely fast.
 
 I very much appreciate the hard work of Tomas, other core developers, and the community of Rector!
 
@@ -252,7 +258,7 @@ Cons
 * Converted code doesn't use the full functionality of Laravel
     * You can refactor them after migration!
 * Requires understanding of AST
-    * Let's read the Rector book!
+    * Let's read [the Rector book!](/book)
 
 <br>
 
