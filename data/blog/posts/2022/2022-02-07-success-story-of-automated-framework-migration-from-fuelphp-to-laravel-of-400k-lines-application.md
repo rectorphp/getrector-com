@@ -11,7 +11,7 @@ perex: |
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">For some framework switch is impossible. <br>Others can do it with zero downtime 👏 <a href="https://t.co/votwydILzX">https://t.co/votwydILzX</a></p>&mdash; Rector (@rectorphp) <a href="https://twitter.com/rectorphp/status/1479052818422116352?ref_src=twsrc%5Etfw">January 6, 2022</a></blockquote>
 
-## Summary of the Migration Project
+## The Migration Plan
 
 Our application was a monolithic application consisting of the backend of web service, native App API, intra-company support tools, and batch jobs for web and app.
 
@@ -42,9 +42,9 @@ Even more, we estimated that it might take about a year for migration without au
 
 ## Fully Automated Migration
 
-At first, we were using Rector only to convert DB query builders of FuelPHP to Laravel and manually modify controllers, configs, "Facades" (~= "Classes" in FuelPHP).
-However, as I wrote custom Rector rules, I noticed AST power and flexibility and realized that full automation might be possible.
-Also, FuelPHP is a relatively lightweight framework, and automated migration to Laravel, which has more features, was imaginable.
+**At first, we were using Rector only to convert DB query builders of FuelPHP to Laravel** and manually modify controllers, configs, "Facades" (~= "Classes" in FuelPHP).
+
+However, as I wrote custom Rector rules, I noticed AST power and flexibility and realized that full automation might be possible. Also, FuelPHP is a relatively lightweight framework, and automated migration to Laravel, which has more features, was imaginable.
 
 ## FuelPHP to Laravel
 
@@ -137,9 +137,15 @@ public function refactor(Node $fromNode): ?Node
 }
 ```
 
-Get method calls and check if the name is `from`. If the variable node of the method call is a static call of class `DB` named `select_array`, swap the static call and method call and rename the static call to “table”.
+The rule goes step by step through conditions:
+
+* Get method calls and check if the name is `from`.
+* If the variable node of the method call is a static call of class `DB` named `select_array`
+* Then swap the static call and method call and rename the static call to “table”
 
 It's simple, isn't it?
+
+<br>
 
 ### 2. Convert `select_array` to `select`
 
@@ -245,16 +251,16 @@ However, issues were already recognized by the community, and the fixes were ext
 
 I very much appreciate the hard work of Tomas, other core developers, and the community of Rector!
 
-## Pros and Cons
+## How was the Migration in a Brief?
 
-In brief,
+The pros:
 
-Pros
 * Works on large codebases
 * Can decrease human errors of migration
 * Could continue developing new features and run migration at the same time with no conflicts
 
-Cons
+The cons:
+
 * Converted code doesn't use the full functionality of Laravel
     * You can refactor them after migration!
 * Requires understanding of AST
@@ -262,7 +268,7 @@ Cons
 
 <br>
 
-To be honest, I don't have any big cons for automated migration. It was a great experience, and I can say that we could not finish our migration without Rector.
+To be honest, **I don't have any big cons for automated migration. It was a great experience**, and I can say that we could not finish our migration without Rector.
 
 Thank you!
 
