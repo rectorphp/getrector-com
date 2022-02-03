@@ -13,7 +13,7 @@ perex: |
 
 ## The Migration Plan
 
-Our application was a monolithic application consisting of the backend of web service, native App API, intra-company support tools, and batch jobs for web and app.
+Our application was a monolithic application consisting of the backend of web service, native app API, intra-company support tools, and batch jobs for web and app.
 
 * **Framework**: FuelPHP → Laravel
 * **PHP Version**: PHP 7.0 → PHP 7.4
