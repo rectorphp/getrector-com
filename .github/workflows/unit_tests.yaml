@@ -20,6 +20,6 @@ jobs:
             -   run: composer install --no-progress --ansi
 
             # for controller tests
-            -   run: npm install
-            -   run: npm run dev
+            -   run: yarn install
+            -   run: yarn run dev
             -   run: vendor/bin/phpunit
