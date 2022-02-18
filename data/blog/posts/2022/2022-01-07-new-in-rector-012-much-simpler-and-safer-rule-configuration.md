@@ -1,5 +1,5 @@
 ---
-id: 29
+id: 32
 title: "New in Rector 0.12 - Much Simpler and Safer Rule Configuration"
 perex: |
     Configurable rules are the most powerful building stone for instant upgrade sets. Do you want to upgrade from Symfony 5 to 6? You'll primarily deal with renamed classes, renamed methods, new default arguments in method, or renamed class constants.

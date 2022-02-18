@@ -6,6 +6,7 @@ namespace Rector\Website\Blog\Repository;
 
 use Rector\Website\Blog\ValueObject\Post;
 use Rector\Website\Blog\ValueObjectFactory\PostFactory;
+use Rector\Website\Exception\ShouldNotHappenException;
 use Symfony\Component\Finder\Finder;
 use Symplify\SmartFileSystem\Finder\FinderSanitizer;
 use Symplify\SmartFileSystem\SmartFileInfo;
@@ -61,6 +62,15 @@ final class PostRepository
         $posts = [];
         foreach ($this->findPostMarkdownFileInfos() as $smartFileInfo) {
             $post = $this->postFactory->createFromFileInfo($smartFileInfo);
+            if (isset($posts[$post->getId()])) {
+                $message = sprintf(
+                    'Post with id "%d" in "%s" file is duplicated. Increase it to higher one',
+                    $post->getId(),
+                    $smartFileInfo->getRelativeFilePathFromCwd()
+                );
+                throw new ShouldNotHappenException($message);
+            }
+
             $posts[$post->getId()] = $post;
         }
 
