@@ -123,28 +123,20 @@ What we need here?
 
 <br>
 
-To cover all benefits together, we've create **custom `Symplify\SymfonyPhpConfig\ValueObjectInliner` class**:
+To cover all benefits together, we've created custom `ValueObjectInliner` class:
 
 ```php
 // rector.php
-use Symplify\SymfonyPhpConfig\ValueObjectInliner;
-
 $services->set(FuncCallToStaticCallRector::class)
     ->call('configure', [[
         FuncCallToStaticCallRector::FUNC_CALLS_TO_STATIC_CALLS => ValueObjectInliner::inline([
             new FuncCallToStaticCall('dump', 'Tracy\Debugger', 'dump'),
-            // it handles multiple items without duplicated call
             new FuncCallToStaticCall('d', 'Tracy\Debugger', 'dump'),
-            new FuncCallToStaticCall('dd', 'Tracy\Debugger', 'dump'),
         ])
     ]]);
 ```
 
-Do you want to sure it too?
-
-```bash
-composer require symplify/symfony-php-config
-```
+<br>
 
 ## 4. Simple `configure()` Method
 
