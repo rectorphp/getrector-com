@@ -15,7 +15,7 @@ final class IssueBodyFactory
      */
     private const ISSUE_BASIC_TABLE = '| Subject        | Details              |
 | :------------- | :--------------------|
-| Rector version | last dev-master      |
+| Rector version | last dev-main      |
 | Installed as   | composer dependency  |';
 
     public function create(RectorRun $rectorRun): string
