@@ -180,22 +180,19 @@ Rector watch will save you so much detailed detective work on types that are alr
 Add [`TYPE_DECLARATION_STICT` set](https://github.com/rectorphp/rector/blob/master/config/set/type-declaration-strict.php) yourself of pick rule by rule, so you can see how your code base becomes strict for each new rule you add:
 
 ```php
-// rector.php
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Rector\TypeDeclaration\Rector\ClassMethod\ParamTypeFromStrictTypedPropertyRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromReturnNewRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromStrictTypedCallRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromStrictTypedPropertyRector;
 use Rector\TypeDeclaration\Rector\Property\TypedPropertyFromStrictConstructorRector;
+use Rector\Config\RectorConfig;
 
-return static function (ContainerConfigurator $containerConfigurator): void {
-    $services = $containerConfigurator->services();
-
-    $services->set(ParamTypeFromStrictTypedPropertyRector::class);
-    $services->set(ReturnTypeFromReturnNewRector::class);
-    $services->set(ReturnTypeFromStrictTypedPropertyRector::class);
-    $services->set(ReturnTypeFromStrictTypedCallRector::class);
-    $services->set(TypedPropertyFromStrictConstructorRector::class);
+return function (RectorConfig $rectorConfig): void {
+    $rectorConfig->rule(ParamTypeFromStrictTypedPropertyRector::class);
+    $rectorConfig->rule(ReturnTypeFromReturnNewRector::class);
+    $rectorConfig->rule(ReturnTypeFromStrictTypedPropertyRector::class);
+    $rectorConfig->rule(ReturnTypeFromStrictTypedCallRector::class);
+    $rectorConfig->rule(TypedPropertyFromStrictConstructorRector::class);
 };
 ```
 

@@ -103,18 +103,13 @@ That's when Lulco came to Rector repository with a question:
 Many rules in Rector allow configuration via config. There you can set values in an array or value object. E.g., class rename:
 
 ```php
-// rector.php
-
 use Rector\Renaming\Rector\Name\RenameClassRector;
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+use Rector\Config\RectorConfig;
 
-return static function (ContainerConfigurator $containerConfigurator): void {
-    $services = $containerConfigurator->services();
-
-    $services->set(RenameClassRector::class)
-        ->configure([
-            'App\SomeOldClass' => 'App\SomeNewClass',
-        ]);
+return function (RectorConfig $rectorConfig): void {
+    $rectorConfig->ruleWithConfiguration(RenameClassRector::class, [
+        'App\SomeOldClass' => 'App\SomeNewClass',
+    ]);
 };
 ```
 
@@ -135,31 +130,25 @@ Those Rector rules could be named like:
 They would be easily configurable:
 
 ```php
-// rector.php
-
 use Rector\Composer\Rector\ChangePackageVersionComposerRector;
 use Rector\Composer\Rector\RemovePackageComposerRector;
 use Rector\Composer\ValueObject\PackageAndVersion;
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symplify\SymfonyPhpConfig\ValueObjectInliner;
+use Rector\Config\RectorConfig;
 
-return static function (ContainerConfigurator $containerConfigurator): void {
-    $services = $containerConfigurator->services();
+return function (RectorConfig $rectorConfig): void {
+    $rectorConfig->ruleWithConfiguration(ChangePackageVersionComposerRector::class, [
+        new PackageAndVersion('nette/application', '^3.1'),
+        new PackageAndVersion('nette/di', '^3.0'),
+        new PackageAndVersion('nette/http', '^3.1'),
+        new PackageAndVersion('nette/utils', '^3.2'),
+        new PackageAndVersion('contributte/console', '^0.9'),
+        new PackageAndVersion('nettrine/annotations', '^0.7'),
+    ]);
 
-    $services->set(ChangePackageVersionComposerRector::class)
-        ->configure([
-            new PackageAndVersion('nette/application', '^3.1'),
-            new PackageAndVersion('nette/di', '^3.0'),
-            new PackageAndVersion('nette/http', '^3.1'),
-            new PackageAndVersion('nette/utils', '^3.2'),
-            new PackageAndVersion('contributte/console', '^0.9'),
-            new PackageAndVersion('nettrine/annotations', '^0.7'),
-        ]);
-
-    $services->set(RemovePackageComposerRector::class)
-        ->configure([
-            'nette/component-model', 'nette/neon',
-        ]);
+    $rectorConfig->ruleWithConfiguration(RemovePackageComposerRector::class, [
+        'nette/component-model', 'nette/neon',
+    ]);
 };
 ```
 

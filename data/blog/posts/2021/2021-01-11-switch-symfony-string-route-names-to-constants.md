@@ -4,6 +4,10 @@ title: "Switch Symfony String Route Names to Constants"
 perex: |
     Last December, we started to use PHP 8.0 and Symfony 5.2. This exact combination opens [many cool tricks](https://tomasvotruba.com/blog/2020/12/21/5-new-combos-opened-by-symfony-52-and-php-80/) we could never use before.
     One of those tricks is using constants for route name in `#[Route]` attribute.
+
+updated_since: '2022-04'
+updated_message: |
+    Since **Rector 0.12** a new `RectorConfig` is available with simpler and easier to use config methods.
 ---
 
 If you're not on PHP 8, [switch with Rector today](https://getrector.org/blog/2020/11/30/smooth-upgrade-to-php-8-in-diffs).
@@ -159,16 +163,13 @@ It is very nice to Rector because it will:
 Update your `rector.php`:
 
 ```php
-use Rector\Core\Configuration\Option;
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Rector\SymfonyCodeQuality\Rector\Attribute\ExtractAttributeRouteNameConstantsRector;
+use Rector\Config\RectorConfig;
 
-return static function (ContainerConfigurator $containerConfigurator): void {
-    $services = $containerConfigurator->services();
-    $services->set(ExtractAttributeRouteNameConstantsRector::class);
+return function (RectorConfig $rectorConfig): void {
+    $rectorConfig->rule(ExtractAttributeRouteNameConstantsRector::class);
 
-    $parameters = $containerConfigurator->parameters();
-    $parameters->set(Option::AUTO_IMPORT_NAMES, true);
+    $rectorConfig->importNames();
  };
 ```
 

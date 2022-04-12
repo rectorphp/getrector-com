@@ -92,11 +92,11 @@ vendor\bin\rector init
 3. Add your set to the `rector.php` config:
 
 ```php
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Rector\PHPOffice\Set\PHPOfficeSetList;
+use Rector\Config\RectorConfig;
 
-return static function (ContainerConfigurator $containerConfigurator): void {
-    $containerConfigurator->import(PHPOfficeSetList::PHPEXCEL_TO_PHPSPREADSHEET);
+return function (RectorConfig $rectorConfig): void {
+    $rectorConfig->import(PHPOfficeSetList::PHPEXCEL_TO_PHPSPREADSHEET);
 };
 ```
 

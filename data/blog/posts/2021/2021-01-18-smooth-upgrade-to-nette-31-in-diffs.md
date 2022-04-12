@@ -218,10 +218,10 @@ Eager to try it on your project? This time try it without any `composer.json` mo
 
 ```php
 use Rector\Nette\Set\NetteSetList;
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+use Rector\Config\RectorConfig;
 
-return static function (ContainerConfigurator $containerConfigurator): void {
-    $containerConfigurator->import(NetteSetList::NETTE_31);
+return function (RectorConfig $rectorConfig): void {
+    $rectorConfig->import(NetteSetList::NETTE_31);
  };
 ```
 

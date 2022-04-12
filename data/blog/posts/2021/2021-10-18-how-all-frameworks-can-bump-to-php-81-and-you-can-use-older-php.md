@@ -162,10 +162,10 @@ We create a `rector-downgrade.php` config with downgrade set:
 
 ```php
 use Rector\Set\ValueObject\DowngradeLevelSetList;
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+use Rector\Config\RectorConfig;
 
-return static function (ContainerConfigurator $containerConfigurator): void {
-    $containerConfigurator->import(DowngradeLevelSetList::DOWN_TO_PHP_80);
+return function (RectorConfig $rectorConfig): void {
+    $rectorConfig->import(DowngradeLevelSetList::DOWN_TO_PHP_80);
 };
 ```
 

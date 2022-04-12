@@ -6,6 +6,10 @@ perex: |
     <br>
     <br>
     Today, we're proud to finally **tag and launch Rector 0.9**!
+
+updated_since: '2022-04'
+updated_message: |
+    Since **Rector 0.12** a new `RectorConfig` is available with simpler and easier to use config methods.
 ---
 
 <img src="/assets/images/blog/2020/rector-09-contributors.png" class="img-thumbnail">
@@ -31,10 +35,10 @@ Do you want to upgrade to PHP 8? It's ready!
 
 ```php
 use Rector\Set\ValueObject\SetList;
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+use Rector\Config\RectorConfig;
 
-return static function (ContainerConfigurator $containerConfigurator): void {
-    $containerConfigurator->import(SetList::PHP_80);
+return function (RectorConfig $rectorConfig): void {
+    $rectorConfig->import(SetList::PHP_80);
 };
 ```
 

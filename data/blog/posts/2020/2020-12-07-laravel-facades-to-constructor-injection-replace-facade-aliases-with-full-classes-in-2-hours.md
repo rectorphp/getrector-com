@@ -74,23 +74,20 @@ Look how Laravel is helping us here. Just copy paste lines from `config/app.php`
 
 ```php
 use Rector\Renaming\Rector\Name\RenameClassRector;
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+use Rector\Config\RectorConfig;
 
-return static function (ContainerConfigurator $containerConfigurator): void {
-    $services = $containerConfigurator->services();
-
-    $services->set(RenameClassRector::class)
-        ->configure([
-            'App' => 'Illuminate\Support\Facades\App',
-            'Artisan' => 'Illuminate\Support\Facades\Artisan',
-            'Auth' => 'Illuminate\Support\Facades\Auth',
-            'Blade' => 'Illuminate\Support\Facades\Blade',
-            'Broadcast' => 'Illuminate\Support\Facades\Broadcast',
-            'Bus' => 'Illuminate\Support\Facades\Bus',
-            'Cache' => 'Illuminate\Support\Facades\Cache',
-            'Config' => 'Illuminate\Support\Facades\Config',
-            // ...
-        ]);
+return function (RectorConfig $rectorConfig): void {
+    $rectorConfig->ruleWithConfiguration(RenameClassRector::class, [
+        'App' => 'Illuminate\Support\Facades\App',
+        'Artisan' => 'Illuminate\Support\Facades\Artisan',
+        'Auth' => 'Illuminate\Support\Facades\Auth',
+        'Blade' => 'Illuminate\Support\Facades\Blade',
+        'Broadcast' => 'Illuminate\Support\Facades\Broadcast',
+        'Bus' => 'Illuminate\Support\Facades\Bus',
+        'Cache' => 'Illuminate\Support\Facades\Cache',
+        'Config' => 'Illuminate\Support\Facades\Config',
+        // ...
+    ]);
 };
 ```
 
