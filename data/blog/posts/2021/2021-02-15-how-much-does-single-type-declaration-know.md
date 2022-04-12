@@ -5,6 +5,10 @@ perex: |
     When it comes to completing type declaration from docblocks, we rely on trust and hopes in commented code. One way out of is [dynamic analysis](https://tomasvotruba.com/blog/2019/11/11/from-0-doc-types-to-full-type-declaration-with-dynamic-analysis/) that works with real data that enter the method. But we have to log it, wait for it, and update our codebase based on logged data.
     <br><br>
     **Is there a faster, simpler solution we can just plugin?**
+
+updated_since: '2022-04'
+updated_message: |
+    Since **Rector 0.12** a new `RectorConfig` is available with simpler and easier to use config methods.
 ---
 
 Let's say we have a `Person` object:
@@ -180,22 +184,19 @@ Rector watch will save you so much detailed detective work on types that are alr
 Add [`TYPE_DECLARATION_STICT` set](https://github.com/rectorphp/rector/blob/master/config/set/type-declaration-strict.php) yourself of pick rule by rule, so you can see how your code base becomes strict for each new rule you add:
 
 ```php
-// rector.php
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Rector\TypeDeclaration\Rector\ClassMethod\ParamTypeFromStrictTypedPropertyRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromReturnNewRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromStrictTypedCallRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromStrictTypedPropertyRector;
 use Rector\TypeDeclaration\Rector\Property\TypedPropertyFromStrictConstructorRector;
+use Rector\Config\RectorConfig;
 
-return static function (ContainerConfigurator $containerConfigurator): void {
-    $services = $containerConfigurator->services();
-
-    $services->set(ParamTypeFromStrictTypedPropertyRector::class);
-    $services->set(ReturnTypeFromReturnNewRector::class);
-    $services->set(ReturnTypeFromStrictTypedPropertyRector::class);
-    $services->set(ReturnTypeFromStrictTypedCallRector::class);
-    $services->set(TypedPropertyFromStrictConstructorRector::class);
+return function (RectorConfig $rectorConfig): void {
+    $rectorConfig->rule(ParamTypeFromStrictTypedPropertyRector::class);
+    $rectorConfig->rule(ReturnTypeFromReturnNewRector::class);
+    $rectorConfig->rule(ReturnTypeFromStrictTypedPropertyRector::class);
+    $rectorConfig->rule(ReturnTypeFromStrictTypedCallRector::class);
+    $rectorConfig->rule(TypedPropertyFromStrictConstructorRector::class);
 };
 ```
 

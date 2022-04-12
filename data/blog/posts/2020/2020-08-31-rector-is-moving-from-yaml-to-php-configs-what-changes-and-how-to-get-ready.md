@@ -7,6 +7,10 @@ perex: |
     <br>
     <br>
     What benefits PHP brings, how the rule configuration changes, and **how to prepare yourself**?
+
+updated_since: '2022-04'
+updated_message: |
+    Since **Rector 0.12** a new `RectorConfig` is available with simpler and easier to use config methods.
 ---
 
 <br>
@@ -143,18 +147,13 @@ By only making single object, we got **instantly high code quality for free**:
 How do value objects look like in practice?
 
 ```php
-
 use Rector\Renaming\Rector\ClassConstFetch\RenameClassConstantRector;
-use function Rector\SymfonyPhpConfig\inline_value_objects;
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+use Rector\Config\RectorConfig;
 
-return static function (ContainerConfigurator $containerConfigurator): void {
-    $services = $containerConfigurator->services();
-
-    $services->set(RenameClassConstantRector::class)
-        ->configure([
-            new ClassConstantRename('Cake\View\View', 'NAME_ELEMENT', 'TYPE_ELEMENT')
-        ]);
+return function (RectorConfig $rectorConfig): void {
+    $rectorConfig->ruleWithConfiguration(RenameClassConstantRector::class, [
+        new ClassConstantRename('Cake\View\View', 'NAME_ELEMENT', 'TYPE_ELEMENT')
+    ]);
 };
 ```
 

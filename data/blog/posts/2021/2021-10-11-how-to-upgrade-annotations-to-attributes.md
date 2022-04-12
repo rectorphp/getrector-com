@@ -7,6 +7,10 @@ perex: |
     The Internet is full of questions ["How can I use PHP 8 attributes instead of annotations in Doctrine?"](https://stackoverflow.com/questions/66769981/how-can-i-use-php8-attributes-instead-of-annotations-in-doctrine) or ["Converting Annotations to Attributes"](https://www.reddit.com/r/symfony/comments/lbvmdx/converting_annotations_into_attributes/).
     <br><br>
     Do you want to know the answer? Rector has a simple solution for you.
+
+updated_since: '2022-04'
+updated_message: |
+    Since **Rector 0.12** a new `RectorConfig` is available with simpler and easier to use config methods.
 ---
 
 One package that added support for attributes is Doctrine:
@@ -27,17 +31,19 @@ Now, let's go to upgrade itself. It's effortless.
 ### 1. Configure `rector.php` to include the packages you use:
 
 ```php
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Rector\Doctrine\Set\DoctrineSetList;
 use Rector\Symfony\Set\SymfonySetList;
 use Rector\Symfony\Set\SensiolabsSetList;
 use Rector\Nette\Set\NetteSetList;
+use Rector\Config\RectorConfig;
 
-return static function (ContainerConfigurator $containerConfigurator): void {
-    $containerConfigurator->import(DoctrineSetList::ANNOTATIONS_TO_ATTRIBUTES);
-    $containerConfigurator->import(SymfonySetList::ANNOTATIONS_TO_ATTRIBUTES);
-    $containerConfigurator->import(NetteSetList::ANNOTATIONS_TO_ATTRIBUTES);
-    $containerConfigurator->import(SensiolabsSetList::FRAMEWORK_EXTRA_61);
+return function (RectorConfig $rectorConfig): void {
+    $rectorConfig->set([
+        DoctrineSetList::ANNOTATIONS_TO_ATTRIBUTES,
+        SymfonySetList::ANNOTATIONS_TO_ATTRIBUTES,
+        NetteSetList::ANNOTATIONS_TO_ATTRIBUTES,
+        SensiolabsSetList::FRAMEWORK_EXTRA_61,
+    ]);
 };
 ```
 

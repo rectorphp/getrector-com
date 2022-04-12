@@ -5,6 +5,10 @@ perex: |
     The most used feature of Rector is to keep you updated with the latest PHP. PHP 8.1 was released almost a month ago, so many projects started to use Rector to upgrade to PHP 8.1. There is a new import in your `rector.php` with every new version.
     <br><br>
     Soon, your config is cluttered with a list of imports. How can we reduce this complexity to a single line? How can we handle your-favorite-framework upgrade in second?
+
+updated_since: '2022-04'
+updated_message: |
+    Since **Rector 0.12** a new `RectorConfig` is available with simpler and easier to use config methods.
 ---
 
 How do you upgrade to PHP 8.1 in 2 steps?
@@ -13,17 +17,17 @@ Register new PHP 8.1 set in `rector.php`:
 
 ```diff
  use Rector\Set\ValueObject\SetList;
- use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+ use Rector\Config\RectorConfig;
 
- return static function (ContainerConfigurator $containerConfigurator): void {
-     $containerConfigurator->import(SetList::PHP_55);
-     $containerConfigurator->import(SetList::PHP_56);
-     $containerConfigurator->import(SetList::PHP_70);
-     $containerConfigurator->import(SetList::PHP_71);
-     $containerConfigurator->import(SetList::PHP_73);
-     $containerConfigurator->import(SetList::PHP_74);
-     $containerConfigurator->import(SetList::PHP_80);
-+    $containerConfigurator->import(SetList::PHP_81);
+ return function (RectorConfig $rectorConfig): void {
+     $rectorConfig->import(SetList::PHP_55);
+     $rectorConfig->import(SetList::PHP_56);
+     $rectorConfig->import(SetList::PHP_70);
+     $rectorConfig->import(SetList::PHP_71);
+     $rectorConfig->import(SetList::PHP_73);
+     $rectorConfig->import(SetList::PHP_74);
+     $rectorConfig->import(SetList::PHP_80);
++    $rectorConfig->import(SetList::PHP_81);
 };
 ```
 
@@ -55,10 +59,10 @@ Now instead of gazillion lines with set imports, you can use just **the single l
 
 ```php
 use Rector\Set\ValueObject\LevelSetList;
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+use Rector\Config\RectorConfig;
 
-return static function (ContainerConfigurator $containerConfigurator): void {
-    $containerConfigurator->import(LevelSetList::UP_TO_PHP_81);
+return function (RectorConfig $rectorConfig): void {
+    $rectorConfig->import(LevelSetList::UP_TO_PHP_81);
 };
 ```
 
@@ -72,11 +76,11 @@ Next time you'll need to upgrade PHP, you can change only 1 line:
 
 ```diff
  use Rector\Set\ValueObject\LevelSetList;
- use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+ use Rector\Config\RectorConfig;
 
- return static function (ContainerConfigurator $containerConfigurator): void {
--    $containerConfigurator->import(LevelSetList::UP_TO_PHP_81);
-+    $containerConfigurator->import(LevelSetList::UP_TO_PHP_82);
+ return function (RectorConfig $rectorConfig): void {
+-    $rectorConfig->import(LevelSetList::UP_TO_PHP_81);
++    $rectorConfig->import(LevelSetList::UP_TO_PHP_82);
  };
 ```
 
@@ -87,13 +91,13 @@ You might think that's a very nice improvement for PHP, but do we support someth
 See for yourself:
 
 ```php
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Rector\Symfony\Set\SymfonyLevelSetList;
 use Rector\Set\ValueObject\LevelSetList;
+use Rector\Config\RectorConfig;
 
-return static function (ContainerConfigurator $containerConfigurator): void {
-    $containerConfigurator->import(LevelSetList::UP_TO_PHP_82);
-    $containerConfigurator->import(SymfonyLevelSetList::UP_TO_SYMFONY_60);
+return function (RectorConfig $rectorConfig): void {
+    $rectorConfig->import(LevelSetList::UP_TO_PHP_82);
+    $rectorConfig->import(SymfonyLevelSetList::UP_TO_SYMFONY_60);
 };
 ```
 

@@ -7,6 +7,10 @@ perex: |
     [Symfony 6](https://symfony.com/releases/6.0) and [Laravel 9](https://blog.laravel.com/laravel-9-release-date) will require PHP 8.1 as a minimal version in their `composer.json`.
     <br><br>
     How would you react to such a move? What if you could keep using your current PHP version while using Symfony 6 or Laravel 9?
+
+updated_since: '2022-04'
+updated_message: |
+    Since **Rector 0.12** a new `RectorConfig` is available with simpler and easier to use config methods.
 ---
 
 ## Developers: "Please, Don't Force us to Upgrade PHP"
@@ -162,10 +166,10 @@ We create a `rector-downgrade.php` config with downgrade set:
 
 ```php
 use Rector\Set\ValueObject\DowngradeLevelSetList;
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+use Rector\Config\RectorConfig;
 
-return static function (ContainerConfigurator $containerConfigurator): void {
-    $containerConfigurator->import(DowngradeLevelSetList::DOWN_TO_PHP_80);
+return function (RectorConfig $rectorConfig): void {
+    $rectorConfig->import(DowngradeLevelSetList::DOWN_TO_PHP_80);
 };
 ```
 

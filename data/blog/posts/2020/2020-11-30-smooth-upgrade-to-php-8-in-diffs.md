@@ -6,6 +6,10 @@ perex: |
     <br>
     <br>
     Do you want to upgrade your project today? Continue reading...
+
+updated_since: '2022-04'
+updated_message: |
+    Since **Rector 0.12** a new `RectorConfig` is available with simpler and easier to use config methods.
 ---
 
 ## In a Rush to Private Jet?
@@ -24,10 +28,10 @@ vendor/bin/rector init
 
 ```diff
 +use Rector\Set\ValueObject\SetList;
- use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+ use Rector\Config\RectorConfig;
 
- return static function (ContainerConfigurator $containerConfigurator): void {
-+    $containerConfigurator->import(SetList::PHP_80);
+ return function (RectorConfig $rectorConfig): void {
++    $rectorConfig->import(SetList::PHP_80);
  };
 ```
 

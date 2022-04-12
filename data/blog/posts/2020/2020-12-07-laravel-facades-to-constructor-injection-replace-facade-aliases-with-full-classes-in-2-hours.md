@@ -9,6 +9,10 @@ perex: |
     <br>
     <br>
     Today we'll take 1st step to make it happen.
+
+updated_since: '2022-04'
+updated_message: |
+    Since **Rector 0.12** a new `RectorConfig` is available with simpler and easier to use config methods.
 ---
 
 It was a big surprise for us that it's not only external critics of Laravel but also from inside the community itself.
@@ -74,23 +78,20 @@ Look how Laravel is helping us here. Just copy paste lines from `config/app.php`
 
 ```php
 use Rector\Renaming\Rector\Name\RenameClassRector;
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+use Rector\Config\RectorConfig;
 
-return static function (ContainerConfigurator $containerConfigurator): void {
-    $services = $containerConfigurator->services();
-
-    $services->set(RenameClassRector::class)
-        ->configure([
-            'App' => 'Illuminate\Support\Facades\App',
-            'Artisan' => 'Illuminate\Support\Facades\Artisan',
-            'Auth' => 'Illuminate\Support\Facades\Auth',
-            'Blade' => 'Illuminate\Support\Facades\Blade',
-            'Broadcast' => 'Illuminate\Support\Facades\Broadcast',
-            'Bus' => 'Illuminate\Support\Facades\Bus',
-            'Cache' => 'Illuminate\Support\Facades\Cache',
-            'Config' => 'Illuminate\Support\Facades\Config',
-            // ...
-        ]);
+return function (RectorConfig $rectorConfig): void {
+    $rectorConfig->ruleWithConfiguration(RenameClassRector::class, [
+        'App' => 'Illuminate\Support\Facades\App',
+        'Artisan' => 'Illuminate\Support\Facades\Artisan',
+        'Auth' => 'Illuminate\Support\Facades\Auth',
+        'Blade' => 'Illuminate\Support\Facades\Blade',
+        'Broadcast' => 'Illuminate\Support\Facades\Broadcast',
+        'Bus' => 'Illuminate\Support\Facades\Bus',
+        'Cache' => 'Illuminate\Support\Facades\Cache',
+        'Config' => 'Illuminate\Support\Facades\Config',
+        // ...
+    ]);
 };
 ```
 

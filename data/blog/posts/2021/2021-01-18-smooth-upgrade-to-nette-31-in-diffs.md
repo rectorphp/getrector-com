@@ -7,6 +7,10 @@ perex: |
 
 contributor: "lulco"
 pull_request_id: 5195
+
+updated_since: '2022-04'
+updated_message: |
+    Since **Rector 0.12** a new `RectorConfig` is available with simpler and easier to use config methods.
 ---
 
 If you're not on Nette 3.1, hurry up. Why? There is a security issue in 3.0.x version:
@@ -218,10 +222,10 @@ Eager to try it on your project? This time try it without any `composer.json` mo
 
 ```php
 use Rector\Nette\Set\NetteSetList;
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+use Rector\Config\RectorConfig;
 
-return static function (ContainerConfigurator $containerConfigurator): void {
-    $containerConfigurator->import(NetteSetList::NETTE_31);
+return function (RectorConfig $rectorConfig): void {
+    $rectorConfig->import(NetteSetList::NETTE_31);
  };
 ```
 
