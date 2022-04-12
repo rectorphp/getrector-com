@@ -36,9 +36,9 @@ final class RectorRun implements JsonSerializable
     private const DEFAULT_FILE_NAME = 'demo_fixture';
 
     public function __construct(
-        private Uuid $uuid,
-        private string $content,
-        private string $config,
+        private readonly Uuid $uuid,
+        private readonly string $content,
+        private readonly string $config,
         /** @var array<string, mixed> */
         private array $jsonResult = [],
         private string|null $fatalErrorMessage = null

@@ -7,7 +7,7 @@
         "ext-json": "*",
         "erusev/parsedown-extra": "^0.8.1",
         "jajo/jsondb": "^3.0",
-        "rector/rector": "^0.12.15",
+        "rector/rector": "dev-main",
         "symfony/asset": "^6.0",
         "symfony/cache": "^6.0",
         "symfony/debug-bundle": "^6.0",
@@ -31,7 +31,7 @@
     },
     "require-dev": {
         "phpstan/extension-installer": "^1.1",
-        "phpstan/phpstan": "^1.4",
+        "phpstan/phpstan": "^1.5",
         "phpunit/phpunit": "^9.5",
         "roave/security-advisories": "dev-master",
         "symplify/coding-standard": "^10.0",

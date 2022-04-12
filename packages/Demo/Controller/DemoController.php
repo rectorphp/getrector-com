@@ -44,7 +44,7 @@ final class DemoController extends AbstractController
             $rectorRun = $this->rectorRunFactory->createEmpty();
         } else {
             $rectorRun = $this->rectorRunRepository->get(Uuid::fromString($uuid));
-            if ($rectorRun === null) {
+            if (! $rectorRun instanceof RectorRun) {
                 // item not found
                 $errorMessage = sprintf('Rector run "%s" was not found. Try to run code again for new result', $uuid);
                 $this->addFlash('danger', $errorMessage);

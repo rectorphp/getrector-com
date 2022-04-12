@@ -17,7 +17,7 @@ final class RectorRunRepository
     private const TABLE_FILE = 'rector_runs.json';
 
     // @see https://github.com/donjajo/php-jsondb
-    private JSONDB $jsonDb;
+    private readonly JSONDB $jsonDb;
 
     public function __construct()
     {
