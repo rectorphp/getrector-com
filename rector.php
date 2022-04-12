@@ -32,11 +32,9 @@ return static function (RectorConfig $rectorConfig): void {
 
     $rectorConfig->import(LevelSetList::UP_TO_PHP_81);
 
-    $rectorConfig->skip(['*/var/cache/*', __DIR__ . '/packages/Demo/data/DemoFile.php']);
+    $rectorConfig->skip(['*/var/cache/*', __DIR__ . '/data/demo']);
 
-    $services = $rectorConfig->services();
-    $services->set(FinalizeClassesWithoutChildrenRector::class);
-
+    $rectorConfig->rule(FinalizeClassesWithoutChildrenRector::class);
     $rectorConfig->ruleWithConfiguration(PreferThisOrSelfMethodCallRector::class, [
         'PHPUnit\Framework\TestCase' => PreferenceSelfThis::PREFER_THIS(),
     ]);
