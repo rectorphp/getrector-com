@@ -7,6 +7,10 @@ perex: |
 
 contributor: "lulco"
 pull_request_id: 5195
+
+updated_since: '2022-04'
+updated_message: |
+    Since **Rector 0.12** a new `RectorConfig` is available with simpler and easier to use config methods.
 ---
 
 If you're not on Nette 3.1, hurry up. Why? There is a security issue in 3.0.x version:

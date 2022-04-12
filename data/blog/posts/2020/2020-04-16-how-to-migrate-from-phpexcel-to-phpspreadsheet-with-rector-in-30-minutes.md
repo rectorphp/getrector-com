@@ -6,6 +6,10 @@ perex: |
     <br>
     <br>
     Do you use it too? Do you want to switch to [PHPSpreadsheet](https://github.com/PHPOffice/PhpSpreadsheet)? You can do it today.
+
+updated_since: '2022-04'
+updated_message: |
+    Since **Rector 0.12** a new `RectorConfig` is available with simpler and easier to use config methods.
 ---
 
 PHPSpreadsheet is **direct follower** of PHPExcel with the same maintainers, just with dozens of BC breaks. There is the official [migration tutorial](https://github.com/PHPOffice/PhpSpreadsheet/blob/master/docs/topics/migration-from-PHPExcel.md) that describes step by step **24 different changes** that you need to do.

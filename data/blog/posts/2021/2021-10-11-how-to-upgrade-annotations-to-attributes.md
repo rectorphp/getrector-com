@@ -7,6 +7,10 @@ perex: |
     The Internet is full of questions ["How can I use PHP 8 attributes instead of annotations in Doctrine?"](https://stackoverflow.com/questions/66769981/how-can-i-use-php8-attributes-instead-of-annotations-in-doctrine) or ["Converting Annotations to Attributes"](https://www.reddit.com/r/symfony/comments/lbvmdx/converting_annotations_into_attributes/).
     <br><br>
     Do you want to know the answer? Rector has a simple solution for you.
+
+updated_since: '2022-04'
+updated_message: |
+    Since **Rector 0.12** a new `RectorConfig` is available with simpler and easier to use config methods.
 ---
 
 One package that added support for attributes is Doctrine:

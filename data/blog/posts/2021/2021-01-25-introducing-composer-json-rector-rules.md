@@ -7,6 +7,10 @@ perex: |
     At all?
 contributor: "lulco"
 pull_request_id: 5074
+
+updated_since: '2022-04'
+updated_message: |
+    Since **Rector 0.12** a new `RectorConfig` is available with simpler and easier to use config methods.
 ---
 
 What is the first step you do if you want to upgrade a package? You change `composer.json` and update it. Easy, right?
