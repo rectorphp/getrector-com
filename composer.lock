@@ -354,16 +354,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.5.4",
+            "version": "1.5.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "bbf68cae24f6dc023c607ea0f87da55dd9d55c2b"
+                "reference": "d77a607667f29ae099c0686f99664bd451fd23df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/bbf68cae24f6dc023c607ea0f87da55dd9d55c2b",
-                "reference": "bbf68cae24f6dc023c607ea0f87da55dd9d55c2b",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/d77a607667f29ae099c0686f99664bd451fd23df",
+                "reference": "d77a607667f29ae099c0686f99664bd451fd23df",
                 "shasum": ""
             },
             "require": {
@@ -389,7 +389,7 @@
             "description": "PHPStan - PHP Static Analysis Tool",
             "support": {
                 "issues": "https://github.com/phpstan/phpstan/issues",
-                "source": "https://github.com/phpstan/phpstan/tree/1.5.4"
+                "source": "https://github.com/phpstan/phpstan/tree/1.5.5"
             },
             "funding": [
                 {
@@ -409,7 +409,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-04-03T12:39:00+00:00"
+            "time": "2022-04-14T12:20:26+00:00"
         },
         {
             "name": "psr/cache",
@@ -619,17 +619,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "180b4b0a8f6462a30dfd74b201633a9ffbd56319"
+                "reference": "254106fbd69e35e2b827cf6db968451d5d4c99fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/180b4b0a8f6462a30dfd74b201633a9ffbd56319",
-                "reference": "180b4b0a8f6462a30dfd74b201633a9ffbd56319",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/254106fbd69e35e2b827cf6db968451d5d4c99fc",
+                "reference": "254106fbd69e35e2b827cf6db968451d5d4c99fc",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.2|^8.0",
-                "phpstan/phpstan": "^1.5"
+                "phpstan/phpstan": "^1.5.5"
             },
             "conflict": {
                 "phpstan/phpdoc-parser": "<1.2",
@@ -672,7 +672,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-04-13T16:41:54+00:00"
+            "time": "2022-04-14T21:57:42+00:00"
         },
         {
             "name": "sebastian/diff",
