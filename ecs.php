@@ -4,16 +4,11 @@ declare(strict_types=1);
 
 use PhpCsFixer\Fixer\ClassNotation\ClassAttributesSeparationFixer;
 use PhpCsFixer\Fixer\Strict\DeclareStrictTypesFixer;
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
-use Symplify\EasyCodingStandard\ValueObject\Option;
+use Symplify\EasyCodingStandard\Config\ECSConfig;
 use Symplify\EasyCodingStandard\ValueObject\Set\SetList;
 
-return static function (ContainerConfigurator $containerConfigurator): void {
-    $parameters = $containerConfigurator->parameters();
-
-    $parameters->set(Option::PARALLEL, true);
-
-    $parameters->set(Option::PATHS, [
+return static function (ECSConfig $ecsConfig): void {
+    $ecsConfig->paths([
         __DIR__ . '/config',
         __DIR__ . '/src',
         __DIR__ . '/packages',
@@ -21,12 +16,9 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         __DIR__ . '/rector.php',
     ]);
 
-    $containerConfigurator->import(SetList::PSR_12);
-    $containerConfigurator->import(SetList::SYMPLIFY);
-    $containerConfigurator->import(SetList::COMMON);
-    $containerConfigurator->import(SetList::CLEAN_CODE);
+    $ecsConfig->sets([SetList::PSR_12, SetList::SYMPLIFY, SetList::COMMON, SetList::CLEAN_CODE]);
 
-    $parameters->set(Option::SKIP, [
+    $ecsConfig->skip([
         __DIR__ . '/config/bundles.php',
 
         DeclareStrictTypesFixer::class => [
