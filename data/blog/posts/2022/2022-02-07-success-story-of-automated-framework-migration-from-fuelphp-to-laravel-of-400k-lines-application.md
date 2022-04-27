@@ -5,7 +5,7 @@ perex: |
     Today, I'm very excited to talk about the full story of our successful automated framework migration how Rector saved our product by refactoring our 400k+lines PHP web application!
 ---
 
-*This is an guest post by [rajyan](https://twitter.com/unagiunag), who used Rector to migrate an extensive PHP application from FuelPHP to Laravel.*
+*This is an guest post by [rajyan](https://twitter.com/rajyan_k), who used Rector to migrate an extensive PHP application from FuelPHP to Laravel.*
 
 <br>
 

@@ -7,7 +7,7 @@ perex: |
     Today I'll introduce one strategy to make these migrations easier by using the power of the Rector. With this strategy, we successfully migrated a legacy PHP application over a period of one year, **without stopping developing new features!**
 ---
 
-*This is an introduction post by [rajyan](https://twitter.com/unagiunag), who used Rector to migrate an extensive PHP application from FuelPHP to Laravel.*
+*This is an introduction post by [rajyan](https://twitter.com/rajyan_k), who used Rector to migrate an extensive PHP application from FuelPHP to Laravel.*
 
 ## Difficulty of Migrating Legacy PHP Applications
 
