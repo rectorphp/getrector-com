@@ -15,7 +15,7 @@ Let's say the Rector changes the code the following way:
 +$value = 'yes';
 ```
 
-The `$value` was an `int` type. But after the change, the type is gone. We have an old `Scope` object where `$value` is still `int` or even worse. If we create a new `Assing` node, no `Scope` is available anymore.
+The `$value` was an `int` type. But after the change, the type is gone. We have an old `Scope` object where `$value` is still `int` or even worse. If we create a new `Assign` node, no `Scope` is available anymore.
 
 ## Changed Nodes with Lost Scope
 
