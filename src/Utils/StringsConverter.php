@@ -23,7 +23,7 @@ final class StringsConverter
         $matches = Strings::matchAll($input, self::CAMEL_CASE_BY_WORD_REGEX);
         $parts = [];
         foreach ($matches as $match) {
-            $parts[] = $match[0] === strtoupper($match[0]) ? strtolower($match[0]) : lcfirst($match[0]);
+            $parts[] = $match[0] === strtoupper((string) $match[0]) ? strtolower($match[0]) : lcfirst($match[0]);
         }
 
         return implode($glue, $parts);
