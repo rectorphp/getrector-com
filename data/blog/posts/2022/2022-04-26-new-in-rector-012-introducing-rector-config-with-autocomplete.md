@@ -74,7 +74,7 @@ use Rector\Set\ValueObject\SetList;
 
 return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->sets([
-        SetList::RectorConfig
+        SetList::RECTOR_CONFIG
     ]);
 };
 ```
