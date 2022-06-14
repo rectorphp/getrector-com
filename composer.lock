@@ -286,16 +286,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.7.12",
+            "version": "1.7.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "32f10779d9cd88a9cbd972ec611a4148a3cbbc7e"
+                "reference": "86ffc063bfd8f264c9eba568e84b0225a6090d09"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/32f10779d9cd88a9cbd972ec611a4148a3cbbc7e",
-                "reference": "32f10779d9cd88a9cbd972ec611a4148a3cbbc7e",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/86ffc063bfd8f264c9eba568e84b0225a6090d09",
+                "reference": "86ffc063bfd8f264c9eba568e84b0225a6090d09",
                 "shasum": ""
             },
             "require": {
@@ -321,7 +321,7 @@
             "description": "PHPStan - PHP Static Analysis Tool",
             "support": {
                 "issues": "https://github.com/phpstan/phpstan/issues",
-                "source": "https://github.com/phpstan/phpstan/tree/1.7.12"
+                "source": "https://github.com/phpstan/phpstan/tree/1.7.13"
             },
             "funding": [
                 {
@@ -341,7 +341,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-06-09T12:39:36+00:00"
+            "time": "2022-06-13T15:15:39+00:00"
         },
         {
             "name": "psr/cache",
@@ -551,12 +551,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "a1d7c79c1b7e305e352273c5600524a96be508fb"
+                "reference": "a3ff5f7dfeebb8ad876e6836f78baa2b86598809"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/a1d7c79c1b7e305e352273c5600524a96be508fb",
-                "reference": "a1d7c79c1b7e305e352273c5600524a96be508fb",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/a3ff5f7dfeebb8ad876e6836f78baa2b86598809",
+                "reference": "a3ff5f7dfeebb8ad876e6836f78baa2b86598809",
                 "shasum": ""
             },
             "require": {
@@ -604,7 +604,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-06-12T14:01:14+00:00"
+            "time": "2022-06-13T23:15:18+00:00"
         },
         {
             "name": "sebastian/diff",
