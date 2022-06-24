@@ -67,9 +67,6 @@ final class FixtureLinkFactory
         $package = strtolower($match['Package']);
         $link = str_replace('rules-tests/' . $match['Package'] . '/Rector', 'tests/Rector', $link);
 
-        $message = 'Add failing test fixture for ' . $rectorRun->getRectorShortClass();
-        $description = $this->pullRequestDescriptionFactory->create($rectorRun);
-
         return str_replace('rector-src', 'rector-' . $package, $link);
     }
 
