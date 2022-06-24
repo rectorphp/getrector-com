@@ -25,6 +25,9 @@ final class FixtureLinkFactory
      */
     private const PACKAGE_NAME_REGEX = '#^rules-tests\/(?<Package>[^\/]+)\/Rector#';
 
+    /**
+     * @var string[]
+     */
     private const RECTOR_PACKAGE_NAMES = [
         'Symfony',
         'PHPUnit',
@@ -51,14 +54,7 @@ final class FixtureLinkFactory
         $description = $this->pullRequestDescriptionFactory->create($rectorRun);
 
         $match = Strings::match($expectedRectorTestPath, self::PACKAGE_NAME_REGEX);
-        $link =  $this->resolveLink(
-            self::BASE_URL,
-            $expectedRectorTestPath,
-            $rectorRun,
-            $content,
-            $message,
-            $description
-        );
+        $link = $this->resolveLink($expectedRectorTestPath, $rectorRun, $content, $message, $description);
 
         if ($match === null || ! in_array($match['Package'], self::RECTOR_PACKAGE_NAMES, true)) {
             return $link;
@@ -70,7 +66,13 @@ final class FixtureLinkFactory
         return str_replace('rector-src', 'rector-' . $package, $link);
     }
 
-    private function resolveLink(string $baseUrl, string $expectedRectorTestPath, RectorRun $rectorRun, string $content, string $message, string $description): string
+    private function resolveLink(
+        string $expectedRectorTestPath,
+        RectorRun $rectorRun,
+        string $content,
+        string $message,
+        string $description
+    ): string
     {
         return self::BASE_URL . '/'
             . $expectedRectorTestPath
