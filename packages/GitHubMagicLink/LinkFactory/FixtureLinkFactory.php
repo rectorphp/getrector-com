@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Website\GitHubMagicLink\LinkFactory;
 
+use Nette\Utils\Strings;
 use Rector\Website\Demo\Entity\RectorRun;
 use Rector\Website\GitHubMagicLink\BodyFactory\FixtureBodyFactory;
 use Rector\Website\GitHubMagicLink\BodyFactory\PullRequestDescriptionFactory;
@@ -17,6 +18,25 @@ final class FixtureLinkFactory
      * @var string
      */
     private const BASE_URL = 'https://github.com/rectorphp/rector-src/new/main';
+
+    /**
+     * @var string
+     * @see https://regex101.com/r/ABk9gM/1
+     */
+    private const PACKAGE_NAME_REGEX = '#^rules-tests\/(?<Package>[^\/]+)\/Rector#';
+
+    /**
+     * @var string[]
+     */
+    private const RECTOR_PACKAGE_NAMES = [
+        'Symfony',
+        'PHPUnit',
+        'Doctrine',
+        'Nette',
+        'CakePHP',
+        'PHPOffice',
+        'Laravel',
+    ];
 
     public function __construct(
         private readonly FixtureBodyFactory $fixtureBodyFactory,
@@ -33,6 +53,27 @@ final class FixtureLinkFactory
         $message = 'Add failing test fixture for ' . $rectorRun->getRectorShortClass();
         $description = $this->pullRequestDescriptionFactory->create($rectorRun);
 
+        $match = Strings::match($expectedRectorTestPath, self::PACKAGE_NAME_REGEX);
+        $link = $this->resolveLink($expectedRectorTestPath, $rectorRun, $content, $message, $description);
+
+        if ($match === null || ! in_array($match['Package'], self::RECTOR_PACKAGE_NAMES, true)) {
+            return $link;
+        }
+
+        $package = strtolower($match['Package']);
+        $link = str_replace('rules-tests/' . $match['Package'] . '/Rector', 'tests/Rector', $link);
+
+        return str_replace('rector-src', 'rector-' . $package, $link);
+    }
+
+    private function resolveLink(
+        string $expectedRectorTestPath,
+        RectorRun $rectorRun,
+        string $content,
+        string $message,
+        string $description
+    ): string
+    {
         return self::BASE_URL . '/'
             . $expectedRectorTestPath
             . '?filename=Fixture/' . $rectorRun->getFixtureFileName()
