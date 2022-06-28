@@ -38,6 +38,11 @@ final class FixtureLinkFactory
         'Laravel',
     ];
 
+    /**
+     * @var string
+     */
+    private const DOWNGRADE_PACKAGE_PREFIX = 'DowngradePhp';
+
     public function __construct(
         private readonly FixtureBodyFactory $fixtureBodyFactory,
         private readonly PullRequestDescriptionFactory $pullRequestDescriptionFactory
@@ -56,7 +61,20 @@ final class FixtureLinkFactory
         $match = Strings::match($expectedRectorTestPath, self::PACKAGE_NAME_REGEX);
         $link = $this->resolveLink($expectedRectorTestPath, $rectorRun, $content, $message, $description);
 
-        if ($match === null || ! in_array($match['Package'], self::RECTOR_PACKAGE_NAMES, true)) {
+        if ($match === null) {
+            return $link;
+        }
+
+        if (! in_array($match['Package'], self::RECTOR_PACKAGE_NAMES, true)) {
+            if (str_starts_with((string) $match['Package'], self::DOWNGRADE_PACKAGE_PREFIX)) {
+                $link = str_replace(
+                    'rules-tests/' . $match['Package'] . '/Rector',
+                    'tests/' . $match['Package'] . '/Rector',
+                    $link
+                );
+                return str_replace('rector-src', 'rector-downgrade-php', $link);
+            }
+
             return $link;
         }
 
@@ -72,8 +90,7 @@ final class FixtureLinkFactory
         string $content,
         string $message,
         string $description
-    ): string
-    {
+    ): string {
         return self::BASE_URL . '/'
             . $expectedRectorTestPath
             . '?filename=Fixture/' . $rectorRun->getFixtureFileName()
