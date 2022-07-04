@@ -89,11 +89,9 @@
             Learn <span class="text-rector-blue">Cool Tips</span> from Blog
         </h2>
 
-        {% for post in last_3_posts %}
+        {% for post in last_5_posts %}
             <div class="mb-4">
-                <h3>
-                    <a class="text-bigger text-bold" href="{{ path('post', {'postSlug': post.slug }) }}">{{ post.title }}</a>
-                </h3>
+                <a class="text-bigger text-bold" href="{{ path('post', {'postSlug': post.slug }) }}">{{ post.title }}</a>
 
                 <br>
 
