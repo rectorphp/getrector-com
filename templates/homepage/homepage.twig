@@ -39,7 +39,7 @@
 
         {% include "_snippets/homepage_separator.twig" %}
 
-        <h2>Our Mission: <span class="text-rector-blue">Remove "Legacy"</span> from Vocabulary</h2>
+        <h2>Mission? Give You Power to<br>Turn <span class="text-rector-blue">Legacy Code</span> into  <span class="text-rector-blue">Clean Code</span></h2>
 
         <div class="blockquote">
             We're here to help every company and developer on the planet to get rid of any legacy PHP. Remove maintenance, cut costs of features to fractions and shift focus back to <strong>feature delivery and sustainable code that is joy to read</strong>.
@@ -89,7 +89,7 @@
             Learn <span class="text-rector-blue">Cool Tips</span> from Blog
         </h2>
 
-        {% for post in last_3_posts %}
+        {% for post in last_5_posts %}
             <div class="mb-4">
                 <a class="text-bigger text-bold" href="{{ path('post', {'postSlug': post.slug }) }}">{{ post.title }}</a>
 

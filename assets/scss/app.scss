@@ -136,6 +136,7 @@ h1 {
 
 h2 {
     font-size: 1.85em;
+    line-height: 1.6em;
 
     @include media-breakpoint-down(md) {
         font-size: 1.6em;
