@@ -1,6 +1,7 @@
 parameters:
     paths:
         - src
+        - config
         - packages
 
     level: 8
