@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cc51d28bfc24783a24cfd8fddd290dd7",
+    "content-hash": "3f7b7fdb56c93fc0aa494c3741eb7512",
     "packages": [
         {
             "name": "cweagans/composer-patches",
@@ -8525,7 +8525,14 @@
             "time": "2021-07-28T10:34:58+00:00"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "package": "symplify/amnesia",
+            "version": "10.2.7.0",
+            "alias": "11.0",
+            "alias_normalized": "11.0.0.0"
+        }
+    ],
     "minimum-stability": "dev",
     "stability-flags": {
         "rector/rector": 20,

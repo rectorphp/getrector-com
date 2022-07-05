@@ -23,7 +23,7 @@
         "symfony/web-profiler-bundle": "^6.1",
         "symfony/webpack-encore-bundle": "^1.13",
         "symfony/yaml": "^6.1",
-        "symplify/amnesia": "^10.2.7",
+        "symplify/amnesia": "10.2.7 as 11.0",
         "symplify/autowire-array-parameter": "^11.0",
         "symplify/package-builder": "^11.0",
         "symplify/smart-file-system": "^11.0",
