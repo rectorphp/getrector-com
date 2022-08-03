@@ -551,12 +551,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "1d28ca109ca536e8034c3c756ee61c65e6e63c8a"
+                "reference": "d1e069db8ad3b4aea2b968248370c21415e4c180"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/1d28ca109ca536e8034c3c756ee61c65e6e63c8a",
-                "reference": "1d28ca109ca536e8034c3c756ee61c65e6e63c8a",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/d1e069db8ad3b4aea2b968248370c21415e4c180",
+                "reference": "d1e069db8ad3b4aea2b968248370c21415e4c180",
                 "shasum": ""
             },
             "require": {
@@ -596,7 +596,7 @@
             "description": "Instant Upgrade and Automated Refactoring of any PHP code",
             "support": {
                 "issues": "https://github.com/rectorphp/rector/issues",
-                "source": "https://github.com/rectorphp/rector/tree/main"
+                "source": "https://github.com/rectorphp/rector/tree/0.13.10"
             },
             "funding": [
                 {
@@ -604,7 +604,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-08-02T06:46:18+00:00"
+            "time": "2022-08-03T12:48:10+00:00"
         },
         {
             "name": "sebastian/diff",
