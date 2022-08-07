@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class ForCompaniesController extends AbstractController
 {
-    #[Route(path: 'for-companies', name: RouteName::FOR_COMPANIES)]
+    #[Route(path: 'for_companies', name: RouteName::FOR_COMPANIES)]
     public function __invoke(Request $request): Response
     {
         return $this->render('homepage/for_companies.twig', [
