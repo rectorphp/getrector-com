@@ -26,6 +26,10 @@
                     <a href="{{ path('book') }}" class="nav-link">Book</a>
                 </li>
 
+                <li class="nav-item {% if is_current_routes(["for-companies"]) %}active{% endif %}">
+                    <a href="{{ path('for-companies') }}" class="nav-link">Support</a>
+                </li>
+
                 <li class="nav-item {% if is_current_routes(["contact"]) %}active{% endif %}">
                     <a href="{{ path('contact') }}" class="nav-link">Contact</a>
                 </li>
