@@ -551,12 +551,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "ba5ca078001d71bdda040c496f787648981b2c92"
+                "reference": "1c1744236a16d4857b2fe9da6b2bc56f76ab3b90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/ba5ca078001d71bdda040c496f787648981b2c92",
-                "reference": "ba5ca078001d71bdda040c496f787648981b2c92",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/1c1744236a16d4857b2fe9da6b2bc56f76ab3b90",
+                "reference": "1c1744236a16d4857b2fe9da6b2bc56f76ab3b90",
                 "shasum": ""
             },
             "require": {
@@ -564,14 +564,12 @@
                 "phpstan/phpstan": "^1.8.2"
             },
             "conflict": {
-                "phpstan/phpdoc-parser": "<1.6.2",
+                "phpstan/phpdoc-parser": "<1.6.4",
                 "rector/rector-cakephp": "*",
                 "rector/rector-doctrine": "*",
                 "rector/rector-laravel": "*",
-                "rector/rector-nette": "*",
                 "rector/rector-phpoffice": "*",
                 "rector/rector-phpunit": "*",
-                "rector/rector-prefixed": "*",
                 "rector/rector-symfony": "*"
             },
             "default-branch": true,
@@ -604,7 +602,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-08-07T23:37:28+00:00"
+            "time": "2022-08-08T08:13:31+00:00"
         },
         {
             "name": "sebastian/diff",
