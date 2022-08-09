@@ -63,7 +63,7 @@ We've reached PHP 7.1 and it's a great success. The next most wanted legacy PHP 
 
 ## 6 Standalone Project Packages
 
-Let's be honest. The Rector repository got a bit fat around the belly over the years. It got out of shape, collecting too much clutter at once. Rector included every framework right in the core. Do you use Symfony? There is also Nette, CakePHP, and Laravel.
+Let's be honest. The Rector repository got a bit fat around the belly over the years. It got out of shape, collecting too much clutter at once. Rector included every framework right in the core. Do you use Symfony? There is also CakePHP, Doctrine and Laravel.
 
 It's like asking for Vietnamese translation for Bum Bo Nam Bo and getting 30 other languages as a bonus.
 
@@ -75,9 +75,10 @@ Saying that, we've decided to **make this simpler for you and created per-projec
 - [rector-symfony](https://github.com/rectorphp/rector-symfony)
 - [rector-phpunit](https://github.com/rectorphp/rector-phpunit)
 - [rector-doctrine](https://github.com/rectorphp/rector-doctrine)
-- [rector-nette](https://github.com/rectorphp/rector-nette)
 - [rector-cakephp](https://github.com/rectorphp/rector-cakephp)
 - [rector-laravel](https://github.com/rectorphp/rector-laravel)
+- [rector-phpoffice](https://github.com/rectorphp/rector-phpoffice)
+- [rector-downgrade-php](https://github.com/rectorphp/rector-downgrade-php)
 
 Now **it's easier to contribute**, e.g., to Nette package, because you only have to work with Nette-specific code, nothing else.
 
