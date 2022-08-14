@@ -66,11 +66,6 @@ final class FixtureLinkFactory
 
         if (! in_array($match['Package'], self::RECTOR_PACKAGE_NAMES, true)) {
             if (str_starts_with((string) $match['Package'], self::DOWNGRADE_PACKAGE_PREFIX)) {
-                $link = str_replace(
-                    'rules-tests/' . $match['Package'] . '/Rector',
-                    'tests/' . $match['Package'] . '/Rector',
-                    $link
-                );
                 return str_replace('rector-src', 'rector-downgrade-php', $link);
             }
 
