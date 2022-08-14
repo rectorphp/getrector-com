@@ -32,7 +32,6 @@ final class FixtureLinkFactory
         'Symfony',
         'PHPUnit',
         'Doctrine',
-        'Nette',
         'CakePHP',
         'PHPOffice',
         'Laravel',
