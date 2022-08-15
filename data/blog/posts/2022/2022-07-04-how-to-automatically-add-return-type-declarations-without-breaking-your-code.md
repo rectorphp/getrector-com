@@ -165,28 +165,22 @@ Depending on what age your project is coming from, there is one requirement to m
 
 ## Try it Yourself
 
-For each case above, there is one rector rule that handles this case. Add these 4 rules to your code and see for yourself:
+Rector can handles few cases above in its public version. Add these rules to your code and see for yourself:
 
 ```php
 use Rector\Config\RectorConfig;
 use Rector\CodeQuality\Rector\ClassMethod\ReturnTypeFromStrictScalarReturnExprRector;
-use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromStrictBoolReturnExprRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromStrictNativeFuncCallRector;
-use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromStrictNewArrayRector;
 
 return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->rules([
-        ReturnTypeFromStrictBoolReturnExprRector::class,
         ReturnTypeFromStrictNativeFuncCallRector::class,
-        ReturnTypeFromStrictNewArrayRector::class,
         ReturnTypeFromStrictScalarReturnExprRector::class,
     ]);
-};
 ```
 
 Run Rector and see how many new types were added. In the project we tested these rules on, we had over 40 changed files in the first run. From zero to 40 files, quite impressive. And as you know, strict types [spread exponentially](/blog/2021/02/15/how-much-does-single-type-declaration-know).
 
-<br>
+## Coming in Rector Enterprise
 
-What other cases where we are 100 % certain could you think of?
-Let us know in the comments.
+The rest of the cases and more will be covered in rules of upcoming Rector Enterprise version, with more extra rules and features under private paid license.
