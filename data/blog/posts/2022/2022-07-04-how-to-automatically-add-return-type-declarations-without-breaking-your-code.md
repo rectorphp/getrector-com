@@ -165,16 +165,16 @@ Depending on what age your project is coming from, there is one requirement to m
 
 ## Try it Yourself
 
-Rector can handles few cases above in its public version. Add these rules to your code and see for yourself:
+Rector can handles some case above in the basic version. Add these rules to your code and see for yourself:
 
 ```php
 use Rector\Config\RectorConfig;
 use Rector\CodeQuality\Rector\ClassMethod\ReturnTypeFromStrictScalarReturnExprRector;
-use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromStrictNativeFuncCallRector;
+use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromStrictNativeCallRector;
 
 return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->rules([
-        ReturnTypeFromStrictNativeFuncCallRector::class,
+        ReturnTypeFromStrictNativeCallRector::class,
         ReturnTypeFromStrictScalarReturnExprRector::class,
     ]);
 ```
