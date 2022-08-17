@@ -9,6 +9,8 @@ perex: |
     It makes sense to separate these projects from the core and let the community handle them. Who does a better job at growing the vegetable than farmers themselves, right?
 ---
 
+
+
 To this day, there are around 10 known community packages that are [maintained by the community](https://github.com/rectorphp/rector#empowered-by-rector-community-heart). These include [CraftCMS](https://github.com/craftcms/rector), [Shopware](https://github.com/FriendsOfShopware/shopware-rector) or famous [Drupal Rector bot](https://www.drupal.org/blog/accelerating-drupal-9-module-and-theme-readiness-with-automated-patches) that automates the upgrades for Drupal 9.
 
 ## Communities in Control of Their Standards
@@ -18,6 +20,8 @@ The significant advantage of community-maintained packages over core ones is tha
 We want to give these communities the freedom to implement any feature their framework needs. When Typo3 and Nette packages were part of the core, these features were often evaluated with strict questions "how does the Rector community benefit from it"? This approach leads to a collision between two unrelated worlds.
 
 Why have frictions when these 2 projects can cooperate and work better apart?
+
+Also, Rector users who do not use these community packages, can benefits from this change. Their Rector install load is now smaller and pulls less dependencies.
 
 ## Community Leaders with Strong Vision
 
@@ -33,6 +37,35 @@ You can find those at:
 
 * https://github.com/sabbelasichon/typo3-rector
 * https://github.com/efabrica-team/rector-nette
+
+<br>
+
+**How to upgrade to Typo3 community Rector package?**
+
+Add package via composer:
+
+```bash
+composer require sabbelasichon/typo3-rector --dev
+```
+
+<br>
+
+**How to upgrade to Nette community Rector package?**
+
+Add package via composer:
+
+```bash
+composer require efabrica/rector-nette --dev
+```
+
+And replace namespace:
+
+```diff
+-Rector\\Nette\\
++RectorNette\\
+```
+
+That's it!
 
 <br>
 
