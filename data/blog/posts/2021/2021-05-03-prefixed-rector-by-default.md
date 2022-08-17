@@ -5,6 +5,8 @@ perex: |
     Today we're introducing a big step up in making Rector developer experience more smooth and intuitive. It will also ease development for Rector contributors. We won't have to think about dependencies in `composer.json` anymore.
     <br><br>
     Are these goals in contradiction? Quite the contrary.
+
+since_rector: 0.11
 ---
 
 *This move was inspired by [PHPStan 0.12 development and release repository setup](https://phpstan.org/blog/phpstan-0-12-released#phar-distribution-by-default).*

@@ -7,6 +7,8 @@ perex: |
     During refactoring, the parser got **reduced from 6700 lines to just 2700**.
     <br>
     What we changed, why, and how can we benefit from a static reflection in annotations?
+
+since_rector: 0.10
 ---
 
 The [doctrine/annotations](https://github.com/doctrine/annotations) package has been an excellent help for Rector for the past couple of years. Symfony, Doctrine, JMS, or Gedmo use the same package. We used it to parse the following code to a custom value object:

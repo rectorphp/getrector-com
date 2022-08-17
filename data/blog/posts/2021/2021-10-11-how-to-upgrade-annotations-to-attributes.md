@@ -11,6 +11,8 @@ perex: |
 updated_since: '2022-04'
 updated_message: |
     Since **Rector 0.12** a new `RectorConfig` is available with simpler and easier to use config methods.
+
+since_rector: 0.12
 ---
 
 One package that added support for attributes is Doctrine:

@@ -96,7 +96,8 @@ final class PostFactory
             $contributor,
             $pullRequestId,
             $updatedSince,
-            $updatedMessage
+            $updatedMessage,
+            $configuration['since_rector'] ?? null
         );
     }
 

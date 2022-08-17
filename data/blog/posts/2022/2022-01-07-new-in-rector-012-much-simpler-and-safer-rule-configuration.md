@@ -7,6 +7,8 @@ perex: |
     In the end, we have to configure around 10 rules to get the most job done. That's why we focused on developer experience and added a new `configure()` method in Rector 0.12.
 contributor: TomasVotruba
 pull_request_id: 1276
+
+since_rector: 0.12
 ---
 
 Each configurable Rector rule implements own `configure()` method.

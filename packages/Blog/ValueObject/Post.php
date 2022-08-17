@@ -22,6 +22,7 @@ final class Post
         private readonly ?int $pullRequestId = null,
         private readonly ?DateTimeInterface $updatedSince = null,
         private readonly ?string $updatedMessage = null,
+        private readonly ?float $sinceRector = null
     ) {
         $this->plaintextContent = strip_tags($htmlContent);
     }
@@ -118,5 +119,10 @@ final class Post
     public function getUpdatedMessage(): ?string
     {
         return $this->updatedMessage;
+    }
+
+    public function getSinceRector(): ?float
+    {
+        return $this->sinceRector;
     }
 }

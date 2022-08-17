@@ -6,6 +6,8 @@ perex: |
     <br>
     <br>
     What is new, and what makes your life easier?
+
+since_rector: 0.10
 ---
 
 February and March took the Rector repository by storm. The [average pulse](https://github.com/rectorphp/rector/pulse/monthly) is around ~100 PRs, but this month it was **amazing 188 PRpM**.

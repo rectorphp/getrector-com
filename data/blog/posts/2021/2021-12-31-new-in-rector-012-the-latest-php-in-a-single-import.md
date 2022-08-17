@@ -9,6 +9,8 @@ perex: |
 updated_since: '2022-04'
 updated_message: |
     Since **Rector 0.12** a new `RectorConfig` is available with simpler and easier to use config methods.
+
+since_rector: 0.12
 ---
 
 How do you upgrade to PHP 8.1 in 2 steps?
