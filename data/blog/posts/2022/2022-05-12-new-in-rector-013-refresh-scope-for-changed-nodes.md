@@ -6,6 +6,8 @@ perex: |
 
 contributor: TomasVotruba
 pull_request_id: 2292
+
+since_rector: 0.13
 ---
 
 Let's say the Rector changes the code the following way:

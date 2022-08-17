@@ -36,9 +36,13 @@
                 <em class="fab fa-linkedin"></em>
                 LinkedIn
             </a>
-
-
         </div>
+
+        {% if post.sinceRector %}
+            <div class="alert alert-warning">
+                This feature is available since <strong>Rector {{ post.sinceRector }}</strong>.
+            </div>
+        {% endif %}
 
         {% if post.updated %}
             <div class="card border-success card-bigger mt-5">

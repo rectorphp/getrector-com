@@ -7,9 +7,9 @@ perex: |
     As the project grew and expanded, more local PHP communities joined with community packages that build custom rules on top Rector core.
     <br><br>
     It makes sense to separate these projects from the core and let the community handle them. Who does a better job at growing the vegetable than farmers themselves, right?
+
+since_rector: 0.14
 ---
-
-
 
 To this day, there are around 10 known community packages that are [maintained by the community](https://github.com/rectorphp/rector#empowered-by-rector-community-heart). These include [CraftCMS](https://github.com/craftcms/rector), [Shopware](https://github.com/FriendsOfShopware/shopware-rector) or famous [Drupal Rector bot](https://www.drupal.org/blog/accelerating-drupal-9-module-and-theme-readiness-with-automated-patches) that automates the upgrades for Drupal 9.
 
