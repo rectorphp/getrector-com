@@ -52,3 +52,5 @@ yarn-error.log
 /demo-runner
 
 data/json-database/*
+
+/subdomains
