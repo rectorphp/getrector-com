@@ -3,6 +3,10 @@
 {% set page_title %}Try Rector Online{% endset %}
 
 {% block main %}
+    <div class="card mt-4 mb-5">
+        <div class="card-header">Rector version: {{ rector_version }}</div>
+    </div>
+
     <div id="rector_run_form" class="mt-4 mb-5">
         {{ form_start(demo_form) }}
 

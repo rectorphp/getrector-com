@@ -7,6 +7,7 @@
         "ext-json": "*",
         "erusev/parsedown-extra": "^0.8.1",
         "jajo/jsondb": "^3.0",
+        "ocramius/package-versions": "^2.5",
         "rector/rector": "dev-main",
         "symfony/asset": "^6.1",
         "symfony/cache": "^6.1",
