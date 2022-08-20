@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Rector\Website\Demo\Controller;
 
 use PackageVersions\Versions;
+use Rector\Core\Application\VersionResolver;
 use Rector\Website\Demo\DemoRunner;
 use Rector\Website\Demo\Entity\RectorRun;
 use Rector\Website\Demo\Form\DemoFormType;
@@ -73,25 +74,10 @@ final class DemoController extends AbstractController
 
         return $this->render('demo/demo.twig', [
             'rector_version' => Versions::getVersion('rector/rector'),
-            'rector_released_time' => $this->resolveComposerReleaeseTime(),
+            'rector_released_time' => VersionResolver::RELEASE_DATE,
             'demo_form' => $demoForm->createView(),
             'rector_run' => $rectorRun,
         ]);
-    }
-
-    private function resolveComposerReleaeseTime(): string
-    {
-        $composerLockContent = file_get_contents(__DIR__ . '/../../../composer.lock');
-        $composerLockData = json_decode($composerLockContent, true, 512, JSON_THROW_ON_ERROR);
-
-        foreach ($composerLockData['packages'] as $package) {
-            if ($package['name'] === 'rector/rector') {
-                $rectorReleaseTime = $package['time'];
-                return date("l jS \of F Y h:i:s A", strtotime((string) $rectorReleaseTime));
-            }
-        }
-
-        throw new ShouldNotHappenException();
     }
 
     private function processFormAndReturnRoute(RectorRun $rectorRun): RedirectResponse
