@@ -1,0 +1,26 @@
+name: Unit Tests
+
+on:
+    pull_request: null
+    push:
+        branches:
+            - main
+
+jobs:
+    unit_tests:
+        runs-on: ubuntu-latest
+        steps:
+            -   uses: actions/checkout@v2
+
+            -   uses: shivammathur/setup-php@v2
+                with:
+                    php-version: 8.1
+                    coverage: none
+
+            -   run: composer install --no-progress --ansi
+            -   run: php -S localhost:8080 --docroot public &>/dev/null&
+
+            -   run: yarn install
+            -   run: yarn run dev
+
+            -   run: vendor/bin/codecept run Acceptance
