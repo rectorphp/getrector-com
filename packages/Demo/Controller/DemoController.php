@@ -82,12 +82,12 @@ final class DemoController extends AbstractController
     private function resolveComposerReleaeseTime(): string
     {
         $composerLockContent = file_get_contents(__DIR__ . '/../../../composer.lock');
-        $composerLockData = json_decode($composerLockContent, true);
+        $composerLockData = json_decode($composerLockContent, true, 512, JSON_THROW_ON_ERROR);
 
         foreach ($composerLockData['packages'] as $package) {
             if ($package['name'] === 'rector/rector') {
                 $rectorReleaseTime = $package['time'];
-                return date("l jS \of F Y h:i:s A", strtotime($rectorReleaseTime));
+                return date("l jS \of F Y h:i:s A", strtotime((string) $rectorReleaseTime));
             }
         }
 
