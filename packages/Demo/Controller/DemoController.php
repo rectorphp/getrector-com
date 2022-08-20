@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Website\Demo\Controller;
 
+use PackageVersions\Versions;
 use Rector\Website\Demo\DemoRunner;
 use Rector\Website\Demo\Entity\RectorRun;
 use Rector\Website\Demo\Form\DemoFormType;
@@ -70,6 +71,7 @@ final class DemoController extends AbstractController
         }
 
         return $this->render('demo/demo.twig', [
+            'rector_version' => Versions::getVersion('rector/rector'),
             'demo_form' => $demoForm->createView(),
             'rector_run' => $rectorRun,
         ]);
