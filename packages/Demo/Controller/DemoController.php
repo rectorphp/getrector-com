@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Rector\Website\Demo\Controller;
 
 use PackageVersions\Versions;
+use Rector\Core\Application\VersionResolver;
 use Rector\Website\Demo\DemoRunner;
 use Rector\Website\Demo\Entity\RectorRun;
 use Rector\Website\Demo\Form\DemoFormType;
@@ -71,10 +72,19 @@ final class DemoController extends AbstractController
         }
 
         return $this->render('demo/demo.twig', [
-            'rector_version' => Versions::getVersion('rector/rector'),
+            'rector_version' => $this->resolveRectorReleaseVersion(),
+            'rector_released_time' => VersionResolver::RELEASE_DATE,
             'demo_form' => $demoForm->createView(),
             'rector_run' => $rectorRun,
         ]);
+    }
+
+    private function resolveRectorReleaseVersion(): string
+    {
+        $rectorVersion = Versions::getVersion('rector/rector');
+        $extractAt = explode('@', $rectorVersion);
+
+        return $extractAt[0] . '@' . substr($extractAt[1], 0, 6);
     }
 
     private function processFormAndReturnRoute(RectorRun $rectorRun): RedirectResponse
