@@ -22,5 +22,6 @@ class DemoPageCest
 
         // see text in demo page after process button clicked
         $I->see('What did Rector change?');
+        $I->see('-        // we never get here');
     }
 }
