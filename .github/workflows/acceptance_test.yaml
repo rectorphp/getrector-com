@@ -22,7 +22,5 @@ jobs:
 
             -   run: yarn install
             -   run: yarn run dev
-
-            -   run: |
-                  cp .env_acceptance.dist .env
-                  vendor/bin/codecept run Acceptance
+            -   run: cp .env_acceptance.dist .env
+            -   run: vendor/bin/codecept run Acceptance
