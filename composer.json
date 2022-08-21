@@ -30,15 +30,18 @@
         "symplify/vendor-patches": "^11.1"
     },
     "require-dev": {
+        "codeception/codeception": "^5.0",
         "phpstan/extension-installer": "^1.1",
         "phpstan/phpstan": "^1.8",
         "phpunit/phpunit": "^9.5",
         "roave/security-advisories": "dev-master",
         "symplify/coding-standard": "^11.1",
-        "symplify/easy-coding-standard": "^11.1",
         "symplify/easy-ci": "^11.1",
+        "symplify/easy-coding-standard": "^11.1",
         "symplify/phpstan-extensions": "^11.1",
-        "symplify/phpstan-rules": "^11.1"
+        "symplify/phpstan-rules": "^11.1",
+        "codeception/module-phpbrowser": "*",
+        "codeception/module-asserts": "*"
     },
     "autoload": {
         "psr-4": {
