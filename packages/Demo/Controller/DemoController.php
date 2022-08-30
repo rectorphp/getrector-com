@@ -89,6 +89,11 @@ final class DemoController extends AbstractController
 
     private function processFormAndReturnRoute(RectorRun $rectorRun): RedirectResponse
     {
+        if (substr_count($rectorRun->getContent(), "\n" ) > 200) {
+            $this->addFlash('danger', 'Content has too many lines, please reduce it to few lines of code');
+            return $this->redirectToRoute(RouteName::DEMO);
+        }
+
         $this->demoRunner->processRectorRun($rectorRun);
         $this->rectorRunRepository->save($rectorRun);
 
