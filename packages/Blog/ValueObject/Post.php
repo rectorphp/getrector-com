@@ -22,6 +22,8 @@ final class Post
         private readonly ?int $pullRequestId = null,
         private readonly ?DateTimeInterface $updatedSince = null,
         private readonly ?string $updatedMessage = null,
+        private readonly ?DateTimeInterface $deprecatedSince = null,
+        private readonly ?string $deprecatedMessage = null,
         private readonly ?float $sinceRector = null
     ) {
         $this->plaintextContent = strip_tags($htmlContent);
@@ -111,6 +113,11 @@ final class Post
         return $this->updatedSince !== null;
     }
 
+    public function isDeprecated(): bool
+    {
+        return $this->deprecatedSince !== null;
+    }
+
     public function getUpdatedSince(): ?DateTimeInterface
     {
         return $this->updatedSince;
@@ -124,5 +131,15 @@ final class Post
     public function getSinceRector(): ?float
     {
         return $this->sinceRector;
+    }
+
+    public function getDeprecatedSince(): ?DateTimeInterface
+    {
+        return $this->deprecatedSince;
+    }
+
+    public function getDeprecatedMessage(): ?string
+    {
+        return $this->deprecatedMessage;
     }
 }

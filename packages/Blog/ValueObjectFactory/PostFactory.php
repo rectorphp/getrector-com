@@ -82,8 +82,12 @@ final class PostFactory
         $pullRequestId = $configuration['pull_request_id'] ?? null;
 
         $updatedSince = isset($configuration['updated_since']) ? new DateTime($configuration['updated_since']) : null;
-
         $updatedMessage = $configuration['updated_message'] ?? null;
+
+        $deprecatedSince = isset($configuration['deprecated_since']) ? new DateTime(
+            $configuration['deprecated_since']
+        ) : null;
+        $deprecatedMessage = $configuration['deprecated_message'] ?? null;
 
         return new Post(
             $id,
@@ -97,6 +101,8 @@ final class PostFactory
             $pullRequestId,
             $updatedSince,
             $updatedMessage,
+            $deprecatedSince,
+            $deprecatedMessage,
             $configuration['since_rector'] ?? null
         );
     }

@@ -11,6 +11,12 @@ pull_request_id: 5074
 updated_since: '2022-04'
 updated_message: |
     Since **Rector 0.12** a new `RectorConfig` is available with simpler and easier to use config methods.
+
+deprecated_since: '2022-09'
+deprecated_message: |
+    This feature was never used apart the initial PR. The migration requires sensitive manual approach to the composer changes and such automation is not practical.
+    <br><br>
+    For these reasons, since **Rector 0.14.1** this was removed.
 ---
 
 What is the first step you do if you want to upgrade a package? You change `composer.json` and update it. Easy, right?
