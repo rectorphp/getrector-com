@@ -31,6 +31,8 @@
     },
     "require-dev": {
         "codeception/codeception": "^5.0",
+        "codeception/module-asserts": "*",
+        "codeception/module-phpbrowser": "*",
         "phpstan/extension-installer": "^1.1",
         "phpstan/phpstan": "^1.8",
         "phpunit/phpunit": "^9.5",
@@ -38,10 +40,9 @@
         "symplify/coding-standard": "^11.1",
         "symplify/easy-ci": "^11.1",
         "symplify/easy-coding-standard": "^11.1",
+        "symplify/easy-testing": "^11.1",
         "symplify/phpstan-extensions": "^11.1",
-        "symplify/phpstan-rules": "^11.1",
-        "codeception/module-phpbrowser": "*",
-        "codeception/module-asserts": "*"
+        "symplify/phpstan-rules": "^11.1"
     },
     "autoload": {
         "psr-4": {
