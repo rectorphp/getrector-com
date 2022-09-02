@@ -84,11 +84,6 @@ final class Post
         return 'https://www.facebook.com/sharer/sharer.php?u=' . $this->absoluteUrl;
     }
 
-    public function getLinkedinLink(): string
-    {
-        return 'https://www.linkedin.com/shareArticle?url=' . $this->absoluteUrl . '/&title=' . $this->title;
-    }
-
     public function getContributor(): ?string
     {
         return $this->contributor;
