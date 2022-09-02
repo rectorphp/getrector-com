@@ -44,7 +44,20 @@
             </div>
         {% endif %}
 
-        {% if post.updated %}
+        {% if post.deprecated %}
+            <div class="card border-danger card-bigger mt-5">
+                <div class="card-header text-white bg-danger">
+                    <strong>{{ post.deprecatedSince|date("F Y") }} Update</strong>
+                </div>
+                {% if post.deprecatedMessage is not null %}
+                    <div class="card-body pb-2">
+                        {{ post.deprecatedMessage|markdown|raw }}
+                    </div>
+                {% endif %}
+            </div>
+
+            <br>
+        {% elseif post.updated %}
             <div class="card border-success card-bigger mt-5">
                 <div class="card-header text-white bg-success">
                     <strong>{{ post.updatedSince|date("F Y") }} Update</strong>
