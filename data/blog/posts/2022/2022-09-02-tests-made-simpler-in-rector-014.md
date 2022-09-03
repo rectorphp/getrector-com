@@ -57,7 +57,7 @@ No.
 
 We dropped this wrapper, removed the `SmartFileInfo` wrapping from everywhere, and lowered the memory consumption of the files.
 
-In the next Rector 0.14.2, we've also simplified the test to use direct file paths:
+In the next Rector 0.14.1, we've also simplified the test to use direct file paths:
 
 ```php
 use Rector\Testing\PHPUnit\AbstractRectorTestCase;
