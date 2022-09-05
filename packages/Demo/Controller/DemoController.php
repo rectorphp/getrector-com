@@ -26,6 +26,11 @@ use Symfony\Component\Uid\Uuid;
  */
 final class DemoController extends AbstractController
 {
+    /**
+     * @var int
+     */
+    private const INPUT_LINES_LIMIT = 100;
+
     public function __construct(
         private readonly RectorRunRepository $rectorRunRepository,
         private readonly DemoRunner $demoRunner,
@@ -89,8 +94,8 @@ final class DemoController extends AbstractController
 
     private function processFormAndReturnRoute(RectorRun $rectorRun): RedirectResponse
     {
-        if (substr_count($rectorRun->getContent(), "\n") > 200) {
-            $this->addFlash('danger', 'Content has too many lines, please reduce it to few lines of code');
+        if (substr_count($rectorRun->getContent(), "\n") > self::INPUT_LINES_LIMIT) {
+            $this->addFlash('danger', 'Content file has too many lines. Please reduce it under 100 lines, to make it easier to read');
             return $this->redirectToRoute(RouteName::DEMO);
         }
 
