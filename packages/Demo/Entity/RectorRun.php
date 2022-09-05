@@ -11,6 +11,7 @@ use Rector\Website\Demo\ValueObject\AppliedRule;
 use Rector\Website\Exception\ShouldNotHappenException;
 use Rector\Website\Utils\StringsConverter;
 use Symfony\Component\Uid\Uuid;
+use Symfony\Component\Validator\Constraints\Length;
 
 final class RectorRun implements JsonSerializable
 {
@@ -37,7 +38,9 @@ final class RectorRun implements JsonSerializable
 
     public function __construct(
         private readonly Uuid $uuid,
+        #[Length(max: 10_000)]
         private readonly string $content,
+        #[Length(max: 2_000)]
         private readonly string $config,
         /** @var array<string, mixed> */
         private array $jsonResult = [],

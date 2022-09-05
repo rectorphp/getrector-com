@@ -21,6 +21,7 @@
         "symfony/templating": "^6.1",
         "symfony/twig-bundle": "^6.1",
         "symfony/uid": "^6.1",
+        "symfony/validator": "^6.1",
         "symfony/web-profiler-bundle": "^6.1",
         "symfony/webpack-encore-bundle": "^1.13",
         "symfony/yaml": "^6.1",
