@@ -1,7 +1,7 @@
 {% extends "base.twig" %}
 
 {% block main %}
-    <div id="for-companies" >
+    <div id="for-companies">
         <h1 class="main-title">
             {{ title }}
         </h1>
@@ -12,18 +12,18 @@
             ...
         </p>
 
-        ## 1. Intro analysis of the project
+        <h2>1. Intro Analysis of Your Project</h2>
 
         We signed an NDA. Then you share the code we'll work with. As we spoke, ideally, the whole project, so we can "git clone" it. If that is not possible, a module with root metafiles like composer.json, ci setup, PHPStan, CodingStandard setup, any dotfiles, etc.
 
-        We look at a few metrics:
-        1) Size of the project and its complexity - OOP, classes vs. function, cognitive complexity, and other hard data
+        <p>We look at a few metrics</p>
 
-        2) We look for/try tooling that takes care of the code quality in the long term - PHPStan, coding standard, Rector, used sets, levels, and extensions - the higher quality, the better.
-
-        3) We look possible black holes - we have a list of known black holes that can easily delay the upgrade by months; we look for those
-
-        4) We provide list of suggested first steps and low-hanging fruit
+        <ul>
+            <li>Size of the project and its complexity - OOP, classes vs. function, cognitive complexity, and other hard data</li>
+            <li>We look for/try tooling that takes care of the code quality in the long term - PHPStan, coding standard, Rector, used sets, levels, and extensions - the higher quality, the better.</li>
+            <li>We look possible black holes - we have a list of known black holes that can easily delay the upgrade by months; we look for those</li>
+            <li>We provide list of suggested first steps and low-hanging fruit</li>
+        </ul>
 
         The analysis is done without any know-how output from your side. The reason is simple: developers who take care of code base for years can get used-to complicated processes. Another bias is selling the project's good parts and not focusing on the bad ones.
 
@@ -38,15 +38,20 @@
         After that, we will share the analysis with you and have a call around the results. On the call, we will organize the next steps.
         Some companies ask us only for the analysis because they want to know where the weak parts are. Then they delegate the steps to improve to their team and re-check with us in a year or so.
 
-        ---
+        <hr>
 
-        ## 2. Hands on Upgrade
+        <h2>2. Hands on Upgrade</h2>
 
         After the call, we can start with the mentoring and upgrade work.
 
         We can provide between 10-20 hours/week with direct help. This means we'll dedicate you to a developer who has experience with Rector in legacy code bases and knows how to deal with complex problems.
 
 
-        @todo
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
     </div>
 {% endblock %}
