@@ -62,6 +62,8 @@ return static function (RectorConfig $rectorConfig): void {
     ]);
 ```
 
+<br>
+
 This rule will intelligently split the annotations:
 
 ```php

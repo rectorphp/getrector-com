@@ -477,15 +477,6 @@ label.required:before {
         }
     }
 
-    .company-quote-card {
-        margin: 1.5em 3em 0 3em;
-        padding-bottom: 0;
-
-        @media (max-width: 750px) {
-            margin: 1.5em 0 0 0;
-        }
-    }
-
     .company-quote-card-body {
         padding: 1.5em 1em 0 2em;
     }
