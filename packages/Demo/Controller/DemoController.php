@@ -95,7 +95,10 @@ final class DemoController extends AbstractController
     private function processFormAndReturnRoute(RectorRun $rectorRun): RedirectResponse
     {
         if (substr_count($rectorRun->getContent(), "\n") > self::INPUT_LINES_LIMIT) {
-            $this->addFlash('danger', 'Content file has too many lines. Please reduce it under 100 lines, to make it easier to read');
+            $this->addFlash(
+                'danger',
+                'Content file has too many lines. Please reduce it under 100 lines, to make it easier to read'
+            );
             return $this->redirectToRoute(RouteName::DEMO);
         }
 

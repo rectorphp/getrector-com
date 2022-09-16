@@ -1,0 +1,93 @@
+{% extends "base.twig" %}
+
+{% block main %}
+    <div id="for-companies">
+        <h1 class="main-title">
+            {{ title }}
+        </h1>
+
+        <p class="text-bigger">
+            We look for clients who want to build a long-term relationships. Quick changes can quickly backfire, but small, gradual steps lead to long-term success.
+            <br>
+            <br>
+            That means we take on projects for 6-18 months and help clients get to the latest version of the PHP framework, making the CI very strong and helpful initially. When our job is finished, they don't need us ever again.
+        </p>
+
+        <br>
+
+        <h2>1. Intro Analysis</h2>
+
+        <p>
+            Before we get into migration/upgrade itself, we have to make sure we know we can help you. Also, we have to know about all the weak spots that will complicate the process. You would not buy a house without checking its foundation, right?
+        </p>
+
+        <p>
+            We signed an NDA first, so your code is safe with us. Then you share your codebase with us, ideally in a git repository URL.
+        </p>
+
+        <p>
+            <strong>
+                The process of intro analysis is a combination of tools, experience with other project upgrades, and detective work. We've done over 30 project upgrades, and every intro analysis was different.
+            </strong>
+        </p>
+
+        <br>
+
+        <p>To give you a rough idea, amongst others, we look at:</p>
+
+        <ul>
+            <li>project size and its complexity - OOP, classes vs. function, cognitive complexity peaks, averages etc.</li>
+            <li>tooling that takes care of the code quality in the long term - tests, CI setup, PHPStan, Rector, coding standards, used sets, extensions, and levels, ignored errors, etc.</li>
+            <li>upgrade black holes - we go through the list of known black holes that can easily delay the upgrade by months and look for those or similar elements in the codebase</li>
+        </ul>
+
+        <p>
+            The analysis is done with zero know-how input from your side. The reason is simple: developers who have taken care of code base for years got used to complicated patterns. These patterns made the project legacy in the first place. We have to identify those and get rid of them, so you're not in the same problem as before in a year.
+        </p>
+
+        <p>
+            This analysis takes us 3 weeks.
+        </p>
+
+        <p>
+            <strong>Then we will share the analysis with you and have a call around the results. On the call, we organize the next steps to start with.</strong>
+        </p>
+
+        <br>
+
+        <hr>
+
+        <h2>2. Hands on Upgrade</h2>
+
+        <p>
+            After the call, we can start with the mentoring and upgrade work.
+        </p>
+
+        <p>
+            Our team provides 10-20 hours/week of direct help. This means we'll dedicate you to a developer with experience with Rector in legacy code bases who knows how to deal with complex problems.
+        </p>
+
+        <p>During this process focus on:</p>
+
+        <ul>
+            <li>delivering the smallest PR possible so that you can merge it immediately</li>
+            <li>improving code quality first</li>
+            <li>making sure the work is always in a finished state in every PR</li>
+            <li>making CI helps us with any regression we face, so we have a safety net and can move further</li>
+        </ul>
+
+        <p>
+            We usually work aside from the company feature team. That way company can focus on delivering value, and we handle the upgrade in parallel.
+        </p>
+
+        <p>
+            To check in with each other, we can schedule a meeting once in 1-2 weeks to discuss the progress and next steps.
+        </p>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+{% endblock %}

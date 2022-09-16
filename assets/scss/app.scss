@@ -460,7 +460,6 @@ label.required:before {
     .company-logo {
         float: right;
         max-width: 10em;
-        margin-right: 1em;
         margin-top: .4em;
     }
 
@@ -474,15 +473,6 @@ label.required:before {
 
         @media (max-width: 750px) {
             font-size: 1em;
-        }
-    }
-
-    .company-quote-card {
-        margin: 1.5em 3em 0 3em;
-        padding-bottom: 0;
-
-        @media (max-width: 750px) {
-            margin: 1.5em 0 0 0;
         }
     }
 
