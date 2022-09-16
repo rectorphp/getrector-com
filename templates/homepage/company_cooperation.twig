@@ -1,0 +1,52 @@
+{% extends "base.twig" %}
+
+{% block main %}
+    <div id="for-companies" >
+        <h1 class="main-title">
+            {{ title }}
+        </h1>
+
+        <p class="mt-5 text-bigger">
+            ...
+            <br>
+            ...
+        </p>
+
+        ## 1. Intro analysis of the project
+
+        We signed an NDA. Then you share the code we'll work with. As we spoke, ideally, the whole project, so we can "git clone" it. If that is not possible, a module with root metafiles like composer.json, ci setup, PHPStan, CodingStandard setup, any dotfiles, etc.
+
+        We look at a few metrics:
+        1) Size of the project and its complexity - OOP, classes vs. function, cognitive complexity, and other hard data
+
+        2) We look for/try tooling that takes care of the code quality in the long term - PHPStan, coding standard, Rector, used sets, levels, and extensions - the higher quality, the better.
+
+        3) We look possible black holes - we have a list of known black holes that can easily delay the upgrade by months; we look for those
+
+        4) We provide list of suggested first steps and low-hanging fruit
+
+        The analysis is done without any know-how output from your side. The reason is simple: developers who take care of code base for years can get used-to complicated processes. Another bias is selling the project's good parts and not focusing on the bad ones.
+
+        In another project we are currently migrating, the team leader told us, "we have very high code quality, but we'd like to improve". In the intro analysis, we found out there are 2 tests—exactly 2 tests for the whole project.
+
+        We look for such weak spots because the team usually doesn't face them in everyday coding. We have to know them before we start. Otherwise, we might waste a few months of work in the wrong direction. We have to find them, spot them, talk about them, and find the best way to deal with them. It's like going to a doctor that tells you bad news. It's hard, and no person wants to hear it, but we can only face it and deal with it.
+
+
+        This analysis usually takes 2-3 weeks.
+
+
+        After that, we will share the analysis with you and have a call around the results. On the call, we will organize the next steps.
+        Some companies ask us only for the analysis because they want to know where the weak parts are. Then they delegate the steps to improve to their team and re-check with us in a year or so.
+
+        ---
+
+        ## 2. Hands on Upgrade
+
+        After the call, we can start with the mentoring and upgrade work.
+
+        We can provide between 10-20 hours/week with direct help. This means we'll dedicate you to a developer who has experience with Rector in legacy code bases and knows how to deal with complex problems.
+
+
+        @todo
+    </div>
+{% endblock %}
