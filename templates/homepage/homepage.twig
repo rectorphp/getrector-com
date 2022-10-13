@@ -8,38 +8,26 @@
             With Single CLI Command?
         </h1>
 
-        {% include "_snippets/homepage_separator.twig" %}
+{#        {% include "_snippets/homepage_separator.twig" %}#}
 
         <div class="text-bigger">
             <p>
-                Rector is a CLI tool written in PHP. It can instantly upgrade old PHP code and handle automated refactorings. It's fast and precise - changes <strong>5000 files under minute</strong>.
+                Rector instantly upgrades old PHP code to new one and handle automated refactorings.
+                <br>
+                It's precise and fast with 5000 files under minute.
             </p>
 
-            <p>
-                The code is <a href="http://github.com/rectorphp/rector">open-sourced on GitHub</a>.
-            </p>
-
-            <a name="first-run"></a>
-            <h2>First Run</h2>
-
-            <p>
-                Add Rector to your project to save hours of manual boring work:
-            </p>
-
-            <br>
-
-            <div>
-                <code>
-                    composer require rector/rector --dev<br>
-                    vendor/bin/rector init<br>
-                    vendor/bin/rector --dry-run
-                </code>
+            <div class="text-center mt-5 mb-5">
+                <a href="{{ path('demo') }}" class="btn btn-lg btn-success">Try It</a>
+{#                <p>#}
+{#                    The code is <a href="http://github.com/rectorphp/rector">open-sourced on GitHub</a>.#}
+{#                </p>#}
             </div>
         </div>
 
         {% include "_snippets/homepage_separator.twig" %}
 
-        <h2>Mission? Give You Power to<br>Turn <span class="text-rector-blue">Legacy Code</span> into  <span class="text-rector-blue">Clean Code</span></h2>
+        <h2>Rector Gives You Power to<br>Turn <span class="text-rector-blue">Legacy Code</span> into  <span class="text-rector-blue">Clean Code</span></h2>
 
         <div class="blockquote">
             We're here to help every company and developer on the planet to get rid of any legacy PHP. Remove maintenance, cut costs of features to fractions and shift focus back to <strong>feature delivery and sustainable code that is joy to read</strong>.

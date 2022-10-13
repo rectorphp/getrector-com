@@ -1,0 +1,30 @@
+{% extends "base.twig" %}
+
+{% set page_title %}Docs / Introduction{% endset %}
+
+{% block sidebar %}
+    {% include "_snippets/docs_sidebar.twig" %}
+{% endblock %}
+
+{% block content %}
+    <a name="first-run"></a>
+    <h2>First Run</h2>
+
+    <p>
+        Add Rector to your project to save hours of manual boring work:
+    </p>
+
+    <br>
+
+    <div>
+        <code>
+            composer require rector/rector --dev<br>
+            vendor/bin/rector init<br>
+            vendor/bin/rector --dry-run
+        </code>
+    </div>
+{% endblock %}
+
+{% block main %}
+    docs / introduction
+{% endblock %}

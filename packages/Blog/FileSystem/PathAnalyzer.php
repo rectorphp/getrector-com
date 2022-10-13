@@ -40,7 +40,11 @@ final class PathAnalyzer
     {
         $dateTime = $this->detectDate($fileInfo);
 
+<<<<<<< HEAD
         if (! $dateTime instanceof DateTimeInterface) {
+=======
+        if (! $dateTime instanceof \DateTimeInterface) {
+>>>>>>> e5cc129 (run rector etc)
             throw new ShouldNotHappenException();
         }
 

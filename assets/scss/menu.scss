@@ -1,8 +1,15 @@
 .navbar-dark .navbar-nav {
+    margin-top: .3em;
+    margin-bottom: .3em;
+
     a.nav-link {
         color: white;
         text-decoration: none;
 
         margin-right: 1em;
+    }
+
+    a {
+        font-size: 1.1em;
     }
 }

@@ -5,8 +5,10 @@
         </button>
         <div class="collapse navbar-collapse float-left" id="navbarTogglerDemo01">
             <ul class="navbar-nav mr-auto text-left text-md-center">
-                <li class="nav-item {% if is_current_routes(["homepage"]) %}active{% endif %}">
-                    <a href="{{ path('homepage') }}" class="nav-link">Home</a>
+                <li class="nav-item mr-5" id="top_right_logo">
+                    <a href="{{ path('homepage') }}">
+                        <img class="hidden-sm-down" src="{{ asset('assets/images/logo/rector-white.svg') }}" alt="">
+                    </a>
                 </li>
 
                 <li class="nav-item {% if is_current_routes(["demo", "demo_detail"]) %}active{% endif %}">
@@ -32,20 +34,17 @@
                 <li class="nav-item {% if is_current_routes(["docs"]) %}active{% endif %}">
                     <a href="{{ path('docs') }}" class="nav-link">Docs</a>
                 </li>
+            </ul>
+        </div>
 
+        <div>
+            <ul class="navbar-nav mr-auto text-md-center">
                 <li class="nav-item">
                     <a href="http://github.com/rectorphp/rector" class="nav-link">
                         <em class="fab fa-github fa-lg"></em>
                     </a>
                 </li>
             </ul>
-        </div>
-
-        <div id="top_right_logo">
-            <a href="{{ path('homepage') }}">
-                <img class="hidden-sm-down" src="{{ asset('assets/images/logo/rector-white.svg') }}" alt="">
-{#                <em class="hidden-md-up fas fa-home fa-lg text-light"></em>#}
-            </a>
         </div>
     </div>
 </nav>
