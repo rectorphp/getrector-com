@@ -29,6 +29,10 @@
                     <a href="{{ path('contact') }}" class="nav-link">Contact</a>
                 </li>
 
+                <li class="nav-item {% if is_current_routes(["docs"]) %}active{% endif %}">
+                    <a href="{{ path('docs') }}" class="nav-link">Docs</a>
+                </li>
+
                 <li class="nav-item">
                     <a href="http://github.com/rectorphp/rector" class="nav-link">
                         <em class="fab fa-github fa-lg"></em>
