@@ -3,11 +3,7 @@
 {% set page_title %}Try Rector Online{% endset %}
 
 {% block main %}
-    <div class="card mt-4 mb-5">
-        <div class="card-header text-grey">Rector version: {{ rector_version }} released at {{ rector_released_time }}</div>
-    </div>
-
-    <div id="rector_run_form" class="mt-4 mb-5">
+    <div id="rector_run_form" class="mt-4 mb-3">
         {{ form_start(demo_form) }}
 
         {# @var rector_run \Rector\Website\Demo\Entity\RectorRun #}
@@ -31,8 +27,11 @@
             </div>
         {% endif %}
 
-        <div class="card mb-5">
-            <div class="card-header">Input Code</div>
+        <p>
+            Run Rector on your code to see what it can do for you:
+        </p>
+
+        <div class="card mb-4">
             <div class="card-body p-0 mb-0">
                 {{ form_row(demo_form.content) }}
             </div>
@@ -40,7 +39,7 @@
 
         {# @var rector_run \Rector\Website\Demo\Entity\RectorRun #}
         {% if rector_run.successful %}
-            <div class="card bg-warning border-warning mb-4">
+            <div class="card bg-warning border-warning mb-3">
                 <div class="card-header text-bold">
                     What did Rector change?
                 </div>
@@ -78,7 +77,7 @@
             {% endif %}
         {% endif %}
 
-        <div class="card mb-5">
+        <div class="card mb-2">
             <div class="card-header">
                 Config&nbsp;&nbsp;<code>rector.php</code>
             </div>
@@ -88,7 +87,11 @@
             </div>
         </div>
 
-        <div class="mt-3 mb-5 text-center">
+        <div class="text-right pull-right">
+            <p class="text-smaller text-grey mt-0 pt-0">Rector version: {{ rector_version }} released at {{ rector_released_time }}</p>
+        </div>
+
+        <div class="mt-4 mb-5">
             {{ form_row(demo_form.process) }}
         </div>
 

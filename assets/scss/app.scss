@@ -33,6 +33,11 @@ a, a:hover, a:focus, button, button:focus {
     box-shadow: none !important;
 }
 
+.bigger-buttons .btn {
+    padding: .6em 1.1em;
+    font-size: .9em;
+}
+
 .alert a, .alert a:active, .alert a:focus, {
     color: inherit;
     text-decoration: underline !important;
@@ -114,9 +119,9 @@ h1 {
     }
 
     &.main-title {
-        margin-top: 2em;
-        font-size: 3.9rem;
-        line-height: 1.3em;
+        margin-top: 1.4em;
+        font-size: 3.7rem;
+        line-height: 1.2em;
         font-weight: 800;
 
         @include media-breakpoint-down(md) {
@@ -133,16 +138,20 @@ h1 {
     }
 }
 
+#claim-title {
+    font-size: 4rem;
+}
+
 h2 {
-    font-size: 1.85em;
-    line-height: 1.6em;
+    font-size: 1.75em;
+    line-height: 1.4em;
 
     @include media-breakpoint-down(md) {
-        font-size: 1.6em;
+        font-size: 1.5em;
     }
 
     @include media-breakpoint-down(sm) {
-        font-size: 1.3em;
+        font-size: 1.25em;
     }
 }
 
@@ -283,7 +292,7 @@ ul.list-noindent {
     }
 
     .card-header {
-        font-size: 1.1em;
+        font-size: 1em;
     }
 
     .card .form-group {
@@ -322,14 +331,12 @@ h2 a, a {
 }
 
 #post, #blog, #contact, #mission, #for_companies {
-    margin-top: 2em;
+    margin-top: 1em;
     margin-bottom: 6em;
 
     h1 {
-        margin-top: 2.5em;
-        margin-bottom: 2.2em;
-        font-weight: 800 !important;
-        color: #24292e;
+        margin-top: 1.6em;
+        margin-bottom: 1.3em;
     }
 
     h2 {
@@ -496,5 +503,16 @@ label.required:before {
         &:hover {
             color: #555;
         }
+    }
+}
+
+.btn-primary {
+    background: white;
+    border-color: #3da6c0;
+    color: #3da6c0;
+
+    &:hover {
+        background: #3da6c0;
+        border-color: #3da6c0;
     }
 }
