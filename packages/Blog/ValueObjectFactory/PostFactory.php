@@ -118,7 +118,7 @@ final class PostFactory
      */
     private function decorateHeadlineWithId(string $htmlContent): string
     {
-        return Strings::replace($htmlContent, self::HEADLINE_REGEX, static function ($matches) : string {
+        return Strings::replace($htmlContent, self::HEADLINE_REGEX, static function ($matches): string {
             $level = $matches['level'];
             $headline = $matches['headline'];
             $idValue = Strings::webalize($headline);

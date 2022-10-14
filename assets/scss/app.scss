@@ -107,7 +107,6 @@ body {
 h1 {
     font-size: 2.7em;
     line-height: 1.4em;
-    font-weight: 300;
     padding-bottom: .5em;
 
     @include media-breakpoint-down(md) {
@@ -120,9 +119,12 @@ h1 {
 
     &.main-title {
         margin-top: 1.4em;
-        font-size: 3.7rem;
         line-height: 1.2em;
         font-weight: 800;
+
+        @include media-breakpoint-up(md) {
+            font-size: 3.6em;
+        }
 
         @include media-breakpoint-down(md) {
             font-size: 3em;
@@ -139,7 +141,8 @@ h1 {
 }
 
 #claim-title {
-    font-size: 4rem;
+    font-size: 4em;
+    margin-bottom: 1em;
 }
 
 h2 {
@@ -514,5 +517,16 @@ label.required:before {
     &:hover {
         background: #3da6c0;
         border-color: #3da6c0;
+    }
+}
+
+#rector_version {
+    a {
+        color: grey;
+        text-decoration: none !important;
+
+        &:hover {
+            text-decoration: underline !important;;
+        }
     }
 }

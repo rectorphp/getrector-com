@@ -1,12 +1,12 @@
 {
     "name": "getrector-org",
     "dependencies": {
-        "@fortawesome/fontawesome-free": "^5.9.0",
-        "@fortawesome/free-brands-svg-icons": "^5.9.0",
-        "@fortawesome/free-regular-svg-icons": "^5.9.0",
-        "@fortawesome/free-solid-svg-icons": "^5.9.0",
+        "@fortawesome/fontawesome-free": "^6.2",
+        "@fortawesome/free-brands-svg-icons": "^6.2",
+        "@fortawesome/free-regular-svg-icons": "^6.2",
+        "@fortawesome/free-solid-svg-icons": "^6.2",
         "ajv": "^6.10.1",
-        "bootstrap": "4.6.0",
+        "bootstrap": "^5.2",
         "caniuse-lite": "^1.0.30001419",
         "jquery": "^3.4.1",
         "tar": "^6.1.11",

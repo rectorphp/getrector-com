@@ -1,7 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
-namespace Tests\Acceptance;
+namespace Rector\Website\Tests\Acceptance;
 
 use Tests\Support\AcceptanceTester;
 
@@ -12,6 +13,6 @@ class SupportPageCest
         $I->amOnPage('/for-companies');
 
         // see text in for-companies page
-        $I->see('Is your Project Successful, but Programmers Struggle');
+        $I->see('Is your Project Successful, but Struggles to Evolve');
     }
 }

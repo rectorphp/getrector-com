@@ -33,6 +33,7 @@
         "codeception/codeception": "^5.0",
         "codeception/module-asserts": "*",
         "codeception/module-phpbrowser": "*",
+        "icanhazstring/composer-unused": "^0.8.4",
         "phpstan/extension-installer": "^1.1",
         "phpstan/phpstan": "^1.8",
         "phpunit/phpunit": "^9.5",

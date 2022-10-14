@@ -1,7 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
-namespace Tests\Acceptance;
+namespace Rector\Website\Tests\Acceptance;
 
 use Tests\Support\AcceptanceTester;
 
@@ -12,6 +13,6 @@ class HomePageCest
         $I->amOnPage('/');
 
         // see text in home page
-        $I->see('Rector is a CLI tool written in PHP');
+        $I->see('Automated Way to Instantly Upgrade and Refactor any PHP code');
     }
 }
