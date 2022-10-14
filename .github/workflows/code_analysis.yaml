@@ -36,6 +36,10 @@ jobs:
                         name: 'Lint Dependency Injection Container'
                         run: bin/console lint:container
 
+                    -
+                        name: 'Detect Unused Composer Packages'
+                        run: vendor/bin/composer-unused --ansi
+
         name: ${{ matrix.actions.name }}
         runs-on: ubuntu-latest
 
