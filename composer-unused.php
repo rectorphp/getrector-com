@@ -5,11 +5,22 @@
 declare(strict_types=1);
 
 use ComposerUnused\ComposerUnused\Configuration\Configuration;
+use ComposerUnused\ComposerUnused\Configuration\NamedFilter;
 use ComposerUnused\ComposerUnused\Configuration\PatternFilter;
 
 return static function (Configuration $config): Configuration {
     // rector dependency for running "online demo"
-    $config->addNamedFilter(\ComposerUnused\ComposerUnused\Configuration\NamedFilter::fromString('rector/rector'));
+    $config->addNamedFilter(NamedFilter::fromString('rector/rector'));
+
+    // used for jajodb patching
+    $config->addNamedFilter(NamedFilter::fromString('symplify/vendor-patches'));
+
+    // used in bootstrap.php to load .env file and set basic symfony env + debug state
+    $config->addNamedFilter(NamedFilter::fromString('symfony/dotenv'));
+
+    // used in bundles.php to twig-related configuration for Symfony
+    $config->addNamedFilter(NamedFilter::fromString('symfony/twig-bundle'));
+    $config->addNamedFilter(NamedFilter::fromString('symfony/webpack-encore-bundle'));
 
     return $config;
 };
