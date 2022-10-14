@@ -21,6 +21,6 @@ jobs:
             -   run: php -S localhost:8080 --docroot public &>/dev/null&
 
             -   run: yarn install
-            -   run: yarn run dev
+            -   run: yarn build
             -   run: cp .env_acceptance.dist .env
             -   run: vendor/bin/codecept run Acceptance
