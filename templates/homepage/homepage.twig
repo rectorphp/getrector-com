@@ -21,8 +21,6 @@
             </div>
         </div>
 
-
-
         {% include "_snippets/homepage_separator.twig" %}
 
         <h2>Rector Gives You Power to<br>Turn <span class="text-rector-blue">Legacy Code</span> into  <span class="text-rector-blue">Clean Code</span></h2>
@@ -33,41 +31,67 @@
 
         {% include "_snippets/homepage_separator.twig" %}
 
-        <div id="how"></div>
-        <h2>How Rector <span class="text-rector-blue">makes&nbsp;your&nbsp;Life&nbsp;Easier</span>?</h2>
+        <h2>
+            We Deliver <span class="text-rector-blue">10x faster & cheaper</span><br>
+            than In-house Teams</h2>
 
-        <div class="row text-center">
+        <div class="row">
+            <div class="col-4">
+                <div class="blockquote">
+                "90 % problems you'd face first time and don't know about yet,
+                we've already seen in dozens of project and know the best solution to."
+                </div>
+            </div>
+            <div class="col-8">
+                <img src="/assets/images/rector_chart.png" alt="Rector Chart" class="img-fluid img-thumbnail">
+            </div>
+        </div>
+
+        {% include "_snippets/homepage_separator.twig" %}
+
+        <h2>Rector <span class="text-rector-blue">makes&nbsp;your&nbsp;Life&nbsp;Easier</span></h2>
+
+        <div class="row text-center" id="rector_effects">
             <div class="col-6 col-md-4 mb-5">
                 <em class="fas fa-brain fa-3x text-rector-blue"></em>
-                <h3>Smarter Code</h3>
+                <p>
+                    Smarter Code &nbsp;<em class="fa text-rector-green fa-check-double fa-fw"></em>
+                </p>
             </div>
 
             <div class="col-6 col-md-4 mb-5">
                 <em class="fas fa-piggy-bank fa-3x text-rector-green"></em>
-                <h3>Cheaper Features</h3>
+                <p>
+                    Cheaper Features &nbsp;<em class="fa text-rector-green fa-check-double fa-fw"></em>
+                </p>
             </div>
 
             <div class="col-6 col-md-4 mb-5">
                 <em class="fas fa-users fa-3x text-rector-blue"></em>
-                <h3>Faster Onboarding</h3>
+                <p>
+                    Faster Onboarding &nbsp;<em class="fa text-rector-green fa-check-double fa-fw"></em>
+                </p>
             </div>
 
             <div class="col-6 col-md-4 mb-5">
                 <em class="fas fa-smile-beam fa-3x text-rector-green"></em>
-                <h3>
-                    Happier<br>
-                    Developers
-                </h3>
+                <p>
+                    Happier Developers &nbsp;<em class="fa text-rector-green fa-check-double fa-fw"></em>
+                </p>
             </div>
 
             <div class="col-6 col-md-4 mb-5">
                 <em class="fas fa-sync-alt fa-3x text-rector-blue fa-spin"></em>
-                <h3>Continuous Upgrades</h3>
+                <p>
+                    Continuous Upgrades &nbsp;<em class="fa text-rector-green fa-check-double fa-fw"></em>
+                </p>
             </div>
 
             <div class="col-6 col-md-4 mb-5">
-                <em class="fas fa-robot fa-3x text-rector-red"></em>
-                <h3>Automated Code Reviews</h3>
+                <em class="fas fa-rocket fa-3x text-rector-green"></em>
+                <p>
+                    Faster Code-Reviews &nbsp;<em class="fa text-rector-green fa-check-double fa-fw"></em>
+                </p>
             </div>
         </div>
 
@@ -76,14 +100,14 @@
 
         <div class="text-center">
             <a href="{{ path('contact') }}" class="btn btn-success btn-lg m-auto">
-                Take a leap to Ultra Project
+                Hire Us to make your Life Easier
             </a>
         </div>
 
         {% include "_snippets/homepage_separator.twig" %}
 
         <h2>
-            What do people <span class="text-rector-blue">Love&nbsp;about&nbsp;Rector</span>?
+            What our Clients <span class="text-rector-blue">Love&nbsp;about&nbsp;Rector</span>?
         </h2>
 
        <blockquote class="blockquote clearfix mb-5 mb-md-0">
@@ -135,13 +159,19 @@
 
         // @see https://safi.me.uk/typewriterjs/
         typewriter.typeString('Upgrade PHP')
-            .pauseFor(3000)
+            .pauseFor(600)
             .deleteChars(3)
             .typeString('Framework')
-            .pauseFor(2000)
+            .pauseFor(1200)
             .deleteAll()
-            .typeString('Remove Legacy')
-            .pauseFor(2000)
+            .typeString('Remove Legacy Code')
+            .pauseFor(1200)
+            .deleteChars(11)
+            .typeString('Technical Debt')
+            .pauseFor(1200)
+            .deleteAll()
+            .typeString('Improve Code Quality')
+            .pauseFor(1200)
             .start();
     </script>
 {% endblock %}
