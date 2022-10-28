@@ -72,6 +72,7 @@ vendor/bin/rector process
          mappings:
              App:
 -                type: annotation
++                type: attribute
 ```
 
 This enables new Symfony [auto-detection feature](https://github.com/symfony/symfony/pull/42054).
