@@ -89,11 +89,7 @@ final class PostFactory
         ) : null;
         $deprecatedMessage = $configuration['deprecated_message'] ?? null;
 
-        if (isset($configuration['since_rector'])) {
-            $sinceRector = (string) $configuration['since_rector'];
-        } else {
-            $sinceRector = null;
-        }
+        $sinceRector = isset($configuration['since_rector']) ? (string) $configuration['since_rector'] : null;
 
         return new Post(
             $id,
@@ -122,11 +118,10 @@ final class PostFactory
      */
     private function decorateHeadlineWithId(string $htmlContent): string
     {
-        return Strings::replace($htmlContent, self::HEADLINE_REGEX, function ($matches): string {
+        return Strings::replace($htmlContent, self::HEADLINE_REGEX, static function ($matches) : string {
             $level = $matches['level'];
             $headline = $matches['headline'];
             $idValue = Strings::webalize($headline);
-
             return sprintf('<h%d id="%s">%s</h%d>', $level, $idValue, $headline, $level);
         });
     }
