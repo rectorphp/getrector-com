@@ -36,7 +36,7 @@ final class PostRepository
     public function getPosts(): array
     {
         $posts = $this->posts;
-        return array_filter($posts, fn (Post $post): bool => ! $post->isDeprecated());
+        return array_filter($posts, static fn(Post $post): bool => ! $post->isDeprecated());
     }
 
     public function findBySlug(string $slug): ?Post
@@ -99,7 +99,7 @@ final class PostRepository
     {
         usort(
             $posts,
-            fn (Post $firstPost, Post $secondPost): int => $secondPost->getDateTime() <=> $firstPost->getDateTime()
+            static fn(Post $firstPost, Post $secondPost): int => $secondPost->getDateTime() <=> $firstPost->getDateTime()
         );
 
         return $posts;

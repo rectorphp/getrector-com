@@ -56,6 +56,6 @@ final class RoutingTwigExtension extends AbstractExtension
     {
         $currentRouteName = $request->get('_route');
 
-        return ltrim($currentRouteName, '/');
+        return ltrim((string) $currentRouteName, '/');
     }
 }

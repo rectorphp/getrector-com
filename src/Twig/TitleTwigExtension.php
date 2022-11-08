@@ -14,9 +14,8 @@ final class TitleTwigExtension extends AbstractExtension
      */
     public function getFilters(): array
     {
-        $twigFilter = new TwigFilter('clear_title', function (string $title): string {
+        $twigFilter = new TwigFilter('clear_title', static function (string $title) : string {
             $clearTitle = strip_tags($title);
-
             return str_replace('&nbsp;', ' ', $clearTitle);
         });
 

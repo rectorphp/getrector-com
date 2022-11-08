@@ -33,16 +33,11 @@ That's why we believe the community package should be in the hands of people who
 
 That's why we decided to separate typo3 and Nette from the core and let their active communities take over. They're not part of `rector/rector` anymore, but they're Rector extensions that you can install yourself if you need those:
 
-You can find those at:
-
-* https://github.com/sabbelasichon/typo3-rector
-* https://github.com/efabrica-team/rector-nette
-
 <br>
 
-**How to upgrade to Typo3 community Rector package?**
+### How to upgrade to Typo3 community Rector package?
 
-Add package via composer:
+Add [new package](https://github.com/sabbelasichon/typo3-rector) via composer:
 
 ```bash
 composer require sabbelasichon/typo3-rector --dev
@@ -50,13 +45,15 @@ composer require sabbelasichon/typo3-rector --dev
 
 <br>
 
-**How to upgrade to Nette community Rector package?**
+### How to upgrade to Nette community Rector package?
 
-Add package via composer:
+Add [new package](https://github.com/efabrica-team/rector-nette) via composer:
 
 ```bash
 composer require efabrica/rector-nette --dev
 ```
+
+<br>
 
 And replace namespace:
 
