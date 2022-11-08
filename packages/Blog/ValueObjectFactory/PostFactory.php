@@ -89,6 +89,12 @@ final class PostFactory
         ) : null;
         $deprecatedMessage = $configuration['deprecated_message'] ?? null;
 
+        if (isset($configuration['since_rector'])) {
+            $sinceRector = (string) $configuration['since_rector'];
+        } else {
+            $sinceRector = null;
+        }
+
         return new Post(
             $id,
             $title,
@@ -103,7 +109,7 @@ final class PostFactory
             $updatedMessage,
             $deprecatedSince,
             $deprecatedMessage,
-            $configuration['since_rector'] ?? null
+            $sinceRector
         );
     }
 

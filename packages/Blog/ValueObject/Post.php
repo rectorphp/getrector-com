@@ -24,7 +24,7 @@ final class Post
         private readonly ?string $updatedMessage = null,
         private readonly ?DateTimeInterface $deprecatedSince = null,
         private readonly ?string $deprecatedMessage = null,
-        private readonly ?float $sinceRector = null
+        private readonly ?string $sinceRector = null
     ) {
         $this->plaintextContent = strip_tags($htmlContent);
     }
@@ -123,7 +123,7 @@ final class Post
         return $this->updatedMessage;
     }
 
-    public function getSinceRector(): ?float
+    public function getSinceRector(): ?string
     {
         return $this->sinceRector;
     }
