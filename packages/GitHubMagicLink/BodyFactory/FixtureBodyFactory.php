@@ -21,7 +21,7 @@ final class FixtureBodyFactory
 __FIXTURE_NAMESPACE__
 
 // what is expected code?
-// should remain the same? delete part bellow ----- (included)
+// should remain the same? delete part below ----- (included)
 
 ?>
 CODE_SAMPLE;
