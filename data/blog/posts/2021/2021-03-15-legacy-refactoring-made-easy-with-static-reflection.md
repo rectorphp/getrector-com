@@ -38,7 +38,7 @@ You can **read more** in a great post on PHPStan blog - [Zero Config Analysis wi
 
 ## Configuration Everywhere
 
-In Rector 0.9 and bellow, you could define files and directories to autoload - with a bit of [RobotLoader help](https://tomasvotruba.com/blog/2020/06/08/drop-robot-loader-and-let-composer-deal-with-autoloading/).
+In Rector 0.9 and below, you could define files and directories to autoload - with a bit of [RobotLoader help](https://tomasvotruba.com/blog/2020/06/08/drop-robot-loader-and-let-composer-deal-with-autoloading/).
 
 ```php
 // rector.php
