@@ -613,12 +613,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "05578e7653c33d6ccffd3fe06cffff30d270dd45"
+                "reference": "067bd1245f5bf8320382ab31d7a3570903a871d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/05578e7653c33d6ccffd3fe06cffff30d270dd45",
-                "reference": "05578e7653c33d6ccffd3fe06cffff30d270dd45",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/067bd1245f5bf8320382ab31d7a3570903a871d9",
+                "reference": "067bd1245f5bf8320382ab31d7a3570903a871d9",
                 "shasum": ""
             },
             "require": {
@@ -662,7 +662,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-11-26T10:04:16+00:00"
+            "time": "2022-11-26T13:09:30+00:00"
         },
         {
             "name": "sebastian/diff",
