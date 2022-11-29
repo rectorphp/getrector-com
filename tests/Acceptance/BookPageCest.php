@@ -6,13 +6,13 @@ namespace Rector\Website\Tests\Acceptance;
 
 use Tests\Support\AcceptanceTester;
 
-class BookPageCest
+final class BookPageCest
 {
-    public function showBookPage(AcceptanceTester $I)
+    public function showBookPage(AcceptanceTester $acceptanceTester): void
     {
-        $I->amOnPage('/book');
+        $acceptanceTester->amOnPage('/book');
 
         // see text in book page
-        $I->see('The Power of Automated Refactoring');
+        $acceptanceTester->see('The Power of Automated Refactoring');
     }
 }

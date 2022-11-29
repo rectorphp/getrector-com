@@ -6,13 +6,14 @@ namespace Rector\Website\Tests\Acceptance;
 
 use Tests\Support\AcceptanceTester;
 
-class SupportPageCest
+final class SupportPageCest
 {
-    public function showSupportPage(AcceptanceTester $I)
+    public function showSupportPage(AcceptanceTester $acceptanceTester): void
     {
-        $I->amOnPage('/for-companies');
+        /** @see \Rector\Website\Controller\ForCompaniesController::__invoke */
+        $acceptanceTester->amOnPage('/for-companies');
 
         // see text in for-companies page
-        $I->see('Is your Project Successful, but Struggles to Evolve');
+        $acceptanceTester->see('Is your Project Successful, but Slowing Down?');
     }
 }

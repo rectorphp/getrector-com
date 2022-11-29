@@ -6,13 +6,13 @@ namespace Rector\Website\Tests\Acceptance;
 
 use Tests\Support\AcceptanceTester;
 
-class ContactPageCest
+final class ContactPageCest
 {
-    public function showContactPage(AcceptanceTester $I)
+    public function showContactPage(AcceptanceTester $acceptanceTester): void
     {
-        $I->amOnPage('/contact');
+        $acceptanceTester->amOnPage('/contact');
 
         // see text in contact page
-        $I->see('Meet the Team');
+        $acceptanceTester->see('Meet the Rector Team');
     }
 }

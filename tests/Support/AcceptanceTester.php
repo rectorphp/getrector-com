@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Tests\Support;
 
+use Codeception\Actor;
+use Tests\Support\_generated\AcceptanceTesterActions;
+
 /**
  * Inherited Methods
  *
@@ -17,12 +20,10 @@ namespace Tests\Support;
  * @method void lookForwardTo($achieveValue)
  * @method void comment($description)
  * @method void pause($vars = [])
- *
- * @SuppressWarnings(PHPMD)
  */
-class AcceptanceTester extends \Codeception\Actor
+final class AcceptanceTester extends Actor
 {
-    use _generated\AcceptanceTesterActions;
+    use AcceptanceTesterActions;
 
     /**
      * Define custom actions here
