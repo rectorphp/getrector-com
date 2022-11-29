@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Website\Tests\Demo\Helpers;
 
-use Rector\Php74\Rector\Property\TypedPropertyRector;
+use Rector\TypeDeclaration\Rector\Property\TypedPropertyFromAssignsRector;
 use Rector\Website\Demo\Entity\RectorRun;
 use Symfony\Component\Uid\Uuid;
 
@@ -18,7 +18,7 @@ final class DummyRectorRunFactory
             file_get_contents(__DIR__ . '/Source/rector_run_config_content.php.inc')
         );
 
-        $jsonResult['file_diffs'][]['applied_rectors'] = [TypedPropertyRector::class];
+        $jsonResult['file_diffs'][]['applied_rectors'] = [TypedPropertyFromAssignsRector::class];
         $rectorRun->setJsonResult($jsonResult);
 
         return $rectorRun;
