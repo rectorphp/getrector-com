@@ -1,7 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
-namespace Tests\Acceptance;
+namespace Rector\Website\Tests\Acceptance;
 
 use Tests\Support\AcceptanceTester;
 

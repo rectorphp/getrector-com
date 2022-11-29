@@ -2,124 +2,96 @@
 
 {% block main %}
     <div id="homepage">
-        <h1 class="main-title">
-            How can We <span class="text-rector-green" id="typewriter"></span>
+        <h1 class="main-title text-center" id="claim-title">
+            The Way You can Finally
             <br>
-            With Single CLI Command?
+            <span class="text-rector-green" id="typewriter"></span>
         </h1>
-
-        {% include "_snippets/homepage_separator.twig" %}
 
         <div class="text-bigger">
             <p>
-                Rector is a CLI tool written in PHP. It can instantly upgrade old PHP code and handle automated refactorings. It's fast and precise - changes <strong>5000 files under minute</strong>.
+                Rector <strong>instantly upgrades</strong> PHP code and handles <strong>automated refactoring</strong> for you.
+                <br>
+                It's precise and blazing fast with 5 000 files under a minute.
             </p>
 
-            <p>
-                The code is <a href="http://github.com/rectorphp/rector">open-sourced on GitHub</a>.
-            </p>
-
-            <a name="first-run"></a>
-            <h2>First Run</h2>
-
-            <p>
-                Add Rector to your project to save hours of manual boring work:
-            </p>
-
-            <br>
-
-            <div>
-                <code>
-                    composer require rector/rector --dev<br>
-                    vendor/bin/rector init<br>
-                    vendor/bin/rector --dry-run
-                </code>
+            <div class="text-center mt-5 mb-5 bigger-buttons">
+                <a href="{{ path('company_cooperation') }}" class="btn btn-lg btn-primary me-4">Hire Upgrade Team</a>
+                <a href="{{ path('demo') }}" class="btn btn-lg btn-success">Try It Online</a>
             </div>
         </div>
 
         {% include "_snippets/homepage_separator.twig" %}
 
-        <h2>Mission? Give You Power to<br>Turn <span class="text-rector-blue">Legacy Code</span> into  <span class="text-rector-blue">Clean Code</span></h2>
+        <h2>Rector Gives You Power to<br>Turn <span class="text-rector-blue">Legacy Code</span> into  <span class="text-rector-blue">Clean Code</span></h2>
 
         <div class="blockquote">
-            We're here to help every company and developer on the planet to get rid of any legacy PHP. Remove maintenance, cut costs of features to fractions and shift focus back to <strong>feature delivery and sustainable code that is joy to read</strong>.
+            We're here to help every company and developer on the planet to get rid out of legacy PHP. Reduce maintenance, cut costs of features to fractions and shift focus back to <strong>feature delivery and sustainable code</strong>.
         </div>
 
         {% include "_snippets/homepage_separator.twig" %}
 
         <h2>
-            Learn <span class="text-rector-blue">Rector in Depth </span> from a Book
-        </h2>
+            We Deliver <span class="text-rector-blue">10x faster & cheaper</span><br>
+            than In-house Teams</h2>
 
         <div class="row">
-            <div class="col-12 col-md-4 offset-md-1 text-center">
-                <a href="https://leanpub.com/rector-the-power-of-automated-refactoring">
-                    <img src="/assets/images/logo/logo_bigger/rector_book.png" style="max-width:100%; border:1px solid #DDD; padding: .7em">
-                </a>
+            <div class="col-4">
+                <div class="blockquote">
+                90 % problems you'll face for first time and don't even know about yet.<br>
+                We've already seen those in dozens of project and know how to solve."
+                </div>
             </div>
-            <div class="col-12 col-md-7 mt-4 mt-md-0">
-                <p class="text-bigger">
-                    <strong>
-                    In May 2021 we've released a book:<br>
-                    <a href="https://leanpub.com/rector-the-power-of-automated-refactoring?utm_source=getrectororg_homepage">Rector - The Power of Automated Refactoring</a>
-                    </strong>
-                </p>
-
-                <p>What's inside the book?</p>
-                <ul>
-                    <li>How Rector works internally?</li>
-                    <li>How to create your own rules and how test them?</li>
-                    <li>Why Rector was born?</li>
-                    <li>How will next 5 years of PHP shape differently?</li>
-                </ul>
-
-                <a href="https://leanpub.com/rector-the-power-of-automated-refactoring" class="btn btn-success btn-lg mt-4 mb-4">
-                    Grab a Copy!
-                </a>
-
-                <p>
-                    By buying the book you directly support Rector maintainers.
-                </p>
+            <div class="col-8">
+                <img src="/assets/images/rector_chart.png" alt="Rector Chart" class="img-fluid img-thumbnail">
             </div>
         </div>
 
         {% include "_snippets/homepage_separator.twig" %}
 
-        <div id="how"></div>
-        <h2>How Rector <span class="text-rector-blue">makes&nbsp;your&nbsp;Life&nbsp;Easier</span>?</h2>
+        <h2>Rector <span class="text-rector-blue">makes&nbsp;your&nbsp;Life&nbsp;Easier</span></h2>
 
-        <div class="row text-center">
+        <div class="row text-center" id="rector_effects">
             <div class="col-6 col-md-4 mb-5">
                 <em class="fas fa-brain fa-3x text-rector-blue"></em>
-                <h3>Smarter Code</h3>
+                <p>
+                    Smarter Code &nbsp;<em class="fa text-rector-green fa-check-double fa-fw"></em>
+                </p>
             </div>
 
             <div class="col-6 col-md-4 mb-5">
                 <em class="fas fa-piggy-bank fa-3x text-rector-green"></em>
-                <h3>Cheaper Features</h3>
+                <p>
+                    Cheaper Features &nbsp;<em class="fa text-rector-green fa-check-double fa-fw"></em>
+                </p>
             </div>
 
             <div class="col-6 col-md-4 mb-5">
                 <em class="fas fa-users fa-3x text-rector-blue"></em>
-                <h3>Faster Onboarding</h3>
+                <p>
+                    Faster Onboarding &nbsp;<em class="fa text-rector-green fa-check-double fa-fw"></em>
+                </p>
             </div>
 
             <div class="col-6 col-md-4 mb-5">
                 <em class="fas fa-smile-beam fa-3x text-rector-green"></em>
-                <h3>
-                    Happier<br>
-                    Developers
-                </h3>
+                <p>
+                    Happier Developers &nbsp;<em class="fa text-rector-green fa-check-double fa-fw"></em>
+                </p>
             </div>
 
             <div class="col-6 col-md-4 mb-5">
                 <em class="fas fa-sync-alt fa-3x text-rector-blue fa-spin"></em>
-                <h3>Continuous Upgrades</h3>
+                <p>
+                    Continuous Upgrades &nbsp;<em class="fa text-rector-green fa-check-double fa-fw"></em>
+                </p>
             </div>
 
             <div class="col-6 col-md-4 mb-5">
-                <em class="fas fa-robot fa-3x text-rector-red"></em>
-                <h3>Automated Code Reviews</h3>
+                <em class="fas fa-rocket fa-3x text-rector-green"></em>
+                <p>
+                    Faster Code-Reviews &nbsp;<em class="fa text-rector-green fa-check-double fa-fw"></em>
+                </p>
             </div>
         </div>
 
@@ -128,14 +100,16 @@
 
         <div class="text-center">
             <a href="{{ path('contact') }}" class="btn btn-success btn-lg m-auto">
-                Take a leap to Ultra Project
+                Hire Us to make your Life Easier
             </a>
         </div>
 
         {% include "_snippets/homepage_separator.twig" %}
 
         <h2>
-            What do people <span class="text-rector-blue">Love&nbsp;about&nbsp;Rector</span>?
+            What Developers <span class="text-rector-blue">Love&nbsp;about&nbsp;Rector</span>?
+            {# What our Clients <span class="text-rector-blue">Love&nbsp;about&nbsp;Rector</span>?#}
+            {# @todo update with client references #}
         </h2>
 
        <blockquote class="blockquote clearfix mb-5 mb-md-0">
@@ -152,7 +126,7 @@
         </blockquote>
 
         <blockquote class="blockquote clearfix">
-            <img src="https://pbs.twimg.com/profile_images/819586686149677056/DOMf3P79_400x400.jpg" class="rounded-circle img-face-smaller-left shadow mr-5" alt="">
+            <img src="https://pbs.twimg.com/profile_images/819586686149677056/DOMf3P79_400x400.jpg" class="rounded-circle img-face-smaller-left shadow me-5" alt="">
 
             <p>
                 "Just upgraded <strong>PHPUnit 4 to 8</strong> with Rector in <strong>3 seconds</strong>."
@@ -164,7 +138,7 @@
         </blockquote>
 
         <blockquote class="blockquote">
-            <img src="https://pbs.twimg.com/profile_images/937401535109238784/LUP1_bQf_400x400.jpg" class="rounded-circle img-face-smaller-right shadow ml-3" alt="">
+            <img src="https://pbs.twimg.com/profile_images/937401535109238784/LUP1_bQf_400x400.jpg" class="rounded-circle img-face-smaller-right shadow ms-3" alt="">
 
             <p>
                 "Rector is one of <strong>the most useful projects</strong> PHP developers overlook.<br>
@@ -187,13 +161,19 @@
 
         // @see https://safi.me.uk/typewriterjs/
         typewriter.typeString('Upgrade PHP')
-            .pauseFor(2000)
+            .pauseFor(600)
             .deleteChars(3)
-            .typeString('FW')
-            .pauseFor(2000)
+            .typeString('Framework')
+            .pauseFor(1200)
             .deleteAll()
-            .typeString('Remove Legacy')
-            .pauseFor(2000)
+            .typeString('Remove Legacy Code')
+            .pauseFor(1200)
+            .deleteChars(11)
+            .typeString('Technical Debt')
+            .pauseFor(1200)
+            .deleteAll()
+            .typeString('Improve Code Quality')
+            .pauseFor(1200)
             .start();
     </script>
 {% endblock %}

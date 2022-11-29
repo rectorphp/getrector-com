@@ -4,44 +4,45 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse float-left" id="navbarTogglerDemo01">
-            <ul class="navbar-nav mr-auto text-left text-md-center">
-                <li class="nav-item {% if is_current_routes(["homepage"]) %}active{% endif %}">
-                    <a href="{{ path('homepage') }}" class="nav-link">Home</a>
+            <ul class="navbar-nav me-auto text-left text-md-center">
+                <li class="nav-item me-5" id="top_right_logo">
+                    <a href="{{ path('homepage') }}">
+                        <img class="hidden-sm-down" src="{{ asset('assets/images/logo/rector-white.svg') }}" alt="">
+                    </a>
                 </li>
 
                 <li class="nav-item {% if is_current_routes(["demo", "demo_detail"]) %}active{% endif %}">
-                    <a href="{{ path('demo') }}" class="nav-link">Demo</a>
+                    <a href="{{ path('demo') }}" class="nav-link">Try</a>
                 </li>
 
                 <li class="nav-item {% if is_current_routes(["blog", "post"]) %}active{% endif %}">
                     <a href="{{ path('blog') }}" class="nav-link">Blog</a>
                 </li>
 
-                <li class="nav-item {% if is_current_routes(["book"]) %}active{% endif %}">
-                    <a href="{{ path('book') }}" class="nav-link">Book</a>
-                </li>
-
                 <li class="nav-item {% if is_current_routes(["for_companies"]) %}active{% endif %}">
-                    <a href="{{ path('for_companies') }}" class="nav-link">Support</a>
+                    <a href="{{ path('for_companies') }}" class="nav-link">Hire Us</a>
                 </li>
 
                 <li class="nav-item {% if is_current_routes(["contact"]) %}active{% endif %}">
                     <a href="{{ path('contact') }}" class="nav-link">Contact</a>
                 </li>
 
+                <li class="nav-item {% if is_current_routes(["docs"]) %}active{% endif %}">
+                    {# temporary link untill docs is moved here #}
+                    <a href="https://github.com/rectorphp/rector/tree/main/docs" class="nav-link" target="_blank">Docs</a>
+{#                    <a href="{{ path('docs') }}" class="nav-link">Docs</a>#}
+                </li>
+            </ul>
+        </div>
+
+        <div>
+            <ul class="navbar-nav me-auto text-md-center">
                 <li class="nav-item">
                     <a href="http://github.com/rectorphp/rector" class="nav-link">
                         <em class="fab fa-github fa-lg"></em>
                     </a>
                 </li>
             </ul>
-        </div>
-
-        <div id="top_right_logo">
-            <a href="{{ path('homepage') }}">
-                <img class="hidden-sm-down" src="{{ asset('assets/images/logo/rector-white.svg') }}" alt="">
-{#                <em class="hidden-md-up fas fa-home fa-lg text-light"></em>#}
-            </a>
         </div>
     </div>
 </nav>

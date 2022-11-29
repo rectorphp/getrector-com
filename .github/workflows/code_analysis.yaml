@@ -36,6 +36,11 @@ jobs:
                         name: 'Lint Dependency Injection Container'
                         run: bin/console lint:container
 
+                    -
+                        name: 'Detect Unused Composer Packages'
+                        # explicit output-format is needed, to github  does not override it on the CI
+                        run: vendor/bin/composer-unused --ansi --output-format default
+
         name: ${{ matrix.actions.name }}
         runs-on: ubuntu-latest
 
@@ -48,6 +53,6 @@ jobs:
                     php-version: 8.1
                     coverage: none
 
-            -   run: composer install --no-progress --ansi
+            -   run: composer install --ansi
 
             -   run: ${{ matrix.actions.run }}

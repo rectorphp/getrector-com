@@ -12,6 +12,7 @@
         </p>
 
         <br>
+        <br>
 
         <h2>1. Intro Analysis</h2>
 
@@ -53,7 +54,15 @@
 
         <br>
 
-        <hr>
+        <div class="text-bigger">
+            <div class="text-center mt-4 mb-5 bigger-buttons">
+                <a href="{{ path(constant('Rector\\Website\\ValueObject\\Routing\\RouteName::CONTACT')) }}" class="btn btn-success btn-lg m-auto">
+                    Contact us to Start Analysis of Your Project
+                </a>
+            </div>
+        </div>
+
+        <br>
 
         <h2>2. Hands on Upgrade</h2>
 
@@ -87,9 +96,19 @@
         </p>
 
         <br>
-        <br>
-        <br>
-        <br>
+
+        <div class="text-bigger">
+            <div class="text-center mt-4 mb-5 bigger-buttons">
+                <a href="{{ path(constant('Rector\\Website\\ValueObject\\Routing\\RouteName::FOR_COMPANIES')) }}" class="btn btn-primary btn-lg me-4">
+                    Check the Projects we Upgraded
+                </a>
+
+                <a href="{{ path(constant('Rector\\Website\\ValueObject\\Routing\\RouteName::CONTACT')) }}" class="btn btn-success btn-lg me-3">
+                    Contact us for Free Meeting
+                </a>
+            </div>
+        </div>
+
         <br>
     </div>
 {% endblock %}

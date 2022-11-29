@@ -2,16 +2,26 @@
 
 {% block main %}
     <div id="for_companies" >
-        <h1 class="main-title">
+        <h1 class="main-title text-center">
             Is your Project Successful,<br>
-            but Programmers Struggle?
+            but Struggles to Evolve?
         </h1>
 
         <p class="mt-5 text-bigger">
             Our clients used to have similar problem.
             <br>
-            We help them to make their team happy and productive again.
+            We help them to cut costs to fractions and make their teams productive again.
         </p>
+
+        <div class="row">
+            <div class="col-6 offset-3 text-center text-semi-bigger">
+                <div class="alert alert-info mt-5 mb-5">
+                    <em class="fa-solid fa-person-digging fa-fw"></em>
+                    &nbsp;
+                    <strong>12 companies</strong> hired us for upgrade this year.
+                </div>
+            </div>
+        </div>
 
         <div id="company_logos">
             <img src="{{ asset('assets/images/homepage/company_lines.png') }}" alt="">
@@ -28,7 +38,7 @@
 
                     <div class="clearfix"></div>
 
-                    <p>San Deigo, California</p>
+                    <p class="pull-right">San Deigo, California</p>
                 </div>
                 <div class="col-sm-8">
 
@@ -58,7 +68,7 @@
 
                     <div class="clearfix mb-4"></div>
 
-                    <p>Mellbourne, Australia</p>
+                    <p class="pull-right">Mellbourne, Australia</p>
                 </div>
                 <div class="col-sm-8">
                     <p class="company-description mb-4">
@@ -84,7 +94,7 @@
                     <div class="card shadow">
                         <div class="card-body company-quote-card-body">
                             <blockquote class="blockquote company-quote">
-                                <img src="https://user-images.githubusercontent.com/77585053/110624235-38a3b200-819e-11eb-9ecc-a8f7b62d3da3.jpeg" class="rounded-circle img-face-smaller-left shadow-sm mr-5" alt="">
+                                <img src="https://user-images.githubusercontent.com/77585053/110624235-38a3b200-819e-11eb-9ecc-a8f7b62d3da3.jpeg" class="rounded-circle img-face-smaller-left shadow-sm me-5" alt="">
 
                                 <p>
                                     "From upgrading our legacy projects and <strong>improving team's productivity, to making code review easier and more reliable</strong>, Rector is in the center within our PHP ecosystem."
@@ -111,7 +121,7 @@
 
                     <div class="clearfix mb-4"></div>
 
-                    <p>New York</p>
+                    <p class="pull-right">New York</p>
                 </div>
                 <div class="col-sm-8">
                     <p class="company-description mb-4">
@@ -138,7 +148,7 @@
                     <div class="card shadow">
                         <div class="card-body company-quote-card-body">
                             <blockquote class="blockquote company-quote">
-                                <img src="https://user-images.githubusercontent.com/77585053/110624233-37728500-819e-11eb-9efb-269e161c2ad4.jpeg" class="rounded-circle img-face-smaller-left shadow-sm mr-5" alt="">
+                                <img src="https://user-images.githubusercontent.com/77585053/110624233-37728500-819e-11eb-9efb-269e161c2ad4.jpeg" class="rounded-circle img-face-smaller-left shadow-sm me-5" alt="">
 
                                 <p>
                                     "Thanks to Rector, we were able to quite simply refactor the core of our API, which <strong>saved a lot of work</strong> that our developers would otherwise have to do manually."
@@ -163,7 +173,7 @@
 
                     <div class="clearfix mb-4"></div>
 
-                    <p>Rotterdam, Netherlands</p>
+                    <p class="pull-right">Rotterdam, Netherlands</p>
                 </div>
                 <div class="col-sm-8">
 
@@ -196,11 +206,6 @@
             <a href="{{ path(constant('Rector\\Website\\ValueObject\\Routing\\RouteName::CONTACT')) }}" class="btn btn-success btn-lg m-auto">
                 Contact us for Free Meeting
             </a>
-
-            <br>
-            <br>
-
-            <h3 style="font-weight: normal">We're here to Keep You Safe</h3>
 
             <br>
             <br>

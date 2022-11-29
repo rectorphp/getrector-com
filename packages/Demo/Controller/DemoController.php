@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Website\Demo\Controller;
 
+use Nette\Utils\Strings;
 use PackageVersions\Versions;
 use Rector\Core\Application\VersionResolver;
 use Rector\Website\Demo\DemoRunner;
@@ -78,6 +79,7 @@ final class DemoController extends AbstractController
 
         return $this->render('demo/demo.twig', [
             'rector_version' => $this->resolveRectorReleaseVersion(),
+            'rector_commit_hash' => Strings::after($this->resolveRectorReleaseVersion(), '@'),
             'rector_released_time' => VersionResolver::RELEASE_DATE,
             'demo_form' => $demoForm->createView(),
             'rector_run' => $rectorRun,
