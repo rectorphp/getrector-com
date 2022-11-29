@@ -13,6 +13,6 @@ class ContactPageCest
         $I->amOnPage('/contact');
 
         // see text in contact page
-        $I->see('Meet the Team');
+        $I->see('Meet the Rector Team');
     }
 }

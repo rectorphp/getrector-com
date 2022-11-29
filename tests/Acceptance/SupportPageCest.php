@@ -10,9 +10,10 @@ class SupportPageCest
 {
     public function showSupportPage(AcceptanceTester $I)
     {
+        /** @see \Rector\Website\Controller\ForCompaniesController::__invoke */
         $I->amOnPage('/for-companies');
 
         // see text in for-companies page
-        $I->see('Is your Project Successful, but Struggles to Evolve');
+        $I->see('Is your Project Successful, but Slowing Down?');
     }
 }

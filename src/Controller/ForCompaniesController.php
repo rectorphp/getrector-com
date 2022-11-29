@@ -16,7 +16,7 @@ final class ForCompaniesController extends AbstractController
     public function __invoke(Request $request): Response
     {
         return $this->render('homepage/for_companies.twig', [
-            'title' => 'Do you have a Successful Project, but old Code Programmers Hate',
+            'title' => 'Is your Project Successful, but Slowing Down?',
         ]);
     }
 }
