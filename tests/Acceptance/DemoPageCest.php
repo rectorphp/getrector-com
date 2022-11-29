@@ -6,23 +6,23 @@ namespace Rector\Website\Tests\Acceptance;
 
 use Tests\Support\AcceptanceTester;
 
-class DemoPageCest
+final class DemoPageCest
 {
-    public function showDemoPage(AcceptanceTester $I)
+    public function showDemoPage(AcceptanceTester $acceptanceTester): void
     {
-        $I->amOnPage('/demo');
+        $acceptanceTester->amOnPage('/demo');
 
         // see text in demo page
-        $I->see('Rector version: dev-main@');
+        $acceptanceTester->see('Rector version: dev-main@');
     }
 
-    public function clickProcessButton(AcceptanceTester $I)
+    public function clickProcessButton(AcceptanceTester $acceptanceTester): void
     {
-        $I->amOnPage('/demo');
-        $I->click('#demo_form_process');
+        $acceptanceTester->amOnPage('/demo');
+        $acceptanceTester->click('#demo_form_process');
 
         // see text in demo page after process button clicked
-        $I->see('What did Rector change?');
-        $I->see('-        // we never get here');
+        $acceptanceTester->see('What did Rector change?');
+        $acceptanceTester->see('-        // we never get here');
     }
 }

@@ -6,13 +6,13 @@ namespace Rector\Website\Tests\Acceptance;
 
 use Tests\Support\AcceptanceTester;
 
-class HomePageCest
+final class HomePageCest
 {
-    public function showHomePage(AcceptanceTester $I)
+    public function showHomePage(AcceptanceTester $acceptanceTester): void
     {
-        $I->amOnPage('/');
+        $acceptanceTester->amOnPage('/');
 
         // see text in home page
-        $I->see('Automated Way to Instantly Upgrade and Refactor any PHP code');
+        $acceptanceTester->see('Automated Way to Instantly Upgrade and Refactor any PHP code');
     }
 }

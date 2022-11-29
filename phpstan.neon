@@ -1,6 +1,7 @@
 parameters:
     paths:
         - src
+        - tests
         - config
         - packages
 
@@ -8,3 +9,14 @@ parameters:
 
     excludePaths:
         - "packages/demo/data/DemoFile.php"
+        # generated content that cannote be ignored
+        - "tests/Support/AcceptanceTester.php"
+
+    reportUnmatchedIgnoredErrors: false
+
+    ignoreErrors:
+        - '#Call to an undefined method Tests\\Support\\AcceptanceTester\:\:(.*?)\(\)#'
+        - '#Call to method (.*?)\(\) on an unknown class Tests\\Support\\AcceptanceTester#'
+        - '#Parameter \$acceptanceTester of method Rector\\Website\\Tests\\Acceptance\\(.*?)\(\) has invalid type Tests\\Support\\AcceptanceTester#'
+
+

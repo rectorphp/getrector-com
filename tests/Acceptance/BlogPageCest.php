@@ -6,13 +6,13 @@ namespace Rector\Website\Tests\Acceptance;
 
 use Tests\Support\AcceptanceTester;
 
-class BlogPageCest
+final class BlogPageCest
 {
-    public function showBlogPage(AcceptanceTester $I)
+    public function showBlogPage(AcceptanceTester $acceptanceTester): void
     {
-        $I->amOnPage('/blog');
+        $acceptanceTester->amOnPage('/blog');
 
         // see text in blog page
-        $I->see('Rector Blog');
+        $acceptanceTester->see('Rector Blog');
     }
 }
