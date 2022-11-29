@@ -25,7 +25,7 @@ class AnyClass
 
 ### Responsible rules
 
-* `TypedPropertyRector`
+* `TypedPropertyFromAssignsRector`
 
 ## Expected Behavior
 
