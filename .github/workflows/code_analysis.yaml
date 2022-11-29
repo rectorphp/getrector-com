@@ -53,6 +53,6 @@ jobs:
                     php-version: 8.1
                     coverage: none
 
-            -   run: composer install --no-progress --ansi
+            -   run: composer install --ansi
 
             -   run: ${{ matrix.actions.run }}
