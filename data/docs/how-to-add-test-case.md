@@ -23,7 +23,7 @@ bin/rector process /some-file.php
 
 See "Applied rules" under the diff:
 
-![Applied Rules](/docs/images/docs_applied_rules.png)
+<img src="/assets/images/documentation/docs_applied_rules.png" alt="Test Case" style="max-width: 35em" class="img-thumbnail">
 
 Our rule in this example is: `Rector\Privatization\Rector\Class_\FinalizeClassesWithoutChildrenRector`
 
@@ -67,7 +67,7 @@ Now we need to find the test case. The test case name is rule + `Test` suffix.
 
 Right here:
 
-![Rule Test Case](/docs/images/docs_rule_test_case.png)
+<img src="/assets/images/documentation/docs_rule_test_case.png" alt="Test Case" style="max-width: 20em" class="img-thumbnail">
 
 <br>
 
