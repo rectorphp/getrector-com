@@ -24,9 +24,9 @@
         {% include "_snippets/homepage_separator.twig" %}
 
         <h2>
-            We Help You Turn <span class="text-rector-blue">Legacy Code</span>
+            We Turn <span class="text-rector-blue">Legacy Code</span> into
             <br>
-            into <span class="text-rector-blue">Valuable Code</span>
+            <span class="text-rector-blue">Valuable and Sustainable Code</span>
         </h2>
 
         <div class="blockquote">
@@ -37,18 +37,32 @@
         {% include "_snippets/homepage_separator.twig" %}
 
         <h2>
-            We Deliver <span class="text-rector-blue">10x Faster & Cheaper</span><br>
-            than In-house Teams</h2>
+            We Deliver <span class="text-rector-blue">10x Faster and Cheaper</span><br>
+            thanks to Experience with <span class="text-rector-blue">50+ Upgrades</span>
+        </h2>
 
         <div class="row">
-            <div class="col-4">
-                <div class="blockquote">
-                90 % problems you'll face for first time and don't even know about yet.<br>
-                We've already seen those in dozens of project and know how to solve."
-                </div>
-            </div>
-            <div class="col-8">
+            <div class="col-7">
                 <img src="/assets/images/rector_chart.png" alt="Rector Chart" class="img-fluid img-thumbnail">
+            </div>
+
+            <div class="col-5">
+                <blockquote class="blockquote clearfix">
+                    <div>
+                        "90 % problems we'll face for the first time and don't know about yet,<br>
+                        you've already seen and know how to solve."
+                    </div>
+                    <footer class="blockquote-footer mt-2 pull-right me-3">
+                        One of our Honest Clients
+                    </footer>
+                </blockquote>
+
+                <br>
+                <br>
+
+                <div class="mt-4">
+                    {% include "_snippets/line/hired_us_line.twig" %}
+                </div>
             </div>
         </div>
 
@@ -59,21 +73,21 @@
         </h2>
 
         <div class="row text-center" id="rector_effects">
-            <div class="col-4 mb-5">
+            <div class="col-4">
                 <em class="fas fa-piggy-bank fa-3x text-rector-green"></em>
                 <p>
                     Cheaper Features &nbsp;<em class="fa text-rector-green fa-check-double fa-fw"></em>
                 </p>
             </div>
 
-            <div class="col-4 mb-5">
+            <div class="col-4">
                 <em class="fas fa-users fa-3x text-rector-blue"></em>
                 <p>
                     Faster Onboarding &nbsp;<em class="fa text-rector-green fa-check-double fa-fw"></em>
                 </p>
             </div>
 
-            <div class="col-4 mb-5">
+            <div class="col-4">
                 <em class="fas fa-smile-beam fa-3x text-rector-green"></em>
                 <p>
                     Happier Developers &nbsp;<em class="fa text-rector-green fa-check-double fa-fw"></em>
@@ -82,11 +96,10 @@
         </div>
 
         <br>
-        <br>
 
-        <div class="text-center">
+        <div class="text-center mt-5">
             <a href="{{ path('contact') }}" class="btn btn-success btn-lg m-auto">
-                Hire Us to make your Life Easier
+                Hire us to make your Project Awesome
             </a>
         </div>
 
@@ -107,8 +120,10 @@
             </footer>
         </blockquote>
 
-        <blockquote class="blockquote clearfix mb-5 mb-md-0">
-            <img src="https://www.adamgleiss.com/images/face.jpg" class="rounded-circle img-face-smaller-right shadow mt-0" alt="">
+        <hr class="quote-border-line">
+
+        <blockquote class="blockquote clearfix">
+            <img src="https://www.adamgleiss.com/images/face.jpg" class="rounded-circle img-face-smaller-right shadow me-5" alt="">
 
             <p class="ms-5">
                 "I'm <strong>extremely pleased with the progress</strong> we are making.<br>
@@ -119,6 +134,8 @@
                 William Adam Gleiss, VP of Technology at aRes Travel
             </footer>
         </blockquote>
+
+        <hr class="quote-border-line">
 
         <blockquote class="blockquote clearfix">
             <img src="https://user-images.githubusercontent.com/77585053/110624235-38a3b200-819e-11eb-9ecc-a8f7b62d3da3.jpeg" class="rounded-circle img-face-smaller-left shadow me-5" alt="">
@@ -131,7 +148,13 @@
             </footer>
         </blockquote>
 
-        <div class="text-center">
+        <br>
+
+        <div class="text-center mt-5">
+            <a href="{{ path('for_companies') }}" class="btn btn-primary btn-lg m-auto me-4">
+                Check More Projects we Upgraded
+            </a>
+
             <a href="{{ path('contact') }}" class="btn btn-success btn-lg m-auto">
                 Contact us to join Satisfied Clients
             </a>

@@ -10,33 +10,34 @@
         <p class="mt-5 text-bigger">
             Our clients used to have similar problem.
             <br>
-            We help them to cut costs to fractions and make their teams productive again.
+            We helped them to <strong>cut feature costs to fractions</strong> and make their teams <strong>productive again</strong>.
         </p>
 
-        <div class="row">
-            <div class="col-6 offset-3 text-center text-semi-bigger">
-                <div class="alert alert-info mt-5 mb-5">
-                    <em class="fa-solid fa-person-digging fa-fw"></em>
-                    &nbsp;
-                    <strong>12 companies</strong> hired us for upgrade this year.
-                </div>
-            </div>
-        </div>
+        <br>
+
+        <p>
+            Curious how do we work? We have <a href="{{ path('company_cooperation') }}">structured 2-step process →</a>
+        </p>
+
+        <br>
+        <br>
+
+        {% include "_snippets/line/hired_us_line.twig" %}
 
         <div id="company_logos">
             <img src="{{ asset('assets/images/homepage/company_lines.png') }}" alt="">
         </div>
 
-        <hr class="mt-5 mb-5">
+        <hr class="project-border-line">
 
         <div id="references">
             <div class="row">
                 <div class="col-sm-4 text-right pr-5">
-                    <img src="/assets/images/logo/logo_bigger/complex.jpg" class="img-fluid company-logo mt-3" style="max-width: 16em">
+                    <img src="/assets/images/logo/logo_bigger/complex.jpg" class="img-fluid company-logo mt-3 mb-4" style="max-width: 16em">
 
                     <div class="clearfix"></div>
 
-                    <p class="pull-right">Germany</p>
+                    <p>Germany</p>
                 </div>
                 <div class="col-sm-8">
                     <p class="company-description mt-3 mb-4">
@@ -59,7 +60,7 @@
             {# see twitter bootsrap 5 spacing https://getbootstrap.com/docs/5.2/utilities/spacing/ #}
             <div class="card shadow mt-4">
                 <div class="card-body company-quote-card-body">
-                    <blockquote class="blockquote company-quote me-4">
+                    <blockquote class="blockquote company-quote me-4 mb-5">
                         <img src="https://avatars.githubusercontent.com/u/47448731?v=4" class="rounded-circle img-face-smaller-left shadow-sm me-4" alt="">
 
                         <p>
@@ -74,17 +75,15 @@
                 </div>
             </div>
 
-            <br>
-            <hr class="mt-5 mb-5">
-            <br>
+            <hr class="project-border-line">
 
             <div class="row">
                 <div class="col-sm-4 text-right pr-5">
-                    <img src="/assets/images/logo/logo_bigger/ares_travel.svg" class="img-fluid company-logo" style="max-width: 16em">
+                    <img src="/assets/images/logo/logo_bigger/ares_travel.svg" class="img-fluid company-logo mb-4" style="max-width: 16em">
 
                     <div class="clearfix"></div>
 
-                    <p class="pull-right">San Deigo, California</p>
+                    <p>San Deigo, California</p>
                 </div>
                 <div class="col-sm-8">
                     <p class="company-description mt-3 mb-4">
@@ -122,17 +121,15 @@
                 </div>
             </div>
 
-            <br>
-            <hr class="mt-5 mb-5">
-            <br>
+            <hr class="project-border-line">
 
             <div class="row">
                 <div class="col-sm-4 text-right pr-5">
-                    <img src="/assets/images/logo/logo_bigger/eonx.png" class="img-fluid company-logo">
+                    <img src="/assets/images/logo/logo_bigger/eonx.png" class="img-fluid company-logo" style="max-width: 12em">
 
                     <div class="clearfix mb-4"></div>
 
-                    <p class="pull-right">Mellbourne, Australia</p>
+                    <p>Mellbourne, Australia</p>
                 </div>
                 <div class="col-sm-8">
                     <p class="company-description mb-4">
@@ -166,21 +163,17 @@
                 </div>
             </div>
 
-            <br>
+            <hr class="project-border-line">
 
-            <br>
-            <hr class="mt-5 mb-5">
-            <br>
-
-            <div class="row">
-                <div class="col-sm-4 text-right pr-5">
+            <div class="row mt-4">
+                <div class="col-sm-4">
                     <a href="https://spaceflow.io/">
-                        <img src="/assets/images/logo/logo_bigger/spaceflow.png" class="img-fluid company-logo" style="max-width: 15em">
+                        <img src="/assets/images/logo/logo_bigger/spaceflow.png" class="img-fluid mt-2" style="max-width: 16em">
                     </a>
 
                     <div class="clearfix mb-4"></div>
 
-                    <p class="pull-right">New York</p>
+                    <p>New York</p>
                 </div>
                 <div class="col-sm-8">
                     <p class="company-description mb-4">
@@ -215,41 +208,11 @@
                     </blockquote>
                 </div>
             </div>
-
-            <br>
-            <hr class="mt-5 mb-5">
-            <br>
-
-            <div class="row">
-                <div class="col-sm-4 text-right pr-5">
-                    <a href="https://werkenbij.jcid.nl/">
-                        <img src="/assets/images/logo/logo_bigger/jcid.png" class="img-fluid company-logo">
-                    </a>
-
-                    <div class="clearfix mb-4"></div>
-
-                    <p class="pull-right">Netherlands</p>
-                </div>
-                <div class="col-sm-8">
-
-                    <p class="company-description mt-2 mb-4">
-                        JCID is a web development company that is engaged daily in developing custom solutions that eliminate labor-intensive problems within business operations.
-                    </p>
-
-                    <h3>
-                        <strong>Upgrade from Symfony 2.7</strong>
-                    </h3>
-
-                    <ul>
-                        <li>Conversion of XML to YAML/PHP configuration</li>
-                        <li>Implementation of Gitlab CI with ECS, PHPStan and Rector</li>
-                    </ul>
-                </div>
-            </div>
+{#                        <img src="/assets/images/logo/logo_bigger/jcid.png" class="img-fluid company-logo">#}
         </div>
 
         <br>
-        <hr>
+        <br>
         <br>
         <br>
 
