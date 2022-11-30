@@ -1,34 +1,9 @@
-# How To Register Custom SetList Constant
+@todo set list
 
-You can have custom `SetList` class that has constants that pointed to your own config, for example:
-
-
-```php
-namespace App\Set\ValueObject;
-
-use Rector\Set\Contract\SetListInterface;
-
-final class SetList implements SetListInterface
-{
-    public const MY_FRAMEWORK_20 = __DIR__ . '/../../../config/set/my-framework-20.php';
-}
-```
-
-Now, you can register your custom `SetList`'s constant via import from `$containerConfigurator`, for example:
+@todo level set list
 
 
-```php
-use App\Set\ValueObject\SetList;
-use Rector\Config\RectorConfig;
-
-return static function (RectorConfig $rectorConfig): void {
-    $rectorConfig->sets([SetList::MY_FRAMEWORK_20]);
-
-    $rectorConfig->paths([__DIR__ . '/src']);
-};
-```
-
-Note that if you are looking for the downgrade categories, there is already the `DowngradeSetList`:
+Are looking for the downgrade categories? There is the `DowngradeSetList`:
 
 ```php
 use Rector\Set\ValueObject\DowngradeSetList;

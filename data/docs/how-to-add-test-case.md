@@ -1,5 +1,3 @@
-# How to Add Test for Rector Rule
-
 ## 1. Create an environment for testing
 
 When using Rector to update your own code, you will typically be using release repository installed by composer, however, when adding tests, you will need to use the development repository as shown:

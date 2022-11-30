@@ -1,5 +1,3 @@
-# 3 Steps to Create Your Own Rector
-
 First, make sure it's not covered by [any existing Rectors](/docs/rector_rules_overview.md).
 Let's say we want to **change method calls from `set*` to `change*`**.
 

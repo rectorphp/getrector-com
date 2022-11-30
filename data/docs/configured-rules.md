@@ -1,5 +1,3 @@
-# How To Configure Rules
-
 Rector rules that implement `Rector\Core\Contract\Rector\ConfigurableRectorInterface` can be configured.
 
 Typical example is `Rector\Renaming\Rector\Name\RenameClassRector`:

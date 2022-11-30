@@ -1,5 +1,3 @@
-# Ignore Rules or Paths
-
 ## Preferred Way: Config
 
 ```php
@@ -37,10 +35,6 @@ return static function (RectorConfig $rectorConfig): void {
 For in-file exclusion, use `@noRector \Rector\SomeClass\NameRector` annotation:
 
 ```php
-<?php
-
-declare(strict_types=1);
-
 class SomeClass
 {
     /**

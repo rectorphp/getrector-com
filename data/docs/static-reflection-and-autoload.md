@@ -1,6 +1,3 @@
-# Static Reflection and Autoload
-
-
 Rector is using static reflection to load code without running it since version 0.10. That means your classes are found **without composer autoload and without running them**. Rector will find them and work with them as you have PSR-4 autoload properly setup. This comes very useful in legacy projects or projects with custom autoload.
 
 Do you want to know more about it? Continue here:

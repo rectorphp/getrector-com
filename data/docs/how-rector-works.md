@@ -1,5 +1,3 @@
-# How Does Rector Work?
-
 (Inspired by [*How it works* in BetterReflection](https://github.com/Roave/BetterReflection/blob/master/docs/how-it-works.md))
 
 ## 1. Finds all files and Load Configured Rectors
