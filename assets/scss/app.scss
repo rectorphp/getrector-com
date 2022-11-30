@@ -36,6 +36,11 @@ a, a:hover, a:focus, button, button:focus {
 .bigger-buttons .btn {
     padding: .6em 1.1em;
     font-size: 1.3em;
+
+    @include media-breakpoint-down(sm) {
+        padding: .4em 1em;
+        font-size: 1em;
+    }
 }
 
 .alert a, .alert a:active, .alert a:focus, {
@@ -88,6 +93,10 @@ body {
             color: #20a55b;
         }
     }
+
+    @include media-breakpoint-down(sm) {
+        font-size: 1em;
+    }
 }
 
 h1 {
@@ -105,42 +114,33 @@ h1 {
 
     &.main-title {
         margin-top: 1.4em;
-        line-height: 1.2em;
+        line-height: 1.5em;
         font-weight: 800;
 
-        @include media-breakpoint-up(md) {
-            font-size: 3.6em;
-        }
+        font-size: 3.4em;
 
         @include media-breakpoint-down(md) {
+            line-height: 1.3em;
             font-size: 3em;
         }
 
         @include media-breakpoint-down(sm) {
-            font-size: 2.5em;
-        }
-
-        @include media-breakpoint-down(xs) {
             font-size: 2.2em;
         }
     }
 }
 
-#claim-title {
-    font-size: 4em;
-    margin-bottom: 1em;
-}
 
 h2 {
     font-size: 1.8em;
     line-height: 1.4em;
 
     @include media-breakpoint-down(md) {
-        font-size: 1.5em;
+        font-size: 1.4em;
     }
 
     @include media-breakpoint-down(sm) {
-        font-size: 1.25em;
+        font-size: 1.2em;
     }
 }
 
@@ -186,23 +186,6 @@ ul.list-noindent {
     }
 }
 
-.text-semi-bigger {
-    font-size: 1.15em;
-
-    strong {
-        font-size: 1em;
-    }
-
-    @include media-breakpoint-down(md) {
-        font-size: 1.1em;
-    }
-
-    @include media-breakpoint-down(sm) {
-        font-size: 1.5em;
-    }
-}
-
-
 .img-face {
     max-width: 10em;
     margin: .1em auto 2.8em auto;
@@ -222,7 +205,6 @@ ul.list-noindent {
     h2 {
         margin: 2em 0;
         text-align: center;
-        font-size: 2.4em;
 
         font-weight: 500 !important;
 
@@ -231,7 +213,7 @@ ul.list-noindent {
         }
 
         @include media-breakpoint-down(sm) {
-            font-size: 1.8em;
+            font-size: 1.5em;
         }
     }
 
@@ -262,9 +244,16 @@ ul.list-noindent {
     }
 
     @include media-breakpoint-down(sm) {
-        font-size: 1.2em;
+        font-size: 1.1em;
     }
 }
+
+.btn-lg {
+    @include media-breakpoint-down(sm) {
+        font-size: 1em;
+    }
+}
+
 
 .demo_form_code {
     width: 100%;
@@ -427,19 +416,6 @@ label.required:before {
     display: inline-block;
 }
 
-/* show/hidden menu; ref https://stackoverflow.com/a/35362821/1348344 */
-@media (min-width: 640px) {
-    .hidden-md-up {
-        display: none !important;
-    }
-}
-
-@media (max-width: 639px) {
-    .hidden-sm-down {
-        display: none !important;
-    }
-}
-
 #contribution_box {
     background-color: #fff7c4;
     width: 12em;
@@ -511,6 +487,10 @@ label.required:before {
         padding-top: 1em;
         font-size: 1.4em;
     }
+
+    @include media-breakpoint-down(sm) {
+        font-size: .7em;
+    }
 }
 
 .project-border-line {
@@ -557,5 +537,11 @@ label.required:before {
 
     pre {
         margin-bottom: 1.7em;
+    }
+}
+
+.fa-3x {
+    @include media-breakpoint-down(sm) {
+        font-size: 2em;
     }
 }
