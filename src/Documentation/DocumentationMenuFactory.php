@@ -14,25 +14,30 @@ use Symfony\Component\Finder\SplFileInfo;
 final class DocumentationMenuFactory
 {
     /**
-     * @return DocumentationSection[]
+     * @return array<string, DocumentationSection[]>
      */
     public function create(): array
     {
-        $fileInfos = $this->findMarkdownFileInfos(__DIR__ . '/../../data/docs');
-
         $documentationSection = [];
 
-        foreach ($fileInfos as $fileInfo) {
-            $basename = $fileInfo->getBasename('.md');
+        $documentationSection['Configuration'] = [
+            new DocumentationSection('import-names', 'Import Names'),
+            new DocumentationSection('set-list', 'Set List'),
+            new DocumentationSection('ignoring-rules-or-paths', 'Ignoring Rules or Paths'),
+            new DocumentationSection('configured-rules', 'Configured Rules'),
+            new DocumentationSection('static-reflection-and-autoload', 'Static Reflection And Autoload'),
+        ];
 
-            if ($basename === 'introduction') {
-                continue;
-            }
+        $documentationSection['Testing and CI'] = [
+            new DocumentationSection('cache-in-ci', 'Cache in CI'),
+            new DocumentationSection('troubleshooting-parallel', 'Troubleshooting Parallel'),
+            new DocumentationSection('how-to-add-test-case', 'How To Add Test Case'),
+        ];
 
-            $sectionTitle = $this->createSectionTitle($basename);
-
-            $documentationSection[] = new DocumentationSection($basename, $sectionTitle);
-        }
+        $documentationSection['Advanced'] = [
+            new DocumentationSection('how-rector-works', 'How Rector Works'),
+            new DocumentationSection('custom-rule', 'Custom Rule'),
+        ];
 
         return $documentationSection;
     }
@@ -45,16 +50,16 @@ final class DocumentationMenuFactory
         return str_replace([' In', 'Ci'], [' in', 'CI'], $sectionWords);
     }
 
-    /**
-     * @return SplFileInfo[]
-     */
-    private function findMarkdownFileInfos(string $directory): array
-    {
-        $finder = new Finder();
-        $finder->in($directory)
-            ->files()
-            ->name('*.md');
-
-        return iterator_to_array($finder);
-    }
+//    /**
+//     * @return SplFileInfo[]
+//     */
+//    private function findMarkdownFileInfos(string $directory): array
+//    {
+//        $finder = new Finder();
+//        $finder->in($directory)
+//            ->files()
+//            ->name('*.md');
+//
+//        return iterator_to_array($finder);
+//    }
 }

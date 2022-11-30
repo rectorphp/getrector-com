@@ -27,8 +27,11 @@ final class DocumentationMenuFactoryTest extends AbstractKernelTestCase
 
     public function testCreate(): void
     {
-        $documentationSections = $this->documentationMenuFactory->create();
-        $this->assertContainsOnlyInstancesOf(DocumentationSection::class, $documentationSections);
-        $this->assertGreaterThan(8, count($documentationSections));
+        $documentationSectionsByCategory = $this->documentationMenuFactory->create();
+
+        foreach ($documentationSectionsByCategory as $category => $documentationSections) {
+            $this->assertIsString($category);
+            $this->assertContainsOnlyInstancesOf(DocumentationSection::class, $documentationSections);
+        }
     }
 }

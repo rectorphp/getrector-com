@@ -7,8 +7,8 @@ namespace Rector\Website\ValueObject;
 final class DocumentationSection
 {
     public function __construct(
-        private string $slug,
-        private string $name,
+        private readonly string $slug,
+        private readonly string $name,
     ) {
     }
 

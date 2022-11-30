@@ -32,7 +32,12 @@ return static function (RectorConfig $rectorConfig): void {
 
     $rectorConfig->import(LevelSetList::UP_TO_PHP_81);
 
-    $rectorConfig->skip(['*/var/cache/*', __DIR__ . '/data/demo']);
+    $rectorConfig->skip([
+        '*/var/cache/*',
+        // on purpose
+        \Rector\CodeQuality\Rector\ClassMethod\InlineArrayReturnAssignRector::class,
+        \Rector\TypeDeclaration\Rector\ClassMethod\ArrayShapeFromConstantArrayReturnRector::class,
+    ]);
 
     $rectorConfig->rule(FinalizeClassesWithoutChildrenRector::class);
     $rectorConfig->ruleWithConfiguration(PreferThisOrSelfMethodCallRector::class, [

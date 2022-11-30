@@ -18,7 +18,7 @@ final class DocumentationController extends AbstractController
     ) {
     }
 
-    #[Route(path: 'docs/{section}', name: 'documentation', defaults: [
+    #[Route(path: 'documentation/{section}', name: 'documentation', defaults: [
         'section' => 'introduction',
     ])]
     public function __invoke(string $section): Response
@@ -30,7 +30,7 @@ final class DocumentationController extends AbstractController
         return $this->render('docs/section.twig', [
             'section_title' => $this->documentationMenuFactory->createSectionTitle($section),
             'section_html_contents' => $sectionHtmlContents,
-            'documentations_sections' => $this->documentationMenuFactory->create(),
+            'documentations_sections_by_category' => $this->documentationMenuFactory->create(),
         ]);
     }
 }
