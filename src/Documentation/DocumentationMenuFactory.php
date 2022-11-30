@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace Rector\Website\Documentation;
 
 use Rector\Website\ValueObject\DocumentationSection;
-use Symfony\Component\Finder\Finder;
-use Symfony\Component\Finder\SplFileInfo;
 
 /**
  * @see \Rector\Website\Tests\Documentation\DocumentationMenuFactoryTest
@@ -22,7 +20,7 @@ final class DocumentationMenuFactory
 
         $documentationSection['Configuration'] = [
             new DocumentationSection('import-names', 'Import Names'),
-            new DocumentationSection('set-list', 'Set List'),
+            new DocumentationSection('set-lists', 'Set Lists'),
             new DocumentationSection('ignoring-rules-or-paths', 'Ignoring Rules or Paths'),
             new DocumentationSection('configured-rules', 'Configured Rules'),
             new DocumentationSection('static-reflection-and-autoload', 'Static Reflection And Autoload'),
@@ -49,17 +47,4 @@ final class DocumentationMenuFactory
 
         return str_replace([' In', 'Ci'], [' in', 'CI'], $sectionWords);
     }
-
-//    /**
-//     * @return SplFileInfo[]
-//     */
-//    private function findMarkdownFileInfos(string $directory): array
-//    {
-//        $finder = new Finder();
-//        $finder->in($directory)
-//            ->files()
-//            ->name('*.md');
-//
-//        return iterator_to_array($finder);
-//    }
 }

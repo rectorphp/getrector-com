@@ -19,14 +19,15 @@ final class DocumentationController extends AbstractController
     }
 
     #[Route(path: 'documentation/{section}', name: 'documentation', defaults: [
+        // if the section is empty, default to "introduction"
         'section' => 'introduction',
     ])]
     public function __invoke(string $section): Response
     {
-        $sectionMarkdownFilePath = __DIR__ . '/../../data/docs/' . $section . '.md';
-        $sectionHtmlContents = $this->htmlFromMarkdownFactory->create($sectionMarkdownFilePath);
+        $sectionHtmlContents = $this->htmlFromMarkdownFactory->create(
+            __DIR__ . '/../../data/docs/' . $section . '.md'
+        );
 
-        // render menu ;)
         return $this->render('docs/section.twig', [
             'section_title' => $this->documentationMenuFactory->createSectionTitle($section),
             'section_html_contents' => $sectionHtmlContents,
