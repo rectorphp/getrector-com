@@ -12,12 +12,10 @@ final class DocumentationSection
     ) {
     }
 
-
     public function getSlug(): string
     {
         return $this->slug;
     }
-
 
     public function getName(): string
     {

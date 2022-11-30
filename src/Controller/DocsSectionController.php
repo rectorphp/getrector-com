@@ -29,7 +29,7 @@ final class DocsSectionController extends AbstractController
 
         // render menu ;)
         return $this->render('docs/section.twig', [
-            'section_title' => $this->createSectionTitle($section),
+            'section_title' => $this->documentationMenuFactory->createSectionTitle($section),
             'section_html_contents' => $sectionHtmlContents,
             'documentations_sections' => $this->documentationMenuFactory->create(),
         ]);
@@ -41,11 +41,5 @@ final class DocsSectionController extends AbstractController
         $sectionFileContents = FileSystem::read($markdownFilePath);
 
         return $this->parsedownExtra->parse($sectionFileContents);
-    }
-
-    private function createSectionTitle(string $section): string
-    {
-        $sectionWords = str_replace('-', ' ', $section);
-        return ucwords($sectionWords);
     }
 }

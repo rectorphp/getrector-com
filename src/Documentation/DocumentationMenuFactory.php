@@ -8,6 +8,9 @@ use Rector\Website\ValueObject\DocumentationSection;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
 
+/**
+ * @see \Rector\Website\Tests\Documentation\DocumentationMenuFactoryTest
+ */
 final class DocumentationMenuFactory
 {
     /**
@@ -15,13 +18,7 @@ final class DocumentationMenuFactory
      */
     public function create(): array
     {
-        $finder = new Finder();
-        $finder->in(__DIR__ . '/../../data/docs')
-            ->files()
-            ->name('*.md');
-
-        /** @var SplFileInfo[] $fileInfos */
-        $fileInfos = iterator_to_array($finder);
+        $fileInfos = $this->findMarkdownFileInfos(__DIR__ . '/../../data/docs/sections');
 
         $documentationSection = [];
 
@@ -35,9 +32,24 @@ final class DocumentationMenuFactory
         return $documentationSection;
     }
 
-    private function createSectionTitle(string $section): string
+    public function createSectionTitle(string $section): string
     {
         $sectionWords = str_replace('-', ' ', $section);
-        return ucwords($sectionWords);
+        $sectionWords = ucwords($sectionWords);
+
+        return str_replace(['In', 'Ci'], ['in', 'CI'], $sectionWords);
+    }
+
+    /**
+     * @return SplFileInfo[]
+     */
+    private function findMarkdownFileInfos(string $directory): array
+    {
+        $finder = new Finder();
+        $finder->in($directory)
+            ->files()
+            ->name('*.md');
+
+        return iterator_to_array($finder);
     }
 }
