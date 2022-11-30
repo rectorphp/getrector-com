@@ -36,17 +36,9 @@
 
         {% include "_snippets/homepage_separator.twig" %}
 
-
-
         <div class="text-center mt-5">
             {% include "_snippets/line/hired_us_line.twig" %}
-
-{#            <p class="mb-5">12 companies hired us last year...</p>#}
-
-            <img src="{{ asset('assets/images/logo/logo_bigger/curve.jpg') }}" style="max-width: 10em" class="me-5">
-            <img src="{{ asset('assets/images/logo/logo_bigger/omniconvert.png') }}" style="max-width: 10em" class="me-5">
-            <img src="{{ asset('assets/images/logo/logo_bigger/the_media_trust.jpg') }}" style="max-width: 10em" class="me-5">
-            <img src="{{ asset('assets/images/logo/logo_bigger/recras.png') }}" style="max-width: 10em">
+            {% include "_snippets/line/company_logos_line.twig" %}
         </div>
 
         {% include "_snippets/homepage_separator.twig" %}

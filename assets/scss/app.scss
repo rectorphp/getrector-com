@@ -52,10 +52,6 @@ a, a:hover, a:focus, button, button:focus {
         20.RESPONSIVE
 ============================*/
 
-#company_logos img {
-    width: 100%;
-}
-
 h1, h2, h3 {
     font-family: 'Inter', sans-serif;
 }
@@ -63,16 +59,6 @@ h1, h2, h3 {
 h3 {
     font-size: 1.4rem;
     line-height: 1.7em;
-}
-
-/* inspired by backers from https://nette.org/ */
-#company_logos {
-    margin: 3em;
-
-    img {
-        filter: grayscale(100%);
-        opacity: .70;
-    }
 }
 
 // sticky footer: see https://css-tricks.com/couple-takes-sticky-footer/#article-header-id-3
