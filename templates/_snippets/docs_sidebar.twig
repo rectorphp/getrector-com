@@ -1,4 +1,5 @@
 <div class="p-4">
+    <h3>Sections</h3>
 
     {# @see https://github.com/rectorphp/rector/tree/main/docs #}
     <ul>
@@ -6,10 +7,14 @@
             <a href="{{ path('docs') }}">Introduction</a>
         </li>
         <li>
-            <a href="{{ path('docs_import_names') }}">Improt Names</a>
+            <a href="{{ path('docs_section', { section: "import-names" }) }}">Import Names</a>
         </li>
 
-        <li>Learn Rector in Depth from Book</li>
+        <li>
+            <a href="https://leanpub.com/rector-the-power-of-automated-refactoring">
+                Learn Rector in Depth from Book
+            </a>
+        </li>
     </ul>
 
 </div>

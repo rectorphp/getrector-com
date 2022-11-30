@@ -69,5 +69,5 @@ final class RouteName
     /**
      * @var string
      */
-    public const DOCS_IMPORT_NAMES = 'docs_import_names';
+    public const DOCS_SECTION = 'docs_section';
 }

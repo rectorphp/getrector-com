@@ -14,11 +14,6 @@ final class DocsController extends AbstractController
     #[Route(path: 'docs', name: RouteName::DOCS)]
     public function __invoke(): Response
     {
-        // loda suffix
-        // load from file
-        // parse markdown to HTML :)
-        // render menu ;)
-
         return $this->render('docs/introduction.twig');
     }
 }
