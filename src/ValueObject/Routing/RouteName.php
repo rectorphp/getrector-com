@@ -64,5 +64,5 @@ final class RouteName
     /**
      * @var string
      */
-    public const DOCS = 'docs';
+    public const DOCUMENTATION = 'documentation';
 }

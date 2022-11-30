@@ -1,6 +1,6 @@
 {% extends "base.twig" %}
 
-{% set page_title %}Docs / Introduction{% endset %}
+{% set page_title %}Docs / {{ section_title }}{% endset %}
 
 {% block sidebar %}
     {% include "_snippets/docs_sidebar.twig" %}
@@ -8,7 +8,7 @@
 
 {% block main %}
     <div id="documentation">
-        <h1>Introduction</h1>
+        <h1>{{ section_title }}</h1>
 
         {{ section_html_contents|raw }}
     </div>
