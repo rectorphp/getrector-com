@@ -17,7 +17,7 @@
 
 
                 <li class="nav-item {% if is_current_routes(["for_companies"]) %}active{% endif %}">
-                    <a href="{{ path('for_companies') }}" class="nav-link">Hire Us</a>
+                    <a href="{{ path('for_companies') }}" class="nav-link">Hire Upgrade Team</a>
                 </li>
 
                 <li class="nav-item {% if is_current_routes(["blog", "post"]) %}active{% endif %}">
@@ -25,9 +25,7 @@
                 </li>
 
                 <li class="nav-item {% if is_current_routes(["docs"]) %}active{% endif %}">
-                    {# temporary link untill docs is moved here #}
-                    <a href="https://github.com/rectorphp/rector/tree/main/docs" class="nav-link" target="_blank">Docs</a>
-                    {#                    <a href="{{ path('docs') }}" class="nav-link">Docs</a>#}
+                    <a href="{{ path('docs') }}" class="nav-link">Documentation</a>
                 </li>
 
                 <li class="nav-item {% if is_current_routes(["contact"]) %}active{% endif %}">

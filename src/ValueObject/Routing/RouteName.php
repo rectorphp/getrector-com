@@ -65,4 +65,9 @@ final class RouteName
      * @var string
      */
     public const DOCS = 'docs';
+
+    /**
+     * @var string
+     */
+    public const DOCS_IMPORT_NAMES = 'docs_import_names';
 }
