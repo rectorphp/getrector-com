@@ -6,12 +6,11 @@ namespace Rector\Website\Controller;
 
 use Rector\Website\Documentation\DocumentationMenuFactory;
 use Rector\Website\Documentation\HTMLFromMarkdownFactory;
-use Rector\Website\ValueObject\Routing\RouteName;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-final class DocsSectionController extends AbstractController
+final class DocumentationController extends AbstractController
 {
     public function __construct(
         private readonly HTMLFromMarkdownFactory $htmlFromMarkdownFactory,
@@ -19,7 +18,9 @@ final class DocsSectionController extends AbstractController
     ) {
     }
 
-    #[Route(path: 'docs/{section}', name: RouteName::DOCS_SECTION)]
+    #[Route(path: 'docs/{section}', name: 'documentation', defaults: [
+        'section' => 'introduction',
+    ])]
     public function __invoke(string $section): Response
     {
         $sectionMarkdownFilePath = __DIR__ . '/../../data/docs/' . $section . '.md';

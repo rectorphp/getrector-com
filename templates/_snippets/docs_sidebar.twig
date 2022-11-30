@@ -6,7 +6,7 @@
         {# @see https://github.com/rectorphp/rector/tree/main/docs #}
         <ul>
             <li>
-                <a href="{{ path('docs') }}">Introduction</a>
+                <a href="{{ path('documentation') }}">Introduction</a>
             </li>
         </ul>
 
@@ -16,7 +16,7 @@
             {% for documentation_section in documentations_sections %}
                 {# @var documentation_section \Rector\Website\ValueObject\DocumentationSection #}
                 <li>
-                    <a href="{{ path('docs_section', { section: documentation_section.slug }) }}">
+                    <a href="{{ path('documentation', { section: documentation_section.slug }) }}">
                         {{ documentation_section.name }}
                     </a>
                 </li>

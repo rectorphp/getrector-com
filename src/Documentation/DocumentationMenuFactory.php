@@ -18,12 +18,17 @@ final class DocumentationMenuFactory
      */
     public function create(): array
     {
-        $fileInfos = $this->findMarkdownFileInfos(__DIR__ . '/../../data/docs/sections');
+        $fileInfos = $this->findMarkdownFileInfos(__DIR__ . '/../../data/docs');
 
         $documentationSection = [];
 
         foreach ($fileInfos as $fileInfo) {
             $basename = $fileInfo->getBasename('.md');
+
+            if ($basename === 'introduction') {
+                continue;
+            }
+
             $sectionTitle = $this->createSectionTitle($basename);
 
             $documentationSection[] = new DocumentationSection($basename, $sectionTitle);
@@ -37,7 +42,7 @@ final class DocumentationMenuFactory
         $sectionWords = str_replace('-', ' ', $section);
         $sectionWords = ucwords($sectionWords);
 
-        return str_replace(['In', 'Ci'], ['in', 'CI'], $sectionWords);
+        return str_replace([' In', 'Ci'], [' in', 'CI'], $sectionWords);
     }
 
     /**

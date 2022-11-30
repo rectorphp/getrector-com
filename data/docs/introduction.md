@@ -1,20 +1,24 @@
+Rector requires PHP 7.2+. It can work with PHP 5.x and 8.x code.
+It works best with OOP, typed code with separated PHP and template layers.
+
 ## Install
 
+```bash
+composer require rector/rector --dev
+```
 
-@todo
+You can run it from your bin directory:
+
+```bash
+vendor/bin/rector
+```
 
 ## First Run
 
-        <p>
-            Add Rector to your project to save hours of manual boring work:
-        </p>
+```bash
+vendor/bin/rector init
+```
 
-        <br>
-
-        <div>
-            <code>
-                composer require rector/rector --dev<br>
-                vendor/bin/rector init<br>
-                vendor/bin/rector --dry-run
-            </code>
-        </div>
+```bash
+vendor/bin/rector --dry-run
+```
