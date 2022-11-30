@@ -110,11 +110,11 @@ h1 {
     padding-bottom: .5em;
 
     @include media-breakpoint-down(md) {
-        font-size: 2.5em;
+        font-size: 2.4em;
     }
 
     @include media-breakpoint-down(sm) {
-        font-size: 2em;
+        font-size: 1.7em;
     }
 
     &.main-title {
@@ -146,7 +146,7 @@ h1 {
 }
 
 h2 {
-    font-size: 1.75em;
+    font-size: 1.8em;
     line-height: 1.4em;
 
     @include media-breakpoint-down(md) {
@@ -236,7 +236,7 @@ ul.list-noindent {
     h2 {
         margin: 2em 0;
         text-align: center;
-        font-size: 2.2em;
+        font-size: 2.4em;
 
         font-weight: 500 !important;
 
@@ -260,18 +260,16 @@ ul.list-noindent {
 .img-face-smaller-right {
     float: right;
     max-width: 5em;
-    margin: .1em auto 2.8em auto;
 }
 
 .img-face-smaller-left {
     float: left;
     max-width: 5em;
-    margin: .1em auto 2.8em auto;
+    margin: .1em auto 1.6em auto;
 }
 
 .blockquote {
     font-size: 1.4em;
-    margin-bottom: 1em;
 
     @include media-breakpoint-down(md) {
         font-size: 1.3em;
@@ -467,7 +465,6 @@ label.required:before {
 
 #references {
     .company-logo {
-        float: right;
         max-width: 10em;
         margin-top: .4em;
         margin-right: 0;
@@ -528,4 +525,16 @@ label.required:before {
         padding-top: 1em;
         font-size: 1.4em;
     }
+}
+
+.project-border-line {
+    border: 1px dashed #AAA;
+    margin-top: 6em;
+    margin-bottom: 6em;
+}
+
+.quote-border-line {
+    border: 1px dashed #AAA;
+    margin-top: 3em;
+    margin-bottom: 3em;
 }
