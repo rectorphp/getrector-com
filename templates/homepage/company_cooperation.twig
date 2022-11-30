@@ -2,7 +2,10 @@
 
 {% block main %}
     <div id="for_companies">
-        <h1 class="main-title">{{ title }}</h1>
+        <h1 class="main-title text-center">
+            How do we Cooperate<br>
+            with Companies?
+        </h1>
 
         <p class="text-bigger">
             We look for clients who want to <strong>build a long-term relationships</strong>. Quick changes can quickly backfire, but small, gradual steps lead to long-term success.
@@ -98,13 +101,19 @@
         <br>
 
         <div class="text-center mt-4 mb-5 bigger-buttons">
-            <a href="{{ path(constant('Rector\\Website\\ValueObject\\Routing\\RouteName::FOR_COMPANIES')) }}" class="btn btn-primary btn-lg me-4">
-                Check the Projects we Upgraded
-            </a>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <a href="{{ path(constant('Rector\\Website\\ValueObject\\Routing\\RouteName::FOR_COMPANIES')) }}" class="btn btn-primary btn-lg m-auto float-none float-md-end">
+                        Check Projects we Upgraded
+                    </a>
+                </div>
 
-            <a href="{{ path(constant('Rector\\Website\\ValueObject\\Routing\\RouteName::CONTACT')) }}" class="btn btn-success btn-lg me-3">
-                Contact us for Free Meeting
-            </a>
+                <div class="col-12 col-md-6 mt-3 mt-md-0">
+                    <a href="{{ path(constant('Rector\\Website\\ValueObject\\Routing\\RouteName::CONTACT')) }}" class="btn btn-success btn-lg m-auto float-none float-md-start">
+                        Contact us for Free Meeting
+                    </a>
+                </div>
+            </div>
         </div>
 
         <br>
