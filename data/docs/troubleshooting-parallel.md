@@ -1,5 +1,3 @@
-# How to Troubleshoot Parallel Issues
-
 You may get some parallel errors and ask how you can identify if there is something in your code or a real parallel issue than can be fixed by configuration. They may be displayed as:
 
 ```bash
