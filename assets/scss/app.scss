@@ -84,7 +84,7 @@ body {
 
     background-color: $black;
     color: #FFF;
-    font-size: 1.3em;
+    font-size: 1.1em;
 
     a {
         color: #21c87a;
@@ -95,7 +95,7 @@ body {
     }
 
     @include media-breakpoint-down(sm) {
-        font-size: 1em;
+        font-size: .9em;
     }
 }
 
