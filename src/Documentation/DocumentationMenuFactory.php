@@ -20,6 +20,7 @@ final class DocumentationMenuFactory
 
         $documentationSection['Configuration'] = [
             new DocumentationSection('import-names', 'Import Names'),
+            new DocumentationSection('define-paths', 'Define Paths'),
             new DocumentationSection('set-lists', 'Set Lists'),
             new DocumentationSection('ignoring-rules-or-paths', 'Ignoring Rules or Paths'),
             new DocumentationSection('configured-rules', 'Configured Rules'),
