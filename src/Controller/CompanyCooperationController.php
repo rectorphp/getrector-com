@@ -16,7 +16,7 @@ final class CompanyCooperationController extends AbstractController
     public function __invoke(Request $request): Response
     {
         return $this->render('homepage/company_cooperation.twig', [
-            'title' => 'How do we Cooperate with Companies?',
+            'title' => 'Hire us to Upgrade Your Project',
         ]);
     }
 }

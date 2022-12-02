@@ -2,101 +2,91 @@
 
 {% block main %}
     <div id="for_companies">
-        <h1 class="main-title text-center">
-            How do we Cooperate<br>
-            with Companies?
-        </h1>
+        <h1 class="main-title text-center">{{ title }}</h1>
 
         <p class="text-bigger">
-            We look for clients who want to <strong>build a long-term relationships</strong>. Quick changes can quickly backfire, but small, gradual steps lead to long-term success.
+            We look for clients who want to <strong>build a long-term relationships</strong>. Quick changes can quickly backfire with regression bugs. But small, gradual steps lead to <strong>long-term success</strong>.
             <br>
             <br>
-            That means we take on projects for 6-18 months and help clients get to the latest version of the PHP framework, making the CI very strong and helpful initially.
-            <br><br>
-            <strong>When our job is finished, you won't need us ever again.</strong>
+            We care about your success, so we take on projects for 6-12 months. We help you get to the latest PHP/framework version, make the CI next member of your team and help you deliver faster and cheaper features.
+            <br>
+            <br>
+            In the end, <strong>your code will work for you</strong>, be sustainable, easy to change and future-proof.
         </p>
 
         <br>
+        <br>
+
+        <p class="text-bigger">
+            To make this happen, we offer 2 services you can choose from:
+        </p>
+
+
+        <div class="row">
+            <div class="card col-12 col-sm-6">
+                <div class="card-header">Intro Analysis</div>
+            </div>
+
+            <div class="card col-12 col-sm-6">
+                <div class="card-header">Intro Analysis with Upgrade</div>
+            </div>
+        </div>
+
         <br>
 
         <h2>1. Intro Analysis</h2>
 
         <p>
-            Before we get into migration/upgrade itself, we have to make sure we know we can help you. Also, we have to know about all the weak spots that will complicate the process. You would not buy a house without checking its foundation, right?
+            At first, we want to make sure we know we can help you. Also, we want to explore the weak spots that would complicate the process. You would not buy a house without checking its foundation, right?
         </p>
-
         <p>
-            We signed an NDA first, so your code is safe with us. Then you share your codebase with us, ideally in a git repository URL.
+            We also want to provide you time and work estimates, so you can include them in your budget plan.
         </p>
 
-        <p>
-            <strong>
-                The process of intro analysis is a combination of tools, experience with other project upgrades, and detective work. We've done over 30 project upgrades, and every intro analysis was different.
-            </strong>
-        </p>
-
-        <br>
-
-        <p>To give you a rough idea, amongst others, we look at:</p>
+        <h3 class="mt-4">How does the Process look like?</h3>
 
         <ul>
-            <li>project size and its complexity - OOP, classes vs. function, cognitive complexity peaks, averages etc.</li>
-            <li>tooling that takes care of the code quality in the long term - tests, CI setup, PHPStan, Rector, coding standards, used sets, extensions, and levels, ignored errors, etc.</li>
-            <li>upgrade black holes - we go through the list of known black holes that can easily delay the upgrade by months and look for those or similar elements in the codebase</li>
+            <li>We sign an NDA, so your code is safe with us</li>
+            <li>Then you share your codebase with us, e.g. in a git repository</li>
+            <li>Then the detective work starts - we look into the code with various tools, explore weak and strong spots and work out the step by step plan that is tailored to your project</li>
+            <li>This analysis <strong>takes 3 weeks</strong></li>
+            <li>We finish the analysis, <strong>send you PDF with results</strong> and suggested plan, so you can discuss it with your team</li>
+            <li>Then we have a call on how to proceed</li>
         </ul>
 
-        <p>
-            The analysis is done with zero know-how input from your side. The reason is simple: developers who have taken care of code base for years got used to complicated patterns. These patterns made the project legacy in the first place. We have to identify those and get rid of them, so you're not in the same problem as before in a year.
-        </p>
+        <h3 class="mt-4">What exactly We Look for in the code?</h3>
 
-        <p>
-            This analysis takes us 3 weeks.
-        </p>
-
-        <p>
-            <strong>Then we will share the analysis with you and have a call around the results. On the call, we organize the next steps to start with.</strong>
-        </p>
-
-        <br>
-
-        <div class="text-center mt-4 mb-5 bigger-buttons">
-            <a href="{{ path(constant('Rector\\Website\\ValueObject\\Routing\\RouteName::CONTACT')) }}" class="btn btn-success btn-lg m-auto">
-                Contact us to Start Analysis of Your Project
-            </a>
-        </div>
+        <ul>
+            <li>Project size and its complexity - OOP, classes vs. function, cognitive complexity peaks, averages etc.</li>
+            <li>We run tooling that takes care of the code quality in the long term - tests, CI setup, PHPStan, Rector, coding standards, used sets, extensions, and levels, ignored errors, etc.</li>
+            <li>We go through a list of known black holes that delay the upgrade by months and look for those or similar elements in the codebase</li>
+            <li>For strong foundations that we can relly on kick of first steps from</li>
+            <li>Test coverage and type coverage</li>
+        </ul>
 
         <br>
 
         <h2>2. Hands on Upgrade</h2>
 
         <p>
-            After the call, we can start with the mentoring and upgrade work.
+            After we agree on first next steps, we can start immediately the upgrade work. Our team provides <strong>10-30 hours/week of direct help</strong>, depending if you prefer faster or slower pace. We'll dedicate you a developer with Rector experience on legacy projects, who knows how to deal with complex problems.
         </p>
 
         <p>
-            Our team provides 10-20 hours/week of direct help. This means we'll dedicate you to a developer with experience with Rector in legacy code bases who knows how to deal with complex problems.
+            This phase usually <strong>takes 6-12 months</strong>, depending on the upgrade target and code quality of your project.
         </p>
-
         <p>
-            This phase usually takes 6-18 months, depending on the upgrade target and entry level of the code quality.
+            One of our killing features is that we work in parallel to your team, so we're not blocking the business and <strong>you can keep delivering features as before</strong>.
         </p>
 
-        <p>During this process focus on:</p>
+        <h3>How does this Process look like?</h3>
 
         <ul>
-            <li>delivering the smallest PR possible so that you can merge it immediately</li>
-            <li>improving code quality first</li>
-            <li>making sure the work is always in a finished state in every PR</li>
-            <li>making CI helps us with any regression we face, so we have a safety net and can move further</li>
+            <li>We improve code quality to make bigger changes more reliable</li>
+            <li>We deliver the smallest PR possible so that you can see changes yourself and merge it immediately</li>
+            <li>We make sure the work is always in a finished state in every PR</li>
+            <li>We make CI helps us with regressions we meet, so we have a safety net and can move without fear</li>
         </ul>
-
-        <p>
-            We usually work aside from the company feature team. That way company can focus on delivering value, and we handle the upgrade in parallel.
-        </p>
-
-        <p>
-            To check in with each other, we can schedule a meeting once in 1-2 weeks to discuss the progress and next steps.
-        </p>
 
         <br>
 

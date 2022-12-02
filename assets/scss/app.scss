@@ -320,7 +320,7 @@ h2 a, a {
     }
 
     h3 {
-        margin-top: 1.2em;
+        margin-bottom: .4em;
     }
 
     .text-body {
@@ -432,11 +432,6 @@ label.required:before {
         margin-right: 0;
     }
 
-    .company-description {
-        font-style: italic;
-        color: #555;
-    }
-
     .company-quote {
         font-size: 1.2em;
 
@@ -470,6 +465,10 @@ label.required:before {
         background: #3da6c0;
         border-color: #3da6c0;
     }
+
+    // style on clicking on the button
+    --bs-btn-active-bg: #1d6c7d;
+    --bs-btn-active-border-color: #1d6c7d;
 }
 
 #rector_version {
