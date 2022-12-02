@@ -157,6 +157,16 @@ ul.list-noindent {
     }
 }
 
+ul.list-nobullet {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+
+    li {
+        line-height: 2em;
+    }
+}
+
 .reference-text {
     font-size: 1.3em;
 }

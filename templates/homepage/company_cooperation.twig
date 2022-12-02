@@ -16,25 +16,107 @@
 
         <br>
         <br>
+        <br>
 
-        <p class="text-bigger">
-            To make this happen, we offer 2 services you can choose from:
+        <p class="text-bigger text-center">
+            To make this happen, we offer 2 services you can choose from
         </p>
 
 
-        <div class="row">
-            <div class="card col-12 col-sm-6">
-                <div class="card-header">Intro Analysis</div>
+        <div class="row mt-5">
+            <div class="col-12 col-sm-6">
+                <div class="card shadow">
+                    <div class="card-header text-center bg-warning border-warning bg-opacity-25 border-opacity-50">
+                        Starter Choice
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title mb-4 text-center">Intro Analysis</h3>
+
+                        <ul class="list-nobullet">
+                            <li>
+                                <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
+                                We perform the intro analysis of your project
+                            </li>
+                            <li>
+                                <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
+                                It contains the plan how to start the upgrade
+                            </li>
+                            <li>
+                                <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
+                                The time/work estimates are in the optimal order
+                            </li>
+                            <li>
+                                <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
+                                Optimal once a 12-month as project health check
+                            </li>
+                            <li>
+                                <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
+                                It takes 3 weeks to deliver
+                            </li>
+                            <li>
+                                <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
+                                <strong>You can realize the plan yourself</strong>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="card-footer text-center pt-4 pb-4">
+                        <a href="#intro_analysis" class="btn btn-primary me-2">Learn More</a>
+                        <a href="{{ path('contact') }}" class="btn btn-success text">Contact us</a>
+                    </div>
+                </div>
             </div>
 
-            <div class="card col-12 col-sm-6">
-                <div class="card-header">Intro Analysis with Upgrade</div>
+            <div class="col-12 col-sm-6">
+                <div class="card shadow">
+                    <div class="card-header text-center bg-success text-white border-success">
+                        <strong>Most Wanted Choice</strong>
+                    </div>
+
+                    <div class="card-body">
+                        <h3 class="card-title mb-4 text-center">
+                            Intro Analysis + Hands on Upgrade
+                        </h3>
+
+                        <ul class="list-nobullet">
+                            <li>
+                                <em class="fa fa-left-long text-warning fa-fw"></em>&nbsp;
+                                All from previous, but also...
+                            </li>
+                            <li>
+                                <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
+                                We integrate the tooling to your CI in optimal way
+                            </li>
+                            <li>
+                                <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
+                                You can enjoy our experience of 50+ project upgrades
+                            </li>
+                            <li>
+                                <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
+                                You learn cool tricks with tool you already know
+                            </li>
+                            <li>
+                                <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
+                                You learn how to avoid making legacy code
+                            </li>
+                            <li>
+                                <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
+                                <strong>You leave the project upgrade to us</strong>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="card-footer text-center pt-4 pb-4">
+                        <a href="#hands_on_upgrade" class="btn btn-primary me-2">Learn More</a>
+                        <a href="{{ path('contact') }}" class="btn btn-success text">Contact us</a>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <br>
+        <hr class="project-border-line">
 
-        <h2>1. Intro Analysis</h2>
+        <h2 id="intro_analysis">1. Intro Analysis</h2>
 
         <p>
             At first, we want to make sure we know we can help you. Also, we want to explore the weak spots that would complicate the process. You would not buy a house without checking its foundation, right?
@@ -66,7 +148,7 @@
 
         <br>
 
-        <h2>2. Hands on Upgrade</h2>
+        <h2 id="hands_on_upgrade">2. Hands on Upgrade</h2>
 
         <p>
             After we agree on first next steps, we can start immediately the upgrade work. Our team provides <strong>10-30 hours/week of direct help</strong>, depending if you prefer faster or slower pace. We'll dedicate you a developer with Rector experience on legacy projects, who knows how to deal with complex problems.
@@ -79,7 +161,7 @@
             One of our killing features is that we work in parallel to your team, so we're not blocking the business and <strong>you can keep delivering features as before</strong>.
         </p>
 
-        <h3>How does this Process look like?</h3>
+        <h3 class="mt-4">How does the Upgrade look like?</h3>
 
         <ul>
             <li>We improve code quality to make bigger changes more reliable</li>
@@ -88,6 +170,7 @@
             <li>We make CI helps us with regressions we meet, so we have a safety net and can move without fear</li>
         </ul>
 
+        <br>
         <br>
 
         <div class="text-center mt-4 mb-5 bigger-buttons">
