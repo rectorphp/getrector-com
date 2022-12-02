@@ -1,7 +1,6 @@
 You can define paths to process in the `rector.php` config:
 
 ```php
-use Rector\Renaming\Rector\Name\RenameClassRector;
 use Rector\Config\RectorConfig;
 
 return static function (RectorConfig $rectorConfig): void {
