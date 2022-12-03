@@ -40,21 +40,3 @@ return static function (RectorConfig $rectorConfig): void {
     ]);
 };
 ```
-
-## Skip In-File with Annotation
-
-For in-file exclusion on specific line, use `@noRector` annotation:
-
-```php
-class SomeClass
-{
-    /** @noRector */
-    public const NAME = '102';
-
-    public function foo(): void
-    {
-        /** @noRector \Rector\DeadCode\Rector\Plus\RemoveDeadZeroAndOneOperationRector */
-        round(1 + 0);
-    }
-}
-```
