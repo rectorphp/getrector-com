@@ -57,12 +57,16 @@ If the false positive still happen, you can skip the rule applied as last resort
 ```php
 use Rector\Privatization\Rector\Class_\FinalizeClassesWithoutChildrenRector;
 
+use Rector\Config\RectorConfig;
+
+return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->skip([
         FinalizeClassesWithoutChildrenRector::class => [
             // classes that has children, and not detected even with composer dump-autoload -o
             __DIR__ . '/src/HasChildClass.php',
         ],
     ]);
+};
 ```
 
 ## Dealing with "Class ... was not found while trying to analyse it..."
@@ -73,6 +77,9 @@ In this case you may want to try one of the following solutions:
 ### Register
 
 ```php
+use Rector\Config\RectorConfig;
+
+return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->autoloadPaths([
         // the path to the exact class file
         __DIR__ . '/vendor/acme/my-custom-dependency/src/Your/Own/Namespace/TheAffectedClass.php',
@@ -81,16 +88,19 @@ In this case you may want to try one of the following solutions:
         // WARNING: beware of performances, try to narrow down the path
         //          as much as you can or you will slow down each run
     ]);
+};
 ```
 
 ### Register the path of the class to composer.json's `"files"` config, eg:
 
 ```javascript
+{
     "autoload-dev": {
         "files": [
             "vendor/acme/my-custom-dependency/src/Your/Own/Namespace/TheAffectedClass.php"
         ]
     }
+}
 ```
 
 After that, run:
