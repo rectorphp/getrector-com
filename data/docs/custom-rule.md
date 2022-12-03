@@ -1,4 +1,4 @@
-First, make sure it's not covered by [any existing Rectors](/docs/rector_rules_overview.md).
+First, make sure it's not covered by [any existing Rectors](https://github.com/rectorphp/rector/blob/main/docs/rector_rules_overview.md).
 Let's say we want to **change method calls from `set*` to `change*`**.
 
 ```diff
@@ -9,7 +9,7 @@ Let's say we want to **change method calls from `set*` to `change*`**.
 
 ## 1. Create a New Rector and Implement Methods
 
-Create a class that extends [`Rector\Core\Rector\AbstractRector`](/src/Rector/AbstractRector.php). It will inherit useful methods e.g. to check node type and name. See the source (or type `$this->` in an IDE) for a list of available methods.
+Create a class that extends [`Rector\Core\Rector\AbstractRector`](https://github.com/rectorphp/rector/blob/main/src/Rector/AbstractRector.php). It will inherit useful methods e.g. to check node type and name. See the source (or type `$this->` in an IDE) for a list of available methods.
 
 ```php
 declare(strict_types=1);
