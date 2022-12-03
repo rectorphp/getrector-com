@@ -26,6 +26,7 @@ final class DocumentationMenuFactory
             new DocumentationSection('configured-rules', 'Configured Rules'),
             new DocumentationSection('static-reflection-and-autoload', 'Static Reflection And Autoload'),
             new DocumentationSection('config-configuration', 'Config Configuration'),
+            new DocumentationSection('php-version-features', 'PHP Version Features'),
         ];
 
         $documentationSection['Testing and CI'] = [
