@@ -22,8 +22,6 @@ vendor/bin/rector process src/SingleFile.php
 Rector is looking for `*.php` files only out of the box. If you want to process other file suffixes, use `fileExtensions` config:
 
 ```php
-
-```php
 use Rector\Config\RectorConfig;
 
 return static function (RectorConfig $rectorConfig): void {
