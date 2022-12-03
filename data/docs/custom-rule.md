@@ -1,4 +1,4 @@
-First, make sure it's not covered by [any existing Rectors](/docs/rector_rules_overview.md).
+First, make sure it's not covered by [any existing Rectors](https://github.com/rectorphp/rector/blob/main/docs/rector_rules_overview.md).
 Let's say we want to **change method calls from `set*` to `change*`**.
 
 ```diff
