@@ -1,50 +1,56 @@
-## Preferred Way: Config
+Do you want to skip whole directory or just single rule? Use `skip()` method:
+
+```php
+use Rector\Config\RectorConfig;
+
+return static function (RectorConfig $rectorConfig): void {
+    $rectorConfig->skip([
+        __DIR__ . '/src/SingleFile.php',
+        __DIR__ . '/src/WholeDirectory',
+
+        // or use fnmatch
+        __DIR__ . '/src/*/Tests/*',
+    ]);
+};
+```
+
+Do you want to skip Rector rule?
 
 ```php
 use Rector\CodeQuality\Rector\If_\SimplifyIfReturnBoolRector;
 use Rector\Config\RectorConfig;
 
 return static function (RectorConfig $rectorConfig): void {
-    // is there a file you need to skip?
     $rectorConfig->skip([
-        // single file
-        __DIR__ . '/src/ComplicatedFile.php',
-        // or directory
-        __DIR__ . '/src',
-        // or fnmatch
-        __DIR__ . '/src/*/Tests/*',
-
-        // is there single rule you don't like from a set you use?
         SimplifyIfReturnBoolRector::class,
+    ]);
+};
+```
 
-        // or just skip rule in specific directory
+Do you want to skip specific rule only in a specific file?
+
+```php
+use Rector\Config\RectorConfig;
+
+return static function (RectorConfig $rectorConfig): void {
+    $rectorConfig->skip([
         SimplifyIfReturnBoolRector::class => [
-            // single file
             __DIR__ . '/src/ComplicatedFile.php',
-            // or directory
-            __DIR__ . '/src',
-            // or fnmatch
-            __DIR__ . '/src/*/Tests/*',
         ],
     ]);
 };
 ```
 
-## In a File
+## Skip In-File with Annotation
 
-For in-file exclusion, use `@noRector \Rector\SomeClass\NameRector` annotation:
+For in-file exclusion on specific line, use `@noRector` annotation:
 
 ```php
 class SomeClass
 {
-    /**
-     * @noRector
-     */
+    /** @noRector */
     public const NAME = '102';
 
-    /**
-     * @noRector
-     */
     public function foo(): void
     {
         /** @noRector \Rector\DeadCode\Rector\Plus\RemoveDeadZeroAndOneOperationRector */
