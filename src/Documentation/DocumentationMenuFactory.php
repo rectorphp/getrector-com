@@ -39,6 +39,7 @@ final class DocumentationMenuFactory
         $documentationSection['Advanced'] = [
             new DocumentationSection('how-rector-works', 'How Rector Works'),
             new DocumentationSection('custom-rule', 'Custom Rule'),
+            new DocumentationSection('rules-overview', 'Rules Overview'),
         ];
 
         return $documentationSection;

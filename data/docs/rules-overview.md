@@ -1,0 +1,5 @@
+* [Generic Rules](https://github.com/rectorphp/rector/blob/main/docs/rector_rules_overview.md)
+* [Symfony Rules](https://github.com/rectorphp/rector-symfony/blob/main/docs/rector_rules_overview.md)
+* [PHPUnit Rules](https://github.com/rectorphp/rector-phpunit/blob/main/docs/rector_rules_overview.md)
+* [Doctrine Rules](https://github.com/rectorphp/rector-doctrine/blob/main/docs/rector_rules_overview.md)
+* [Downgrade PHP Rules](https://github.com/rectorphp/rector-downgrade-php/blob/main/docs/rector_rules_overview.md)

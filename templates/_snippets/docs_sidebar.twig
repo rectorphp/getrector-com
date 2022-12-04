@@ -7,9 +7,9 @@
             </li>
         </ul>
 
-        <hr class="border-line">
-
         {% for category, documentation_sections in documentations_sections_by_category %}
+            <hr class="border-line">
+
             <h4 class="mt-4 mb-3">{{ category }}</h4>
 
             <ul>
@@ -22,8 +22,6 @@
                     </li>
                 {% endfor %}
             </ul>
-
-            <hr class="border-line">
         {% endfor %}
 
         <ul>
