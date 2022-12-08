@@ -16,20 +16,7 @@
             <div class="container mobile-margin-top">
                 {% include '_snippets/flash_messages.twig' %}
 
-                {# special behavior for docs, see https://stackoverflow.com/questions/42186007/conditionally-define-a-block-in-twig-2 #}
-                <div class="row">
-                    {% if block('sidebar') is not empty %}
-                        <div class="col-3">
-                            {% block sidebar %}{% endblock %}
-                        </div>
-                        <div class="col-9">
-                    {% else %}
-                        <div class="col-12">
-                    {% endif %}
-
-                        {% block main %}{% endblock %}
-                    </div>
-                </div>
+                {% block main %}{% endblock %}
             </div>
         {% endblock %}
 
