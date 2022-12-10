@@ -54,7 +54,7 @@ $projectName = $this->apiCaller->getProjectName(123);
 $project = new Project($projectName);
 ```
 
-and get a crash as pass a `null` to the `Project` constructor. We don't want that.
+and get a crash as pass a `null` to the `Project` constructor. **We don't want that.**
 
 From Rector 0.15, we removed the `ParamTypeDeclarationRector`, `ReturnTypeDeclarationRector`, and `PropertyTypeDeclarationRector` and their array alternatives, so this will not happen.
 
