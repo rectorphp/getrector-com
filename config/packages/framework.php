@@ -7,6 +7,13 @@ use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigura
 return static function (ContainerConfigurator $containerConfigurator): void {
     $containerConfigurator->extension('framework', [
         'secret' => '%env(APP_SECRET)',
-        'session' => true,
+        // inspired in https://github.com/symfony/demo/blob/main/config/packages/framework.yaml
+        'session' => [
+            'handler_id' => null,
+            'cookie_secure' => 'auto',
+            'cookie_samesite' => 'lax',
+            'storage_factory_id' => 'session.storage.factory.native',
+            'save_path' => '%kernel.project_dir%/var/sessions',
+        ],
     ]);
 };
