@@ -5,6 +5,11 @@ parameters:
         - config
         - packages
 
+    type_coverage:
+        return_type: 99
+        param_type: 99
+        property_type: 99
+
     level: 8
 
     excludePaths:

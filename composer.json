@@ -41,7 +41,8 @@
         "symplify/easy-coding-standard": "^11.1",
         "symplify/easy-testing": "^11.1",
         "symplify/phpstan-extensions": "^11.1",
-        "symplify/phpstan-rules": "^11.1"
+        "symplify/phpstan-rules": "^11.1",
+        "tomasvotruba/type-coverage": "^0.0.7"
     },
     "autoload": {
         "psr-4": {
