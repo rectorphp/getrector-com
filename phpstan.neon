@@ -10,6 +10,11 @@ parameters:
         param_type: 99
         property_type: 99
 
+    unused_public:
+        methods: true
+        properties: true
+        constants: true
+
     level: 8
 
     excludePaths:
