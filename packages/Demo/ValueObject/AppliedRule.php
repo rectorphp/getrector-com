@@ -32,11 +32,6 @@ final class AppliedRule
         return $this->shortClass;
     }
 
-    public function getClass(): string
-    {
-        return $this->class;
-    }
-
     public function getTestFixtureNamespace(): string
     {
         $classParts = explode('\\', $this->class);

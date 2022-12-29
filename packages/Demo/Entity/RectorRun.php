@@ -71,14 +71,6 @@ final class RectorRun implements JsonSerializable
         return $this->config;
     }
 
-    /**
-     * @return mixed[]
-     */
-    public function getJsonResult(): array
-    {
-        return $this->jsonResult;
-    }
-
     public function isSuccessful(): bool
     {
         if ($this->fatalErrorMessage !== null) {

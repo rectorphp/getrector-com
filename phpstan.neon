@@ -17,6 +17,10 @@ parameters:
         twig_template_paths:
             - templates
 
+    cognitive_complexity:
+        class: 50
+        function: 8
+
     level: 8
 
     excludePaths:

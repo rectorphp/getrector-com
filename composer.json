@@ -42,8 +42,9 @@
         "symplify/easy-testing": "^11.1",
         "symplify/phpstan-extensions": "^11.1",
         "symplify/phpstan-rules": "^11.1",
+        "tomasvotruba/cognitive-complexity": "^0.0.5",
         "tomasvotruba/type-coverage": "^0.0.7",
-        "tomasvotruba/unused-public": "^0.0.32"
+        "tomasvotruba/unused-public": "^0.0.33"
     },
     "autoload": {
         "psr-4": {
