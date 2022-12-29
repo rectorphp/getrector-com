@@ -8,8 +8,6 @@ use DateTimeInterface;
 
 final class Post
 {
-    private readonly string $plaintextContent;
-
     public function __construct(
         private readonly int $id,
         private readonly string $title,
@@ -26,12 +24,6 @@ final class Post
         private readonly ?string $deprecatedMessage = null,
         private readonly ?string $sinceRector = null
     ) {
-        $this->plaintextContent = strip_tags($htmlContent);
-    }
-
-    public function getAbsoluteUrl(): string
-    {
-        return $this->absoluteUrl;
     }
 
     public function getId(): int
@@ -54,11 +46,6 @@ final class Post
         return $this->htmlContent;
     }
 
-    public function getPlaintextContent(): string
-    {
-        return $this->plaintextContent;
-    }
-
     public function getSlug(): string
     {
         return $this->slug;
@@ -67,11 +54,6 @@ final class Post
     public function getDateTime(): DateTimeInterface
     {
         return $this->dateTime;
-    }
-
-    public function getYear(): int
-    {
-        return (int) $this->dateTime->format('Y');
     }
 
     public function getTweetLink(): string

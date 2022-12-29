@@ -15,7 +15,7 @@ final class FixtureBodyFactory
     /**
      * @var string
      */
-    public const CHANGE_HALF_FIXTURE = <<<'CODE_SAMPLE'
+    private const CHANGE_HALF_FIXTURE = <<<'CODE_SAMPLE'
 <?php
 
 __FIXTURE_NAMESPACE__
