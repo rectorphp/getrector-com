@@ -14,6 +14,8 @@ parameters:
         methods: true
         properties: true
         constants: true
+        twig_template_paths:
+            - templates
 
     level: 8
 
