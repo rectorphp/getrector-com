@@ -11,7 +11,7 @@
         "rector/rector": "dev-main",
         "symfony/asset": "^6.1",
         "symfony/cache": "^6.1",
-        "symfony/dependency-injection": "^6.1",
+        "symfony/dependency-injection": "6.1.*",
         "symfony/dotenv": "^6.1",
         "symfony/form": "^6.1",
         "symfony/framework-bundle": "^6.1",
