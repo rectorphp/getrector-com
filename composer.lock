@@ -8451,16 +8451,16 @@
         },
         {
             "name": "symplify/coding-standard",
-            "version": "11.1.26.72",
+            "version": "11.1.27.72",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/coding-standard.git",
-                "reference": "e1e18bdb1be33f033303ea2499d3c9db939fac6c"
+                "reference": "456ed15eba139824868739dfbf4d138d556fdde1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/coding-standard/zipball/e1e18bdb1be33f033303ea2499d3c9db939fac6c",
-                "reference": "e1e18bdb1be33f033303ea2499d3c9db939fac6c",
+                "url": "https://api.github.com/repos/symplify/coding-standard/zipball/456ed15eba139824868739dfbf4d138d556fdde1",
+                "reference": "456ed15eba139824868739dfbf4d138d556fdde1",
                 "shasum": ""
             },
             "require": {
@@ -8474,7 +8474,7 @@
             "description": "Set of Symplify rules for PHP_CodeSniffer and PHP CS Fixer.",
             "support": {
                 "issues": "https://github.com/symplify/coding-standard/issues",
-                "source": "https://github.com/symplify/coding-standard/tree/11.1.26.72"
+                "source": "https://github.com/symplify/coding-standard/tree/11.1.27.72"
             },
             "funding": [
                 {
@@ -8486,7 +8486,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-01-07T16:38:39+00:00"
+            "time": "2023-01-07T16:53:58+00:00"
         },
         {
             "name": "symplify/easy-ci",
