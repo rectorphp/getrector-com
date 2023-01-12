@@ -5,7 +5,7 @@
         <h1 class="main-title text-center">
             The Way You can Finally
             <br>
-            <span class="text-rector-green" id="typewriter"></span>
+            <span class="text-rector-green">Upgrade PHP</span>
         </h1>
 
         <div class="text-bigger mt-3 text-center">
@@ -157,34 +157,4 @@
             </div>
         </div>
     </div>
-
-    <script>
-        var app = document.getElementById('typewriter');
-
-        var typewriter = new Typewriter(app, {
-            loop: true,
-            cursor: '*',
-        });
-
-        // @see https://safi.me.uk/typewriterjs/
-        typewriter.typeString('Upgrade PHP')
-            .pauseFor(600)
-            .deleteChars(3)
-
-            .typeString('Framework')
-            .pauseFor(1200)
-            .deleteAll()
-
-            .typeString('Remove Legacy Code')
-            .pauseFor(1200)
-            .deleteChars(11)
-
-            .typeString('Technical Debt')
-            .pauseFor(1200)
-            .deleteAll()
-
-            .typeString('Improve Code Quality')
-            .pauseFor(1200)
-            .start();
-    </script>
 {% endblock %}
