@@ -86,16 +86,28 @@ body {
     color: #FFF;
     font-size: 1.1em;
 
-    a {
-        color: #21c87a;
-
-        &:hover {
-            color: #20a55b;
-        }
-    }
-
     @include media-breakpoint-down(sm) {
         font-size: .9em;
+    }
+
+    ul.navbar-nav {
+        margin-top: -.7em;
+        display: block;
+
+        li {
+            float: left;
+            padding: .2em .6em;
+
+            a.nav-link {
+                color: #FFF;
+                text-decoration: underline !important;
+
+                &:hover {
+                    text-decoration: none !important;
+                }
+            }
+
+        }
     }
 }
 
