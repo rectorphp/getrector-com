@@ -99,13 +99,20 @@ body {
             padding: .2em .6em;
 
             a.nav-link {
-                color: #FFF;
                 text-decoration: underline !important;
 
                 &:hover {
                     text-decoration: none !important;
                 }
             }
+        }
+    }
+
+    a {
+        color: #FFF;
+
+        &:hover {
+            color: #DDD;
         }
     }
 }
