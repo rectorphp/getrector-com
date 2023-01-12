@@ -9,6 +9,11 @@ final class RouteName
     /**
      * @var string
      */
+    public const ABOUT = 'about';
+
+    /**
+     * @var string
+     */
     public const BANK_DETAILS = 'bank_details';
 
     /**
