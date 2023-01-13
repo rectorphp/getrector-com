@@ -22,7 +22,7 @@ final class HomepageController extends AbstractController
     public function __invoke(): Response
     {
         return $this->render('homepage/homepage.twig', [
-            'title' => "We'll Speed up your Development Process by 300 %",
+            'page_title' => "We'll Speed up your Development Process by 300 %",
             'last_5_posts' => $this->postRepository->fetchLast(5),
         ]);
     }
