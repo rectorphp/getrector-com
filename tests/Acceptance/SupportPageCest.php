@@ -11,9 +11,9 @@ final class SupportPageCest
     public function showSupportPage(AcceptanceTester $acceptanceTester): void
     {
         /** @see \Rector\Website\Controller\ForCompaniesController::__invoke */
-        $acceptanceTester->amOnPage('/for-companies');
+        $acceptanceTester->amOnPage('/hire-team');
 
-        // see text in for-companies page
+        // see text in hire-team page
         $acceptanceTester->see('Hire Rector team to Reduce Costs and Technical Debt');
     }
 }
