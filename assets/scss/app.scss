@@ -551,8 +551,14 @@ label.required:before {
     }
 }
 
-.fa-3x {
-    @include media-breakpoint-down(sm) {
-        font-size: 2em;
+#company_logos {
+    img {
+        max-width: 8em;
+        opacity: 70%;
+        transition-duration: .3s;
+
+        &:hover {
+            opacity: 100%;
+        }
     }
 }
