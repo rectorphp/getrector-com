@@ -29,7 +29,6 @@
 
         <div class="text-center mt-5">
             {% include "_snippets/line/hired_us_line.twig" %}
-            {% include "_snippets/line/company_logos_line.twig" %}
         </div>
 
         {% include "_snippets/homepage_separator.twig" %}
@@ -67,32 +66,31 @@
             <div class="col-4">
                 <em class="fas fa-piggy-bank fa-3x text-rector-green"></em>
                 <p>
-                    Cheaper Features &nbsp;<em class="fa text-rector-green fa-check-double fa-fw"></em>
+                    Get High-Quality Code
                 </p>
             </div>
 
             <div class="col-4">
-                <em class="fas fa-users fa-3x text-rector-green"></em>
+                <em class="fas fa-money-check-alt fa-3x text-rector-green"></em>
                 <p>
-                    Faster Onboarding &nbsp;<em class="fa text-rector-green fa-check-double fa-fw"></em>
+                    Reduce Maintenance Cost
                 </p>
             </div>
 
             <div class="col-4">
                 <em class="fas fa-smile-beam fa-3x text-rector-green"></em>
                 <p>
-                    Happier Developers &nbsp;<em class="fa text-rector-green fa-check-double fa-fw"></em>
+                    Remove Technical Debt
                 </p>
             </div>
         </div>
 
+
+        <br>
+        <br>
         <br>
 
-        <div class="text-center mt-2 mt-md-5">
-            <a href="{{ path('contact') }}" class="btn btn-success btn-lg m-auto">
-                Hire us to make your Project Awesome
-            </a>
-        </div>
+        {% include "_snippets/line/company_logos_line.twig" %}
 
         {% include "_snippets/homepage_separator.twig" %}
 
@@ -100,44 +98,7 @@
             What Companies <span class="text-rector-green">Love&nbsp;about&nbsp;Rector</span>?
         </h2>
 
-        <blockquote class="blockquote clearfix">
-            <img src="https://user-images.githubusercontent.com/77585053/110624233-37728500-819e-11eb-9efb-269e161c2ad4.jpeg" class="rounded-circle img-face-smaller-left shadow me-3 me-md-5" alt="">
-
-            <p>
-                "Thanks to Rector, we were able to quite simply refactor the core of our API, which <strong>saved a lot of work</strong> that our developers would otherwise have to do manually."
-            </p>
-            <footer class="blockquote-footer mt-2">
-                Milan Mimra, CTO at Spaceflow
-            </footer>
-        </blockquote>
-
-        <hr class="quote-border-line">
-
-        <blockquote class="blockquote clearfix">
-            <img src="https://www.adamgleiss.com/images/face.jpg" class="rounded-circle img-face-smaller-right shadow me-5" alt="">
-
-            <p class="ms-0 ms-md-5">
-                "I'm <strong>extremely pleased with the progress</strong> we are making.<br>
-                It's really come a long way."
-            </p>
-
-            <footer class="blockquote-footer mt-2 ms-5">
-                William Adam Gleiss, VP of Technology at aRes Travel
-            </footer>
-        </blockquote>
-
-        <hr class="quote-border-line">
-
-        <blockquote class="blockquote clearfix">
-            <img src="https://user-images.githubusercontent.com/77585053/110624235-38a3b200-819e-11eb-9ecc-a8f7b62d3da3.jpeg" class="rounded-circle img-face-smaller-left shadow me-3 me-md-5" alt="">
-
-            <p>
-                "From upgrading our legacy projects and <strong>improving team's productivity, to making code review easier and reliable</strong>, Rector is in the center within our PHP ecosystem."
-            </p>
-            <footer class="blockquote-footer mt-2">
-                Nathan Page, Technical Lead at EONX
-            </footer>
-        </blockquote>
+        {% include "homepage/_parts/quotes.twig" %}
 
         <br>
 
@@ -156,5 +117,11 @@
                 </div>
             </div>
         </div>
+
+        {% include "_snippets/homepage_separator.twig" %}
+
+        <h2>FAQ</h2>
+
+        {% include "homepage/_parts/faq.twig" %}
     </div>
 {% endblock %}
