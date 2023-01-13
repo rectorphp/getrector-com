@@ -187,25 +187,22 @@
             </div>
         </div>
 
-        <br>
+        <hr class="project-border-line">
+
+        <h2>How do we work?</h2>
 
         <p class="text-bigger">
             We <strong>build a long-term relationships</strong> with our clients. Quick changes can quickly backfire with regression bugs. But small, gradual steps lead to <strong>long-term success</strong>.
             <br>
             <br>
-            We care about your long-term success. We get you to the latest PHP/framework version, make the CI next member of your team and help you deliver faster and cheaper features.
-            <br>
-            <br>
-            In the end, <strong>your code will work for you</strong>, easy to change and future-proof.
+            We get you to the latest PHP/framework version, make the CI next member of your team and help you deliver features faster and cheaper.
         </p>
 
         <br>
         <br>
         <br>
 
-        <p class="text-bigger text-center">
-            You can choose from 2 options we offer
-        </p>
+        <h2>Choose from 2 Options</h2>
 
         <div class="row mt-5">
             <div class="col-12 col-sm-6">
@@ -219,15 +216,15 @@
                         <ul class="list-nobullet">
                             <li>
                                 <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
-                                We perform the intro analysis of your project
+                                We highlight the weak spots to get ready to
                             </li>
                             <li>
                                 <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
-                                It contains the plan how to start the upgrade
+                                We deliver plan how to perform the upgrade
                             </li>
                             <li>
                                 <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
-                                The time/work estimates are in the optimal order
+                                Every phase has detailed scope and "why"
                             </li>
                             <li>
                                 <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
@@ -235,7 +232,7 @@
                             </li>
                             <li>
                                 <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
-                                We deliver in 3 weeks
+                                Delivered in 3 weeks
                             </li>
 
                             <li class="mt-4 mb-3">
@@ -278,15 +275,15 @@
                             </li>
                             <li>
                                 <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
-                                We integrate the tooling to your CI in optimal way
+                                We improve your CI with advanced tooling
                             </li>
                             <li>
                                 <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
-                                You can enjoy our experience of 50+ project upgrades
+                                We share our experience of 50+ project upgrades
                             </li>
                             <li>
                                 <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
-                                You learn cool tricks with tool you already know
+                                You learn smart tricks with tools you already use
                             </li>
                             <li>
                                 <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
@@ -317,10 +314,7 @@
         <h2 id="intro_analysis">1. Intro Analysis</h2>
 
         <p>
-            At first, we want to make sure we know we can help you. Also, we want to explore the weak spots that would complicate the process. You would not buy a house without checking its foundation, right?
-        </p>
-        <p>
-            We also want to provide you time and work estimates, so you can include them in your budget plan.
+            At first, we have to make sure we can help you. We explore the weak spots that would complicate the process and get ready for the battle.
         </p>
 
         <h3 class="mt-4">How does the Process look like?</h3>
@@ -329,36 +323,21 @@
             <li>We sign an NDA, so your code is safe with us</li>
             <li>Then you share your codebase with us, e.g. in a git repository</li>
             <li>We look into the code with various tools, explore weak and strong spots and work out the step by step plan that is tailored to your project</li>
-            <li>This analysis <strong>takes 3 weeks</strong></li>
+            <li>The analysis <strong>takes 3 weeks</strong></li>
             <li>In the end, we <strong>send you PDF with results</strong> and suggested plan, so you can discuss it with your team</li>
             <li>Then we have a call on how to proceed.</li>
         </ul>
-
-        <h3 class="mt-4">How does the final Intro Analysis look like?</h3>
-
-        <p>See preview of one of 5 pages:</p>
-
-        <div class="mb-2">
-            {% for i in 1..5 %}
-                <a href="/assets/images/intro-analysis/preview_{{ i }}.jpg">
-                    <img src="/assets/images/intro-analysis/preview_{{ i }}.jpg" class="img-thumbnail m-2" style="max-width: 4em">
-                </a>
-            {% endfor %}
-        </div>
 
         <br>
 
         <h2 id="hands_on_upgrade">2. Hands on Upgrade</h2>
 
         <p>
-            After we agree on first next steps, we can start immediately the upgrade work. Our team provides <strong>10-30 hours/week of direct help</strong>, depending if you prefer faster or slower pace. We'll dedicate you a developer with Rector experience on legacy projects, who knows how to deal with complex problems.
+            After we agree on next steps, we start the upgrade work. Our team provides <strong>10-30 hours/week of direct help</strong>, depending if you prefer faster or slower pace. We'll dedicate you a developer with Rector experience on legacy projects, who knows how to deal with complex problems.
         </p>
 
         <p>
             This phase usually <strong>takes 6-12 months</strong>, depending on the upgrade target and code quality of your project.
-        </p>
-        <p>
-            We work in parallel to your team, so we're not blocking the business and <strong>you can keep delivering features as before</strong>.
         </p>
 
         <h3 class="mt-4">How does the Upgrade look like?</h3>
@@ -368,12 +347,15 @@
             <li>We deliver the smallest PR possible so that you can see changes yourself and merge it immediately</li>
             <li>We make sure the work is always in a finished state in every PR</li>
             <li>We make CI helps us with regressions we meet, so we have a safety net and can move without fear</li>
+            <li>
+                We <strong>work in parallel</strong> to your team, so you can keep delivering features and <strong>grow your business</strong>.
+            </li>
         </ul>
 
         <br>
         <br>
 
-        <div class="text-center mt-4 mb-5 bigger-buttons text-center">
+        <div class="text-center mt-4 mb-5 text-center">
             <a href="{{ path(constant('Rector\\Website\\ValueObject\\Routing\\RouteName::CONTACT')) }}" class="btn btn-success btn-lg m-auto">
                 Contact us for Free Meeting
             </a>
