@@ -14,11 +14,6 @@ final class RouteName
     /**
      * @var string
      */
-    public const BANK_DETAILS = 'bank_details';
-
-    /**
-     * @var string
-     */
     public const HOMEPAGE = 'homepage';
 
     /**

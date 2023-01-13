@@ -333,9 +333,19 @@ h4 {
     }
 }
 
-#post, #blog, #contact, #mission, #for_companies, #documentation {
+#post, #blog, #contact, #mission, #for_companies, #documentation, #about {
     margin-top: 1em;
     margin-bottom: 6em;
+
+    a {
+        color: #59a35e;
+        text-decoration: underline !important;
+
+        &:hover {
+            color: #2e7a33;
+            text-decoration: none !important;
+        }
+    }
 
     h1 {
         margin-top: 1.6em;
@@ -374,11 +384,6 @@ h4 {
             color: #FFF;
         }
     }
-}
-
-.mono-font {
-    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
-    font-size: .9em;
 }
 
 .text-smaller {
@@ -420,10 +425,6 @@ label.required:before {
 }
 
 // from the logo window - http://getrector.org/assets/images/logo/rector-white.svg
-.text-rector-blue {
-    color: #75d5eb;
-}
-
 .text-rector-green {
     color: #59a35e;
 }
