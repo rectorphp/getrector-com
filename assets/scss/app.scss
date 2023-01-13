@@ -184,11 +184,6 @@ ul.list-nobullet {
     font-size: 1.3em;
 }
 
-/*!* not sure why, but em in footer are bigger; this is to make the width the same size as rest *!*/
-#footer .container {
-    font-size: .8em;
-}
-
 .bg-black {
     background-color: #333;
 }
@@ -320,14 +315,6 @@ ul.list-nobullet {
     }
 }
 
-h2 a, a {
-    color: #21c87a;
-
-    &:hover {
-        color: #20a55b;
-    }
-}
-
 #post, #blog, #contact, #mission, #for_companies, #documentation {
     margin-top: 1em;
     margin-bottom: 6em;
@@ -357,7 +344,7 @@ h2 a, a {
     a.nav-link {
         color: #DDD;
         margin: 0;
-        padding: .5em 1em;
+        padding: .4em .9em;
 
         &:hover {
             color: #FFF;
@@ -421,11 +408,6 @@ label.required:before {
 
 .text-rector-green {
     color: #59a35e;
-}
-
-.text-rector-red {
-    color: #994343;
-    // or #9d2e2e
 }
 
 .pull-right {
