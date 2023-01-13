@@ -196,11 +196,200 @@
                     </blockquote>
                 </div>
             </div>
-{#                        <img src="/assets/images/logo/logo_bigger/jcid.png" class="img-fluid company-logo">#}
         </div>
 
         <br>
+
+        <p class="text-bigger">
+            We <strong>build a long-term relationships</strong> with our clients. Quick changes can quickly backfire with regression bugs. But small, gradual steps lead to <strong>long-term success</strong>.
+            <br>
+            <br>
+            We care about your long-term success. We get you to the latest PHP/framework version, make the CI next member of your team and help you deliver faster and cheaper features.
+            <br>
+            <br>
+            In the end, <strong>your code will work for you</strong>, easy to change and future-proof.
+        </p>
+
         <br>
+        <br>
+        <br>
+
+        <p class="text-bigger text-center">
+            You can choose from 2 options we offer
+        </p>
+
+        <div class="row mt-5">
+            <div class="col-12 col-sm-6">
+                <div class="card shadow">
+                    <div class="card-header text-center bg-warning border-warning bg-opacity-25 border-opacity-50 pt-3 pb-3">
+                        Starter Choice
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title mb-4 text-center">Intro Analysis</h3>
+
+                        <ul class="list-nobullet">
+                            <li>
+                                <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
+                                We perform the intro analysis of your project
+                            </li>
+                            <li>
+                                <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
+                                It contains the plan how to start the upgrade
+                            </li>
+                            <li>
+                                <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
+                                The time/work estimates are in the optimal order
+                            </li>
+                            <li>
+                                <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
+                                Good for once a year project health check
+                            </li>
+                            <li>
+                                <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
+                                We deliver in 3 weeks
+                            </li>
+
+                            <li class="mt-4 mb-3">
+                                <em class="fa fa-credit-card text-primary fa-fw"></em>&nbsp;
+                                One time Charge
+                            </li>
+
+                            <li>
+                                <em class="fa fa-star text-warning fa-fw"></em>&nbsp;
+                                <strong>You can use the plan yourself</strong>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="card-footer text-center pt-4 pb-4">
+                        <a href="/assets/demo_intro_analysis.pdf" class="btn btn-warning me-3">
+                            <em class="fa fa-file-pdf fa-fw"></em>
+                            Open Demo PDF
+                        </a>
+                        <a href="{{ path('contact') }}" class="btn btn-success text">Contact us</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6">
+                <div class="card shadow">
+                    <div class="card-header text-center bg-success text-white border-success pt-3 pb-3">
+                        <strong>Most Wanted Choice</strong>
+                    </div>
+
+                    <div class="card-body">
+                        <h3 class="card-title mb-4 text-center">
+                            Intro Analysis + Hands on Upgrade
+                        </h3>
+
+                        <ul class="list-nobullet">
+                            <li class="text-secondary">
+                                <em class="fa fa-left-long text-secondary fa-fw"></em>&nbsp;
+                                All from previous, but also...
+                            </li>
+                            <li>
+                                <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
+                                We integrate the tooling to your CI in optimal way
+                            </li>
+                            <li>
+                                <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
+                                You can enjoy our experience of 50+ project upgrades
+                            </li>
+                            <li>
+                                <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
+                                You learn cool tricks with tool you already know
+                            </li>
+                            <li>
+                                <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
+                                You learn how to avoid making legacy code
+                            </li>
+
+                            <li class="mt-4 mb-3">
+                                <em class="fa fa-credit-card text-primary fa-fw"></em>&nbsp;
+                                Charged per hour, 10-30 hours/week
+                            </li>
+
+                            <li>
+                                <em class="fa fa-star text-warning fa-fw"></em>&nbsp;
+                                <strong>You leave the project upgrade to us</strong>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="card-footer text-center pt-4 pb-4">
+                        <a href="{{ path('contact') }}" class="btn btn-success text">Contact us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="project-border-line">
+
+        <h2 id="intro_analysis">1. Intro Analysis</h2>
+
+        <p>
+            At first, we want to make sure we know we can help you. Also, we want to explore the weak spots that would complicate the process. You would not buy a house without checking its foundation, right?
+        </p>
+        <p>
+            We also want to provide you time and work estimates, so you can include them in your budget plan.
+        </p>
+
+        <h3 class="mt-4">How does the Process look like?</h3>
+
+        <ul>
+            <li>We sign an NDA, so your code is safe with us</li>
+            <li>Then you share your codebase with us, e.g. in a git repository</li>
+            <li>We look into the code with various tools, explore weak and strong spots and work out the step by step plan that is tailored to your project</li>
+            <li>This analysis <strong>takes 3 weeks</strong></li>
+            <li>In the end, we <strong>send you PDF with results</strong> and suggested plan, so you can discuss it with your team</li>
+            <li>Then we have a call on how to proceed.</li>
+        </ul>
+
+        <h3 class="mt-4">How does the final Intro Analysis look like?</h3>
+
+        <p>See preview of one of 5 pages:</p>
+
+        <div class="mb-2">
+            {% for i in 1..5 %}
+                <a href="/assets/images/intro-analysis/preview_{{ i }}.jpg">
+                    <img src="/assets/images/intro-analysis/preview_{{ i }}.jpg" class="img-thumbnail m-2" style="max-width: 4em">
+                </a>
+            {% endfor %}
+        </div>
+
+        <br>
+
+        <h2 id="hands_on_upgrade">2. Hands on Upgrade</h2>
+
+        <p>
+            After we agree on first next steps, we can start immediately the upgrade work. Our team provides <strong>10-30 hours/week of direct help</strong>, depending if you prefer faster or slower pace. We'll dedicate you a developer with Rector experience on legacy projects, who knows how to deal with complex problems.
+        </p>
+
+        <p>
+            This phase usually <strong>takes 6-12 months</strong>, depending on the upgrade target and code quality of your project.
+        </p>
+        <p>
+            We work in parallel to your team, so we're not blocking the business and <strong>you can keep delivering features as before</strong>.
+        </p>
+
+        <h3 class="mt-4">How does the Upgrade look like?</h3>
+
+        <ul>
+            <li>We improve code quality to make bigger changes more reliable</li>
+            <li>We deliver the smallest PR possible so that you can see changes yourself and merge it immediately</li>
+            <li>We make sure the work is always in a finished state in every PR</li>
+            <li>We make CI helps us with regressions we meet, so we have a safety net and can move without fear</li>
+        </ul>
+
+        <br>
+        <br>
+
+        <div class="text-center mt-4 mb-5 bigger-buttons text-center">
+            <a href="{{ path(constant('Rector\\Website\\ValueObject\\Routing\\RouteName::CONTACT')) }}" class="btn btn-success btn-lg m-auto">
+                Contact us for Free Meeting
+            </a>
+        </div>
+
         <br>
         <br>
 

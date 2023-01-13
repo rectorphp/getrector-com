@@ -16,7 +16,7 @@ final class ForCompaniesController extends AbstractController
     public function __invoke(Request $request): Response
     {
         return $this->render('homepage/for_companies.twig', [
-            'title' => 'Hire Rector team to Reduce Costs and Technical Debt?',
+            'title' => 'Hire Rector team to Reduce Costs and Technical Debt',
         ]);
     }
 }
