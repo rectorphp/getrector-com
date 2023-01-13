@@ -81,10 +81,10 @@ body {
 
 #footer {
     padding: 1.8em 0;
-
     background-color: $black;
     color: #FFF;
-    font-size: 1.1em;
+
+    font-size: 1em;
 
     @include media-breakpoint-down(sm) {
         font-size: .9em;
