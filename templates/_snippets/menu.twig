@@ -12,26 +12,7 @@
                     </a>
                 </li>
 
-                <li class="nav-item {% if is_current_routes(["demo", "demo_detail"]) %}active{% endif %}">
-                    <a href="{{ path('demo') }}" class="nav-link">Try</a>
-                </li>
-
-
-                <li class="nav-item {% if is_current_routes(["for_companies"]) %}active{% endif %}">
-                    <a href="{{ path('for_companies') }}" class="nav-link">Hire Upgrade Team</a>
-                </li>
-
-                <li class="nav-item {% if is_current_routes(["blog", "post"]) %}active{% endif %}">
-                    <a href="{{ path('blog') }}" class="nav-link">Blog</a>
-                </li>
-
-                <li class="nav-item {% if is_current_routes(["docs"]) %}active{% endif %}">
-                    <a href="{{ path('documentation') }}" class="nav-link">Documentation</a>
-                </li>
-
-                <li class="nav-item {% if is_current_routes(["contact"]) %}active{% endif %}">
-                    <a href="{{ path('contact') }}" class="nav-link">Contact</a>
-                </li>
+                {% include("_snippets/menu_items.twig") %}
             </ul>
         </div>
 

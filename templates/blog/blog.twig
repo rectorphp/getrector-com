@@ -6,11 +6,11 @@
     <div id="blog">
         <div class="float-end">
             <a href="{{ path('rss') }}" class="p-2 text-warning">
-                <em class="fas fa-3x fa-rss mt-2 fa-fw"></em>
+                <em class="fas fa-2x fa-rss mt-4 fa-fw"></em>
             </a>
         </div>
 
-        <h1 class="main-title text-center">Rector Blog</h1>
+        <h1 class="main-title">Read about Rector</h1>
 
         {% for post in posts %}
             <div class="mb-5">
@@ -18,7 +18,7 @@
                     <a href="{{ path('post', {'postSlug': post.slug }) }}">{{ post.title }}</a>
                 </h2>
 
-                <div class="mt-2 mono-font text-grey">
+                <div class="mt-2 text-grey">
                     <time datetime="{{ post.dateTime|date('Y-m-D') }}">
                         {{ post.dateTime|date }}
                     </time>

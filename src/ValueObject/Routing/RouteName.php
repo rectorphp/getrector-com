@@ -9,7 +9,7 @@ final class RouteName
     /**
      * @var string
      */
-    public const BANK_DETAILS = 'bank_details';
+    public const ABOUT = 'about';
 
     /**
      * @var string
@@ -60,4 +60,9 @@ final class RouteName
      * @var string
      */
     public const COMPANY_COOPERATION = 'company_cooperation';
+
+    /**
+     * @var string
+     */
+    public const HIRE_TEAM = 'hire_team';
 }

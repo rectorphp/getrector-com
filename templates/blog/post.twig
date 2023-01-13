@@ -12,14 +12,14 @@
 
     <div id="post">
         <div class="mt-3">
-            <time datetime="{{ post.dateTime|date('Y-m-D') }}" class="mono-font text-grey">
+            <time datetime="{{ post.dateTime|date('Y-m-D') }}" class="text-grey">
                 {{ post.dateTime|date }}
             </time>
         </div>
 
         <h1>{{ post.title }}</h1>
 
-        <div class="pull-left mb-5 text-grey mono-font" id="share_buttons">
+        <div class="pull-left mb-5 text-grey" id="share_buttons">
             Share:
 
             <a href="{{ post.tweetLink }}" class="ms-3">

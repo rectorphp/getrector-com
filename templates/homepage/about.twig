@@ -1,0 +1,29 @@
+{% extends "base.twig" %}
+
+{% block main %}
+    <div id="about">
+        <h1 class="main-title">{{ page_title }}</h1>
+
+        <div class="text-medium">
+            <p>
+                Rector is a PHP tool that you can run on any PHP project to get instant upgrade or automated refactoring. It helps with PHP upgrade, framework upgrade and improves your code quality. Also it helps with type-coverage and help to get to the latest PHPStan level.
+            </p>
+
+            <p>
+                You can learn about it from <a href="{{ path('documentation') }}">documentation</a> or
+                from a book <a href="https://leanpub.com/rector-the-power-of-automated-refactoring">Rector - The Power of Automated Refactoring</a>.
+            </p>
+        </div>
+
+        <div class="text-medium mt-5">
+            <p>
+                In hands of an expert, Rector achieves massive changes in minutes, that would take typical team couple of months. It's very reliable, as it looks for narrowly defined AST patterns.
+            </p>
+
+            <p>
+                You can <a href="{{ path('hire_team') }}">hire our team</a>, to get this expertise into your team instantly.
+            </p>
+        </div>
+
+    </div>
+{% endblock %}

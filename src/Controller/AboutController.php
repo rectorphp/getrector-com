@@ -10,13 +10,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-final class ContactController extends AbstractController
+final class AboutController extends AbstractController
 {
-    #[Route(path: 'contact', name: RouteName::CONTACT)]
+    #[Route(path: 'about', name: RouteName::ABOUT)]
     public function __invoke(Request $request): Response
     {
-        return $this->render('homepage/contact.twig', [
-            'page_title' => 'Reach us',
+        return $this->render('homepage/about.twig', [
+            'page_title' => 'About Rector',
         ]);
     }
 }

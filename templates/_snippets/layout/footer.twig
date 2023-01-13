@@ -1,27 +1,35 @@
 <div id="footer">
     <div class="container">
-        <div class="row">
-            <div class="col-12 col-md-6 pt-3">
-                <a href="http://github.com/rectorphp/rector" class="p-3">
-                    <em class="fab fa-github fa-fw fa-2x"></em>
+        <div class="row pt-3">
+            <div class="col-6 col-md-2">
+                Rector Team {{ "now"|date("Y") }}
+            </div>
+
+            <div class="col-6 col-md-3">
+                <a href="http://github.com/rectorphp/rector" class="p-2">
+                    <em class="fab fa-github fa-fw fa-lg"></em>
                 </a>
 
-                <a href="https://twitter.com/rectorphp" class="p-3">
-                    <em class="fab fa-twitter fa-fw fa-2x"></em>
+                <a href="https://twitter.com/rectorphp" class="p-2">
+                    <em class="fab fa-twitter fa-fw fa-lg"></em>
                 </a>
 
-                <a href="https://www.linkedin.com/company/rectorphp" class="p-3">
-                    <em class="fab fa-linkedin fa-fw fa-2x"></em>
+                <a href="https://www.linkedin.com/company/rectorphp" class="p-2">
+                    <em class="fab fa-linkedin fa-fw fa-lg"></em>
                 </a>
             </div>
 
-{#            <div class="col-12 col-md-6 text-center text-md-right mt-5 mt-md-0">#}
-{#                <p>#}
-{#                    <a href="{{ path(constant('Rector\\Website\\ValueObject\\Routing\\RouteName::FOR_COMPANIES')) }}">#}
-{#                        Support for Legacy Projects#}
-{#                    </a>#}
-{#                </p>#}
-{#            </div>#}
+            <div class="col-6 col-md-7">
+                <ul class="navbar-nav" id="footer_menu">
+                    {% include("_snippets/menu_items.twig") %}
+                </ul>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="text-center mt-5 mb-5 text-medium">
+            We've helped <strong>12 companies</strong> to improve PHP code and reduce technical debt last year.
         </div>
     </div>
 </div>

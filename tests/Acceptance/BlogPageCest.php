@@ -13,6 +13,6 @@ final class BlogPageCest
         $acceptanceTester->amOnPage('/blog');
 
         // see text in blog page
-        $acceptanceTester->see('Rector Blog');
+        $acceptanceTester->see('Read about Rector');
     }
 }

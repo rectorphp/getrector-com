@@ -15,8 +15,6 @@ final class CompanyCooperationController extends AbstractController
     #[Route(path: 'company-cooperation', name: RouteName::COMPANY_COOPERATION)]
     public function __invoke(Request $request): Response
     {
-        return $this->render('homepage/company_cooperation.twig', [
-            'title' => 'Hire us to Upgrade Your Project',
-        ]);
+        return $this->redirectToRoute('for_companies');
     }
 }
