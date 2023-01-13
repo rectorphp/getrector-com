@@ -3,7 +3,11 @@
 // see https://github.com/thomaspark/bootswatch/issues/55#issuecomment-298093182
 
 @import url('https://rsms.me/inter/inter.css');
-html { font-family: 'Inter', sans-serif; }
+
+html {
+    font-family: 'Inter', sans-serif;
+}
+
 @supports (font-variation-settings: normal) {
     html { font-family: 'Inter var', sans-serif; }
 }
@@ -248,10 +252,10 @@ ul.list-nobullet {
     }
 
     h3 {
-        margin-top: 1.5em;
+        margin-top: 1em;
         font-size: 1.3em;
         font-weight: 200;
-        line-height: 1.4em;
+        line-height: 2em;
     }
 }
 
@@ -337,7 +341,7 @@ h4 {
     margin-top: 1em;
     margin-bottom: 6em;
 
-    a {
+    a:not(.btn) {
         color: #59a35e;
         text-decoration: underline !important;
 
@@ -355,10 +359,6 @@ h4 {
     h2 {
         margin-top: 1em;
         margin-bottom: .6em;
-    }
-
-    h3 {
-        margin-bottom: .4em;
     }
 
     .text-body {
@@ -501,16 +501,6 @@ label.required:before {
         &:hover {
             text-decoration: underline !important;;
         }
-    }
-}
-#rector_effects {
-    p {
-        padding-top: 1em;
-        font-size: 1.4em;
-    }
-
-    @include media-breakpoint-down(sm) {
-        font-size: .7em;
     }
 }
 
