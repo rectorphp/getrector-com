@@ -280,13 +280,6 @@ h4 {
     }
 }
 
-.btn-lg {
-    @include media-breakpoint-down(sm) {
-        font-size: 1em;
-    }
-}
-
-
 .demo_form_code {
     width: 100%;
 }
@@ -559,5 +552,16 @@ label.required:before {
     p {
         font-size: 1.1em;
         line-height: 1.6em;
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .btn-lg {
+        font-size: 1em;
+        padding: 0;
+    }
+
+    .text-bigger {
+        font-size: 1.1em;
     }
 }
