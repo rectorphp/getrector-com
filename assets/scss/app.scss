@@ -553,4 +553,15 @@ label.required:before {
     .text-medium {
         font-size: 1.1em;
     }
+
+    #footer {
+        ul.navbar-nav {
+            margin-top: .8em;
+
+            li {
+                padding: .2em 0;
+                margin-right: .8em;
+            }
+        }
+    }
 }
