@@ -564,4 +564,20 @@ label.required:before {
             }
         }
     }
+
+    .blockquote {
+        font-size: 1em;
+    }
+
+    .img-face-smaller-left, .img-face-smaller-right {
+        max-width: 4em;
+    }
+
+    .img-face-smaller-left {
+        margin: .1em .8em .3em 0;
+    }
+
+    .img-face-smaller-right {
+        margin: .1em 0 .3em .8em;
+    }
 }
