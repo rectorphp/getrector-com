@@ -22,15 +22,6 @@
             <a href="{{ path('demo') }}" class="btn btn-lg btn-success">Try It Online</a>
         </div>
 
-        <br>
-        <br>
-        <br>
-        <br>
-
-        <div class="text-center mt-5 mb-4 text-rector-green text-bigger">
-            <strong>12 companies</strong> hired us this year to improve PHP code and reduce technical debt.
-        </div>
-
         {% include "_snippets/homepage_separator.twig" %}
 
         <h2>
@@ -64,9 +55,11 @@
 
         {% include "homepage/_parts/benefits.twig" %}
 
-        <br>
-        <br>
-        <br>
+        {% include "_snippets/homepage_separator.twig" %}
+
+        <div class="text-center mt-5 mb-5 text-rector-green text-bigger">
+            <strong>12 companies</strong> hired us this year to improve PHP code and reduce technical debt
+        </div>
 
         {% include "_snippets/line/company_logos.twig" %}
 
