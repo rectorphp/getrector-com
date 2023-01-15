@@ -10,12 +10,8 @@ use Nette\Utils\Strings;
 use ParsedownExtra;
 use Rector\Website\Blog\FileSystem\PathAnalyzer;
 use Rector\Website\Blog\ValueObject\Post;
-use Rector\Website\Demo\ValueObject\Option;
 use Rector\Website\Exception\ShouldNotHappenException;
-use Rector\Website\ValueObject\Routing\RouteName;
-use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Yaml\Yaml;
-use Symplify\PackageBuilder\Parameter\ParameterProvider;
 use Symplify\SmartFileSystem\SmartFileInfo;
 
 final class PostFactory
@@ -36,16 +32,10 @@ final class PostFactory
      */
     private const HEADLINE_REGEX = '#<h(?<level>\d+)>(?<headline>.*?)<\/h\d+>#';
 
-    private readonly string $siteUrl;
-
     public function __construct(
         private readonly ParsedownExtra $parsedownExtra,
         private readonly PathAnalyzer $pathAnalyzer,
-        private readonly RouterInterface $router,
-        ParameterProvider $parameterProvider
     ) {
-        $siteUrl = $parameterProvider->provideStringParameter(Option::SITE_URL);
-        $this->siteUrl = rtrim($siteUrl, '/');
     }
 
     public function createFromFileInfo(SmartFileInfo $smartFileInfo): Post
@@ -76,11 +66,6 @@ final class PostFactory
         $htmlContent = $this->parsedownExtra->parse($matches['content']);
         $htmlContent = $this->decorateHeadlineWithId($htmlContent);
 
-        $absoluteUrl = $this->createAbsoluteUrl($slug);
-
-        $contributor = $configuration['contributor'] ?? null;
-        $pullRequestId = $configuration['pull_request_id'] ?? null;
-
         $updatedSince = isset($configuration['updated_since']) ? new DateTime($configuration['updated_since']) : null;
         $updatedMessage = $configuration['updated_message'] ?? null;
 
@@ -98,9 +83,6 @@ final class PostFactory
             $dateTime,
             $perex,
             $htmlContent,
-            $absoluteUrl,
-            $contributor,
-            $pullRequestId,
             $updatedSince,
             $updatedMessage,
             $deprecatedSince,
@@ -124,14 +106,5 @@ final class PostFactory
             $idValue = Strings::webalize($headline);
             return sprintf('<h%d id="%s">%s</h%d>', $level, $idValue, $headline, $level);
         });
-    }
-
-    private function createAbsoluteUrl(string $slug): string
-    {
-        $siteUrl = rtrim($this->siteUrl, '/');
-
-        return $siteUrl . $this->router->generate(RouteName::POST, [
-            'postSlug' => $slug,
-        ]);
     }
 }

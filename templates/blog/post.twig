@@ -19,20 +19,6 @@
 
         <h1>{{ post.title }}</h1>
 
-        <div class="pull-left mb-5 text-grey" id="share_buttons">
-            Share:
-
-            <a href="{{ post.tweetLink }}" class="ms-3">
-                <em class="fab fa-twitter"></em>
-                Twitter
-            </a>
-
-            <a href="{{ post.facebookLink }}">
-                <em class="fab fa-facebook"></em>
-                Facebook
-            </a>
-        </div>
-
         {% if post.sinceRector %}
             <div class="alert alert-warning">
                 This feature is available since <strong>Rector {{ post.sinceRector }}</strong>.
@@ -71,24 +57,6 @@
         <div class="perex">{{ post.perex|markdown|raw }}</div>
 
         <div class="text-body">
-            {% if post.isContribution %}
-                <div class="card pull-right ms-3" id="contribution_box">
-                    <div class="card-body text-smaller">
-                        <div style="float: left">
-                            <img src="https://github.com/{{ post.contributor }}.png" class="rounded-circle mt-1 me-3" style="max-width: 2.3em">
-                        </div>
-
-                        <div style="float: left">
-                            Contributed by<br>
-                            <strong>
-                                <a href="https://github.com/{{ post.contributor }}">{{ post.contributor }}</a>
-                            </strong>
-                            in <a href="https://github.com/rectorphp/{% if post.pullRequestId > 5000 %}rector{% else %}rector-src{% endif %}/pull/{{ post.pullRequestId }}">#{{ post.pullRequestId }}</a>
-                        </div>
-                    </div>
-                </div>
-            {% endif %}
-
             {{ post.htmlContent|raw }}
         </div>
 

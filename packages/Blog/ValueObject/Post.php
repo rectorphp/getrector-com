@@ -15,9 +15,6 @@ final class Post
         private readonly DateTimeInterface $dateTime,
         private readonly string $perex,
         private readonly string $htmlContent,
-        private readonly string $absoluteUrl,
-        private readonly ?string $contributor = null,
-        private readonly ?int $pullRequestId = null,
         private readonly ?DateTimeInterface $updatedSince = null,
         private readonly ?string $updatedMessage = null,
         private readonly ?DateTimeInterface $deprecatedSince = null,
@@ -54,35 +51,6 @@ final class Post
     public function getDateTime(): DateTimeInterface
     {
         return $this->dateTime;
-    }
-
-    public function getTweetLink(): string
-    {
-        return 'https://twitter.com/intent/tweet?text=' . $this->title . '&url=' . $this->absoluteUrl . '&hashtags=rectorphp';
-    }
-
-    public function getFacebookLink(): string
-    {
-        return 'https://www.facebook.com/sharer/sharer.php?u=' . $this->absoluteUrl;
-    }
-
-    public function getContributor(): ?string
-    {
-        return $this->contributor;
-    }
-
-    public function getPullRequestId(): ?int
-    {
-        return $this->pullRequestId;
-    }
-
-    public function isContribution(): bool
-    {
-        if ($this->contributor === null) {
-            return false;
-        }
-
-        return $this->pullRequestId !== null;
     }
 
     public function isUpdated(): bool
