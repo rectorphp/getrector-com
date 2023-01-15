@@ -80,7 +80,7 @@ final class DemoController extends AbstractController
         return $this->render('demo/demo.twig', [
             'rector_version' => $this->resolveRectorReleaseVersion(),
             'rector_commit_hash' => Strings::after($this->resolveRectorReleaseVersion(), '@'),
-            'rector_released_time' => VersionResolver::RELEASE_DATE,
+            'rector_released_time' => substr(VersionResolver::RELEASE_DATE, 0, strlen(VersionResolver::RELEASE_DATE) - 3),
             'demo_form' => $demoForm->createView(),
             'rector_run' => $rectorRun,
         ]);
