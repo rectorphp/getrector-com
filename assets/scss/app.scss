@@ -33,12 +33,12 @@ a, a:hover, a:focus, button, button:focus {
 }
 
 .bigger-buttons .btn {
-    padding: .6em 1.1em;
-    font-size: 1.3em;
+    padding: .8rem 1.4rem;
+    font-size: 1.5rem;
 
     @include media-breakpoint-down(sm) {
-        padding: .4em 1em;
-        font-size: 1em;
+        padding: .5rem 1.1rem;
+        font-size: 1.2rem;
     }
 }
 
