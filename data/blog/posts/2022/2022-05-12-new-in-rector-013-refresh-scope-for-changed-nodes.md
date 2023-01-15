@@ -4,9 +4,6 @@ title: "New in Rector 0.13 - Refresh Scope for Changed Nodes"
 perex: |
     Rector is using PHPStan to detect types of various expressions. That means every node has access to [PHPStan `Scope`](https://phpstan.org/developing-extensions/scope), e.g., with types or class reflection. From code `$value = 1;` we know, that `$value` is type of int. But what if we change the node?
 
-contributor: TomasVotruba
-pull_request_id: 2292
-
 since_rector: 0.13
 ---
 

@@ -5,8 +5,6 @@ perex: |
     In the last post we had a closer look at [Nette 3.1 changes in diffs](/blog/2021/01/18/smooth-upgrade-to-nette-31-in-diffs). That was the first upgrade with Rector ever, where you don't have to touch the `composer.json` file.
     <br>
     At all?
-contributor: "lulco"
-pull_request_id: 5074
 
 updated_since: '2022-04'
 updated_message: |
