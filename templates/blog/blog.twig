@@ -4,13 +4,14 @@
 
 {% block main %}
     <div id="blog">
-        <div class="float-end">
+        <div class="text-end">
             <a href="{{ path('rss') }}" class="p-2 text-warning">
                 <em class="fas fa-2x fa-rss mt-4 fa-fw"></em>
             </a>
         </div>
 
         <h1 class="main-title">Read about Rector</h1>
+
 
         {% for post in posts %}
             <div class="mb-5">
