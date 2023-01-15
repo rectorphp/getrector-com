@@ -67,7 +67,8 @@ h1, h2, h3 {
 
 h3 {
     font-size: 1.4rem;
-    line-height: 1.7em;
+    line-height: 2em;
+    margin-top: .7em;
 }
 
 // sticky footer: see https://css-tricks.com/couple-takes-sticky-footer/#article-header-id-3
@@ -157,14 +158,6 @@ h1 {
 h2 {
     font-size: 1.8em;
     line-height: 1.4em;
-
-    @include media-breakpoint-down(md) {
-        font-size: 1.4em;
-    }
-
-    @include media-breakpoint-down(sm) {
-        font-size: 1.2em;
-    }
 }
 
 .container {
@@ -231,23 +224,7 @@ ul.list-nobullet {
     h2 {
         margin: 2em 0;
         text-align: center;
-
         font-weight: 500 !important;
-
-        @include media-breakpoint-down(md) {
-            font-size: 2em;
-        }
-
-        @include media-breakpoint-down(sm) {
-            font-size: 1.5em;
-        }
-    }
-
-    h3 {
-        margin-top: 1em;
-        font-size: 1.3em;
-        font-weight: 200;
-        line-height: 2em;
     }
 }
 
@@ -340,11 +317,6 @@ h4 {
         margin-top: 1.6em;
         margin-bottom: 1.3em;
     }
-
-    //h2 {
-    //    margin-top: 1em;
-    //    margin-bottom: .6em;
-    //}
 
     .text-body {
         font-size: 1.1em;
@@ -558,10 +530,25 @@ label.required:before {
 @include media-breakpoint-down(sm) {
     .btn-lg {
         font-size: 1em;
-        padding: 0;
+    }
+
+    h2 {
+        font-size: 1.3em;
+    }
+
+    h3 {
+        font-size: 1.1em;
     }
 
     .text-bigger {
+        font-size: 1.1em;
+    }
+
+    .navbar-nav {
+        margin-top: 3em;
+    }
+
+    .text-medium {
         font-size: 1.1em;
     }
 }
