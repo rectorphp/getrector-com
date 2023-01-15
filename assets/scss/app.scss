@@ -8,10 +8,6 @@ html {
     font-family: 'Inter', sans-serif;
 }
 
-@supports (font-variation-settings: normal) {
-    html { font-family: 'Inter var', sans-serif; }
-}
-
 $black: #24292e;
 
 // Make sure the bootstrap-sass and lato fonts are resolved correctly
@@ -26,7 +22,6 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 /* ---------------------------------------------------- */
 
 body {
-    font-size: 18px;
     font-family: 'Source Sans Pro', sans-serif;
     overflow-x: hidden;
 }
@@ -100,7 +95,7 @@ body {
         display: block;
 
         li {
-            float: left;
+            display: inline-flex;
             padding: .2em .6em;
 
             a.nav-link {
@@ -374,10 +369,8 @@ label.required:before {
 }
 
 #top_right_logo {
-    float: right;
-
     img {
-        max-height: 2.4em;
+        max-height: 2.4rem;
     }
 }
 
@@ -386,9 +379,9 @@ label.required:before {
     color: #59a35e;
 }
 
-.pull-right {
-    float: right;
-}
+//.pull-right {
+//    float: right;
+//}
 
 // full height background for removed and added lines
 .token.deleted, .token.added {

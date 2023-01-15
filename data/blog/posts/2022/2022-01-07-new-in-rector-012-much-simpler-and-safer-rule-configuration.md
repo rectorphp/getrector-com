@@ -5,8 +5,6 @@ perex: |
     Configurable rules are the most powerful building stone for instant upgrade sets. Do you want to upgrade from Symfony 5 to 6? You'll primarily deal with renamed classes, renamed methods, new default arguments in method, or renamed class constants.
     <br><br>
     In the end, we have to configure around 10 rules to get the most job done. That's why we focused on developer experience and added a new `configure()` method in Rector 0.12.
-contributor: TomasVotruba
-pull_request_id: 1276
 
 since_rector: 0.12
 ---

@@ -66,6 +66,14 @@ final class PostFactory
         $htmlContent = $this->parsedownExtra->parse($matches['content']);
         $htmlContent = $this->decorateHeadlineWithId($htmlContent);
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+        $absoluteUrl = $this->createAbsoluteUrl($slug);
+
+>>>>>>> adbd795 (simplify contributors)
+=======
+>>>>>>> bcc676d (cleanup post from routers)
         $updatedSince = isset($configuration['updated_since']) ? new DateTime($configuration['updated_since']) : null;
         $updatedMessage = $configuration['updated_message'] ?? null;
 
@@ -83,6 +91,13 @@ final class PostFactory
             $dateTime,
             $perex,
             $htmlContent,
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+            $absoluteUrl,
+>>>>>>> adbd795 (simplify contributors)
+=======
+>>>>>>> bcc676d (cleanup post from routers)
             $updatedSince,
             $updatedMessage,
             $deprecatedSince,
