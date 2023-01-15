@@ -15,6 +15,9 @@ jobs:
                     -
                         name: 'Easy Coding Standard'
                         run: composer fix-cs
+                    -
+                        name: 'Only "rem" in css'
+                        run: php bin/only-rem-in-css.php
 
                     -
                         name: 'PHPStan'
