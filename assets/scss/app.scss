@@ -545,7 +545,9 @@ label.required:before {
     }
 
     .navbar-nav {
-        margin-top: 3em;
+        li {
+            line-height: 1em;
+        }
     }
 
     .text-medium {
