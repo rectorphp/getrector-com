@@ -33,12 +33,12 @@ a, a:hover, a:focus, button, button:focus {
 }
 
 .bigger-buttons .btn {
-    padding: .6em 1.1em;
-    font-size: 1.3em;
+    padding: .8rem 1.4rem;
+    font-size: 1.5rem;
 
     @include media-breakpoint-down(sm) {
-        padding: .4em 1em;
-        font-size: 1em;
+        padding: .5rem 1.1rem;
+        font-size: 1.2rem;
     }
 }
 
@@ -62,8 +62,8 @@ h1, h2, h3 {
 
 h3 {
     font-size: 1.4rem;
-    line-height: 2em;
-    margin-top: .7em;
+    line-height: 2.8rem;
+    margin-top: 1rem;
 }
 
 // sticky footer: see https://css-tricks.com/couple-takes-sticky-footer/#article-header-id-3
@@ -72,7 +72,7 @@ html, body {
 }
 
 body {
-    font-size: 18px;
+    font-size: 111%;
     font-family: 'Source Sans Pro', sans-serif;
     overflow-x: hidden;
     display: flex;
@@ -80,23 +80,23 @@ body {
 }
 
 #footer {
-    padding: 1.8em 0;
+    padding: 2rem 0;
     background-color: $black;
     color: #FFF;
 
-    font-size: 1em;
+    font-size: 1.13rem;
 
     @include media-breakpoint-down(sm) {
         font-size: .9em;
     }
 
     ul.navbar-nav {
-        margin-top: -.7em;
+        margin-top: -.8rem;
         display: block;
 
         li {
             display: inline-flex;
-            padding: .2em .6em;
+            padding: .2rem .6rem;
 
             a.nav-link {
                 text-decoration: underline !important;
@@ -118,9 +118,8 @@ body {
 }
 
 h1 {
-    font-size: 2.6em;
-    line-height: 1.4em;
-    padding-bottom: .5em;
+    font-size: 2.9rem;
+    line-height: 3.8rem;
 
     @include media-breakpoint-down(md) {
         font-size: 2.4em;
@@ -131,12 +130,12 @@ h1 {
     }
 
     &.main-title {
-        margin-top: 1.4em;
-        line-height: 1.5em;
+        margin-top: 3.5rem;
+        line-height: 4.7rem;
+        font-size: 3.4em;
+
         font-weight: 800;
         text-align: center;
-
-        font-size: 3.4em;
 
         @include media-breakpoint-down(md) {
             line-height: 1.3em;
@@ -151,8 +150,8 @@ h1 {
 
 
 h2 {
-    font-size: 1.8em;
-    line-height: 1.4em;
+    font-size: 2.2rem;
+    line-height: 3rem;
 }
 
 .container {
@@ -372,7 +371,7 @@ label.required:before {
 
 #top_right_logo {
     img {
-        max-height: 2.4rem;
+        max-height: 3rem;
     }
 }
 
@@ -384,15 +383,6 @@ label.required:before {
 // full height background for removed and added lines
 .token.deleted, .token.added {
     display: inline-block;
-}
-
-#contribution_box {
-    background-color: #fff7c4;
-    width: 12em;
-
-    .card-body {
-        padding: .7em 1em;
-    }
 }
 
 #references {
@@ -412,6 +402,10 @@ label.required:before {
 
     .company-quote-card-body {
         padding: 1.5em 1em 0 2em;
+    }
+
+    h3 {
+        margin-top: 0;
     }
 }
 
@@ -485,24 +479,24 @@ label.required:before {
 
 #documentation {
     h1 {
-        margin-top: .5em;
+        margin-top: .4rem;
         margin-bottom: 0;
         font-size: 2.3em;
     }
 
     h2 {
-        font-size: 1.4em;
+        font-size: 1.6rem;
     }
 
     pre {
-        margin-bottom: 1.7em;
+        margin-bottom: 2rem;
     }
 }
 
 #company_logos {
     img {
-        max-width: 8em;
-        opacity: 70%;
+        max-width: 10rem;
+        opacity: 60%;
         transition-duration: .3s;
 
         &:hover {
@@ -513,7 +507,6 @@ label.required:before {
 
 #benefits {
     p {
-        font-size: 1.1em;
         line-height: 1.6em;
     }
 }
