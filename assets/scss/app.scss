@@ -133,10 +133,10 @@ h1 {
     &.main-title {
         margin-top: 3.5rem;
         line-height: 4.7rem;
+        font-size: 3.4em;
+
         font-weight: 800;
         text-align: center;
-
-        font-size: 3.4em;
 
         @include media-breakpoint-down(md) {
             line-height: 1.3em;
@@ -372,7 +372,7 @@ label.required:before {
 
 #top_right_logo {
     img {
-        max-height: 2.4rem;
+        max-height: 3rem;
     }
 }
 
