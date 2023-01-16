@@ -184,7 +184,7 @@ Rector watch will save you so much detailed detective work on types that are alr
 Add [`TYPE_DECLARATION_STICT` set](https://github.com/rectorphp/rector/blob/master/config/set/type-declaration-strict.php) yourself of pick rule by rule, so you can see how your code base becomes strict for each new rule you add:
 
 ```php
-use Rector\TypeDeclaration\Rector\ClassMethod\ParamTypeFromStrictTypedPropertyRector;
+use Rector\TypeDeclaration\Rector\Param\ParamTypeFromStrictTypedPropertyRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromReturnNewRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromStrictTypedCallRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromStrictTypedPropertyRector;
