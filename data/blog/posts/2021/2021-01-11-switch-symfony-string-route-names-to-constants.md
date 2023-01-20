@@ -183,7 +183,7 @@ That's it!
 
 <br>
 
-We run this rule on our website while writing this post. How did it go? [See for yourself](https://github.com/rectorphp/getrector.com/pull/235/files).
+We run this rule on our website while writing this post. How did it go? [See for yourself](https://github.com/rectorphp/getrector.org/pull/235/files).
 
 <br>
 

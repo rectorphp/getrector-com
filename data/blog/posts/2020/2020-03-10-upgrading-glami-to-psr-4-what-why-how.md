@@ -49,7 +49,7 @@ Example is worth 1000 words here:
 
 Following PSR-4 + using composer for autoloading allows you to rapidly create classes and use them instantly, without bothering about loading them manually.
 
-It is really simple, just check [autoloading definition in `composer.json` of this website](https://github.com/rectorphp/getrector.com/blob/master/composer.json):
+It is really simple, just check [autoloading definition in `composer.json` of this website](https://github.com/rectorphp/getrector.org/blob/master/composer.json):
 ```json
 {
   "autoload": {
