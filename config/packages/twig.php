@@ -11,7 +11,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         'debug' => '%kernel.debug%',
         'strict_variables' => true,
         'globals' => [
-            'site_url' => 'https://getrector.org',
+            'site_url' => 'https://getrector.com',
             'main_page_title' => 'Rector - Automated Way to Instantly Upgrade and Refactor any PHP code',
             'disqus_name' => 'getrectororg',
         ],

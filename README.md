@@ -1,4 +1,4 @@
-# [getrector.org](https://getrector.org) Website
+# [getrector.com](https://getrector.com) Website
 
 ### Customization
 

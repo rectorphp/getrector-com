@@ -103,7 +103,7 @@ composer require rector/rector-prefixed:^0.10 --dev
 
 ## Independent Low Maintenance Tests
 
-In the past, every single test fixture was included so Rector could analyse it. With a project with 3192 test fixture, that often lead to conflicts on same-named classes or functions. One of the positive externalities is that test fixtures don't have to be unique classes anymore. Every fixture file is loaded independently on another. Now contributing Rector became easier [with single click from demo](https://getrector.org/demo).
+In the past, every single test fixture was included so Rector could analyse it. With a project with 3192 test fixture, that often lead to conflicts on same-named classes or functions. One of the positive externalities is that test fixtures don't have to be unique classes anymore. Every fixture file is loaded independently on another. Now contributing Rector became easier [with single click from demo](https://getrector.com/demo).
 
 <br>
 

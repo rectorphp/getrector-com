@@ -10,7 +10,7 @@ updated_message: |
     Since **Rector 0.12** a new `RectorConfig` is available with simpler and easier to use config methods.
 ---
 
-If you're not on PHP 8, [switch with Rector today](https://getrector.org/blog/2020/11/30/smooth-upgrade-to-php-8-in-diffs).
+If you're not on PHP 8, [switch with Rector today](https://getrector.com/blog/2020/11/30/smooth-upgrade-to-php-8-in-diffs).
 
 Ready now? Good.
 

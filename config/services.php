@@ -17,7 +17,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 
     $parameters = $containerConfigurator->parameters();
     $parameters->set(Option::DEMO_DIR, '%kernel.project_dir%/var/demo');
-    $parameters->set(Option::SITE_URL, 'https://getrector.org');
+    $parameters->set(Option::SITE_URL, 'https://getrector.com');
 
     $services = $containerConfigurator->services();
     $services->defaults()

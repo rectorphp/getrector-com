@@ -94,4 +94,4 @@ In one of the most business-critical parts, response time lowered from **8ms to 
 
 In the next parts, we will look more into the migrated codebase and migration process itself.
 
-Don't you have a PSR-4 compatible application yet? [Let us help you](https://getrector.org/contact) achieve this great success too!
+Don't you have a PSR-4 compatible application yet? [Let us help you](https://getrector.com/contact) achieve this great success too!

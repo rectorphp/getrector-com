@@ -17,7 +17,7 @@ updated_message: |
 
 ## PHP 8 Upgrade Set
 
-The most awaited feature is **upgrade set to PHP 8**. We already wrote [Smooth Upgrade to PHP 8 in Diffs](https://getrector.org/blog/2020/11/30/smooth-upgrade-to-php-8-in-diffs) - with promoted properties, annotations to attributes, union types, and more.
+The most awaited feature is **upgrade set to PHP 8**. We already wrote [Smooth Upgrade to PHP 8 in Diffs](https://getrector.com/blog/2020/11/30/smooth-upgrade-to-php-8-in-diffs) - with promoted properties, annotations to attributes, union types, and more.
 
 We tested this set for the last 30 days, solved bugs one by one, and applied in CI on 5 PHP projects.
 

@@ -1,7 +1,7 @@
 {
     "name": "rector/website",
     "license": "proprietary",
-    "description": "Website of GetRector.org",
+    "description": "Website of getrector.com",
     "require": {
         "php": "^8.1",
         "ext-json": "*",

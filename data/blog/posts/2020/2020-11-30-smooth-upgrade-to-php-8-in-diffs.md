@@ -46,7 +46,7 @@ vendor/bin/rector process src
 How does such upgrade look in practise? See one of real pull-requests created with Rector:
 
 - [tomasvotruba.com](https://github.com/TomasVotruba/tomasvotruba.com/pull/1107/files)
-- [getrector.org](https://github.com/rectorphp/getrector.org/pull/190/files)
+- [getrector.com](https://github.com/rectorphp/getrector.org/pull/190/files)
 - [friendsofphp.org](https://github.com/TomasVotruba/friendsofphp.org/pull/176/files)
 
 <br>

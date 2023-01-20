@@ -15,7 +15,7 @@ The core team around Rector is not using Docker for running because there is no 
 
 ## Use Rector like PHPUnit
 
-**With [downgrades](https://getrector.org/blog/2021/03/22/rector-010-released-with-php71-support) and [prefixed release](https://getrector.org/blog/prefixed-rector-by-default) repository, Rector can be easily installed on any project:**
+**With [downgrades](https://getrector.com/blog/2021/03/22/rector-010-released-with-php71-support) and [prefixed release](https://getrector.com/blog/prefixed-rector-by-default) repository, Rector can be easily installed on any project:**
 
 ```bash
 composer require rector/rector --dev
@@ -23,11 +23,11 @@ composer require rector/rector --dev
 
 Rector can save you hundreds of hours on automated refactoring and instant upgrades. But the main added features are in the long-term feedback and everyday work it resolves for you. With new rules and sets, you should never upgrade manually ever again. How?
 
-The same way PHPUnit checks your tests in CI, [the same way Rector works in CI for you](https://getrector.org/blog/2020/10/05/how-to-make-rector-contribute-your-pull-requests-every-day).
+The same way PHPUnit checks your tests in CI, [the same way Rector works in CI for you](https://getrector.com/blog/2020/10/05/how-to-make-rector-contribute-your-pull-requests-every-day).
 
 <br>
 
-If the PHP version is the limit, Docker will not help as Rector requires PHP 7.1 to run. There is [PHP 5.6 sponsorware program](https://getrector.org/blog/rector-for-php56-native) for projects who want to make it happen.
+If the PHP version is the limit, Docker will not help as Rector requires PHP 7.1 to run. There is [PHP 5.6 sponsorware program](https://getrector.com/blog/rector-for-php56-native) for projects who want to make it happen.
 
 <br>
 

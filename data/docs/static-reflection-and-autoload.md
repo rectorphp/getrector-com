@@ -2,8 +2,8 @@ Rector is using static reflection to load code without running it since version 
 
 Do you want to know more about it? Continue here:
 
-- [From Doctrine Annotations Parser to Static Reflection](https://getrector.org/blog/from-doctrine-annotations-parser-to-static-reflection)
-- [Legacy Refactoring made Easy with Static Reflection](https://getrector.org/blog/2021/03/15/legacy-refactoring-made-easy-with-static-reflection)
+- [From Doctrine Annotations Parser to Static Reflection](https://getrector.com/blog/from-doctrine-annotations-parser-to-static-reflection)
+- [Legacy Refactoring made Easy with Static Reflection](https://getrector.com/blog/2021/03/15/legacy-refactoring-made-easy-with-static-reflection)
 - [Zero Config Analysis with Static Reflection](https://phpstan.org/blog/zero-config-analysis-with-static-reflection) - from PHPStan
 
 ```php
