@@ -10,7 +10,7 @@ updated_message: |
     Since **Rector 0.12** a new `RectorConfig` is available with simpler and easier to use config methods.
 ---
 
-If you're not on PHP 8, [switch with Rector today](https://getrector.org/blog/2020/11/30/smooth-upgrade-to-php-8-in-diffs).
+If you're not on PHP 8, [switch with Rector today](https://getrector.com/blog/2020/11/30/smooth-upgrade-to-php-8-in-diffs).
 
 Ready now? Good.
 
@@ -183,7 +183,7 @@ That's it!
 
 <br>
 
-We run this rule on our website while writing this post. How did it go? [See for yourself](https://github.com/rectorphp/getrector.org/pull/235/files).
+We run this rule on our website while writing this post. How did it go? [See for yourself](https://github.com/rectorphp/getrector.com/pull/235/files).
 
 <br>
 

@@ -9,7 +9,7 @@
 
 ## Minimal PHP Code Causing Issue
 
-See https://getrector.org/demo/%s
+See https://getrector.com/demo/%s
 
 ```php
 <?php
