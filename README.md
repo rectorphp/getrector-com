@@ -15,6 +15,12 @@ npm install
 yarn run dev
 ```
 
+Install composer dependencies:
+
+```bash
+composer install
+```
+
 Run website in local browser:
 
 ```bash
