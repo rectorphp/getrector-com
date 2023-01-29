@@ -64,7 +64,7 @@ final class FileDiffCleaner
     private function hasDiff(string $fileDiff): bool
     {
         $fileDiffLines = explode(PHP_EOL, $fileDiff);
-        $filter = static fn (string $fileDiffLine): bool => Strings::match($fileDiffLine, self::DIFF_LINE_START_REGEX);
+        $filter = static fn (string $fileDiffLine): bool => (bool) Strings::match($fileDiffLine, self::DIFF_LINE_START_REGEX);
 
         return AtLeast::once($fileDiffLines, $filter);
     }
