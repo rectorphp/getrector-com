@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Website\Blog\Twig;
 
+use ArrayLookup\AtLeast;
 use Rector\Website\Exception\ShouldNotHappenException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -28,15 +29,8 @@ final class RoutingTwigExtension extends AbstractExtension
         );
 
         $isCurrentRoutes = new TwigFunction('is_current_routes', function (array $desiredRouteNames): bool {
-            foreach ($desiredRouteNames as $desiredRouteName) {
-                if (! $this->isCurrentRoute($desiredRouteName)) {
-                    continue;
-                }
-
-                return true;
-            }
-
-            return false;
+            $filter = fn (string $desiredRouteName): bool => $this->isCurrentRoute($desiredRouteName);
+            return AtLeast::once($desiredRouteNames, $filter);
         });
 
         return [$isCurrentRoute, $isCurrentRoutes];

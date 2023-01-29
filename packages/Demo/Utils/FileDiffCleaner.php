@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Website\Demo\Utils;
 
+use ArrayLookup\AtLeast;
 use Nette\Utils\Strings;
 use Rector\Website\Demo\Entity\RectorRun;
 
@@ -63,13 +64,8 @@ final class FileDiffCleaner
     private function hasDiff(string $fileDiff): bool
     {
         $fileDiffLines = explode(PHP_EOL, $fileDiff);
+        $filter = static fn (string $fileDiffLine): bool => Strings::match($fileDiffLine, self::DIFF_LINE_START_REGEX);
 
-        foreach ($fileDiffLines as $fileDiffLine) {
-            if (Strings::match($fileDiffLine, self::DIFF_LINE_START_REGEX)) {
-                return true;
-            }
-        }
-
-        return false;
+        return AtLeast::once($fileDiffLines, $filter);
     }
 }
