@@ -14,6 +14,6 @@ final class SupportPageCest
         $acceptanceTester->amOnPage('/hire-team');
 
         // see text in hire-team page
-        $acceptanceTester->see('Hire Rector team to Reduce Costs and Technical Debt');
+        $acceptanceTester->see('Hire the Rector Team to Reduce Costs and Technical Debt');
     }
 }
