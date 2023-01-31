@@ -22,7 +22,7 @@ final class ForCompaniesController extends AbstractController
         }
 
         return $this->render('homepage/hire_team.twig', [
-            'page_title' => 'Hire Rector team to Reduce Costs and Technical Debt',
+            'page_title' => 'Hire the Rector Team to Reduce Costs and Technical Debt',
         ]);
     }
 }
