@@ -48,7 +48,7 @@ foreach ($fileInfos as $fileInfo) {
 - When all nodes are ready, the application iterates on all active Rectors
 - Each node is compared with `$rector->getNodeTypes()` method to see if this Rector should do some work on it, e.g. is this class name called `OldClassName`?
 - If it doesn't match, it goes to next node.
-- If it matches, the `$rector->reconstruct($node)` method is called
+- If it matches, the `$rector->refactor($node)` method is called
 - Active Rector change everything they have to and return changed nodes
 
 ### 2.2.1 Order of Rectors
