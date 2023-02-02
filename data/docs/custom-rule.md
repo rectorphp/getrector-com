@@ -16,7 +16,6 @@ declare(strict_types=1);
 
 namespace Utils\Rector\Rector;
 
-use Nette\Utils\Strings;
 use PhpParser\Node;
 use PhpParser\Node\Identifier;
 use PhpParser\Node\Expr\MethodCall;
@@ -49,7 +48,7 @@ final class MyFirstRector extends AbstractRector
         }
 
         $methodCallName = $this->getName($node->name);
-        $newMethodCallName = Strings::replace($methodCallName, '#^set#', 'change');
+        $newMethodCallName = preg_replace('#^set#', 'change', $methodCallName);
 
         $node->name = new Identifier($newMethodCallName);
 
