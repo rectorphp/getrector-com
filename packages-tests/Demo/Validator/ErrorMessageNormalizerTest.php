@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Website\Tests\Demo\Validator;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use Iterator;
 use Rector\Website\Demo\Error\ErrorMessageNormalizer;
 use Rector\Website\GetRectorKernel;
@@ -22,9 +23,7 @@ final class ErrorMessageNormalizerTest extends AbstractKernelTestCase
         $this->errorMessageNormalizer = self::$container->get(ErrorMessageNormalizer::class);
     }
 
-    /**
-     * @dataProvider provideDataForTest()
-     */
+    #[DataProvider('provideDataForTest')]
     public function test(string $errorMessage, string $expectedNormalizedMessage): void
     {
         $normalizedMessage = $this->errorMessageNormalizer->normalize($errorMessage);
@@ -34,7 +33,7 @@ final class ErrorMessageNormalizerTest extends AbstractKernelTestCase
     /**
      * @return Iterator<mixed>
      */
-    public function provideDataForTest(): Iterator
+    public static function provideDataForTest(): Iterator
     {
         yield ['message', 'message'];
         yield [

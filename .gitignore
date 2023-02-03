@@ -15,8 +15,8 @@ public/adminer/
 # node
 *.local.yaml
 
-# PHPUnit 8+
-.phpunit.result.cache
+# PHPUnit 10+
+.phpunit.cache
 
 public/adminer
 public/build

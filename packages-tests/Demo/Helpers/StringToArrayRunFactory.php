@@ -12,6 +12,7 @@ final class StringToArrayRunFactory
 {
     public function create(): RectorRun
     {
+        $jsonResult = [];
         $rectorRun = new RectorRun(
             Uuid::v4(),
             file_get_contents(__DIR__ . '/Source/rector_run_file_content.php.inc'),

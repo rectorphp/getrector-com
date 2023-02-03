@@ -4,22 +4,22 @@ declare(strict_types=1);
 
 namespace Rector\Website\Tests;
 
+use Iterator;
+use PHPUnit\Framework\Attributes\DataProvider;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 final class ControllerSmokeTest extends WebTestCase
 {
-    /**
-     * @dataProvider provideUrls()
-     */
+    #[DataProvider('provideUrls')]
     public function test(string $url): void
     {
-        $client = self::createClient();
-        $client->request('GET', $url);
+        $kernelBrowser = $this->createClient();
+        $kernelBrowser->request('GET', $url);
 
         $this->assertResponseIsSuccessful();
     }
 
-    public function provideUrls(): \Iterator
+    public static function provideUrls(): Iterator
     {
         yield ['/'];
         yield ['/blog'];
@@ -28,5 +28,4 @@ final class ControllerSmokeTest extends WebTestCase
         yield ['/contact'];
         yield ['/hire-team'];
     }
-
 }
