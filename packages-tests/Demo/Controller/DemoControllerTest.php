@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Rector\Website\Tests\Demo\Controller;
 
 use Iterator;
+use PHPUnit\Framework\Attributes\DataProvider;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
@@ -13,7 +14,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
  */
 final class DemoControllerTest extends WebTestCase
 {
-    public function test(): void
+    public function test(): never
     {
         $this->markTestSkipped('Will be moved to Bref');
 
@@ -25,10 +26,8 @@ final class DemoControllerTest extends WebTestCase
         $this->assertResponseIsSuccessful();
     }
 
-    /**
-     * @dataProvider provideTestFormSubmitData
-     */
-    public function testFormSubmit(string $contentData, string $configData): void
+    #[DataProvider('provideTestFormSubmitData')]
+    public function testFormSubmit(string $contentData, string $configData): never
     {
         $this->markTestSkipped('Will be moved to Bref');
 
@@ -51,7 +50,7 @@ final class DemoControllerTest extends WebTestCase
     /**
      * @return Iterator<mixed>
      */
-    public function provideTestFormSubmitData(): Iterator
+    public static function provideTestFormSubmitData(): Iterator
     {
         # Send empty form
         yield ['', ''];

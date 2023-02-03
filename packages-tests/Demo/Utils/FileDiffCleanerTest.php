@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Website\Tests\Demo\Utils;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use Iterator;
 use Rector\Website\Demo\Utils\FileDiffCleaner;
 use Rector\Website\GetRectorKernel;
@@ -22,9 +23,7 @@ final class FileDiffCleanerTest extends AbstractKernelTestCase
         $this->fileDiffCleaner = self::$container->get(FileDiffCleaner::class);
     }
 
-    /**
-     * @dataProvider provideData()
-     */
+    #[DataProvider('provideData')]
     public function test(SmartFileInfo $smartFileInfo): void
     {
         $inputAndExpected = StaticFixtureSplitter::splitFileInfoToInputAndExpected($smartFileInfo);
@@ -35,7 +34,7 @@ final class FileDiffCleanerTest extends AbstractKernelTestCase
 
         $cleanedContent = trim($cleanedContent);
 
-        $expectedContent = trim($expectedContent);
+        $expectedContent = trim((string) $expectedContent);
 
         $this->assertSame($expectedContent, $cleanedContent);
     }
@@ -43,7 +42,7 @@ final class FileDiffCleanerTest extends AbstractKernelTestCase
     /**
      * @return Iterator<SmartFileInfo[]>
      */
-    public function provideData(): Iterator
+    public static function provideData(): Iterator
     {
         return StaticFixtureFinder::yieldDirectory(__DIR__ . '/Fixture', '*.txt');
     }

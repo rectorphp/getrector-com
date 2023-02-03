@@ -13,7 +13,12 @@ use Rector\Set\ValueObject\SetList;
 use Rector\Symfony\Set\SymfonySetList;
 
 return static function (RectorConfig $rectorConfig): void {
-    $rectorConfig->paths([__DIR__ . '/src', __DIR__ . '/tests', __DIR__ . '/packages']);
+    $rectorConfig->paths([
+        __DIR__ . '/src',
+        __DIR__ . '/tests',
+        __DIR__ . '/packages',
+        __DIR__ . '/packages-tests',
+    ]);
 
     $rectorConfig->importNames();
 
@@ -23,6 +28,7 @@ return static function (RectorConfig $rectorConfig): void {
         SymfonySetList::ANNOTATIONS_TO_ATTRIBUTES,
         DoctrineSetList::ANNOTATIONS_TO_ATTRIBUTES,
         PHPUnitSetList::PHPUNIT_CODE_QUALITY,
+        PHPUnitSetList::PHPUNIT_100,
         SetList::DEAD_CODE,
         SetList::CODE_QUALITY,
         SetList::CODING_STYLE,
