@@ -27,13 +27,10 @@
         "symplify/vendor-patches": "^11.1"
     },
     "require-dev": {
-        "codeception/codeception": "^5.0",
-        "codeception/module-asserts": "*",
-        "codeception/module-phpbrowser": "*",
         "icanhazstring/composer-unused": "^0.8.4",
         "phpstan/extension-installer": "^1.1",
         "phpstan/phpstan": "^1.8",
-        "phpunit/phpunit": "^9.5",
+        "phpunit/phpunit": "^10.0",
         "roave/security-advisories": "dev-master",
         "symfony/debug-bundle": "^6.1",
         "symplify/coding-standard": "^11.1",

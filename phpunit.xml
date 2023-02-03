@@ -8,6 +8,8 @@
 >
     <php>
         <server name="SHELL_VERBOSITY" value="-1" />
+        <server name="KERNEL_CLASS" value="Rector\Website\GetRectorKernel" />
+        <env name="APP_ENV" value="test" force="true"/>
     </php>
 
     <testsuites>
