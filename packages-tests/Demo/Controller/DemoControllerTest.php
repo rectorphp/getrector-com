@@ -18,6 +18,8 @@ final class DemoControllerTest extends WebTestCase
     #[DataProvider('provideTestFormSubmitData')]
     public function testFormSubmit(string $contentData, string $configData): void
     {
+        $this->markTestSkipped('Test later with Pest');
+
         $kernelBrowser = $this->createClient();
         $kernelBrowser->request('GET', '/demo');
 

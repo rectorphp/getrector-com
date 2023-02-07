@@ -29,6 +29,7 @@
     },
     "require-dev": {
         "icanhazstring/composer-unused": "^0.8.4",
+        "pestphp/pest": "2.x-dev",
         "phpstan/extension-installer": "^1.1",
         "phpstan/phpstan": "^1.8",
         "phpunit/phpunit": "^10.0",
@@ -78,7 +79,8 @@
         "allow-plugins": {
             "composer/package-versions-deprecated": true,
             "phpstan/extension-installer": true,
-            "cweagans/composer-patches": true
+            "cweagans/composer-patches": true,
+            "pestphp/pest-plugin": true
         }
     },
     "extra": {

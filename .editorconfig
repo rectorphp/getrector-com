@@ -1,4 +1,4 @@
-E; top-most EditorConfig file
+; top-most EditorConfig file
 root = true
 
 ; Unix-style newlines
