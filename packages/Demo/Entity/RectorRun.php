@@ -37,8 +37,8 @@ final class RectorRun implements JsonSerializable
 
     public function __construct(
         private readonly Uuid $uuid,
-        private readonly string $content,
-        private readonly string $config,
+        private string $content,
+        private string $config,
         /** @var array<string, mixed> */
         private array $jsonResult = [],
         private string|null $fatalErrorMessage = null
@@ -59,6 +59,22 @@ final class RectorRun implements JsonSerializable
         }
 
         return self::NO_CHANGE_CONTENT;
+    }
+
+    /**
+     * @api used in a form
+     */
+    public function setContent(string $content): void
+    {
+        $this->content = $content;
+    }
+
+    /**
+     * @api used in a form
+     */
+    public function setConfig(string $config): void
+    {
+        $this->config = $config;
     }
 
     public function getContent(): string
