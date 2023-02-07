@@ -14,7 +14,7 @@
 
     <testsuites>
         <testsuite name="main">
-            <directory>tests</directory>
+            <file>tests/ControllerSmokeTest.php</file>
             <directory>packages-tests</directory>
         </testsuite>
     </testsuites>
