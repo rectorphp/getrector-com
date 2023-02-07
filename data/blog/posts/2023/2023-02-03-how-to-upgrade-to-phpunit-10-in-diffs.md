@@ -58,25 +58,11 @@ New PHPUnit 10 uses the whole directory for caching instead of a single file:
 
 <br>
 
-## The abstract `*Test` class is now forbidden
-
-Just flip it to the `*TestCase` naming convention because abstract classes were never tested anyway:
-
-```diff
- use PHPUnit\Framework\TestCase;
-
--abstract AbstractTypeTest extends TestCase
-+abstract AbstractTypeTestCase extends TestCase
- {
- }
-```
-
-<br>
-
 ## And the Rest?
 
 * data providers must be static methods now
-* The annotations are flipped to attributes
+* the `@annotations` are flipped to `#[attributes]`
+* the abstract "test" must have `TestCase` suffix
 
 ```diff
  use PHPUnit\Framework\TestCase;
