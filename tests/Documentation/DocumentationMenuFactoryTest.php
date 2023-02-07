@@ -4,19 +4,17 @@ declare(strict_types=1);
 
 namespace Rector\Website\Tests\Documentation;
 
+use PHPUnit\Framework\TestCase;
 use Rector\Website\Documentation\DocumentationMenuFactory;
-use Rector\Website\GetRectorKernel;
 use Rector\Website\ValueObject\DocumentationSection;
-use Symplify\PackageBuilder\Testing\AbstractKernelTestCase;
 
-final class DocumentationMenuFactoryTest extends AbstractKernelTestCase
+final class DocumentationMenuFactoryTest extends TestCase
 {
     private DocumentationMenuFactory $documentationMenuFactory;
 
     protected function setUp(): void
     {
-        $this->bootKernel(GetRectorKernel::class);
-        $this->documentationMenuFactory = $this->getService(DocumentationMenuFactory::class);
+        $this->documentationMenuFactory = new DocumentationMenuFactory();
     }
 
     public function testSectionTitle(): void
