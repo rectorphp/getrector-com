@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use PHPUnit\Framework\Assert;
 use Rector\Website\Documentation\DocumentationMenuFactory;
 use Rector\Website\ValueObject\DocumentationSection;
 
@@ -16,11 +15,13 @@ test('section title', function () {
 
 test('create', function () {
     $documentationMenuFactory = new DocumentationMenuFactory();
-
     $documentationSectionsByCategory = $documentationMenuFactory->create();
 
     foreach ($documentationSectionsByCategory as $category => $documentationSections) {
-        expect($category)->toBeString();
-        Assert::assertContainsOnlyInstancesOf(DocumentationSection::class, $documentationSections);
+        expect($category)
+            ->toBeString();
+
+        expect($documentationSections)
+            ->toContainOnlyInstancesOf(DocumentationSection::class);
     }
 });
