@@ -7,6 +7,7 @@ namespace Rector\Website\Tests;
 use Iterator;
 use PHPUnit\Framework\Attributes\DataProvider;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\HttpFoundation\Request;
 
 final class ControllerSmokeTest extends WebTestCase
 {
@@ -14,7 +15,7 @@ final class ControllerSmokeTest extends WebTestCase
     public function test(string $url): void
     {
         $kernelBrowser = $this->createClient();
-        $kernelBrowser->request('GET', $url);
+        $kernelBrowser->request(Request::METHOD_GET, $url);
 
         $this->assertResponseIsSuccessful();
     }

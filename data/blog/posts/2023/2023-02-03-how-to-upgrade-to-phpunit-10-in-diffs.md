@@ -58,25 +58,11 @@ New PHPUnit 10 uses the whole directory for caching instead of a single file:
 
 <br>
 
-## The abstract `*Test` class is now forbidden
-
-Just flip it to the `*TestCase` naming convention because abstract classes were never tested anyway:
-
-```diff
- use PHPUnit\Framework\TestCase;
-
--abstract AbstractTypeTest extends TestCase
-+abstract AbstractTypeTestCase extends TestCase
- {
- }
-```
-
-<br>
-
 ## And the Rest?
 
 * data providers must be static methods now
-* The annotations are flipped to attributes
+* the `@annotations` are flipped to `#[attributes]`
+* the abstract "test" must have `TestCase` suffix
 
 ```diff
  use PHPUnit\Framework\TestCase;
@@ -113,9 +99,23 @@ Note: Do your data providers contain dynamic method calls? You'll need to refact
  }
 ```
 
+
+<br
+
+The `abstract` test now has to have `*TestCase` suffix:
+
+```diff
+ use PHPUnit\Framework\TestCase;
+
+-abstract AbstractTypeTest extends TestCase
++abstract AbstractTypeTestCase extends TestCase
+ {
+ }
+```
+
 <br>
 
-To handle the rest, add PHPUnit 10 set to the `rector.php` config:
+To handle these, add PHPUnit 10 upgrade set to the `rector.php` config:
 
 ```php
 use Rector\Config\RectorConfig;
