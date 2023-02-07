@@ -99,9 +99,23 @@ Note: Do your data providers contain dynamic method calls? You'll need to refact
  }
 ```
 
+
+<br
+
+The `abstract` test now has to have `*TestCase` suffix:
+
+```diff
+ use PHPUnit\Framework\TestCase;
+
+-abstract AbstractTypeTest extends TestCase
++abstract AbstractTypeTestCase extends TestCase
+ {
+ }
+```
+
 <br>
 
-To handle the rest, add PHPUnit 10 set to the `rector.php` config:
+To handle these, add PHPUnit 10 upgrade set to the `rector.php` config:
 
 ```php
 use Rector\Config\RectorConfig;
