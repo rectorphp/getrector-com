@@ -12,6 +12,7 @@ use Rector\Website\Demo\Entity\RectorRun;
 use Rector\Website\Demo\Form\DemoFormType;
 use Rector\Website\Demo\Repository\RectorRunRepository;
 use Rector\Website\Demo\ValueObjectFactory\RectorRunFactory;
+use Rector\Website\Enum\FlashType;
 use Rector\Website\ValueObject\Routing\RouteName;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormFactoryInterface;
@@ -68,23 +69,25 @@ final class DemoController extends AbstractController
 
         // process form submit
         if ($request->isMethod(Request::METHOD_POST)) {
-            $demoFromData = $request->request->all()['demo_form'];
-            $content = $demoFromData['content'];
-            $config = $demoFromData['config'];
+            $demoForm->handleRequest($request);
 
-            $rectorRun = new RectorRun(Uuid::v4(), $content, $config);
+            if ($demoForm->isSubmitted() && $demoForm->isValid()) {
+                $demoFromData = $request->request->all()['demo_form'];
+                $content = $demoFromData['content'];
+                $config = $demoFromData['config'];
 
-            return $this->processFormAndReturnRoute($rectorRun);
+                $rectorRun = new RectorRun(Uuid::v4(), $content, $config);
+
+                return $this->processFormAndReturnRoute($rectorRun);
+            }
         }
+
+        $rectorReleaseDate = substr(VersionResolver::RELEASE_DATE, 0, strlen(VersionResolver::RELEASE_DATE) - 3);
 
         return $this->render('demo/demo.twig', [
             'rector_version' => $this->resolveRectorReleaseVersion(),
             'rector_commit_hash' => Strings::after($this->resolveRectorReleaseVersion(), '@'),
-            'rector_released_time' => substr(
-                VersionResolver::RELEASE_DATE,
-                0,
-                strlen(VersionResolver::RELEASE_DATE) - 3
-            ),
+            'rector_released_time' => $rectorReleaseDate,
             'demo_form' => $demoForm->createView(),
             'rector_run' => $rectorRun,
         ]);
@@ -102,9 +105,10 @@ final class DemoController extends AbstractController
     {
         if (substr_count($rectorRun->getContent(), "\n") > self::INPUT_LINES_LIMIT) {
             $this->addFlash(
-                'danger',
+                FlashType::ERROR,
                 'Content file has too many lines. Please reduce it under 100 lines, to make it easier to read'
             );
+
             return $this->redirectToRoute(RouteName::DEMO);
         }
 
