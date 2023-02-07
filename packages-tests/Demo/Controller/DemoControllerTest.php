@@ -6,6 +6,7 @@ namespace Rector\Website\Tests\Demo\Controller;
 
 use Iterator;
 use PHPUnit\Framework\Attributes\DataProvider;
+use Rector\Website\ValueObject\Routing\RouteName;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
@@ -14,23 +15,9 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
  */
 final class DemoControllerTest extends WebTestCase
 {
-    public function test(): never
-    {
-        $this->markTestSkipped('Will be moved to Bref');
-
-        $kernelBrowser = $this->createClient();
-
-        // must be path of the controller
-        $kernelBrowser->request('GET', '/demo');
-
-        $this->assertResponseIsSuccessful();
-    }
-
     #[DataProvider('provideTestFormSubmitData')]
-    public function testFormSubmit(string $contentData, string $configData): never
+    public function testFormSubmit(string $contentData, string $configData): void
     {
-        $this->markTestSkipped('Will be moved to Bref');
-
         $kernelBrowser = $this->createClient();
         $kernelBrowser->request('GET', '/demo');
 
@@ -41,15 +28,12 @@ final class DemoControllerTest extends WebTestCase
         ]);
 
         // no redirect, because PHP was invalid
-        $this->assertRouteSame('demo');
+        $this->assertRouteSame(RouteName::DEMO);
 
         // form should contain errors
         $this->assertSelectorExists('.invalid-feedback');
     }
 
-    /**
-     * @return Iterator<mixed>
-     */
     public static function provideTestFormSubmitData(): Iterator
     {
         # Send empty form
