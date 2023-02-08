@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Website\Blog\Repository;
 
+use ArrayLookup\Finder as ArrayLookupFinder;
 use Rector\Website\Blog\ValueObject\Post;
 use Rector\Website\Blog\ValueObjectFactory\PostFactory;
 use Rector\Website\Exception\ShouldNotHappenException;
@@ -41,13 +42,8 @@ final class PostRepository
 
     public function findBySlug(string $slug): ?Post
     {
-        foreach ($this->posts as $post) {
-            if ($post->getSlug() === $slug) {
-                return $post;
-            }
-        }
-
-        return null;
+        $filter = static fn (Post $post): bool => $post->getSlug() === $slug;
+        return ArrayLookupFinder::first($this->posts, $filter);
     }
 
     /**
