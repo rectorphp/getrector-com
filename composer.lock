@@ -614,12 +614,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "7f6ee7974175138864d3b50c28ea73a7b0fd4e2d"
+                "reference": "f913db606919b017aea8a79d4cbbc759e47cf3d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/7f6ee7974175138864d3b50c28ea73a7b0fd4e2d",
-                "reference": "7f6ee7974175138864d3b50c28ea73a7b0fd4e2d",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/f913db606919b017aea8a79d4cbbc759e47cf3d8",
+                "reference": "f913db606919b017aea8a79d4cbbc759e47cf3d8",
                 "shasum": ""
             },
             "require": {
@@ -654,7 +654,7 @@
             "description": "Instant Upgrade and Automated Refactoring of any PHP code",
             "support": {
                 "issues": "https://github.com/rectorphp/rector/issues",
-                "source": "https://github.com/rectorphp/rector/tree/0.15.17"
+                "source": "https://github.com/rectorphp/rector/tree/main"
             },
             "funding": [
                 {
@@ -662,7 +662,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-02-17T20:34:07+00:00"
+            "time": "2023-02-19T17:53:18+00:00"
         },
         {
             "name": "samsonasik/array-lookup",
