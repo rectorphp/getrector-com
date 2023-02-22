@@ -33,7 +33,7 @@ final class DocumentationMenuFactory
         $documentationSection['Testing and CI'] = [
             new DocumentationSection('cache-in-ci', 'Cache in CI'),
             new DocumentationSection('troubleshooting-parallel', 'Troubleshooting Parallel'),
-            new DocumentationSection('how-to-add-test-case', 'How To Add Test Case'),
+            new DocumentationSection('reporting-issue-with-rector', 'Reporting Issue With Rector'),
         ];
 
         $documentationSection['Advanced'] = [
