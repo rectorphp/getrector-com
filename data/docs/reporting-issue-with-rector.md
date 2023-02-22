@@ -1,3 +1,6 @@
+Whenever you encounter a situation where Rector does not behave as expected, please create a pull request with a test case that shows what you expected and rector misbehaving.
+When someone is working on fixing this issue, the test case will make it easy to see whether the issue is actually fixed.
+
 ## 1. Create an environment for testing
 
 When using Rector to update your own code, you will typically be using release repository installed by composer, however, when adding tests, you will need to use the development repository as shown:
