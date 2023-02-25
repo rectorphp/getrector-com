@@ -25,7 +25,7 @@ final class DocumentationController extends AbstractController
     public function __invoke(string $section): Response
     {
         $sectionHtmlContents = $this->htmlFromMarkdownFactory->create(
-            __DIR__ . '/../../data/docs/' . $section . '.md'
+            __DIR__ . '/../../resources/docs/' . $section . '.md'
         );
 
         return $this->render('docs/section.twig', [
