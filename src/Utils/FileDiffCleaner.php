@@ -9,7 +9,7 @@ use Nette\Utils\Strings;
 use Rector\Website\Entity\RectorRun;
 
 /**
- * @see \Rector\Website\Tests\Demo\Utils\FileDiffCleanerTest
+ * @see \Rector\Website\Tests\Utils\FileDiffCleanerTest
  */
 final class FileDiffCleaner
 {

@@ -24,7 +24,7 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Uid\Uuid;
 
 /**
- * @see \Rector\Website\Tests\Demo\Controller\DemoControllerTest
+ * @see \Rector\Website\Tests\Controller\DemoControllerTest
  */
 final class DemoController extends AbstractController
 {

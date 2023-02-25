@@ -5,35 +5,29 @@ declare(strict_types=1);
 use Rector\CodingStyle\Enum\PreferenceSelfThis;
 use Rector\CodingStyle\Rector\MethodCall\PreferThisOrSelfMethodCallRector;
 use Rector\Config\RectorConfig;
-use Rector\Doctrine\Set\DoctrineSetList;
 use Rector\PHPUnit\Set\PHPUnitSetList;
 use Rector\Privatization\Rector\Class_\FinalizeClassesWithoutChildrenRector;
 use Rector\Set\ValueObject\LevelSetList;
 use Rector\Set\ValueObject\SetList;
-use Rector\Symfony\Set\SymfonySetList;
 
 return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->paths([__DIR__ . '/config', __DIR__ . '/src', __DIR__ . '/tests']);
 
     $rectorConfig->importNames();
 
-    $rectorConfig->parallel();
-
     $rectorConfig->sets([
-        SymfonySetList::ANNOTATIONS_TO_ATTRIBUTES,
-        DoctrineSetList::ANNOTATIONS_TO_ATTRIBUTES,
-        PHPUnitSetList::PHPUNIT_CODE_QUALITY,
         PHPUnitSetList::PHPUNIT_100,
         SetList::DEAD_CODE,
         SetList::CODE_QUALITY,
         SetList::CODING_STYLE,
         SetList::NAMING,
         SetList::TYPE_DECLARATION,
+        LevelSetList::UP_TO_PHP_81,
     ]);
 
-    $rectorConfig->import(LevelSetList::UP_TO_PHP_81);
-
     $rectorConfig->skip([
+        // generated mess
+        __DIR__ . '/config/bootstrap.php',
         '*/var/cache/*',
         // on purpose
         \Rector\CodeQuality\Rector\ClassMethod\InlineArrayReturnAssignRector::class,
