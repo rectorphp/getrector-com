@@ -16,9 +16,9 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 final class DemoControllerTest extends WebTestCase
 {
     #[DataProvider('provideTestFormSubmitData')]
-    public function testFormSubmit(string $contentData, string $configData): void
+    public function testFormSubmit(string $contentData, string $configData): never
     {
-        $this->markTestSkipped('Test later with Pest');
+        $this->markTestSkipped('Test later');
 
         $kernelBrowser = $this->createClient();
         $kernelBrowser->request('GET', '/demo');

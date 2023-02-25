@@ -2,26 +2,34 @@
 
 declare(strict_types=1);
 
+namespace Rector\Website\Tests\Documentation;
+
+use PHPUnit\Framework\TestCase;
 use Rector\Website\Documentation\DocumentationMenuFactory;
 use Rector\Website\ValueObject\DocumentationSection;
 
-test('section title', function () {
-    $documentationMenuFactory = new DocumentationMenuFactory();
+final class DocumentationMenuFactoryTest extends TestCase
+{
+    private DocumentationMenuFactory $documentationMenuFactory;
 
-    $sectionTitle = $documentationMenuFactory->createSectionTitle('run-in-cI');
-    expect($sectionTitle)
-        ->toBe('Run in CI');
-});
-
-test('create', function () {
-    $documentationMenuFactory = new DocumentationMenuFactory();
-    $documentationSectionsByCategory = $documentationMenuFactory->create();
-
-    foreach ($documentationSectionsByCategory as $category => $documentationSections) {
-        expect($category)
-            ->toBeString();
-
-        expect($documentationSections)
-            ->toContainOnlyInstancesOf(DocumentationSection::class);
+    protected function setUp(): void
+    {
+        $this->documentationMenuFactory = new DocumentationMenuFactory();
     }
-});
+
+    public function testSectionTitle(): void
+    {
+        $sectionTitle = $this->documentationMenuFactory->createSectionTitle('run-in-cI');
+        $this->assertSame('Run in CI', $sectionTitle);
+    }
+
+    public function testCategory(): void
+    {
+        $documentationSectionsByCategory = $this->documentationMenuFactory->create();
+
+        foreach ($documentationSectionsByCategory as $category => $documentationSections) {
+            $this->assertIsString($category);
+            $this->assertContainsOnlyInstancesOf(DocumentationSection::class, $documentationSections);
+        }
+    }
+}
