@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Rector\Website\Tests\GitHubMagicLink\BodyFactory\FixtureBodyFactory;
 
-use Rector\Website\Tests\Demo\Helpers\DummyRectorRunFactory;
 use Rector\Website\GetRectorKernel;
 use Rector\Website\GitHubMagicLink\BodyFactory\FixtureBodyFactory;
+use Rector\Website\Tests\Demo\Helpers\DummyRectorRunFactory;
 use Symplify\PackageBuilder\Testing\AbstractKernelTestCase;
 
 final class FixtureBodyFactoryTest extends AbstractKernelTestCase
