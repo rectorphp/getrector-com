@@ -4,31 +4,29 @@ declare(strict_types=1);
 
 namespace Rector\Website\Tests\GitHubMagicLink\LinkFactory\FixtureLinkFactory;
 
-use Rector\Website\Tests\Demo\Helpers\DummyRectorRunFactory;
 use Rector\Website\GetRectorKernel;
 use Rector\Website\GitHubMagicLink\LinkFactory\FixtureLinkFactory;
-use Rector\Website\Tests\Demo\Helpers\DowngradeArrayIsListFactory;
-use Rector\Website\Tests\Demo\Helpers\StringToArrayRunFactory;
+use Rector\Website\Tests\Demo\Helpers\DummyRectorRunFactory;
 use Symplify\PackageBuilder\Testing\AbstractKernelTestCase;
 
-final class RectorDowngradeTest extends AbstractKernelTestCase
+final class FixtureLinkFactoryTest extends AbstractKernelTestCase
 {
     private FixtureLinkFactory $testFixtureLinkFactory;
 
-    private DowngradeArrayIsListFactory $downgradeArrayIsListFactory;
+    private DummyRectorRunFactory $dummyRectorRunFactory;
 
     protected function setUp(): void
     {
         $this->bootKernel(GetRectorKernel::class);
         $this->testFixtureLinkFactory = $this->getService(FixtureLinkFactory::class);
-        $this->downgradeArrayIsListFactory = new DowngradeArrayIsListFactory();
+        $this->dummyRectorRunFactory = new DummyRectorRunFactory();
     }
 
     public function test(): void
     {
-        $rectorRun = $this->downgradeArrayIsListFactory->create();
+        $rectorRun = $this->dummyRectorRunFactory->create();
         $testFixtureLink = $this->testFixtureLinkFactory->create($rectorRun);
 
-        $this->assertStringMatchesFormatFile(__DIR__ . '/FixtureRectorDowngrade/expected_link.txt', $testFixtureLink . PHP_EOL);
+        $this->assertStringMatchesFormatFile(__DIR__ . '/Fixture/expected_link.txt', $testFixtureLink . PHP_EOL);
     }
 }
