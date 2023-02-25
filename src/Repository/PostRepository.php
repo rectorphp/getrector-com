@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Blog\Repository;
+namespace Rector\Website\Repository;
 
 use ArrayLookup\Finder as ArrayLookupFinder;
-use Rector\Website\Blog\ValueObject\Post;
-use Rector\Website\Blog\ValueObjectFactory\PostFactory;
+use Rector\Website\Entity\Post;
+use Rector\Website\EntityFactory\PostFactory;
 use Rector\Website\Exception\ShouldNotHappenException;
 use Symfony\Component\Finder\Finder;
 use Symplify\SmartFileSystem\Finder\FinderSanitizer;

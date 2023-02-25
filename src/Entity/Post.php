@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Blog\ValueObject;
+namespace Rector\Website\Entity;
 
 use DateTimeInterface;
 

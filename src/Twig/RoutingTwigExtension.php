@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Blog\Twig;
+namespace Rector\Website\Twig;
 
 use ArrayLookup\AtLeast;
 use Rector\Website\Exception\ShouldNotHappenException;
