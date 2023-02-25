@@ -10,8 +10,8 @@ use Rector\Website\ValueObject\Routing\RouteName;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
- * @see \Rector\Website\Demo\Controller\DemoController
- * @see \Rector\Website\Demo\Form\DemoFormType
+ * @see \Rector\Website\Controller\DemoController
+ * @see \Rector\Website\Form\DemoFormType
  */
 final class DemoControllerTest extends WebTestCase
 {

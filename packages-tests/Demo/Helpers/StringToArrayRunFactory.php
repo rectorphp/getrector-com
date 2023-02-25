@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Rector\Website\Tests\Demo\Helpers;
 
 use Rector\Symfony\Rector\New_\StringToArrayArgumentProcessRector;
-use Rector\Website\Demo\Entity\RectorRun;
+use Rector\Website\Entity\RectorRun;
 use Symfony\Component\Uid\Uuid;
 
 final class StringToArrayRunFactory

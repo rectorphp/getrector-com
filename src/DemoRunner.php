@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Demo;
+namespace Rector\Website;
 
 use Nette\Utils\Json;
 use Nette\Utils\JsonException;
 use Nette\Utils\Random;
-use Rector\Website\Demo\Entity\RectorRun;
-use Rector\Website\Demo\Error\ErrorMessageNormalizer;
-use Rector\Website\Demo\Exception\Process\RectorRunFailedException;
-use Rector\Website\Demo\ValueObject\Option;
+use Rector\Website\Entity\RectorRun;
+use Rector\Website\Error\ErrorMessageNormalizer;
+use Rector\Website\Exception\RectorRunFailedException;
 use Rector\Website\Exception\ShouldNotHappenException;
+use Rector\Website\ValueObject\Option;
 use Symfony\Component\Process\Process;
 use Symplify\PackageBuilder\Parameter\ParameterProvider;
 use Symplify\SmartFileSystem\SmartFileSystem;

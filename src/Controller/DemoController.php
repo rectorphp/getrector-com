@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Demo\Controller;
+namespace Rector\Website\Controller;
 
 use Nette\Utils\Strings;
 use PackageVersions\Versions;
 use Rector\Core\Application\VersionResolver;
-use Rector\Website\Demo\DemoRunner;
-use Rector\Website\Demo\Entity\RectorRun;
-use Rector\Website\Demo\Form\DemoFormType;
-use Rector\Website\Demo\Repository\RectorRunRepository;
-use Rector\Website\Demo\ValueObjectFactory\RectorRunFactory;
+use Rector\Website\DemoRunner;
+use Rector\Website\Entity\RectorRun;
+use Rector\Website\EntityFactory\RectorRunFactory;
 use Rector\Website\Enum\FlashType;
+use Rector\Website\Form\DemoFormType;
+use Rector\Website\Repository\RectorRunRepository;
 use Rector\Website\ValueObject\Routing\RouteName;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormFactoryInterface;

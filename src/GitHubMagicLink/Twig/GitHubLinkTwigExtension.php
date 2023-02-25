@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Website\GitHubMagicLink\Twig;
 
-use Rector\Website\Demo\Entity\RectorRun;
+use Rector\Website\Entity\RectorRun;
 use Rector\Website\GitHubMagicLink\LinkFactory\FixtureLinkFactory;
 use Rector\Website\GitHubMagicLink\LinkFactory\IssueLinkFactory;
 use Twig\Extension\AbstractExtension;

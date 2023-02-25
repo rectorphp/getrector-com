@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Demo\ValueObjectFactory;
+namespace Rector\Website\EntityFactory;
 
-use Rector\Website\Demo\Entity\RectorRun;
+use Rector\Website\Entity\RectorRun;
 use Symfony\Component\Uid\Uuid;
 use Symplify\SmartFileSystem\SmartFileSystem;
 

@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Demo\Entity;
+namespace Rector\Website\Entity;
 
 use JsonSerializable;
 use Nette\Utils\Strings;
-use Rector\Website\Demo\Utils\FileDiffCleaner;
-use Rector\Website\Demo\ValueObject\AppliedRule;
 use Rector\Website\Exception\ShouldNotHappenException;
+use Rector\Website\Utils\FileDiffCleaner;
 use Rector\Website\Utils\StringsConverter;
+use Rector\Website\ValueObject\AppliedRule;
 use Symfony\Component\Uid\Uuid;
 
 final class RectorRun implements JsonSerializable

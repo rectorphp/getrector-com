@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Rector\Website\GitHubMagicLink\LinkFactory;
 
 use Nette\Utils\Strings;
-use Rector\Website\Demo\Entity\RectorRun;
+use Rector\Website\Entity\RectorRun;
 use Rector\Website\GitHubMagicLink\BodyFactory\FixtureBodyFactory;
 use Rector\Website\GitHubMagicLink\BodyFactory\PullRequestDescriptionFactory;
 
