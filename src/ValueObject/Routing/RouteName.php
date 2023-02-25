@@ -59,10 +59,5 @@ final class RouteName
     /**
      * @var string
      */
-    public const COMPANY_COOPERATION = 'company_cooperation';
-
-    /**
-     * @var string
-     */
     public const HIRE_TEAM = 'hire_team';
 }
