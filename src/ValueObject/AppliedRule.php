@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Demo\ValueObject;
+namespace Rector\Website\ValueObject;
 
 use Nette\Utils\Strings;
 use Rector\Website\Exception\ShouldNotHappenException;

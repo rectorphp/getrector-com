@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Tests\Demo\Utils;
+namespace Rector\Website\Tests\Utils;
 
-use PHPUnit\Framework\Attributes\DataProvider;
 use Iterator;
-use Rector\Website\Demo\Utils\FileDiffCleaner;
+use PHPUnit\Framework\Attributes\DataProvider;
 use Rector\Website\GetRectorKernel;
+use Rector\Website\Utils\FileDiffCleaner;
 use Symplify\EasyTesting\DataProvider\StaticFixtureFinder;
 use Symplify\EasyTesting\StaticFixtureSplitter;
 use Symplify\PackageBuilder\Testing\AbstractKernelTestCase;

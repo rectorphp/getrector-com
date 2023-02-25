@@ -2,12 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Tests\Demo\Helpers;
+namespace Rector\Website\Tests\Helpers;
 
+use Nette\Utils\FileSystem;
 use Rector\Symfony\Rector\New_\StringToArrayArgumentProcessRector;
-use Rector\Website\Demo\Entity\RectorRun;
+use Rector\Website\Entity\RectorRun;
 use Symfony\Component\Uid\Uuid;
 
+/**
+ * @api used in tests
+ */
 final class StringToArrayRunFactory
 {
     public function create(): RectorRun
@@ -15,8 +19,8 @@ final class StringToArrayRunFactory
         $jsonResult = [];
         $rectorRun = new RectorRun(
             Uuid::v4(),
-            file_get_contents(__DIR__ . '/Source/rector_run_file_content.php.inc'),
-            file_get_contents(__DIR__ . '/Source/rector_run_config_content.php.inc')
+            FileSystem::read(__DIR__ . '/Source/rector_run_file_content.php.inc'),
+            FileSystem::read(__DIR__ . '/Source/rector_run_config_content.php.inc')
         );
 
         $jsonResult['file_diffs'][]['applied_rectors'] = [StringToArrayArgumentProcessRector::class];

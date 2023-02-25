@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Tests\Demo\Validator;
+namespace Rector\Website\Tests\Validator;
 
-use PHPUnit\Framework\Attributes\DataProvider;
 use Iterator;
-use Rector\Website\Demo\Error\ErrorMessageNormalizer;
+use PHPUnit\Framework\Attributes\DataProvider;
+use Rector\Website\Error\ErrorMessageNormalizer;
 use Rector\Website\GetRectorKernel;
 use Symplify\PackageBuilder\Testing\AbstractKernelTestCase;
 
 /**
- * @see \Rector\Website\Demo\Error\ErrorMessageNormalizer
+ * @see \Rector\Website\Error\ErrorMessageNormalizer
  */
 final class ErrorMessageNormalizerTest extends AbstractKernelTestCase
 {

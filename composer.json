@@ -50,18 +50,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Rector\\Website\\": [
-                "src",
-                "packages"
-            ]
+            "Rector\\Website\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Rector\\Website\\Tests\\": [
-                "tests",
-                "packages-tests"
-            ]
+            "Rector\\Website\\Tests\\": "tests"
         }
     },
     "scripts": {

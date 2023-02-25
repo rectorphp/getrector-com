@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Tests\Demo\Controller;
+namespace Rector\Website\Tests\Controller;
 
 use Iterator;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -10,8 +10,8 @@ use Rector\Website\ValueObject\Routing\RouteName;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
- * @see \Rector\Website\Demo\Controller\DemoController
- * @see \Rector\Website\Demo\Form\DemoFormType
+ * @see \Rector\Website\Controller\DemoController
+ * @see \Rector\Website\Form\DemoFormType
  */
 final class DemoControllerTest extends WebTestCase
 {

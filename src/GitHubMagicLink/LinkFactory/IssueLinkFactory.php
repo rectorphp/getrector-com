@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Rector\Website\GitHubMagicLink\LinkFactory;
 
-use Rector\Website\Demo\Entity\RectorRun;
-use Rector\Website\Demo\ValueObject\AppliedRule;
+use Rector\Website\Entity\RectorRun;
 use Rector\Website\GitHubMagicLink\BodyFactory\IssueBodyFactory;
+use Rector\Website\ValueObject\AppliedRule;
 
 final class IssueLinkFactory
 {

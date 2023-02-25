@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Tests\Demo;
+namespace Rector\Website\Tests;
 
-use Rector\Website\Demo\DemoRunner;
-use Rector\Website\Demo\ValueObjectFactory\RectorRunFactory;
+use Rector\Website\DemoRunner;
+use Rector\Website\EntityFactory\RectorRunFactory;
 use Rector\Website\GetRectorKernel;
 use Symplify\PackageBuilder\Testing\AbstractKernelTestCase;
 
@@ -22,7 +22,6 @@ final class DemoRunnerTest extends AbstractKernelTestCase
         $this->demoRunner = $this->getService(DemoRunner::class);
         $this->rectorRunFactory = $this->getService(RectorRunFactory::class);
     }
-
 
     public function test(): void
     {

@@ -3,7 +3,6 @@ parameters:
         - src
         - tests
         - config
-        - packages
 
     type_coverage:
         return_type: 99
@@ -27,3 +26,10 @@ parameters:
         - "packages/demo/data/DemoFile.php"
 
     reportUnmatchedIgnoredErrors: false
+
+    ignoreErrors:
+        - '#Cannot call method get\(\) on Symfony\\Component\\DependencyInjection\\ContainerInterface\|null#'
+
+        -
+            message: '#Unreachable statement \- code above always terminates#'
+            path: tests/Controller/DemoControllerTest.php

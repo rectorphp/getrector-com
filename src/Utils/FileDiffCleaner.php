@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Demo\Utils;
+namespace Rector\Website\Utils;
 
 use ArrayLookup\AtLeast;
 use Nette\Utils\Strings;
-use Rector\Website\Demo\Entity\RectorRun;
+use Rector\Website\Entity\RectorRun;
 
 /**
- * @see \Rector\Website\Tests\Demo\Utils\FileDiffCleanerTest
+ * @see \Rector\Website\Tests\Utils\FileDiffCleanerTest
  */
 final class FileDiffCleaner
 {

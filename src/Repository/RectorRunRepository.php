@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Demo\Repository;
+namespace Rector\Website\Repository;
 
 use Jajo\JSONDB;
 use Nette\Utils\FileSystem;
-use Rector\Website\Demo\Entity\RectorRun;
+use Rector\Website\Entity\RectorRun;
 use Symfony\Component\Uid\Uuid;
 
 final class RectorRunRepository

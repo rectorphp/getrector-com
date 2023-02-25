@@ -6,7 +6,7 @@ namespace Rector\Website\Tests\GitHubMagicLink\BodyFactory\PullRequestDescriptio
 
 use Rector\Website\GetRectorKernel;
 use Rector\Website\GitHubMagicLink\BodyFactory\PullRequestDescriptionFactory;
-use Rector\Website\Tests\Demo\Helpers\DummyRectorRunFactory;
+use Rector\Website\Tests\Helpers\DummyRectorRunFactory;
 use Symplify\PackageBuilder\Testing\AbstractKernelTestCase;
 
 final class PullRequestDescriptionFactoryTest extends AbstractKernelTestCase
