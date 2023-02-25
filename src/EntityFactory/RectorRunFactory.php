@@ -13,12 +13,12 @@ final class RectorRunFactory
     /**
      * @var string
      */
-    private const CONTENT_FILE_PATH = __DIR__ . '/../../../data/demo/DemoFile.php';
+    private const CONTENT_FILE_PATH = __DIR__ . '/../../data/demo/DemoFile.php';
 
     /**
      * @var string
      */
-    private const CONFIG_FILE_PATH = __DIR__ . '/../../../data/demo/demo-config.php';
+    private const CONFIG_FILE_PATH = __DIR__ . '/../../data/demo/demo-config.php';
 
     public function __construct(
         private readonly SmartFileSystem $smartFileSystem

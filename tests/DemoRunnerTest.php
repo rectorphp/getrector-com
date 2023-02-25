@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Tests\Demo;
+namespace Rector\Website\Tests;
 
 use Rector\Website\DemoRunner;
 use Rector\Website\EntityFactory\RectorRunFactory;
@@ -22,7 +22,6 @@ final class DemoRunnerTest extends AbstractKernelTestCase
         $this->demoRunner = $this->getService(DemoRunner::class);
         $this->rectorRunFactory = $this->getService(RectorRunFactory::class);
     }
-
 
     public function test(): void
     {

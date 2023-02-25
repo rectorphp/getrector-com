@@ -13,12 +13,7 @@ use Rector\Set\ValueObject\SetList;
 use Rector\Symfony\Set\SymfonySetList;
 
 return static function (RectorConfig $rectorConfig): void {
-    $rectorConfig->paths([
-        __DIR__ . '/src',
-        __DIR__ . '/tests',
-        __DIR__ . '/packages',
-        __DIR__ . '/packages-tests',
-    ]);
+    $rectorConfig->paths([__DIR__ . '/config', __DIR__ . '/src', __DIR__ . '/tests']);
 
     $rectorConfig->importNames();
 

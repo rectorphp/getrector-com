@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Tests\Demo\Utils;
+namespace Rector\Website\Tests\Utils;
 
 use Iterator;
 use PHPUnit\Framework\Attributes\DataProvider;
