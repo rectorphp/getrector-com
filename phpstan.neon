@@ -14,7 +14,7 @@ parameters:
         properties: true
         constants: true
         twig_template_paths:
-            - templates
+            - resources/views
 
     cognitive_complexity:
         class: 50
