@@ -6,12 +6,12 @@ namespace Rector\Website\Tests\Validator;
 
 use Iterator;
 use PHPUnit\Framework\Attributes\DataProvider;
-use Rector\Website\Error\ErrorMessageNormalizer;
 use Rector\Website\GetRectorKernel;
+use Rector\Website\Utils\ErrorMessageNormalizer;
 use Symplify\PackageBuilder\Testing\AbstractKernelTestCase;
 
 /**
- * @see \Rector\Website\Error\ErrorMessageNormalizer
+ * @see \Rector\Website\Utils\ErrorMessageNormalizer
  */
 final class ErrorMessageNormalizerTest extends AbstractKernelTestCase
 {
