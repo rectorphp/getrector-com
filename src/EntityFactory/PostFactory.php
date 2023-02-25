@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Blog\ValueObjectFactory;
+namespace Rector\Website\EntityFactory;
 
 use DateTimeInterface;
 use Nette\Utils\DateTime;
 use Nette\Utils\Strings;
 use ParsedownExtra;
-use Rector\Website\Blog\FileSystem\PathAnalyzer;
-use Rector\Website\Blog\ValueObject\Post;
+use Rector\Website\Entity\Post;
 use Rector\Website\Exception\ShouldNotHappenException;
+use Rector\Website\FileSystem\PathAnalyzer;
 use Symfony\Component\Yaml\Yaml;
 use Symplify\SmartFileSystem\SmartFileInfo;
 

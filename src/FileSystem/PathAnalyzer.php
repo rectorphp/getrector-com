@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Blog\FileSystem;
+namespace Rector\Website\FileSystem;
 
 use DateTimeInterface;
 use Nette\Utils\DateTime;

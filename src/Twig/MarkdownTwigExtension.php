@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Blog\Twig;
+namespace Rector\Website\Twig;
 
 use ParsedownExtra;
 use Twig\Extension\AbstractExtension;
