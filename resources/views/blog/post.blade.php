@@ -19,13 +19,13 @@
 
         <h1>{{ $post->title }}</h1>
 
-        @if (post.sinceRector)
+        @if ($post->sinceRector)
             <div class="alert alert-warning">
                 This feature is available since <strong>Rector {{ $post->sinceRector }}</strong>.
             </div>
         @endif
 
-        @if (post.deprecated)
+        @if ($post->deprecated)
             <div class="card border-danger card-bigger mt-5">
                 <div class="card-header text-white bg-danger">
                     <strong>{{ $post->deprecatedSince->format("F Y") }} Update</strong>
@@ -38,7 +38,7 @@
             </div>
 
             <br>
-        {% elseif post.updated %}
+        @elseif ($post->updated)
             <div class="card border-success card-bigger mt-5">
                 <div class="card-header text-white bg-success">
                     <strong>{{ $post->updatedSince->format("F Y") }} Update</strong>
