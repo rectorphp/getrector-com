@@ -24,5 +24,11 @@ return static function (Configuration $config): Configuration {
     $config->addNamedFilter(NamedFilter::fromString('symfony/twig-bundle'));
     $config->addNamedFilter(NamedFilter::fromString('symfony/webpack-encore-bundle'));
 
+    // soon to be used in laravel project
+    $config->addNamedFilter(NamedFilter::fromString('laravel/framework'));
+    $config->addNamedFilter(NamedFilter::fromString('imagine/imagine'));
+    $config->addNamedFilter(NamedFilter::fromString('spatie/laravel-markdown'));
+    $config->addNamedFilter(NamedFilter::fromString('tomasvotruba/punchcard'));
+
     return $config;
 };

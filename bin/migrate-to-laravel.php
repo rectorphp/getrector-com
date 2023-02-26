@@ -23,6 +23,9 @@ require __DIR__ . '/../vendor/autoload.php';
 
 // 1. convert twig to blade
 
+// @todo create a command from this one :)
+// make both models live together B-)
+
 final class TwigToBladeConverter
 {
     /**
@@ -86,7 +89,7 @@ final class TwigToBladeConverter
             $colorDiff = $this->colorConsoleDiffFormatter->format($diff);
             $this->symfonyStyle->writeln($colorDiff);
 
-            // FileSystem::write($bladeFilePath, $bladeFileContents);
+            FileSystem::write($bladeFilePath, $bladeFileContents);
         }
     }
 
