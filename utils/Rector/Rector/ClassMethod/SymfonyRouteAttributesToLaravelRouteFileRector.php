@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace TomasVotruba\Utils\Rector\Rector\ClassMethod;
+namespace Rector\Website\Utils\Rector\Rector\ClassMethod;
 
 use Nette\Utils\FileSystem;
 use PhpParser\Node;
@@ -17,9 +17,9 @@ use Rector\Core\Rector\AbstractRector;
 use Rector\FileSystemRector\ValueObject\AddedFileWithContent;
 use Rector\NodeTypeResolver\Node\AttributeKey;
 use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
-use TomasVotruba\Utils\Rector\NodeFactory\RouteGetCallFactory;
-use TomasVotruba\Utils\Rector\ValueObject\ValueObject\RouteMetadata;
-use TomasVotruba\Website\Exception\ShouldNotHappenException;
+use Rector\Website\Utils\Rector\NodeFactory\RouteGetCallFactory;
+use Rector\Website\Utils\Rector\ValueObject\ValueObject\RouteMetadata;
+use Rector\Website\Website\Exception\ShouldNotHappenException;
 use Webmozart\Assert\Assert;
 
 /**

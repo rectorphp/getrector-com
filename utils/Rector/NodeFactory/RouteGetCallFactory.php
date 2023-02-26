@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace TomasVotruba\Utils\Rector\NodeFactory;
+namespace Rector\Website\Utils\Rector\NodeFactory;
 
 use PhpParser\Node\Arg;
 use PhpParser\Node\Expr;
@@ -10,7 +10,7 @@ use PhpParser\Node\Expr\MethodCall;
 use PhpParser\Node\Expr\StaticCall;
 use PhpParser\Node\Name\FullyQualified;
 use PhpParser\Node\Scalar\String_;
-use TomasVotruba\Utils\Rector\ValueObject\ValueObject\RouteMetadata;
+use Rector\Website\Utils\Rector\ValueObject\ValueObject\RouteMetadata;
 
 final class RouteGetCallFactory
 {

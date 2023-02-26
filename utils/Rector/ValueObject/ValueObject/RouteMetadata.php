@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace TomasVotruba\Utils\Rector\ValueObject\ValueObject;
+namespace Rector\Website\Utils\Rector\ValueObject\ValueObject;
 
 final class RouteMetadata
 {
