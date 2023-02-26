@@ -1,7 +1,7 @@
 @extends('base')
 
 @php /** @var $\Rector\Website\Blog\ValueObject\Post post */ @endphp
-{% set page_title %}{{ $post->title }}{% endset %}
+@php $page_title = '{{ $post->title }}'; @endphp
 
 @section('main')
     <div class="alert alert-info mt-3 mb-5" role="alert">
@@ -12,8 +12,8 @@
 
     <div id="post">
         <div class="mt-3">
-            <time datetime="{{ post.dateTime|date('Y-m-D') }}" class="text-grey">
-                {{ post.dateTime|date }}
+            <time datetime="{{ $post->dateTime->format('Y-m-D') }}" class="text-grey">
+                {{ $post->dateTime->format() }}
             </time>
         </div>
 
@@ -28,7 +28,7 @@
         @if (post.deprecated)
             <div class="card border-danger card-bigger mt-5">
                 <div class="card-header text-white bg-danger">
-                    <strong>{{ post.deprecatedSince|date("F Y") }} Update</strong>
+                    <strong>{{ $post->deprecatedSince->format("F Y") }} Update</strong>
                 </div>
                 @if (post.deprecatedMessage is not null)
                     <div class="card-body pb-2">
@@ -41,7 +41,7 @@
         {% elseif post.updated %}
             <div class="card border-success card-bigger mt-5">
                 <div class="card-header text-white bg-success">
-                    <strong>{{ post.updatedSince|date("F Y") }} Update</strong>
+                    <strong>{{ $post->updatedSince->format("F Y") }} Update</strong>
                 </div>
                 @if (post.updatedMessage is not null)
                     <div class="card-body pb-2">

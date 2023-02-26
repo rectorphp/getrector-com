@@ -1,6 +1,6 @@
 @extends('base')
 
-{% set page_title %}Try Rector Online{% endset %}
+@php $page_title = 'Try Rector Online'; @endphp
 
 @section('main')
     <div id="rector_run_form" class="mt-4 mb-3">

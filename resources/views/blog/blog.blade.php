@@ -1,6 +1,6 @@
-{% extends 'base.twig' %}
+@extends('base')
 
-{% set page_title %}Do you Want to Learn&nbsp;about&nbsp;Rector?{% endset %}
+@php $page_title = 'Do you Want to Learn&nbsp;about&nbsp;Rector?'; @endphp
 
 @section('main')
     <div id="blog">
@@ -13,8 +13,8 @@
                 </h2>
 
                 <div class="mt-2 text-grey">
-                    <time datetime="{{ post.dateTime|date('Y-m-D') }}">
-                        {{ post.dateTime|date }}
+                    <time datetime="{{ $post->dateTime->format('Y-m-D') }}">
+                        {{ $post->dateTime->format() }}
                     </time>
                 </div>
 
