@@ -30,9 +30,6 @@ final class ErrorMessageNormalizerTest extends AbstractKernelTestCase
         $this->assertSame($expectedNormalizedMessage, $normalizedMessage);
     }
 
-    /**
-     * @return Iterator<mixed>
-     */
     public static function provideDataForTest(): Iterator
     {
         yield ['message', 'message'];

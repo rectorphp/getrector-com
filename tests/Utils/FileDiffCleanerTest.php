@@ -5,45 +5,48 @@ declare(strict_types=1);
 namespace Rector\Website\Tests\Utils;
 
 use Iterator;
+use Nette\Utils\FileSystem;
 use PHPUnit\Framework\Attributes\DataProvider;
-use Rector\Website\GetRectorKernel;
+use PHPUnit\Framework\TestCase;
 use Rector\Website\Utils\FileDiffCleaner;
-use Symplify\EasyTesting\DataProvider\StaticFixtureFinder;
-use Symplify\EasyTesting\StaticFixtureSplitter;
-use Symplify\PackageBuilder\Testing\AbstractKernelTestCase;
-use Symplify\SmartFileSystem\SmartFileInfo;
 
-final class FileDiffCleanerTest extends AbstractKernelTestCase
+final class FileDiffCleanerTest extends TestCase
 {
     private FileDiffCleaner $fileDiffCleaner;
 
     protected function setUp(): void
     {
-        $this->bootKernel(GetRectorKernel::class);
-        $this->fileDiffCleaner = self::$container->get(FileDiffCleaner::class);
+        $this->fileDiffCleaner = new FileDiffCleaner();
     }
 
     #[DataProvider('provideData')]
-    public function test(SmartFileInfo $smartFileInfo): void
+    public function test(string $fixtureFilePath): void
     {
-        $inputAndExpected = StaticFixtureSplitter::splitFileInfoToInputAndExpected($smartFileInfo);
-        $inputContent = $inputAndExpected->getInput();
-        $expectedContent = $inputAndExpected->getExpected();
+        $fixtureFileContents = FileSystem::read($fixtureFilePath);
+        [$inputRawContents, $expectedCleanContents] = $this->split($fixtureFileContents);
 
-        $cleanedContent = $this->fileDiffCleaner->clean($inputContent);
-
+        $cleanedContent = $this->fileDiffCleaner->clean($inputRawContents);
         $cleanedContent = trim($cleanedContent);
 
-        $expectedContent = trim((string) $expectedContent);
+        $expectedCleanContents = trim((string) $expectedCleanContents);
 
-        $this->assertSame($expectedContent, $cleanedContent);
+        $this->assertSame($expectedCleanContents, $cleanedContent);
+    }
+
+    public static function provideData(): Iterator
+    {
+        foreach ((array) glob(__DIR__ . '/Fixture/*.txt') as $filePath) {
+            yield [$filePath];
+        }
     }
 
     /**
-     * @return Iterator<SmartFileInfo[]>
+     * @return array{string, string}
      */
-    public static function provideData(): Iterator
+    private function split(string $fileContents): array
     {
-        return StaticFixtureFinder::yieldDirectory(__DIR__ . '/Fixture', '*.txt');
+        $parts = str($fileContents)
+            ->split('#^\-\-\-\-\-\n#m');
+        return [$parts[0], $parts[1]];
     }
 }
