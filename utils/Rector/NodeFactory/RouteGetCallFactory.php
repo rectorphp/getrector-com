@@ -6,6 +6,7 @@ namespace Rector\Website\Utils\Rector\NodeFactory;
 
 use PhpParser\Node\Arg;
 use PhpParser\Node\Expr;
+use PhpParser\Node\Expr\ClassConstFetch;
 use PhpParser\Node\Expr\MethodCall;
 use PhpParser\Node\Expr\StaticCall;
 use PhpParser\Node\Name\FullyQualified;
@@ -18,7 +19,7 @@ final class RouteGetCallFactory
     {
         $args = [];
         $args[] = new Arg(new String_($routeMetadata->getRoutePath()));
-        $args[] = new Arg(new Expr\ClassConstFetch(new FullyQualified($routeMetadata->getRouteTarget()), 'class'));
+        $args[] = new Arg(new ClassConstFetch(new FullyQualified($routeMetadata->getRouteTarget()), 'class'));
 
         $getStaticCall = new StaticCall(new FullyQualified('Illuminate\Support\Facades\Route'), 'get', $args);
 

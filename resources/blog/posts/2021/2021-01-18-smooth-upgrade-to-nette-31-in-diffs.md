@@ -5,7 +5,7 @@ perex: |
     Nette 3.1 was released almost a month ago. Packages using it had enough time to give support to small BC breaks and now it's ready to run on your project.
     Let's look at what has changed and how to upgrade today.
 
-updated_since: '2022-04'
+updated_at: '2022-04'
 updated_message: |
     Since **Rector 0.12** a new `RectorConfig` is available with simpler and easier to use config methods.
 ---

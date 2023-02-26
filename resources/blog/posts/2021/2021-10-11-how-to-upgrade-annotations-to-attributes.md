@@ -8,7 +8,7 @@ perex: |
     <br><br>
     Do you want to know the answer? Rector has a simple solution for you.
 
-updated_since: '2022-04'
+updated_at: '2022-04'
 updated_message: |
     Since **Rector 0.12** a new `RectorConfig` is available with simpler and easier to use config methods.
 

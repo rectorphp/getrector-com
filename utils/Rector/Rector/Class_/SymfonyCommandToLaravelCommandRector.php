@@ -5,12 +5,14 @@ declare(strict_types=1);
 namespace Rector\Website\Utils\Rector\Rector\Class_;
 
 use PhpParser\Node;
+use PhpParser\Node\Expr\MethodCall;
 use PhpParser\Node\Identifier;
 use PhpParser\Node\Name\FullyQualified;
 use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\ClassMethod;
 use PHPStan\Type\ObjectType;
 use Rector\Core\Rector\AbstractRector;
+use Symfony\Component\Console\Command\Command;
 use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
 
 /**
@@ -41,7 +43,7 @@ final class SymfonyCommandToLaravelCommandRector extends AbstractRector
      */
     public function refactor(Node $node): ?Class_
     {
-        if (! $this->isObjectType($node, new ObjectType('Symfony\Component\Console\Command\Command'))) {
+        if (! $this->isObjectType($node, new ObjectType(Command::class))) {
             return null;
         }
 
@@ -64,9 +66,9 @@ final class SymfonyCommandToLaravelCommandRector extends AbstractRector
 
         // update contents with option()/argument() calls
 
-        $this->traverseNodesWithCallable((array) $executeClassMethod->stmts, function (\PhpParser\Node $node) {
+        $this->traverseNodesWithCallable((array) $executeClassMethod->stmts, function (Node $node): ?MethodCall {
             // @todo
-            if (! $node instanceof Node\Expr\MethodCall) {
+            if (! $node instanceof MethodCall) {
                 return null;
             }
 

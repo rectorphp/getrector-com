@@ -6,7 +6,7 @@ perex: |
     <br><br>
     Soon, your config is cluttered with a list of imports. How can we reduce this complexity to a single line? How can we handle your-favorite-framework upgrade in second?
 
-updated_since: '2022-04'
+updated_at: '2022-04'
 updated_message: |
     Since **Rector 0.12** a new `RectorConfig` is available with simpler and easier to use config methods.
 

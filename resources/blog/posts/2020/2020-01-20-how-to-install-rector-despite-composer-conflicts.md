@@ -6,7 +6,7 @@ perex: |
     <br>
     <strong>But how can you [upgrade your Symfony 2.8](https://www.tomasvotruba.com/blog/2019/02/28/how-to-upgrade-symfony-2-8-to-3-4/), when Rector needs at least Symfony 4.4?</strong>
 
-updated_since: '2021-05'
+updated_at: '2021-05'
 updated_message: |
     Since **Rector 0.11** the prefixed version is available in `rector/rector` out of the box.
 

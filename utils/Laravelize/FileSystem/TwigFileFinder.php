@@ -18,8 +18,6 @@ final class TwigFileFinder
         Assert::allString($twigFilePaths);
 
         // use realpaths
-        return array_map(function (string $twigFilePath): string {
-            return realpath($twigFilePath);
-        }, $twigFilePaths);
+        return array_map(static fn (string $twigFilePath): string => realpath($twigFilePath), $twigFilePaths);
     }
 }

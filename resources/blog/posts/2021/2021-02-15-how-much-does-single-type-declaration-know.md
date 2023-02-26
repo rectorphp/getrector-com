@@ -6,7 +6,7 @@ perex: |
     <br><br>
     **Is there a faster, simpler solution we can just plugin?**
 
-updated_since: '2022-04'
+updated_at: '2022-04'
 updated_message: |
     Since **Rector 0.12** a new `RectorConfig` is available with simpler and easier to use config methods.
 ---
