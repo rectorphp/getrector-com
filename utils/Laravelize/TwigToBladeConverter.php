@@ -2,29 +2,15 @@
 
 declare(strict_types=1);
 
+namespace Rector\Website\Utils\Laravelize;
+
+use Illuminate\Console\OutputStyle;
 use Nette\Utils\FileSystem;
-use Nette\Utils\Strings;
-use Rector\Core\Console\Formatter\ColorConsoleDiffFormatter;
+use Rector\Website\Utils\Laravelize\FileSystem\TwigFileFinder;
 use SebastianBergmann\Diff\Differ;
 use SebastianBergmann\Diff\Output\UnifiedDiffOutputBuilder;
-use Symfony\Component\Console\Input\ArrayInput;
-use Symfony\Component\Console\Output\ConsoleOutput;
-use Symfony\Component\Console\Style\SymfonyStyle;
-use Symfony\Component\Finder\Finder;
-use Webmozart\Assert\Assert;
-
-require __DIR__ . '/../vendor/autoload.php';
-
-// @todo replace regex in twigs
-
-// @todo create rector rules
-// @todo ask GPT to help with that :)
-// before + after
-
-// 1. convert twig to blade
-
-// @todo create a command from this one :)
-// make both models live together B-)
+use Symfony\Component\Console\Output\OutputInterface;
+use Symplify\PackageBuilder\Console\Formatter\ColorConsoleDiffFormatter;
 
 final class TwigToBladeConverter
 {
@@ -55,20 +41,22 @@ final class TwigToBladeConverter
         '#{{ (?<variable>\w+)\|(?<filter>\w+) }}#' => '{{ $2($$1) }}',
     ];
 
+    private readonly Differ $differ;
+
     public function __construct(
-        private readonly Differ $differ = new Differ(new UnifiedDiffOutputBuilder()),
-        private readonly ColorConsoleDiffFormatter $colorConsoleDiffFormatter = new ColorConsoleDiffFormatter(),
-        private readonly SymfonyStyle $symfonyStyle = new SymfonyStyle(new ArrayInput([]), new ConsoleOutput()),
+        private readonly ColorConsoleDiffFormatter $colorConsoleDiffFormatter,
+        private readonly TwigFileFinder $twigFileFinder,
     ) {
+        $this->differ = new Differ(new UnifiedDiffOutputBuilder());
     }
 
-    public function run(string $templatesDirectory): void
+    public function run(string $templatesDirectory, OutputStyle $outputStyle): void
     {
         if (! file_exists($templatesDirectory)) {
             return;
         }
 
-        $twigFilePaths = $this->findTwigFilePaths($templatesDirectory);
+        $twigFilePaths = $this->twigFileFinder->findTwigFilePaths($templatesDirectory);
 
         foreach ($twigFilePaths as $twigFilePath) {
             $bladeFilePath = substr($twigFilePath, 0, -5) . '.blade.php';
@@ -77,7 +65,9 @@ final class TwigToBladeConverter
             $bladeFileContents = $twigFileContents;
 
             foreach (self::TWIG_TO_BLADE_REPLACE_REGEXES as $twigRegex => $bladeReplacement) {
-                $bladeFileContents = Strings::replace($bladeFileContents, $twigRegex, $bladeReplacement);
+                $bladeFileContents = str($bladeFileContents)
+                    ->replaceMatches($twigRegex, $bladeReplacement)
+                    ->value();
             }
 
             // nothing to change
@@ -87,28 +77,9 @@ final class TwigToBladeConverter
 
             $diff = $this->differ->diff($twigFileContents, $bladeFileContents);
             $colorDiff = $this->colorConsoleDiffFormatter->format($diff);
-            $this->symfonyStyle->writeln($colorDiff);
+            $outputStyle->writeln($colorDiff);
 
             FileSystem::write($bladeFilePath, $bladeFileContents);
         }
     }
-
-    /**
-     * @return string[]
-     */
-    private function findTwigFilePaths(string $templatesDirectory): array
-    {
-        /** @var string[] $twigFilePaths */
-        $twigFilePaths = glob($templatesDirectory . '/*/*.twig');
-        Assert::allString($twigFilePaths);
-
-        // use realpaths
-        return array_map(function (string $twigFilePath): string {
-            return realpath($twigFilePath);
-        }, $twigFilePaths);
-    }
 }
-
-
-$twigToBladeConverter = new TwigToBladeConverter();
-$twigToBladeConverter->run(__DIR__ . '/../resources/views');
