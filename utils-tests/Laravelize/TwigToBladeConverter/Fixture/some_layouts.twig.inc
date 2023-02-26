@@ -25,7 +25,7 @@
 </div>
 {% endblock %}
 -----
-{% extends 'base.twig' %}
+@extends('base')
 
 {% set page_title %}Do you Want to Learn&nbsp;about&nbsp;Rector?{% endset %}
 
