@@ -33,8 +33,7 @@ final class PostRepository
      */
     public function getPosts(): array
     {
-        $posts = $this->posts;
-        return array_filter($posts, static fn (Post $post): bool => ! $post->isDeprecated());
+        return $this->posts;
     }
 
     public function findBySlug(string $slug): ?Post

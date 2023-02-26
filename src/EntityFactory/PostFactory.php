@@ -70,11 +70,6 @@ final class PostFactory
         $updatedSince = isset($configuration['updated_since']) ? new DateTime($configuration['updated_since']) : null;
         $updatedMessage = $configuration['updated_message'] ?? null;
 
-        $deprecatedSince = isset($configuration['deprecated_since']) ? new DateTime(
-            $configuration['deprecated_since']
-        ) : null;
-        $deprecatedMessage = $configuration['deprecated_message'] ?? null;
-
         $sinceRector = isset($configuration['since_rector']) ? (string) $configuration['since_rector'] : null;
 
         return new Post(
@@ -86,8 +81,6 @@ final class PostFactory
             $htmlContent,
             $updatedSince,
             $updatedMessage,
-            $deprecatedSince,
-            $deprecatedMessage,
             $sinceRector
         );
     }
