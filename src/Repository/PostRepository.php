@@ -17,7 +17,7 @@ final class PostRepository
     /**
      * @var string
      */
-    private const POST_DIRECTORY = __DIR__ . '/../../data/blog/posts';
+    private const POST_DIRECTORY = __DIR__ . '/../../resources/blog/posts';
 
     /**
      * @var Post[]

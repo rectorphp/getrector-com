@@ -51,4 +51,4 @@ yarn-error.log
 # new deploy to AWS Lambda
 /demo-runner
 
-data/json-database/*
+resources/json-database/*
