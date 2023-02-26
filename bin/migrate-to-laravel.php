@@ -33,7 +33,8 @@ final class TwigToBladeConverter
         '#{\% extends "(.*?)\.twig" \%\}#' => '@extends(\'$1\')',
         '#{\% block (.*?) \%}#' => '@section(\'$1\')',
         '#{\% endblock \%}#' => '@endsection',
-        '#{\% include ((\'|\").*?\.twig(\'|\")) \%}#' => '@include($1)',
+
+        '#{\% include (\'|\")(.*?)\.twig(\'|\") \%}#' => '@include(\'$2\')',
 
         // control structures
         '#{% if (?<condition>.*?) %}#' => '@if ($1)',
@@ -46,7 +47,8 @@ final class TwigToBladeConverter
         '#\{ (?<key>\w+)\: (?<value>.*?) \}#' => '[\'$1\' => $2]',
 
         // variables
-        '#\b(?<variable>\w+)\.(?<fetcher>[^twig].*?)\b#' => '$$1->$2',
+        '#{{ (?<variable>\w+)\.(?<method>\w+) }}#' => '{{ $$1->$2 }}',
+        '#{{ (?<variable>\w+) }}#' => '{{ $$1 }}',
         '#{{ (?<variable>\w+)\|(?<filter>\w+) }}#' => '{{ $2($$1) }}',
     ];
 
@@ -84,7 +86,7 @@ final class TwigToBladeConverter
             $colorDiff = $this->colorConsoleDiffFormatter->format($diff);
             $this->symfonyStyle->writeln($colorDiff);
 
-            FileSystem::write($bladeFilePath, $bladeFileContents);
+            // FileSystem::write($bladeFilePath, $bladeFileContents);
         }
     }
 
