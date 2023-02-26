@@ -1,28 +1,20 @@
-<?php declare(strict_types=1);
+<?php
 
-use Rector\Website\GetRectorKernel;
-use Symfony\Component\ErrorHandler\Debug;
-use Symfony\Component\HttpFoundation\Request;
+declare(strict_types=1);
 
-require_once __DIR__  .'/../vendor/autoload.php';
-require_once __DIR__ . '/../config/bootstrap.php';
+use Illuminate\Contracts\Http\Kernel;
+use Illuminate\Http\Request;
 
-if ($_SERVER['APP_DEBUG']) {
-    umask(0000);
+define('LARAVEL_START', microtime(true));
 
-    Debug::enable();
-}
+require __DIR__ . '/../vendor/autoload.php';
 
-if ($trustedProxies = $_SERVER['TRUSTED_PROXIES'] ?? false) {
-    Request::setTrustedProxies(explode(',', $trustedProxies), Request::HEADER_X_FORWARDED_HOST);
-}
+$app = require_once __DIR__ . '/../bootstrap/app.php';
 
-if ($trustedHosts = $_SERVER['TRUSTED_HOSTS'] ?? false) {
-    Request::setTrustedHosts([$trustedHosts]);
-}
+/** @var Kernel $kernel */
+$kernel = $app->make(Kernel::class);
 
-$kernel = new GetRectorKernel($_SERVER['APP_ENV'], (bool) $_SERVER['APP_DEBUG']);
-$request = Request::createFromGlobals();
-$response = $kernel->handle($request);
-$response->send();
+$request = Request::capture();
+$response = $kernel->handle($request)->send();
+
 $kernel->terminate($request, $response);
