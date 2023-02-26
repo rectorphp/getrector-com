@@ -7,7 +7,7 @@ use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigura
 return static function (ContainerConfigurator $containerConfigurator): void {
     $containerConfigurator->extension('framework', [
         'assets' => [
-            'json_manifest_path' => '%kernel.project_dir%/public/build/manifest.json',
+            'json_manifest_path' => __DIR__ . '/../../public/build/manifest.json',
         ],
     ]);
 };
