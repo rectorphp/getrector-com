@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace TomasVotruba\Utils\Tests\Rector\Rector\ClassMethod;
+namespace Rector\Website\Utils\Tests\Rector\Rector\ClassMethod;
 
 use Nette\Utils\FileSystem;
 use Rector\Testing\PHPUnit\AbstractRectorTestCase;
