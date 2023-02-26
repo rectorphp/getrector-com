@@ -1,7 +1,5 @@
 {% extends 'base.twig' %}
 
-{% set page_title %}Do you Want to Learn&nbsp;about&nbsp;Rector?{% endset %}
-
 {% block main %}
     <div id="blog">
         <h1 class="main-title">Read about Rector</h1>
@@ -26,8 +24,6 @@
 {% endblock %}
 -----
 @extends('base')
-
-{% set page_title %}Do you Want to Learn&nbsp;about&nbsp;Rector?{% endset %}
 
 @section('main')
     <div id="blog">

@@ -24,6 +24,7 @@ final class TwigToBladeConverter
         '#{\% extends ("|\')(.*?)\.twig("|\') \%\}#' => '@extends(\'$2\')',
         '#{\% block (.*?) \%}#' => '@section(\'$1\')',
         '#{\% endblock \%}#' => '@endsection',
+        '#{\% set (\w+) \%}(.*?){% endset %}#' => '@php $$1 = \'$2\'; @endphp',
 
         '#{\% include (\'|\")(.*?)\.twig(\'|\") \%}#' => '@include(\'$2\')',
 
