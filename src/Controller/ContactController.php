@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 final class ContactController extends AbstractController
 {
     #[Route(path: 'contact', name: RouteName::CONTACT)]
-    public function __invoke(Request $request): Response
+    public function __invoke(): Response
     {
         return $this->render('homepage/contact.twig', [
             'page_title' => 'Reach Us',
