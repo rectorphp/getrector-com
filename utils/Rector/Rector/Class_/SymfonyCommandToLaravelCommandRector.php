@@ -6,6 +6,7 @@ namespace Rector\Website\Utils\Rector\Rector\Class_;
 
 use PhpParser\Node;
 use PhpParser\Node\Identifier;
+use PhpParser\Node\Name\FullyQualified;
 use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\ClassMethod;
 use PHPStan\Type\ObjectType;
@@ -48,7 +49,7 @@ final class SymfonyCommandToLaravelCommandRector extends AbstractRector
             return null;
         }
 
-        $node->extends = new Node\Name\FullyQualified('Illuminate\Console\Command');
+        $node->extends = new FullyQualified('Illuminate\Console\Command');
 
         $executeClassMethod = $node->getMethod('execute');
 
@@ -60,6 +61,25 @@ final class SymfonyCommandToLaravelCommandRector extends AbstractRector
         // remove params
         $executeClassMethod->params = [];
         $executeClassMethod->name = new Identifier('handle');
+
+        // update contents with option()/argument() calls
+
+        $this->traverseNodesWithCallable((array) $executeClassMethod->stmts, function (\PhpParser\Node $node) {
+            // @todo
+            if (! $node instanceof Node\Expr\MethodCall) {
+                return null;
+            }
+
+            if ($this->isName($node->name, 'getArgument')) {
+                $node->name = new Identifier('argument');
+            }
+
+            if ($this->isName($node->name, 'getOption')) {
+                $node->name = new Identifier('option');
+            }
+
+            return $node;
+        });
 
         return $node;
     }

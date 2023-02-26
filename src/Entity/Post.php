@@ -53,12 +53,12 @@ final class Post
 
     public function isUpdated(): bool
     {
-        return $this->updatedSince !== null;
+        return $this->dateTime !== null;
     }
 
     public function getUpdatedSince(): ?DateTimeInterface
     {
-        return $this->updatedSince;
+        return $this->dateTime;
     }
 
     public function getUpdatedMessage(): ?string

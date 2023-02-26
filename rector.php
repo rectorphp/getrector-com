@@ -11,7 +11,13 @@ use Rector\Set\ValueObject\LevelSetList;
 use Rector\Set\ValueObject\SetList;
 
 return static function (RectorConfig $rectorConfig): void {
-    $rectorConfig->paths([__DIR__ . '/config', __DIR__ . '/src', __DIR__ . '/tests']);
+    $rectorConfig->paths([
+        __DIR__ . '/config',
+        __DIR__ . '/src',
+        __DIR__ . '/tests',
+        __DIR__ . '/utils',
+        __DIR__ . '/utils-tests',
+    ]);
 
     $rectorConfig->importNames();
 
