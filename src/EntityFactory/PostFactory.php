@@ -6,13 +6,13 @@ namespace Rector\Website\EntityFactory;
 
 use DateTimeInterface;
 use Nette\Utils\DateTime;
+use Nette\Utils\FileSystem;
 use Nette\Utils\Strings;
 use ParsedownExtra;
 use Rector\Website\Entity\Post;
 use Rector\Website\Exception\ShouldNotHappenException;
 use Rector\Website\FileSystem\PathAnalyzer;
 use Symfony\Component\Yaml\Yaml;
-use Symplify\SmartFileSystem\SmartFileInfo;
 
 final class PostFactory
 {
@@ -38,10 +38,11 @@ final class PostFactory
     ) {
     }
 
-    public function createFromFileInfo(SmartFileInfo $smartFileInfo): Post
+    public function createFromFilePath(string $filePath): Post
     {
-        $matches = Strings::match($smartFileInfo->getContents(), self::CONFIG_CONTENT_REGEX);
+        $fileContents = FileSystem::read($filePath);
 
+        $matches = Strings::match($fileContents, self::CONFIG_CONTENT_REGEX);
         if (! isset($matches['config'])) {
             throw new ShouldNotHappenException();
         }
@@ -52,9 +53,9 @@ final class PostFactory
         $title = $configuration['title'];
         $perex = $configuration['perex'];
 
-        $slug = $this->pathAnalyzer->getSlug($smartFileInfo);
+        $slug = $this->pathAnalyzer->getSlug($filePath);
 
-        $dateTime = $this->pathAnalyzer->detectDate($smartFileInfo);
+        $dateTime = $this->pathAnalyzer->detectDate($filePath);
         if (! $dateTime instanceof DateTimeInterface) {
             throw new ShouldNotHappenException();
         }

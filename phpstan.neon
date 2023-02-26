@@ -30,3 +30,6 @@ parameters:
         -
             message: '#Unreachable statement \- code above always terminates#'
             path: tests/Controller/DemoControllerTest.php
+
+        # in glob() we trust
+        - '#Method Rector\\Website\\Repository\\PostRepository\:\:findPostsFilePaths\(\) should return array<string> but returns array<int, string\|false>#'

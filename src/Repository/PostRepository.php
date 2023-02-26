@@ -8,9 +8,7 @@ use ArrayLookup\Finder as ArrayLookupFinder;
 use Rector\Website\Entity\Post;
 use Rector\Website\EntityFactory\PostFactory;
 use Rector\Website\Exception\ShouldNotHappenException;
-use Symfony\Component\Finder\Finder;
-use Symplify\SmartFileSystem\Finder\FinderSanitizer;
-use Symplify\SmartFileSystem\SmartFileInfo;
+use Webmozart\Assert\Assert;
 
 final class PostRepository
 {
@@ -25,7 +23,6 @@ final class PostRepository
     private array $posts = [];
 
     public function __construct(
-        private readonly FinderSanitizer $finderSanitizer,
         private readonly PostFactory $postFactory
     ) {
         $this->createPosts();
@@ -57,13 +54,18 @@ final class PostRepository
     private function createPosts(): void
     {
         $posts = [];
-        foreach ($this->findPostMarkdownFileInfos() as $smartFileInfo) {
-            $post = $this->postFactory->createFromFileInfo($smartFileInfo);
+
+        $postFilePaths = $this->findPostsFilePaths();
+        Assert::notEmpty($postFilePaths);
+
+        foreach ($postFilePaths as $postFilePath) {
+            $post = $this->postFactory->createFromFilePath($postFilePath);
+
             if (isset($posts[$post->getId()])) {
                 $message = sprintf(
                     'Post with id "%d" in "%s" file is duplicated. Increase it to higher one',
                     $post->getId(),
-                    $smartFileInfo->getRelativeFilePathFromCwd()
+                    $postFilePath
                 );
                 throw new ShouldNotHappenException($message);
             }
@@ -75,16 +77,11 @@ final class PostRepository
     }
 
     /**
-     * @return SmartFileInfo[]
+     * @return string[]
      */
-    private function findPostMarkdownFileInfos(): array
+    private function findPostsFilePaths(): array
     {
-        $finder = new Finder();
-        $finder->files()
-            ->in(self::POST_DIRECTORY)
-            ->name('*.md');
-
-        return $this->finderSanitizer->sanitize($finder);
+        return (array) glob(self::POST_DIRECTORY . '/*/*.md');
     }
 
     /**
