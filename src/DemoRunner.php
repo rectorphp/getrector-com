@@ -12,9 +12,9 @@ use Rector\Website\Exception\RectorRunFailedException;
 use Rector\Website\Exception\ShouldNotHappenException;
 use Rector\Website\Utils\ErrorMessageNormalizer;
 use Rector\Website\ValueObject\Option;
+use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Process\Process;
 use Symplify\PackageBuilder\Parameter\ParameterProvider;
-use Symplify\SmartFileSystem\SmartFileSystem;
 use Throwable;
 
 /**
@@ -41,7 +41,7 @@ final class DemoRunner
 
     public function __construct(
         private readonly ErrorMessageNormalizer $errorMessageNormalizer,
-        private readonly SmartFileSystem $smartFileSystem,
+        private readonly Filesystem $filesystem,
         ParameterProvider $parameterProvider
     ) {
         $this->demoDir = $parameterProvider->provideStringParameter(Option::DEMO_DIR);
@@ -74,8 +74,8 @@ final class DemoRunner
         $analyzedFilePath = $this->demoDir . '/' . $identifier . '/' . self::ANALYZED_FILE_NAME;
         $configPath = $this->demoDir . '/' . $identifier . '/' . self::CONFIG_NAME;
 
-        $this->smartFileSystem->dumpFile($analyzedFilePath, $fileContent);
-        $this->smartFileSystem->dumpFile($configPath, $configContent);
+        $this->filesystem->dumpFile($analyzedFilePath, $fileContent);
+        $this->filesystem->dumpFile($configPath, $configContent);
 
         $temporaryFilePaths = [$analyzedFilePath, $configPath];
 
@@ -93,7 +93,7 @@ final class DemoRunner
         $process->run();
 
         // remove temporary files
-        $this->smartFileSystem->remove($temporaryFilePaths);
+        $this->filesystem->remove($temporaryFilePaths);
 
         // error
         if ($process->getExitCode() !== self::EXIT_CODE_SUCCESS) {
