@@ -9,9 +9,11 @@ use Nette\Utils\FileSystem;
 use Rector\Website\Utils\Laravelize\FileSystem\TwigFileFinder;
 use SebastianBergmann\Diff\Differ;
 use SebastianBergmann\Diff\Output\UnifiedDiffOutputBuilder;
-use Symfony\Component\Console\Output\OutputInterface;
 use Symplify\PackageBuilder\Console\Formatter\ColorConsoleDiffFormatter;
 
+/**
+ * @see \Rector\Website\Utils\Tests\Laravelize\TwigToBladeConverter\TwigToBladeConverterTest
+ */
 final class TwigToBladeConverter
 {
     /**
