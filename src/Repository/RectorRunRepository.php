@@ -21,7 +21,7 @@ final class RectorRunRepository
 
     public function __construct()
     {
-        $storageDirectory = __DIR__ . '/../../../resources/json-database';
+        $storageDirectory = __DIR__ . '/../../resources/json-database';
         $this->jsonDb = new JSONDB($storageDirectory);
 
         $repositoryStorageFile = $storageDirectory . '/' . self::TABLE_FILE;
