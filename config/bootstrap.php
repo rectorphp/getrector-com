@@ -26,8 +26,3 @@ if (isset($_COOKIE['XDEBUG_TRACE']) && ! empty($_ENV['DEBUG_COOKIE']) && $_COOKI
     $_SERVER['APP_DEBUG'] = $_ENV['APP_DEBUG'] = 1;
     $_SERVER['APP_ENV'] = $_ENV['APP_ENV'] = 'dev';
 }
-
-function getUserIpAddr(): string
-{
-    return $_SERVER['HTTP_CLIENT_IP'] ?? $_SERVER['HTTP_X_FORWARDED_FOR'] ?? $_SERVER['REMOTE_ADDR'];
-}

@@ -3,11 +3,19 @@ parameters:
         - src
         - tests
         - config
+        - utils
+        - utils-tests
+
+    excludePaths:
+        - */Fixture/*
+        - */Expected/*
 
     type_coverage:
         return_type: 99
         param_type: 99
-        property_type: 99
+
+        # @todo skip parent guarded properites, e.g. from laravel command
+        property_type: 95
 
     unused_public:
         methods: true
@@ -33,3 +41,10 @@ parameters:
 
         # in glob() we trust
         - '#Method Rector\\Website\\Repository\\PostRepository\:\:findPostsFilePaths\(\) should return array<string> but returns array<int, string\|false>#'
+
+        -
+            message: '#Anonymous function should return string but returns string\|false#'
+            path: utils/Laravelize/FileSystem/TwigFileFinder.php
+
+        # @todo fix in the phsptan rule, this property is used by a command
+        - '#Public property "Rector\\Website\\Utils\\Laravelize\\Command\\TwigToBladeCommand\:\:\$signature" is never used#'

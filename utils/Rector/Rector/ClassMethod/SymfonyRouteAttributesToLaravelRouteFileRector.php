@@ -16,10 +16,9 @@ use Rector\Core\PhpParser\Printer\BetterStandardPrinter;
 use Rector\Core\Rector\AbstractRector;
 use Rector\FileSystemRector\ValueObject\AddedFileWithContent;
 use Rector\NodeTypeResolver\Node\AttributeKey;
-use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
 use Rector\Website\Utils\Rector\NodeFactory\RouteGetCallFactory;
 use Rector\Website\Utils\Rector\ValueObject\ValueObject\RouteMetadata;
-use Rector\Website\Website\Exception\ShouldNotHappenException;
+use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
 use Webmozart\Assert\Assert;
 
 /**
@@ -78,34 +77,13 @@ final class SymfonyRouteAttributesToLaravelRouteFileRector extends AbstractRecto
 
                 $routeMetadata = $this->resolveRouteMetadata($attribute, $node);
 
-                if (! $routeMetadata instanceof RouteMetadata) {
-                    continue;
-                }
-
                 $hasChanged = true;
                 unset($node->attrGroups[$key]);
 
                 $routeCall = $this->routeGetCallFactory->create($routeMetadata);
 
                 $printedRouteGet = $this->betterStandardPrinter->print(new Expression($routeCall)) . PHP_EOL;
-
-                // ensure directory exists
-                $routesDirectory = dirname($this->routesFilePath);
-                if (! file_exists($routesDirectory)) {
-                    FileSystem::createDir($routesDirectory);
-                }
-
-                // open with a tag
-                if (! file_exists($this->routesFilePath)) {
-                    $printedRouteGet = '<?php' . PHP_EOL . PHP_EOL . $printedRouteGet;
-                }
-
-                // skip adding real file in tests
-                file_put_contents($this->routesFilePath, $printedRouteGet . PHP_EOL, FILE_APPEND);
-
-                // for tests B-)
-                $addedFileWithContent = new AddedFileWithContent($this->routesFilePath, $printedRouteGet);
-                $this->removedAndAddedFilesCollector->addAddedFile($addedFileWithContent);
+                $this->printRoutesContents($printedRouteGet);
             }
         }
 
@@ -151,13 +129,13 @@ final class SymfonyRouteAttributesToLaravelRouteFileRector extends AbstractRecto
             // class is the target :)
             $class = $classMethod->getAttribute(AttributeKey::PARENT_NODE);
             if (! $class instanceof Node\Stmt\Class_) {
-                throw new ShouldNotHappenException();
+                throw new \Rector\Core\Exception\ShouldNotHappenException();
             }
 
             $routeTarget = $this->getName($class);
         } else {
             // not handled yet
-            throw new ShouldNotHappenException();
+            throw new \Rector\Core\Exception\ShouldNotHappenException();
         }
 
         Assert::string($routeTarget);
@@ -178,6 +156,27 @@ final class SymfonyRouteAttributesToLaravelRouteFileRector extends AbstractRecto
             }
         }
 
-        throw new ShouldNotHappenException();
+        throw new \Rector\Core\Exception\ShouldNotHappenException();
+    }
+
+    private function printRoutesContents(string $printedRouteGet): void
+    {
+        // ensure directory exists
+        $routesDirectory = dirname($this->routesFilePath);
+        if (! file_exists($routesDirectory)) {
+            FileSystem::createDir($routesDirectory);
+        }
+
+        // open with a tag
+        if (! file_exists($this->routesFilePath)) {
+            $printedRouteGet = '<?php' . PHP_EOL . PHP_EOL . $printedRouteGet;
+        }
+
+        // skip adding real file in tests
+        file_put_contents($this->routesFilePath, $printedRouteGet . PHP_EOL, FILE_APPEND);
+
+        // for tests B-)
+        $addedFileWithContent = new AddedFileWithContent($this->routesFilePath, $printedRouteGet);
+        $this->removedAndAddedFilesCollector->addAddedFile($addedFileWithContent);
     }
 }
