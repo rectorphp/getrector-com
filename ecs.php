@@ -18,5 +18,9 @@ return static function (ECSConfig $ecsConfig): void {
 
     $ecsConfig->sets([SetList::PSR_12, SetList::SYMPLIFY, SetList::COMMON, SetList::CLEAN_CODE]);
 
-    $ecsConfig->skip([__DIR__ . '/config/bundles.php']);
+    $ecsConfig->skip([
+        __DIR__ . '/config/bundles.php',
+        '*/Fixture/*',
+        '*/Expected/*',
+    ]);
 };
