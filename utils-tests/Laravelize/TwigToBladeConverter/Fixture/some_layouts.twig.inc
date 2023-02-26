@@ -36,8 +36,8 @@
             </h2>
 
             <div class="mt-2 text-grey">
-                <time datetime="{{ post.dateTime|date('Y-m-D') }}">
-                    {{ post.dateTime|date }}
+                <time datetime="{{ $post->dateTime->format('Y-m-D') }}">
+                    {{ $post->dateTime->format() }}
                 </time>
             </div>
 
