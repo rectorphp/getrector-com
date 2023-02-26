@@ -11,7 +11,6 @@ use Rector\Set\ValueObject\LevelSetList;
 use Rector\Set\ValueObject\SetList;
 use Rector\Transform\Rector\MethodCall\MethodCallToFuncCallRector;
 use Rector\Transform\ValueObject\MethodCallToFuncCall;
-use TomasVotruba\Utils\Rector\Rector\ClassMethod\SymfonyRouteAttributesToLaravelRouteFileRector;
 
 return function (RectorConfig $rectorConfig): void {
     $rectorConfig->import(__DIR__ . '/utils/config/rector_services.php');
@@ -20,8 +19,8 @@ return function (RectorConfig $rectorConfig): void {
 
     $rectorConfig->paths([__DIR__ . '/src', __DIR__ . '/tests', __DIR__ . '/packages']);
 
-    $rectorConfig->ruleWithConfiguration(SymfonyRouteAttributesToLaravelRouteFileRector::class, [
-        SymfonyRouteAttributesToLaravelRouteFileRector::ROUTES_FILE_PATH => getcwd() . '/routes/web.php',
+    $rectorConfig->ruleWithConfiguration(\Rector\Website\Utils\Rector\Rector\ClassMethod\SymfonyRouteAttributesToLaravelRouteFileRector::class, [
+        \Rector\Website\Utils\Rector\Rector\ClassMethod\SymfonyRouteAttributesToLaravelRouteFileRector::ROUTES_FILE_PATH => getcwd() . '/routes/web.php',
     ]);
 
     $rectorConfig->ruleWithConfiguration(RenameClassRector::class, [
