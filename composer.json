@@ -52,7 +52,9 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Rector\\Website\\Tests\\": "tests"
+            "Rector\\Website\\Tests\\": "tests",
+            "Rector\\Website\\Utils\\": "utils",
+            "Rector\\Website\\Utils\\Tests\\": "utils-tests"
         }
     },
     "scripts": {
