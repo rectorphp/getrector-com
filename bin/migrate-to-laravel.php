@@ -114,4 +114,4 @@ final class TwigToBladeConverter
 
 
 $twigToBladeConverter = new TwigToBladeConverter();
-$twigToBladeConverter->run(__DIR__ . '/../templates');
+$twigToBladeConverter->run(__DIR__ . '/../resources/views');
