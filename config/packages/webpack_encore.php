@@ -6,6 +6,6 @@ use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigura
 
 return static function (ContainerConfigurator $containerConfigurator): void {
     $containerConfigurator->extension('webpack_encore', [
-        'output_path' => '%kernel.project_dir%/public/build',
+        'output_path' => __DIR__ . '/../../public/build',
     ]);
 };
