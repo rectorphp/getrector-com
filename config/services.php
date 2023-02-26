@@ -29,7 +29,4 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         ->factory([service(SymfonyStyleFactory::class), 'create']);
 
     $services->set(ParsedownExtra::class, ParsedownExtra::class);
-
-    $services->set(ParameterProvider::class)
-        ->arg('$container', service('service_container'));
 };

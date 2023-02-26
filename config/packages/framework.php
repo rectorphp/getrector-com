@@ -6,7 +6,7 @@ use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigura
 
 return static function (ContainerConfigurator $containerConfigurator): void {
     $containerConfigurator->extension('framework', [
-        'secret' => '%env(APP_SECRET)',
+        'secret' => env('APP_SECRET'),
         // inspired in https://github.com/symfony/demo/blob/main/config/packages/framework.yaml
         'session' => [
             'handler_id' => null,
