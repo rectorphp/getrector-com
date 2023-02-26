@@ -11,10 +11,8 @@ use Rector\Website\Entity\RectorRun;
 use Rector\Website\Exception\RectorRunFailedException;
 use Rector\Website\Exception\ShouldNotHappenException;
 use Rector\Website\Utils\ErrorMessageNormalizer;
-use Rector\Website\ValueObject\Option;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Process\Process;
-use Symplify\PackageBuilder\Parameter\ParameterProvider;
 use Throwable;
 
 /**
@@ -42,9 +40,8 @@ final class DemoRunner
     public function __construct(
         private readonly ErrorMessageNormalizer $errorMessageNormalizer,
         private readonly Filesystem $filesystem,
-        ParameterProvider $parameterProvider
     ) {
-        $this->demoDir = $parameterProvider->provideStringParameter(Option::DEMO_DIR);
+        $this->demoDir = __DIR__ . '/../var/demo';
     }
 
     public function processRectorRun(RectorRun $rectorRun): void

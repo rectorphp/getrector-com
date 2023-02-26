@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use Rector\Website\ValueObject\Option;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use function Symfony\Component\DependencyInjection\Loader\Configurator\service;
@@ -11,7 +10,6 @@ use Symplify\PackageBuilder\Parameter\ParameterProvider;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
     $parameters = $containerConfigurator->parameters();
-    $parameters->set(Option::DEMO_DIR, '%kernel.project_dir%/var/demo');
 
     $services = $containerConfigurator->services();
     $services->defaults()
