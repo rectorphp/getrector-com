@@ -23,7 +23,7 @@ use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
 use Webmozart\Assert\Assert;
 
 /**
- * @see \TomasVotruba\Utils\Tests\Rector\Rector\ClassMethod\SymfonyRouteAttributesToLaravelRouteFileRectorTest
+ * @see \Rector\Website\Utils\Tests\Rector\Rector\ClassMethod\SymfonyCommandToLaravelCommandRectorTest
  */
 final class SymfonyRouteAttributesToLaravelRouteFileRector extends AbstractRector implements ConfigurableRectorInterface
 {
