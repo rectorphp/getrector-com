@@ -61,16 +61,8 @@ final class TwigToBladeConverter
         $twigFilePaths = $this->twigFileFinder->findTwigFilePaths($templatesDirectory);
 
         foreach ($twigFilePaths as $twigFilePath) {
-            $bladeFilePath = substr($twigFilePath, 0, -5) . '.blade.php';
-
             $twigFileContents = FileSystem::read($twigFilePath);
-            $bladeFileContents = $twigFileContents;
-
-            foreach (self::TWIG_TO_BLADE_REPLACE_REGEXES as $twigRegex => $bladeReplacement) {
-                $bladeFileContents = str($bladeFileContents)
-                    ->replaceMatches($twigRegex, $bladeReplacement)
-                    ->value();
-            }
+            $bladeFileContents = $this->convertFile($twigFileContents);
 
             // nothing to change
             if ($twigFileContents === $bladeFileContents) {
@@ -81,7 +73,21 @@ final class TwigToBladeConverter
             $colorDiff = $this->colorConsoleDiffFormatter->format($diff);
             $outputStyle->writeln($colorDiff);
 
+            $bladeFilePath = substr($twigFilePath, 0, -5) . '.blade.php';
             FileSystem::write($bladeFilePath, $bladeFileContents);
         }
+    }
+
+    public function convertFile(string $twigFileContents): string
+    {
+        $bladeFileContents = $twigFileContents;
+
+        foreach (self::TWIG_TO_BLADE_REPLACE_REGEXES as $twigRegex => $bladeReplacement) {
+            $bladeFileContents = str($bladeFileContents)
+                ->replaceMatches($twigRegex, $bladeReplacement)
+                ->value();
+        }
+
+        return $bladeFileContents;
     }
 }

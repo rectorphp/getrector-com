@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Rector\Website\Utils\Laravelize\FileSystem;
 
 use Webmozart\Assert\Assert;

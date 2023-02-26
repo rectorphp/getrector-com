@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Rector\Website\Utils\Tests\Laravelize\TwigToBladeConverter;
 
 use Illuminate\Container\Container;
+use Iterator;
 use Nette\Utils\FileSystem;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
@@ -16,7 +19,6 @@ final class TwigToBladeConverterTest extends TestCase
     {
         $container = new Container();
         $this->twigToBladeConverter = $container->make(TwigToBladeConverter::class);
-
     }
 
     #[DataProvider('provideData')]
@@ -36,7 +38,7 @@ final class TwigToBladeConverterTest extends TestCase
         $this->assertSame($expectedBladeContents, $convertedBladeContents);
     }
 
-    public static function provideData(): \Iterator
+    public static function provideData(): Iterator
     {
         /** @var string[] $fixtureFilesPaths */
         $fixtureFilesPaths = glob(__DIR__ . '/Fixture/*.twig.inc');
@@ -50,7 +52,8 @@ final class TwigToBladeConverterTest extends TestCase
      */
     private function split(string $fileContents): array
     {
-        $parts = str($fileContents)->split('#^\-\-\-\-\-\n#m');
+        $parts = str($fileContents)
+            ->split('#^\-\-\-\-\-\n#m');
         return [$parts[0], $parts[1]];
     }
 }
