@@ -14,6 +14,9 @@ return static function (Configuration $config): Configuration {
     // used for jajodb patching
     $config->addNamedFilter(NamedFilter::fromString('symplify/vendor-patches'));
 
+    // used in lot of code
+    $config->addNamedFilter(NamedFilter::fromString('symplify/package-builder'));
+
     // false positive
     $config->addNamedFilter(NamedFilter::fromString('symfony/asset'));
 

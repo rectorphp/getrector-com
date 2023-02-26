@@ -17,8 +17,6 @@ final class Post
         private readonly string $htmlContent,
         private readonly ?DateTimeInterface $updatedSince = null,
         private readonly ?string $updatedMessage = null,
-        private readonly ?DateTimeInterface $deprecatedSince = null,
-        private readonly ?string $deprecatedMessage = null,
         private readonly ?string $sinceRector = null
     ) {
     }
@@ -58,11 +56,6 @@ final class Post
         return $this->updatedSince !== null;
     }
 
-    public function isDeprecated(): bool
-    {
-        return $this->deprecatedSince !== null;
-    }
-
     public function getUpdatedSince(): ?DateTimeInterface
     {
         return $this->updatedSince;
@@ -76,15 +69,5 @@ final class Post
     public function getSinceRector(): ?string
     {
         return $this->sinceRector;
-    }
-
-    public function getDeprecatedSince(): ?DateTimeInterface
-    {
-        return $this->deprecatedSince;
-    }
-
-    public function getDeprecatedMessage(): ?string
-    {
-        return $this->deprecatedMessage;
     }
 }
