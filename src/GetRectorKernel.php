@@ -5,11 +5,9 @@ declare(strict_types=1);
 namespace Rector\Website;
 
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
-use Symplify\AutowireArrayParameter\DependencyInjection\CompilerPass\AutowireArrayParameterCompilerPass;
 
 final class GetRectorKernel extends Kernel
 {
@@ -28,10 +26,5 @@ final class GetRectorKernel extends Kernel
         $routingConfigurator->import(__DIR__ . '/../config/routes.php');
 
         $routingConfigurator->import(__DIR__ . '/../config/{routes}/' . $this->environment . '/*.php', 'glob');
-    }
-
-    protected function build(ContainerBuilder $containerBuilder): void
-    {
-        $containerBuilder->addCompilerPass(new AutowireArrayParameterCompilerPass());
     }
 }

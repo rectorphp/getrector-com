@@ -23,7 +23,6 @@
         "symfony/uid": "^6.2",
         "symfony/webpack-encore-bundle": "^1.16",
         "symfony/yaml": "^6.2",
-        "symplify/autowire-array-parameter": "^11.1",
         "symplify/vendor-patches": "^11.2"
     },
     "require-dev": {
