@@ -31,9 +31,9 @@ final class TwigToBladeConverter
     private const TWIG_TO_BLADE_REPLACE_REGEXES = [
         // layout
         '#{\% extends "(.*?)\.twig" \%\}#' => '@extends(\'$1\')',
-        '#{\% block (.*?) %}#' => '@section(\'$1\')',
+        '#{\% block (.*?) \%}#' => '@section(\'$1\')',
         '#{\% endblock \%}#' => '@endsection',
-        '#{\% include((\'|").*?\.twig(\'|")) %}#' => '@include(\'$1\')',
+        '#{\% include ((\'|\").*?\.twig(\'|\")) \%}#' => '@include($1)',
 
         // control structures
         '#{% if (?<condition>.*?) %}#' => '@if ($1)',
@@ -44,8 +44,9 @@ final class TwigToBladeConverter
         '#\{\# @var (?<variable>.*?) (?<type>.*?) \#\}#' => '@php /** @var $$1 $2 */ @endphp',
         '#path\((.*?)\)#' => 'route($1)',
         '#\{ (?<key>\w+)\: (?<value>.*?) \}#' => '[\'$1\' => $2]',
+
         // variables
-        '#\b(?<variable>\w+)\.(?<fetcher>.*?)\b#' => '$$1->$2',
+        '#\b(?<variable>\w+)\.(?<fetcher>[^twig].*?)\b#' => '$$1->$2',
         '#{{ (?<variable>\w+)\|(?<filter>\w+) }}#' => '{{ $2($$1) }}',
     ];
 
@@ -92,23 +93,14 @@ final class TwigToBladeConverter
      */
     private function findTwigFilePaths(string $templatesDirectory): array
     {
-        $twigFinder = Finder::create()
-            ->files()
-            ->name('*.twig')
-            ->in($templatesDirectory);
-
-        $fileInfosByFilePaths = iterator_to_array($twigFinder->getIterator());
-        $twigFilePaths = array_keys($fileInfosByFilePaths);
+        /** @var string[] $twigFilePaths */
+        $twigFilePaths = glob($templatesDirectory . '/*/*.twig');
         Assert::allString($twigFilePaths);
 
         // use realpaths
-        $twigFileRealPaths = array_map(function (string $twigFilePath) {
+        return array_map(function (string $twigFilePath): string {
             return realpath($twigFilePath);
         }, $twigFilePaths);
-
-        Assert::allString($twigFileRealPaths);
-
-        return $twigFileRealPaths;
     }
 }
 
