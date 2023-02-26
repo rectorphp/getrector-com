@@ -77,6 +77,7 @@ final class SymfonyRouteAttributesToLaravelRouteFileRector extends AbstractRecto
                 }
 
                 $routeMetadata = $this->resolveRouteMetadata($attribute, $node);
+
                 if (! $routeMetadata instanceof RouteMetadata) {
                     continue;
                 }
@@ -100,9 +101,7 @@ final class SymfonyRouteAttributesToLaravelRouteFileRector extends AbstractRecto
                 }
 
                 // skip adding real file in tests
-                if (! defined('PHPUNIT_COMPOSER_INSTALL')) {
-                    file_put_contents($this->routesFilePath, $printedRouteGet . PHP_EOL, FILE_APPEND);
-                }
+                file_put_contents($this->routesFilePath, $printedRouteGet . PHP_EOL, FILE_APPEND);
 
                 // for tests B-)
                 $addedFileWithContent = new AddedFileWithContent($this->routesFilePath, $printedRouteGet);

@@ -44,7 +44,7 @@
         "tomasvotruba/cognitive-complexity": "^0.0.5",
         "tomasvotruba/type-coverage": "^0.0.7",
         "tomasvotruba/unused-public": "^0.0.33",
-        "tracy/tracy": "^2.9"
+        "spatie/laravel-ignition": "^2.0"
     },
     "autoload": {
         "psr-4": {
