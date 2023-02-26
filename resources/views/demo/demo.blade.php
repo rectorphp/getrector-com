@@ -40,7 +40,7 @@
         </div>
 
         @php /** @var $rector_run \Rector\Website\Demo\Entity\RectorRun */ @endphp
-        @if (rector_run.successful)
+        @if ($rector_run->successful)
             <div class="card bg-warning border-warning mb-3">
                 <div class="card-header text-bold">
                     What did Rector change?
@@ -71,7 +71,7 @@
                         <p class="mb-2">Is the result wrong?</p>
                         <a href="{{ issue_link($rector_run) }}" class="btn btn-danger">Create an issue</a>
 
-                        @if (rector_run.canCreateFixture)
+                        @if ($rector_run->canCreateFixture)
                             <a href="{{ pr_link($rector_run) }}" class="btn btn-primary ms-3">Create a Test</a>
                         @endif
                     </div>

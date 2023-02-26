@@ -29,6 +29,7 @@ final class TwigToBladeConverter
         '#{\% include (\'|\")(.*?)\.twig(\'|\") \%}#' => '@include(\'$2\')',
 
         // control structures
+        '#{% (if|elseif) (?<variable>\w+)\.(?<property>\w+) %}#' => '@$1 ($$2->$3)',
         '#{% if (?<condition>.*?) %}#' => '@if ($1)',
         '#{% for (?<singular>.*?) in (?<plural>.*?) %}#' => '@foreach ($$2 as $$1)',
         '#{% else %}#' => '@else ',
