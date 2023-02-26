@@ -42,6 +42,8 @@ final class TwigToBladeConverter
         '#{{ (?<variable>\w+)\.(?<method>\w+) }}#' => '{{ $$1->$2 }}',
         '#{{ (?<variable>\w+) }}#' => '{{ $$1 }}',
         '#{{ (?<variable>\w+)\|(?<filter>\w+) }}#' => '{{ $2($$1) }}',
+        '#{{ (?<variable>\w+).(?<property>\w+)\|date\((.*?)\) }}#' => '{{ $$1->$2->format($3) }}',
+        '#{{ (?<variable>\w+).(?<property>\w+)\|date }}#' => '{{ $$1->$2->format() }}',
     ];
 
     private readonly Differ $differ;

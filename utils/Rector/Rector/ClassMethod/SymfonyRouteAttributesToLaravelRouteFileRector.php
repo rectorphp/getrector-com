@@ -12,6 +12,7 @@ use PhpParser\Node\Stmt\ClassMethod;
 use PhpParser\Node\Stmt\Expression;
 use Rector\Core\Application\FileSystem\RemovedAndAddedFilesCollector;
 use Rector\Core\Contract\Rector\ConfigurableRectorInterface;
+use Rector\Core\Exception\ShouldNotHappenException;
 use Rector\Core\PhpParser\Printer\BetterStandardPrinter;
 use Rector\Core\Rector\AbstractRector;
 use Rector\FileSystemRector\ValueObject\AddedFileWithContent;
@@ -129,13 +130,13 @@ final class SymfonyRouteAttributesToLaravelRouteFileRector extends AbstractRecto
             // class is the target :)
             $class = $classMethod->getAttribute(AttributeKey::PARENT_NODE);
             if (! $class instanceof Node\Stmt\Class_) {
-                throw new \Rector\Core\Exception\ShouldNotHappenException();
+                throw new ShouldNotHappenException();
             }
 
             $routeTarget = $this->getName($class);
         } else {
             // not handled yet
-            throw new \Rector\Core\Exception\ShouldNotHappenException();
+            throw new ShouldNotHappenException();
         }
 
         Assert::string($routeTarget);
@@ -156,7 +157,7 @@ final class SymfonyRouteAttributesToLaravelRouteFileRector extends AbstractRecto
             }
         }
 
-        throw new \Rector\Core\Exception\ShouldNotHappenException();
+        throw new ShouldNotHappenException();
     }
 
     private function printRoutesContents(string $printedRouteGet): void

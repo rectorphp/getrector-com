@@ -11,11 +11,11 @@
         <pubDate>{{ "now"|date('r') }}</pubDate>
         <atom:link href="{{ $site_url }}/rss.xml" rel="self" type="application/rss+xml" />
 
-        <lastBuildDate>{{ most_recent_post_date_time|date('r') }}</lastBuildDate>
+        <lastBuildDate>{{ $most_recent_post_date_ti->e->format('r') }}</lastBuildDate>
 
         {# https://stackoverflow.com/a/29161205/1348344 #}
         @foreach ($posts as $post)
-            {% set post_absolute_url %}{{ $site_url }}{{ route('post', {'postSlug': post.slug }) }}{% endset %}
+            @php $post_absolute_url = '{{ $site_url }}{{ route('post', {'postSlug': post.slug }) }}'; @endphp
 
             <item>
                 <title><![CDATA[ {{ post.title|replace({'&nbsp;':' '}) }} ]]></title>
@@ -26,13 +26,13 @@
                 <dc:creator><![CDATA[ Rector ]]></dc:creator>
 
                 {# @see https://wordpress.stackexchange.com/a/229773 #}
-                <pubDate>{{ post.getDateTime|date('D, d M Y H:i:s +0000') }}</pubDate>
+                <pubDate>{{ $post->getDateTime->format('D, d M Y H:i:s +0000') }}</pubDate>
                 @if (post.updatedAt is defined)
-                    <updated>{{ post.updatedAt|date('Y-m-d\TH:i:s\Z') }}</updated>
-                    <atom:updated>{{ post.updatedAt|date('D, d M Y H:i:s +0000') }}</atom:updated>
-                    <lastBuildDate>{{ post.updatedAt|date('D, d M Y H:i:s +0000') }}</lastBuildDate>
+                    <updated>{{ $post->updatedAt->format('Y-m-d\TH:i:s\Z') }}</updated>
+                    <atom:updated>{{ $post->updatedAt->format('D, d M Y H:i:s +0000') }}</atom:updated>
+                    <lastBuildDate>{{ $post->updatedAt->format('D, d M Y H:i:s +0000') }}</lastBuildDate>
                 @else 
-                    <lastBuildDate>{{ post.dateTime|date('D, d M Y H:i:s +0000') }}</lastBuildDate>
+                    <lastBuildDate>{{ $post->dateTime->format('D, d M Y H:i:s +0000') }}</lastBuildDate>
                 @endif
 
                 <comments>{{ $post_absolute_url }}#disqus_thread</comments>

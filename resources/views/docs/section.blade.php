@@ -1,6 +1,6 @@
 @extends('base')
 
-{% set page_title %}{{ $section_title }} | Documentation{% endset %}
+@php $page_title = '{{ $section_title }} | Documentation'; @endphp
 
 @section('main')
     <div class="row mt-0" id="documentation">
