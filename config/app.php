@@ -22,7 +22,7 @@ return AppConfig::make()
     ->name(env('APP_NAME', 'TomasVotruba'))
     ->env(env('APP_ENV', 'production'))
     ->debug((bool) env('APP_DEBUG', false))
-    ->url(env('APP_URL'))
+    ->url(env('APP_URL', 'http://localhost'))
     ->timezone('UTC')
     ->providers([
         // Laravel Framework Service Providers...

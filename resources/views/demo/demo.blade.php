@@ -2,6 +2,7 @@
 
 @php
     /** @var $rector_run \Rector\Website\Entity\RectorRun */
+    /** @var $rector_version_metadata \Rector\Website\Utils\RectorVersionMetadata */
 @endphp
 
 @section('main')
@@ -33,16 +34,17 @@
             </p>
 
             @error('php_contents')
-                <div class="alert alert-danger">
-                    @foreach ($errors->get('php_contents') as $error)
-                        {{ $error }}
-                    @endforeach
-                </div>
+            <div class="alert alert-danger">
+                @foreach ($errors->get('php_contents') as $error)
+                    {{ $error }}
+                @endforeach
+            </div>
             @enderror
 
             <div class="card mb-4">
                 <div class="card-body p-0 mb-0">
-                    <textarea name="php_contents" class="codemirror_php" required="required">{{ $rector_run->getContent() }}</textarea>
+                    <textarea name="php_contents" class="codemirror_php"
+                              required="required">{{ $rector_run->getContent() }}</textarea>
                 </div>
             </div>
 
@@ -78,22 +80,22 @@
                         </div>
                         <div class="pt-0 pb-4 col-12 col-sm-6">
                             <p class="mb-2">Is the result wrong?</p>
-    {{--                        <a href="{{ issue_link($rector_run) }}" class="btn btn-danger">Create an issue</a>--}}
+                            {{--                        <a href="{{ issue_link($rector_run) }}" class="btn btn-danger">Create an issue</a>--}}
 
-    {{--                        @if ($rector_run->canCreateFixture())--}}
-    {{--                            <a href="{{ pr_link($rector_run) }}" class="btn btn-primary ms-3">Create a Test</a>--}}
-    {{--                        @endif--}}
+                            {{--                        @if ($rector_run->canCreateFixture())--}}
+                            {{--                            <a href="{{ pr_link($rector_run) }}" class="btn btn-primary ms-3">Create a Test</a>--}}
+                            {{--                        @endif--}}
                         </div>
                     </div>
                 @endif
             @endif
 
             @error('rector_config')
-                <div class="alert alert-danger">
-                    @foreach ($errors->get('rector_config') as $error)
-                        {{ $error }}
-                    @endforeach
-                </div>
+            <div class="alert alert-danger">
+                @foreach ($errors->get('rector_config') as $error)
+                    {{ $error }}
+                @endforeach
+            </div>
             @enderror
 
             <div class="card mb-2">
@@ -102,19 +104,24 @@
                 </div>
 
                 <div class="card-body p-0">
-                    <textarea name="rector_config" class="codemirror_php" required="required">{{ $rector_run->getConfig() }}</textarea>
+                    <textarea name="rector_config" class="codemirror_php"
+                              required="required">{{ $rector_run->getConfig() }}</textarea>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-6 mt-4 mb-5">
-                    <button type="submit" id="demo_form_process" name="process" class="btn btn-lg btn-success m-auto btn-demo-submit">Process</button>
+                    <button type="submit" id="demo_form_process" name="process"
+                            class="btn btn-lg btn-success m-auto btn-demo-submit">Process
+                    </button>
                 </div>
 
                 <div class="col-6 text-end text-smaller text-grey" id="rector_version">
                     Rector version:
-                    <a href="https://github.com/rectorphp/rector/commit/{{ $rector_commit_hash }}">{{ $rector_version }}</a>
-                    released at {{ $rector_released_time }}
+                    <a href="https://github.com/rectorphp/rector/commit/{{ $rector_version_metadata->getCommitHash() }}">
+                        {{ $rector_version_metadata->getReleaseVersion() }}
+                    </a>
+                    released at {{ $rector_version_metadata->getReleaseDate() }}
                 </div>
             </div>
 

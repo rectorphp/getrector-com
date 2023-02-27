@@ -7,13 +7,12 @@ namespace App\Http\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Controller;
 use Illuminate\View\View;
-use PackageVersions\Versions;
-use Rector\Core\Application\VersionResolver;
 use Rector\Website\Entity\RectorRun;
 use Rector\Website\EntityFactory\RectorRunFactory;
 use Rector\Website\Enum\FlashType;
 use Rector\Website\Enum\RouteName;
 use Rector\Website\Repository\RectorRunRepository;
+use Rector\Website\Utils\RectorVersionMetadata;
 use Symfony\Component\Uid\Uuid;
 
 /**
@@ -47,30 +46,7 @@ final class DemoController extends Controller
         return \view('demo/demo', [
             'page_title' => 'Try Rector Online',
             'rector_run' => $rectorRun,
-            // rector metadata
-            'rector_version' => $this->resolveRectorReleaseVersion(),
-            'rector_commit_hash' => $this->resolveRectorCommitHash(),
-            'rector_released_time' => $this->resolveRectorReleaseDate(),
+            'rector_version_metadata' => new RectorVersionMetadata(),
         ]);
-    }
-
-    private function resolveRectorReleaseVersion(): string
-    {
-        $rectorVersion = Versions::getVersion('rector/rector');
-        $extractAt = explode('@', $rectorVersion);
-
-        return $extractAt[0] . '@' . substr($extractAt[1], 0, 6);
-    }
-
-    private function resolveRectorReleaseDate(): string
-    {
-        return substr(VersionResolver::RELEASE_DATE, 0, strlen(VersionResolver::RELEASE_DATE) - 3);
-    }
-
-    private function resolveRectorCommitHash(): string
-    {
-        return str($this->resolveRectorReleaseVersion())
-            ->after('@')
-            ->value();
     }
 }
