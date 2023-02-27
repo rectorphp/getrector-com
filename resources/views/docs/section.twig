@@ -5,7 +5,7 @@
 {% block main %}
     <div class="row mt-0" id="documentation">
         <div class="col-12 col-sm-3 mt-3 mt-sm-4" id="documentation_menu">
-            {# @see https://github.com/rectorphp/rector/tree/main/docs #}
+            {{-- @see https://github.com/rectorphp/rector/tree/main/docs -- }}
             <ul class="mt-3">
                 <li>
                     <a href="{{ path('documentation') }}">Introduction</a>
@@ -20,7 +20,7 @@
                 <ul>
                     {% for documentation_section in documentation_sections %}
                         <li>
-                            {# @var documentation_section \Rector\Website\ValueObject\DocumentationSection #}
+                            {{-- @var documentation_section \Rector\Website\ValueObject\DocumentationSection -- }}
                             <a href="{{ path('documentation', { section: documentation_section.slug }) }}">
                                 {{ documentation_section.name }}
                             </a>
