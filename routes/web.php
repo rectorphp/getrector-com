@@ -7,6 +7,7 @@ use App\Http\Controller\BlogController;
 use App\Http\Controller\BookController;
 use App\Http\Controller\ContactController;
 use App\Http\Controller\DemoController;
+use App\Http\Controller\DemoDetailController;
 use App\Http\Controller\DocumentationController;
 use App\Http\Controller\ForCompaniesController;
 use App\Http\Controller\HomepageController;
@@ -43,12 +44,12 @@ Route::get('blog/{postSlug}', PostController::class)
 Route::get('rss.xml', RssController::class)
     ->name(RouteName::RSS);
 
+Route::get('demo/{uuid}', DemoDetailController::class)
+     ->name(RouteName::DEMO_DETAIL);
+
 // demo routes
 Route::get('demo', DemoController::class)
      ->name(RouteName::DEMO);
-
-Route::get('demo/{uuid}', DemoController::class)
-     ->name(RouteName::DEMO_DETAIL);
 
 // post routes
 Route::post('process-demo', ProcessDemoFormController::class)
