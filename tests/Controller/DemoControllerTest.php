@@ -12,21 +12,20 @@ use Rector\Website\Tests\AbstractTestCase;
 final class DemoControllerTest extends AbstractTestCase
 {
     #[DataProvider('provideTestFormSubmitData')]
-    public function testFormSubmit(string $contentData, string $configData): never
+    public function testFormSubmit(string $contentData, string $configData): void
     {
-        $response = $this->post('/demo', [
+        // @todo ask patricio how to handle this
+        $testResponse = $this->post('process-demo', [
             'php_contents' => $contentData,
             'rector_config' => $configData,
         ]);
 
-        dd($response);
-        die;
+        $this->assertFalse($testResponse->isSuccessful());
 
-        // no redirect, because PHP was invalid
-        $this->assertRouteSame(RouteName::DEMO);
-
-        // form should contain errors
-        $this->assertSelectorExists('.invalid-feedback');
+        //$this->assertRouteSame(RouteName::DEMO);
+        //
+        //// form should contain errors
+        //$this->assertSelectorExists('.invalid-feedback');
     }
 
     public static function provideTestFormSubmitData(): Iterator

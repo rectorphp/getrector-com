@@ -16,6 +16,9 @@ use App\Http\Controller\RssController;
 use Illuminate\Support\Facades\Route;
 use Rector\Website\Enum\RouteName;
 
+Route::get('/', HomepageController::class)
+     ->name(RouteName::HOMEPAGE);
+
 Route::get('documentation/{section?}', DocumentationController::class)
     ->name(RouteName::DOCUMENTATION);
 
@@ -34,24 +37,19 @@ Route::get('contact', ContactController::class)
 Route::get('hire-team', ForCompaniesController::class)
     ->name(RouteName::HIRE_TEAM);
 
-Route::get('/', HomepageController::class)
-    ->name(RouteName::HOMEPAGE);
-
 Route::get('blog/{postSlug}', PostController::class)
     ->name(RouteName::POST);
 
 Route::get('rss.xml', RssController::class)
     ->name(RouteName::RSS);
 
-// dem routes
-Route::get('demo/', DemoController::class)
+// demo routes
+Route::get('demo', DemoController::class)
      ->name(RouteName::DEMO);
-// dem routes
+
 Route::get('demo/{uuid}', DemoController::class)
      ->name(RouteName::DEMO_DETAIL);
 
+// post routes
 Route::post('process-demo', ProcessDemoFormController::class)
      ->name(RouteName::PROCESS_DEMO_FORM);
-
-Route::get('demo', DemoController::class)
-     ->name(RouteName::DEMO);
