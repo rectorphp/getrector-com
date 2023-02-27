@@ -49,9 +49,7 @@ final class DemoController extends Controller
             'rector_run' => $rectorRun,
             // rector metadata
             'rector_version' => $this->resolveRectorReleaseVersion(),
-            'rector_commit_hash' => str($this->resolveRectorReleaseVersion())
-                ->after('@')
-                ->value(),
+            'rector_commit_hash' => $this->resolveRectorCommitHash(),
             'rector_released_time' => $this->resolveRectorReleaseDate(),
         ]);
     }
@@ -67,5 +65,12 @@ final class DemoController extends Controller
     private function resolveRectorReleaseDate(): string
     {
         return substr(VersionResolver::RELEASE_DATE, 0, strlen(VersionResolver::RELEASE_DATE) - 3);
+    }
+
+    private function resolveRectorCommitHash(): string
+    {
+        return str($this->resolveRectorReleaseVersion())
+            ->after('@')
+            ->value();
     }
 }
