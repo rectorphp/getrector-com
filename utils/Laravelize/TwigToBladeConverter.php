@@ -50,7 +50,7 @@ final class TwigToBladeConverter
         '#{{ (?<variable>\w+)\|(?<filter>\w+) }}#' => '{{ $2($$1) }}',
 
         # comments
-        '#\{\# (.*?) \#\}#' => '{{-- $1 -- }}',
+        '#\{\# (.*?) \#\}#' => '{{-- $1 --}}',
     ];
 
     private readonly Differ $differ;
