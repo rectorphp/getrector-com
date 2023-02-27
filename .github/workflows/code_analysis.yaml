@@ -31,7 +31,7 @@ jobs:
 
                     -
                         name: 'Laravel Console'
-                        run: php artisan
+                        run: php artisan --ansi
 
         name: ${{ matrix.actions.name }}
         runs-on: ubuntu-latest
