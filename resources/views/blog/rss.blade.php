@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+
 <rss version="2.0"
      xmlns:content="https://purl.org/rss/1.0/modules/content/"
      xmlns:dc="https://purl.org/dc/elements/1.1/"
@@ -9,14 +10,14 @@
         <link>{{ $site_url }}/</link>
         <description>Rector Blog about Legacy Code Migrations</description>
         <pubDate>{{ date('r', now()) }}</pubDate>
-        <atom:link href="{{ $site_url }}/rss.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="{{ $site_url }}/rss.xml" rel="self" type="application/rss+xml"/>
 
         <lastBuildDate>{{ $most_recent_post_date_time->format('r') }}</lastBuildDate>
 
         {{-- https://stackoverflow.com/a/29161205/1348344 --}}
         @foreach ($posts as $post)
             @php
-                $post_absolute_url = $site_url . route(\Rector\Website\ValueObject\Routing\RouteName::POST, ['postSlug' => $post->getSlug()]);
+                $post_absolute_url = $site_url . route(\Rector\Website\Enum\RouteName::POST, ['postSlug' => $post->getSlug()]);
             @endphp
 
             <item>

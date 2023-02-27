@@ -19,5 +19,5 @@
 </li>
 
 <li class="nav-item">
-    <a href="{{ route(\Rector\Website\ValueObject\Routing\RouteName::DOCUMENTATION) }}" class="nav-link">Docs</a>
+    <a href="{{ route(\Rector\Website\Enum\RouteName::DOCUMENTATION) }}" class="nav-link">Docs</a>
 </li>

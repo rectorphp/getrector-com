@@ -11,7 +11,9 @@
 
             <ul class="mt-3">
                 <li>
-                    <a href="{{ route('documentation') }}">Introduction</a>
+                    <a
+                        href="{{ route(\Rector\Website\Enum\RouteName::DOCUMENTATION) }}"
+                    >Introduction</a>
                 </li>
             </ul>
 
@@ -27,7 +29,7 @@
                         @endphp
 
                         <li>
-                            <a href="{{ route(\Rector\Website\ValueObject\Routing\RouteName::DOCUMENTATION, ['section' => $documentation_section->getSlug()]) }}">
+                            <a href="{{ route(\Rector\Website\Enum\RouteName::DOCUMENTATION, ['section' => $documentation_section->getSlug()]) }}">
                                 {{ $documentation_section->getName() }}
                             </a>
                         </li>

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\ValueObject\Routing;
+namespace Rector\Website\Enum;
 
 final class RouteName
 {

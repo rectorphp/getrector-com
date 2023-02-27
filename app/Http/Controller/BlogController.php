@@ -5,9 +5,10 @@ declare(strict_types=1);
 namespace App\Http\Controller;
 
 use Illuminate\Contracts\View\View;
+use Illuminate\Routing\Controller;
 use Rector\Website\Repository\PostRepository;
 
-final class BlogController extends \Illuminate\Routing\Controller
+final class BlogController extends Controller
 {
     public function __construct(
         private readonly PostRepository $postRepository,

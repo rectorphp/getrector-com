@@ -6,7 +6,7 @@ namespace Rector\Website\Tests\Controller;
 
 use Iterator;
 use PHPUnit\Framework\Attributes\DataProvider;
-use Rector\Website\ValueObject\Routing\RouteName;
+use Rector\Website\Enum\RouteName;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
