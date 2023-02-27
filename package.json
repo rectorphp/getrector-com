@@ -26,12 +26,8 @@
         "vite": "^4.0.0"
     },
     "scripts": {
-        "dev-server": "encore dev-server",
-        "dev": "encore dev --progress",
-        "watch": "encore dev --watch",
-        "build": "encore production --progress",
-        "dev-vite": "vite",
-        "build-vite": "vite build"
+        "dev": "vite",
+        "build": "vite build"
     },
     "license": "UNLICENSED",
     "private": true,
