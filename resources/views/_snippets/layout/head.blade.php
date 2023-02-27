@@ -26,5 +26,5 @@ $full_title = (isset($page_title) ? $page_title . ' | ' : '') . \Rector\Website\
 <meta property="og:title" content="{{ $full_title }}">
 <meta property="twitter:title" content="{{ $full_title }}">
 
-<meta property="og:image" content="{{ asset(\Rector\Website\Enum\Design::SOCIAL_RECTOR_LOGO) }}">
-<meta name="twitter:image" content="{{ asset(\Rector\Website\Enum\Design::SOCIAL_RECTOR_LOGO) }}">
+<meta property="og:image" content="{{ \Rector\Website\Enum\Design::SOCIAL_RECTOR_LOGO }}">
+<meta name="twitter:image" content="{{ \Rector\Website\Enum\Design::SOCIAL_RECTOR_LOGO }}">
