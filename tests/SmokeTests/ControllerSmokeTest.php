@@ -10,14 +10,14 @@ use Rector\Website\Tests\AbstractTestCase;
 
 final class ControllerSmokeTest extends AbstractTestCase
 {
-    #[DataProvider('provideUrls')]
+    #[DataProvider('provideData')]
     public function test(string $url, int $expectedStatusCode): void
     {
         $response = $this->get($url);
         $response->assertStatus($expectedStatusCode);
     }
 
-    public static function provideUrls(): Iterator
+    public static function provideData(): Iterator
     {
         yield ['/', 200];
         yield ['/blog', 200];
