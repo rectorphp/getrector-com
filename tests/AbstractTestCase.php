@@ -20,4 +20,14 @@ abstract class AbstractTestCase extends TestCase
 
         return $application;
     }
+
+    /**
+     * @template TType as object
+     * @param class-string<TType> $classType
+     * @return TType
+     */
+    public function make(string $classType): object
+    {
+        return app()->make($classType);
+    }
 }

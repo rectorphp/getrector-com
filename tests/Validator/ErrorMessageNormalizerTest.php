@@ -6,21 +6,18 @@ namespace Rector\Website\Tests\Validator;
 
 use Iterator;
 use PHPUnit\Framework\Attributes\DataProvider;
-use Rector\Website\GetRectorKernel;
+use Rector\Website\Tests\AbstractTestCase;
 use Rector\Website\Utils\ErrorMessageNormalizer;
-use Symplify\PackageBuilder\Testing\AbstractKernelTestCase;
 
-/**
- * @see \Rector\Website\Utils\ErrorMessageNormalizer
- */
-final class ErrorMessageNormalizerTest extends AbstractKernelTestCase
+final class ErrorMessageNormalizerTest extends AbstractTestCase
 {
     private ErrorMessageNormalizer $errorMessageNormalizer;
 
     protected function setUp(): void
     {
-        $this->bootKernel(GetRectorKernel::class);
-        $this->errorMessageNormalizer = self::$container->get(ErrorMessageNormalizer::class);
+        parent::setUp();
+
+        $this->errorMessageNormalizer = $this->make(ErrorMessageNormalizer::class);
     }
 
     #[DataProvider('provideDataForTest')]
