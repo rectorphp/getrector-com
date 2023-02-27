@@ -16,6 +16,8 @@ final class IssueBodyFactoryTest extends AbstractTestCase
 
     protected function setUp(): void
     {
+        parent::setUp();
+
         $this->issueBodyFactory = $this->make(IssueBodyFactory::class);
         $this->dummyRectorRunFactory = $this->make(DummyRectorRunFactory::class);
     }

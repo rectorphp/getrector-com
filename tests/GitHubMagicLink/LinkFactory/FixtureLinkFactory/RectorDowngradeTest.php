@@ -16,6 +16,8 @@ final class RectorDowngradeTest extends AbstractTestCase
 
     protected function setUp(): void
     {
+        parent::setUp();
+
         $this->testFixtureLinkFactory = $this->make(FixtureLinkFactory::class);
         $this->downgradeArrayIsListFactory = $this->make(DowngradeArrayIsListFactory::class);
     }
