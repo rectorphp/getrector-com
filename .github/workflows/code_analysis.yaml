@@ -29,7 +29,7 @@ jobs:
 
                     -
                         name: 'Check Active Classes'
-                        run: vendor/bin/easy-ci check-active-class src --ansi
+                        run: vendor/bin/easy-ci check-active-class app src --ansi
 
                     -
                         name: 'Detect Unused Composer Packages'
