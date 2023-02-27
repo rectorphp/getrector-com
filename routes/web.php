@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-use App\Http\Controller\DocumentationController;
 use App\Http\Controller\AboutController;
 use App\Http\Controller\BlogController;
 use App\Http\Controller\BookController;
 use App\Http\Controller\ContactController;
 use App\Http\Controller\DemoController;
+use App\Http\Controller\DocumentationController;
 use App\Http\Controller\ForCompaniesController;
 use App\Http\Controller\HomepageController;
 use App\Http\Controller\PostController;
 use App\Http\Controller\RssController;
 use Illuminate\Support\Facades\Route;
-use Rector\Website\ValueObject\Routing\RouteName;
+use Rector\Website\ValueObject\RouteName;
 
 Route::get('laravel-documentation/{section?}', DocumentationController::class)
     ->name(RouteName::DOCUMENTATION);

@@ -7,7 +7,7 @@ namespace Rector\Website\Controller;
 use DateTimeInterface;
 use Rector\Website\Entity\Post;
 use Rector\Website\Repository\PostRepository;
-use Rector\Website\ValueObject\Routing\RouteName;
+use Rector\Website\ValueObject\RouteName;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;

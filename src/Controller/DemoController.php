@@ -13,7 +13,7 @@ use Rector\Website\EntityFactory\RectorRunFactory;
 use Rector\Website\Enum\FlashType;
 use Rector\Website\Form\DemoFormType;
 use Rector\Website\Repository\RectorRunRepository;
-use Rector\Website\ValueObject\Routing\RouteName;
+use Rector\Website\ValueObject\RouteName;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
