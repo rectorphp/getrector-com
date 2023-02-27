@@ -18,6 +18,7 @@ yarn run dev
 Install composer dependencies:
 
 ```bash
+cp .env.dist .env
 composer install
 ```
 
