@@ -8,10 +8,6 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Routing\Controller;
 use Rector\Website\Entity\Post;
 use Rector\Website\Repository\PostRepository;
-<<<<<<< HEAD
-=======
-use Symfony\Component\HttpFoundation\Response;
->>>>>>> 044a866 (shorter name)
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 final class PostController extends Controller

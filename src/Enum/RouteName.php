@@ -2,11 +2,7 @@
 
 declare(strict_types=1);
 
-<<<<<<<< HEAD:src/Enum/RouteName.php
 namespace Rector\Website\Enum;
-========
-namespace Rector\Website\ValueObject;
->>>>>>>> 044a866 (shorter name):src/ValueObject/RouteName.php
 
 final class RouteName
 {

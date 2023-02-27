@@ -9,11 +9,7 @@
         @foreach ($posts as $post)
             <div class="mb-5">
                 <h2>
-<<<<<<< HEAD
                     <a href="{{ route(\Rector\Website\Enum\RouteName::POST, [
-=======
-                    <a href="{{ route(\Rector\Website\ValueObject\RouteName::POST, [
->>>>>>> 044a866 (shorter name)
                         'postSlug' => $post->getSlug(),
                     ]) }}">
                         {{ $post->getTitle() }}

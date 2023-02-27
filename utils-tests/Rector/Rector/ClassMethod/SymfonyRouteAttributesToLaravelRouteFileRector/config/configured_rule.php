@@ -9,7 +9,7 @@ use Rector\Website\Utils\Rector\Rector\ClassMethod\SymfonyRouteAttributesToLarav
 return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->removeUnusedImports();
 
-    $rectorConfig->import(__DIR__ . '/../../../../../utils/config/rector_services.php');
+    $rectorConfig->import(__DIR__ . '/../../../../../../utils/config/rector_services.php');
 
     $rectorConfig->ruleWithConfiguration(
         SymfonyRouteAttributesToLaravelRouteFileRector::class,

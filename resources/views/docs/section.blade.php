@@ -12,11 +12,7 @@
             <ul class="mt-3">
                 <li>
                     <a
-<<<<<<< HEAD
                         href="{{ route(\Rector\Website\Enum\RouteName::DOCUMENTATION) }}"
-=======
-                        href="{{ route(\Rector\Website\ValueObject\RouteName::DOCUMENTATION) }}"
->>>>>>> 044a866 (shorter name)
                     >Introduction</a>
                 </li>
             </ul>
@@ -33,11 +29,7 @@
                         @endphp
 
                         <li>
-<<<<<<< HEAD
                             <a href="{{ route(\Rector\Website\Enum\RouteName::DOCUMENTATION, ['section' => $documentation_section->getSlug()]) }}">
-=======
-                            <a href="{{ route(\Rector\Website\ValueObject\RouteName::DOCUMENTATION, ['section' => $documentation_section->getSlug()]) }}">
->>>>>>> 044a866 (shorter name)
                                 {{ $documentation_section->getName() }}
                             </a>
                         </li>
