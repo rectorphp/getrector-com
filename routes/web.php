@@ -1,33 +1,45 @@
 <?php
 
-\Illuminate\Support\Facades\Route::get('documentation/{section}', \Rector\Website\Controller\DocumentationController::class)->name('documentation');
+use Rector\Website\Controller\DocumentationController;
+use Rector\Website\Controller\AboutController;
+use Rector\Website\Controller\BlogController;
+use Rector\Website\Controller\BookController;
+use Rector\Website\Controller\ContactController;
+use Rector\Website\Controller\DemoController;
+use Rector\Website\Controller\ForCompaniesController;
+use Rector\Website\Controller\HomepageController;
+use Rector\Website\Controller\PostController;
+use Rector\Website\Controller\RssController;
+use Illuminate\Support\Facades\Route;
 
-\Illuminate\Support\Facades\Route::get('documentation/{section}', \Rector\Website\Controller\DocumentationController::class)->name('documentation');
+Route::get('documentation/{section}', DocumentationController::class)->name('documentation');
 
-\Illuminate\Support\Facades\Route::get('documentation/{section}', \Rector\Website\Controller\DocumentationController::class)->name('documentation');
+Route::get('documentation/{section}', DocumentationController::class)->name('documentation');
 
-\Illuminate\Support\Facades\Route::get('documentation/{section}', \Rector\Website\Controller\DocumentationController::class)->name('documentation');
+Route::get('documentation/{section}', DocumentationController::class)->name('documentation');
 
-\Illuminate\Support\Facades\Route::get('about', \Rector\Website\Controller\AboutController::class)->name('about');
+Route::get('documentation/{section}', DocumentationController::class)->name('documentation');
 
-\Illuminate\Support\Facades\Route::get('blog', \Rector\Website\Controller\BlogController::class)->name('blog');
+Route::get('about', AboutController::class)->name('about');
 
-\Illuminate\Support\Facades\Route::get('book', \Rector\Website\Controller\BookController::class)->name('book');
+Route::get('blog', BlogController::class)->name('blog');
 
-\Illuminate\Support\Facades\Route::get('contact', \Rector\Website\Controller\ContactController::class)->name('contact');
+Route::get('book', BookController::class)->name('book');
 
-\Illuminate\Support\Facades\Route::get('demo/{uuid}', \Rector\Website\Controller\DemoController::class)->name('demo_detail');
+Route::get('contact', ContactController::class)->name('contact');
 
-\Illuminate\Support\Facades\Route::get('demo', \Rector\Website\Controller\DemoController::class)->name('demo');
+Route::get('demo/{uuid}', DemoController::class)->name('demo_detail');
 
-\Illuminate\Support\Facades\Route::get('documentation/{section}', \Rector\Website\Controller\DocumentationController::class)->name('documentation');
+Route::get('demo', DemoController::class)->name('demo');
 
-\Illuminate\Support\Facades\Route::get('for-companies', \Rector\Website\Controller\ForCompaniesController::class)->name('for_companies');
+Route::get('documentation/{section}', DocumentationController::class)->name('documentation');
 
-\Illuminate\Support\Facades\Route::get('hire-team', \Rector\Website\Controller\ForCompaniesController::class)->name('hire_team');
+Route::get('for-companies', ForCompaniesController::class)->name('for_companies');
 
-\Illuminate\Support\Facades\Route::get('/', \Rector\Website\Controller\HomepageController::class)->name('homepage');
+Route::get('hire-team', ForCompaniesController::class)->name('hire_team');
 
-\Illuminate\Support\Facades\Route::get('blog/{postSlug}', \Rector\Website\Controller\PostController::class)->name('post');
+Route::get('/', HomepageController::class)->name('homepage');
 
-\Illuminate\Support\Facades\Route::get('rss.xml', \Rector\Website\Controller\RssController::class)->name('rss');
+Route::get('blog/{postSlug}', PostController::class)->name('post');
+
+Route::get('rss.xml', RssController::class)->name('rss');
