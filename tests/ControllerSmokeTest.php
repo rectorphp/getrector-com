@@ -6,27 +6,23 @@ namespace Rector\Website\Tests;
 
 use Iterator;
 use PHPUnit\Framework\Attributes\DataProvider;
-// use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use Symfony\Component\HttpFoundation\Request;
 
-final class ControllerSmokeTest extends WebTestCase
+final class ControllerSmokeTest extends AbstractTestCase
 {
     #[DataProvider('provideUrls')]
-    public function test(string $url): void
+    public function test(string $url, int $expectedStatusCode): void
     {
-        $kernelBrowser = $this->createClient();
-        $kernelBrowser->request(Request::METHOD_GET, $url);
-
-        $this->assertResponseIsSuccessful();
+        $response = $this->get($url);
+        $response->assertStatus($expectedStatusCode);
     }
 
     public static function provideUrls(): Iterator
     {
-        yield ['/'];
-        yield ['/blog'];
-        yield ['/book'];
-        yield ['/demo'];
-        yield ['/contact'];
-        yield ['/hire-team'];
+        yield ['/', 200];
+        yield ['/blog', 200];
+        yield ['/book', 200];
+        yield ['/demo', 200];
+        yield ['/contact', 200];
+        yield ['/hire-team', 200];
     }
 }
