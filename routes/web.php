@@ -33,6 +33,9 @@ Route::get('contact', ContactController::class)
 Route::get('demo/{uuid}', DemoController::class)
     ->name(RouteName::DEMO_DETAIL);
 
+Route::post('process-demo', \App\Http\Controller\ProcessDemoFormController::class)
+    ->name(RouteName::PROCESS_DEMO_FORM);
+
 Route::get('demo', DemoController::class)
     ->name(RouteName::DEMO);
 

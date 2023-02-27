@@ -61,4 +61,9 @@ final class RouteName
      * @var string
      */
     public const DOCUMENTATION = 'documentation';
+
+    /**
+     * @var string
+     */
+    public const PROCESS_DEMO_FORM = 'process_demo_form';
 }

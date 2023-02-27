@@ -19,8 +19,6 @@ use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Uid\Uuid;
 
 /**
@@ -28,27 +26,18 @@ use Symfony\Component\Uid\Uuid;
  */
 final class DemoController extends Controller
 {
-    /**
-     * @var int
-     */
-    private const INPUT_LINES_LIMIT = 100;
-
     public function __construct(
         private readonly RectorRunRepository $rectorRunRepository,
         private readonly DemoRunner $demoRunner,
         private readonly RectorRunFactory $rectorRunFactory,
-        private readonly FormFactoryInterface $formFactory,
-        private readonly UrlGeneratorInterface $urlGenerator
     ) {
     }
 
-    /**
-     * Waits on https://github.com/symfony/symfony/pull/43854 to merge in Symfony 6.1
-     */
-    #[Route(path: 'demo/{uuid}', name: RouteName::DEMO_DETAIL, methods: ['GET'])]
-    #[Route(path: 'demo', name: RouteName::DEMO, methods: ['GET', 'POST'])]
     public function __invoke(Request $request, ?string $uuid = null): Response
     {
+        dump($request);
+        die;
+
         if ($uuid === null || ! Uuid::isValid($uuid)) {
             $rectorRun = $this->rectorRunFactory->createEmpty();
         } else {
@@ -64,24 +53,10 @@ final class DemoController extends Controller
 
         $demoForm = $this->formFactory->create(DemoFormType::class, $rectorRun, [
             // this is needed for manual render
-            'action' => $this->urlGenerator->generate(RouteName::DEMO),
+            'action' => route(RouteName::PROCESS_DEMO_FORM),
         ]);
 
         // process form submit
-        if ($request->isMethod(Request::METHOD_POST)) {
-            $demoForm->handleRequest($request);
-
-            if ($demoForm->isSubmitted() && $demoForm->isValid()) {
-                $demoFromData = $request->request->all()['demo_form'];
-                $content = $demoFromData['content'];
-                $config = $demoFromData['config'];
-
-                $rectorRun = new RectorRun(Uuid::v4(), $content, $config);
-
-                return $this->processFormAndReturnRoute($rectorRun);
-            }
-        }
-
         $rectorReleaseDate = substr(VersionResolver::RELEASE_DATE, 0, strlen(VersionResolver::RELEASE_DATE) - 3);
 
         return \view('demo/demo', [
@@ -99,24 +74,5 @@ final class DemoController extends Controller
         $extractAt = explode('@', $rectorVersion);
 
         return $extractAt[0] . '@' . substr($extractAt[1], 0, 6);
-    }
-
-    private function processFormAndReturnRoute(RectorRun $rectorRun): RedirectResponse
-    {
-        if (substr_count($rectorRun->getContent(), "\n") > self::INPUT_LINES_LIMIT) {
-            $this->addFlash(
-                FlashType::ERROR,
-                'Content file has too many lines. Please reduce it under 100 lines, to make it easier to read'
-            );
-
-            return $this->redirectToRoute(RouteName::DEMO);
-        }
-
-        $this->demoRunner->processRectorRun($rectorRun);
-        $this->rectorRunRepository->save($rectorRun);
-
-        return $this->redirectToRoute(RouteName::DEMO_DETAIL, [
-            'uuid' => $rectorRun->getUuid(),
-        ]);
     }
 }
