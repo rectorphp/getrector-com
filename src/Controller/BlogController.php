@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Rector\Website\Controller;
 
-use Rector\Website\Repository\PostRepository;
 use Rector\Website\Enum\RouteName;
+use Rector\Website\Repository\PostRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
