@@ -15,35 +15,35 @@ use App\Http\Controller\RssController;
 use Illuminate\Support\Facades\Route;
 use Rector\Website\Enum\RouteName;
 
-Route::get('laravel-documentation/{section?}', DocumentationController::class)
+Route::get('documentation/{section?}', DocumentationController::class)
     ->name(RouteName::DOCUMENTATION);
 
-Route::get('laravel-about', AboutController::class)
+Route::get('about', AboutController::class)
     ->name(RouteName::ABOUT);
 
-Route::get('laravel-blog', BlogController::class)
+Route::get('blog', BlogController::class)
     ->name(RouteName::BLOG);
 
-Route::get('laravel-book', BookController::class)
+Route::get('book', BookController::class)
     ->name(RouteName::BOOK);
 
-Route::get('laravel-contact', ContactController::class)
+Route::get('contact', ContactController::class)
     ->name(RouteName::CONTACT);
 
-Route::get('laravel-demo/{uuid}', DemoController::class)
+Route::get('demo/{uuid}', DemoController::class)
     ->name(RouteName::DEMO_DETAIL);
 
-Route::get('laravel-demo', DemoController::class)
+Route::get('demo', DemoController::class)
     ->name(RouteName::DEMO);
 
-Route::get('laravel-hire-team', ForCompaniesController::class)
+Route::get('hire-team', ForCompaniesController::class)
     ->name(RouteName::HIRE_TEAM);
 
 Route::get('/', HomepageController::class)
     ->name(RouteName::HOMEPAGE);
 
-Route::get('laravel-blog/{postSlug}', PostController::class)
+Route::get('blog/{postSlug}', PostController::class)
     ->name(RouteName::POST);
 
-Route::get('laravel-rss.xml', RssController::class)
+Route::get('rss.xml', RssController::class)
     ->name(RouteName::RSS);

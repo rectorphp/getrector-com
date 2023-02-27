@@ -1,7 +1,9 @@
 @extends('base')
 
-@php /** @var $\Rector\Website\Blog\ValueObject\Post post */ @endphp
-@php $page_title = '{{ $post->title }}'; @endphp
+@php
+    /** @var $post \Rector\Website\Entity\Post */
+    $page_title = $post->getTitle();
+@endphp
 
 @section('main')
     <div class="alert alert-info mt-3 mb-5" role="alert">
@@ -12,27 +14,29 @@
 
     <div id="post">
         <div class="mt-3">
-            <time datetime="{{ $post->dateTime->format('Y-m-D') }}" class="text-grey">
-                {{ $post->dateTime->format() }}
+            <time datetime="{{ $post->getDateTime()->format('Y-m-D') }}" class="text-grey">
+                {{ $post->getDateTime()->format('Y-m-D') }}
             </time>
         </div>
 
-        <h1>{{ $post->title }}</h1>
+        <h1>{{ $post->getTitle() }}</h1>
 
-        @if ($post->sinceRector)
+        @if ($post->getSinceRector())
             <div class="alert alert-warning">
-                This feature is available since <strong>Rector {{ $post->sinceRector }}</strong>.
+                This feature is available since <strong>Rector {{ $post->getSinceRector() }}</strong>.
             </div>
         @endif
 
-        @if ($post->updated)
+        @if ($post->isUpdated())
             <div class="card border-success card-bigger mt-5">
                 <div class="card-header text-white bg-success">
-                    <strong>{{ $post->updatedSince->format("F Y") }} Update</strong>
+                    <strong>{{ $post->getUpdatedAt()->format("F Y") }} Update</strong>
                 </div>
-                @if (post.updatedMessage is not null)
+                @if ($post->getUpdatedMessage())
                     <div class="card-body pb-2">
-                        {{ post.updatedMessage|markdown|raw }}
+                        <x-markdown>
+                            {{ $post->getUpdatedMessage() }}
+                        </x-markdown>
                     </div>
                 @endif
             </div>
@@ -40,11 +44,14 @@
             <br>
         @endif
 
-
-        <div class="perex">{{ post.perex|markdown|raw }}</div>
+        <div class="perex">
+            <x-markdown>
+                {{ $post->getPerex() }}
+            </x-markdown>
+        </div>
 
         <div class="text-body">
-            {{ post.htmlContent|raw }}
+            {!! $post->getHtmlContent() !!}
         </div>
 
         <br>
