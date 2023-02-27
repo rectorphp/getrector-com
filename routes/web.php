@@ -11,6 +11,7 @@ use App\Http\Controller\DocumentationController;
 use App\Http\Controller\ForCompaniesController;
 use App\Http\Controller\HomepageController;
 use App\Http\Controller\PostController;
+use App\Http\Controller\ProcessDemoFormController;
 use App\Http\Controller\RssController;
 use Illuminate\Support\Facades\Route;
 use Rector\Website\Enum\RouteName;
@@ -30,15 +31,6 @@ Route::get('book', BookController::class)
 Route::get('contact', ContactController::class)
     ->name(RouteName::CONTACT);
 
-Route::get('demo/{uuid}', DemoController::class)
-    ->name(RouteName::DEMO_DETAIL);
-
-Route::post('process-demo', \App\Http\Controller\ProcessDemoFormController::class)
-    ->name(RouteName::PROCESS_DEMO_FORM);
-
-Route::get('demo', DemoController::class)
-    ->name(RouteName::DEMO);
-
 Route::get('hire-team', ForCompaniesController::class)
     ->name(RouteName::HIRE_TEAM);
 
@@ -50,3 +42,13 @@ Route::get('blog/{postSlug}', PostController::class)
 
 Route::get('rss.xml', RssController::class)
     ->name(RouteName::RSS);
+
+// dem routes
+Route::get('demo/{uuid}', DemoController::class)
+     ->name(RouteName::DEMO_DETAIL);
+
+Route::post('process-demo', ProcessDemoFormController::class)
+     ->name(RouteName::PROCESS_DEMO_FORM);
+
+Route::get('demo', DemoController::class)
+     ->name(RouteName::DEMO);
