@@ -5,7 +5,7 @@
     \Rector\Website\Enum\FlashType::WARNING,
     \Rector\Website\Enum\FlashType::SUCCESS
 ] as $flashMessageType)
-    @if(session()->has($flashMessageType))
+    @if (session()->has($flashMessageType))
         <div class="container mt-4">
             <p class="alert alert-{{ $flashMessageType }}">
                 {!! session()->get($flashMessageType) !!}
@@ -13,14 +13,4 @@
         </div>
     @endif
 
-@endforeach
-
-
-
-@foreach ($app.flashes as $type, messages)
-    @foreach ($messages as $message)
-        <div class="alert alert-{{ $type }} mt-4" role="alert">
-            {{ $message }}
-        </div>
-    @endforeach
 @endforeach

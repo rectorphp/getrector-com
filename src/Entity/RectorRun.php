@@ -12,6 +12,9 @@ use Rector\Website\Utils\StringsConverter;
 use Rector\Website\ValueObject\AppliedRule;
 use Symfony\Component\Uid\Uuid;
 
+/**
+ * @api used in templates
+ */
 final class RectorRun implements JsonSerializable
 {
     /**
@@ -59,22 +62,6 @@ final class RectorRun implements JsonSerializable
         }
 
         return self::NO_CHANGE_CONTENT;
-    }
-
-    /**
-     * @api used in a form
-     */
-    public function setContent(string $content): void
-    {
-        $this->content = $content;
-    }
-
-    /**
-     * @api used in a form
-     */
-    public function setConfig(string $config): void
-    {
-        $this->config = $config;
     }
 
     public function getContent(): string

@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Rector\Website\ValueObject;
 
+/**
+ * @api used in the templates
+ */
 final class DocumentationSection
 {
     public function __construct(
