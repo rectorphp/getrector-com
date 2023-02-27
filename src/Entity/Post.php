@@ -6,6 +6,9 @@ namespace Rector\Website\Entity;
 
 use DateTimeInterface;
 
+/**
+ * @api used in templates
+ */
 final class Post
 {
     public function __construct(

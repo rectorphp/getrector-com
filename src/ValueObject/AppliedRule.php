@@ -7,6 +7,9 @@ namespace Rector\Website\ValueObject;
 use Nette\Utils\Strings;
 use Rector\Website\Exception\ShouldNotHappenException;
 
+/**
+ * @api used in templates
+ */
 final class AppliedRule
 {
     /**
