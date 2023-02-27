@@ -1,11 +1,14 @@
 @extends('base')
 
-@php $page_title = '{{ $section_title }} | Documentation'; @endphp
+@php
+    $page_title = $section_title . ' | Documentation';
+@endphp
 
 @section('main')
     <div class="row mt-0" id="documentation">
         <div class="col-12 col-sm-3 mt-3 mt-sm-4" id="documentation_menu">
-            {# @see https://github.com/rectorphp/rector/tree/main/docs #}
+            {{-- @see https://github.com/rectorphp/rector/tree/main/docs --}}
+
             <ul class="mt-3">
                 <li>
                     <a href="{{ route('documentation') }}">Introduction</a>
