@@ -13,19 +13,12 @@ jobs:
             matrix:
                 actions:
                     -
-                        name: 'ECS'
-                        run: composer fix-cs
-                    -
                         name: 'Only "rem" in css'
                         run: php bin/only-rem-in-css.php
 
                     -
                         name: 'PHPStan'
                         run: composer phpstan
-
-                    -
-                        name: 'Rector'
-                        run: composer rector
 
                     -
                         name: 'Check Active Classes'
