@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controller;
 
+use App\Http\Requests\DemoFormRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Controller;
 use Rector\Website\DemoRunner;
@@ -26,8 +27,11 @@ final class ProcessDemoFormController extends Controller
     ) {
     }
 
-    public function __invoke(): RedirectResponse
+    public function __invoke(DemoFormRequest $demoFormRequest): RedirectResponse
     {
+        dump($demoFormRequest);
+        die;
+
         $demoFromData = $request->request->all()['demo_form'];
         $content = $demoFromData['content'];
         $config = $demoFromData['config'];
@@ -55,5 +59,4 @@ final class ProcessDemoFormController extends Controller
             'uuid' => $rectorRun->getUuid(),
         ]);
     }
-
 }

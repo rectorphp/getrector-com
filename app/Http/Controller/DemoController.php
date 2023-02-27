@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Http\Controller;
 
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Controller;
+use Illuminate\View\View;
 use Nette\Utils\Strings;
 use PackageVersions\Versions;
 use Rector\Core\Application\VersionResolver;
@@ -13,12 +15,7 @@ use Rector\Website\Entity\RectorRun;
 use Rector\Website\EntityFactory\RectorRunFactory;
 use Rector\Website\Enum\FlashType;
 use Rector\Website\Enum\RouteName;
-use Rector\Website\Form\DemoFormType;
 use Rector\Website\Repository\RectorRunRepository;
-use Symfony\Component\Form\FormFactoryInterface;
-use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Uid\Uuid;
 
 /**
@@ -33,11 +30,9 @@ final class DemoController extends Controller
     ) {
     }
 
-    public function __invoke(Request $request, ?string $uuid = null): Response
+    // @todo possibly split :)
+    public function __invoke(?string $uuid = null): View|RedirectResponse
     {
-        dump($request);
-        die;
-
         if ($uuid === null || ! Uuid::isValid($uuid)) {
             $rectorRun = $this->rectorRunFactory->createEmpty();
         } else {
@@ -45,25 +40,27 @@ final class DemoController extends Controller
             if (! $rectorRun instanceof RectorRun) {
                 // item not found
                 $errorMessage = sprintf('Rector run "%s" was not found. Try to run code again for new result', $uuid);
-                $this->addFlash('danger', $errorMessage);
+                session()
+                    ->flash(FlashType::ERROR, $errorMessage);
 
-                return $this->redirectToRoute(RouteName::DEMO);
+                return to_route(RouteName::DEMO);
             }
         }
 
-        $demoForm = $this->formFactory->create(DemoFormType::class, $rectorRun, [
-            // this is needed for manual render
-            'action' => route(RouteName::PROCESS_DEMO_FORM),
-        ]);
+        //$demoForm = $this->formFactory->create(DemoFormType::class, $rectorRun, [
+        //    // this is needed for manual render
+        //    'action' => route(RouteName::PROCESS_DEMO_FORM),
+        //]);
 
         // process form submit
         $rectorReleaseDate = substr(VersionResolver::RELEASE_DATE, 0, strlen(VersionResolver::RELEASE_DATE) - 3);
 
         return \view('demo/demo', [
+            'page_title' => 'Try Rector Online',
             'rector_version' => $this->resolveRectorReleaseVersion(),
             'rector_commit_hash' => Strings::after($this->resolveRectorReleaseVersion(), '@'),
             'rector_released_time' => $rectorReleaseDate,
-            'demo_form' => $demoForm->createView(),
+            // 'demo_form' => $demoForm->createView(),
             'rector_run' => $rectorRun,
         ]);
     }
