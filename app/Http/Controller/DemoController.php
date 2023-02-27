@@ -15,6 +15,10 @@ use Rector\Website\Enum\FlashType;
 use Rector\Website\Enum\RouteName;
 use Rector\Website\Form\DemoFormType;
 use Rector\Website\Repository\RectorRunRepository;
+<<<<<<< HEAD
+=======
+use Rector\Website\ValueObject\RouteName;
+>>>>>>> 044a866 (shorter name)
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;

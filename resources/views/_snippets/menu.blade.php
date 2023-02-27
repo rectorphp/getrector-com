@@ -9,7 +9,11 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
             <ul class="navbar-nav me-auto text-left text-md-center">
                 <li class="nav-item me-0 me-md-5 mb-3 mb-md-0" id="top_right_logo">
+<<<<<<< HEAD
                     <a href="{{ route(\Rector\Website\Enum\RouteName::HOMEPAGE) }}">
+=======
+                    <a href="{{ route(\Rector\Website\ValueObject\RouteName::HOMEPAGE) }}">
+>>>>>>> 044a866 (shorter name)
                         <img src="{{ asset('assets/images/logo/rector-white.svg') }}" alt="">
                     </a>
                 </li>

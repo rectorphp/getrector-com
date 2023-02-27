@@ -6,6 +6,10 @@ namespace Rector\Website\Controller;
 
 use Rector\Website\Enum\RouteName;
 use Rector\Website\Repository\PostRepository;
+<<<<<<< HEAD
+=======
+use Rector\Website\ValueObject\RouteName;
+>>>>>>> 044a866 (shorter name)
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;

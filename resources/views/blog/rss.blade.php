@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8" ?>
 
+=======
+<? xml version = "1.0" encoding = "UTF-8" ?>
+>>>>>>> 044a866 (shorter name)
 <rss version="2.0"
      xmlns:content="https://purl.org/rss/1.0/modules/content/"
      xmlns:dc="https://purl.org/dc/elements/1.1/"
@@ -17,7 +21,11 @@
         {{-- https://stackoverflow.com/a/29161205/1348344 --}}
         @foreach ($posts as $post)
             @php
+<<<<<<< HEAD
                 $post_absolute_url = $site_url . route(\Rector\Website\Enum\RouteName::POST, ['postSlug' => $post->getSlug()]);
+=======
+                $post_absolute_url = $site_url . route(\Rector\Website\ValueObject\RouteName::POST, ['postSlug' => $post->getSlug()]);
+>>>>>>> 044a866 (shorter name)
             @endphp
 
             <item>
