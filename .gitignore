@@ -52,4 +52,4 @@ yarn-error.log
 /demo-runner
 
 resources/json-database/*
-/storage
+
