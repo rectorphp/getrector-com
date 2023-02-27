@@ -44,6 +44,9 @@ Route::get('rss.xml', RssController::class)
     ->name(RouteName::RSS);
 
 // dem routes
+Route::get('demo/', DemoController::class)
+     ->name(RouteName::DEMO);
+// dem routes
 Route::get('demo/{uuid}', DemoController::class)
      ->name(RouteName::DEMO_DETAIL);
 
