@@ -13,7 +13,7 @@ final class RouteServiceProvider extends ServiceProvider
     {
         $this->routes(static function (): void {
             Route::middleware('web')
-                 ->group(base_path('routes/web.php'));
+                ->group(base_path('routes/web.php'));
         });
     }
 }

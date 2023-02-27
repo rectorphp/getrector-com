@@ -13,7 +13,5 @@ final class ConsoleKernel extends Kernel
     /**
      * @var array<class-string<Command>>
      */
-    protected $commands = [
-        TwigToBladeCommand::class,
-    ];
+    protected $commands = [TwigToBladeCommand::class];
 }

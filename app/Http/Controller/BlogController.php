@@ -4,11 +4,8 @@ declare(strict_types=1);
 
 namespace App\Http\Controller;
 
+use Illuminate\Contracts\View\View;
 use Rector\Website\Repository\PostRepository;
-use Rector\Website\ValueObject\Routing\RouteName;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 
 final class BlogController extends \Illuminate\Routing\Controller
 {
@@ -17,9 +14,10 @@ final class BlogController extends \Illuminate\Routing\Controller
     ) {
     }
 
-    public function __invoke(): \Illuminate\Contracts\View\View
+    public function __invoke(): View
     {
         return \view('blog/blog', [
+            'page_title' => 'Read about Rector',
             'posts' => $this->postRepository->getPosts(),
         ]);
     }

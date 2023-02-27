@@ -6,7 +6,6 @@ namespace App\Http\Controller;
 
 use Rector\Website\Documentation\DocumentationMenuFactory;
 use Rector\Website\Documentation\HTMLFromMarkdownFactory;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
