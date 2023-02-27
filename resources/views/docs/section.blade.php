@@ -12,17 +12,20 @@
                 </li>
             </ul>
 
-            @foreach ($documentations_sections_by_category as $category, documentation_sections)
+            @foreach ($documentations_sections_by_category as $category => $documentation_sections)
                 <hr class="border-line">
 
                 <h4 class="mt-4 mb-3">{{ $category }}</h4>
 
                 <ul>
                     @foreach ($documentation_sections as $documentation_section)
+                        @php
+                            /** @var $documentation_section \Rector\Website\ValueObject\DocumentationSection */
+                        @endphp
+
                         <li>
-                            @php /** @var $documentation_section \Rector\Website\ValueObject\DocumentationSection */ @endphp
-                            <a href="{{ route('documentation', ['section' => documentation_section.slug]) }}">
-                                {{ $documentation_section->name }}
+                            <a href="{{ route(\Rector\Website\ValueObject\Routing\RouteName::DOCUMENTATION, ['section' => $documentation_section->getSlug()]) }}">
+                                {{ $documentation_section->getName() }}
                             </a>
                         </li>
                     @endforeach
@@ -41,7 +44,7 @@
         <div class="col-12 col-sm-9" id="documentation">
             <h1>{{ $section_title }}</h1>
 
-            {{ raw($section_html_contents) }}
+            {!! $section_html_contents !!}
         </div>
     </div>
 @endsection
