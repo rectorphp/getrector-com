@@ -2632,16 +2632,16 @@
         },
         {
             "name": "samsonasik/array-lookup",
-            "version": "1.3.0",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/samsonasik/ArrayLookup.git",
-                "reference": "a3874034083c769815b09d34dfc9ec5a9619cad3"
+                "reference": "b5b6c2015195068deea913d0b57d3e5c82474d93"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/samsonasik/ArrayLookup/zipball/a3874034083c769815b09d34dfc9ec5a9619cad3",
-                "reference": "a3874034083c769815b09d34dfc9ec5a9619cad3",
+                "url": "https://api.github.com/repos/samsonasik/ArrayLookup/zipball/b5b6c2015195068deea913d0b57d3e5c82474d93",
+                "reference": "b5b6c2015195068deea913d0b57d3e5c82474d93",
                 "shasum": ""
             },
             "require": {
@@ -2652,7 +2652,7 @@
                 "laminas/laminas-coding-standard": "^2.4",
                 "phpstan/phpstan": "^1.9",
                 "phpstan/phpstan-webmozart-assert": "^1.2",
-                "phpunit/phpunit": "^9.5",
+                "phpunit/phpunit": "^10.0",
                 "rector/rector": "dev-main"
             },
             "type": "library",
@@ -2686,7 +2686,7 @@
             ],
             "support": {
                 "issues": "https://github.com/samsonasik/ArrayLookup/issues",
-                "source": "https://github.com/samsonasik/ArrayLookup/tree/1.3.0"
+                "source": "https://github.com/samsonasik/ArrayLookup/tree/1.4.0"
             },
             "funding": [
                 {
@@ -2694,7 +2694,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-01-14T11:35:47+00:00"
+            "time": "2023-02-27T22:21:33+00:00"
         },
         {
             "name": "sebastian/diff",
