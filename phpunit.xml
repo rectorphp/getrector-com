@@ -4,13 +4,8 @@
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
      xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
      colors="true"
-     bootstrap="config/bootstrap.php"
+     bootstrap="vendor/autoload.php"
 >
-    <php>
-        <server name="SHELL_VERBOSITY" value="-1" />
-        <server name="KERNEL_CLASS" value="Rector\Website\GetRectorKernel" />
-        <env name="APP_ENV" value="test" force="true"/>
-    </php>
 
     <testsuites>
         <testsuite name="main">
@@ -18,4 +13,8 @@
             <directory>utils-tests</directory>
         </testsuite>
     </testsuites>
+
+    <php>
+        <env name="APP_ENV" value="testing"/>
+    </php>
 </phpunit>

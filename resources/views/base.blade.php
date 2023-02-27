@@ -5,7 +5,7 @@
         @include('_snippets/layout/head')
         @include('_snippets/styles')
 
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
     </head>
 
     <body>

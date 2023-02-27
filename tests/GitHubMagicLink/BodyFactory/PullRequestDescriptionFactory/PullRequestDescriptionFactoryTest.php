@@ -4,12 +4,11 @@ declare(strict_types=1);
 
 namespace Rector\Website\Tests\GitHubMagicLink\BodyFactory\PullRequestDescriptionFactory;
 
-use Rector\Website\GetRectorKernel;
 use Rector\Website\GitHubMagicLink\BodyFactory\PullRequestDescriptionFactory;
+use Rector\Website\Tests\AbstractTestCase;
 use Rector\Website\Tests\Helpers\DummyRectorRunFactory;
-use Symplify\PackageBuilder\Testing\AbstractKernelTestCase;
 
-final class PullRequestDescriptionFactoryTest extends AbstractKernelTestCase
+final class PullRequestDescriptionFactoryTest extends AbstractTestCase
 {
     private PullRequestDescriptionFactory $pullRequestDescriptionFactory;
 
@@ -17,9 +16,10 @@ final class PullRequestDescriptionFactoryTest extends AbstractKernelTestCase
 
     protected function setUp(): void
     {
-        $this->bootKernel(GetRectorKernel::class);
-        $this->pullRequestDescriptionFactory = $this->getService(PullRequestDescriptionFactory::class);
-        $this->dummyRectorRunFactory = new DummyRectorRunFactory();
+        parent::setUp();
+
+        $this->pullRequestDescriptionFactory = $this->make(PullRequestDescriptionFactory::class);
+        $this->dummyRectorRunFactory = $this->make(DummyRectorRunFactory::class);
     }
 
     public function test(): void

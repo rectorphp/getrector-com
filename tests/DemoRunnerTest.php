@@ -6,10 +6,8 @@ namespace Rector\Website\Tests;
 
 use Rector\Website\DemoRunner;
 use Rector\Website\EntityFactory\RectorRunFactory;
-use Rector\Website\GetRectorKernel;
-use Symplify\PackageBuilder\Testing\AbstractKernelTestCase;
 
-final class DemoRunnerTest extends AbstractKernelTestCase
+final class DemoRunnerTest extends AbstractTestCase
 {
     private DemoRunner $demoRunner;
 
@@ -17,10 +15,8 @@ final class DemoRunnerTest extends AbstractKernelTestCase
 
     protected function setUp(): void
     {
-        $this->bootKernel(GetRectorKernel::class);
-
-        $this->demoRunner = $this->getService(DemoRunner::class);
-        $this->rectorRunFactory = $this->getService(RectorRunFactory::class);
+        $this->demoRunner = $this->make(DemoRunner::class);
+        $this->rectorRunFactory = $this->make(RectorRunFactory::class);
     }
 
     public function test(): void

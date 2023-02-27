@@ -28,7 +28,7 @@
     </div>
 
     <div>
-        <img src="{{ asset('assets/images/faces/adam_gleiss.jpg') }}" class="rounded-circle img-face-smaller-right shadow ms-md-5 ms-0" alt="">
+        <img src="assets/images/faces/adam_gleiss.jpg" class="rounded-circle img-face-smaller-right shadow ms-md-5 ms-0" alt="">
     </div>
 </blockquote>
 

@@ -4,12 +4,11 @@ declare(strict_types=1);
 
 namespace Rector\Website\Tests\GitHubMagicLink\LinkFactory\FixtureLinkFactory;
 
-use Rector\Website\GetRectorKernel;
 use Rector\Website\GitHubMagicLink\LinkFactory\FixtureLinkFactory;
+use Rector\Website\Tests\AbstractTestCase;
 use Rector\Website\Tests\Helpers\StringToArrayRunFactory;
-use Symplify\PackageBuilder\Testing\AbstractKernelTestCase;
 
-final class RectorSymfonyFixtureLinkFactoryTest extends AbstractKernelTestCase
+final class RectorSymfonyFixtureLinkFactoryTest extends AbstractTestCase
 {
     private FixtureLinkFactory $testFixtureLinkFactory;
 
@@ -17,9 +16,10 @@ final class RectorSymfonyFixtureLinkFactoryTest extends AbstractKernelTestCase
 
     protected function setUp(): void
     {
-        $this->bootKernel(GetRectorKernel::class);
-        $this->testFixtureLinkFactory = $this->getService(FixtureLinkFactory::class);
-        $this->stringToArrayRunFactory = new StringToArrayRunFactory();
+        parent::setUp();
+
+        $this->testFixtureLinkFactory = $this->make(FixtureLinkFactory::class);
+        $this->stringToArrayRunFactory = $this->make(StringToArrayRunFactory::class);
     }
 
     public function test(): void

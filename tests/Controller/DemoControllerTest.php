@@ -7,27 +7,20 @@ namespace Rector\Website\Tests\Controller;
 use Iterator;
 use PHPUnit\Framework\Attributes\DataProvider;
 use Rector\Website\Enum\RouteName;
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Rector\Website\Tests\AbstractTestCase;
 
-/**
- * @see \Rector\Website\Controller\DemoController
- * @see \Rector\Website\Form\DemoFormType
- */
-final class DemoControllerTest extends WebTestCase
+final class DemoControllerTest extends AbstractTestCase
 {
     #[DataProvider('provideTestFormSubmitData')]
     public function testFormSubmit(string $contentData, string $configData): never
     {
-        $this->markTestSkipped('Test later');
-
-        $kernelBrowser = $this->createClient();
-        $kernelBrowser->request('GET', '/demo');
-
-        # use name="..." of the form
-        $kernelBrowser->submitForm('demo_form[process]', [
-            'demo_form[content]' => $contentData,
-            'demo_form[config]' => $configData,
+        $response = $this->post('/demo', [
+            'php_contents' => $contentData,
+            'rector_config' => $configData,
         ]);
+
+        dd($response);
+        die;
 
         // no redirect, because PHP was invalid
         $this->assertRouteSame(RouteName::DEMO);
