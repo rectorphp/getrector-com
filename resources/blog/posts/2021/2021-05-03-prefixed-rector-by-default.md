@@ -3,7 +3,7 @@ id: 22
 title: "Prefixed Rector by Default"
 perex: |
     Today we're introducing a big step up in making Rector developer experience more smooth and intuitive. It will also ease development for Rector contributors. We won't have to think about dependencies in `composer.json` anymore.
-    <br><br>
+
     Are these goals in contradiction? Quite the contrary.
 
 since_rector: 0.11

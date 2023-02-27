@@ -3,7 +3,7 @@ id: 34
 title: "New in Rector 0.12 - Introducing Rector Config with Autocomplete"
 perex: |
     Rector is using Symfony container configuration to build the service model. While it brings automated autowiring, array autowiring, and native container features, the syntax to configure Rector has been complex and talkative.
-    <br><br>
+
     The hard question is: how can we refactor from Symfony, have a custom Rector config class but keep using its features?
 
 since_rector: 0.12

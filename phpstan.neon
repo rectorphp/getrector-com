@@ -1,5 +1,6 @@
 parameters:
     paths:
+        - app
         - src
         - tests
         - config
@@ -13,9 +14,8 @@ parameters:
     type_coverage:
         return_type: 99
         param_type: 99
-
-        # @todo skip parent guarded properites, e.g. from laravel command
-        property_type: 95
+        property_type: 99
+        print_suggestions: true
 
     unused_public:
         methods: true

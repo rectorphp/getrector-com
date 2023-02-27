@@ -3,8 +3,7 @@ id: 20
 title: "Rector 0.10 Released - with PHP 7.1 Support"
 perex: |
     Today we're releasing Rector that brings the most significant improvement for usability yet. It took 2 months of hard work of our team and Rector community, but we're  here.
-    <br>
-    <br>
+
     What is new, and what makes your life easier?
 
 since_rector: 0.10

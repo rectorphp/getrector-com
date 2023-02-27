@@ -4,7 +4,7 @@ title: "Interview: Legacy Code, Javascript Transpilers and Rector Challenges"
 perex: |
     I'll be speaking there in October at Paris on [Forum PHP 2022](https://event.afup.org/) about Rector.
     I was asked for a simple interview to warmup the talk topic. The 3 questions - each looking at different angle, but going deep.
-    <br><br>
+
     Contrary to mostly technical content on this blog, this post will give you behind the scenes insights on wider Rector vision.
 ---
 

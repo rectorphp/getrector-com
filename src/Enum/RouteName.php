@@ -57,8 +57,14 @@ final class RouteName
     public const HIRE_TEAM = 'hire_team';
 
     /**
-     * @api
+     * @api use in blade route
      * @var string
      */
     public const DOCUMENTATION = 'documentation';
+
+    /**
+     * @api use in blade route
+     * @var string
+     */
+    public const PROCESS_DEMO_FORM = 'process_demo_form';
 }

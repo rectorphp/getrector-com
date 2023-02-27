@@ -13,6 +13,7 @@ use Illuminate\Foundation\Providers\FoundationServiceProvider;
 use Illuminate\Queue\QueueServiceProvider;
 use Illuminate\Session\SessionServiceProvider;
 use Illuminate\Translation\TranslationServiceProvider;
+use Illuminate\Validation\ValidationServiceProvider;
 use Illuminate\View\ViewServiceProvider;
 use TomasVotruba\PunchCard\AppConfig;
 
@@ -31,6 +32,7 @@ return AppConfig::make()
         FilesystemServiceProvider::class,
         FoundationServiceProvider::class,
         ViewServiceProvider::class,
+        ValidationServiceProvider::class,
         SessionServiceProvider::class,
         QueueServiceProvider::class,
         RouteServiceProvider::class,

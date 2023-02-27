@@ -3,10 +3,10 @@ id: 5
 title: "How to Inline Value Object in Symfony PHP Config"
 perex: |
     Rector uses [PHP Symfony configs](/blog/2020/08/31/rector-is-moving-from-yaml-to-php-configs-what-changes-and-how-to-get-ready) for [many good reasons](https://tomasvotruba.com/blog/2020/07/16/10-cool-features-you-get-after-switching-from-yaml-to-php-configs/).
-    <br><br>
+
     One of them is the possibility to have control over complex configurations with value objects.
     Would you like such features in your configs too? Unfortunately, Symfony does not support it out of the box.
-    <br><br>
+
     What can we do about it?
 ---
 

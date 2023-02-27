@@ -4,8 +4,7 @@ title: "Rector is Moving From YAML to PHP Configs - What Changes and How to Get 
 perex: |
     In July 2020, we started to move from the configuration in YAML to one defined in PHP.
     The YAML configuration **is now deleted in Rector core** and won't be supported next 0.8 release.
-    <br>
-    <br>
+
     What benefits PHP brings, how the rule configuration changes, and **how to prepare yourself**?
 
 updated_at: '2022-04'

@@ -3,9 +3,9 @@ id: 43
 title: "Separating Laravel and CakePHP as Community Packages"
 perex: |
     Rector is built for and on the whole PHP community right from the start. But there are also somewhat "local" PHP communities around a specific framework. Each framework has specific needs that are best known to the community member.
-    <br><br>
+
     That's [why we entirely moved Typo3 and Nette](/blog/separating-typo3-and-nette-as-community-packages) Rector extensions **to their communities**. They know best how to handle rules for the framework.
-    <br><br>
+
     We want to encourage the community to build their own packages on top of Rector core, so we also decided to move Laravel and CakePHP to the community.
 
 since_rector: "0.14.7"

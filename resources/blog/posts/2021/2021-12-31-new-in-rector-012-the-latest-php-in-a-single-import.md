@@ -3,7 +3,7 @@ id: 30
 title: "New in Rector 0.12 - The Latest PHP in a Single Import"
 perex: |
     The most used feature of Rector is to keep you updated with the latest PHP. PHP 8.1 was released almost a month ago, so many projects started to use Rector to upgrade to PHP 8.1. There is a new import in your `rector.php` with every new version.
-    <br><br>
+
     Soon, your config is cluttered with a list of imports. How can we reduce this complexity to a single line? How can we handle your-favorite-framework upgrade in second?
 
 updated_at: '2022-04'

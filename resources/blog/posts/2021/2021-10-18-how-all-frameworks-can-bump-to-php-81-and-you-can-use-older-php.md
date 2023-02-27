@@ -3,9 +3,9 @@ id: 28
 title: "How all Frameworks can Bump to PHP 8.1 and You can Keep Using Older PHP"
 perex: |
     Imagine **hypothetical situation**: new major Symfony and Laravel are released in December 2021. We'll already have PHP 8.1 out by that time. There have been a lot of positive vibes about new PHP versions in the last year, so let's say the frameworks will take a brave leap forward.
-    <br><br>
+
     [Symfony 6](https://symfony.com/releases/6.0) and [Laravel 9](https://blog.laravel.com/laravel-9-release-date) will require PHP 8.1 as a minimal version in their `composer.json`.
-    <br><br>
+
     How would you react to such a move? What if you could keep using your current PHP version while using Symfony 6 or Laravel 9?
 
 updated_at: '2022-04'

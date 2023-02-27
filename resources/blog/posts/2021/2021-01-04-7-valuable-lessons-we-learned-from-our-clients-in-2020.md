@@ -3,11 +3,9 @@ id: 12
 title: "7 Valuable Lessons We Learned from our Clients in 2020"
 perex: |
     2020 was a big year for us. We had 4 large projects with only tests in CI. Adding ECS with 10 basic sets, PHPStan to level 8, PSR-4 to all classes. In the end, we successfully upgraded Nette 2.2 to 3.0, Symfony 2.7 to 3.4 and Laravel 5.5 to 5.8, to Symfony, and from PHP 5.6 to 7.4. Oh, we also migrated Phalcon to Symfony.
-    <br>
-    <br>
+
     **The secret of a successful migration is speed and fast merges**. During these 8 months of intense work, sometimes even 200 hours a month, **we failed a lot**. We try to learn from our mistakes.
-    <br>
-    <br>
+
     Today we want to share what we've learned from our clients in 2020.
 ---
 
