@@ -17,26 +17,22 @@
         {{-- https://stackoverflow.com/a/29161205/1348344 --}}
         @foreach ($posts as $post)
             @php
+                /** @var \Rector\Website\Entity\Post $post */
+
                 $post_absolute_url = $site_url . route(\Rector\Website\Enum\RouteName::POST, ['postSlug' => $post->getSlug()]);
             @endphp
 
             <item>
-                <title><![CDATA[ {{ $post->title|replace({'&nbsp;':' '}) }} ]]></title>
+                <title><![CDATA[ {{  $post->getClearTitle() }} ]]></title>
                 <link>{{ $post_absolute_url }}</link>
-                <description><![CDATA[ {{ post.perex|markdown|raw }} ]]></description>
-                <content:encoded><![CDATA[ {{ post.htmlContent|raw }} ]]></content:encoded>
+                <description><![CDATA[ {{ $post->getPerex() }} ]]></description>
+                <content:encoded><![CDATA[ {{ $post->getHtmlContent() }} ]]></content:encoded>
                 <guid isPermaLink="false">{{ $post_absolute_url }}</guid>
                 <dc:creator><![CDATA[ Rector ]]></dc:creator>
 
-                {# @see https://wordpress.stackexchange.com/a/229773 #}
-                <pubDate>{{ $post->getDateTime->format('D, d M Y H:i:s +0000') }}</pubDate>
-                @if (post.updatedAt is defined)
-                    <updated>{{ $post->updatedAt->format('Y-m-d\TH:i:s\Z') }}</updated>
-                    <atom:updated>{{ $post->updatedAt->format('D, d M Y H:i:s +0000') }}</atom:updated>
-                    <lastBuildDate>{{ $post->updatedAt->format('D, d M Y H:i:s +0000') }}</lastBuildDate>
-                @else
-                    <lastBuildDate>{{ $post->dateTime->format('D, d M Y H:i:s +0000') }}</lastBuildDate>
-                @endif
+                {{-- @see https://wordpress.stackexchange.com/a/229773 --}}
+                <pubDate>{{ $post->getDateTime()->format('D, d M Y H:i:s +0000') }}</pubDate>
+                <lastBuildDate>{{ $post->getDateTime()->format('D, d M Y H:i:s +0000') }}</lastBuildDate>
 
                 <comments>{{ $post_absolute_url }}#disqus_thread</comments>
             </item>

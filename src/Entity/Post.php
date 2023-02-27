@@ -31,6 +31,15 @@ final class Post
         return $this->title;
     }
 
+    /**
+     * @api used in template
+     */
+    public function getClearTitle(): string
+    {
+        $clearTitle = strip_tags($this->title);
+        return str_replace('&nbsp;', ' ', $clearTitle);
+    }
+
     public function getPerex(): string
     {
         return $this->perex;

@@ -10,7 +10,7 @@
             <ul class="navbar-nav me-auto text-left text-md-center">
                 <li class="nav-item me-0 me-md-5 mb-3 mb-md-0" id="top_right_logo">
                     <a href="{{ route(\Rector\Website\Enum\RouteName::HOMEPAGE) }}">
-                        <img src="assets/images/logo/rector-white.svg" alt="">
+                        <img src="/assets/images/logo/rector-white.svg" alt="">
                     </a>
                 </li>
 

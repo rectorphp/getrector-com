@@ -48,8 +48,6 @@
                 </div>
             </div>
 
-
-            {# see twitter bootsrap 5 spacing https://getbootstrap.com/docs/5.2/utilities/spacing/ #}
             <div class="card shadow border-success mt-4">
                 <div class="card-body company-quote-card-body" style="display: flex">
                     <div>
@@ -92,7 +90,6 @@
                 </div>
             </div>
 
-            {# see twitter bootsrap 5 spacing https://getbootstrap.com/docs/5.2/utilities/spacing/ #}
             <div class="card shadow border-danger mt-4">
                 <div class="card-body company-quote-card-body" style="display: flex">
                     <div>
