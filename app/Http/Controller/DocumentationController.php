@@ -4,12 +4,13 @@ declare(strict_types=1);
 
 namespace App\Http\Controller;
 
+use Illuminate\Routing\Controller;
 use Illuminate\Contracts\View\View;
 use Rector\Website\Documentation\DocumentationMenuFactory;
 use Rector\Website\Documentation\HTMLFromMarkdownFactory;
 use Symfony\Component\Routing\Annotation\Route;
 
-final class DocumentationController extends \Illuminate\Routing\Controller
+final class DocumentationController extends Controller
 {
     public function __construct(
         private readonly HTMLFromMarkdownFactory $htmlFromMarkdownFactory,

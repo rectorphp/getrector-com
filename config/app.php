@@ -1,6 +1,8 @@
 <?php
 
 declare(strict_types=1);
+use Illuminate\Queue\QueueServiceProvider;
+use Illuminate\Translation\TranslationServiceProvider;
 
 use App\Providers\RouteServiceProvider;
 
@@ -29,8 +31,8 @@ return AppConfig::make()
         FoundationServiceProvider::class,
         ViewServiceProvider::class,
         SessionServiceProvider::class,
-        \Illuminate\Queue\QueueServiceProvider::class,
+        QueueServiceProvider::class,
         RouteServiceProvider::class,
-        \Illuminate\Translation\TranslationServiceProvider::class,
+        TranslationServiceProvider::class,
     ])
     ->toArray();

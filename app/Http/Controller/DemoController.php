@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controller;
 
+use Illuminate\Routing\Controller;
 use Nette\Utils\Strings;
 use PackageVersions\Versions;
 use Rector\Core\Application\VersionResolver;
@@ -25,7 +26,7 @@ use Symfony\Component\Uid\Uuid;
 /**
  * @see \Rector\Website\Tests\Controller\DemoControllerTest
  */
-final class DemoController extends \Illuminate\Routing\Controller
+final class DemoController extends Controller
 {
     /**
      * @var int

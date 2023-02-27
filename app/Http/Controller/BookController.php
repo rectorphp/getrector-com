@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace App\Http\Controller;
 
-final class BookController extends \Illuminate\Routing\Controller
+use Illuminate\Routing\Controller;
+use Illuminate\Contracts\View\View;
+final class BookController extends Controller
 {
-    public function __invoke(): \Illuminate\Contracts\View\View
+    public function __invoke(): View
     {
         return \view('homepage/book', [
             'page_title' => 'The Power of Automated&nbsp;Refactoring',

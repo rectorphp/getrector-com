@@ -4,22 +4,20 @@ declare(strict_types=1);
 
 namespace App\Http\Controller;
 
+use Illuminate\Contracts\View\View;
+use Illuminate\Routing\Controller;
 use Rector\Website\Entity\Post;
 use Rector\Website\Repository\PostRepository;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-final class PostController extends \Illuminate\Routing\Controller
+final class PostController extends Controller
 {
     public function __construct(
         private readonly PostRepository $postRepository,
     ) {
     }
 
-    //#[Route(path: 'blog/{postSlug}', name: RouteName::POST, requirements: [
-    //    'postSlug' => '(\d+\/\d+.+|[\w\-]+)',
-    //])]
-    public function __invoke(string $postSlug): Response
+    public function __invoke(string $postSlug): View
     {
         $post = $this->postRepository->findBySlug($postSlug);
         if (! $post instanceof Post) {

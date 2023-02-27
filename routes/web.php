@@ -27,7 +27,7 @@ Route::get('laravel-blog', BlogController::class)
 Route::get('laravel-book', BookController::class)
     ->name(RouteName::BOOK);
 
-Route::get('laravel-laravel-contact', ContactController::class)
+Route::get('laravel-contact', ContactController::class)
     ->name(RouteName::CONTACT);
 
 Route::get('laravel-demo/{uuid}', DemoController::class)
@@ -39,7 +39,7 @@ Route::get('laravel-demo', DemoController::class)
 Route::get('laravel-hire-team', ForCompaniesController::class)
     ->name(RouteName::HIRE_TEAM);
 
-Route::get('laravel-homepage/', HomepageController::class)
+Route::get('/', HomepageController::class)
     ->name(RouteName::HOMEPAGE);
 
 Route::get('laravel-blog/{postSlug}', PostController::class)
