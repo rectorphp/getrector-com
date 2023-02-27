@@ -11,7 +11,13 @@ use Rector\Set\ValueObject\LevelSetList;
 use Rector\Set\ValueObject\SetList;
 
 return static function (RectorConfig $rectorConfig): void {
-    $rectorConfig->paths([__DIR__ . '/config', __DIR__ . '/src', __DIR__ . '/tests']);
+    $rectorConfig->paths([
+        __DIR__ . '/config',
+        __DIR__ . '/src',
+        __DIR__ . '/tests',
+        __DIR__ . '/utils',
+        __DIR__ . '/utils-tests',
+    ]);
 
     $rectorConfig->importNames();
 
@@ -29,9 +35,14 @@ return static function (RectorConfig $rectorConfig): void {
         // generated mess
         __DIR__ . '/config/bootstrap.php',
         '*/var/cache/*',
+        '*/Fixture/*',
+        '*/Expected/*',
         // on purpose
-        \Rector\CodeQuality\Rector\ClassMethod\InlineArrayReturnAssignRector::class,
-        \Rector\TypeDeclaration\Rector\ClassMethod\ArrayShapeFromConstantArrayReturnRector::class,
+        // fix date time on master
+        \Rector\Naming\Rector\Class_\RenamePropertyToMatchTypeRector::class,
+
+        // keep FQN names to avoid scoping
+        \Rector\Php55\Rector\String_\StringClassNameToClassConstantRector::class => [__DIR__ . '/utils/Rector'],
     ]);
 
     $rectorConfig->rule(FinalizeClassesWithoutChildrenRector::class);

@@ -28,7 +28,7 @@ final class FileDiffCleanerTest extends TestCase
         $cleanedContent = $this->fileDiffCleaner->clean($inputRawContents);
         $cleanedContent = trim($cleanedContent);
 
-        $expectedCleanContents = trim((string) $expectedCleanContents);
+        $expectedCleanContents = trim($expectedCleanContents);
 
         $this->assertSame($expectedCleanContents, $cleanedContent);
     }

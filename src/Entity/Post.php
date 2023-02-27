@@ -15,7 +15,7 @@ final class Post
         private readonly DateTimeInterface $dateTime,
         private readonly string $perex,
         private readonly string $htmlContent,
-        private readonly ?DateTimeInterface $updatedSince = null,
+        private readonly ?DateTimeInterface $updatedAt = null,
         private readonly ?string $updatedMessage = null,
         private readonly ?string $sinceRector = null
     ) {
@@ -53,12 +53,12 @@ final class Post
 
     public function isUpdated(): bool
     {
-        return $this->updatedSince !== null;
+        return $this->updatedAt !== null;
     }
 
-    public function getUpdatedSince(): ?DateTimeInterface
+    public function getUpdatedAt(): ?DateTimeInterface
     {
-        return $this->updatedSince;
+        return $this->updatedAt;
     }
 
     public function getUpdatedMessage(): ?string

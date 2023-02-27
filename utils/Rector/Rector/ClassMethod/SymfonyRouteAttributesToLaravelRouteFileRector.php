@@ -8,6 +8,7 @@ use Nette\Utils\FileSystem;
 use PhpParser\Node;
 use PhpParser\Node\Attribute;
 use PhpParser\Node\Identifier;
+use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\ClassMethod;
 use PhpParser\Node\Stmt\Expression;
 use Rector\Core\Application\FileSystem\RemovedAndAddedFilesCollector;
@@ -23,7 +24,7 @@ use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
 use Webmozart\Assert\Assert;
 
 /**
- * @see \Rector\Website\Utils\Tests\Rector\Rector\ClassMethod\SymfonyCommandToLaravelCommandRectorTest
+ * @see \Rector\Website\Utils\Tests\Rector\Rector\ClassMethod\SymfonyRouteAttributesToLaravelRouteFileRectorTest
  */
 final class SymfonyRouteAttributesToLaravelRouteFileRector extends AbstractRector implements ConfigurableRectorInterface
 {
@@ -129,7 +130,7 @@ final class SymfonyRouteAttributesToLaravelRouteFileRector extends AbstractRecto
         if ($this->isName($classMethod, '__invoke')) {
             // class is the target :)
             $class = $classMethod->getAttribute(AttributeKey::PARENT_NODE);
-            if (! $class instanceof Node\Stmt\Class_) {
+            if (! $class instanceof Class_) {
                 throw new ShouldNotHappenException();
             }
 

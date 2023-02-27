@@ -7,7 +7,7 @@ perex: |
     <br>
     Do you use it too? Do you want to switch to [PHPSpreadsheet](https://github.com/PHPOffice/PhpSpreadsheet)? You can do it today.
 
-updated_since: '2022-11'
+updated_at: '2022-11'
 updated_message: |
     Since **Rector 0.14**, this package is decopuled as standalone extension, as useful for one-time migration only.
 ---

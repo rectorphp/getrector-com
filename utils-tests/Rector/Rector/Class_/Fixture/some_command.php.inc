@@ -10,6 +10,8 @@ final class SomeCommand extends Command
 {
     public function execute(InputInterface $input, OutputInterface $output): int
     {
+        $someValue = $input->getArgument('some_argument');
+
         return self::SUCCESS;
     }
 }
@@ -24,6 +26,7 @@ final class SomeCommand extends \Illuminate\Console\Command
 {
     public function handle(): int
     {
+        $someValue = $input->argument('some_argument');
         return self::SUCCESS;
     }
 }

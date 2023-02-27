@@ -67,7 +67,7 @@ final class PostFactory
         $htmlContent = $this->parsedownExtra->parse($matches['content']);
         $htmlContent = $this->decorateHeadlineWithId($htmlContent);
 
-        $updatedSince = isset($configuration['updated_since']) ? new DateTime($configuration['updated_since']) : null;
+        $updatedAt = isset($configuration['updated_at']) ? new DateTime($configuration['updated_at']) : null;
         $updatedMessage = $configuration['updated_message'] ?? null;
 
         $sinceRector = isset($configuration['since_rector']) ? (string) $configuration['since_rector'] : null;
@@ -79,7 +79,7 @@ final class PostFactory
             $dateTime,
             $perex,
             $htmlContent,
-            $updatedSince,
+            $updatedAt,
             $updatedMessage,
             $sinceRector
         );

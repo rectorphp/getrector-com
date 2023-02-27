@@ -5,11 +5,14 @@ declare(strict_types=1);
 namespace Rector\Website\Utils\Rector\Rector\Class_;
 
 use PhpParser\Node;
+use PhpParser\Node\Expr\MethodCall;
 use PhpParser\Node\Identifier;
+use PhpParser\Node\Name\FullyQualified;
 use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\ClassMethod;
 use PHPStan\Type\ObjectType;
 use Rector\Core\Rector\AbstractRector;
+use Symfony\Component\Console\Command\Command;
 use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
 
 /**
@@ -40,7 +43,7 @@ final class SymfonyCommandToLaravelCommandRector extends AbstractRector
      */
     public function refactor(Node $node): ?Class_
     {
-        if (! $this->isObjectType($node, new ObjectType('Symfony\Component\Console\Command\Command'))) {
+        if (! $this->isObjectType($node, new ObjectType(Command::class))) {
             return null;
         }
 
@@ -48,7 +51,7 @@ final class SymfonyCommandToLaravelCommandRector extends AbstractRector
             return null;
         }
 
-        $node->extends = new Node\Name\FullyQualified('Illuminate\Console\Command');
+        $node->extends = new FullyQualified('Illuminate\Console\Command');
 
         $executeClassMethod = $node->getMethod('execute');
 
@@ -60,6 +63,25 @@ final class SymfonyCommandToLaravelCommandRector extends AbstractRector
         // remove params
         $executeClassMethod->params = [];
         $executeClassMethod->name = new Identifier('handle');
+
+        // update contents with option()/argument() calls
+
+        $this->traverseNodesWithCallable((array) $executeClassMethod->stmts, function (Node $node): ?MethodCall {
+            // @todo
+            if (! $node instanceof MethodCall) {
+                return null;
+            }
+
+            if ($this->isName($node->name, 'getArgument')) {
+                $node->name = new Identifier('argument');
+            }
+
+            if ($this->isName($node->name, 'getOption')) {
+                $node->name = new Identifier('option');
+            }
+
+            return $node;
+        });
 
         return $node;
     }
