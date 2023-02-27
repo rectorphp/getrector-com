@@ -25,5 +25,5 @@ composer install
 Run website in local browser:
 
 ```bash
-php -S localhost:8000 -t public
+php artisan serve
 ```
