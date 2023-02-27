@@ -6,7 +6,7 @@ namespace Rector\Website\Tests;
 
 use Iterator;
 use PHPUnit\Framework\Attributes\DataProvider;
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+// use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Request;
 
 final class ControllerSmokeTest extends WebTestCase
