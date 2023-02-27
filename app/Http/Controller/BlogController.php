@@ -19,7 +19,7 @@ final class BlogController extends \Illuminate\Routing\Controller
 
     public function __invoke(): \Illuminate\Contracts\View\View
     {
-        return \view('blog/blog.twig', [
+        return \view('blog/blog', [
             'posts' => $this->postRepository->getPosts(),
         ]);
     }

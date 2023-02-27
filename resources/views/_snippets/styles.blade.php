@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.3/css/bootstrap.min.css">
+
 <link rel="stylesheet" href="{{ asset('assets/prism/prism.css') }}">
 <link rel="stylesheet" href="{{ asset('build/css/app.css') }}" />
 

@@ -30,7 +30,7 @@ final class PostController extends \Illuminate\Routing\Controller
             throw new NotFoundHttpException($message);
         }
 
-        return \view('blog/post.twig', [
+        return \view('blog/post', [
             'post' => $post,
         ]);
     }

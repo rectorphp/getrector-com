@@ -23,8 +23,6 @@
 {{--<meta property="og:title" content="{{ full_title }}">--}}
 {{--<meta property="twitter:title" content="{{ full_title }}">--}}
 
-{# see https://webmasters.stackexchange.com/a/77547/115572 for random() #}
-{{--{% set social_image %}https://getrector.com/assets/images/logo/rector/rector-no_frame_vector_for_circles.png?{{ random() }}{% endset %}--}}
+<meta property="og:image" content="{{ asset(\Rector\Website\Enum\Design::SOCIAL_RECTOR_LOGO) }}">
+<meta name="twitter:image" content="{{ asset(\Rector\Website\Enum\Design::SOCIAL_RECTOR_LOGO) }}">
 
-{{--<meta property="og:image" content="{{ social_image }}">--}}
-{{--<meta name="twitter:image" content="{{ social_image }}">--}}

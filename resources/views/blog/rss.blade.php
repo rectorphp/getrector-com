@@ -8,17 +8,19 @@
         <title>Rector Blog</title>
         <link>{{ $site_url }}/</link>
         <description>Rector Blog about Legacy Code Migrations</description>
-        <pubDate>{{ "now"|date('r') }}</pubDate>
+        <pubDate>{{ date('r', now()) }}</pubDate>
         <atom:link href="{{ $site_url }}/rss.xml" rel="self" type="application/rss+xml" />
 
-        <lastBuildDate>{{ $most_recent_post_date_ti->e->format('r') }}</lastBuildDate>
+        <lastBuildDate>{{ $most_recent_post_date_time->format('r') }}</lastBuildDate>
 
-        {# https://stackoverflow.com/a/29161205/1348344 #}
+        {{-- https://stackoverflow.com/a/29161205/1348344 --}}
         @foreach ($posts as $post)
-            @php $post_absolute_url = '{{ $site_url }}{{ route('post', {'postSlug': post.slug }) }}'; @endphp
+            @php
+                $post_absolute_url = $site_url . route(\Rector\Website\ValueObject\Routing\RouteName::POST, ['postSlug' => $post->getSlug()]);
+            @endphp
 
             <item>
-                <title><![CDATA[ {{ post.title|replace({'&nbsp;':' '}) }} ]]></title>
+                <title><![CDATA[ {{ $post->title|replace({'&nbsp;':' '}) }} ]]></title>
                 <link>{{ $post_absolute_url }}</link>
                 <description><![CDATA[ {{ post.perex|markdown|raw }} ]]></description>
                 <content:encoded><![CDATA[ {{ post.htmlContent|raw }} ]]></content:encoded>
@@ -31,7 +33,7 @@
                     <updated>{{ $post->updatedAt->format('Y-m-d\TH:i:s\Z') }}</updated>
                     <atom:updated>{{ $post->updatedAt->format('D, d M Y H:i:s +0000') }}</atom:updated>
                     <lastBuildDate>{{ $post->updatedAt->format('D, d M Y H:i:s +0000') }}</lastBuildDate>
-                @else 
+                @else
                     <lastBuildDate>{{ $post->dateTime->format('D, d M Y H:i:s +0000') }}</lastBuildDate>
                 @endif
 

@@ -23,7 +23,7 @@ final class RssController extends \Illuminate\Routing\Controller
     {
         $posts = $this->postRepository->getPosts();
 
-        return \view('blog/rss.twig', [
+        return \view('blog/rss', [
             'posts' => $posts,
             'most_recent_post_date_time' => $this->getMostRecentPostDateTime($posts),
         ]);

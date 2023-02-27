@@ -13,7 +13,7 @@ final class ForCompaniesController extends \Illuminate\Routing\Controller
 {
     public function __invoke(): \Illuminate\Contracts\View\View
     {
-        return \view('homepage/hire_team.twig', [
+        return \view('homepage/hire_team', [
             'page_title' => 'Hire the Rector Team to Reduce Costs and Technical Debt',
         ]);
     }

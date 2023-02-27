@@ -55,4 +55,10 @@ final class RouteName
      * @var string
      */
     public const HIRE_TEAM = 'hire_team';
+
+    /**
+     * @api
+     * @var string
+     */
+    public const DOCUMENTATION = 'documentation';
 }

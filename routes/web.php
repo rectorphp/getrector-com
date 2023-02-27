@@ -11,14 +11,10 @@ use App\Http\Controller\HomepageController;
 use App\Http\Controller\PostController;
 use App\Http\Controller\RssController;
 use Illuminate\Support\Facades\Route;
+use Rector\Website\ValueObject\Routing\RouteName;
 
-Route::get('documentation/{section}', DocumentationController::class)->name('documentation');
-
-Route::get('documentation/{section}', DocumentationController::class)->name('documentation');
-
-Route::get('documentation/{section}', DocumentationController::class)->name('documentation');
-
-Route::get('documentation/{section}', DocumentationController::class)->name('documentation');
+Route::get('laravel/documentation/{section?}', DocumentationController::class)
+    ->name(RouteName::DOCUMENTATION);
 
 Route::get('about', AboutController::class)->name('about');
 
@@ -32,7 +28,6 @@ Route::get('demo/{uuid}', DemoController::class)->name('demo_detail');
 
 Route::get('demo', DemoController::class)->name('demo');
 
-Route::get('documentation/{section}', DocumentationController::class)->name('documentation');
 
 Route::get('for-companies', ForCompaniesController::class)->name('for_companies');
 
