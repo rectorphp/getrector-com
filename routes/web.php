@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Http\Controller\DocumentationController;
 use App\Http\Controller\AboutController;
 use App\Http\Controller\BlogController;
@@ -16,25 +18,32 @@ use Rector\Website\ValueObject\Routing\RouteName;
 Route::get('laravel/documentation/{section?}', DocumentationController::class)
     ->name(RouteName::DOCUMENTATION);
 
-Route::get('about', AboutController::class)->name('about');
+Route::get('about', AboutController::class)
+    ->name(RouteName::ABOUT);
 
-Route::get('blog', BlogController::class)->name('blog');
+Route::get('blog', BlogController::class)
+    ->name(RouteName::BLOG);
 
-Route::get('book', BookController::class)->name('book');
+Route::get('book', BookController::class)
+    ->name(RouteName::BOOK);
 
-Route::get('contact', ContactController::class)->name('contact');
+Route::get('contact', ContactController::class)
+    ->name(RouteName::CONTACT);
 
-Route::get('demo/{uuid}', DemoController::class)->name('demo_detail');
+Route::get('demo/{uuid}', DemoController::class)
+    ->name(RouteName::DEMO_DETAIL);
 
-Route::get('demo', DemoController::class)->name('demo');
+Route::get('demo', DemoController::class)
+    ->name(RouteName::DEMO);
 
+Route::get('hire-team', ForCompaniesController::class)
+    ->name(RouteName::HIRE_TEAM);
 
-Route::get('for-companies', ForCompaniesController::class)->name('for_companies');
+Route::get('/', HomepageController::class)
+    ->name(RouteName::HOMEPAGE);
 
-Route::get('hire-team', ForCompaniesController::class)->name('hire_team');
+Route::get('blog/{postSlug}', PostController::class)
+    ->name(RouteName::POST);
 
-Route::get('/', HomepageController::class)->name('homepage');
-
-Route::get('blog/{postSlug}', PostController::class)->name('post');
-
-Route::get('rss.xml', RssController::class)->name('rss');
+Route::get('rss.xml', RssController::class)
+    ->name(RouteName::RSS);

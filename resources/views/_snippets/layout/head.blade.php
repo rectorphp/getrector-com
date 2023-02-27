@@ -1,11 +1,14 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Rector - Automated Way to Instantly Upgrade and Refactor any PHP code" />
+<meta name="description" content="{{ \Rector\Website\Enum\Design::MAIN_TITLE }}" />
 <meta name="keywords" content="php, rector, instant upgrades, instant refactoring, upgrade symfony, upgrade php, upgrade cakephp, upgrade legacy, php migration, laravel shift alternative, php shift" />
 
-{{--{% set full_title %}{% if page_title is defined %}{{ page_title|clear_title }} | {% endif %}Rector - Automated Way to Instantly Upgrade and Refactor any PHP code{% endset %}--}}
-{{--<title>{{ full_title }}</title>--}}
+@php
+$full_title = (isset($page_title) ? $page_title . ' | ' : '') . \Rector\Website\Enum\Design::MAIN_TITLE;
+@endphp
+
+<title>{{ $full_title }}</title>
 
 <link rel="alternate" type="application/rss+xml" title="Rector Blog RSS" href="/rss.xml">
 
@@ -20,9 +23,8 @@
 
 <meta name="twitter:site" content="@rectorphp">
 
-{{--<meta property="og:title" content="{{ full_title }}">--}}
-{{--<meta property="twitter:title" content="{{ full_title }}">--}}
+<meta property="og:title" content="{{ $full_title }}">
+<meta property="twitter:title" content="{{ $full_title }}">
 
 <meta property="og:image" content="{{ asset(\Rector\Website\Enum\Design::SOCIAL_RECTOR_LOGO) }}">
 <meta name="twitter:image" content="{{ asset(\Rector\Website\Enum\Design::SOCIAL_RECTOR_LOGO) }}">
-

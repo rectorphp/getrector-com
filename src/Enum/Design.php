@@ -10,7 +10,12 @@ namespace Rector\Website\Enum;
 final class Design
 {
     /**
-     * @api used in blade templates
+     * @var string
+     */
+    public const MAIN_TITLE = 'Rector - Automated Way to Instantly Upgrade and Refactor any PHP code';
+
+    /**
+     * @var string
      */
     public const SOCIAL_RECTOR_LOGO = 'https://getrector.com/assets/images/logo/rector/rector-no_frame_vector_for_circles.png';
 }
