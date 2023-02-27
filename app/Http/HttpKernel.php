@@ -50,18 +50,12 @@ final class HttpKernel extends Kernel
     ];
 
     /**
-     * The application's route middleware.
-     *
      * These middleware may be assigned to groups or used individually.
      *
      * @var array<string, class-string|string>
      */
     protected $routeMiddleware = [
-        'auth.basic' => AuthenticateWithBasicAuth::class,
-        'auth.session' => AuthenticateSession::class,
         'cache.headers' => SetCacheHeaders::class,
-        'can' => Authorize::class,
-        'password.confirm' => RequirePassword::class,
         'throttle' => ThrottleRequests::class,
         'verified' => EnsureEmailIsVerified::class,
     ];

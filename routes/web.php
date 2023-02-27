@@ -13,7 +13,7 @@ use App\Http\Controller\HomepageController;
 use App\Http\Controller\PostController;
 use App\Http\Controller\RssController;
 use Illuminate\Support\Facades\Route;
-use Rector\Website\ValueObject\RouteName;
+use Rector\Website\Enum\RouteName;
 
 Route::get('laravel-documentation/{section?}', DocumentationController::class)
     ->name(RouteName::DOCUMENTATION);

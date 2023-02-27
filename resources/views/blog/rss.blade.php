@@ -16,7 +16,7 @@
         {{-- https://stackoverflow.com/a/29161205/1348344 --}}
         @foreach ($posts as $post)
             @php
-                $post_absolute_url = $site_url . route(\Rector\Website\ValueObject\RouteName::POST, ['postSlug' => $post->getSlug()]);
+                $post_absolute_url = $site_url . route(\Rector\Website\Enum\RouteName::POST, ['postSlug' => $post->getSlug()]);
             @endphp
 
             <item>

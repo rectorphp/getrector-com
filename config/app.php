@@ -31,5 +31,6 @@ return AppConfig::make()
         SessionServiceProvider::class,
         \Illuminate\Queue\QueueServiceProvider::class,
         RouteServiceProvider::class,
+        \Illuminate\Translation\TranslationServiceProvider::class,
     ])
     ->toArray();

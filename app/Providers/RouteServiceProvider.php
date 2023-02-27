@@ -11,9 +11,9 @@ final class RouteServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
-        $this->routes(static function (): void {
+        $this->routes(function (): void {
             Route::middleware('web')
-                ->group(base_path('routes/web.php'));
+                ->group(__DIR__ . '/../../routes/web.php');
         });
     }
 }

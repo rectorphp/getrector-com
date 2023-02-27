@@ -33,7 +33,7 @@ final class TwigToBladeCommand extends Command
 
         $this->twigToBladeConverter->run($paths, $this->getOutput());
 
-        $this->info('Templates are no converted to Blade');
+        $this->info('Templates are now converted to Blade!');
 
         return self::SUCCESS;
     }
