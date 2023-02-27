@@ -4,12 +4,11 @@ declare(strict_types=1);
 
 namespace Rector\Website\Tests\GitHubMagicLink\LinkFactory\FixtureLinkFactory;
 
-use Rector\Website\GetRectorKernel;
 use Rector\Website\GitHubMagicLink\LinkFactory\FixtureLinkFactory;
+use Rector\Website\Tests\AbstractTestCase;
 use Rector\Website\Tests\Helpers\DowngradeArrayIsListFactory;
-use Symplify\PackageBuilder\Testing\AbstractKernelTestCase;
 
-final class RectorDowngradeTest extends AbstractKernelTestCase
+final class RectorDowngradeTest extends AbstractTestCase
 {
     private FixtureLinkFactory $testFixtureLinkFactory;
 
@@ -17,9 +16,8 @@ final class RectorDowngradeTest extends AbstractKernelTestCase
 
     protected function setUp(): void
     {
-        $this->bootKernel(GetRectorKernel::class);
-        $this->testFixtureLinkFactory = $this->getService(FixtureLinkFactory::class);
-        $this->downgradeArrayIsListFactory = new DowngradeArrayIsListFactory();
+        $this->testFixtureLinkFactory = $this->make(FixtureLinkFactory::class);
+        $this->downgradeArrayIsListFactory = $this->make(DowngradeArrayIsListFactory::class);
     }
 
     public function test(): void

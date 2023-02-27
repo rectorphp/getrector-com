@@ -4,12 +4,11 @@ declare(strict_types=1);
 
 namespace Rector\Website\Tests\GitHubMagicLink\BodyFactory\IssueBodyFactory;
 
-use Rector\Website\GetRectorKernel;
 use Rector\Website\GitHubMagicLink\BodyFactory\IssueBodyFactory;
+use Rector\Website\Tests\AbstractTestCase;
 use Rector\Website\Tests\Helpers\DummyRectorRunFactory;
-use Symplify\PackageBuilder\Testing\AbstractKernelTestCase;
 
-final class IssueBodyFactoryTest extends AbstractKernelTestCase
+final class IssueBodyFactoryTest extends AbstractTestCase
 {
     private IssueBodyFactory $issueBodyFactory;
 
@@ -17,9 +16,8 @@ final class IssueBodyFactoryTest extends AbstractKernelTestCase
 
     protected function setUp(): void
     {
-        $this->bootKernel(GetRectorKernel::class);
-        $this->issueBodyFactory = $this->getService(IssueBodyFactory::class);
-        $this->dummyRectorRunFactory = new DummyRectorRunFactory();
+        $this->issueBodyFactory = $this->make(IssueBodyFactory::class);
+        $this->dummyRectorRunFactory = $this->make(DummyRectorRunFactory::class);
     }
 
     public function test(): void

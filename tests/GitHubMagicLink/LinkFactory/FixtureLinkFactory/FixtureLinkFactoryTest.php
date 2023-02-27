@@ -4,12 +4,11 @@ declare(strict_types=1);
 
 namespace Rector\Website\Tests\GitHubMagicLink\LinkFactory\FixtureLinkFactory;
 
-use Rector\Website\GetRectorKernel;
 use Rector\Website\GitHubMagicLink\LinkFactory\FixtureLinkFactory;
+use Rector\Website\Tests\AbstractTestCase;
 use Rector\Website\Tests\Helpers\DummyRectorRunFactory;
-use Symplify\PackageBuilder\Testing\AbstractKernelTestCase;
 
-final class FixtureLinkFactoryTest extends AbstractKernelTestCase
+final class FixtureLinkFactoryTest extends AbstractTestCase
 {
     private FixtureLinkFactory $testFixtureLinkFactory;
 
@@ -17,9 +16,10 @@ final class FixtureLinkFactoryTest extends AbstractKernelTestCase
 
     protected function setUp(): void
     {
-        $this->bootKernel(GetRectorKernel::class);
-        $this->testFixtureLinkFactory = $this->getService(FixtureLinkFactory::class);
-        $this->dummyRectorRunFactory = new DummyRectorRunFactory();
+        parent::setUp();
+
+        $this->testFixtureLinkFactory = $this->make(FixtureLinkFactory::class);
+        $this->dummyRectorRunFactory = $this->make(DummyRectorRunFactory::class);
     }
 
     public function test(): void
