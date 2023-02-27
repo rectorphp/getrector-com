@@ -17,11 +17,12 @@ jobs:
                     php-version: 8.1
                     coverage: none
 
-            -   run: composer install --no-progress --ansi
+            -   uses: "ramsey/composer-install@v2"
 
             # for controller tests
             -   run: cp .env.prod .env
-            -   run: yarn install
-            -   run: yarn run dev
 
-            -   run: vendor/bin/phpunit tests/ControllerSmokeTest.php
+            -   run: yarn install
+            -   run: LARAVEL_BYPASS_ENV_CHECK=1 yarn run dev
+
+            -   run: vendor/bin/phpunit

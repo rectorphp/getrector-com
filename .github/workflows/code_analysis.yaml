@@ -13,7 +13,7 @@ jobs:
             matrix:
                 actions:
                     -
-                        name: 'Easy Coding Standard'
+                        name: 'ECS'
                         run: composer fix-cs
                     -
                         name: 'Only "rem" in css'
@@ -28,16 +28,8 @@ jobs:
                         run: composer rector
 
                     -
-                        name: 'Lint Twig'
-                        run: bin/console lint:twig resources/views
-
-                    -
                         name: 'Check Active Classes'
                         run: vendor/bin/easy-ci check-active-class src --ansi
-
-                    -
-                        name: 'Lint Dependency Injection Container'
-                        run: bin/console lint:container
 
                     -
                         name: 'Detect Unused Composer Packages'
@@ -60,6 +52,6 @@ jobs:
                     php-version: 8.1
                     coverage: none
 
-            -   run: composer install --ansi
+            -   uses: "ramsey/composer-install@v2"
 
             -   run: ${{ matrix.actions.run }}
