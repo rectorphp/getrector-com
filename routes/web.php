@@ -1,15 +1,15 @@
 <?php
 
-use Rector\Website\Controller\DocumentationController;
-use Rector\Website\Controller\AboutController;
-use Rector\Website\Controller\BlogController;
-use Rector\Website\Controller\BookController;
-use Rector\Website\Controller\ContactController;
-use Rector\Website\Controller\DemoController;
-use Rector\Website\Controller\ForCompaniesController;
-use Rector\Website\Controller\HomepageController;
-use Rector\Website\Controller\PostController;
-use Rector\Website\Controller\RssController;
+use App\Http\Controller\DocumentationController;
+use App\Http\Controller\AboutController;
+use App\Http\Controller\BlogController;
+use App\Http\Controller\BookController;
+use App\Http\Controller\ContactController;
+use App\Http\Controller\DemoController;
+use App\Http\Controller\ForCompaniesController;
+use App\Http\Controller\HomepageController;
+use App\Http\Controller\PostController;
+use App\Http\Controller\RssController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('documentation/{section}', DocumentationController::class)->name('documentation');
