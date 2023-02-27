@@ -26,7 +26,7 @@ final class TwigToBladeConverter
         '#{\% endblock \%}#' => '@endsection',
         '#{\% set (\w+) \%}(.*?){% endset %}#' => '@php $$1 = \'$2\'; @endphp',
 
-        '#{\% include (\'|\")(.*?)\.twig(\'|\") \%}#' => '@include(\'$2\')',
+        '#{\% include(\s+)?[\(]?(\'|\")(.*?)\.twig(\'|\")[\)]? \%}#' => '@include(\'$3\')',
 
         // control structures
         '#{% (if|elseif) (?<variable>\w+)\.(?<property>\w+) %}#' => '@$1 ($$2->$3)',

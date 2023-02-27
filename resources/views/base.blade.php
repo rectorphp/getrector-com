@@ -9,15 +9,13 @@
     </head>
 
     <body>
-        @section('body')
-            @include('_snippets/menu')
+        @include('_snippets/menu')
 
-            <div class="container mobile-margin-top">
+        <div class="container mobile-margin-top">
 {{--                @include('_snippets/flash_messages')--}}
 
-                @yield('main')
-            </div>
-        @endsection
+            @yield('main')
+        </div>
 
         @include('_snippets/layout/footer')
 

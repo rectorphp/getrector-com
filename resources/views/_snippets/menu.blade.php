@@ -7,12 +7,12 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
             <ul class="navbar-nav me-auto text-left text-md-center">
                 <li class="nav-item me-0 me-md-5 mb-3 mb-md-0" id="top_right_logo">
-                    <a href="{{ route('homepage') }}">
+                    <a href="{{ route(\Rector\Website\ValueObject\Routing\RouteName::HOMEPAGE) }}">
                         <img src="{{ asset('assets/images/logo/rector-white.svg') }}" alt="">
                     </a>
                 </li>
 
-                {% include("_snippets/menu_items.twig") %}
+                @include('_snippets/menu_items')
             </ul>
         </div>
 

@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row pt-3">
             <div class="col-6 col-md-2 mt-2">
-                Rector Team {{ "now"|date("Y") }}
+                Rector Team {{ now()->year }}
             </div>
 
             <div class="col-6 col-md-3 mt-2">
@@ -26,7 +26,7 @@
             <div class="col-12 col-md-7 mt-5 mt-md-0">
                 <div class="navbar">
                     <ul class="navbar-nav">
-                        {% include("_snippets/menu_items.twig") %}
+                        @include('_snippets/menu_items')
                     </ul>
                 </div>
             </div>

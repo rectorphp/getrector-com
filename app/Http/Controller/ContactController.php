@@ -13,7 +13,7 @@ final class ContactController extends \Illuminate\Routing\Controller
 {
     public function __invoke(): \Illuminate\Contracts\View\View
     {
-        return \view('homepage/contact.twig', [
+        return \view('homepage/contact', [
             'page_title' => 'Reach Us',
         ]);
     }

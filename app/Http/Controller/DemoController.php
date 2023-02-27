@@ -84,7 +84,7 @@ final class DemoController extends \Illuminate\Routing\Controller
 
         $rectorReleaseDate = substr(VersionResolver::RELEASE_DATE, 0, strlen(VersionResolver::RELEASE_DATE) - 3);
 
-        return \view('demo/demo.twig', [
+        return \view('demo/demo', [
             'rector_version' => $this->resolveRectorReleaseVersion(),
             'rector_commit_hash' => Strings::after($this->resolveRectorReleaseVersion(), '@'),
             'rector_released_time' => $rectorReleaseDate,
