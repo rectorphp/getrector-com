@@ -12,7 +12,7 @@
         @include('_snippets/menu')
 
         <div class="container mobile-margin-top">
-{{--                @include('_snippets/flash_messages')--}}
+            @include('_snippets/flash_messages')
 
             @yield('main')
         </div>
