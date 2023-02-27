@@ -20,6 +20,7 @@ jobs:
             -   run: composer install --no-progress --ansi
 
             # for controller tests
+            -   run: cp .env.prod .env
             -   run: yarn install
             -   run: yarn run dev
 
