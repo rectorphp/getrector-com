@@ -24,9 +24,6 @@ return AppConfig::make()
     ->debug((bool) env('APP_DEBUG', false))
     ->url(env('APP_URL', 'http://localhost'))
     ->timezone('UTC')
-
-    // neded for tests
-    ->assetUrl('/')
     ->providers([
         // Laravel Framework Service Providers...
         CacheServiceProvider::class,

@@ -23,6 +23,6 @@ jobs:
             -   run: cp .env.prod .env
 
             -   run: yarn install
-            -   run: LARAVEL_BYPASS_ENV_CHECK=1 yarn run dev
+            -   run: yarn run build
 
             -   run: vendor/bin/phpunit
