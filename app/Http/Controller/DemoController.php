@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Http\Controller;
 
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Controller;
 use Illuminate\View\View;
 use Rector\Website\EntityFactory\RectorRunFactory;
@@ -20,7 +19,7 @@ final class DemoController extends Controller
     ) {
     }
 
-    public function __invoke(): View|RedirectResponse
+    public function __invoke(): View
     {
         return \view('demo/demo', [
             'page_title' => 'Try Rector Online',
