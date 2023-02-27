@@ -2,10 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Tests;
+namespace Rector\Website\Tests\SmokeTests;
 
 use Iterator;
 use PHPUnit\Framework\Attributes\DataProvider;
+use Rector\Website\Tests\AbstractTestCase;
 
 final class ControllerSmokeTest extends AbstractTestCase
 {
