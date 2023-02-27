@@ -7,7 +7,6 @@ namespace App\Http\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Controller;
 use Illuminate\View\View;
-use Nette\Utils\Strings;
 use PackageVersions\Versions;
 use Rector\Core\Application\VersionResolver;
 use Rector\Website\DemoRunner;
@@ -47,21 +46,15 @@ final class DemoController extends Controller
             }
         }
 
-        //$demoForm = $this->formFactory->create(DemoFormType::class, $rectorRun, [
-        //    // this is needed for manual render
-        //    'action' => route(RouteName::PROCESS_DEMO_FORM),
-        //]);
-
-        // process form submit
-        $rectorReleaseDate = substr(VersionResolver::RELEASE_DATE, 0, strlen(VersionResolver::RELEASE_DATE) - 3);
-
         return \view('demo/demo', [
             'page_title' => 'Try Rector Online',
-            'rector_version' => $this->resolveRectorReleaseVersion(),
-            'rector_commit_hash' => Strings::after($this->resolveRectorReleaseVersion(), '@'),
-            'rector_released_time' => $rectorReleaseDate,
-            // 'demo_form' => $demoForm->createView(),
             'rector_run' => $rectorRun,
+            // rector metadata
+            'rector_version' => $this->resolveRectorReleaseVersion(),
+            'rector_commit_hash' => str($this->resolveRectorReleaseVersion())
+                ->after('@')
+                ->value(),
+            'rector_released_time' => $this->resolveRectorReleaseDate(),
         ]);
     }
 
@@ -71,5 +64,10 @@ final class DemoController extends Controller
         $extractAt = explode('@', $rectorVersion);
 
         return $extractAt[0] . '@' . substr($extractAt[1], 0, 6);
+    }
+
+    private function resolveRectorReleaseDate(): string
+    {
+        return substr(VersionResolver::RELEASE_DATE, 0, strlen(VersionResolver::RELEASE_DATE) - 3);
     }
 }

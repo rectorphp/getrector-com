@@ -13,6 +13,7 @@ use Illuminate\Foundation\Providers\FoundationServiceProvider;
 use Illuminate\Queue\QueueServiceProvider;
 use Illuminate\Session\SessionServiceProvider;
 use Illuminate\Translation\TranslationServiceProvider;
+use Illuminate\Validation\ValidationServiceProvider;
 use Illuminate\View\ViewServiceProvider;
 use TomasVotruba\PunchCard\AppConfig;
 
@@ -21,7 +22,7 @@ return AppConfig::make()
     ->name(env('APP_NAME', 'TomasVotruba'))
     ->env(env('APP_ENV', 'production'))
     ->debug((bool) env('APP_DEBUG', false))
-    ->url(env('APP_URL', 'http://localhost'))
+    ->url(env('APP_URL'))
     ->timezone('UTC')
     ->providers([
         // Laravel Framework Service Providers...
@@ -31,6 +32,7 @@ return AppConfig::make()
         FilesystemServiceProvider::class,
         FoundationServiceProvider::class,
         ViewServiceProvider::class,
+        ValidationServiceProvider::class,
         SessionServiceProvider::class,
         QueueServiceProvider::class,
         RouteServiceProvider::class,
