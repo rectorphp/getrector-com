@@ -12,11 +12,10 @@ use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\ClassMethod;
 use PHPStan\Type\ObjectType;
 use Rector\Core\Rector\AbstractRector;
-use Symfony\Component\Console\Command\Command;
 use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
 
 /**
- * @see \Rector\Website\Utils\Tests\Rector\Rector\Class_\SymfonyCommandToLaravelCommandRector\SymfonyCommandToLaravelCommandRectorTest
+ * @see \Rector\Website\Utils\Tests\Rector\Rector\Class_\SymfonyCommandToLaravelCommandRector\SymfonyControllerToLaravelControllerRectorTest
  */
 final class SymfonyCommandToLaravelCommandRector extends AbstractRector
 {
@@ -43,7 +42,7 @@ final class SymfonyCommandToLaravelCommandRector extends AbstractRector
      */
     public function refactor(Node $node): ?Class_
     {
-        if (! $this->isObjectType($node, new ObjectType(Command::class))) {
+        if (! $this->isObjectType($node, new ObjectType('Symfony\Component\Console\Command\Command'))) {
             return null;
         }
 
