@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e23bf73b0bdcb64df0aa992d284b3895",
+    "content-hash": "0e8753c8a450f89920483031360fa4a0",
     "packages": [
         {
             "name": "brick/math",
@@ -8617,16 +8617,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "10.0.12",
+            "version": "10.0.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "87d5cfdb4ecf440fb9f08b636b1152be433fc6f1"
+                "reference": "c37a88d7a905266eab6498817a1bf1170043313f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/87d5cfdb4ecf440fb9f08b636b1152be433fc6f1",
-                "reference": "87d5cfdb4ecf440fb9f08b636b1152be433fc6f1",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/c37a88d7a905266eab6498817a1bf1170043313f",
+                "reference": "c37a88d7a905266eab6498817a1bf1170043313f",
                 "shasum": ""
             },
             "require": {
@@ -8697,7 +8697,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.0.12"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.0.13"
             },
             "funding": [
                 {
@@ -8713,7 +8713,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-02-25T06:05:15+00:00"
+            "time": "2023-02-27T13:07:57+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -10213,16 +10213,16 @@
         },
         {
             "name": "symplify/easy-coding-standard",
-            "version": "11.2.9",
+            "version": "11.2.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/easy-coding-standard/easy-coding-standard.git",
-                "reference": "947267668efb055bf78c7b68416cb206285f21d4"
+                "reference": "5fc343df9b86e154516ddf506f7fe0b421d7d5ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/easy-coding-standard/easy-coding-standard/zipball/947267668efb055bf78c7b68416cb206285f21d4",
-                "reference": "947267668efb055bf78c7b68416cb206285f21d4",
+                "url": "https://api.github.com/repos/easy-coding-standard/easy-coding-standard/zipball/5fc343df9b86e154516ddf506f7fe0b421d7d5ef",
+                "reference": "5fc343df9b86e154516ddf506f7fe0b421d7d5ef",
                 "shasum": ""
             },
             "require": {
@@ -10248,7 +10248,7 @@
             "description": "Use Coding Standard with 0-knowledge of PHP-CS-Fixer and PHP_CodeSniffer",
             "support": {
                 "issues": "https://github.com/easy-coding-standard/easy-coding-standard/issues",
-                "source": "https://github.com/easy-coding-standard/easy-coding-standard/tree/11.2.9"
+                "source": "https://github.com/easy-coding-standard/easy-coding-standard/tree/11.2.10"
             },
             "funding": [
                 {
@@ -10260,7 +10260,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-02-21T11:31:15+00:00"
+            "time": "2023-02-27T10:00:30+00:00"
         },
         {
             "name": "symplify/phpstan-extensions",
@@ -10498,16 +10498,16 @@
         },
         {
             "name": "tomasvotruba/type-coverage",
-            "version": "0.0.7",
+            "version": "0.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/TomasVotruba/type-coverage.git",
-                "reference": "33d0ab06777052e1abfc53b4ad82282ffec516aa"
+                "reference": "536fe95aa6f4fd35929864649aeb3d60d5add6e4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TomasVotruba/type-coverage/zipball/33d0ab06777052e1abfc53b4ad82282ffec516aa",
-                "reference": "33d0ab06777052e1abfc53b4ad82282ffec516aa",
+                "url": "https://api.github.com/repos/TomasVotruba/type-coverage/zipball/536fe95aa6f4fd35929864649aeb3d60d5add6e4",
+                "reference": "536fe95aa6f4fd35929864649aeb3d60d5add6e4",
                 "shasum": ""
             },
             "require": {
@@ -10518,10 +10518,9 @@
             "require-dev": {
                 "php-parallel-lint/php-parallel-lint": "^1.3",
                 "phpstan/extension-installer": "^1.2",
-                "phpunit/phpunit": "^9.5",
-                "rector/rector": "^0.15.1",
-                "symplify/easy-coding-standard": "^11.1",
-                "symplify/monorepo-builder": "^11.1",
+                "phpunit/phpunit": "^10.0",
+                "rector/rector": "^0.15.18",
+                "symplify/easy-coding-standard": "^11.2",
                 "tracy/tracy": "^2.9"
             },
             "type": "phpstan-extension",
@@ -10544,7 +10543,7 @@
             "description": "Measure type coverage of your project",
             "support": {
                 "issues": "https://github.com/TomasVotruba/type-coverage/issues",
-                "source": "https://github.com/TomasVotruba/type-coverage/tree/0.0.8"
+                "source": "https://github.com/TomasVotruba/type-coverage/tree/0.0.10"
             },
             "funding": [
                 {
@@ -10556,20 +10555,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-12-29T18:43:18+00:00"
+            "time": "2023-02-27T10:24:09+00:00"
         },
         {
             "name": "tomasvotruba/unused-public",
-            "version": "0.0.33",
+            "version": "0.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/TomasVotruba/unused-public.git",
-                "reference": "fe03fe09770a11c2325c422166cc5cffe3a55a78"
+                "reference": "a83b964c7bb24433ea47da6f6984dcb1dd245923"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TomasVotruba/unused-public/zipball/fe03fe09770a11c2325c422166cc5cffe3a55a78",
-                "reference": "fe03fe09770a11c2325c422166cc5cffe3a55a78",
+                "url": "https://api.github.com/repos/TomasVotruba/unused-public/zipball/a83b964c7bb24433ea47da6f6984dcb1dd245923",
+                "reference": "a83b964c7bb24433ea47da6f6984dcb1dd245923",
                 "shasum": ""
             },
             "require": {
@@ -10581,12 +10580,11 @@
             "require-dev": {
                 "php-parallel-lint/php-parallel-lint": "^1.3",
                 "phpstan/extension-installer": "^1.2",
-                "phpunit/phpunit": "^9.5",
+                "phpunit/phpunit": "^10.0",
                 "rector/rector": "^0.15.1",
-                "symplify/easy-ci": "^11.1",
-                "symplify/easy-coding-standard": "^11.1",
-                "symplify/monorepo-builder": "^11.1",
-                "tomasvotruba/type-coverage": "^0.0.1",
+                "symplify/easy-ci": "^11.2",
+                "symplify/easy-coding-standard": "^11.2",
+                "tomasvotruba/type-coverage": "^0.0.10",
                 "tracy/tracy": "^2.9"
             },
             "type": "phpstan-extension",
@@ -10609,7 +10607,7 @@
             "description": "Detect unused public properties, constants and methods in your code",
             "support": {
                 "issues": "https://github.com/TomasVotruba/unused-public/issues",
-                "source": "https://github.com/TomasVotruba/unused-public/tree/0.0.33"
+                "source": "https://github.com/TomasVotruba/unused-public/tree/0.1.2"
             },
             "funding": [
                 {
@@ -10621,7 +10619,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-12-29T19:27:53+00:00"
+            "time": "2023-02-27T13:32:03+00:00"
         },
         {
             "name": "webmozart/glob",

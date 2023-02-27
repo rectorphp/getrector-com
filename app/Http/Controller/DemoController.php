@@ -9,7 +9,6 @@ use Illuminate\Routing\Controller;
 use Illuminate\View\View;
 use PackageVersions\Versions;
 use Rector\Core\Application\VersionResolver;
-use Rector\Website\DemoRunner;
 use Rector\Website\Entity\RectorRun;
 use Rector\Website\EntityFactory\RectorRunFactory;
 use Rector\Website\Enum\FlashType;
@@ -24,7 +23,6 @@ final class DemoController extends Controller
 {
     public function __construct(
         private readonly RectorRunRepository $rectorRunRepository,
-        private readonly DemoRunner $demoRunner,
         private readonly RectorRunFactory $rectorRunFactory,
     ) {
     }

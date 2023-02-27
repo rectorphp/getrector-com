@@ -32,16 +32,16 @@
                 Run Rector on your code to see what it can do for you:
             </p>
 
+            @error('php_contents')
+                <div class="alert alert-danger">
+                    @foreach ($errors->get('php_contents') as $error)
+                        {{ $error }}
+                    @endforeach
+                </div>
+            @enderror
+
             <div class="card mb-4">
                 <div class="card-body p-0 mb-0">
-                    @error('php_contents')
-                        <div class="alert alert-danger">
-                            @foreach ($errors->get('php_contents') as $error)
-                                {{ $error }}
-                            @endforeach
-                        </div>
-                    @enderror
-
                     <textarea name="php_contents" class="codemirror_php" required="required">{{ $rector_run->getContent() }}</textarea>
                 </div>
             </div>
@@ -87,6 +87,14 @@
                     </div>
                 @endif
             @endif
+
+            @error('rector_config')
+                <div class="alert alert-danger">
+                    @foreach ($errors->get('rector_config') as $error)
+                        {{ $error }}
+                    @endforeach
+                </div>
+            @enderror
 
             <div class="card mb-2">
                 <div class="card-header">
