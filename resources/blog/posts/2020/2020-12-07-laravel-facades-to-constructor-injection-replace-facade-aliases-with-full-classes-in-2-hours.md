@@ -3,11 +3,9 @@ id: 8
 title: "Laravel Facades to Constructor Injection: Replace Facade Aliases with Full Classes in 2 hours"
 perex: |
     Laravel facades are known as [static service locators](https://sergeyzhuk.me/2016/05/27/laravel-facades/). The idea is get any service anywhere, which comes very handy for project bootstrapping.
-    <br>
-    <br>
+
     Around Laravel 6, released in March 2019, the Laravel community [started](https://stackoverflow.com/questions/49138428/avoid-laravel-facade-on-controller) [moving away](https://github.com/laravel/ideas/issues/1508) [from](https://programmingarehard.com/2014/01/11/stop-using-facades.html/) [facades](https://www.freecodecamp.org/news/moving-away-from-magic-or-why-i-dont-want-to-use-laravel-anymore-2ce098c979bd/#facades) towards **clearly typed constructor injection**.
-    <br>
-    <br>
+
     Today we'll take 1st step to make it happen.
 
 updated_at: '2022-04'

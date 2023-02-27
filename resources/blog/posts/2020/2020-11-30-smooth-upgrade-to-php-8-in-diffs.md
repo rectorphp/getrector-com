@@ -3,8 +3,7 @@ id: 7
 title: "Smooth Upgrade to PHP 8 in Diffs"
 perex: |
     PHP 8 was released more than 2 weeks ago. Do you want to know what is new? Check [colorful post series about PHP 8 news](https://stitcher.io/blog/new-in-php-8) by Brent.
-    <br>
-    <br>
+
     Do you want to upgrade your project today? Continue reading...
 
 updated_at: '2022-04'

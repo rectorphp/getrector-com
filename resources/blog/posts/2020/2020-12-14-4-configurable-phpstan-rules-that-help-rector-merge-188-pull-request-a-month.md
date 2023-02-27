@@ -3,7 +3,7 @@ id: 10
 title: "4 Configurable PHPStan rules that Help Rector Merge 188 pull-requests a Month"
 perex: |
     Last month, we merged a total [188 pull-requests](https://github.com/rectorphp/rector/pulse/monthly) to Rector code. We could not afford such a high rate without having a robust CI setup we trust. Dozens of custom PHPStan rules help us on every commit.
-    <br><br>
+
     Today we'll share with you 4 of them. You can use them in your code to **save time** and let robots work for you.
 ---
 

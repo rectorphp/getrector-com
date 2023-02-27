@@ -3,9 +3,9 @@ id: 21
 title: "From Doctrine Annotations Parser to Static Reflection"
 perex: |
     Until recently, we used doctrine/annotations to parse class annotations that you know `@ORM\Entity` or `@Route`. Last 2 weeks, we **rewrote this parser from scratch to our custom solution** to improve spaces, constants and use static reflection.
-    <br><br>
+
     During refactoring, the parser got **reduced from 6700 lines to just 2700**.
-    <br>
+
     What we changed, why, and how can we benefit from a static reflection in annotations?
 
 since_rector: 0.10

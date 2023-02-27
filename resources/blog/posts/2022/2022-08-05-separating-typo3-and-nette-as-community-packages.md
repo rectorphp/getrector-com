@@ -3,9 +3,9 @@ id: 38
 title: "Separating Typo3 and Nette as Community Packages"
 perex: |
     When Rector started, it was a small project that handled upgrading a vast amount of PHP packages.
-    <br><br>
+
     As the project grew and expanded, more local PHP communities joined with community packages that build custom rules on top Rector core.
-    <br><br>
+
     It makes sense to separate these projects from the core and let the community handle them. Who does a better job at growing the vegetable than farmers themselves, right?
 
 since_rector: 0.14

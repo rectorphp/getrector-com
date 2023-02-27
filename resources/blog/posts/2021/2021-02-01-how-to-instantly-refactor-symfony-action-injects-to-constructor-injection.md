@@ -3,7 +3,7 @@ id: 16
 title: "How to Instantly Refactor Symfony Action Injects to Constructor Injection"
 perex: |
     Action Injections are much fun a first, but they turn your fresh project into legacy code very fast. With PHP 8 and promoted properties, there is no reason to pollute method arguments with services.
-    <br><br>
+
     How to **refactor out of the legacy back to constructor injection** today?
 ---
 

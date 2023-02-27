@@ -3,8 +3,9 @@ id: 42
 title: "Support for Nested Doctrine Annotation to Flat Attributes in Rector 0.14"
 perex: |
     We added support for [annotation to attribute upgrade](/blog/how-to-upgrade-annotations-to-attributes) in Rector 0.12. Since then, PHP 8.1 has come with nested attributes. Rector supports these, e.g., for Symfony validator.
-    <br><br>
+
     Yet, Doctrine already took a path of its own and **unwrapped nested annotations to flat attributes** to be exclusively open to PHP 8.0 users.
+
     Next Rector comes with support for these too.
 
 since_rector: 0.14

@@ -3,7 +3,7 @@ id: 46
 title: "How to Upgrade to PHPUnit 10 in Diffs"
 perex: |
     PHPUnit 10 [was released today](https://phpunit.de/announcements/phpunit-10.html). Do you fancy an early upgrade?
-    <br><br>
+
     We'll show you how to do it with Rector and what other changes you have to handle. Ready?
 
 since_rector: 0.15.12

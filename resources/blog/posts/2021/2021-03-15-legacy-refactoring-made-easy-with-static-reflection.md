@@ -3,7 +3,7 @@ id: 19
 title: "Legacy Refactoring made Easy with Static Reflection"
 perex: |
     Properly configured class autoloading have been a big ~~requirement~~ problem for many projects that do not use flawless PSR-4 autoload. It took two months of hard work of our team and Rector community, but we're here.
-    <br><br>
+
     What is a static reflection, and how can you use it?
 
 since_rector: 0.10

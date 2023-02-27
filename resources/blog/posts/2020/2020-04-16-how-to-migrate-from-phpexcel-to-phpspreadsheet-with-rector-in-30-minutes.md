@@ -3,8 +3,7 @@ id: 3
 title: "How to Migrate From PHPExcel to PHPSpreadsheet with Rector in 30 minutes"
 perex: |
     [PHPExcel](https://github.com/PHPOffice/PHPExcel) is a package for working with Excel files in PHP. The last version was released in 2015, and it was **deprecated in 2017**. Still, it has over **27 000 daily downloads** - that's tons of legacy code.
-    <br>
-    <br>
+
     Do you use it too? Do you want to switch to [PHPSpreadsheet](https://github.com/PHPOffice/PhpSpreadsheet)? You can do it today.
 
 updated_at: '2022-11'

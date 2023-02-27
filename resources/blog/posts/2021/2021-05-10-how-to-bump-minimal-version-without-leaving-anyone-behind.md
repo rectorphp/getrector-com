@@ -3,7 +3,7 @@ id: 23
 title: "How to bump Minimal PHP Version without Leaving Anyone Behind?"
 perex: |
     Last week we introduced [Prefixed Rector by Default](/blog/prefixed-rector-by-default). The main advantage of this release is that you have a single package to install, with no conflicts and minimal PHP version.
-    <br><br>
+
     Rector can be used on PHP 7.1+ platforms. Yet, we bumped a minimal version to PHP 8. Is that a BC break?
 ---
 

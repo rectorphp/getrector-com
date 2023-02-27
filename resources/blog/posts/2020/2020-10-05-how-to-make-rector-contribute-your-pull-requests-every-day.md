@@ -3,8 +3,7 @@ id: 6
 title: "How to make Rector Contribute Your Pull Requests Every Day"
 perex: |
     Rector can upgrade legacy code to a modern one. But in reality, that's ~5 % of usage. On the other hand, **more than [300 projects](https://packagist.org/packages/rector/rector/dependents?order_by=downloads) use Rector daily**, on every commit in Github Actions, Travis, and Gitlab CI.
-    <br>
-    <br>
+
     And that's only open-source projects. The number of private projects using Rector would be much higher.
 ---
 

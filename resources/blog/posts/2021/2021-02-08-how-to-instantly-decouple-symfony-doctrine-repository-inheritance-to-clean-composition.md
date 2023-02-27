@@ -4,11 +4,9 @@ title: "How to Instantly Decouple Symfony Doctrine Repository Inheritance to Cle
 perex: |
     Do your Doctrine repositories extend a parent Symfony service? Do you use magic methods of parent `Doctrine\ORM\EntityRepository`?
     Would you like **switch to decoupled service design and use composition over inheritance**?
-    <br>
-    <br>
+
     If you're looking for "why", read [How to use Repository with Doctrine as Service in Symfony](https://tomasvotruba.com/blog/2017/10/16/how-to-use-repository-with-doctrine-as-service-in-symfony/).
-    <br>
-    <br>
+
     **If you know why and look for "how", keep reading this post.**
 ---
 

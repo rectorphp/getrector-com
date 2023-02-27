@@ -3,8 +3,7 @@ id: 11
 title: "Rector 0.9 Released ❄️"
 perex: |
     More than 45 days have passed since the last Rector release. Since then, we pushed 292 commits in over 220 pull-requests. No wonder the most common question in issues was "when will the next Rector be released?".
-    <br>
-    <br>
+
     Today, we're proud to finally **tag and launch Rector 0.9**!
 
 updated_at: '2022-04'

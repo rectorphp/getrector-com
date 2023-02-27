@@ -3,9 +3,9 @@ id: 41
 title: "Tests Made Simpler in Rector 0.14"
 perex: |
     In August, we've been working hard to make Rector lighter. As use the count of users grows, developers use Rector on more legacy projects than before, and user experience b becomes a higher priority. The easy use, installation, and writing of custom rules is the key to the success of any project upgrade.
-    <br><br>
+
     We cut down dependencies that it really does not need, removed a few niche features, and made the test case simpler.
-    <br><br>
+
     You can benefit from this change if you're using Rector to write your custom rules and test those. What has changed and how?
 ---
 

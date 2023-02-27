@@ -3,9 +3,9 @@ id: 37
 title: "How to Automatically Add Return Type Declarations without Breaking Your Code"
 perex: |
     Code filled with docblocks param, var, and return types is a gold mine. Not in the meaning of valuable resource, but rather as exploding metal covered with a thin piece of gold, so we grab it without thinking. While these docblocks give us much information about the code, they might be nothing more than a wish, dream, or promise.
-    <br><br>
+
     Have you ever blindly trusted docblocks and switched them to type declarations? Then you know the explosive regression this move brings.
-    <br><br>
+
     Yet, how can we turn to add strict types to our code without fear of breaking it?
 ---
 
@@ -168,7 +168,7 @@ Depending on what age your project is coming from, there is one requirement to m
 Rector can handles some case above in the basic version. Add these rules to your code and see for yourself:
 
 ```php
-<?php 
+<?php
 
 use Rector\Config\RectorConfig;
 use Rector\CodeQuality\Rector\ClassMethod\ReturnTypeFromStrictScalarReturnExprRector;

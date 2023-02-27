@@ -3,11 +3,9 @@ id: 25
 title: "Dropping Docker in Favor of Composer Install for Better Developer Experience"
 perex: |
     Some developers see Docker as default-to-use for Rector. Yet they struggle to run it successfully with fundamental changes like [renaming class from underscore to namespace](https://twitter.com/frankdejonge/status/1419298126133927941).
-    <br>
-    <br>
+
     It's very frustrating for them, and they often end-up up deleting the tool with a bad feeling inside.
-    <br>
-    <br>
+
     This cannot happen.
 ---
 

@@ -7,6 +7,9 @@ namespace Rector\Website\Validator;
 use PhpParser\Error;
 use PhpParser\ParserFactory;
 
+/**
+ * @api
+ */
 final class PhpLinter
 {
     /**

@@ -3,7 +3,7 @@ id: 18
 title: "How much does Single Type Declaration Know?"
 perex: |
     When it comes to completing type declaration from docblocks, we rely on trust and hopes in commented code. One way out of is [dynamic analysis](https://tomasvotruba.com/blog/2019/11/11/from-0-doc-types-to-full-type-declaration-with-dynamic-analysis/) that works with real data that enter the method. But we have to log it, wait for it, and update our codebase based on logged data.
-    <br><br>
+
     **Is there a faster, simpler solution we can just plugin?**
 
 updated_at: '2022-04'
