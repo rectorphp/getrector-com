@@ -16,7 +16,7 @@ use Symfony\Component\Console\Command\Command;
 use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
 
 /**
- * @see \Rector\Website\Utils\Tests\Rector\Rector\Class_\SymfonyCommandToLaravelCommandRectorTest
+ * @see \Rector\Website\Utils\Tests\Rector\Rector\Class_\SymfonyCommandToLaravelCommandRector\SymfonyCommandToLaravelCommandRectorTest
  */
 final class SymfonyCommandToLaravelCommandRector extends AbstractRector
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Rector\Website\Utils\Tests\Rector\Rector\ClassMethod\Fixture;
+namespace Rector\Website\Utils\Tests\Rector\Rector\ClassMethod\SymfonyRouteAttributesToLaravelRouteFileRector\Fixture;
 
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -17,7 +17,7 @@ class SomeController
 -----
 <?php
 
-namespace Rector\Website\Utils\Tests\Rector\Rector\ClassMethod\Fixture;
+namespace Rector\Website\Utils\Tests\Rector\Rector\ClassMethod\SymfonyRouteAttributesToLaravelRouteFileRector\Fixture;
 
 class SomeController
 {
