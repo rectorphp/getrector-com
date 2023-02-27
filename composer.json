@@ -81,11 +81,6 @@
             "jajo/jsondb": [
                 "patches/jajo-jsondb-src-jsondb-php.patch"
             ]
-        },
-        "symfony": {
-            "allow-contrib": true
         }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    }
 }

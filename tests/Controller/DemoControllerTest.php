@@ -14,14 +14,13 @@ final class DemoControllerTest extends AbstractTestCase
     #[DataProvider('provideTestFormSubmitData')]
     public function testFormSubmit(string $contentData, string $configData): never
     {
-        $kernelBrowser = $this->createClient();
-        $kernelBrowser->request('GET', '/demo');
-
-        # use name="..." of the form
-        $kernelBrowser->submitForm('demo_form[process]', [
-            'demo_form[content]' => $contentData,
-            'demo_form[config]' => $configData,
+        $response = $this->post('/demo', [
+            'php_contents' => $contentData,
+            'rector_config' => $configData,
         ]);
+
+        dd($response);
+        die;
 
         // no redirect, because PHP was invalid
         $this->assertRouteSame(RouteName::DEMO);
