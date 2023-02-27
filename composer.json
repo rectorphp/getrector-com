@@ -41,7 +41,10 @@
         "psr-4": {
             "App\\": "app",
             "Rector\\Website\\": "src"
-        }
+        },
+        "files": [
+            "src/Blade/functions.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
