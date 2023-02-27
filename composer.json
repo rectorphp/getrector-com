@@ -48,7 +48,10 @@
             "Rector\\Website\\Tests\\": "tests",
             "Rector\\Website\\Utils\\": "utils",
             "Rector\\Website\\Utils\\Tests\\": "utils-tests"
-        }
+        },
+        "classmap": [
+            "stubs"
+        ]
     },
     "scripts": {
         "post-autoload-dump": [
