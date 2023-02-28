@@ -59,17 +59,21 @@ final class ThumbnailController extends Controller
         $image = $this->imagine->create($box);
         $drawer = $image->draw();
 
-        $blackFont = $this->createFont(FontFile::SOURCE_SANS, '000000', 100);
+        $blackFont = $this->createFont(FontFile::SOURCE_SANS, '24292e', 100);
         $drawer->text($title, $blackFont, new Point(130, 340), 0, 1800);
 
-        $greenFont = $this->createFont(FontFile::INTER, '1a8917', 40);
+        $greenFont = $this->createFont(FontFile::INTER, '59a35e', 40);
         $drawer->text('Written by Tomas Votruba', $greenFont, new Point(130, 870), 0, 400);
 
-        // add my face :)
+        // add author face
         $faceImage = $this->imagine->open(__DIR__ . '/../../../public/assets/images/tomas_votruba_circle.jpg');
         $faceImage->resize(new Box(200, 200));
-
         $image->paste($faceImage, new Point(1700, 800));
+
+        $rectorLogoImage = $this->imagine->open(__DIR__ . '/../../../public/assets/images/logo/rector.png');
+        $rectorLogoImage->resize(new Box(716 * .75, 175 * .75));
+        $image->paste($rectorLogoImage, new Point(1400, 100));
+
         $image->save($imageFilePath);
     }
 
