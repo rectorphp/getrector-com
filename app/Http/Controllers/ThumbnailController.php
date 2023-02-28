@@ -45,6 +45,9 @@ final class ThumbnailController extends Controller
         return response()->file($imageFilePath);
     }
 
+        /**
+         * @param FontFile::* $fontFamilyFile
+         */
         private function createFont(string $fontFamilyFile, string $hexColor, int $fontSize): FontInterface
         {
             Assert::fileExists($fontFamilyFile);

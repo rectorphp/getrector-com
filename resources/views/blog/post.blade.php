@@ -18,8 +18,6 @@
     />
 
     <meta name="twitter:card" content="summary_large_image"/>
-    <meta name="twitter:site" content="votrubaT"/>
-    <meta name="twitter:creator" content="votrubaT"/>
     <meta name="twitter:title" content="{{ $post->getClearTitle() }}"/>
     <meta name="twitter:image" content="{{ route(\Rector\Website\Enum\RouteName::POST_IMAGE, ['title' => $post->getClearTitle()]) }}"/>
     <meta name="twitter:description" content="{{ $post->getPerex() }}"/>

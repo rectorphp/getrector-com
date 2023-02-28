@@ -48,3 +48,6 @@ parameters:
 
         # @todo fix in the phsptan rule, this property is used by a command
         - '#Public property "Rector\\Website\\Utils\\Laravelize\\Command\\TwigToBladeCommand\:\:\$signature" is never used#'
+
+        # invalid doc type
+        - '#Parameter \#2 \$font of method Imagine\\Draw\\DrawerInterface\:\:text\(\) expects Imagine\\Image\\AbstractFont, Imagine\\Image\\FontInterface given#'

@@ -17,14 +17,22 @@ $full_title = (isset($page_title) ? $page_title . ' | ' : '') . \Rector\Website\
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
 <link rel="mask-icon" href="/assets/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
 
+
+@if (\Illuminate\Support\Facades\View::hasSection('social_tags'))
+    @yield('social_tags')
+@else
+    <!-- default social tags -->
+    <meta property="twitter:card" content="summary">
+
+    <meta property="og:title" content="{{ $full_title }}">
+    <meta property="twitter:title" content="{{ $full_title }}">
+
+    <meta property="og:image" content="{{ \Rector\Website\Enum\Design::SOCIAL_RECTOR_LOGO }}">
+    <meta name="twitter:image" content="{{ \Rector\Website\Enum\Design::SOCIAL_RECTOR_LOGO }}">
+    <meta property="og:type" content="website">
+@endif
+
+
 {{-- socials sharing - Twitter at least --}}
-<meta property="og:type" content="website">
-<meta property="twitter:card" content="summary">
-
 <meta name="twitter:site" content="@rectorphp">
-
-<meta property="og:title" content="{{ $full_title }}">
-<meta property="twitter:title" content="{{ $full_title }}">
-
-<meta property="og:image" content="{{ \Rector\Website\Enum\Design::SOCIAL_RECTOR_LOGO }}">
-<meta name="twitter:image" content="{{ \Rector\Website\Enum\Design::SOCIAL_RECTOR_LOGO }}">
+<meta name="twitter:creator" content="@rectorphp"/>
