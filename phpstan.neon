@@ -51,3 +51,6 @@ parameters:
 
         # invalid doc type
         - '#Parameter \#2 \$font of method Imagine\\Draw\\DrawerInterface\:\:text\(\) expects Imagine\\Image\\AbstractFont, Imagine\\Image\\FontInterface given#'
+
+        # float allowed
+        - '#Parameter (.*?) of class Imagine\\Image\\Box constructor expects int, float given#'
