@@ -43,7 +43,8 @@ Route::get('blog/{postSlug}', PostController::class)
     ->name(RouteName::POST);
 
 Route::get('/thumbnail/{title}.png', ThumbnailController::class)
-     ->name(RouteName::POST_IMAGE);
+     ->name(RouteName::POST_IMAGE)
+     ->where('title', '.*');
 
 Route::get('rss.xml', RssController::class)
     ->name(RouteName::RSS);
