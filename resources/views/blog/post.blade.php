@@ -5,7 +5,27 @@
     $page_title = $post->getTitle();
 @endphp
 
-@section('main')
+
+@section('social_tags')
+    <meta property="og:title" content="{{ $post->getClearTitle() }}"/>
+    <meta property="og:description" content="{{ $post->getPerex() }}"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:image" content="{{ route(\Rector\Website\Enum\RouteName::POST_IMAGE, ['title' => $post->getClearTitle()]) }}"/>
+
+    <meta
+        property="og:url"
+        content="{{ route(\Rector\Website\Enum\RouteName::POST, ['postSlug' => $post->getSlug()]) }}"
+    />
+
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="votrubaT"/>
+    <meta name="twitter:creator" content="votrubaT"/>
+    <meta name="twitter:title" content="{{ $post->getClearTitle() }}"/>
+    <meta name="twitter:image" content="{{ route(\Rector\Website\Enum\RouteName::POST_IMAGE, ['title' => $post->getClearTitle()]) }}"/>
+    <meta name="twitter:description" content="{{ $post->getPerex() }}"/>
+@endsection
+
+    @section('main')
     <div class="alert alert-info mt-3 mb-5" role="alert">
         Would you like to <strong>learn Rector in depth</strong>?
         The <strong>Rector - The Power of Automated Refactoring</strong> book is out now.
