@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Controller;
+namespace App\Http\Controllers;
 
 use DateTimeInterface;
 use Illuminate\Contracts\View\View;

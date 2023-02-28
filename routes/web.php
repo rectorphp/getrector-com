@@ -2,18 +2,19 @@
 
 declare(strict_types=1);
 
-use App\Http\Controller\AboutController;
-use App\Http\Controller\BlogController;
-use App\Http\Controller\BookController;
-use App\Http\Controller\ContactController;
-use App\Http\Controller\DemoController;
-use App\Http\Controller\DemoDetailController;
-use App\Http\Controller\DocumentationController;
-use App\Http\Controller\ForCompaniesController;
-use App\Http\Controller\HomepageController;
-use App\Http\Controller\PostController;
-use App\Http\Controller\ProcessDemoFormController;
-use App\Http\Controller\RssController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\BookController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DemoController;
+use App\Http\Controllers\DemoDetailController;
+use App\Http\Controllers\DocumentationController;
+use App\Http\Controllers\ForCompaniesController;
+use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProcessDemoFormController;
+use App\Http\Controllers\RssController;
+use App\Http\Controllers\ThumbnailController;
 use Illuminate\Support\Facades\Route;
 use Rector\Website\Enum\RouteName;
 
@@ -40,6 +41,9 @@ Route::get('hire-team', ForCompaniesController::class)
 
 Route::get('blog/{postSlug}', PostController::class)
     ->name(RouteName::POST);
+
+Route::get('/thumbnail/{title}.png', ThumbnailController::class)
+     ->name(RouteName::POST_IMAGE);
 
 Route::get('rss.xml', RssController::class)
     ->name(RouteName::RSS);

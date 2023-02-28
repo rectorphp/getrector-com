@@ -18,7 +18,6 @@ return static function (Configuration $config): Configuration {
     $config->addNamedFilter(NamedFilter::fromString('symplify/package-builder'));
 
     // soon to be used in laravel project
-    $config->addNamedFilter(NamedFilter::fromString('imagine/imagine'));
     $config->addNamedFilter(NamedFilter::fromString('spatie/laravel-markdown'));
     $config->addNamedFilter(NamedFilter::fromString('tomasvotruba/punchcard'));
 
