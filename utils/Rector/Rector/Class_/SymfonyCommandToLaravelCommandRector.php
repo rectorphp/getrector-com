@@ -12,6 +12,7 @@ use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\ClassMethod;
 use PHPStan\Type\ObjectType;
 use Rector\Core\Rector\AbstractRector;
+use Rector\Website\Utils\Tests\Rector\NodeFactory\SignaturePropertyFactory;
 use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
 
 /**
@@ -19,6 +20,11 @@ use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
  */
 final class SymfonyCommandToLaravelCommandRector extends AbstractRector
 {
+    public function __construct(
+        private readonly SignaturePropertyFactory $signaturePropertyFactory,
+    ) {
+    }
+
     public function getRuleDefinition(): RuleDefinition
     {
         return new RuleDefinition(
@@ -42,11 +48,7 @@ final class SymfonyCommandToLaravelCommandRector extends AbstractRector
      */
     public function refactor(Node $node): ?Class_
     {
-        if (! $this->isObjectType($node, new ObjectType('Symfony\Component\Console\Command\Command'))) {
-            return null;
-        }
-
-        if ($node->getMethod('handle') instanceof ClassMethod) {
+        if ($this->shouldSkip($node)) {
             return null;
         }
 
@@ -55,18 +57,36 @@ final class SymfonyCommandToLaravelCommandRector extends AbstractRector
         $executeClassMethod = $node->getMethod('execute');
 
         // no execute
-        if (! $executeClassMethod instanceof ClassMethod) {
-            return $node;
+        if ($executeClassMethod instanceof ClassMethod) {
+            // remove params
+            $executeClassMethod->params = [];
+            $executeClassMethod->name = new Identifier('handle');
+
+            // update contents with option()/argument() calls
+            $this->refactorGetOptionGetArgumentMethodCalls($executeClassMethod);
         }
 
-        // remove params
-        $executeClassMethod->params = [];
-        $executeClassMethod->name = new Identifier('handle');
+        $configureClassMethod = $node->getMethod('configure');
+        if ($configureClassMethod instanceof ClassMethod) {
+            $property = $this->signaturePropertyFactory->createFromConfigureClassMethod($configureClassMethod);
+            $node->stmts = array_merge([$property], $node->stmts);
+        }
 
-        // update contents with option()/argument() calls
+        return $node;
+    }
 
+    private function shouldSkip(Class_ $class): bool
+    {
+        if (! $this->isObjectType($class, new ObjectType('Symfony\Component\Console\Command\Command'))) {
+            return true;
+        }
+
+        return $this->isObjectType($class, new ObjectType('Illuminate\Console\Command'));
+    }
+
+    private function refactorGetOptionGetArgumentMethodCalls(ClassMethod $executeClassMethod): void
+    {
         $this->traverseNodesWithCallable((array) $executeClassMethod->stmts, function (Node $node): ?MethodCall {
-            // @todo
             if (! $node instanceof MethodCall) {
                 return null;
             }
@@ -81,7 +101,5 @@ final class SymfonyCommandToLaravelCommandRector extends AbstractRector
 
             return $node;
         });
-
-        return $node;
     }
 }
