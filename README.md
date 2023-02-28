@@ -9,9 +9,7 @@
 Install npm and dependencies:
 
 ```bash
-sudo apt-get install npm
-sudo npm install --global yarn
-npm install
+yarn install
 yarn run dev
 ```
 
