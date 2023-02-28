@@ -23,14 +23,7 @@ namespace Rector\Website\Utils\Tests\Rector\Rector\Class_\SymfonyCommandToLarave
 
 final class ConfigureToSignature extends \Illuminate\Console\Command
 {
-    protected $signature = 'app:some-name';
-    protected function configure(): void
-    {
-        $this->setName('app:some-name');
-
-        $this->addArgument('some_argument');
-        $this->addOption('some-option');
-    }
+    protected $signature = 'app:some-name {some_argument} {some-option}';
 }
 
 ?>

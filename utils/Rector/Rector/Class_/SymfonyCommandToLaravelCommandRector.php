@@ -70,6 +70,10 @@ final class SymfonyCommandToLaravelCommandRector extends AbstractRector
         if ($configureClassMethod instanceof ClassMethod) {
             $property = $this->signaturePropertyFactory->createFromConfigureClassMethod($configureClassMethod);
             $node->stmts = array_merge([$property], $node->stmts);
+
+            // remove configure() method
+            $configureClassMethodPosition = array_search($configureClassMethod, $node->stmts, true);
+            unset($node->stmts[$configureClassMethodPosition]);
         }
 
         return $node;
