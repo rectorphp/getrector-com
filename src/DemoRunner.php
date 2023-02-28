@@ -41,7 +41,7 @@ final class DemoRunner
         private readonly ErrorMessageNormalizer $errorMessageNormalizer,
         private readonly Filesystem $filesystem,
     ) {
-        $this->demoDir = __DIR__ . '/../var/demo';
+        $this->demoDir = __DIR__ . '/../storage/demo';
     }
 
     public function processRectorRun(RectorRun $rectorRun): void
