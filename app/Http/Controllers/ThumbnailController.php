@@ -18,6 +18,11 @@ use Webmozart\Assert\Assert;
 
 final class ThumbnailController extends Controller
 {
+    /**
+     * @var string
+     */
+    private const THUMBNAIL_DIRECTORY = __DIR__ . '/../../../storage/thumbnail/';
+
     public function __construct(
         private readonly Imagine $imagine
     ) {
@@ -25,17 +30,7 @@ final class ThumbnailController extends Controller
 
     public function __invoke(string $title): BinaryFileResponse
     {
-        // @see https://imagine.readthedocs.io/en/stable/
-        $thumbnailDirectory = __DIR__ . '/../../../storage/thumbnail/';
-
-        // ensure directory exists
-        if (! is_dir($thumbnailDirectory)) {
-            FileSystem::createDir($thumbnailDirectory);
-        }
-
-        Assert::directory($thumbnailDirectory);
-
-        $imageFilePath = $thumbnailDirectory . '/' . Strings::webalize($title) . '.png';
+        $imageFilePath = $this->resolveImageFilePath($title);
 
         // on the fly
         if (! file_exists($imageFilePath)) {
@@ -45,18 +40,18 @@ final class ThumbnailController extends Controller
         return response()->file($imageFilePath);
     }
 
-        /**
-         * @param FontFile::* $fontFamilyFile
-         */
-        private function createFont(string $fontFamilyFile, string $hexColor, int $fontSize): FontInterface
-        {
-            Assert::fileExists($fontFamilyFile);
+    /**
+     * @param FontFile::* $fontFamilyFile
+     */
+    private function createFont(string $fontFamilyFile, string $hexColor, int $fontSize): FontInterface
+    {
+        Assert::fileExists($fontFamilyFile);
 
-            $rgb = new RGB();
-            $color = $rgb->color($hexColor);
+        $rgb = new RGB();
+        $color = $rgb->color($hexColor);
 
-            return $this->imagine->font($fontFamilyFile, $fontSize, $color);
-        }
+        return $this->imagine->font($fontFamilyFile, $fontSize, $color);
+    }
 
     private function createImage(string $title, string $imageFilePath): void
     {
@@ -76,5 +71,15 @@ final class ThumbnailController extends Controller
 
         $image->paste($faceImage, new Point(1700, 800));
         $image->save($imageFilePath);
+    }
+
+    private function resolveImageFilePath(string $title): string
+    {
+        // ensure directory exists
+        if (! is_dir(self::THUMBNAIL_DIRECTORY)) {
+            FileSystem::createDir(self::THUMBNAIL_DIRECTORY);
+        }
+
+        return self::THUMBNAIL_DIRECTORY . '/' . Strings::webalize($title) . '.png';
     }
 }
