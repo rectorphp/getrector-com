@@ -45,12 +45,6 @@ final class PathAnalyzer
 
         $dateAndNamePattern = sprintf('#%s-%s#', self::DATE_REGEX, self::NAME_REGEX);
         $match = (array) Strings::match($filePath, $dateAndNamePattern);
-
-        $dateLessBreakDateTime = DateTime::from('2021-04-01');
-        if ($dateTime >= $dateLessBreakDateTime) {
-            return $match['name'];
-        }
-
-        return $dateTime->format('Y/m/d') . '/' . $match['name'];
+        return $match['name'];
     }
 }
