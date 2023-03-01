@@ -8,7 +8,10 @@
     <meta property="og:title" content="{{ $post->getClearTitle() }}"/>
     <meta property="og:description" content="{{ $post->getPerex() }}"/>
     <meta property="og:type" content="article"/>
-    <meta property="og:image" content="{{ route(\Rector\Website\Enum\RouteName::POST_IMAGE, ['title' => $post->getClearTitle()]) }}"/>
+    <meta
+        property="og:image"
+        content="{{ route(\Rector\Website\Enum\RouteName::POST_IMAGE, ['title' => $post->getClearTitle()]) }}"
+    />
 
     <meta
         property="og:url"

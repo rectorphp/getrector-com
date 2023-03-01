@@ -30,7 +30,7 @@ That's why [we slowly refactored away from these rules](/blog/how-to-automatical
 Before, Rector would make this change:
 
 ```diff
- class Project
+ class SomeProject
  {
 -    private $name;
 +    private string $name;
