@@ -2,8 +2,6 @@
 
 declare(strict_types=1);
 
-use Rector\CodingStyle\Enum\PreferenceSelfThis;
-use Rector\CodingStyle\Rector\MethodCall\PreferThisOrSelfMethodCallRector;
 use Rector\Config\RectorConfig;
 use Rector\PHPUnit\Set\PHPUnitSetList;
 use Rector\Privatization\Rector\Class_\FinalizeClassesWithoutChildrenRector;
@@ -34,9 +32,6 @@ return static function (RectorConfig $rectorConfig): void {
     ]);
 
     $rectorConfig->skip([
-        // generated mess
-        __DIR__ . '/config/bootstrap.php',
-        '*/var/cache/*',
         '*/Fixture/*',
         '*/Expected/*',
         // on purpose
@@ -48,7 +43,4 @@ return static function (RectorConfig $rectorConfig): void {
     ]);
 
     $rectorConfig->rule(FinalizeClassesWithoutChildrenRector::class);
-    $rectorConfig->ruleWithConfiguration(PreferThisOrSelfMethodCallRector::class, [
-        'PHPUnit\Framework\TestCase' => PreferenceSelfThis::PREFER_THIS,
-    ]);
 };

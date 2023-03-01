@@ -8,11 +8,11 @@ use DateTimeInterface;
 use Nette\Utils\DateTime;
 use Nette\Utils\FileSystem;
 use Nette\Utils\Strings;
-use ParsedownExtra;
 use Rector\Website\Entity\Post;
 use Rector\Website\Exception\ShouldNotHappenException;
 use Rector\Website\FileSystem\PathAnalyzer;
 use Symfony\Component\Yaml\Yaml;
+use Webmozart\Assert\Assert;
 
 final class PostFactory
 {
@@ -26,14 +26,7 @@ final class PostFactory
      */
     private const CONFIG_CONTENT_REGEX = '#^\s*' . self::SLASHES_WITH_SPACES_REGEX . '?(?<config>.*?)' . self::SLASHES_WITH_SPACES_REGEX . '(?<content>.*?)$#s';
 
-    /**
-     * @see https://regex101.com/r/gtR8tj/1
-     * @var string
-     */
-    private const HEADLINE_REGEX = '#<h(?<level>\d+)>(?<headline>.*?)<\/h\d+>#';
-
     public function __construct(
-        private readonly ParsedownExtra $parsedownExtra,
         private readonly PathAnalyzer $pathAnalyzer,
     ) {
     }
@@ -60,12 +53,8 @@ final class PostFactory
             throw new ShouldNotHappenException();
         }
 
-        if (! isset($matches['content'])) {
-            throw new ShouldNotHappenException();
-        }
-
-        $htmlContent = $this->parsedownExtra->parse($matches['content']);
-        $htmlContent = $this->decorateHeadlineWithId($htmlContent);
+        Assert::keyExists($matches, 'content');
+        $htmlContent = $matches['content'];
 
         $updatedAt = isset($configuration['updated_at']) ? new DateTime($configuration['updated_at']) : null;
         $updatedMessage = $configuration['updated_message'] ?? null;
@@ -83,22 +72,5 @@ final class PostFactory
             $updatedMessage,
             $sinceRector
         );
-    }
-
-    /**
-     * Before: <h1>Hey</h1>
-     *
-     * After: <h1 id="hey">Hey</h1>
-     *
-     * Then the headline can be anchored in url as "#hey"
-     */
-    private function decorateHeadlineWithId(string $htmlContent): string
-    {
-        return Strings::replace($htmlContent, self::HEADLINE_REGEX, static function ($matches): string {
-            $level = $matches['level'];
-            $headline = $matches['headline'];
-            $idValue = Strings::webalize($headline);
-            return sprintf('<h%d id="%s">%s</h%d>', $level, $idValue, $headline, $level);
-        });
     }
 }

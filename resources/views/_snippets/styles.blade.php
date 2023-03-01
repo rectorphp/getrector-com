@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="/assets/prism/prism.css">
-
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600&display=swap" rel="stylesheet">
 
 {{-- live code highligh in demo --}}

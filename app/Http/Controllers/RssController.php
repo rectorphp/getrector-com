@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use DateTimeInterface;
-use Illuminate\Contracts\View\View;
+use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Rector\Website\Entity\Post;
 use Rector\Website\Repository\PostRepository;
@@ -17,14 +17,16 @@ final class RssController extends Controller
     ) {
     }
 
-    public function __invoke(): View
+    public function __invoke(): Response
     {
         $posts = $this->postRepository->getPosts();
 
-        return \view('blog/rss', [
-            'posts' => $posts,
-            'most_recent_post_date_time' => $this->getMostRecentPostDateTime($posts),
-        ]);
+        return response()
+            ->view('blog/rss', [
+                'posts' => $posts,
+                'most_recent_post_date_time' => $this->getMostRecentPostDateTime($posts),
+            ])
+            ->header('Content-Type', 'text/xml');
     }
 
     /**

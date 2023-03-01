@@ -1,41 +1,34 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+@php
+    /** @var \Rector\Website\Entity\Post[] $posts */
+@endphp
 
-<rss version="2.0"
-     xmlns:content="https://purl.org/rss/1.0/modules/content/"
-     xmlns:dc="https://purl.org/dc/elements/1.1/"
-     xmlns:atom="https://www.w3.org/2005/Atom"
->
-    <channel>
-        <title>Rector Blog</title>
-        <link>{{ $site_url }}/</link>
-        <description>Rector Blog about Legacy Code Migrations</description>
-        <pubDate>{{ date('r', now()) }}</pubDate>
-        <atom:link href="{{ $site_url }}/rss.xml" rel="self" type="application/rss+xml"/>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>{{ route(\Rector\Website\Enum\RouteName::RSS) }}</id>
+    <link href="{{ route(\Rector\Website\Enum\RouteName::RSS) }}"/>
+    <title>
+        <![CDATA[ Rector Blog ]]>
+    </title>
+    <description>Rector Blog about Legacy Code Migrations</description>
+    <language />
+    <updated>{{ $most_recent_post_date_time->format('r') }}</updated>
 
-        <lastBuildDate>{{ $most_recent_post_date_time->format('r') }}</lastBuildDate>
+    @foreach ($posts as $post)
+        <entry>
+            <title>
+                <![CDATA[ {{  $post->getClearTitle() }} ]]>
+            </title>
+            <link rel="alternate" href="{{ $post->getAbsoluteUrl() }}"/>
+            <id>{{ $post->getAbsoluteUrl() }}</id>
 
-        {{-- https://stackoverflow.com/a/29161205/1348344 --}}
-        @foreach ($posts as $post)
-            @php
-                /** @var \Rector\Website\Entity\Post $post */
+            <author>
+                <name>
+                    <![CDATA[ Tomas Votruba ]]>
+                </name>
+            </author>
 
-                $post_absolute_url = $site_url . route(\Rector\Website\Enum\RouteName::POST, ['postSlug' => $post->getSlug()]);
-            @endphp
+            <summary><![CDATA[ {{ $post->getPerex() }} ]]></summary>
 
-            <item>
-                <title><![CDATA[ {{  $post->getClearTitle() }} ]]></title>
-                <link>{{ $post_absolute_url }}</link>
-                <description><![CDATA[ {{ $post->getPerex() }} ]]></description>
-                <content:encoded><![CDATA[ {{ $post->getHtmlContent() }} ]]></content:encoded>
-                <guid isPermaLink="false">{{ $post_absolute_url }}</guid>
-                <dc:creator><![CDATA[ Rector ]]></dc:creator>
-
-                {{-- @see https://wordpress.stackexchange.com/a/229773 --}}
-                <pubDate>{{ $post->getDateTime()->format('D, d M Y H:i:s +0000') }}</pubDate>
-                <lastBuildDate>{{ $post->getDateTime()->format('D, d M Y H:i:s +0000') }}</lastBuildDate>
-
-                <comments>{{ $post_absolute_url }}#disqus_thread</comments>
-            </item>
-        @endforeach
-    </channel>
-</rss>
+            <updated>{{ $post->getDateTime()->format('D, d M Y H:i:s +0000') }}</updated>
+        </entry>
+    @endforeach
+</feed>
