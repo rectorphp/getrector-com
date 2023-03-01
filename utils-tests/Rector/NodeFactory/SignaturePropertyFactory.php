@@ -77,11 +77,10 @@ final class SignaturePropertyFactory
             }
 
             $firstArg = $methodCall->getArgs()[0];
-            $argName = $this->valueResolver->getValue($firstArg->value);
 
             // @todo handle optinal/array/value options
 
-            return $argName;
+            return $this->valueResolver->getValue($firstArg->value);
         }
 
         return null;

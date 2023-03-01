@@ -18,7 +18,7 @@ final class ValidPhpSyntaxRule implements ValidationRule
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
         $isValid = $this->phpLinter->isValidPhpSyntax($value);
-        if ($isValid === true) {
+        if ($isValid) {
             return;
         }
 

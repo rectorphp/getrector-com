@@ -68,10 +68,12 @@ final class ThumbnailController extends Controller
         // add author face
         $faceImage = $this->imagine->open(__DIR__ . '/../../../public/assets/images/tomas_votruba_circle.jpg');
         $faceImage->resize(new Box(200, 200));
+
         $image->paste($faceImage, new Point(1700, 800));
 
         $rectorLogoImage = $this->imagine->open(__DIR__ . '/../../../public/assets/images/logo/rector.png');
         $rectorLogoImage->resize(new Box(716 * .75, 175 * .75));
+
         $image->paste($rectorLogoImage, new Point(1400, 100));
 
         $image->save($imageFilePath);

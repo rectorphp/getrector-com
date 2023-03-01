@@ -71,5 +71,8 @@ final class RouteName
      */
     public const PROCESS_DEMO_FORM = 'process_demo_form';
 
+    /**
+     * @var string
+     */
     public const POST_IMAGE = 'post_image';
 }

@@ -6,10 +6,9 @@ namespace App\Http\Requests;
 
 use App\Rules\ShortPhpContentsRule;
 use App\Rules\ValidPhpSyntaxRule;
-use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class DemoFormRequest extends FormRequest
+final class DemoFormRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -17,7 +16,7 @@ class DemoFormRequest extends FormRequest
     }
 
     /**
-     * @return array<string, array<ValidationRule|string>>
+     * @return array{php_contents: ShortPhpContentsRule[]|ValidPhpSyntaxRule[]|string[], rector_config: ValidPhpSyntaxRule[]|string[]}
      */
     public function rules(): array
     {
