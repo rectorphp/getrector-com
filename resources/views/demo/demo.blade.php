@@ -33,11 +33,11 @@
             </p>
 
             @error('php_contents')
-            <div class="alert alert-danger">
-                @foreach ($errors->get('php_contents') as $error)
-                    {{ $error }}
-                @endforeach
-            </div>
+                <div class="alert alert-danger">
+                    @foreach ($errors->get('php_contents') as $error)
+                        {{ $error }}
+                    @endforeach
+                </div>
             @enderror
 
             <div class="card mb-4">
