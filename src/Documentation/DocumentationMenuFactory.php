@@ -11,7 +11,6 @@ use Rector\Website\ValueObject\DocumentationSection;
  */
 final class DocumentationMenuFactory
 {
-    private $unusedProperty;
     /**
      * @return array<string, DocumentationSection[]>
      */
