@@ -40,8 +40,8 @@ final class RectorRun implements JsonSerializable
 
     public function __construct(
         private readonly Uuid $uuid,
-        private string $content,
-        private string $config,
+        private readonly string $content,
+        private readonly string $config,
         /** @var array<string, mixed> */
         private array $jsonResult = [],
         private string|null $fatalErrorMessage = null

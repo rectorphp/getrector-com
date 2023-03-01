@@ -25,7 +25,7 @@ We tested this set for the last 30 days, solved bugs one by one, and applied in 
 <blockquote class="blockquote mt-4 mb-4 text-center">
     That feeling when you go to make coffee, <br>
     while @rectorphp upgrades your project in PHP 8...
-    <footer class="blockquote-footer text-right">
+    <footer class="blockquote-footer text-end">
         <a href="https://twitter.com/honzakuchar/status/1341777745475473411">Jan Kuchař</a>, CTO at Grifart
     </footer>
 </blockquote>

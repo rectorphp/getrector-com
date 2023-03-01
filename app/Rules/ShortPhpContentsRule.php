@@ -6,6 +6,7 @@ namespace App\Rules;
 
 use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
+use Illuminate\Translation\PotentiallyTranslatedString;
 
 final class ShortPhpContentsRule implements ValidationRule
 {
@@ -15,11 +16,11 @@ final class ShortPhpContentsRule implements ValidationRule
     private const INPUT_LINES_LIMIT = 100;
 
     /**
-     * @param  \Closure(string): \Illuminate\Translation\PotentiallyTranslatedString  $fail
+     * @param \Closure(string):PotentiallyTranslatedString $fail
      */
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
-        $newlineCount = substr_count($value, "\n");
+        $newlineCount = substr_count((string) $value, "\n");
 
         if ($newlineCount <= self::INPUT_LINES_LIMIT) {
             return;
