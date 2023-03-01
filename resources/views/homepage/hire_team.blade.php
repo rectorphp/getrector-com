@@ -304,7 +304,7 @@
                             <em class="fa fa-file-pdf fa-fw"></em>
                             Open Demo PDF
                         </a>
-                        <a href="{{ route('contact') }}" class="btn btn-success text">Contact us</a>
+                        <a href="{{ route(\Rector\Website\Enum\RouteName::CONTACT) }}" class="btn btn-success text">Contact us</a>
                     </div>
                 </div>
             </div>
@@ -355,7 +355,7 @@
                     </div>
 
                     <div class="card-footer text-center pt-4 pb-4">
-                        <a href="{{ route('contact') }}" class="btn btn-success text">Contact us</a>
+                        <a href="{{ route(\Rector\Website\Enum\RouteName::CONTACT) }}" class="btn btn-success text">Contact us</a>
                     </div>
                 </div>
             </div>

@@ -18,8 +18,8 @@
         </div>
 
         <div class="text-center mt-5 mb-5 bigger-buttons">
-            <a href="{{ route('hire_team') }}" class="btn btn-lg btn-primary me-3">Hire Upgrade Team</a>
-            <a href="{{ route('demo') }}" class="btn btn-lg btn-success">Try It Online</a>
+            <a href="{{ route(\Rector\Website\Enum\RouteName::HIRE_TEAM) }}" class="btn btn-lg btn-primary me-3">Hire Upgrade Team</a>
+            <a href="{{ route(\Rector\Website\Enum\RouteName::DEMO) }}" class="btn btn-lg btn-success">Try It Online</a>
         </div>
 
         @include('_snippets/homepage_separator')
@@ -76,11 +76,11 @@
         <br>
 
         <div class="text-center mt-2 mt-md-5">
-            <a href="{{ route('hire_team') }}" class="btn btn-primary btn-lg">
+            <a href="{{ route(\Rector\Website\Enum\RouteName::HIRE_TEAM) }}" class="btn btn-primary btn-lg">
                 Hire Rector Team
             </a>
 
-            <a href="{{ route('contact') }}" class="btn btn-success btn-lg ms-3">
+            <a href="{{ route(\Rector\Website\Enum\RouteName::CONTACT) }}" class="btn btn-success btn-lg ms-3">
                 Contact Us to Join Our Clients
             </a>
         </div>
