@@ -32,17 +32,17 @@ It looks sexy and fun at first, but in few months, it will reveal its true face 
 
 <blockquote class="blockquote">
     Action injection makes it confusing whether an object is treated stateful or stateless - a very grey area with, e.g., the Session.
-    <footer class="blockquote-footer text-right">Iltar van der Berg</footer>
+    <footer class="blockquote-footer text-end">Iltar van der Berg</footer>
 </blockquote>
 
 <blockquote class="blockquote">
     I'm a Symfony trainer, and I'm told to teach people how to use Symfony and talk about this injection pattern. Sob.
-    <footer class="blockquote-footer text-right">Alex Rock</footer>
+    <footer class="blockquote-footer text-end">Alex Rock</footer>
 </blockquote>
 
 <blockquote class="blockquote">
     I work on a project that uses action injection, and I hate it. The whole idea about action injection is broken. Development with this pattern is a total nightmare.
-    <footer class="blockquote-footer text-right">A</footer>
+    <footer class="blockquote-footer text-end">A</footer>
 </blockquote>
 
 <br>

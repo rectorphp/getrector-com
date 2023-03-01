@@ -28,7 +28,7 @@
 
         <div id="references">
             <div class="row">
-                <div class="col-sm-4 text-right pr-5">
+                <div class="col-sm-4 text-end pr-5">
                     <img src="/assets/images/logo/logo_bigger/complex.jpg" class="img-fluid company-logo mb-4" style="max-width: 16em">
 
                     <div class="clearfix"></div>
@@ -70,7 +70,7 @@
             <hr class="project-border-line">
 
             <div class="row">
-                <div class="col-sm-4 text-right pr-5">
+                <div class="col-sm-4 text-end pr-5">
                     <img src="/assets/images/logo/logo_bigger/ares_travel.svg" class="img-fluid company-logo mb-4" style="max-width: 16em">
 
                     <div class="clearfix"></div>
@@ -113,7 +113,7 @@
             <hr class="project-border-line">
 
             <div class="row">
-                <div class="col-sm-4 text-right pr-5">
+                <div class="col-sm-4 text-end pr-5">
                     <img src="/assets/images/logo/logo_bigger/eonx.png" class="img-fluid company-logo" style="max-width: 12em">
 
                     <div class="clearfix mb-4"></div>

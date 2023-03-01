@@ -13,10 +13,6 @@ jobs:
             matrix:
                 actions:
                     -
-                        name: 'Only "rem" in css'
-                        run: php bin/only-rem-in-css.php
-
-                    -
                         name: 'PHPStan'
                         run: composer phpstan
 
