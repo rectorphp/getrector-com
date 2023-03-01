@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Rector\Website\Entity;
 
 use DateTimeInterface;
+use Rector\Website\Enum\RouteName;
 
 /**
  * @api used in templates
@@ -81,5 +82,12 @@ final class Post
     public function getSinceRector(): ?string
     {
         return $this->sinceRector;
+    }
+
+    public function getAbsoluteUrl(): string
+    {
+        return route(RouteName::POST, [
+            'postSlug' => $this->slug,
+        ]);
     }
 }

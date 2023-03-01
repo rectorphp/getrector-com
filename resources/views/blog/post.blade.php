@@ -2,9 +2,7 @@
 
 @php
     /** @var $post \Rector\Website\Entity\Post */
-    $page_title = $post->getTitle();
 @endphp
-
 
 @section('social_tags')
     <meta property="og:title" content="{{ $post->getClearTitle() }}"/>
@@ -70,14 +68,6 @@
 
         <div class="text-body">
             {!! $post->getHtmlContent() !!}
-        </div>
-
-        <br>
-        <br>
-        <br>
-
-        <div class="container">
-            @include('_snippets/disqus_comments')
         </div>
 
         <br>

@@ -100,7 +100,7 @@ Note: Do your data providers contain dynamic method calls? You'll need to refact
 ```
 
 
-<br
+<br>
 
 The `abstract` test now has to have `*TestCase` suffix:
 

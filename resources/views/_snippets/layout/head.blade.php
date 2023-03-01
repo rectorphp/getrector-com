@@ -18,7 +18,7 @@ $full_title = (isset($page_title) ? $page_title . ' | ' : '') . \Rector\Website\
 <link rel="mask-icon" href="/assets/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
 
 
-@if (\Illuminate\Support\Facades\View::hasSection('social_tags'))
+@hasSection('social_tags'))
     @yield('social_tags')
 @else
     <!-- default social tags -->
