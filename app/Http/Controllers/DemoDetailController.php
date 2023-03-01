@@ -11,7 +11,6 @@ use Rector\Website\Entity\RectorRun;
 use Rector\Website\Enum\FlashType;
 use Rector\Website\Enum\RouteName;
 use Rector\Website\Repository\RectorRunRepository;
-use Rector\Website\Utils\RectorVersionMetadata;
 use Symfony\Component\Uid\Uuid;
 
 final class DemoDetailController extends Controller
@@ -40,7 +39,6 @@ final class DemoDetailController extends Controller
         return \view('demo/demo', [
             'page_title' => 'Try Rector Online',
             'rector_run' => $rectorRun,
-            'rector_version_metadata' => new RectorVersionMetadata(),
         ]);
     }
 }

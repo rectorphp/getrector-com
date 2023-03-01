@@ -17,21 +17,25 @@
 
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:title" content="{{ $post->getClearTitle() }}"/>
-    <meta name="twitter:image" content="{{ route(\Rector\Website\Enum\RouteName::POST_IMAGE, ['title' => $post->getClearTitle()]) }}"/>
+    <meta
+        name="twitter:image"
+        content="{{ route(\Rector\Website\Enum\RouteName::POST_IMAGE, ['title' => $post->getClearTitle()]) }}"
+    />
     <meta name="twitter:description" content="{{ $post->getPerex() }}"/>
 @endsection
 
 @section('main')
     <div class="alert alert-info mt-3 mb-5" role="alert">
         Would you like to <strong>learn Rector in depth</strong>?
+
         The <strong>Rector - The Power of Automated Refactoring</strong> book is out now.
         <a href="https://leanpub.com/rector-the-power-of-automated-refactoring?utm_source=getrector_post_detail">Grab a copy!</a>
     </div>
 
     <div id="post">
         <div class="mt-3">
-            <time datetime="{{ $post->getDateTime()->format('Y-m-D') }}" class="text-grey">
-                {{ $post->getDateTime()->format('Y-m-D') }}
+            <time datetime="{{ $post->getDateTime()->format('Y-m-d') }}" class="text-secondary">
+                {{ $post->getDateTime()->format('Y-m-d') }}
             </time>
         </div>
 
@@ -68,9 +72,11 @@
 
         <div class="text-body">
             <x-markdown>
-                {!! $post->getHtmlContent() !!}
+                {!! $post->getContents() !!}
             </x-markdown>
         </div>
 
+        <br>
+        <br>
     </div>
 @endsection

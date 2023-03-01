@@ -1,6 +1,7 @@
 @import "bootstrap/scss/bootstrap";
 @import "@fortawesome/fontawesome-free/css/all.css";
 @import "menu";
+@import "shiki";
 
 
 // setting the value of this variable to an empty data URL is the only working solution
@@ -274,25 +275,7 @@ h4 {
     font-weight: bold;
 }
 
-.cm-negative {
-    background: #ffd4d4;
-    display: inline-block;
-}
-
-.cm-positive {
-    background: #e8ffd4;
-    display: inline-block;
-}
-
-.invalid-feedback {
-    margin-bottom: 1em;
-
-    .d-block + .d-block {
-        margin-top: 5px;
-    }
-}
-
-#homepage, #post, #blog, #contact, #mission, #hire_team, #documentation, #about {
+#homepage, #post, #blog, #contact, #hire_team, #documentation, #about {
     margin-top: 1em;
     margin-bottom: 6em;
 
@@ -340,22 +323,6 @@ h4 {
     font-size: .9em;
 }
 
-.text-grey {
-    color: #959da5;
-}
-
-.text-light-50 {
-    color: #efefef;
-}
-
-ol {
-    padding-left: 1em;
-
-    li {
-        margin-top: 1.2em;
-    }
-}
-
 // forms
 label.required:before {
     content: "* ";
@@ -375,11 +342,6 @@ label.required:before {
 // from the logo window - http://getrector.com/assets/images/logo/rector-white.svg
 .text-rector-green {
     color: #59a35e;
-}
-
-// full height background for removed and added lines
-.token.deleted, .token.added {
-    display: inline-block;
 }
 
 #references {
@@ -406,17 +368,6 @@ label.required:before {
     }
 }
 
-#share_buttons {
-    a {
-        color: #999;
-        margin-right: .8em;
-
-        &:hover {
-            color: #555;
-        }
-    }
-}
-
 .btn-primary {
     background: white;
     border-color: #3da6c0;
@@ -435,10 +386,10 @@ label.required:before {
 #rector_version {
     a {
         color: grey;
-        text-decoration: none !important;
+        text-decoration: underline !important;
 
         &:hover {
-            text-decoration: underline !important;;
+            text-decoration: none !important;;
         }
     }
 }

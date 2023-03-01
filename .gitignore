@@ -29,3 +29,5 @@ resources/json-database/*
 /.env
 
 /storage
+
+public/hot

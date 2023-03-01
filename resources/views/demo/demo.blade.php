@@ -2,7 +2,6 @@
 
 @php
     /** @var $rector_run \Rector\Website\Entity\RectorRun */
-    /** @var $rector_version_metadata \Rector\Website\Utils\RectorVersionMetadata */
 @endphp
 
 @section('main')
@@ -80,22 +79,22 @@
                         </div>
                         <div class="pt-0 pb-4 col-12 col-sm-6">
                             <p class="mb-2">Is the result wrong?</p>
-                                <a href="{{ issueLink($rector_run) }}" class="btn btn-danger">Create an issue</a>
+                            <a href="{{ issueLink($rector_run) }}" class="btn btn-danger">Create an issue</a>
 
-                                @if ($rector_run->canCreateFixture())
-                                    <a href="{{ prLink($rector_run) }}" class="btn btn-primary ms-3">Create a Test</a>
-                                @endif
+                            @if ($rector_run->canCreateFixture())
+                                <a href="{{ prLink($rector_run) }}" class="btn btn-primary ms-3">Create a Test</a>
+                            @endif
                         </div>
                     </div>
                 @endif
             @endif
 
             @error('rector_config')
-                <div class="alert alert-danger">
-                    @foreach ($errors->get('rector_config') as $error)
-                        {{ $error }}
-                    @endforeach
-                </div>
+            <div class="alert alert-danger">
+                @foreach ($errors->get('rector_config') as $error)
+                    {{ $error }}
+                @endforeach
+            </div>
             @enderror
 
             <div class="card mb-2">
@@ -116,10 +115,10 @@
                     </button>
                 </div>
 
-                <div class="col-6 text-end text-smaller text-grey" id="rector_version">
+                <div class="col-6 text-end text-secondary" id="rector_version">
                     Rector version:
-                    {{ $rector_version_metadata->getReleaseVersion() }}
-                    released at {{ $rector_version_metadata->getReleaseDate() }}
+                    <a href="https://github.com/rectorphp/rector-src/commit/{{ \Rector\Website\Utils\RectorMetadata::getReleaseVersion() }}">{{ \Rector\Website\Utils\RectorMetadata::getReleaseVersion() }}</a>
+                    - released at {{ \Rector\Website\Utils\RectorMetadata::getReleaseDate() }}
                 </div>
             </div>
 

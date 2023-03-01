@@ -94,7 +94,7 @@ Note: Do your data providers contain dynamic method calls? You'll need to refact
 ```diff
  public static function provideData()
  {
--    yield $this->loadDirectory(__DIR__ . '/Fixtures');
+-    $this->loadDirectory(__DIR__ . '/Fixtures');
 +    yield self::loadDirectory(__DIR__ . '/Fixtures');
  }
 ```

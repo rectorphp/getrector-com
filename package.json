@@ -10,6 +10,7 @@
         "caniuse-lite": "^1.0.30001419",
         "codemirror": "^5.0.1",
         "jquery": "^3.4.1",
+        "shiki": "^0.14.1",
         "tar": "^6.1.11"
     },
     "devDependencies": {

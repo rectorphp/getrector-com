@@ -14,9 +14,6 @@ return static function (Configuration $config): Configuration {
     // used for jajodb patching
     $config->addNamedFilter(NamedFilter::fromString('symplify/vendor-patches'));
 
-    // used in lot of code
-    $config->addNamedFilter(NamedFilter::fromString('symplify/package-builder'));
-
     // soon to be used in laravel project
     $config->addNamedFilter(NamedFilter::fromString('spatie/laravel-markdown'));
     $config->addNamedFilter(NamedFilter::fromString('tomasvotruba/punchcard'));

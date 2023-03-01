@@ -16,7 +16,7 @@
                     </a>
                 </h2>
 
-                <div class="mt-2 text-grey">
+                <div class="mt-2 text-secondary">
                     <time datetime="{{ $post->getDateTime()->format('Y-m-D') }}">
                         {{ $post->getDateTime()->format('Y-m-d') }}
                     </time>
