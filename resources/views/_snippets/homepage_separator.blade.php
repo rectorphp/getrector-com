@@ -7,7 +7,7 @@
     <em class="fas fa-home text-light"></em>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <em class="fas fa-home text-light-50"></em>
+    <em class="fas fa-home text-dark text-opacity-25"></em>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <em class="fas fa-home text-light"></em>
