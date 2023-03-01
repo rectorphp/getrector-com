@@ -1,8 +1,8 @@
-@extends('base')
-
 @php
     /** @var $post \Rector\Website\Entity\Post */
 @endphp
+
+@extends('base')
 
 @section('social_tags')
     <meta property="og:title" content="{{ $post->getClearTitle() }}"/>
@@ -21,7 +21,7 @@
     <meta name="twitter:description" content="{{ $post->getPerex() }}"/>
 @endsection
 
-    @section('main')
+@section('main')
     <div class="alert alert-info mt-3 mb-5" role="alert">
         Would you like to <strong>learn Rector in depth</strong>?
         The <strong>Rector - The Power of Automated Refactoring</strong> book is out now.
@@ -67,9 +67,10 @@
         </div>
 
         <div class="text-body">
-            {!! $post->getHtmlContent() !!}
+            <x-markdown>
+                {!! $post->getHtmlContent() !!}
+            </x-markdown>
         </div>
 
-        <br>
     </div>
 @endsection

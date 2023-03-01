@@ -118,9 +118,7 @@
 
                 <div class="col-6 text-end text-smaller text-grey" id="rector_version">
                     Rector version:
-                    <a href="https://github.com/rectorphp/rector/commit/{{ $rector_version_metadata->getCommitHash() }}">
-                        {{ $rector_version_metadata->getReleaseVersion() }}
-                    </a>
+                    {{ $rector_version_metadata->getReleaseVersion() }}
                     released at {{ $rector_version_metadata->getReleaseDate() }}
                 </div>
             </div>

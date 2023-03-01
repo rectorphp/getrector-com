@@ -18,7 +18,7 @@ final class Post
         private readonly string $slug,
         private readonly DateTimeInterface $dateTime,
         private readonly string $perex,
-        private readonly string $htmlContent,
+        private readonly string $contents,
         private readonly ?DateTimeInterface $updatedAt = null,
         private readonly ?string $updatedMessage = null,
         private readonly ?string $sinceRector = null
@@ -49,9 +49,9 @@ final class Post
         return $this->perex;
     }
 
-    public function getHtmlContent(): string
+    public function getContents(): string
     {
-        return $this->htmlContent;
+        return $this->contents;
     }
 
     public function getSlug(): string

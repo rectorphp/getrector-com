@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Rector\Website\Utils;
 
-use PackageVersions\Versions;
 use Rector\Core\Application\VersionResolver;
 
 /**
@@ -14,10 +13,7 @@ final class RectorVersionMetadata
 {
     public function getReleaseVersion(): string
     {
-        $rectorVersion = Versions::getVersion('rector/rector');
-        $extractAt = explode('@', $rectorVersion);
-
-        return $extractAt[0] . '@' . substr($extractAt[1], 0, 6);
+        return str(VersionResolver::PACKAGE_VERSION)->substr(0, 6)->value();
     }
 
     public function getReleaseDate(): string
