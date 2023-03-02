@@ -10,14 +10,4 @@ final class FlashType
      * @var string
      */
     public const ERROR = 'danger';
-
-    /**
-     * @var string
-     */
-    public const SUCCESS = 'success';
-
-    /**
-     * @var string
-     */
-    public const WARNING = 'warning';
 }
