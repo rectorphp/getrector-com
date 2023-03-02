@@ -39,7 +39,7 @@
 
             <ul>
                 <li>
-                    <a href="https://leanpub.com/rector-the-power-of-automated-refactoring">
+                    <a href="{{ route(\Rector\Website\Enum\RouteName::BOOK) }}">
                         Learn Rector in Depth from Book
                     </a>
                 </li>

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Rector\Website\Enum;
 
 /**
- * @api
+ * @api used in templates
  */
 final class Design
 {
