@@ -12,9 +12,6 @@ use Rector\Website\Utils\StringsConverter;
 use Rector\Website\ValueObject\AppliedRule;
 use Symfony\Component\Uid\Uuid;
 
-/**
- * @api used in templates
- */
 final class RectorRun implements JsonSerializable
 {
     /**

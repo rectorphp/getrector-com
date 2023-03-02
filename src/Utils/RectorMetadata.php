@@ -7,7 +7,7 @@ namespace Rector\Website\Utils;
 use Rector\Core\Application\VersionResolver;
 
 /**
- * @api used in twig templates
+ * @api used in templates
  */
 final class RectorMetadata
 {

@@ -32,7 +32,8 @@
         Would you like to <strong>learn Rector in depth</strong>?
 
         The <strong>Rector - The Power of Automated Refactoring</strong> book is out now.
-        <a href="https://leanpub.com/rector-the-power-of-automated-refactoring?utm_source=getrector_post_detail">Grab a copy!</a>
+
+        <a href="{{ route(\Rector\Website\Enum\RouteName::BOOK) }} ">Grab a copy!</a>
     </div>
 
     <div id="post">

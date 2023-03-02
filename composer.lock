@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "aee80656512c4fe8f7d0cdc2fd265ab3",
+    "content-hash": "ef3721e984ecf8cd6315570dc015ee5f",
     "packages": [
         {
             "name": "brick/math",
@@ -806,16 +806,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v10.1.5",
+            "version": "v10.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "57850ab537cf0554b5b616215079c761b98168c8"
+                "reference": "3799f7f3118d57dc5d3dfaabde69a912fff65a7e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/57850ab537cf0554b5b616215079c761b98168c8",
-                "reference": "57850ab537cf0554b5b616215079c761b98168c8",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/3799f7f3118d57dc5d3dfaabde69a912fff65a7e",
+                "reference": "3799f7f3118d57dc5d3dfaabde69a912fff65a7e",
                 "shasum": ""
             },
             "require": {
@@ -1002,7 +1002,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2023-02-24T09:57:13+00:00"
+            "time": "2023-03-02T14:55:50+00:00"
         },
         {
             "name": "laravel/serializable-closure",
@@ -2417,12 +2417,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "867e9441efb4eeb8b12ce66d51a332a7885849ad"
+                "reference": "8167a183dcb0bee3f26bb317ebf33bb5eeee535d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/867e9441efb4eeb8b12ce66d51a332a7885849ad",
-                "reference": "867e9441efb4eeb8b12ce66d51a332a7885849ad",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/8167a183dcb0bee3f26bb317ebf33bb5eeee535d",
+                "reference": "8167a183dcb0bee3f26bb317ebf33bb5eeee535d",
                 "shasum": ""
             },
             "require": {
@@ -2471,7 +2471,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-03-02T15:27:05+00:00"
+            "time": "2023-03-02T18:32:46+00:00"
         },
         {
             "name": "samsonasik/array-lookup",
@@ -6030,16 +6030,16 @@
         },
         {
             "name": "doctrine/dbal",
-            "version": "3.6.0",
+            "version": "3.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "85b98cb23c8af471a67abfe14485da696bcabc2e"
+                "reference": "57815c7bbcda3cd18871d253c1dd8cbe56f8526e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/85b98cb23c8af471a67abfe14485da696bcabc2e",
-                "reference": "85b98cb23c8af471a67abfe14485da696bcabc2e",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/57815c7bbcda3cd18871d253c1dd8cbe56f8526e",
+                "reference": "57815c7bbcda3cd18871d253c1dd8cbe56f8526e",
                 "shasum": ""
             },
             "require": {
@@ -6055,11 +6055,11 @@
                 "doctrine/coding-standard": "11.1.0",
                 "fig/log-test": "^1",
                 "jetbrains/phpstorm-stubs": "2022.3",
-                "phpstan/phpstan": "1.9.14",
-                "phpstan/phpstan-strict-rules": "^1.4",
-                "phpunit/phpunit": "9.6.3",
+                "phpstan/phpstan": "1.10.3",
+                "phpstan/phpstan-strict-rules": "^1.5",
+                "phpunit/phpunit": "9.6.4",
                 "psalm/plugin-phpunit": "0.18.4",
-                "squizlabs/php_codesniffer": "3.7.1",
+                "squizlabs/php_codesniffer": "3.7.2",
                 "symfony/cache": "^5.4|^6.0",
                 "symfony/console": "^4.4|^5.4|^6.0",
                 "vimeo/psalm": "4.30.0"
@@ -6122,7 +6122,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/dbal/issues",
-                "source": "https://github.com/doctrine/dbal/tree/3.6.0"
+                "source": "https://github.com/doctrine/dbal/tree/3.6.1"
             },
             "funding": [
                 {
@@ -6138,7 +6138,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-02-07T22:52:03+00:00"
+            "time": "2023-03-02T19:26:24+00:00"
         },
         {
             "name": "doctrine/deprecations",
@@ -9751,16 +9751,16 @@
         },
         {
             "name": "tomasvotruba/unused-public",
-            "version": "0.1.3",
+            "version": "0.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/TomasVotruba/unused-public.git",
-                "reference": "6fe7f2764689d90e245963c4326736206bb6d290"
+                "reference": "701fdc94a3b1f044045e4bd36efd251a87c69619"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TomasVotruba/unused-public/zipball/6fe7f2764689d90e245963c4326736206bb6d290",
-                "reference": "6fe7f2764689d90e245963c4326736206bb6d290",
+                "url": "https://api.github.com/repos/TomasVotruba/unused-public/zipball/701fdc94a3b1f044045e4bd36efd251a87c69619",
+                "reference": "701fdc94a3b1f044045e4bd36efd251a87c69619",
                 "shasum": ""
             },
             "require": {
@@ -9797,9 +9797,13 @@
                 "MIT"
             ],
             "description": "Detect unused public properties, constants and methods in your code",
+            "keywords": [
+                "phpstan-extension",
+                "static analysis"
+            ],
             "support": {
                 "issues": "https://github.com/TomasVotruba/unused-public/issues",
-                "source": "https://github.com/TomasVotruba/unused-public/tree/0.1.3"
+                "source": "https://github.com/TomasVotruba/unused-public/tree/0.1.7"
             },
             "funding": [
                 {
@@ -9811,7 +9815,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-02-27T17:21:02+00:00"
+            "time": "2023-03-02T19:44:06+00:00"
         },
         {
             "name": "webmozart/glob",
