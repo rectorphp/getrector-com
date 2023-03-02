@@ -7,9 +7,6 @@ namespace Rector\Website\Entity;
 use DateTimeInterface;
 use Rector\Website\Enum\RouteName;
 
-/**
- * @api used in templates
- */
 final class Post
 {
     public function __construct(
@@ -35,9 +32,6 @@ final class Post
         return $this->title;
     }
 
-    /**
-     * @api used in template
-     */
     public function getClearTitle(): string
     {
         $clearTitle = strip_tags($this->title);

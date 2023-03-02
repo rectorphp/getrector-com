@@ -21,7 +21,7 @@ parameters:
         methods: true
         properties: true
         constants: true
-        twig_template_paths:
+        template_paths:
             - resources/views
 
     cognitive_complexity:
