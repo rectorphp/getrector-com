@@ -81,7 +81,7 @@
             </a>
 
             <a href="{{ route(\Rector\Website\Enum\RouteName::CONTACT) }}" class="btn btn-success btn-lg ms-3">
-                Contact Us to Join Our Clients
+                Contact us to Join them
             </a>
         </div>
 
