@@ -6,11 +6,33 @@ perex: |
 
     In February, we added improvement for the first run. Now we **add a new command to set up Rector in your CI to work for you**.
 
-since_rector: 0.15.20
+since_rector: 0.15.21
 ---
 
 
-Today, when you run Rector for the very first time, it generates the `rector.php` config for you. It suggests directories and the first rule to kick off. Let's take this further.
+When you run Rector for the very first time, it generates the `rector.php` config for you. It suggests directories and the first rule to kick off. Let's take this further.
+
+## Little preview of what we'll talk about today
+
+1) Does your PHPStan fail?
+
+<img src="/assets/images/blog/2023/before_rector_fix.png" class="img-thumbnail">
+
+<br>
+<br>
+
+2) No worries, just let Rector fix it:
+
+<img src="/assets/images/blog/2023/rector_fix.png" class="img-thumbnail">
+
+<br>
+<br>
+
+3) And soon, your CI is passing and ready for merge ✅
+
+<img src="/assets/images/blog/2023/after_rector_fix.png" class="img-thumbnail">
+
+
 
 <br>
 
@@ -36,7 +58,7 @@ Now we turned it to single command that:
 
 ## How to use it?
 
-First, make sure you have the latest Rector `0.15.20`, and then run locally:
+First, make sure you have the latest Rector `0.15.21`, and then run locally:
 
 ```bash
 vendor/bin/rector setup-ci
@@ -57,9 +79,7 @@ vendor/bin/rector setup-ci
 <br>
 <br>
 
-Push a pull-request, make a mistake and see,  Rector now works for you!
-
-@todo screen from this post
+Push a pull-request, make a mistake and see how Rector handles boring work for you.
 
 <br>
 

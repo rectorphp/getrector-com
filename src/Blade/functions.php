@@ -6,7 +6,7 @@ use Rector\Website\Entity\RectorRun;
 use Rector\Website\GitHubMagicLink\LinkFactory\FixtureLinkFactory;
 use Rector\Website\GitHubMagicLink\LinkFactory\IssueLinkFactory;
 
-function prLink(RectorRun $rectorRun)
+function prLink(RectorRun $rectorRun): string
 {
     /** @var FixtureLinkFactory $fixtureLinkFactory */
     $fixtureLinkFactory = app()
