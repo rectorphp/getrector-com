@@ -11,32 +11,44 @@ use Rector\Website\Tests\AbstractTestCase;
 
 final class DemoControllerTest extends AbstractTestCase
 {
+    /**
+     * @param array<string, string[]> $invalidKeysWithMessages
+     */
     #[DataProvider('provideTestFormSubmitData')]
-    public function testFormSubmit(string $contentData, string $configData): void
+    public function testFormSubmit(string $contentData, string $configData, array $invalidKeysWithMessages): void
     {
-        // @todo ask patricio how to handle this
-        $testResponse = $this->post('process-demo', [
+        $postUrl = route(RouteName::PROCESS_DEMO_FORM);
+
+        $submittedFormResponse = $this->post($postUrl, [
             'php_contents' => $contentData,
             'rector_config' => $configData,
         ]);
 
-        $this->assertFalse($testResponse->isSuccessful());
+        $this->assertTrue($submittedFormResponse->isRedirect());
 
-        //$this->assertRouteSame(RouteName::DEMO);
-        //
-        //// form should contain errors
-        //$this->assertSelectorExists('.invalid-feedback');
+        if ($invalidKeysWithMessages !== []) {
+            $this->assertFalse($submittedFormResponse->isSuccessful());
+
+            // assert what inputs are invalid => error message
+            $submittedFormResponse->assertInvalid($invalidKeysWithMessages);
+        }
     }
 
     public static function provideTestFormSubmitData(): Iterator
     {
-        # Send empty form
-        yield ['', ''];
+        // Send empty form
+        yield ['', '', [
+            'php_contents' => 'The php contents field is required.',
+            'rector_config' => 'The rector config field is required.',
+        ]];
 
-        # Invalid PHP syntax
-        yield ['failed', 'services:'];
+        // Invalid PHP syntax
+        yield ['failed', 'services:', [
+            'php_contents' => 'Provide a valid PHP code',
+            'rector_config' => 'Provide a valid PHP code',
+        ]];
 
-        # Invalid Yaml syntax
-        yield ['<?php', "- 'A'\n - 'B'"];
+        // valid PHP syntaxes
+        yield ['<?php', '<?php', []];
     }
 }
