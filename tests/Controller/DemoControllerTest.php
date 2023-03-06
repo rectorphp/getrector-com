@@ -22,6 +22,10 @@ final class DemoControllerTest extends AbstractTestCase
 
         $this->assertFalse($testResponse->isSuccessful());
 
+        $testResponse->assertRedirectToSignedRoute(RouteName::DEMO);
+            //->assertSee('<p class="alert alert-');
+
+
         //$this->assertRouteSame(RouteName::DEMO);
         //
         //// form should contain errors
