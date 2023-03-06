@@ -42,9 +42,25 @@ First, make sure you have the latest Rector `0.15.20`, and then run locally:
 vendor/bin/rector setup-ci
 ```
 
-* you generate the token
-* fill it in the right place
+<img src="/assets/images/blog/2023/rector_setup_ci_part_01.gif" class="img-thumbnail">
 
-Rector now works for you!
 
-@todo screen
+## Follow instructions
+
+* 1) generate the token
+* 2) fill it in the right place
+
+<br>
+
+<img src="/assets/images/blog/2023/rector_setup_ci_part_02.gif" class="img-thumbnail">
+
+<br>
+<br>
+
+Push a pull-request, make a mistake and see,  Rector now works for you!
+
+@todo screen from this post
+
+<br>
+
+Happy coding!

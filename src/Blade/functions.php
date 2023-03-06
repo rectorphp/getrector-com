@@ -6,10 +6,8 @@ use Rector\Website\Entity\RectorRun;
 use Rector\Website\GitHubMagicLink\LinkFactory\FixtureLinkFactory;
 use Rector\Website\GitHubMagicLink\LinkFactory\IssueLinkFactory;
 
-function prLink(RectorRun $rectorRun): string
+function prLink(RectorRun $rectorRun)
 {
-    $value = 100;
-
     /** @var FixtureLinkFactory $fixtureLinkFactory */
     $fixtureLinkFactory = app()
         ->make(FixtureLinkFactory::class);
