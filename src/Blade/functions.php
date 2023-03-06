@@ -8,6 +8,8 @@ use Rector\Website\GitHubMagicLink\LinkFactory\IssueLinkFactory;
 
 function prLink(RectorRun $rectorRun): string
 {
+    $value = 100;
+
     /** @var FixtureLinkFactory $fixtureLinkFactory */
     $fixtureLinkFactory = app()
         ->make(FixtureLinkFactory::class);
