@@ -51,7 +51,7 @@
             </div>
         @endif
 
-        @if ($post->isUpdated())
+        @if ($post->getUpdatedAt() instanceof DateTimeInterface)
             <div class="card border-success card-bigger mt-5">
                 <div class="card-header text-white bg-success">
                     <strong>{{ $post->getUpdatedAt()->format("F Y") }} Update</strong>

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ef3721e984ecf8cd6315570dc015ee5f",
+    "content-hash": "c6fdad20055de8c633459f4646c5d85a",
     "packages": [
         {
             "name": "brick/math",
@@ -806,16 +806,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v10.2.0",
+            "version": "v10.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "3799f7f3118d57dc5d3dfaabde69a912fff65a7e"
+                "reference": "46ecbcaf621384c74b870de42c239dbbe89fd339"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/3799f7f3118d57dc5d3dfaabde69a912fff65a7e",
-                "reference": "3799f7f3118d57dc5d3dfaabde69a912fff65a7e",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/46ecbcaf621384c74b870de42c239dbbe89fd339",
+                "reference": "46ecbcaf621384c74b870de42c239dbbe89fd339",
                 "shasum": ""
             },
             "require": {
@@ -1002,7 +1002,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2023-03-02T14:55:50+00:00"
+            "time": "2023-03-07T15:08:22+00:00"
         },
         {
             "name": "laravel/serializable-closure",
@@ -5162,6 +5162,70 @@
                 "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/2.2.6"
             },
             "time": "2023-01-03T09:29:04+00:00"
+        },
+        {
+            "name": "tomasvotruba/bladestan",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/TomasVotruba/bladestan.git",
+                "reference": "6996e77b32029e6082647a1afaebb695522b8c14"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/TomasVotruba/bladestan/zipball/6996e77b32029e6082647a1afaebb695522b8c14",
+                "reference": "6996e77b32029e6082647a1afaebb695522b8c14",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^8.8 || ^9.0 || ^10.0",
+                "illuminate/filesystem": "^8.8 || ^9.0 || ^10.0",
+                "illuminate/view": "^8.8 || ^9.0 || ^10.0",
+                "php": "^8.1",
+                "phpstan/phpstan": "^1.10"
+            },
+            "require-dev": {
+                "laravel/framework": "^10.2",
+                "phpunit/phpunit": "^10.0",
+                "rector/rector": "^0.15.20",
+                "symplify/easy-ci": "^11.2",
+                "symplify/easy-coding-standard": "^11.2",
+                "tracy/tracy": "^2.9"
+            },
+            "default-branch": true,
+            "type": "phpstan-extension",
+            "extra": {
+                "phpstan": {
+                    "includes": [
+                        "config/extension.neon"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "TomasVotruba\\Bladestan\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "PHPStan rule for static analysis of Blade templates",
+            "support": {
+                "issues": "https://github.com/TomasVotruba/bladestan/issues",
+                "source": "https://github.com/TomasVotruba/bladestan/tree/main"
+            },
+            "funding": [
+                {
+                    "url": "https://www.paypal.me/rectorphp",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/tomasvotruba",
+                    "type": "github"
+                }
+            ],
+            "time": "2023-03-08T00:50:38+00:00"
         },
         {
             "name": "tomasvotruba/punchcard",
@@ -9871,7 +9935,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "rector/rector": 20
+        "rector/rector": 20,
+        "tomasvotruba/bladestan": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

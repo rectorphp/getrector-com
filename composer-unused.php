@@ -17,6 +17,7 @@ return static function (Configuration $config): Configuration {
     // soon to be used in laravel project
     $config->addNamedFilter(NamedFilter::fromString('spatie/laravel-markdown'));
     $config->addNamedFilter(NamedFilter::fromString('tomasvotruba/punchcard'));
+    $config->addNamedFilter(NamedFilter::fromString('tomasvotruba/bladestan'));
 
     return $config;
 };
