@@ -13,8 +13,8 @@ final class ControllerSmokeTest extends AbstractTestCase
     #[DataProvider('provideData')]
     public function test(string $url, int $expectedStatusCode): void
     {
-        $response = $this->get($url);
-        $response->assertStatus($expectedStatusCode);
+        $testResponse = $this->get($url);
+        $testResponse->assertStatus($expectedStatusCode);
     }
 
     public static function provideData(): Iterator
