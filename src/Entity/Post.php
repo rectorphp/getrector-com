@@ -58,11 +58,6 @@ final class Post
         return $this->dateTime;
     }
 
-    public function isUpdated(): bool
-    {
-        return $this->updatedAt !== null;
-    }
-
     public function getUpdatedAt(): ?DateTimeInterface
     {
         return $this->updatedAt;
