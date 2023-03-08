@@ -806,16 +806,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v10.3.0",
+            "version": "v10.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "46ecbcaf621384c74b870de42c239dbbe89fd339"
+                "reference": "57cc50d762360edac1c68e37435b193ff2135a36"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/46ecbcaf621384c74b870de42c239dbbe89fd339",
-                "reference": "46ecbcaf621384c74b870de42c239dbbe89fd339",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/57cc50d762360edac1c68e37435b193ff2135a36",
+                "reference": "57cc50d762360edac1c68e37435b193ff2135a36",
                 "shasum": ""
             },
             "require": {
@@ -1002,7 +1002,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2023-03-07T15:08:22+00:00"
+            "time": "2023-03-08T02:43:56+00:00"
         },
         {
             "name": "laravel/serializable-closure",
@@ -2417,12 +2417,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "c086693921a7c8b105970b0a16622b49e5057a07"
+                "reference": "e6981ca53ca3e1b5f9d425794dbc68e70b14833b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/c086693921a7c8b105970b0a16622b49e5057a07",
-                "reference": "c086693921a7c8b105970b0a16622b49e5057a07",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/e6981ca53ca3e1b5f9d425794dbc68e70b14833b",
+                "reference": "e6981ca53ca3e1b5f9d425794dbc68e70b14833b",
                 "shasum": ""
             },
             "require": {
@@ -2471,7 +2471,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-03-07T13:36:57+00:00"
+            "time": "2023-03-08T07:33:37+00:00"
         },
         {
             "name": "samsonasik/array-lookup",
@@ -5169,12 +5169,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/TomasVotruba/bladestan.git",
-                "reference": "6996e77b32029e6082647a1afaebb695522b8c14"
+                "reference": "3cb58b5a1468f7a0b8701659f0436a0b048c19c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TomasVotruba/bladestan/zipball/6996e77b32029e6082647a1afaebb695522b8c14",
-                "reference": "6996e77b32029e6082647a1afaebb695522b8c14",
+                "url": "https://api.github.com/repos/TomasVotruba/bladestan/zipball/3cb58b5a1468f7a0b8701659f0436a0b048c19c4",
+                "reference": "3cb58b5a1468f7a0b8701659f0436a0b048c19c4",
                 "shasum": ""
             },
             "require": {
@@ -5225,7 +5225,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-03-08T00:50:38+00:00"
+            "time": "2023-03-08T08:09:07+00:00"
         },
         {
             "name": "tomasvotruba/punchcard",
