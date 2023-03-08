@@ -19,18 +19,18 @@ final class DemoControllerTest extends AbstractTestCase
     {
         $postUrl = route(RouteName::PROCESS_DEMO_FORM);
 
-        $submittedFormResponse = $this->post($postUrl, [
+        $testResponse = $this->post($postUrl, [
             'php_contents' => $contentData,
             'rector_config' => $configData,
         ]);
 
-        $this->assertTrue($submittedFormResponse->isRedirect());
+        $this->assertTrue($testResponse->isRedirect());
 
         if ($invalidKeysWithMessages !== []) {
-            $this->assertFalse($submittedFormResponse->isSuccessful());
+            $this->assertFalse($testResponse->isSuccessful());
 
             // assert what inputs are invalid => error message
-            $submittedFormResponse->assertInvalid($invalidKeysWithMessages);
+            $testResponse->assertInvalid($invalidKeysWithMessages);
         }
     }
 
