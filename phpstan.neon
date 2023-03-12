@@ -12,15 +12,9 @@ parameters:
         - */Expected/*
 
     type_coverage:
-        return_type: 99
-        param_type: 99
-        property_type: 99
         print_suggestions: true
 
     unused_public:
-        methods: true
-        properties: true
-        constants: true
         template_paths:
             - resources/views
 
