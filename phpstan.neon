@@ -18,10 +18,6 @@ parameters:
         template_paths:
             - resources/views
 
-    cognitive_complexity:
-        class: 50
-        function: 8
-
     level: 8
 
     reportUnmatchedIgnoredErrors: false
