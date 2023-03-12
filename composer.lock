@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "da8d3de4999d6128ab0124f97f5072c2",
+    "content-hash": "b028d37e735034f3b8e81c0c9494707b",
     "packages": [
         {
             "name": "brick/math",
@@ -9772,16 +9772,16 @@
         },
         {
             "name": "tomasvotruba/type-coverage",
-            "version": "0.0.10",
+            "version": "0.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/TomasVotruba/type-coverage.git",
-                "reference": "536fe95aa6f4fd35929864649aeb3d60d5add6e4"
+                "reference": "730325dee3c9527429d2060d8a61aceb13d91ce5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TomasVotruba/type-coverage/zipball/536fe95aa6f4fd35929864649aeb3d60d5add6e4",
-                "reference": "536fe95aa6f4fd35929864649aeb3d60d5add6e4",
+                "url": "https://api.github.com/repos/TomasVotruba/type-coverage/zipball/730325dee3c9527429d2060d8a61aceb13d91ce5",
+                "reference": "730325dee3c9527429d2060d8a61aceb13d91ce5",
                 "shasum": ""
             },
             "require": {
@@ -9815,9 +9815,13 @@
                 "MIT"
             ],
             "description": "Measure type coverage of your project",
+            "keywords": [
+                "phpstan-extension",
+                "static analysis"
+            ],
             "support": {
                 "issues": "https://github.com/TomasVotruba/type-coverage/issues",
-                "source": "https://github.com/TomasVotruba/type-coverage/tree/0.0.10"
+                "source": "https://github.com/TomasVotruba/type-coverage/tree/0.1.0"
             },
             "funding": [
                 {
@@ -9829,7 +9833,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-02-27T10:24:09+00:00"
+            "time": "2023-03-12T01:42:07+00:00"
         },
         {
             "name": "tomasvotruba/unused-public",
