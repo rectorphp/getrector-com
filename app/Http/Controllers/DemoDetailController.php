@@ -23,7 +23,7 @@ final class DemoDetailController extends Controller
     public function __invoke(string $uuid): View|RedirectResponse
     {
         if (! Uuid::isValid($uuid)) {
-            return to_route(RouteName::DEMO);
+            return to_action(DemoController::class);
         }
 
         $rectorRun = $this->rectorRunRepository->get(Uuid::fromString($uuid));
@@ -33,7 +33,7 @@ final class DemoDetailController extends Controller
             session()
                 ->flash(FlashType::ERROR, $errorMessage);
 
-            return to_route(RouteName::DEMO);
+            return to_action(DemoController::class);
         }
 
         return \view('demo/demo', [

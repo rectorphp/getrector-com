@@ -9,7 +9,6 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Controller;
 use Rector\Website\DemoRunner;
 use Rector\Website\Entity\RectorRun;
-use Rector\Website\Enum\RouteName;
 use Rector\Website\Repository\RectorRunRepository;
 use Symfony\Component\Uid\Uuid;
 
@@ -28,7 +27,7 @@ final class ProcessDemoFormController extends Controller
         $this->demoRunner->processRectorRun($rectorRun);
         $this->rectorRunRepository->save($rectorRun);
 
-        return to_route(RouteName::DEMO_DETAIL, [
+        return to_action(DemoDetailController::class, [
             'uuid' => $rectorRun->getUuid(),
         ]);
     }
