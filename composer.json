@@ -41,6 +41,7 @@
             "Rector\\Website\\": "src"
         },
         "files": [
+            "src/functions/functions.php",
             "src/Blade/functions.php"
         ]
     },
