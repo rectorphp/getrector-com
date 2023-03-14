@@ -3,8 +3,8 @@
 @endphp
 
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>{{ route(\Rector\Website\Enum\RouteName::RSS) }}</id>
-    <link href="{{ route(\Rector\Website\Enum\RouteName::RSS) }}"/>
+    <id>{{ action(\App\Http\Controllers\RssController::class) }}</id>
+    <link href="{{ action(\App\Http\Controllers\RssController::class) }}"/>
     <title>
         <![CDATA[ Rector Blog ]]>
     </title>

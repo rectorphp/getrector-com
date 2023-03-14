@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Rector\Website\Entity;
 
+use App\Http\Controllers\PostController;
 use DateTimeInterface;
-use Rector\Website\Enum\RouteName;
 
 final class Post
 {
@@ -75,7 +75,7 @@ final class Post
 
     public function getAbsoluteUrl(): string
     {
-        return route(RouteName::POST, [
+        return action(PostController::class, [
             'postSlug' => $this->slug,
         ]);
     }

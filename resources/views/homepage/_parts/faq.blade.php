@@ -17,7 +17,7 @@
     <div class="col-12 col-md-6 mb-4">
          <h3>We're in a hurry. How fast can you start upgrade of our project?</h3>
          <p>
-             First, we do an <a href="{{ route(\Rector\Website\Enum\RouteName::HIRE_TEAM) }}">intro analysis</a> of your project that takes 3 weeks. After that, we can jump right into the upgrade work itself.
+             First, we do an <a href="{{ action(\App\Http\Controllers\ForCompaniesController::class) }}">intro analysis</a> of your project that takes 3 weeks. After that, we can jump right into the upgrade work itself.
          </p>
 
     </div>
