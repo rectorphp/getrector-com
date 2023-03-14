@@ -10,19 +10,19 @@
     <meta property="og:type" content="article"/>
     <meta
         property="og:image"
-        content="{{ route(\Rector\Website\Enum\RouteName::POST_IMAGE, ['title' => $post->getClearTitle()]) }}"
+        content="{{ action(\App\Http\Controllers\ThumbnailController::class, ['title' => $post->getClearTitle()]) }}"
     />
 
     <meta
         property="og:url"
-        content="{{ route(\Rector\Website\Enum\RouteName::POST, ['postSlug' => $post->getSlug()]) }}"
+        content="{{ action(\App\Http\Controllers\PostController::class, ['postSlug' => $post->getSlug()]) }}"
     />
 
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:title" content="{{ $post->getClearTitle() }}"/>
     <meta
         name="twitter:image"
-        content="{{ route(\Rector\Website\Enum\RouteName::POST_IMAGE, ['title' => $post->getClearTitle()]) }}"
+        content="{{ action(\App\Http\Controllers\ThumbnailController::class, ['title' => $post->getClearTitle()]) }}"
     />
     <meta name="twitter:description" content="{{ $post->getPerex() }}"/>
 @endsection
@@ -33,7 +33,7 @@
 
         The <strong>Rector - The Power of Automated Refactoring</strong> book is out now.
 
-        <a href="{{ route(\Rector\Website\Enum\RouteName::BOOK) }} ">Grab a copy!</a>
+        <a href="{{ action(\App\Http\Controllers\BookController::class) }} ">Grab a copy!</a>
     </div>
 
     <div id="post">

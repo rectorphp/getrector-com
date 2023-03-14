@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Rector\Website\Tests\Controller;
 
+use App\Http\Controllers\ProcessDemoFormController;
 use Iterator;
 use PHPUnit\Framework\Attributes\DataProvider;
-use Rector\Website\Enum\RouteName;
 use Rector\Website\Tests\AbstractTestCase;
 
 final class DemoControllerTest extends AbstractTestCase
@@ -17,7 +17,7 @@ final class DemoControllerTest extends AbstractTestCase
     #[DataProvider('provideTestFormSubmitData')]
     public function testFormSubmit(string $contentData, string $configData, array $invalidKeysWithMessages): void
     {
-        $postUrl = route(RouteName::PROCESS_DEMO_FORM);
+        $postUrl = action(ProcessDemoFormController::class);
 
         $testResponse = $this->post($postUrl, [
             'php_contents' => $contentData,

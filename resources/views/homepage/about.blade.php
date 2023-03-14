@@ -10,7 +10,7 @@
             </p>
 
             <p>
-                You can learn about it from the <a href="{{ route(\Rector\Website\Enum\RouteName::DOCUMENTATION) }}">documentation</a> or
+                You can learn about it from the <a href="{{ action(\App\Http\Controllers\DocumentationController::class) }}">documentation</a> or
                 from our book <a href="https://leanpub.com/rector-the-power-of-automated-refactoring">Rector - The Power of Automated Refactoring</a>.
             </p>
         </div>
@@ -21,7 +21,7 @@
             </p>
 
             <p>
-                You can <a href="{{ route(\Rector\Website\Enum\RouteName::HIRE_TEAM) }}">hire our team</a> to get this expertise integrated into your team instantly.
+                You can <a href="{{ action(\App\Http\Controllers\ForCompaniesController::class) }}">hire our team</a> to get this expertise integrated into your team instantly.
             </p>
         </div>
 

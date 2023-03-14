@@ -9,7 +9,7 @@
         @foreach ($posts as $post)
             <div class="mb-5">
                 <h2>
-                    <a href="{{ route(\Rector\Website\Enum\RouteName::POST, [
+                    <a href="{{ action(\App\Http\Controllers\PostController::class, [
                         'postSlug' => $post->getSlug(),
                     ]) }}">
                         {{ $post->getTitle() }}

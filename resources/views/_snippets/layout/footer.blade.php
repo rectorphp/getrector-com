@@ -18,7 +18,7 @@
                     <em class="fab fa-linkedin fa-fw fa-lg"></em>
                 </a>
 
-                <a href="{{ route(\Rector\Website\Enum\RouteName::RSS) }}" class="p-2">
+                <a href="{{ action(\App\Http\Controllers\RssController::class) }}" class="p-2">
                     <em class="fas fa-rss fa-fw fa-lg"></em>
                 </a>
             </div>

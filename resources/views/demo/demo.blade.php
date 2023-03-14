@@ -6,7 +6,7 @@
 
 @section('main')
     <div id="rector_run_form" class="mt-4 mb-3">
-        <form action="{{ route(\Rector\Website\Enum\RouteName::PROCESS_DEMO_FORM) }}" method="post">
+        <form action="{{ action(\App\Http\Controllers\ProcessDemoFormController::class) }}" method="post">
 
             @if ($rector_run->hasRun() && $rector_run->isSuccessful() !== true)
                 <div class="alert alert-danger mb-3">
