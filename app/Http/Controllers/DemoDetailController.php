@@ -11,6 +11,7 @@ use Rector\Website\Entity\RectorRun;
 use Rector\Website\Enum\FlashType;
 use Rector\Website\Repository\RectorRunRepository;
 use Symfony\Component\Uid\Uuid;
+use function TomasVotruba\Lavarle\to_action;
 
 final class DemoDetailController extends Controller
 {

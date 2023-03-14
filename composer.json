@@ -15,6 +15,7 @@
         "symfony/yaml": "^6.2",
         "symplify/vendor-patches": "^11.2",
         "tomasvotruba/bladestan": "dev-main",
+        "tomasvotruba/lavarle": "*",
         "tomasvotruba/punchcard": "^0.0.3"
     },
     "require-dev": {
@@ -41,7 +42,6 @@
             "Rector\\Website\\": "src"
         },
         "files": [
-            "src/functions/functions.php",
             "src/Blade/functions.php"
         ]
     },
