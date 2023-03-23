@@ -85,7 +85,7 @@ In the `CodeIgniter 4` project, it already show twice faster:
 
 Above:
 
-✔️ We know that we search specific `Node`, which is `Assign` node
+✔️ We know that we search specific `Node`, which is `Assign` node with local property
 ✔️ No need to traverse deep when we found anonymous class ( `new class` ) and inner function inside `ClassMethod`
 
 2) Replacing lookup all nodes to only found first node, like this PR:
