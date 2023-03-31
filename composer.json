@@ -78,7 +78,8 @@
         "sort-packages": true,
         "allow-plugins": {
             "phpstan/extension-installer": true,
-            "cweagans/composer-patches": true
+            "cweagans/composer-patches": true,
+            "pestphp/pest-plugin": true
         }
     },
     "extra": {

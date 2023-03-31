@@ -80,7 +80,7 @@ final class FixtureLinkFactory
     ): string {
         return self::BASE_URL . '/'
             . $expectedRectorTestPath
-            . '?filename=Fixture/' . $rectorRun->getFixtureFileName()
+            . '?filename=' . $rectorRun->getFixtureFileName()
             . '&value=' . urlencode($content)
             . '&message=' . urlencode($message)
             . '&description=' . urlencode($description);
