@@ -86,9 +86,6 @@
         "patches": {
             "spatie/commonmark-shiki-highlighter": [
                 "patches/spatie-commonmark-shiki-highlighter-src-shikihighlighter-php.patch"
-            ],
-            "jajo/jsondb": [
-                "patches/jajo-jsondb-src-jsondb-php.patch"
             ]
         }
     }
