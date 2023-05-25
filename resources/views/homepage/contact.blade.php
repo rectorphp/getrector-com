@@ -65,17 +65,31 @@
 
         <h2>Company Details</h2>
 
-        <h3>Edukai, s.r.o.</h3>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <h3>Edukai, s.r.o.</h3>
 
-        <p>
-            Dubova 4<br>
-            460 01, Liberec
-            Czech Republic
-        </p>
+                <p>
+                    Dubova 4<br>
+                    460 01, Liberec
+                    Czech Republic
+                </p>
 
-        <p>
-            ID: 07536721<br>
-            VAT ID: CZ07536721
-        </p>
+                <p>
+                    ID: 07536721<br>
+                    VAT ID: CZ07536721
+                </p>
+            </div>
+            <div class="col-12 col-md-6">
+                <h3>Bank Details</h3>
+
+                <p>Account: 2201520677/2010</p>
+                <p>
+                    IBAN: CZ51 2010 0000 0022 0152 0677
+                    <br>
+                    BIC/SWIFT: FIOBCZPPXXX
+                </p>
+            </div>
+        </div>
     </div>
 @endsection

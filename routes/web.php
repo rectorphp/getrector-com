@@ -13,6 +13,7 @@ use App\Http\Controllers\ForCompaniesController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProcessDemoFormController;
+use App\Http\Controllers\ProjectTimelineController;
 use App\Http\Controllers\RssController;
 use App\Http\Controllers\ThumbnailController;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +27,7 @@ Route::get('blog', BlogController::class);
 Route::get('book', BookController::class);
 Route::get('contact', ContactController::class);
 Route::get('hire-team', ForCompaniesController::class);
+Route::get('project-timeline', ProjectTimelineController::class);
 
 Route::get('blog/{postSlug}', PostController::class);
 
