@@ -15,8 +15,7 @@
         "symfony/yaml": "^6.2",
         "symplify/vendor-patches": "^11.2",
         "tomasvotruba/bladestan": "dev-main",
-        "tomasvotruba/lavarle": "^0.1.2",
-        "tomasvotruba/punchcard": "^0.0.3"
+        "tomasvotruba/punchcard": "^0.1"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.8",
