@@ -26,10 +26,6 @@ parameters:
         # in glob() we trust
         - '#Method Rector\\Website\\Repository\\PostRepository\:\:findPostsFilePaths\(\) should return array<string> but returns array<int, string\|false>#'
 
-        -
-            message: '#Anonymous function should return string but returns string\|false#'
-            path: utils/Laravelize/FileSystem/TwigFileFinder.php
-
         # invalid doc type
         - '#Parameter \#2 \$font of method Imagine\\Draw\\DrawerInterface\:\:text\(\) expects Imagine\\Image\\AbstractFont, Imagine\\Image\\FontInterface given#'
 
