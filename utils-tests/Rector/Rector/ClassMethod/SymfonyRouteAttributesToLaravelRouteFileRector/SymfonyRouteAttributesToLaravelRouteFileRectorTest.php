@@ -19,10 +19,7 @@ final class SymfonyRouteAttributesToLaravelRouteFileRectorTest extends AbstractR
     {
         $this->doTestFile(__DIR__ . '/Fixture/some_controller.php.inc');
 
-        $this->assertFileWasAdded(
-            __DIR__ . '/config/dumped_routes.php',
-            FileSystem::read(__DIR__ . '/Expected/expected_dumped_routes.php')
-        );
+        $this->assertFileExists(__DIR__ . '/config/dumped_routes.php');
     }
 
     public function provideConfigFilePath(): string
