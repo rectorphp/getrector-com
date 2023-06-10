@@ -11,7 +11,6 @@ use PhpParser\Node\Identifier;
 use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\ClassMethod;
 use PhpParser\Node\Stmt\Expression;
-use Rector\Core\Application\FileSystem\RemovedAndAddedFilesCollector;
 use Rector\Core\Contract\Rector\ConfigurableRectorInterface;
 use Rector\Core\Exception\ShouldNotHappenException;
 use Rector\Core\PhpParser\Printer\BetterStandardPrinter;
@@ -37,7 +36,6 @@ final class SymfonyRouteAttributesToLaravelRouteFileRector extends AbstractRecto
 
     public function __construct(
         private readonly BetterStandardPrinter $betterStandardPrinter,
-        private readonly RemovedAndAddedFilesCollector $removedAndAddedFilesCollector,
         private readonly RouteGetCallFactory $routeGetCallFactory,
     ) {
     }
@@ -176,9 +174,5 @@ final class SymfonyRouteAttributesToLaravelRouteFileRector extends AbstractRecto
 
         // skip adding real file in tests
         file_put_contents($this->routesFilePath, $printedRouteGet . PHP_EOL, FILE_APPEND);
-
-        // for tests B-)
-        $addedFileWithContent = new AddedFileWithContent($this->routesFilePath, $printedRouteGet);
-        $this->removedAndAddedFilesCollector->addAddedFile($addedFileWithContent);
     }
 }
