@@ -18,6 +18,12 @@ vendor/bin/rector
 Rector works with `rector.php` config file. You can create it manually, or Rector handle it for you:
 
 ```bash
+vendor/bin/rector
+```
+
+For version 0.17.0 and lower specify the the init parameter.
+
+```bash
 vendor/bin/rector init
 ```
 
