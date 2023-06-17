@@ -2615,12 +2615,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "b34c14e84bbb2ed30b88b5c61b7a56c7d9c2f0c4"
+                "reference": "d3f1b27d378e10f198a41879efc6a175da6f0ed3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/b34c14e84bbb2ed30b88b5c61b7a56c7d9c2f0c4",
-                "reference": "b34c14e84bbb2ed30b88b5c61b7a56c7d9c2f0c4",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/d3f1b27d378e10f198a41879efc6a175da6f0ed3",
+                "reference": "d3f1b27d378e10f198a41879efc6a175da6f0ed3",
                 "shasum": ""
             },
             "require": {
@@ -2669,7 +2669,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-06-17T10:52:16+00:00"
+            "time": "2023-06-17T18:02:56+00:00"
         },
         {
             "name": "samsonasik/array-lookup",
