@@ -310,7 +310,7 @@ Update `shivammathur/setup-php@v2` in your workflows:
      unit_tests:
          runs-on: ubuntu-latest
          steps:
-             -   uses: actions/checkout@v2
+             -   uses: actions/checkout@v3
              -   uses: shivammathur/setup-php@v2
                  with:
 +                    php-version: 7.4
