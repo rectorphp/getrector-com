@@ -28,7 +28,7 @@ final class FixtureLinkFactory
     /**
      * @var string[]
      */
-    private const RECTOR_PACKAGE_NAMES = ['Symfony', 'PHPUnit', 'Doctrine', 'CakePHP', 'PHPOffice', 'Laravel'];
+    private const RECTOR_PACKAGE_NAMES = ['Symfony', 'PHPUnit', 'Doctrine'];
 
     /**
      * @var string
