@@ -28,7 +28,7 @@ final class FixtureLinkFactory
     /**
      * @var string[]
      */
-    private const RECTOR_PACKAGE_NAMES = ['Symfony', 'PHPUnit', 'Doctrine', 'CakePHP', 'PHPOffice', 'Laravel'];
+    private const RECTOR_PACKAGE_NAMES = ['Symfony', 'PHPUnit', 'Doctrine'];
 
     /**
      * @var string
@@ -65,9 +65,34 @@ final class FixtureLinkFactory
             return $link;
         }
 
-        $package = strtolower($match['Package']);
-        $link = str_replace('rules-tests/' . $match['Package'] . '/Rector', 'tests/Rector', $link);
+        $expectedNamespace = $rectorRun->getExpectedRectorTestNamespace();
+        $slashedexpectedNamespace = str_replace('\\', '/', $expectedNamespace);
+        $slashedexpectedNamespace = str_replace(
+            'Rector/Tests/' . $match['Package'] . '/',
+            '',
+            $slashedexpectedNamespace
+        );
+        $slashedexpectedNamespace = Strings::before($slashedexpectedNamespace, '/', 1);
 
+        $package = strtolower($match['Package']);
+        if (is_dir(
+            __DIR__ . '/../../../vendor/rector/rector/vendor/rector/rector-' . $package . '/rules/' . $slashedexpectedNamespace
+        )) {
+            $link = str_replace(
+                'rules-tests/' . $match['Package'] . '/Rector',
+                'rules-tests/' . $slashedexpectedNamespace,
+                $link
+            );
+            $link = str_replace(
+                '/Fixture?filename',
+                '/' . $rectorRun->getRectorShortClass() . '/Fixture?filename',
+                $link
+            );
+
+            return str_replace('rector-src', 'rector-' . $package, $link);
+        }
+
+        $link = str_replace('rules-tests/' . $match['Package'] . '/Rector', 'tests/Rector', $link);
         return str_replace('rector-src', 'rector-' . $package, $link);
     }
 

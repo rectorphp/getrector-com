@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Rector\Website\Tests\Helpers;
 
 use Nette\Utils\FileSystem;
-use Rector\Symfony\Rector\New_\StringToArrayArgumentProcessRector;
 use Rector\Website\Entity\RectorRun;
 use Symfony\Component\Uid\Uuid;
+use Rector\Symfony\Symfony42\Rector\New_\StringToArrayArgumentProcessRector;
 
 /**
  * @api used in tests
