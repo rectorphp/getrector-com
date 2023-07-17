@@ -2,6 +2,9 @@ You can add new NodeVisitors to process nodes in the `rector.php` config, make s
 
 ```php
 use Rector\Config\RectorConfig;
+use My\Rector\Visitor\HelloVisitor;
+use Rector\NodeTypeResolver\PHPStan\Scope\Contract\NodeVisitor\ScopeResolverNodeVisitorInterface; 
+
 
 return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->services()->set(HelloVisitor::class)->tag(ScopeResolverNodeVisitorInterface::class);
