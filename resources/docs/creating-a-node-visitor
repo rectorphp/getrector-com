@@ -32,7 +32,7 @@ class HelloVisitor extends NodeVisitorAbstract implements ScopeResolverNodeVisit
 
     public function enterNode(Node $node)
     {
-        if(!($node instanceof Stmt)){
+        if (! $node instanceof Stmt) {
             return null;
         }
 
