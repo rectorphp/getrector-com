@@ -30,7 +30,7 @@ class HelloVisitor extends NodeVisitorAbstract implements ScopeResolverNodeVisit
 
     public const HELLO_ATTRIBUTE = 'rector_comment';
 
-    public function leaveNode(Node $node)
+    public function enterNode(Node $node)
     {
         if(!($node instanceof Stmt)){
             return null;
