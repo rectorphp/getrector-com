@@ -38,6 +38,7 @@ final class DocumentationMenuFactory
                 new DocumentationSection('custom-rule', 'Custom Rule'),
                 new DocumentationSection('writing-tests-for-custom-rule', 'Writing Tests For Custom Rule'),
                 new DocumentationSection('rules-overview', 'Rules Overview'),
+                new DocumentationSection('creating-a-node-visitor', 'Creating Node Visitor'),
             ],
         ];
     }
