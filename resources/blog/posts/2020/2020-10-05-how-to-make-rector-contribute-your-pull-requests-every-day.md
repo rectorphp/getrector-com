@@ -23,7 +23,7 @@ That is not sustainable. The bigger code-base you have, the more features you ad
 
 ## From Passive to Active Code Review
 
-You already know coding standard tools like [ECS](https://github.com/symplify/easy-coding-standard) that fix code for you. It fixes all the code style rules your team agreed on. E.g., each file must contain `declare(strict_types=1);`. If a new developer joins the team, he or she don't have to handle it, the coding standard tool will do it for them.
+You already know coding standard tools like [ECS](https://github.com/easy-coding-standard/easy-coding-standard) that fix code for you. It fixes all the code style rules your team agreed on. E.g., each file must contain `declare(strict_types=1);`. If a new developer joins the team, he or she don't have to handle it, the coding standard tool will do it for them.
 
 The same works for more complicated cases, like making every class final, using service constructor injection, and using [repository service](https://tomasvotruba.com/blog/2017/10/16/how-to-use-repository-with-doctrine-as-service-in-symfony/).
 
@@ -44,12 +44,12 @@ The workflow is simple:
 
 **Let's talk real code now.**
 
-We have a [dedicated GitHub action](https://github.com/symplify/symplify/blob/master/.github/workflows/rector.yaml) to handle this process.
+We have a [dedicated GitHub action](https://github.com/TomasVotruba/unused-public/blob/main/.github/workflows/rector.yaml) to handle this process.
 
-**Do you want to try it?** Copy it, create [new access token](https://github.com/settings/tokens), add `ACCESS_TOKEN` env variable to [repository Secrets](https://github.com/symplify/symplify/settings/secrets), and you're ready to make your first actively reviewed pull-request.
+**Do you want to try it?** Copy it, create [new access token](https://github.com/settings/tokens), add `ACCESS_TOKEN` env variable to [repository Secrets](https://github.com/TomasVotruba/unused-public/settings/secrets), and you're ready to make your first actively reviewed pull-request.
 
 ```yaml
-# .github/workflows/rector_ci.yaml
+# .github/workflows/rector.yaml
 name: Rector CI
 
 on:
@@ -72,7 +72,7 @@ jobs:
             -
                 uses: shivammathur/setup-php@v2
                 with:
-                    php-version: 7.4
+                    php-version: 8.1
                     coverage: none
 
             -   run: composer install --no-progress --ansi
@@ -136,7 +136,7 @@ Congrats! Now you delegate active code-reviews to Rector.
 To make the most of it, notice the most repeated comments in passive code-reviews and make Rector rules out of it.
 **You'll save time, work and code-reviews become more joyful and lighter**. As a side effect, you can now focus on topics that computers can't automate (yet) - architecture and design.
 
-That's all, folks - now go and try out [the Github Action for yourself](https://github.com/symplify/symplify/blob/master/.github/workflows/rector.yaml).
+That's all, folks - now go and try out [the Github Action for yourself](https://github.com/TomasVotruba/unused-public/blob/main/.github/workflows/rector.yaml).
 
 <br>
 
