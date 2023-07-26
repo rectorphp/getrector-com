@@ -41,6 +41,9 @@ final class FixtureLinkFactory
     ) {
     }
 
+    /**
+     * @api used in functions for blade
+     */
     public function create(RectorRun $rectorRun): string
     {
         $content = $this->fixtureBodyFactory->create($rectorRun);

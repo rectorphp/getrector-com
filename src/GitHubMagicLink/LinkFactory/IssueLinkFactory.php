@@ -20,6 +20,9 @@ final class IssueLinkFactory
     ) {
     }
 
+    /**
+     * @api used in functions for blade
+     */
     public function create(RectorRun $rectorRun): string
     {
         $appliedRules = $rectorRun->getAppliedRules();

@@ -15,7 +15,6 @@ use Rector\Core\Contract\Rector\ConfigurableRectorInterface;
 use Rector\Core\Exception\ShouldNotHappenException;
 use Rector\Core\PhpParser\Printer\BetterStandardPrinter;
 use Rector\Core\Rector\AbstractRector;
-use Rector\FileSystemRector\ValueObject\AddedFileWithContent;
 use Rector\NodeTypeResolver\Node\AttributeKey;
 use Rector\Website\Utils\Rector\NodeFactory\RouteGetCallFactory;
 use Rector\Website\Utils\Rector\ValueObject\ValueObject\RouteMetadata;
