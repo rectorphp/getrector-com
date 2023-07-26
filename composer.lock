@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b01ef0ae207c0f27724693d209f6174f",
+    "content-hash": "d62458f084ae8a1412976ac005bd1ed2",
     "packages": [
         {
             "name": "brick/math",
@@ -810,16 +810,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v10.15.0",
+            "version": "v10.16.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "c7599dc92e04532824bafbd226c2936ce6a905b8"
+                "reference": "5c93d2795c393b462481179ce42dedfb30cc19b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/c7599dc92e04532824bafbd226c2936ce6a905b8",
-                "reference": "c7599dc92e04532824bafbd226c2936ce6a905b8",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/5c93d2795c393b462481179ce42dedfb30cc19b5",
+                "reference": "5c93d2795c393b462481179ce42dedfb30cc19b5",
                 "shasum": ""
             },
             "require": {
@@ -1006,20 +1006,20 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2023-07-11T13:43:52+00:00"
+            "time": "2023-07-26T03:30:46+00:00"
         },
         {
             "name": "laravel/serializable-closure",
-            "version": "v1.3.0",
+            "version": "v1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/serializable-closure.git",
-                "reference": "f23fe9d4e95255dacee1bf3525e0810d1a1b0f37"
+                "reference": "e5a3057a5591e1cfe8183034b0203921abe2c902"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/serializable-closure/zipball/f23fe9d4e95255dacee1bf3525e0810d1a1b0f37",
-                "reference": "f23fe9d4e95255dacee1bf3525e0810d1a1b0f37",
+                "url": "https://api.github.com/repos/laravel/serializable-closure/zipball/e5a3057a5591e1cfe8183034b0203921abe2c902",
+                "reference": "e5a3057a5591e1cfe8183034b0203921abe2c902",
                 "shasum": ""
             },
             "require": {
@@ -1066,7 +1066,7 @@
                 "issues": "https://github.com/laravel/serializable-closure/issues",
                 "source": "https://github.com/laravel/serializable-closure"
             },
-            "time": "2023-01-30T18:31:20+00:00"
+            "time": "2023-07-14T13:56:28+00:00"
         },
         {
             "name": "league/commonmark",
@@ -2615,12 +2615,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "f8344bbd9a15257a82033ccec56451fbaf1c262d"
+                "reference": "7287327bed491d144b82d0aedb0b291c0a9adad6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/f8344bbd9a15257a82033ccec56451fbaf1c262d",
-                "reference": "f8344bbd9a15257a82033ccec56451fbaf1c262d",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/7287327bed491d144b82d0aedb0b291c0a9adad6",
+                "reference": "7287327bed491d144b82d0aedb0b291c0a9adad6",
                 "shasum": ""
             },
             "require": {
@@ -2669,7 +2669,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-07-23T11:23:26+00:00"
+            "time": "2023-07-25T15:50:29+00:00"
         },
         {
             "name": "samsonasik/array-lookup",
@@ -5412,12 +5412,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/TomasVotruba/bladestan.git",
-                "reference": "0103392a8126c63e87e019f6a1a4dafc96625614"
+                "reference": "85ca8b0a86614c2061e44f54f9b4dfcb31a585e7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TomasVotruba/bladestan/zipball/0103392a8126c63e87e019f6a1a4dafc96625614",
-                "reference": "0103392a8126c63e87e019f6a1a4dafc96625614",
+                "url": "https://api.github.com/repos/TomasVotruba/bladestan/zipball/85ca8b0a86614c2061e44f54f9b4dfcb31a585e7",
+                "reference": "85ca8b0a86614c2061e44f54f9b4dfcb31a585e7",
                 "shasum": ""
             },
             "require": {
@@ -5432,7 +5432,8 @@
                 "phpunit/phpunit": "^10.0",
                 "rector/rector": "^0.15.20",
                 "symplify/easy-ci": "^11.2",
-                "symplify/easy-coding-standard": "^11.2",
+                "symplify/easy-coding-standard": "^12.0",
+                "tomasvotruba/class-leak": "*",
                 "tracy/tracy": "^2.9"
             },
             "default-branch": true,
@@ -5460,7 +5461,7 @@
             ],
             "support": {
                 "issues": "https://github.com/TomasVotruba/bladestan/issues",
-                "source": "https://github.com/TomasVotruba/bladestan/tree/main"
+                "source": "https://github.com/TomasVotruba/bladestan/tree/0.4.0"
             },
             "funding": [
                 {
@@ -5472,7 +5473,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-05-21T11:51:41+00:00"
+            "time": "2023-07-26T08:14:08+00:00"
         },
         {
             "name": "tomasvotruba/lavarle",
@@ -6401,16 +6402,16 @@
         },
         {
             "name": "doctrine/dbal",
-            "version": "3.6.4",
+            "version": "3.6.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "19f0dec95edd6a3c3c5ff1d188ea94c6b7fc903f"
+                "reference": "96d5a70fd91efdcec81fc46316efc5bf3da17ddf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/19f0dec95edd6a3c3c5ff1d188ea94c6b7fc903f",
-                "reference": "19f0dec95edd6a3c3c5ff1d188ea94c6b7fc903f",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/96d5a70fd91efdcec81fc46316efc5bf3da17ddf",
+                "reference": "96d5a70fd91efdcec81fc46316efc5bf3da17ddf",
                 "shasum": ""
             },
             "require": {
@@ -6425,10 +6426,10 @@
             "require-dev": {
                 "doctrine/coding-standard": "12.0.0",
                 "fig/log-test": "^1",
-                "jetbrains/phpstorm-stubs": "2022.3",
-                "phpstan/phpstan": "1.10.14",
+                "jetbrains/phpstorm-stubs": "2023.1",
+                "phpstan/phpstan": "1.10.21",
                 "phpstan/phpstan-strict-rules": "^1.5",
-                "phpunit/phpunit": "9.6.7",
+                "phpunit/phpunit": "9.6.9",
                 "psalm/plugin-phpunit": "0.18.4",
                 "squizlabs/php_codesniffer": "3.7.2",
                 "symfony/cache": "^5.4|^6.0",
@@ -6493,7 +6494,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/dbal/issues",
-                "source": "https://github.com/doctrine/dbal/tree/3.6.4"
+                "source": "https://github.com/doctrine/dbal/tree/3.6.5"
             },
             "funding": [
                 {
@@ -6509,7 +6510,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-06-15T07:40:12+00:00"
+            "time": "2023-07-17T09:15:50+00:00"
         },
         {
             "name": "doctrine/deprecations",
@@ -7400,16 +7401,16 @@
         },
         {
             "name": "phpstan/phpdoc-parser",
-            "version": "1.22.1",
+            "version": "1.23.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpdoc-parser.git",
-                "reference": "65c39594fbd8c67abfc68bb323f86447bab79cc0"
+                "reference": "a2b24135c35852b348894320d47b3902a94bc494"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/65c39594fbd8c67abfc68bb323f86447bab79cc0",
-                "reference": "65c39594fbd8c67abfc68bb323f86447bab79cc0",
+                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/a2b24135c35852b348894320d47b3902a94bc494",
+                "reference": "a2b24135c35852b348894320d47b3902a94bc494",
                 "shasum": ""
             },
             "require": {
@@ -7441,9 +7442,9 @@
             "description": "PHPDoc parser with support for nullable, intersection and generic types",
             "support": {
                 "issues": "https://github.com/phpstan/phpdoc-parser/issues",
-                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.22.1"
+                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.23.0"
             },
-            "time": "2023-06-29T20:46:06+00:00"
+            "time": "2023-07-23T22:17:56+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -8425,16 +8426,16 @@
         },
         {
             "name": "sebastian/global-state",
-            "version": "6.0.0",
+            "version": "6.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/global-state.git",
-                "reference": "aab257c712de87b90194febd52e4d184551c2d44"
+                "reference": "7ea9ead78f6d380d2a667864c132c2f7b83055e4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/global-state/zipball/aab257c712de87b90194febd52e4d184551c2d44",
-                "reference": "aab257c712de87b90194febd52e4d184551c2d44",
+                "url": "https://api.github.com/repos/sebastianbergmann/global-state/zipball/7ea9ead78f6d380d2a667864c132c2f7b83055e4",
+                "reference": "7ea9ead78f6d380d2a667864c132c2f7b83055e4",
                 "shasum": ""
             },
             "require": {
@@ -8474,7 +8475,8 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/global-state/issues",
-                "source": "https://github.com/sebastianbergmann/global-state/tree/6.0.0"
+                "security": "https://github.com/sebastianbergmann/global-state/security/policy",
+                "source": "https://github.com/sebastianbergmann/global-state/tree/6.0.1"
             },
             "funding": [
                 {
@@ -8482,7 +8484,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-02-03T07:07:38+00:00"
+            "time": "2023-07-19T07:19:23+00:00"
         },
         {
             "name": "sebastian/lines-of-code",
@@ -9680,16 +9682,16 @@
         },
         {
             "name": "symplify/easy-ci",
-            "version": "11.2.0.72",
+            "version": "11.3.1.72",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/easy-ci.git",
-                "reference": "fa33d420aab575bc3eca45e524b7f6c514d78e7b"
+                "reference": "d1c396af82582f66f71cf779fc37ea267307d188"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/easy-ci/zipball/fa33d420aab575bc3eca45e524b7f6c514d78e7b",
-                "reference": "fa33d420aab575bc3eca45e524b7f6c514d78e7b",
+                "url": "https://api.github.com/repos/symplify/easy-ci/zipball/d1c396af82582f66f71cf779fc37ea267307d188",
+                "reference": "d1c396af82582f66f71cf779fc37ea267307d188",
                 "shasum": ""
             },
             "require": {
@@ -9705,7 +9707,8 @@
             ],
             "description": "Toolkit of commands that should not be missed in you CI",
             "support": {
-                "source": "https://github.com/symplify/easy-ci/tree/11.2.0.72"
+                "issues": "https://github.com/symplify/easy-ci/issues",
+                "source": "https://github.com/symplify/easy-ci/tree/11.3.1.72"
             },
             "funding": [
                 {
@@ -9717,20 +9720,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-01-15T13:26:09+00:00"
+            "time": "2023-07-18T15:20:09+00:00"
         },
         {
             "name": "symplify/easy-coding-standard",
-            "version": "11.5.0",
+            "version": "12.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/easy-coding-standard/easy-coding-standard.git",
-                "reference": "1d2400f7bfe92e3754ce71f0782f2c0521bade3d"
+                "reference": "7372622f5d9126ec50b0923d7eb6b778fac575a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/easy-coding-standard/easy-coding-standard/zipball/1d2400f7bfe92e3754ce71f0782f2c0521bade3d",
-                "reference": "1d2400f7bfe92e3754ce71f0782f2c0521bade3d",
+                "url": "https://api.github.com/repos/easy-coding-standard/easy-coding-standard/zipball/7372622f5d9126ec50b0923d7eb6b778fac575a5",
+                "reference": "7372622f5d9126ec50b0923d7eb6b778fac575a5",
                 "shasum": ""
             },
             "require": {
@@ -9763,7 +9766,7 @@
             ],
             "support": {
                 "issues": "https://github.com/easy-coding-standard/easy-coding-standard/issues",
-                "source": "https://github.com/easy-coding-standard/easy-coding-standard/tree/11.5.0"
+                "source": "https://github.com/easy-coding-standard/easy-coding-standard/tree/12.0.6"
             },
             "funding": [
                 {
@@ -9775,7 +9778,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-06-21T06:26:15+00:00"
+            "time": "2023-07-25T17:12:00+00:00"
         },
         {
             "name": "symplify/phpstan-extensions",
@@ -9958,6 +9961,54 @@
             "time": "2021-07-28T10:34:58+00:00"
         },
         {
+            "name": "tomasvotruba/class-leak",
+            "version": "0.1.1.72",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/TomasVotruba/class-leak.git",
+                "reference": "f78d151d787c7edee8b33a6969a671d0944429ee"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/TomasVotruba/class-leak/zipball/f78d151d787c7edee8b33a6969a671d0944429ee",
+                "reference": "f78d151d787c7edee8b33a6969a671d0944429ee",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2"
+            },
+            "bin": [
+                "bin/class-leak",
+                "bin/class-leak.php"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "TomasVotruba\\ClassLeak\\": "app"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Detect leaking classes",
+            "support": {
+                "issues": "https://github.com/TomasVotruba/class-leak/issues",
+                "source": "https://github.com/TomasVotruba/class-leak/tree/0.1.1.72"
+            },
+            "funding": [
+                {
+                    "url": "https://www.paypal.me/rectorphp",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/tomasvotruba",
+                    "type": "github"
+                }
+            ],
+            "time": "2023-07-26T09:53:21+00:00"
+        },
+        {
             "name": "tomasvotruba/cognitive-complexity",
             "version": "0.1.1",
             "source": {
@@ -10079,34 +10130,34 @@
         },
         {
             "name": "tomasvotruba/unused-public",
-            "version": "0.1.12",
+            "version": "0.1.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/TomasVotruba/unused-public.git",
-                "reference": "a76c093416826ad6feac91d724fec0eabbcb1cee"
+                "reference": "ff8fa8406bb8236c849c0dbc52d30a3618fea03a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TomasVotruba/unused-public/zipball/a76c093416826ad6feac91d724fec0eabbcb1cee",
-                "reference": "a76c093416826ad6feac91d724fec0eabbcb1cee",
+                "url": "https://api.github.com/repos/TomasVotruba/unused-public/zipball/ff8fa8406bb8236c849c0dbc52d30a3618fea03a",
+                "reference": "ff8fa8406bb8236c849c0dbc52d30a3618fea03a",
                 "shasum": ""
             },
             "require": {
                 "nette/utils": "^3.2",
                 "php": "^8.1",
-                "phpstan/phpstan": "^1.10.19",
+                "phpstan/phpstan": "^1.10.26",
                 "webmozart/assert": "^1.11"
             },
             "require-dev": {
                 "php-parallel-lint/php-parallel-lint": "^1.3",
-                "phpstan/extension-installer": "^1.2",
-                "phpunit/phpunit": "^10.0",
-                "rector/rector": "^0.15.1",
-                "symfony/form": "^6.3",
+                "phpstan/extension-installer": "^1.3",
+                "phpunit/phpunit": "^10.2",
+                "rector/rector": "^0.17",
                 "symplify/easy-ci": "^11.2",
-                "symplify/easy-coding-standard": "^11.2",
+                "symplify/easy-coding-standard": "^11.5",
+                "tomasvotruba/class-leak": "0.0.22.72",
                 "tomasvotruba/type-coverage": "^0.1",
-                "tracy/tracy": "^2.9"
+                "tracy/tracy": "^2.10"
             },
             "type": "phpstan-extension",
             "extra": {
@@ -10132,7 +10183,7 @@
             ],
             "support": {
                 "issues": "https://github.com/TomasVotruba/unused-public/issues",
-                "source": "https://github.com/TomasVotruba/unused-public/tree/0.1.12"
+                "source": "https://github.com/TomasVotruba/unused-public/tree/0.1.14"
             },
             "funding": [
                 {
@@ -10144,7 +10195,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-06-19T09:18:20+00:00"
+            "time": "2023-07-24T09:01:29+00:00"
         },
         {
             "name": "webmozart/glob",

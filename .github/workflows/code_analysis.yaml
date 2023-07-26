@@ -18,7 +18,7 @@ jobs:
 
                     -
                         name: 'Check Active Classes'
-                        run: vendor/bin/easy-ci check-active-class --ansi
+                        run: vendor/bin/class-leak check app src --ansi
 
                     -
                         name: 'Detect Unused Composer Packages'
