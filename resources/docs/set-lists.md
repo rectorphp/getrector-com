@@ -5,7 +5,7 @@ use Rector\Config\RectorConfig;
 use Rector\Set\ValueObject\SetList;
 
 return static function (RectorConfig $rectorConfig): void {
-    $rectorConfig->sets([SetList::DEAD_CODE])
+    $rectorConfig->sets([SetList::DEAD_CODE]);
 
     $rectorConfig->paths([__DIR__ . '/src']);
 };
@@ -24,7 +24,7 @@ use Rector\Config\RectorConfig;
 use Rector\Set\ValueObject\SetList;
 
 return static function (RectorConfig $rectorConfig): void {
-    $rectorConfig->sets([SetList::PHP_73])
+    $rectorConfig->sets([SetList::PHP_73]);
 
     $rectorConfig->paths([__DIR__ . '/src']);
 };
@@ -39,7 +39,7 @@ use Rector\Config\RectorConfig;
 use Rector\Set\ValueObject\LevelSetList;
 
 return static function (RectorConfig $rectorConfig): void {
-    $rectorConfig->sets([LevelSetList::UP_TO_PHP_73])
+    $rectorConfig->sets([LevelSetList::UP_TO_PHP_73]);
 
     $rectorConfig->paths([__DIR__ . '/src']);
 };
