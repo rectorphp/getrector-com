@@ -35,9 +35,8 @@ class HelloVisitor extends NodeVisitorAbstract implements ScopeResolverNodeVisit
             return null;
         }
 
-        $node->setAttribute(HelloVisitor::HELLO_ATTRIBUTE, 'i was here');
+        $node->setAttribute(self::HELLO_ATTRIBUTE, 'i was here');
         return $node;
     }
-
 }
 ```
