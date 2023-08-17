@@ -19,12 +19,12 @@ Rector works with `rector.php` config file. You can create it manually, or Recto
 
 ```bash
 vendor/bin/rector
-```
 
-For version 0.17.0 and lower specify the the init parameter.
+ No "rector.php" config found. Should we generate it for you? [yes]:
+ > yes
 
-```bash
-vendor/bin/rector init
+
+ [OK] The config is added now. Re-run command to make Rector do the work!
 ```
 
 In `rector.php` you can define paths, rules and sets you want to run on your code:
