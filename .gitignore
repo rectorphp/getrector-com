@@ -5,7 +5,7 @@ package-lock.json
 
 public/build/
 
-.env.local
+.env
 .env.local.php
 .env.*.local
 
@@ -14,7 +14,7 @@ public/build/
 
 public/build
 
-/.env.local
+/.env
 /.env.*.local
 
 /node_modules/
