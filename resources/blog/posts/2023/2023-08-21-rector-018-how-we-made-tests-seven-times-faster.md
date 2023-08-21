@@ -21,7 +21,7 @@ At first, we had to identify, *why* are our tests so slow. Let's take it step by
 
 <br>
 
-**This happened 3 300 times**. We tried to speed up the process by removing unnecessary iterations, which helped on a single-project run. We're very grateful for [the tremendous work Marcus Staab](https://staabm.github.io/2023/05/06/racing-rector.html) has done in this area.
+**This happened 3 300 times**. We tried to speed up the process by removing unnecessary iterations, which helped on a single-project run. We're very grateful for [the tremendous work Markus Staab](https://staabm.github.io/2023/05/06/racing-rector.html) has done in this area.
 
 <br>
 
