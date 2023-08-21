@@ -1,31 +1,31 @@
 ---
-id: 51
+id: 52
 title: "Rector 0.18 - How we made tests Seven Times Faster"
 perex: |
-   The developer experience is priority when it comes to contributing tools, fixing bugs and deliver merge request fast. Rector 0.17 tests could **eat up enough memory to crash on 16 GB RAM and took 3-5 minutes to complete**.
+   The developer experience is a priority when it comes to contributing tools, fixing bugs, and delivering merge requests fast. Rector 0.17 tests could **eat up enough memory to crash on 16 GB RAM and took 3-5 minutes to complete**.
 
-    This was painful and let contributors and developers to skip test run locally and waiting for the CI report.
+    This was painful and let contributors and developers skip the test run locally and wait for the CI report.
 
-    We wanted [fast feedback](https://tomasvotruba.com/blog/2020/01/13/why-is-first-instant-feedback-crucial-to-developers), so **everyone can enjoy work more**. So in July and August 2023 we worked hard to make our tests faster then sip of a good coffee.
+    We wanted [fast feedback](https://tomasvotruba.com/blog/2020/01/13/why-is-first-instant-feedback-crucial-to-developers), so **everyone can enjoy working more**. So in July and August 2023, we worked hard to make our tests faster than a sip of a good coffee.
 ---
 
 ## Why so Slow?
 
-At first, we had to identify, *why* are our tests so slow. Let's take it step by step. The code is being parsed by php-parser, we have around 3 300 tests. That means:
+At first, we had to identify, *why* are our tests so slow. Let's take it step by step. The code is being parsed by php-parser; we have around 3 300 tests. That means:
 
 * php-parser a test fixture to nodes, typically PHP class of 15 lines,
 * then PHPStan decorates nodes with types
-* then Rector uses registered rules and transform code
-* then printer prints nodes back to string
-* then printed string is compared to an expected one
+* then Rector uses registered rules and transforms the code
+* then the printer prints nodes back to the string
+* then the printed string is compared to an expected one
 
 <br>
 
-**This happen 3300-times**. We try to speed up the process by removing unnecessary iterations, that helped on a single-project run. We're very greatful for [tremendous work Marcus Staab](https://staabm.github.io/2023/05/06/racing-rector.html) has done in this area.
+**This happened 3300 times**. We tried to speed up the process by removing unnecessary iterations, which helped on a single-project run. We're very grateful for [the tremendous work Marcus Staab](https://staabm.github.io/2023/05/06/racing-rector.html) has done in this area.
 
 <br>
 
-So we were pretty sure the **bottleneck is elsewhere**. But where?
+So we were sure the **bottleneck was elsewhere**. But where?
 
 <img src="https://user-images.githubusercontent.com/924196/261989353-72ff0dfe-e881-4174-9bf0-d38d72e619e8.png" class="img-thumbnail">
 
@@ -33,9 +33,9 @@ So we were pretty sure the **bottleneck is elsewhere**. But where?
 
 <br>
 
-The idea came in a lucky experiment. Few weeks ago I flipped [ECS from Symfony to Laravel container](https://tomasvotruba.com/blog/experiment-how-i-replaced-symfony-di-with-laravel-container-in-ecs), because it's much easier to use when it comes to CLI apps - that we downgrade to PHP 7.2 and prefix every single class.
+The idea came from a lucky experiment. A few weeks ago, I flipped [ECS from Symfony to Laravel container](https://tomasvotruba.com/blog/experiment-how-i-replaced-symfony-di-with-laravel-container-in-ecs) because it's much easier to use when it comes to CLI apps - that we downgrade to PHP 7.2 and prefix every single class.
 
-What surprised me was this had effect on tests speed as well. [Tests went down from 0,75 s to 0,17 s](https://twitter.com/VotrubaT/status/1683576139049058304) - **that's 77 % faster**. These numbers are too small to take seriously, but it gave us a hint - maybe we could achieve similar speed up in Rector.
+What surprised me was this affected test speed as well. [Tests went down from 0,75 s to 0,17 s](https://twitter.com/VotrubaT/status/1683576139049058304) - **that's 77 % faster**. These numbers are too small to take seriously, but it gave us a hint - maybe we could achieve a similar speed-up in Rector.
 
 Even going down from 80 seconds to 21 would make contributing Rector more joyful.
 
@@ -47,15 +47,19 @@ The speed up was **combination of 3 changes**.
 
 ## 1. From Compiled contains to Lazy Container
 
-In every tests, the container has to load config, register rules as a service, setup parameters and then invoke the cycle above. The Symfony container is a compiled one, so the fluent PHP config that `RectorConfig` is dumped to cached PHP file. This brings great performance on HTTP requests per second, but can put huge burden on your local on 3300 different tests. The Symfony parameter bag is tightly coupled to container, so to cache e.g. paths or skip parameter, the container cache rebuild is needed.
-
-All we need from container is fetching autowired service and passing tagged services to collectors. We also hoped less container features = less dead-code in /vendor = faster code run.
+In every test, the container has to load config, register rules as a service, set up parameters and then invoke the cycle above. The Symfony container is compiled, so the fluent PHP config that `RectorConfig` is dumped to a cached PHP file. This brings excellent performance on HTTP requests per second but can put a massive burden on your local on 3300 different tests. Symfony parameter bag is tightly coupled to the container,  so to invalidate, e.g., paths or skip parameters, the container cache rebuild is needed.
 
 <br>
 
-On the other hand, the Laravel container is *lazy* - it only creates the services you need, when you need them. Rector core contains ~ 400 services. If you need to test one them, the Laravel container will create just the service with its dependency tree. Nothing else. This makes running Rector tests faster, as we always call single Rector service over and over.
+On the other hand, the Laravel container is *lazy* - it only creates the services you need when you need them. The Rector core contains ~ 400 services. If you need to test a single service, the Laravel container will create a single service with its dependency tree.
 
-We switched **the container from compiled and cached to lazy one**. This allowed us to create a shared container for all the 3300 tests. The means if a `NodeNameResolver` is injected in each of those tests, it will still be created just once and reused.
+<br>
+
+We switched **the container from compiled and cached to lazy one**.
+
+* Rector tests now run faster, as typical test runs a single Rector service with the same dependencies
+* We create a single shared container for all the 3300 tests.
+* This means if a service is injected in each of those tests, it will be created just once and reused.
 
 But that wasn't enough.
 
@@ -63,7 +67,7 @@ But that wasn't enough.
 
 ## 2. Identify Resettable Services
 
-When we moved from compiled container per test case to a lazy one, we had another problem. Some services kept state and piled up configuration or cached values. E.g. collector that kept class renames was growing on every run.
+When we moved from compiled container per test case to a lazy one, we had another problem. Some services kept state and piled up configuration or cached values. E.g., a collector that kept class renames was growing on every run.
 
 We had to identify these services and mark them with `ResetableInterface` to set their state empty:
 
@@ -95,17 +99,21 @@ protected function setUp()
 }
 ```
 
-Instead of container-coupled parameter services like in compiled container, we used static parameter provider, that we reset in `tearDown()`. This allowed us to keep the lazy container and parameter configuration separate.
+Instead of container-coupled parameter services like in a compiled container, we used a static parameter provider that we reset in `tearDown()`. This allowed us to keep the lazy container and parameter configuration separate.
 
 <br>
 
 ## 3. Avoid new Nodes in Data Providers
 
-Last but not least, there were 3 test cases that were related to docblock printer. They were specific by interesting behavior - when we run them standalone, it took around 80 ms. But the more tests were run before them, the longer it took. E.g. for the whole test suite there took 2-3 minutes more.
+Last but not least, we improved speed on bizarre time leaks.
 
-It was not in Rector code, nor in PHPStan code, nor Laravel container or any other used dependency. Well, it ones one of the dependencies - the PHPUnit.
+There were 2 test cases related to the doc block parsing/printer on multiline docblocks, like Doctrine many to many.
 
-The PHPUnit 10 made a change in data providers to require them to be static. It's probably related to some caching, because in this code it spiked 2-3 minute delay:
+They were specific by interesting behavior - when we ran them standalone, it took around 80 ms. But the more tests were run before them, the longer it took. E.g., the whole test suite took 2-3 minutes more.
+
+It was not in Rector code, PHPStan code, Laravel container, or any other used dependency. Well, it ones one of the dependencies - the PHPUnit.
+
+The PHPUnit 10 made a change in data providers to require them to be `static`. It's probably related to some caching because in this code, it spiked a 2-3 minute delay:
 
 ```php
 use PhpParser\Node\Stmt\Class_;
@@ -126,13 +134,13 @@ public static function provideData(): Iterator
 }
 ```
 
-So instead of 10 seconds, the whole **test suite would run couple minutes** even on Laravel container. It has probably something to do with the [`jsonSerialize()` method of `PhpParser\NodeAbstract`](https://github.com/nikic/PHP-Parser/blob/a6303e50c90c355c7eeee2c4a8b27fe8dc8fef1d/lib/PhpParser/NodeAbstract.php#L172-L177) and PHPUnit caching.
+So instead of 10 seconds, the whole **test suite would run a couple of minutes** even on the Laravel container. It has probably something to do with the [`jsonSerialize()` method of `PhpParser\NodeAbstract`](https://github.com/nikic/PHP-Parser/blob/a6303e50c90c355c7eeee2c4a8b27fe8dc8fef1d/lib/PhpParser/NodeAbstract.php#L172-L177) and PHPUnit caching.
 
 Other value objects like PHPStan type objects can be used in data providers with no performance hit.
 
 <br>
 
-So, **how we fixed it**? Simply using nodes on outside the data provider:
+So, **how we fixed it**? Simply using nodes outside the data provider:
 
 ```diff
  use PhpParser\Node\Stmt\Class_;
@@ -166,6 +174,7 @@ This removed our last and slowest annoying bottleneck.
 <img src="https://user-images.githubusercontent.com/924196/261989437-70f02020-c12b-4e7a-8341-aed3f98bc41a.png" class="img-thumbnail">
 
 <br>
+<br>
 
 * From 73 seconds to **10 seconds**
 
@@ -177,7 +186,9 @@ This removed our last and slowest annoying bottleneck.
 
 Job well done!
 
-We know there is still space to improve the container. Do you have some experience with Laravel container performance optimization? Please, roast our [container factory](https://github.com/rectorphp/rector-src/blob/main/src/DependencyInjection/LazyContainerFactory.php) to make it faster, so Rector could be run by any PHP developer on any machine. Thank you!
+We know there is still space to improve the container. Do you have some experience with Laravel container performance optimization? Please, roast our [container factory](https://github.com/rectorphp/rector-src/blob/main/src/DependencyInjection/LazyContainerFactory.php).
+
+We want to make it even faster, so any PHP developer can run Rector on any machine worldwide. Thank you!
 
 <br>
 
