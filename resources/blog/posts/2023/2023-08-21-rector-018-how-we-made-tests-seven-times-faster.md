@@ -4,24 +4,24 @@ title: "Rector 0.18 - How we made tests Seven Times Faster"
 perex: |
    The developer experience is a priority when it comes to contributing tools, fixing bugs, and delivering merge requests fast. Rector 0.17 tests could **eat up enough memory to crash on 16 GB RAM and took 3-5 minutes to complete**.
 
-    This was painful and let contributors and developers skip the test run locally and wait for the CI report.
+    This was painful and lead developers to skip test run locally and wait for the CI.
 
-    We wanted [fast feedback](https://tomasvotruba.com/blog/2020/01/13/why-is-first-instant-feedback-crucial-to-developers), so **everyone can enjoy working more**. So in July and August 2023, we worked hard to make our tests faster than a sip of a good coffee.
+    We wanted [fast feedback](https://tomasvotruba.com/blog/2020/01/13/why-is-first-instant-feedback-crucial-to-developers), so **everyone can enjoy fast feedback**. We worked hard past 2 months to make our tests faster than a sip of a good coffee.
 ---
 
 ## Why so Slow?
 
 At first, we had to identify, *why* are our tests so slow. Let's take it step by step. The code is being parsed by php-parser; we have around 3 300 tests. That means:
 
-* php-parser a test fixture to nodes, typically PHP class of 15 lines,
-* then PHPStan decorates nodes with types
-* then Rector uses registered rules and transforms the code
-* then the printer prints nodes back to the string
-* then the printed string is compared to an expected one
+* php-parser parses test fixture to nodes, typically PHP class of 15 lines,
+* then PHPStan decorates nodes with types,
+* then Rector uses registered rules and changes nodes,
+* then the printer prints nodes back to the string,
+* finally, the printed string is compared to an expected one.
 
 <br>
 
-**This happened 3300 times**. We tried to speed up the process by removing unnecessary iterations, which helped on a single-project run. We're very grateful for [the tremendous work Marcus Staab](https://staabm.github.io/2023/05/06/racing-rector.html) has done in this area.
+**This happened 3 300 times**. We tried to speed up the process by removing unnecessary iterations, which helped on a single-project run. We're very grateful for [the tremendous work Marcus Staab](https://staabm.github.io/2023/05/06/racing-rector.html) has done in this area.
 
 <br>
 
@@ -29,19 +29,19 @@ So we were sure the **bottleneck was elsewhere**. But where?
 
 <img src="https://user-images.githubusercontent.com/924196/261989353-72ff0dfe-e881-4174-9bf0-d38d72e619e8.png" class="img-thumbnail">
 
-<em>This is Rector 0.17, it takes **73 seconds** and **8.17 GB or memory**.</em>
+<em>Tests in Rector 0.17 take **73 seconds** and **8.17 GB of memory**.</em>
 
 <br>
 
-The idea came from a lucky experiment. A few weeks ago, I flipped [ECS from Symfony to Laravel container](https://tomasvotruba.com/blog/experiment-how-i-replaced-symfony-di-with-laravel-container-in-ecs) because it's much easier to use when it comes to CLI apps - that we downgrade to PHP 7.2 and prefix every single class.
+The idea came from a lucky experiment. A few weeks ago, I flipped [ECS from Symfony to Laravel container](https://tomasvotruba.com/blog/experiment-how-i-replaced-symfony-di-with-laravel-container-in-ecs) because it's much easier to use when it comes to CLI apps - we downgrade whole /vendor to PHP 7.2 and prefix every single class.
 
-What surprised me was this affected test speed as well. [Tests went down from 0,75 s to 0,17 s](https://twitter.com/VotrubaT/status/1683576139049058304) - **that's 77 % faster**. These numbers are too small to take seriously, but it gave us a hint - maybe we could achieve a similar speed-up in Rector.
+Surprisingly, the container switch affected test speed as well. Tests went [from 0,75 s down to 0,17 s](https://twitter.com/VotrubaT/status/1683576139049058304) - that's 77 % faster. These numbers are too small to take seriously, but it gave us a hint - maybe we **could achieve a similar speed-up in Rector**.
 
-Even going down from 80 seconds to 21 would make contributing Rector more joyful.
+Even going down from 80 seconds to 30 would make contributing Rector more joyful.
 
 <br>
 
-The speed up was **combination of 3 changes**.
+The speed 7x speed up is **combination of 3 changes**.
 
 <br>
 
