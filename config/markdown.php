@@ -9,5 +9,8 @@ return [
         'theme' => 'solarized-light',
     ],
 
+    // store cached files
+    'cache_store' => 'file',
+
     'add_anchors_to_headings' => true,
 ];

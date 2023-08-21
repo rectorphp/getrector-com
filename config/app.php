@@ -19,11 +19,9 @@ return AppConfig::make()
     ->name('getrector-com')
     ->env(env('APP_ENV', 'production'))
     ->debug((bool) env('APP_DEBUG', false))
-    ->key(env('APP_KEY'))
     ->url(env('APP_URL', 'http://localhost'))
     ->assetUrl(env('ASSET_URL'))
     ->timezone('UTC')
-    ->locale('en')
     ->providers([
         // Laravel Framework Service Providers...
         CacheServiceProvider::class,
