@@ -80,9 +80,10 @@ public function refactor(Node $node): ?Node
         return null;
     }
 
+    $hasChanged = false;
     $this->traverseNodesWithCallable(
         $node->getStmts(),
-        static function (Node $subNode) use (&$returns): ?int {
+        static function (Node $subNode) use (&$hasChanged): ?int {
             if ($subNode instanceof Class_
                 || $subNode instanceof Function_
                 || $subNode instanceof Closure) {
@@ -92,12 +93,20 @@ public function refactor(Node $node): ?Node
             if ($subNode instanceof Return_ && $this->valueResolver->getValue($subNode->expr) === 'A') {
                 $subNode->expr = new ClassConstFetch(new Name('self'), 'LABEL_A');
 
+                $hasChanged = true;
+
                 // want to stop after first found?
                 return NodeTraverser::STOP_TRAVERSAL;
             }
 
             return null;
         });
+
+    if ($hasChanged) {
+        return $node;
+    }
+
+    return null;
 }
 ```
 
