@@ -13,8 +13,6 @@ return static function (ECSConfig $ecsConfig): void {
         __DIR__ . '/tests',
         __DIR__ . '/ecs.php',
         __DIR__ . '/rector.php',
-        __DIR__ . '/utils',
-        __DIR__ . '/utils-tests',
     ]);
 
     $ecsConfig->sets([SetList::PSR_12, SetList::SYMPLIFY, SetList::COMMON, SetList::CLEAN_CODE]);
