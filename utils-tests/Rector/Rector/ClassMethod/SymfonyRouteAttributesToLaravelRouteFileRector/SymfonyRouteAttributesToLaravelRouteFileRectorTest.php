@@ -13,6 +13,8 @@ final class SymfonyRouteAttributesToLaravelRouteFileRectorTest extends AbstractR
     {
         // clear routes
         FileSystem::delete(__DIR__ . '/config/dumped_routes.php');
+        // clear controller result
+        FileSystem::delete(__DIR__ . '/Fixture/some_controller.php');
     }
 
     public function test(): void
