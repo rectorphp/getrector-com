@@ -1,6 +1,6 @@
 ---
-id: 51
-title: "Using Scoped Traverse to Locate Specific Node"
+id: 54
+title: "Rector 0.17 - Using Scoped Traverse to Locate Specific Node"
 perex: |
     Rector no longer support parent lookup since version 0.17, so lookup specific node will need to resolve from parent to child instead. You can traverse with `SimpleCallableNodeTraverser`.
 ---
