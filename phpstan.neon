@@ -32,3 +32,7 @@ parameters:
 
         # float allowed
         - '#Parameter (.*?) of class Imagine\\Image\\Box constructor expects int, float given#'
+
+        -
+            message: '#Cognitive complexity for "Rector\\Website\\Utils\\Rector\\Rector\\ClassMethod\\SymfonyRouteAttributesToLaravelRouteFileRector\:\:refactor\(\)" is 12, keep it under 9#'
+            path: utils/Rector/Rector/ClassMethod/SymfonyRouteAttributesToLaravelRouteFileRector.php

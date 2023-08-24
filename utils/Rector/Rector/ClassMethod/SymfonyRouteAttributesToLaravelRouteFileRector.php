@@ -15,7 +15,6 @@ use Rector\Core\Contract\Rector\ConfigurableRectorInterface;
 use Rector\Core\Exception\ShouldNotHappenException;
 use Rector\Core\PhpParser\Printer\BetterStandardPrinter;
 use Rector\Core\Rector\AbstractRector;
-use Rector\NodeTypeResolver\Node\AttributeKey;
 use Rector\Website\Utils\Rector\NodeFactory\RouteGetCallFactory;
 use Rector\Website\Utils\Rector\ValueObject\ValueObject\RouteMetadata;
 use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
@@ -54,35 +53,36 @@ final class SymfonyRouteAttributesToLaravelRouteFileRector extends AbstractRecto
      */
     public function getNodeTypes(): array
     {
-        return [ClassMethod::class];
+        return [Class_::class];
     }
 
     /**
-     * @param ClassMethod $node
+     * @param Class_ $node
      */
-    public function refactor(Node $node): ?ClassMethod
+    public function refactor(Node $node): ?Class_
     {
-        if ($node->attrGroups === []) {
-            return null;
-        }
-
         $hasChanged = false;
+        foreach ($node->getMethods() as $classMethod) {
+            if ($classMethod->attrGroups === []) {
+                continue;
+            }
 
-        foreach ($node->attrGroups as $key => $attrGroup) {
-            foreach ($attrGroup->attrs as $attribute) {
-                if (! $this->isName($attribute->name, 'Symfony\Component\Routing\Annotation\Route')) {
-                    continue;
+            foreach ($classMethod->attrGroups as $key => $attrGroup) {
+                foreach ($attrGroup->attrs as $attribute) {
+                    if (! $this->isName($attribute->name, 'Symfony\Component\Routing\Annotation\Route')) {
+                        continue;
+                    }
+
+                    $routeMetadata = $this->resolveRouteMetadata($attribute, $classMethod, $node);
+
+                    $hasChanged = true;
+                    unset($classMethod->attrGroups[$key]);
+
+                    $routeCall = $this->routeGetCallFactory->create($routeMetadata);
+
+                    $printedRouteGet = $this->betterStandardPrinter->print(new Expression($routeCall)) . PHP_EOL;
+                    $this->printRoutesContents($printedRouteGet);
                 }
-
-                $routeMetadata = $this->resolveRouteMetadata($attribute, $node);
-
-                $hasChanged = true;
-                unset($node->attrGroups[$key]);
-
-                $routeCall = $this->routeGetCallFactory->create($routeMetadata);
-
-                $printedRouteGet = $this->betterStandardPrinter->print(new Expression($routeCall)) . PHP_EOL;
-                $this->printRoutesContents($printedRouteGet);
             }
         }
 
@@ -99,7 +99,7 @@ final class SymfonyRouteAttributesToLaravelRouteFileRector extends AbstractRecto
         $this->routesFilePath = $configuration['routes_file_path'];
     }
 
-    private function resolveRouteMetadata(Attribute $attribute, ClassMethod $classMethod): RouteMetadata
+    private function resolveRouteMetadata(Attribute $attribute, ClassMethod $classMethod, Class_ $class): RouteMetadata
     {
         $routePath = $this->resolveRoutePath($attribute);
 
@@ -118,19 +118,13 @@ final class SymfonyRouteAttributesToLaravelRouteFileRector extends AbstractRecto
             }
         }
 
-        $routeTarget = $this->resolveRouteTaret($classMethod);
+        $routeTarget = $this->resolveRouteTarget($classMethod, $class);
         return new RouteMetadata($routePath, $routeTarget, $routeName, $routeRequirements);
     }
 
-    private function resolveRouteTaret(ClassMethod $classMethod): string
+    private function resolveRouteTarget(ClassMethod $classMethod, Class_ $class): string
     {
         if ($this->isName($classMethod, '__invoke')) {
-            // class is the target :)
-            $class = $classMethod->getAttribute(AttributeKey::PARENT_NODE);
-            if (! $class instanceof Class_) {
-                throw new ShouldNotHappenException();
-            }
-
             $routeTarget = $this->getName($class);
         } else {
             // not handled yet
