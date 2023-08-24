@@ -2,20 +2,20 @@
 id: 53
 title: "Rector 0.18 - From Symfony Container to Laravel and How to Upgrade your Extensions"
 perex: |
-    Since the very first Rector version, we used Symfony container to inject the services. It worked very well. Then new PHP 8.0 came with attributes, and Symfony started to use them extensively.
+    Since the first Rector version, we used Symfony container to inject the services. It worked very well. The new PHP 8.0 came with attributes, and Symfony started to use them extensively.
 
-    We downgrade Rector down to PHP 7.2, and this forced us to lock with unmtained Symfony 6.1. We needed hacky patch to make Rector config work...
+    We're downgrading Rector down to PHP 7.2, and this forced us to lock with unmaintained Symfony 6.1. We needed a hacky patch to make Rector config work...
 
-    This made us thinking: Is there a better way?
+    This made us think: Is there a better way?
 ---
 
-The container started to cost more maintenance than features it provided, so we tried experimental switch to Laravel. To our surprise, this helped us to make **[our tests run 7x faster](/blog/rector-018-how-we-made-tests-seven-times-faster)**.
+The container started to cost more maintenance than the features it provided, so we tried an experimental switch to Laravel. To our surprise, this helped us to make **[our tests run 7x faster](/blog/rector-018-how-we-made-tests-seven-times-faster)**.
 
 <br>
 
 ## It's all about the Downgrade
 
-How is this possible? Apart 3 changes we mentioned in the article, when it comes to downgrading and scoping - **the size matters**.
+How is this possible? Apart from the 3 changes we mentioned in the article regarding downgrading and scoping - **the size matters**.
 
 <img src="https://sergeyzhuk.me/assets/images/posts/code-review/review-mem.jpeg" class="img-thumbnail mt-3 mb-4" style="max-width: 25em">
 
@@ -25,17 +25,17 @@ During downgrade and scoping, all the `/vendor` is shipped with the Rector proje
 
 <br>
 
-What about features? Rector is a CLI app and it needs simple dependency injection container:
+What about features? Rector is a CLI app, and it needs a simple dependency injection container:
 
 * autowire service constructor,
 * pass tagged services,
 * callback to avoid circular dependencies.
 
-If two packages are compatible, the more lines means only more features we will never use.
+If two packages are compatible, the more lines mean only more features we will never use.
 
 <br>
 
-**Downgrading is challenging process** and sometimes it's dead end - e.g. downgrading PHP code that uses PHP 8.0 attributes and doesn't provide fallback feature on PHP 7.2 cannot be automated. Less lines means less pitfalls to worry about.
+**Downgrading is a challenging process** and sometimes it's a dead end - e.g., downgrading PHP code that uses PHP 8.0 attributes and doesn't provide a fallback feature on PHP 7.2 cannot be automated. Fewer lines mean fewer pitfalls to worry about.
 
 <br>
 
@@ -77,7 +77,7 @@ Total ................................... 1 946 /  100 %
 
 <br>
 
-That means one is **16 x size bigger** than the other.
+That means one is **16 x size greater** than the other.
 
 <br>
 
@@ -88,21 +88,27 @@ Results revealed:
 
 <br>
 
-*We also used symfony/http-kernel for kernel test case to run, but we skipped transitional packages for sake of comparison simplicity.*
+*We also used symfony/http-kernel for the kernel test case to run, but we skipped transitional packages for the sake of comparison simplicity.*
 
 <br>
 
 
 ## How to Upgrade your Extensions?
 
-Rector 0.18 is the first release with Laravel container. Now we're testing in the wild. If you've used [the `RectorConfig` class](/blog/new-in-rector-012-much-simpler-and-safer-rule-configuration) to setup your configuration, there is no upgrade needed.
+Rector 0.18 is the first release with a Laravel container. **Now, we're testing in the wild**.
 
 <br>
 
-For custom Rector extensions, it requires few changes **the services are registered**:
+If you've used [bare `RectorConfig` class](/blog/new-in-rector-012-much-simpler-and-safer-rule-configuration) to set up your configuration, **no upgrade is needed**.
 
-* Before you had to register every single service, even if fully autowired.
-* Now you register only the services that require scalar parameter, factory or tagged services.
+Few changes are required if you've used Symfony internal methods or maintain a custom Rector extension.
+
+<br>
+
+**The way services are registered**:
+
+* Before, you had to register every single service, even if fully autowired.
+* Now, you only register the services requiring a scalar parameter, factory, or tagged services.
 
 ```diff
  use Rector\Config\RectorConfig;
@@ -136,7 +142,7 @@ Tag service:
 
 <br>
 
-You can drop the `$services->defaults()` calls completely, as this is now included in the core:
+You can drop the `$services->defaults()` calls ultimately, as this is now included in the core:
 
 ```diff
 -    $services = $rectorConfig->services();
