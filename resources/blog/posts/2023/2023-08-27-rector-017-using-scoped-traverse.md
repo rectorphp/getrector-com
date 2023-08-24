@@ -2,12 +2,12 @@
 id: 54
 title: "Rector 0.17 - Using Scoped Traverse to Locate Specific Node"
 perex: |
-    Rector [no longer support parent node lookup](/blog/rector-017-brings-more-robust-and-lighter-node-tree) since version 0.17. To lookup specific node we'll have to traverse from parent to child node instead.
+    Rector [no longer supports parent node lookup](/blog/rector-017-brings-more-robust-and-lighter-node-tree) since version 0.17. To look up a specific node, we'll have to traverse from parent to child node instead.
 
     Here is how we can achieve it.
 ---
 
-For example, on the following code we want to find all the `return` nodes. But we want to skip those inside **inner scope** - _anonymous classes_, _inner functions_ or _closures_.
+For example, we want to find all the `return` nodes in the following code. But we want to skip those inside **inner scope** - _anonymous classes_, _inner functions_ or _closures_.
 
 
 ```php
@@ -30,7 +30,7 @@ class SomeClass
 }
 ```
 
-Previously, we could hook into the `Return_` node and check if the node is located withing parent node of `PhpParser\Node\Expr\Closure;`. How can we detect the same location now?
+Previously, we could hook into the `Return_` node and check if the node is located within the parent node of `PhpParser\Node\Expr\Closure;`. How can we detect the exact location now?
 
 <br>
 
@@ -52,7 +52,7 @@ We have 2 ways to skip the closure.
 
 ## 1. Scoped Node Finder
 
-Then, you can do in `refactor()` method:
+Then, you can do this in the `refactor()` method:
 
 ```php
 use PhpParser\Node\Stmt\Return_;
@@ -71,13 +71,13 @@ public function refactor(Node $node): ?Node
 }
 ```
 
-You're familiar with `findInstanceOf()` that returns all the nodes it can find of certain type.
+You're familiar with `findInstanceOf()`, which returns all the nodes it can find of a specific type.
 
 **The `findInstancesOfInFunctionLikeScoped()` is similar, but smarter** - if it enters an anonymous class, inner function, or closure inside, it will skip it.
 
 <br>
 
-The example above, we'll give you only 2 items:
+In the example above, we'll give you only 2 items:
 
 ```php
 return 'A';
@@ -90,7 +90,7 @@ return $someClosure() + 2;
 
 ## 2. Using Node Traversing
 
-Another option is to use `SimpleCallableNodeTraverser`. E.g. we need to replace:
+Another option is to use `SimpleCallableNodeTraverser`. E.g., we need to replace:
 
 ```diff
 -return 'A';
