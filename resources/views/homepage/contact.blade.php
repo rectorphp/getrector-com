@@ -49,11 +49,18 @@
                     <img src="/assets/images/faces/abdul.jpg" class="rounded-circle img-face shadow ms-4">
                 </div>
 
+                <div class="text-bigger">
+                    <a href="mailto:samsonasik@getrector.com">samsonasik@getrector.com</a>
+                </div>
+
+                <br>
+
                 <div>
                     <a href="https://github.com/samsonasik">
                         <em class="fab fa-github fa-fw"></em>
                         Samsonasik
                     </a>
+
                 </div>
             </div>
 
