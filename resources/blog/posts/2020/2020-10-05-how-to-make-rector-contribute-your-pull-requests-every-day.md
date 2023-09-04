@@ -62,7 +62,7 @@ jobs:
         if: github.event.pull_request.head.repo.full_name == github.repository
         steps:
             -
-                uses: actions/checkout@v3
+                uses: actions/checkout@v4
                 with:
                     # Solves the not "You are not currently on a branch" problem, see https://github.com/actions/checkout/issues/124#issuecomment-586664611
                     ref: ${{ github.event.pull_request.head.ref }}
