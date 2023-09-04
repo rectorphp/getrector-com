@@ -1,6 +1,6 @@
 ---
 id: 55
-title: "5 Rector Config Common Mistakes and How to Avoid Them"
+title: "5 Common Mistakes in Rector Config and How to Avoid Them"
 perex: |
     Rector is becoming a standard tool to automate PHP/package upgrades and code quality improvements. Last month, we crossed 60 000 downloads a day.
 
