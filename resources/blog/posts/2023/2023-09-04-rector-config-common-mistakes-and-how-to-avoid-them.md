@@ -2,20 +2,22 @@
 id: 55
 title: "Rector Config Common Mistakes and How to Avoid Them"
 perex: |
-    Rector is becoming standard tool to automate PHP/package upgrades and code quality improvements. Last month crossing nearly 60 000 downloads a day.
+    Rector is becoming a standard tool to automate PHP/package upgrades and code quality improvements. Last month, we crossed 60 000 downloads a day.
 
-    Past 2 months we've also improved CPU and memory performnace, making Rector lighter version ever.
+    Past 2 months, we've also improved CPU and memory performance, making Rector a lighter version.
 
-    Yet, even fast and lighweight Rector can get stuck on simple config mistakes. We'll talk about the 5 most common ones and how to avoid them.
+    Yet, even fast and lightweight Rector can get stuck on simple config mistakes. We'll talk about the 5 most common ones and how to avoid them.
 ---
 
-We used following tips when [upgrading Rector config in Mautic](https://github.com/mautic/mautic/pull/12676). We want to share them with you so you can get the most out of Rector too.
+We used the following tips when [upgrading the Rector config in Mautic](https://github.com/mautic/mautic/pull/12676).
+
+We want to share them with you so you can get the most out of Rector.
 
 <br>
 
 ## 1. Use explicit paths over `/vendor`
 
-This happens very rarely, but it's worth mentioning. Rector should always **run only on the code you own**. If you run it the root directory, the memory might bloat on bare `/vendor` directory.
+This happens very rarely, but it's worth mentioning. Rector should always run only on the code you own**. If you run it in the root directory, the memory might bloat on the bare `/vendor` directory.
 
 ```php
 $rectorConfig->paths([
@@ -24,7 +26,7 @@ $rectorConfig->paths([
 ]);
 ```
 
-* Be sure to **install Rector directly to your project** using composer like any other dev package, to avoid such accidents on climbing paths up.
+* Be sure to **install Rector directly to your project** using composer, like any other dev package, to avoid such accidents on climbing paths up.
 
 * Make sure you use the paths you own - including tests and config directory:
 
@@ -40,10 +42,10 @@ $rectorConfig->paths([
 
 ## 2. Avoid checking migrations and test fixtures
 
-This mistake is hard to spot, but effective in throttling your Rector run. Doctrine migrations, test fixture and **any other generated generated PHP files should be excluded**. Why? At start you can have 5-10 database migrations - that's fine, but the older project is, the greater the burden to handle on ever run.
+This mistake is hard to spot but effective in throttling your Rector run. Doctrine migrations, test fixtures, and **any other generated generated PHP files should be excluded**. Why? At the start, you can have 5-10 database migrations - that's fine, but the older the project is, the greater the burden to handle on every run.
 
-We've seen projects with 200-600 migration migration files, carefully hidden in `/src/Migrations` like any other production file.
-These files should be excluded not only for performance gains, but also to make sure their structure and behavior will persist.
+We've seen projects with 200-600 migration files carefully hidden in `/src/Migrations` like any other production file.
+These files should be excluded not only for performance gains but also to make sure their structure and behavior will persist.
 
 ```php
 $rectorConfig->skip([
@@ -51,13 +53,13 @@ $rectorConfig->skip([
 ]);
 ```
 
-Even better is to move those files into root `/migrations` directory, so they are not checked by Rector and other tools like PHPStan and ECS at all.
+Moving those files into the root `/migrations` directory is even better, so Rector and other tools like PHPStan and ECS do not check them.
 
 <br>
 
 ## 3. Avoid keeping `UP_TO_*` for longer than needed
 
-Rector can handle both code improvements and package upgrades. The upgrade is usually one-time job to get your codebase to latest PHP and packages. You can find following sets in your code:
+Rector can handle both code improvements and package upgrades. The upgrade is usually a one-time job to get your codebase to the latest PHP and packages. You can find the following sets in your code:
 
 ```php
 $rectorConfig->sets([
@@ -67,22 +69,22 @@ $rectorConfig->sets([
 ]);
 ```
 
-These are what we call **low-hit sets**. They contains dozens rule that will never find any code to upgrade or change, yet they're still run on every Rector run. That's like checking every release of The Time magazine for prime numbers higher than 1 000 000 - it's waste of your time and resources.
+These are what we call **low-hit sets**. They contain dozens of rules that will never find any code to upgrade or change, yet they're still run on every Rector run. That's like checking every release of The Time magazine for prime numbers higher than 1,000,000 - it's a waste of your time and resources.
 
-E.g. the Symfony 6.3 level set itself contains 80 rules - including rule that renames class and is checking class renames in nested manner.
+For, the Symfony 6.3 level set itself contains 80 rules - including a rule that renames class and checks class renames in a nested manner.
 
 ### How should we use these `UP_TO_*` sets then?
 
-**Enable them just once during the upgrade period**. Let's say we are upgrading to Symfony 6.3 - we keep the set in `rector.php` for time being and once we're on Symfony 6.3, we remove it.
+**Enable them just once during the upgrade period**. Let's say we are upgrading to Symfony 6.3 - we keep the set in `rector.php` for the time being, and once we're on Symfony 6.3, we remove it.
 
-Don't worry, any leftovers will be reported again in 6 months when you'll handle Symfony 6.4/7 upgrade.
+Don't worry; any leftovers will be reported again in 6 months when you handle the Symfony 6.4/7 upgrade.
 
 <br>
 
 ## 4. Instead of long `rules()` calls, use slim `sets()`
 
-During the upgrade period, it's also typical to add one rule at a time, run Rector and push the fixed cases. Then repeat.
-That way you might end up with 100+ rules listed one by one from single set:
+During the upgrade period, it's also typical to add one rule at a time, run Rector, and push the fixed cases. Then repeat.
+That way, you might end up with 100+ rules listed one by one from a single set:
 
 ```php
 $rectorConfig->rules(
@@ -98,7 +100,7 @@ $rectorConfig->rules(
 ]);
 ```
 
-This makes `rector.php` hard to read and maintain. Instead, use `sets()` method with whole set to keep it slim:
+This makes `rector.php` hard to read and maintain. Instead, use the `sets()` method with the whole set to keep it slim:
 
 ```php
 use Rector\Set\ValueObject\SetList;
@@ -108,15 +110,15 @@ $rectorConfig->sets([
 ]);
 ```
 
-In case there are rules you don't really like from particular set, just [skip them using `skip()`](https://getrector.com/documentation/ignoring-rules-or-paths).
+In case there are rules you don't like from a particular set, [skip them using `skip()`](https://getrector.com/documentation/ignoring-rules-or-paths).
 
 <br>
 
 ## 5. Make use of code quality sets
 
-Last but not least, make sure you're using the most powerful feature of Rector. It's not the upgrade sets, but refactoring sets.
+Last but not least, make sure you're using the most powerful feature of Rector. It's not the upgrade sets but the refactoring sets.
 
-Those sets are the opposite of low-hit sets we talked in point 3. **They're helping with you with everyday coding** - in PHP 7.0, PHP 8.2, in Laravel, in Symfony or in plain PHP.
+Those sets are the opposite of the low-hit sets discussed in point 3. **They're helping you with everyday coding** - in PHP 7.0, PHP 8.2, Laravel, Symfony, or in plain PHP.
 
 You can find them in `SetList`:
 
@@ -136,7 +138,7 @@ $rectorConfig->sets([
 ]);
 ```
 
-Avoid adding them all at once, as such PR is impossible to review. Instead add one set by another, and push the fixes in between.
+Avoid adding them all at once, as such a PR is impossible to review. Instead, add one set by another and push the fixes in between.
 
 <br>
 
