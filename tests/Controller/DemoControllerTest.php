@@ -51,8 +51,8 @@ final class DemoControllerTest extends AbstractTestCase
 
         // Invalid PHP syntax
         yield ['failed', 'services:', [
-            'php_contents' => 'Provide a valid PHP code',
-            'rector_config' => 'Provide a valid PHP code',
+            'php_contents' => 'PHP code is invalid: Missing PHP opening tag',
+            'rector_config' => 'PHP code is invalid: Missing PHP opening tag',
         ]];
 
         // valid PHP syntaxes
