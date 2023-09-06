@@ -17,11 +17,11 @@ final class ValidPhpSyntaxRule implements ValidationRule
 
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
-        $isValid = $this->phpLinter->isValidPhpSyntax($value);
-        if ($isValid) {
+        $error = $this->phpLinter->validatePhpSyntax($value);
+        if ($error === null) {
             return;
         }
 
-        $fail('Provide a valid PHP code');
+        $fail(sprintf('PHP code is invalid: %s', $error));
     }
 }
