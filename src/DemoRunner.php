@@ -76,19 +76,32 @@ final class DemoRunner
 
         $temporaryFilePaths = [$analyzedFilePath, $configPath];
 
-        $process = new Process([
-            PHP_BINARY ,
-            // paths for phpunit differs based on test/demo, not sure why
-            \defined('PHPUNIT_COMPOSER_INSTALL') ? 'vendor/bin/rector' : '../vendor/bin/rector',
-            'process',
-            $analyzedFilePath,
-            '--config',
-            $configPath,
-            '--output-format',
-            'json',
-        ]);
+	if (getenv('APP_ENV') !== 'prod') {
+            $process = new Process([
+                PHP_BINARY ,
+                // paths for phpunit differs based on test/demo, not sure why
+                \defined('PHPUNIT_COMPOSER_INSTALL') ? 'vendor/bin/rector' : '../vendor/bin/rector',
+                'process',
+                $analyzedFilePath,
+                '--config',
+                $configPath,
+                '--output-format',
+                'json',
+            ]);
+        } else {
+            $process = new Process([
+                // paths for phpunit differs based on test/demo, not sure why
+                \defined('PHPUNIT_COMPOSER_INSTALL') ? 'vendor/bin/rector' : '../vendor/bin/rector',
+                'process',
+                $analyzedFilePath,
+                '--config',
+                $configPath,
+                '--output-format',
+                'json',
+            ]);
+        }
 
-        $process->run();
+	$process->run();
 
         // remove temporary files
         $this->filesystem->remove($temporaryFilePaths);
