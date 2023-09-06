@@ -61,24 +61,11 @@ final class DemoRunner
         }
     }
 
-    /**
-     * @return mixed[]
-     */
-    private function processFilesContents(string $fileContent, string $configContent): array
+    private function processRun(string $analyzedFilePath, string $configPath): Process
     {
-        $identifier = Random::generate(20);
-
-        $analyzedFilePath = $this->demoDir . DIRECTORY_SEPARATOR . $identifier . DIRECTORY_SEPARATOR . self::ANALYZED_FILE_NAME;
-        $configPath = $this->demoDir . DIRECTORY_SEPARATOR . $identifier . DIRECTORY_SEPARATOR. self::CONFIG_NAME;
-
-        $this->filesystem->dumpFile($analyzedFilePath, $fileContent);
-        $this->filesystem->dumpFile($configPath, $configContent);
-
-        $temporaryFilePaths = [$analyzedFilePath, $configPath];
-
-	if (getenv('APP_ENV') !== 'prod') {
+        if (getenv('APP_ENV') !== 'prod') {
             $process = new Process([
-                PHP_BINARY ,
+                PHP_BINARY,
                 // paths for phpunit differs based on test/demo, not sure why
                 \defined('PHPUNIT_COMPOSER_INSTALL') ? 'vendor/bin/rector' : '../vendor/bin/rector',
                 'process',
@@ -101,7 +88,26 @@ final class DemoRunner
             ]);
         }
 
-	$process->run();
+        $process->run();
+        return $process;
+    }
+
+    /**
+     * @return mixed[]
+     */
+    private function processFilesContents(string $fileContent, string $configContent): array
+    {
+        $identifier = Random::generate(20);
+
+        $analyzedFilePath = $this->demoDir . DIRECTORY_SEPARATOR . $identifier . DIRECTORY_SEPARATOR . self::ANALYZED_FILE_NAME;
+        $configPath = $this->demoDir . DIRECTORY_SEPARATOR . $identifier . DIRECTORY_SEPARATOR . self::CONFIG_NAME;
+
+        $this->filesystem->dumpFile($analyzedFilePath, $fileContent);
+        $this->filesystem->dumpFile($configPath, $configContent);
+
+        $temporaryFilePaths = [$analyzedFilePath, $configPath];
+
+        $process = $this->processRun($analyzedFilePath, $configPath);
 
         // remove temporary files
         $this->filesystem->remove($temporaryFilePaths);
