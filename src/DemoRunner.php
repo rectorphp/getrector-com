@@ -68,8 +68,8 @@ final class DemoRunner
     {
         $identifier = Random::generate(20);
 
-        $analyzedFilePath = $this->demoDir . '/' . $identifier . '/' . self::ANALYZED_FILE_NAME;
-        $configPath = $this->demoDir . '/' . $identifier . '/' . self::CONFIG_NAME;
+        $analyzedFilePath = $this->demoDir . DIRECTORY_SEPARATOR . $identifier . DIRECTORY_SEPARATOR . self::ANALYZED_FILE_NAME;
+        $configPath = $this->demoDir . DIRECTORY_SEPARATOR . $identifier . DIRECTORY_SEPARATOR. self::CONFIG_NAME;
 
         $this->filesystem->dumpFile($analyzedFilePath, $fileContent);
         $this->filesystem->dumpFile($configPath, $configContent);
@@ -77,6 +77,7 @@ final class DemoRunner
         $temporaryFilePaths = [$analyzedFilePath, $configPath];
 
         $process = new Process([
+            PHP_BINARY ,
             // paths for phpunit differs based on test/demo, not sure why
             \defined('PHPUNIT_COMPOSER_INSTALL') ? 'vendor/bin/rector' : '../vendor/bin/rector',
             'process',
