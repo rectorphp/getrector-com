@@ -47,7 +47,7 @@ final class MyFirstRector extends AbstractRector
         }
 
         // we only care about "set*" method names
-        if (fnmatch('set*', $nodeName, FNM_NOESCAPE)) {
+        if (! fnmatch('set*', $nodeName, FNM_NOESCAPE)) {
             // return null to skip it
             return null;
         }
