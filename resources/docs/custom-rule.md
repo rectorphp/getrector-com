@@ -47,7 +47,7 @@ final class MyFirstRector extends AbstractRector
         }
 
         // we only care about "set*" method names
-        if (! fnmatch('set*', $methodCallName, FNM_NOESCAPE)) {
+        if (! str_starts_with($methodCallName, 'set') {
             // return null to skip it
             return null;
         }
