@@ -41,18 +41,17 @@ final class MyFirstRector extends AbstractRector
      */
     public function refactor(Node $node): ?Node
     {
-        $nodeName = $this->getName($node->name);
-        if ($nodeName === null) {
+        $methodCallName = $this->getName($node->name);
+        if ($methodCallName === null) {
             return null;
         }
 
         // we only care about "set*" method names
-        if (! fnmatch('set*', $nodeName, FNM_NOESCAPE)) {
+        if (! fnmatch('set*', $methodCallName, FNM_NOESCAPE)) {
             // return null to skip it
             return null;
         }
 
-        $methodCallName = $this->getName($node->name);
         $newMethodCallName = preg_replace('#^set#', 'change', $methodCallName);
 
         $node->name = new Identifier($newMethodCallName);
