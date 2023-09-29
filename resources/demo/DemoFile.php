@@ -2,11 +2,17 @@
 
 final class DemoFile
 {
-    public function run()
+    public function run(bool $param)
     {
-        return 5;
+        if ($this->isTrue($param)) {
+            return 5;
+        }
 
-        // we never get here
-        return 10;
+        return '10';
+    }
+
+    private function isTrue($value)
+    {
+        return $value === true;
     }
 }
