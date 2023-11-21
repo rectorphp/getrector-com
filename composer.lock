@@ -2160,16 +2160,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.10.43",
+            "version": "1.10.44",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "2c4129f6ca8c7cfa870098884b8869b410a5a361"
+                "reference": "bf84367c53a23f759513985c54ffe0d0c249825b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/2c4129f6ca8c7cfa870098884b8869b410a5a361",
-                "reference": "2c4129f6ca8c7cfa870098884b8869b410a5a361",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/bf84367c53a23f759513985c54ffe0d0c249825b",
+                "reference": "bf84367c53a23f759513985c54ffe0d0c249825b",
                 "shasum": ""
             },
             "require": {
@@ -2218,7 +2218,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-11-19T19:55:25+00:00"
+            "time": "2023-11-21T16:30:46+00:00"
         },
         {
             "name": "psr/clock",
@@ -2659,12 +2659,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "39ef72a6807c8407150e4bd694f9876665a3d7d2"
+                "reference": "7a8bc36a24e5bf659e011f09010b4d3654dabc66"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/39ef72a6807c8407150e4bd694f9876665a3d7d2",
-                "reference": "39ef72a6807c8407150e4bd694f9876665a3d7d2",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/7a8bc36a24e5bf659e011f09010b4d3654dabc66",
+                "reference": "7a8bc36a24e5bf659e011f09010b4d3654dabc66",
                 "shasum": ""
             },
             "require": {
@@ -2708,7 +2708,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-11-21T00:08:52+00:00"
+            "time": "2023-11-21T14:32:38+00:00"
         },
         {
             "name": "samsonasik/array-lookup",
