@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-use App\Http\Controllers\AboutController;
-use App\Http\Controllers\BlogController;
-use App\Http\Controllers\BookController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\DemoController;
-use App\Http\Controllers\DemoDetailController;
-use App\Http\Controllers\DocumentationController;
-use App\Http\Controllers\ForCompaniesController;
-use App\Http\Controllers\HomepageController;
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\ProcessDemoFormController;
-use App\Http\Controllers\ProjectTimelineController;
-use App\Http\Controllers\RssController;
-use App\Http\Controllers\ThumbnailController;
 use Illuminate\Support\Facades\Route;
+use Rector\Website\Http\Controllers\AboutController;
+use Rector\Website\Http\Controllers\BlogController;
+use Rector\Website\Http\Controllers\BookController;
+use Rector\Website\Http\Controllers\ContactController;
+use Rector\Website\Http\Controllers\DemoController;
+use Rector\Website\Http\Controllers\DemoDetailController;
+use Rector\Website\Http\Controllers\DocumentationController;
+use Rector\Website\Http\Controllers\ForCompaniesController;
+use Rector\Website\Http\Controllers\HomepageController;
+use Rector\Website\Http\Controllers\PostController;
+use Rector\Website\Http\Controllers\ProcessDemoFormController;
+use Rector\Website\Http\Controllers\ProjectTimelineController;
+use Rector\Website\Http\Controllers\RssController;
+use Rector\Website\Http\Controllers\ThumbnailController;
 
 Route::get('/', HomepageController::class);
 

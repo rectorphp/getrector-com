@@ -9,20 +9,20 @@
     <meta property="og:description" content="{{ $post->getPerex() }}"/>
     <meta property="og:type" content="article"/>
     <meta
-        property="og:image"
-        content="{{ action(\App\Http\Controllers\ThumbnailController::class, ['title' => $post->getClearTitle()]) }}"
+            property="og:image"
+            content="{{ action(\Rector\Website\Http\Controllers\ThumbnailController::class, ['title' => $post->getClearTitle()]) }}"
     />
 
     <meta
-        property="og:url"
-        content="{{ action(\App\Http\Controllers\PostController::class, ['postSlug' => $post->getSlug()]) }}"
+            property="og:url"
+            content="{{ action(\Rector\Website\Http\Controllers\PostController::class, ['postSlug' => $post->getSlug()]) }}"
     />
 
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:title" content="{{ $post->getClearTitle() }}"/>
     <meta
-        name="twitter:image"
-        content="{{ action(\App\Http\Controllers\ThumbnailController::class, ['title' => $post->getClearTitle()]) }}"
+            name="twitter:image"
+            content="{{ action(\Rector\Website\Http\Controllers\ThumbnailController::class, ['title' => $post->getClearTitle()]) }}"
     />
     <meta name="twitter:description" content="{{ $post->getPerex() }}"/>
 @endsection
@@ -33,7 +33,8 @@
 
         The <strong>Rector - The Power of Automated Refactoring</strong> book is out now.
 
-        <a href="{{ action(\App\Http\Controllers\BookController::class) }} ">Grab a copy!</a>
+        <a href="{{ action(\Rector\Website\Http\Controllers\BookController::class) }} ">Grab a
+            copy!</a>
     </div>
 
     <div id="post">
@@ -47,7 +48,8 @@
 
         @if ($post->getSinceRector())
             <div class="alert alert-warning">
-                This feature is available since <strong>Rector {{ $post->getSinceRector() }}</strong>.
+                This feature is available since
+                <strong>Rector {{ $post->getSinceRector() }}</strong>.
             </div>
         @endif
 

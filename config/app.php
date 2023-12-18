@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use App\Providers\RouteServiceProvider;
 use Illuminate\Cache\CacheServiceProvider;
 use Illuminate\Database\DatabaseServiceProvider;
 use Illuminate\Filesystem\FilesystemServiceProvider;
@@ -13,6 +12,7 @@ use Illuminate\Session\SessionServiceProvider;
 use Illuminate\Translation\TranslationServiceProvider;
 use Illuminate\Validation\ValidationServiceProvider;
 use Illuminate\View\ViewServiceProvider;
+use Rector\Website\Providers\RouteServiceProvider;
 use TomasVotruba\PunchCard\AppConfig;
 
 return AppConfig::make()

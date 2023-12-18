@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Rector\Website\Entity;
 
-use App\Http\Controllers\PostController;
 use DateTimeInterface;
+use Rector\Website\Http\Controllers\PostController;
 
 final class Post
 {

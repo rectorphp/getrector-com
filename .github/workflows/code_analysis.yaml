@@ -18,12 +18,7 @@ jobs:
 
                     -
                         name: 'Check Active Classes'
-                        run: vendor/bin/class-leak check app src --ansi --skip-type="\Illuminate\Routing\Controller" --skip-type="\Illuminate\Contracts\Http\Kernel" --skip-type="\Illuminate\Support\ServiceProvider"
-
-                    -
-                        name: 'Detect Unused Composer Packages'
-                        # explicit output-format is needed, to github  does not override it on the CI
-                        run: vendor/bin/composer-unused --ansi --output-format=default
+                        run: vendor/bin/class-leak check src --ansi --skip-type="\Illuminate\Routing\Controller" --skip-type="\Illuminate\Contracts\Http\Kernel" --skip-type="\Illuminate\Support\ServiceProvider"
 
                     -
                         name: 'Laravel Console'

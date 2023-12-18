@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-use Illuminate\Foundation\Application;
-use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Contracts\Debug\ExceptionHandler;
+use Illuminate\Contracts\Http\Kernel;
+use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Exceptions\Handler;
 
 $application = new Application(__DIR__ . '/..');
 
 $application->singleton(
     Kernel::class,
-    \App\Http\HttpKernel::class
+    \Rector\Website\Http\HttpKernel::class
 );
 
 $application->singleton(
