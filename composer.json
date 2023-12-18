@@ -15,7 +15,6 @@
         "symfony/yaml": "^6.3",
         "symplify/vendor-patches": "^11.2.3",
         "tomasvotruba/bladestan": "dev-main",
-        "tomasvotruba/lavarle": "^0.1.2",
         "tomasvotruba/punchcard": "^0.2"
     },
     "require-dev": {
