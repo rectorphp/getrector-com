@@ -16,7 +16,7 @@ $application->singleton(
 
 $application->singleton(
     Illuminate\Contracts\Console\Kernel::class,
-    App\Console\ConsoleKernel::class
+    Illuminate\Foundation\Console\Kernel::class,
 );
 
 $application->singleton(
