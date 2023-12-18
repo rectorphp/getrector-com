@@ -11,6 +11,7 @@
         "rector/rector": "dev-main",
         "samsonasik/array-lookup": "^1.4",
         "spatie/laravel-markdown": "^2.3.1",
+        "symfony/filesystem": "^6.4",
         "symfony/uid": "^6.3",
         "symfony/yaml": "^6.3",
         "symplify/vendor-patches": "^11.2.3",
