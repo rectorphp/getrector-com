@@ -47,7 +47,7 @@ final class PostRepository
      */
     public function fetchLast(int $count): array
     {
-        return array_slice($this->getPosts(), 0, $count);
+        return array_slice($this->posts, 0, $count);
     }
 
     private function createPosts(): void
