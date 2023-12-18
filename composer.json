@@ -20,7 +20,6 @@
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.8.1",
         "barryvdh/laravel-ide-helper": "^2.13",
-        "icanhazstring/composer-unused": "^0.8.10",
         "nunomaduro/larastan": "^2.6.3",
         "phpstan/extension-installer": "^1.3.1",
         "phpstan/phpstan": "^1.10.25",
