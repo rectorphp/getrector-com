@@ -10,7 +10,6 @@ use Rector\Set\ValueObject\SetList;
 
 return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->paths([
-        __DIR__ . '/app',
         __DIR__ . '/config',
         __DIR__ . '/src',
         __DIR__ . '/tests',
@@ -25,6 +24,7 @@ return static function (RectorConfig $rectorConfig): void {
         SetList::CODE_QUALITY,
         SetList::CODING_STYLE,
         SetList::NAMING,
+        SetList::PRIVATIZATION,
         SetList::TYPE_DECLARATION,
         LevelSetList::UP_TO_PHP_81,
     ]);

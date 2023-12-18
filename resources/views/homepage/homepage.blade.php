@@ -9,17 +9,21 @@
         </h1>
 
         <div class="text-bigger mt-3 text-center">
-            <p>We help successful and growing companies to get the most of the code they already have.</p>
+            <p>We help successful and growing companies to get the most of the code they already
+                have.</p>
 
             <p>
-                <strong>Reduce maintenance cost</strong>, <strong>make feature delivery cheaper</strong><br>
+                <strong>Reduce maintenance cost</strong>, <strong>make feature delivery
+                    cheaper</strong><br>
                 and turn legacy code into sustainable code.
             </p>
         </div>
 
         <div class="text-center mt-5 mb-5 bigger-buttons">
-            <a href="{{ action(\App\Http\Controllers\ForCompaniesController::class) }}" class="btn btn-lg btn-primary me-3">Hire Upgrade Team</a>
-            <a href="{{ action(\App\Http\Controllers\DemoController::class) }}" class="btn btn-lg btn-success">Try It Online</a>
+            <a href="{{ action(\Rector\Website\Http\Controllers\ForCompaniesController::class) }}"
+               class="btn btn-lg btn-primary me-3">Hire Upgrade Team</a>
+            <a href="{{ action(\Rector\Website\Http\Controllers\DemoController::class) }}"
+               class="btn btn-lg btn-success">Try It Online</a>
         </div>
 
         @include('_snippets/homepage_separator')
@@ -31,9 +35,10 @@
 
         <div class="row">
             <div class="col-12 col-md-8 text-center">
-                <img src="/assets/images/rector_chart.png" alt="Rector Chart" class="img-fluid img-thumbnail">
+                <img src="/assets/images/rector_chart.png" alt="Rector Chart"
+                     class="img-fluid img-thumbnail">
                 <p class="text-smaller text-secondary">
-                * Based on average data from 37 projects.
+                    * Based on average data from 37 projects.
                 </p>
             </div>
 
@@ -43,7 +48,8 @@
                         90% of problems you'll face are new to you.
                     </p>
                     <p>
-                        We've already seen them and know exactly how to solve them quickly, efficiently and effectively.
+                        We've already seen them and know exactly how to solve them quickly,
+                        efficiently and effectively.
                     </p>
                 </div>
             </div>
@@ -60,7 +66,8 @@
         @include('_snippets/homepage_separator')
 
         <div class="text-center mt-5 mb-5 text-rector-green text-bigger">
-            <strong>12 companies</strong> hired us this year to improve their PHP code and reduce technical debt
+            <strong>12 companies</strong> hired us this year to improve their PHP code and reduce
+            technical debt
         </div>
 
         @include('_snippets/line/company_logos')
@@ -76,11 +83,13 @@
         <br>
 
         <div class="text-center mt-2 mt-md-5">
-            <a href="{{ action(\App\Http\Controllers\ForCompaniesController::class) }}" class="btn btn-primary btn-lg">
+            <a href="{{ action(\Rector\Website\Http\Controllers\ForCompaniesController::class) }}"
+               class="btn btn-primary btn-lg">
                 Hire Rector Team
             </a>
 
-            <a href="{{ action(\App\Http\Controllers\ContactController::class) }}" class="btn btn-success btn-lg ms-3">
+            <a href="{{ action(\Rector\Website\Http\Controllers\ContactController::class) }}"
+               class="btn btn-success btn-lg ms-3">
                 Contact us to Join them
             </a>
         </div>

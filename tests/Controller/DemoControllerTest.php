@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Rector\Website\Tests\Controller;
 
-use App\Http\Controllers\ProcessDemoFormController;
 use Iterator;
 use PHPUnit\Framework\Attributes\DataProvider;
+use Rector\Website\Http\Controllers\ProcessDemoFormController;
 use Rector\Website\Tests\AbstractTestCase;
 
 final class DemoControllerTest extends AbstractTestCase

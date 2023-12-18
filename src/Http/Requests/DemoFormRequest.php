@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Requests;
+namespace Rector\Website\Http\Requests;
 
-use App\Rules\ShortPhpContentsRule;
-use App\Rules\ValidPhpSyntaxRule;
 use Illuminate\Foundation\Http\FormRequest;
+use Rector\Website\Rules\ShortPhpContentsRule;
+use Rector\Website\Rules\ValidPhpSyntaxRule;
 
 final class DemoFormRequest extends FormRequest
 {

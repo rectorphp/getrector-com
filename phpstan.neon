@@ -1,8 +1,6 @@
 parameters:
     paths:
-        - app
         - src
-        - src/Blade/functions.php
         - tests
         - config
 

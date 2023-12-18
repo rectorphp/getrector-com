@@ -11,14 +11,16 @@
         </p>
 
         <p class="text-bigger">
-            We help them to <strong>cut feature development costs to a fraction</strong> and ensure their teams are <strong>productive again</strong>.
+            We help them to <strong>cut feature development costs to a fraction</strong> and ensure
+            their teams are <strong>productive again</strong>.
         </p>
 
         <br>
 
         <div class="text-center mt-5">
             <div class="text-rector-green mb-5 text-bigger">
-                <strong>12 companies</strong> hired us this year to improve PHP code and reduce technical debt
+                <strong>12 companies</strong> hired us this year to improve PHP code and reduce
+                technical debt
             </div>
 
             @include('_snippets/line/company_logos')
@@ -29,7 +31,8 @@
         <div id="references">
             <div class="row">
                 <div class="col-sm-4 text-end pr-5">
-                    <img src="/assets/images/logo/logo_bigger/complex.jpg" class="img-fluid company-logo mb-4" style="max-width: 16em">
+                    <img src="/assets/images/logo/logo_bigger/complex.jpg"
+                         class="img-fluid company-logo mb-4" style="max-width: 16em">
 
                     <div class="clearfix"></div>
 
@@ -51,13 +54,16 @@
             <div class="card shadow border-success mt-4">
                 <div class="card-body company-quote-card-body" style="display: flex">
                     <div>
-                        <img src="https://avatars.githubusercontent.com/u/47448731?v=4" class="rounded-circle img-face-smaller-left shadow-sm me-4" alt="">
+                        <img src="https://avatars.githubusercontent.com/u/47448731?v=4"
+                             class="rounded-circle img-face-smaller-left shadow-sm me-4" alt="">
                     </div>
 
                     <blockquote class="blockquote company-quote me-4 mb-5">
                         <p>
-                            "It's a lot of fun and we killed/transformed already a lot of legacy code.
-                            Using our very own continuous deployment pipeline <strong>we shipping this changes to production since day 1</strong>."
+                            "It's a lot of fun and we killed/transformed already a lot of legacy
+                            code.
+                            Using our very own continuous deployment pipeline <strong>we shipping
+                                this changes to production since day 1</strong>."
                         </p>
                         <footer class="blockquote-footer mt-1">
                             Markus Staab,
@@ -71,7 +77,8 @@
 
             <div class="row">
                 <div class="col-sm-4 text-end pr-5">
-                    <img src="/assets/images/logo/logo_bigger/ares_travel.svg" class="img-fluid company-logo mb-4" style="max-width: 16em">
+                    <img src="/assets/images/logo/logo_bigger/ares_travel.svg"
+                         class="img-fluid company-logo mb-4" style="max-width: 16em">
 
                     <div class="clearfix"></div>
 
@@ -84,8 +91,12 @@
 
                     <ul>
                         <li>Set up a high quality CI pipeline battery with bulletproof checks</li>
-                        <li>Removed dead methods and classes, unused packages, TWIG filters and helpers</li>
-                        <li>Highly improved unit test coverage to make changes more reliable and safer</li>
+                        <li>Removed dead methods and classes, unused packages, TWIG filters and
+                            helpers
+                        </li>
+                        <li>Highly improved unit test coverage to make changes more reliable and
+                            safer
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -93,7 +104,8 @@
             <div class="card shadow border-danger mt-4">
                 <div class="card-body company-quote-card-body" style="display: flex">
                     <div>
-                        <img src="https://www.adamgleiss.com/images/face.jpg" class="rounded-circle img-face-smaller-left shadow-sm me-4" alt="">
+                        <img src="https://www.adamgleiss.com/images/face.jpg"
+                             class="rounded-circle img-face-smaller-left shadow-sm me-4" alt="">
                     </div>
 
                     <blockquote class="blockquote company-quote me-4">
@@ -114,7 +126,8 @@
 
             <div class="row">
                 <div class="col-sm-4 text-end pr-5">
-                    <img src="/assets/images/logo/logo_bigger/eonx.png" class="img-fluid company-logo" style="max-width: 12em">
+                    <img src="/assets/images/logo/logo_bigger/eonx.png"
+                         class="img-fluid company-logo" style="max-width: 12em">
 
                     <div class="clearfix mb-4"></div>
 
@@ -136,12 +149,15 @@
             <div class="card shadow border-primary mt-4">
                 <div class="card-body company-quote-card-body" style="display: flex">
                     <div>
-                        <img src="https://user-images.githubusercontent.com/77585053/110624235-38a3b200-819e-11eb-9ecc-a8f7b62d3da3.jpeg" class="rounded-circle img-face-smaller-left shadow-sm me-4" alt="">
+                        <img src="https://user-images.githubusercontent.com/77585053/110624235-38a3b200-819e-11eb-9ecc-a8f7b62d3da3.jpeg"
+                             class="rounded-circle img-face-smaller-left shadow-sm me-4" alt="">
                     </div>
 
                     <blockquote class="blockquote company-quote me-4">
                         <p>
-                            "From upgrading our legacy projects and <strong>improving team's productivity, to making code review easier and reliable</strong>, Rector is in the center within our PHP ecosystem."
+                            "From upgrading our legacy projects and <strong>improving team's
+                                productivity, to making code review easier and reliable</strong>,
+                            Rector is in the center within our PHP ecosystem."
                         </p>
                         <footer class="blockquote-footer mt-1">
                             Nathan Page, Technical Lead at EONX
@@ -155,7 +171,8 @@
             <div class="row mt-4">
                 <div class="col-sm-4">
                     <a href="https://spaceflow.io/">
-                        <img src="/assets/images/logo/logo_bigger/spaceflow.png" class="img-fluid mt-3" style="max-width: 16em">
+                        <img src="/assets/images/logo/logo_bigger/spaceflow.png"
+                             class="img-fluid mt-3" style="max-width: 16em">
                     </a>
 
                     <div class="clearfix mb-4"></div>
@@ -179,12 +196,15 @@
             <div class="card shadow mt-4 border-warning">
                 <div class="card-body company-quote-card-body" style="display: flex">
                     <div>
-                        <img src="https://user-images.githubusercontent.com/77585053/110624233-37728500-819e-11eb-9efb-269e161c2ad4.jpeg" class="rounded-circle img-face-smaller-left shadow-sm me-4" alt="">
+                        <img src="https://user-images.githubusercontent.com/77585053/110624233-37728500-819e-11eb-9efb-269e161c2ad4.jpeg"
+                             class="rounded-circle img-face-smaller-left shadow-sm me-4" alt="">
                     </div>
 
                     <blockquote class="blockquote company-quote me-4">
                         <p>
-                            "Thanks to Rector, we were able to quite simply refactor the core of our API, which <strong>saved a lot of work</strong> that our developers would otherwise have to do manually."
+                            "Thanks to Rector, we were able to quite simply refactor the core of our
+                            API, which <strong>saved a lot of work</strong> that our developers
+                            would otherwise have to do manually."
                         </p>
                         <footer class="blockquote-footer mt-1">
                             Milan Mimra,
@@ -200,11 +220,14 @@
         <h2>What Relationship Do We Build with You?</h2>
 
         <p class="text-medium">
-            We <strong>build long-term relationships</strong> with our clients. Haphazard changes can quickly backfire and introduce regression bugs. But small, gradual steps lead to <strong>long-term success</strong>.
+            We <strong>build long-term relationships</strong> with our clients. Haphazard changes
+            can quickly backfire and introduce regression bugs. But small, gradual steps lead to
+            <strong>long-term success</strong>.
         </p>
 
         <p class="text-medium">
-            We get you to the latest PHP/framework version, make CI the next member of your team and help you deliver features faster and cheaper.
+            We get you to the latest PHP/framework version, make CI the next member of your team and
+            help you deliver features faster and cheaper.
         </p>
 
         <hr class="project-border-line">
@@ -214,7 +237,8 @@
         <h3 id="intro_analysis">1. Intro Analysis</h3>
 
         <p>
-            At first, we have to make sure we can help you. We explore the weak spots that would complicate the process and get ready for the battle.
+            At first, we have to make sure we can help you. We explore the weak spots that would
+            complicate the process and get ready for the battle.
         </p>
 
         <h4>What steps are involved?</h4>
@@ -222,9 +246,13 @@
         <ul>
             <li>We sign an NDA so your code is safe with us</li>
             <li>Then you share your codebase with us, e.g. in a git repository</li>
-            <li>We look into the code with various tools, exploit weak spots and work out the step-by-step plan tailored to your project</li>
+            <li>We look into the code with various tools, exploit weak spots and work out the
+                step-by-step plan tailored to your project
+            </li>
             <li>The analysis <strong>takes 3 weeks</strong></li>
-            <li>Then we <strong>send you a PDF with the results and a suggested plan</strong> so you can discuss it with your team</li>
+            <li>Then we <strong>send you a PDF with the results and a suggested plan</strong> so you
+                can discuss it with your team
+            </li>
             <li>We finish this phase with a call about how to proceed</li>
         </ul>
 
@@ -233,22 +261,30 @@
         <h3 id="hands_on_upgrade">2. Hands-on Upgrade</h3>
 
         <p>
-            After we agree on next steps, we start the upgrade work. Our team provides <strong>10-30 hours/week of direct help</strong>, depending on the pace you prefer. We dedicate a developer with Rector experience on legacy code to your project.
+            After we agree on next steps, we start the upgrade work. Our team provides <strong>10-30
+                hours/week of direct help</strong>, depending on the pace you prefer. We dedicate a
+            developer with Rector experience on legacy code to your project.
         </p>
 
         <p>
-            This phase usually <strong>takes 6-12 months</strong> depending on the upgrade target and code quality of your project.
+            This phase usually <strong>takes 6-12 months</strong> depending on the upgrade target
+            and code quality of your project.
         </p>
 
         <h4>What steps are involved?</h4>
 
         <ul>
             <li>We improve code quality to make bigger changes more reliable</li>
-            <li>We deliver the smallest PR possible so that you can see changes yourself and merge it immediately</li>
+            <li>We deliver the smallest PR possible so that you can see changes yourself and merge
+                it immediately
+            </li>
             <li>We make sure the work is always in a finished state in every PR</li>
-            <li>We ensure CI helps catch regressions so there is a safety net, and we can move without fear</li>
+            <li>We ensure CI helps catch regressions so there is a safety net, and we can move
+                without fear
+            </li>
             <li>
-                We <strong>work in parallel</strong> to your team, so you can keep delivering features and <strong>grow your business</strong>
+                We <strong>work in parallel</strong> to your team, so you can keep delivering
+                features and <strong>grow your business</strong>
             </li>
         </ul>
 
@@ -304,7 +340,8 @@
                             <em class="fa fa-file-pdf fa-fw"></em>
                             Open Demo PDF
                         </a>
-                        <a href="{{ action(\App\Http\Controllers\ContactController::class) }}" class="btn btn-success text">Contact us</a>
+                        <a href="{{ action(\Rector\Website\Http\Controllers\ContactController::class) }}"
+                           class="btn btn-success text">Contact us</a>
                     </div>
                 </div>
             </div>
@@ -355,7 +392,8 @@
                     </div>
 
                     <div class="card-footer text-center pt-4 pb-4">
-                        <a href="{{ action(\App\Http\Controllers\ContactController::class) }}" class="btn btn-success text">Contact us</a>
+                        <a href="{{ action(\Rector\Website\Http\Controllers\ContactController::class) }}"
+                           class="btn btn-success text">Contact us</a>
                     </div>
                 </div>
             </div>

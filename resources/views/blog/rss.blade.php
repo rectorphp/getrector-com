@@ -3,13 +3,13 @@
 @endphp
 
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>{{ action(\App\Http\Controllers\RssController::class) }}</id>
-    <link href="{{ action(\App\Http\Controllers\RssController::class) }}"/>
+    <id>{{ action(\Rector\Website\Http\Controllers\RssController::class) }}</id>
+    <link href="{{ action(\Rector\Website\Http\Controllers\RssController::class) }}"/>
     <title>
         <![CDATA[ Rector Blog ]]>
     </title>
     <description>Rector Blog about Legacy Code Migrations</description>
-    <language />
+    <language/>
     <updated>{{ $most_recent_post_date_time->format('r') }}</updated>
 
     @foreach ($posts as $post)

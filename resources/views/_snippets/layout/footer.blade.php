@@ -18,7 +18,8 @@
                     <em class="fab fa-linkedin fa-fw fa-lg"></em>
                 </a>
 
-                <a href="{{ action(\App\Http\Controllers\RssController::class) }}" class="p-2">
+                <a href="{{ action(\Rector\Website\Http\Controllers\RssController::class) }}"
+                   class="p-2">
                     <em class="fas fa-rss fa-fw fa-lg"></em>
                 </a>
             </div>
@@ -35,7 +36,8 @@
         <br>
 
         <div class="text-start mt-5 mb-5 text-medium text-sm-center">
-            We've helped <strong>12 companies</strong> to improve PHP code and reduce technical debt last year.
+            We've helped <strong>12 companies</strong> to improve PHP code and reduce technical debt
+            last year.
         </div>
     </div>
 </div>

@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Controllers;
+namespace Rector\Website\Http\Controllers;
 
-use App\Http\Requests\DemoFormRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Controller;
 use Rector\Website\DemoRunner;
 use Rector\Website\Entity\RectorRun;
+use Rector\Website\Http\Requests\DemoFormRequest;
 use Rector\Website\Repository\RectorRunRepository;
 use Symfony\Component\Uid\Uuid;
 
