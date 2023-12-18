@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b95999d8d80f35f10398e59d3c497aca",
+    "content-hash": "71cb512dcedc1d6ecf246a11300ab3f4",
     "packages": [
         {
             "name": "brick/math",
@@ -9825,48 +9825,6 @@
             "time": "2023-11-30T10:32:10+00:00"
         },
         {
-            "name": "symplify/easy-ci",
-            "version": "11.3.1.72",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symplify/easy-ci.git",
-                "reference": "d1c396af82582f66f71cf779fc37ea267307d188"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symplify/easy-ci/zipball/d1c396af82582f66f71cf779fc37ea267307d188",
-                "reference": "d1c396af82582f66f71cf779fc37ea267307d188",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.2"
-            },
-            "bin": [
-                "bin/easy-ci"
-            ],
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Toolkit of commands that should not be missed in you CI",
-            "support": {
-                "issues": "https://github.com/symplify/easy-ci/issues",
-                "source": "https://github.com/symplify/easy-ci/tree/11.3.1.72"
-            },
-            "funding": [
-                {
-                    "url": "https://www.paypal.me/rectorphp",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/tomasvotruba",
-                    "type": "github"
-                }
-            ],
-            "time": "2023-07-18T15:20:09+00:00"
-        },
-        {
             "name": "symplify/easy-coding-standard",
             "version": "12.0.13",
             "source": {
@@ -10087,16 +10045,16 @@
         },
         {
             "name": "tomasvotruba/class-leak",
-            "version": "0.1.3",
+            "version": "0.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/TomasVotruba/class-leak.git",
-                "reference": "2af3a8cbde03b0691afe361a223dfa52502e60a9"
+                "reference": "52a4b4cac9c8c88baaf17eac337803218e3e0a39"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TomasVotruba/class-leak/zipball/2af3a8cbde03b0691afe361a223dfa52502e60a9",
-                "reference": "2af3a8cbde03b0691afe361a223dfa52502e60a9",
+                "url": "https://api.github.com/repos/TomasVotruba/class-leak/zipball/52a4b4cac9c8c88baaf17eac337803218e3e0a39",
+                "reference": "52a4b4cac9c8c88baaf17eac337803218e3e0a39",
                 "shasum": ""
             },
             "require": {
@@ -10119,7 +10077,7 @@
             "description": "Detect leaking classes",
             "support": {
                 "issues": "https://github.com/TomasVotruba/class-leak/issues",
-                "source": "https://github.com/TomasVotruba/class-leak/tree/0.1.3"
+                "source": "https://github.com/TomasVotruba/class-leak/tree/0.2.6"
             },
             "funding": [
                 {
@@ -10131,60 +10089,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-08-27T15:43:41+00:00"
-        },
-        {
-            "name": "tomasvotruba/cognitive-complexity",
-            "version": "0.1.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/TomasVotruba/cognitive-complexity.git",
-                "reference": "b92239b0a4f0f3fce06a81fe00c824ff3385efd6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/TomasVotruba/cognitive-complexity/zipball/b92239b0a4f0f3fce06a81fe00c824ff3385efd6",
-                "reference": "b92239b0a4f0f3fce06a81fe00c824ff3385efd6",
-                "shasum": ""
-            },
-            "require": {
-                "nette/utils": "^3.2",
-                "php": "^7.2 || ^8.0",
-                "phpstan/phpstan": "^1.10"
-            },
-            "type": "phpstan-extension",
-            "extra": {
-                "phpstan": {
-                    "includes": [
-                        "config/extension.neon"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "TomasVotruba\\CognitiveComplexity\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "PHPStan rules to measure cognitive complexity of your classes and methods",
-            "support": {
-                "issues": "https://github.com/TomasVotruba/cognitive-complexity/issues",
-                "source": "https://github.com/TomasVotruba/cognitive-complexity/tree/0.1.2"
-            },
-            "funding": [
-                {
-                    "url": "https://www.paypal.me/rectorphp",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/tomasvotruba",
-                    "type": "github"
-                }
-            ],
-            "time": "2023-09-08T09:46:50+00:00"
+            "time": "2023-11-21T01:15:53+00:00"
         },
         {
             "name": "tomasvotruba/type-coverage",
@@ -10245,34 +10150,22 @@
         },
         {
             "name": "tomasvotruba/unused-public",
-            "version": "0.1.14",
+            "version": "0.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/TomasVotruba/unused-public.git",
-                "reference": "ff8fa8406bb8236c849c0dbc52d30a3618fea03a"
+                "reference": "8b603471fe55d1082aa6201471c6b76146c27cdc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TomasVotruba/unused-public/zipball/ff8fa8406bb8236c849c0dbc52d30a3618fea03a",
-                "reference": "ff8fa8406bb8236c849c0dbc52d30a3618fea03a",
+                "url": "https://api.github.com/repos/TomasVotruba/unused-public/zipball/8b603471fe55d1082aa6201471c6b76146c27cdc",
+                "reference": "8b603471fe55d1082aa6201471c6b76146c27cdc",
                 "shasum": ""
             },
             "require": {
-                "nette/utils": "^3.2",
-                "php": "^8.1",
-                "phpstan/phpstan": "^1.10.26",
+                "php": "^7.2 || ^8.0",
+                "phpstan/phpstan": "^1.10.19",
                 "webmozart/assert": "^1.11"
-            },
-            "require-dev": {
-                "php-parallel-lint/php-parallel-lint": "^1.3",
-                "phpstan/extension-installer": "^1.3",
-                "phpunit/phpunit": "^10.2",
-                "rector/rector": "^0.17",
-                "symplify/easy-ci": "^11.2",
-                "symplify/easy-coding-standard": "^11.5",
-                "tomasvotruba/class-leak": "0.0.22.72",
-                "tomasvotruba/type-coverage": "^0.1",
-                "tracy/tracy": "^2.10"
             },
             "type": "phpstan-extension",
             "extra": {
@@ -10298,7 +10191,7 @@
             ],
             "support": {
                 "issues": "https://github.com/TomasVotruba/unused-public/issues",
-                "source": "https://github.com/TomasVotruba/unused-public/tree/0.1.14"
+                "source": "https://github.com/TomasVotruba/unused-public/tree/0.3.5"
             },
             "funding": [
                 {
@@ -10310,7 +10203,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-07-24T09:01:29+00:00"
+            "time": "2023-09-21T20:46:14+00:00"
         },
         {
             "name": "webmozart/glob",

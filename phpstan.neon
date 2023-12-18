@@ -10,9 +10,6 @@ parameters:
         - */Fixture/*
         - */Expected/*
 
-    type_coverage:
-        print_suggestions: true
-
     unused_public:
         template_paths:
             - resources/views
@@ -30,3 +27,6 @@ parameters:
 
         # float allowed
         - '#Parameter (.*?) of class Imagine\\Image\\Box constructor expects int, float given#'
+
+        # known types
+        - '#Method Rector\\Website\\Tests\\Utils\\FileDiffCleanerTest\:\:split\(\) should return array\{string, string\} but returns array\{string\|null, string\|null\}#'
