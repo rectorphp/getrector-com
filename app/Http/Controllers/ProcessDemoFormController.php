@@ -11,7 +11,6 @@ use Rector\Website\DemoRunner;
 use Rector\Website\Entity\RectorRun;
 use Rector\Website\Repository\RectorRunRepository;
 use Symfony\Component\Uid\Uuid;
-use function TomasVotruba\Lavarle\to_action;
 
 final class ProcessDemoFormController extends Controller
 {
@@ -28,7 +27,7 @@ final class ProcessDemoFormController extends Controller
         $this->demoRunner->processRectorRun($rectorRun);
         $this->rectorRunRepository->save($rectorRun);
 
-        return to_action(DemoDetailController::class, [
+        return redirect()->action(DemoDetailController::class, [
             'uuid' => $rectorRun->getUuid(),
         ]);
     }

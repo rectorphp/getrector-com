@@ -11,7 +11,6 @@ use Rector\Website\Entity\RectorRun;
 use Rector\Website\Enum\FlashType;
 use Rector\Website\Repository\RectorRunRepository;
 use Symfony\Component\Uid\Uuid;
-use function TomasVotruba\Lavarle\to_action;
 
 final class DemoDetailController extends Controller
 {
@@ -23,7 +22,7 @@ final class DemoDetailController extends Controller
     public function __invoke(string $uuid): View|RedirectResponse
     {
         if (! Uuid::isValid($uuid)) {
-            return to_action(DemoController::class);
+            return redirect()->action(DemoController::class);
         }
 
         $rectorRun = $this->rectorRunRepository->get(Uuid::fromString($uuid));
@@ -33,7 +32,7 @@ final class DemoDetailController extends Controller
             session()
                 ->flash(FlashType::ERROR, $errorMessage);
 
-            return to_action(DemoController::class);
+            return redirect()->action(DemoController::class);
         }
 
         return \view('demo/demo', [
