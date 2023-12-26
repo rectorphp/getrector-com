@@ -24,12 +24,7 @@ final class HttpKernel extends Kernel
      *
      * @var array<int, class-string|string>
      */
-    protected $middleware = [
-        // \App\Http\Middleware\TrustHosts::class,
-        HandleCors::class,
-        ValidatePostSize::class,
-        ConvertEmptyStringsToNull::class,
-    ];
+    protected $middleware = [HandleCors::class, ValidatePostSize::class, ConvertEmptyStringsToNull::class];
 
     /**
      * The application's route middleware groups.
@@ -37,12 +32,7 @@ final class HttpKernel extends Kernel
      * @var array<string, array<int, class-string|string>>
      */
     protected $middlewareGroups = [
-        'web' => [
-            StartSession::class,
-            ShareErrorsFromSession::class,
-            //\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class,
-            SubstituteBindings::class,
-        ],
+        'web' => [StartSession::class, ShareErrorsFromSession::class, SubstituteBindings::class],
     ];
 
     /**

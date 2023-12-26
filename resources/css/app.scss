@@ -81,6 +81,16 @@ body {
     flex-direction: column;
 }
 
+#faq {
+    p {
+        font-size: 1.2em;
+    }
+
+    .col-12 {
+        margin-bottom: 1em;
+    }
+}
+
 #footer {
     padding: 2rem 0;
     background-color: $black;
@@ -212,7 +222,6 @@ ul.list-nobullet {
     clear: both;
 
     h2 {
-        margin: 2em 0;
         text-align: center;
         font-weight: 500 !important;
     }
@@ -290,7 +299,7 @@ h4 {
 
     h2 {
         margin-top: 1em;
-        margin-bottom: .7em;
+        margin-bottom: 1.5em;
     }
 
     h3 {
