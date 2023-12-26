@@ -1,76 +1,73 @@
-<div class="row">
-    <div class="col-12 col-md-6 mb-4">
+<div class="row" id="faq">
+    <div class="col-12">
         <h3>Can Rector upgrade PHP 5.3 code?</h3>
-        <p>Yes, Rector handles upgrades from PHP 5.3 up to PHP 8.2.</p>
+        <p>Yes, Rector seamlessly upgrades code from PHP 5.3 to PHP 8.3.</p>
     </div>
-    <div class="col-12 col-md-6 mb-4">
-        <h3>Can you upgrade Javascript or Java?</h3>
+
+    <br>
+
+    <div class="col-12">
+        <h3>What's the typical timeframe for an upgrade?</h3>
+        <p>Time varies per project, but most upgrades are completed within 6 to 12 months.</p>
+    </div>
+
+    <br>
+
+    <div class="col-12">
+        <h3>We're in a hurry. Can you start today?</h3>
         <p>
-            No, we can help you with PHP upgrades only.
+            We begin with a 3-week <a
+                href="{{ action(\Rector\Website\Http\Controllers\ProjectTimelineController::class) }}">intro
+                analysis</a>, followed by immediate upgrade work.
         </p>
     </div>
 
-    <div class="col-12 col-md-6 mb-4">
-        <h3>How long does a typical upgrade take?</h3>
-        <p>Every project is different. The project size, code quality, test coverage, type coverage
-            and CI setup affect the project upgrade duration. But to give you a rough idea, most
-            project upgrades we handle take between 6 and 12 months.</p>
-    </div>
-    <div class="col-12 col-md-6 mb-4">
-        <h3>We're in a hurry. How fast can you start upgrade of our project?</h3>
+    <br>
+
+    <div class="col-12">
+        <h3>We have a dozen of projects. Do you have to make an intro analysis on each of them?</h3>
         <p>
-            First, we do an <a
-                    href="{{ action(\Rector\Website\Http\Controllers\ForCompaniesController::class) }}">intro
-                analysis</a> of your project that takes 3 weeks. After that, we can jump right into
-            the upgrade work itself.
+            No. We analyze the largest project first, then guide you in applying changes to others.
         </p>
 
     </div>
-    <div class="col-12 col-md-6 mb-4">
 
-        <h3>Do we have to hire you every 2 years to handle the upgrade?</h3>
+    <br>
+
+    <div class="col-12">
+        <h3>Will we need to re-hire your team for future upgrades?</h3>
         <p>
-            No. Our goal is not to just simply change the value in <code>composer.json</code> to the
-            latest PHP. We improve your code quality to the highest possible level, we improve test
-            coverage, type coverage and get PHPStan to level 8. We upgrade your CI to catch most
-            bugs long before merge.
-            <br><br>
-            <strong>When we finish, you'll have Rector in your CI setup working seamlessly.</strong>
-            Your next PHP upgrade will be a matter of changing a single line in the configuration
-            that <strong>you can handle yourself</strong>.
+            No. Our aim is to your team self-sufficient. We improve your code quality, type coverage and PHPStan level to the highest possible level.
+            <br>
+            When we finish, you'll have Rector in your CI working for you.
+            Your next upgrade will take a single day.
         </p>
     </div>
 
-    <div class="col-12 col-md-6 mb-4">
-        <h3>We want to upgrade, but can't afford to stop development even for a few months.</h3>
+    <br>
+
+    <div class="col-12">
+        <h3>Can we continue developing new features during the upgrade?</h3>
         <p>
-            We know the business must grow. Stopping development, even for a month, would slow down
-            the project and give the competition a huge advantage.
-        </p>
-        <p>
-            That's why we <strong>work in parallel to your project</strong>. Our work flows
-            standalone along with your business development. Your team can safely develop features
-            as we slowly and safely upgrade your code.
+            Absolutely. Our upgrade process runs parallel to your ongoing development, ensuring no slowdown in your business growth.
         </p>
     </div>
-    <div class="col-12 col-md-6 mb-4">
+
+    <br>
+
+    <div class="col-12">
         <h3>Can you migrate our framework to an open-source one?</h3>
-        <p>Yes, that's a field where Rector really shines. The PHP frameworks are very similar to
-            each other; they use the MVC pattern. The framework migration is a matter of writing
-            30-50 custom Rector rules. We have deep experience with that.</p>
-
+        <p>Yes. We specialize in framework migration, leveraging our extensive experience and custom Rector rules.</p>
     </div>
-    <div class="col-12 col-md-6 mb-4">
-        <h3>We had a bad experience with an upgrade. It costs us 6 months with no result.<br>How do
-            help us to avoid it?</h3>
+
+    <br>
+
+    <div class="col-12">
+        <h3>Our last upgrade took 12 months with no result. How do you help us to avoid it?</h3>
         <p>
-            Doing upgrades effectively and with confidence takes years of experience with dozens of
-            project.
-        </p>
-        <p>
-            Our code changes are small, isolated and to the point. We create <strong>minimalistic
-                pull-requests with 1 change, and send it for a review</strong> and you merge it the
-            same or next day. That way your project will gain value every day.
+            The art of cost-effective upgrades takes years of experience with dozens of projects.
+            <br>
+            We focus on small, targeted changes with quick integration, ensuring continuous improvement and avoiding long, fruitless upgrade cycles.
         </p>
     </div>
 </div>
