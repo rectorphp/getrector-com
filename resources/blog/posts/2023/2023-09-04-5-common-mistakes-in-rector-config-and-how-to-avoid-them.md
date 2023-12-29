@@ -133,7 +133,6 @@ $rectorConfig->sets([
     SetList::TYPE_DECLARATION,
     SetList::PRIVATIZATION,
     SetList::EARLY_RETURN,
-    SetList::TYPE_DECLARATION,
     SetList::INSTANCEOF,
 ]);
 ```
