@@ -8,10 +8,6 @@ parameters:
         - */Fixture/*
         - */Expected/*
 
-    unused_public:
-        template_paths:
-            - resources/views
-
     level: 8
 
     reportUnmatchedIgnoredErrors: false
