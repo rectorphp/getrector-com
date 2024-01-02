@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Website\Utils;
 
-use Rector\Core\Application\VersionResolver;
+use Rector\Application\VersionResolver;
 
 /**
  * @api used in templates
