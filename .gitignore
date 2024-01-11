@@ -31,3 +31,5 @@ resources/json-database/*
 /storage
 
 public/hot
+
+database/database.sqlite
