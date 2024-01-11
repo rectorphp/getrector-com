@@ -28,19 +28,19 @@ Adding support for this attribute is pretty straightforward, as every unique ann
 Then Doctrine came with the next-level challenge. Unwrap array of `JoinColumn` annotations, once to `JoinColumn` attribute, and once to [`InverseJoinColumns` attribute](https://www.doctrine-project.org/projects/doctrine-orm/en/2.13/reference/attributes-reference.html#joincolumn-inversejoincolumn). Based on parent key.
 
 ```php
-    use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping as ORM;
 
-    /**
-     * @ORM\JoinTable(name="join_table_name",
-     *     joinColumns={
-     *          @ORM\JoinColumn(name="target_id"),
-     *     },
-     *     inverseJoinColumns={
-     *          @ORM\JoinColumn(name="another_id")
-     *     }
-     * )
-     */
-    private $collection;
+/**
+ * @ORM\JoinTable(name="join_table_name",
+ *     joinColumns={
+ *          @ORM\JoinColumn(name="target_id"),
+ *     },
+ *     inverseJoinColumns={
+ *          @ORM\JoinColumn(name="another_id")
+ *     }
+ * )
+ */
+private $collection;
 ```
 
 <br>
@@ -68,12 +68,12 @@ return static function (RectorConfig $rectorConfig): void {
 This rule will intelligently split the annotations:
 
 ```php
-    use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping as ORM;
 
-    #[ORM\JoinTable(name: 'join_table_name')]
-    #[ORM\JoinColumn(name: 'target_id')]
-    #[ORM\InverseJoinColumn(name: 'another_id')]
-    private $collection;
+#[ORM\JoinTable(name: 'join_table_name')]
+#[ORM\JoinColumn(name: 'target_id')]
+#[ORM\InverseJoinColumn(name: 'another_id')]
+private $collection;
 ```
 
 <br>
