@@ -24,5 +24,6 @@ jobs:
 
             -   run: yarn install
             -   run: yarn run build
+            -   run: php artisan migrate --force
 
             -   run: vendor/bin/phpunit
