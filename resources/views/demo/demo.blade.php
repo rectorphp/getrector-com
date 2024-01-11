@@ -9,6 +9,8 @@
         <form action="{{ action(\Rector\Website\Http\Controllers\ProcessDemoFormController::class) }}"
               method="post">
 
+            @csrf <!-- {{ csrf_field() }} -->
+
             @if ($rector_run->hasRun() && $rector_run->isSuccessful() !== true)
                 <div class="alert alert-danger mb-3">
                     <p>

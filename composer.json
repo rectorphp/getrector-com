@@ -3,26 +3,24 @@
     "license": "proprietary",
     "description": "Website of getrector.com",
     "require": {
-        "php": "^8.1",
+        "php": "^8.2",
         "imagine/imagine": "^1.3.5",
         "jajo/jsondb": "^3.0.1",
-        "laravel/framework": "^10.40",
         "league/commonmark": "^2.4",
+        "laravel/framework": "11.x-dev",
         "nikic/php-parser": "^4.18",
         "rector/rector": "dev-main",
         "samsonasik/array-lookup": "^1.4",
         "symfony/filesystem": "^6.4",
-        "symfony/uid": "^6.4",
         "symfony/yaml": "^6.4",
-        "tomasvotruba/bladestan": "dev-main",
-        "tomasvotruba/punchcard": "^0.2"
+        "symfony/uid": "^7.0",
+        "tomasvotruba/bladestan": "^0.5"
     },
     "require-dev": {
-        "nunomaduro/larastan": "^2.8",
         "phpstan/extension-installer": "^1.3.1",
         "phpstan/phpstan": "^1.10.55",
         "phpunit/phpunit": "^10.5",
-        "symplify/easy-coding-standard": "^12.1",
+        "symplify/easy-coding-standard": "^12.1.3",
         "symplify/phpstan-extensions": "^11.4",
         "tomasvotruba/class-leak": "^0.2.6"
     },
@@ -61,18 +59,13 @@
         ],
         "check-cs": "vendor/bin/ecs check --ansi",
         "fix-cs": "vendor/bin/ecs check --fix --ansi",
-        "phpstan": "php -d memory_limit=1G vendor/bin/phpstan analyse --error-format symplify --ansi",
+        "phpstan": "vendor/bin/phpstan analyse --ansi --error-format symplify",
         "rector": "vendor/bin/rector process --ansi"
     },
     "config": {
         "sort-packages": true,
         "allow-plugins": {
-            "phpstan/extension-installer": true,
-            "cweagans/composer-patches": true,
-            "pestphp/pest-plugin": true
-        },
-        "platform": {
-            "php": "8.1.0"
+            "phpstan/extension-installer": true
         }
     }
 }
