@@ -14,5 +14,10 @@ cp .env.dist .env
 yarn build
 
 
+# since Laravel 11 ↓
+
 # needed for clear:cache to work
 php artisan migrate --database=sqlite
+
+# for some reason required for tests to run
+mkdir -p vendor/rector/rector/bootstrap/cache

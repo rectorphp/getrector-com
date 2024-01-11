@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Website\Tests\Controller;
 
+use Illuminate\Foundation\Http\Middleware\ValidateCsrfToken;
 use Iterator;
 use PHPUnit\Framework\Attributes\DataProvider;
 use Rector\Website\Http\Controllers\ProcessDemoFormController;
@@ -11,6 +12,12 @@ use Rector\Website\Tests\AbstractTestCase;
 
 final class DemoControllerTest extends AbstractTestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $this->withoutMiddleware(ValidateCsrfToken::class);
+    }
+
     /**
      * @param array<string, string[]> $invalidKeysWithMessages
      */

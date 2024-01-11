@@ -6,14 +6,17 @@ namespace Rector\Website\Tests\SmokeTests;
 
 use Iterator;
 use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 use Rector\Website\Tests\AbstractTestCase;
 
 final class ControllerSmokeTest extends AbstractTestCase
 {
+    #[RunInSeparateProcess]
     #[DataProvider('provideData')]
     public function test(string $url, int $expectedStatusCode): void
     {
         $testResponse = $this->get($url);
+
         $testResponse->assertStatus($expectedStatusCode);
     }
 
