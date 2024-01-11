@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b0db34afcb005eaaedf2fa82db90ac78",
+    "content-hash": "0e20ab6e4cdde607c038db3c662ca9bf",
     "packages": [
         {
             "name": "brick/math",
@@ -2669,12 +2669,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "97a6bd58e9464d783ca4381e5214b60baa00d64c"
+                "reference": "2b3879001d53966f87685f13c25972a2bdc6323f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/97a6bd58e9464d783ca4381e5214b60baa00d64c",
-                "reference": "97a6bd58e9464d783ca4381e5214b60baa00d64c",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/2b3879001d53966f87685f13c25972a2bdc6323f",
+                "reference": "2b3879001d53966f87685f13c25972a2bdc6323f",
                 "shasum": ""
             },
             "require": {
@@ -2718,7 +2718,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-01-10T21:29:12+00:00"
+            "time": "2024-01-10T22:12:13+00:00"
         },
         {
             "name": "samsonasik/array-lookup",
@@ -7845,8 +7845,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.1",
-        "ext-json": "*"
+        "php": "^8.1"
     },
     "platform-dev": [],
     "platform-overrides": {
