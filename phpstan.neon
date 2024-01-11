@@ -2,7 +2,6 @@ parameters:
     paths:
         - src
         - tests
-        - config
 
     excludePaths:
         - */Fixture/*

@@ -60,7 +60,7 @@
         ],
         "check-cs": "vendor/bin/ecs check --ansi",
         "fix-cs": "vendor/bin/ecs check --fix --ansi",
-        "phpstan": "php -d memory_limit=1G vendor/bin/phpstan analyse --error-format symplify --ansi",
+        "phpstan": "vendor/bin/phpstan analyse --ansi",
         "rector": "vendor/bin/rector process --ansi"
     },
     "config": {
