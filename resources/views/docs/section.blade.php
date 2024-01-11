@@ -49,9 +49,7 @@
         <div class="col-12 col-sm-9" id="documentation">
             <h1 class="mb-4">{{ $section_title }}</h1>
 
-            <x-markdown>
-                {!! $section_markdown_contents !!}
-            </x-markdown>
+            {!! markdown($section_markdown_contents) !!}
         </div>
     </div>
 @endsection

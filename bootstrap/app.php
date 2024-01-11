@@ -8,6 +8,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Exceptions\Handler;
 
 $application = new Application(__DIR__ . '/..');
+$application->useAppPath(__DIR__ . '/../src');
 
 $application->singleton(
     Kernel::class,

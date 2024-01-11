@@ -60,9 +60,7 @@
                 </div>
                 @if ($post->getUpdatedMessage())
                     <div class="card-body pb-2">
-                        <x-markdown>
-                            {{ $post->getUpdatedMessage() }}
-                        </x-markdown>
+                        {!! markdown($post->getUpdatedMessage()) !!}
                     </div>
                 @endif
             </div>
@@ -71,15 +69,11 @@
         @endif
 
         <div class="perex">
-            <x-markdown>
-                {{ $post->getPerex() }}
-            </x-markdown>
+            {!! markdown($post->getPerex()) !!}
         </div>
 
         <div class="text-body">
-            <x-markdown>
-                {!! $post->getContents() !!}
-            </x-markdown>
+            {!! markdown($post->getContents()) !!}
         </div>
 
         <br>
