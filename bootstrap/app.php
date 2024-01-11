@@ -2,27 +2,26 @@
 
 declare(strict_types=1);
 
-use Illuminate\Contracts\Debug\ExceptionHandler;
-use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Foundation\Application;
-use Illuminate\Foundation\Exceptions\Handler;
+use Illuminate\Foundation\Configuration\Middleware;
 
-$application = new Application(__DIR__ . '/..');
+$application = Application::configure()
+    ->withProviders()
+    ->withRouting(
+        web: __DIR__.'/../routes/web.php',
+    )
+    ->withMiddleware(function (Middleware $middleware) {
+        //
+    })
+    ->create();
+
 $application->useAppPath(__DIR__ . '/../src');
 
-$application->singleton(
-    Kernel::class,
-    \Rector\Website\Http\HttpKernel::class
-);
-
-$application->singleton(
-    Illuminate\Contracts\Console\Kernel::class,
-    Illuminate\Foundation\Console\Kernel::class,
-);
-
-$application->singleton(
-    ExceptionHandler::class,
-    Handler::class
-);
-
 return $application;
+
+
+//$application->useAppPath(__DIR__ . '/../src');
+//
+//$application->singleton(
+//    Kernel::class,
+//    \Rector\Website\Http\HttpKernel::class
