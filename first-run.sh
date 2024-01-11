@@ -12,3 +12,7 @@ cp .env.dist .env
 
 # create the manifest.json file
 yarn build
+
+
+# needed for clear:cache to work
+php artisan migrate --database=sqlite

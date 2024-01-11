@@ -23,3 +23,6 @@ parameters:
 
         # known types
         - '#Method Rector\\Website\\Tests\\Utils\\FileDiffCleanerTest\:\:split\(\) should return array\{string, string\} but returns array\{string\|null, string\|null\}#'
+
+        # will be solved most likely once Larastan is updated to Laravel 11 conventions
+        - '#Call to an undefined method Illuminate\\Contracts\\(.*?)|Illuminate\\#'
