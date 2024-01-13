@@ -25,8 +25,8 @@ s you have to process rector.
 There are 3 options we can define for parallel processing:
 ```php
 public function parallel(
-    int $seconds = 120,
-    int $maxNumberOfProcess = 16,
+    int $seconds = 60,
+    int $maxNumberOfProcess = 32,
     int $jobSize = 20
 ): void
 ```
