@@ -17,7 +17,6 @@ use Rector\Website\Http\Controllers\ProcessDemoFormController;
 use Rector\Website\Http\Controllers\ProjectTimelineController;
 use Rector\Website\Http\Controllers\RssController;
 use Rector\Website\Http\Controllers\ThumbnailController;
-use Rector\Website\Http\Middleware\PhpContentAndRectorConfig;
 
 Route::get('/', HomepageController::class);
 
