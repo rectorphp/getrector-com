@@ -8,10 +8,10 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class PhpContentAndRectorConfig
+final class PhpContentAndRectorConfig
 {
     /**
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     * @param \Closure(Request):Response $next
      */
     public function handle(Request $request, Closure $next): Response
     {

@@ -33,8 +33,8 @@ final class PhpLinter
             $parser->parse($content);
 
             return null;
-        } catch (Error $e) {
-            return $e->getMessage();
+        } catch (Error $error) {
+            return $error->getMessage();
         }
     }
 }
