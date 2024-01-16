@@ -45,13 +45,8 @@
 
             <div class="card mb-4">
                 <div class="card-body p-0 mb-0">
-                    @if ($errors->get('php_contents') === [])
-                        <textarea name="php_contents" class="codemirror_php"
-                                required="required">{{ $rector_run->getContent() }}</textarea>
-                    @else
-                        <textarea name="php_contents" class="codemirror_php"
-                            required="required">{!! session('_old_input')['php_contents'] ?? '' !!}</textarea>
-                    @endif
+                    <textarea name="php_contents" class="codemirror_php"
+                        required="required">{!! session('_old_input')['php_contents'] ?? $rector_run->getContent() !!}</textarea>
                 </div>
             </div>
 
@@ -114,13 +109,8 @@
                 </div>
 
                 <div class="card-body p-0">
-                    @if ($errors->get('rector_config') === [])
-                        <textarea name="rector_config" class="codemirror_php"
-                            required="required">{{ $rector_run->getConfig() }}</textarea>
-                    @else
-                        <textarea name="rector_config" class="codemirror_php"
-                            required="required">{!! session('_old_input')['rector_config'] ?? '' !!}</textarea>
-                    @endif
+                    <textarea name="rector_config" class="codemirror_php"
+                        required="required">{!! session('_old_input')['rector_config'] ?? $rector_run->getConfig() !!}</textarea>
                 </div>
             </div>
 
