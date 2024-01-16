@@ -41,4 +41,4 @@ Route::get('demo/{uuid}', DemoDetailController::class);
 Route::get('demo', DemoController::class);
 
 // post routes
-Route::post('process-demo', ProcessDemoFormController::class)->middleware(PhpContentAndRectorConfig::class);
+Route::post('process-demo', ProcessDemoFormController::class);
