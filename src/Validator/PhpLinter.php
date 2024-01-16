@@ -18,12 +18,12 @@ final class PhpLinter
      */
     private const OPENING_PHP_TAG_REGEX = '#(\s+)?\<\?php#';
 
-    public function isValidPhpSyntax(string $content): bool
+    public function validatePhpSyntax(string $content): ?string
     {
         $patternMatch = str($content)
             ->match(self::OPENING_PHP_TAG_REGEX);
         if (! $patternMatch->value()) {
-            return false;
+            return 'Missing PHP opening tag';
         }
 
         $parserFactory = new ParserFactory();
@@ -32,9 +32,9 @@ final class PhpLinter
         try {
             $parser->parse($content);
 
-            return true;
-        } catch (Error) {
-            return false;
+            return null;
+        } catch (Error $e) {
+            return $e->getMessage();
         }
     }
 }

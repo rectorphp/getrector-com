@@ -49,10 +49,16 @@ final class DemoControllerTest extends AbstractTestCase
             'rector_config' => 'The rector config field is required.',
         ]];
 
-        // Invalid PHP syntax
+        // missing php open tag
         yield ['failed', 'services:', [
-            'php_contents' => 'Provide a valid PHP code',
-            'rector_config' => 'Provide a valid PHP code',
+            'php_contents' => 'PHP code is invalid: Missing PHP opening tag',
+            'rector_config' => 'PHP code is invalid: Missing PHP opening tag',
+        ]];
+
+        // Invalid PHP syntax (missing semicolon)
+        yield ['<?php print $x', '', [
+            'php_contents' => 'PHP code is invalid: Syntax error, unexpected EOF on line 1',
+            'rector_config' => 'The rector config field is required.',
         ]];
 
         // valid PHP syntaxes
