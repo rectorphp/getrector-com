@@ -46,7 +46,7 @@
             <div class="card mb-4">
                 <div class="card-body p-0 mb-0">
                     <textarea name="php_contents" class="codemirror_php"
-                        required="required">{!! session('_old_input')['php_contents'] ?? $rector_run->getContent() !!}</textarea>
+                        required="required">{{ session('_old_input')['php_contents'] ?? $rector_run->getContent() }}</textarea>
                 </div>
             </div>
 
@@ -110,7 +110,7 @@
 
                 <div class="card-body p-0">
                     <textarea name="rector_config" class="codemirror_php"
-                        required="required">{!! session('_old_input')['rector_config'] ?? $rector_run->getConfig() !!}</textarea>
+                        required="required">{{ session('_old_input')['rector_config'] ?? $rector_run->getConfig() }}</textarea>
                 </div>
             </div>
 
