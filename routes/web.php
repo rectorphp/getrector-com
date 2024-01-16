@@ -17,6 +17,7 @@ use Rector\Website\Http\Controllers\ProcessDemoFormController;
 use Rector\Website\Http\Controllers\ProjectTimelineController;
 use Rector\Website\Http\Controllers\RssController;
 use Rector\Website\Http\Controllers\ThumbnailController;
+use Rector\Website\Http\Middleware\PhpContentAndRectorConfig;
 
 Route::get('/', HomepageController::class);
 
@@ -40,4 +41,4 @@ Route::get('demo/{uuid}', DemoDetailController::class);
 Route::get('demo', DemoController::class);
 
 // post routes
-Route::post('process-demo', ProcessDemoFormController::class);
+Route::post('process-demo', ProcessDemoFormController::class)->middleware(PhpContentAndRectorConfig::class);
