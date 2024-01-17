@@ -59,13 +59,18 @@ Moving those files into the root `/migrations` directory is even better, so Rect
 
 ## 3. Avoid keeping `UP_TO_*` for longer than needed
 
+<div class="alert alert-warning mt-3 mb-5">
+Symfony, PHPUnit and Twig level sets caused mutually conflicting changes and heavy performance loads. They got deprecated since Rector 0.19.2. Use the last major version set instead.
+</div>
+
 Rector can handle both code improvements and package upgrades. The upgrade is usually a one-time job to get your codebase to the latest PHP and packages. You can find the following sets in your code:
 
 ```php
 $rectorConfig->sets([
+    LevelSetList::UP_TO_PHP_81,
+    // deprecated since 0.19.2
     PHPUnitLevelSetList::UP_TO_PHPUNIT_100,
     SymfonyLevelSetList::UP_TO_SYMFONY_63,
-    LevelSetList::UP_TO_PHP_81,
 ]);
 ```
 

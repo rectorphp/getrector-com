@@ -64,7 +64,9 @@ use Rector\Set\ValueObject\LevelSetList;
 use Rector\Config\RectorConfig;
 
 return function (RectorConfig $rectorConfig): void {
-    $rectorConfig->import(LevelSetList::UP_TO_PHP_81);
+    $rectorConfig->sets([
+        LevelSetList::UP_TO_PHP_81,
+    ]);
 };
 ```
 
@@ -81,26 +83,11 @@ Next time you'll need to upgrade PHP, you can change only 1 line:
  use Rector\Config\RectorConfig;
 
  return function (RectorConfig $rectorConfig): void {
--    $rectorConfig->import(LevelSetList::UP_TO_PHP_81);
-+    $rectorConfig->import(LevelSetList::UP_TO_PHP_82);
+     $rectorConfig->sets([
+-        LevelSetList::UP_TO_PHP_81,
++        LevelSetList::UP_TO_PHP_82,
+     ]);
  };
-```
-
-## Frameworks or Downgrades?
-
-You might think that's a very nice improvement for PHP, but do we support something similar for the framework packages?
-
-See for yourself:
-
-```php
-use Rector\Symfony\Set\SymfonyLevelSetList;
-use Rector\Set\ValueObject\LevelSetList;
-use Rector\Config\RectorConfig;
-
-return function (RectorConfig $rectorConfig): void {
-    $rectorConfig->import(LevelSetList::UP_TO_PHP_82);
-    $rectorConfig->import(SymfonyLevelSetList::UP_TO_SYMFONY_60);
-};
 ```
 
 There are also `Rector\Set\ValueObject\DowngradeSetList` configs that make sure you downgrade with ease too!
