@@ -39,6 +39,7 @@ final class DocumentationMenuFactory
                 new DocumentationSection('writing-tests-for-custom-rule', 'Writing Tests For Custom Rule'),
                 new DocumentationSection('rules-overview', 'Rules Overview'),
                 new DocumentationSection('creating-a-node-visitor', 'Creating Node Visitor'),
+                new DocumentationSection('how-to-run-on-php-53', 'How to run on PHP 5.3'),
             ],
         ];
     }
