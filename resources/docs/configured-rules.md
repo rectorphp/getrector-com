@@ -1,4 +1,4 @@
-Rector rules that implement `Rector\Core\Contract\Rector\ConfigurableRectorInterface` can be configured.
+Rector rules that implement `Rector\Contract\Rector\ConfigurableRectorInterface` can be configured.
 
 Typical example is `Rector\Renaming\Rector\Name\RenameClassRector`:
 

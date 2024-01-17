@@ -29,7 +29,7 @@ So what does it look like?
 
 ```php
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
-use Rector\Core\Configuration\Option;
+use Rector\Configuration\Option;
 use Rector\DowngradePhp81\Rector\Property\DowngradeReadonlyPropertyRector;
 
 // ups, possible conflict with ContainerConfigurator

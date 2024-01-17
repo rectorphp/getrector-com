@@ -146,7 +146,7 @@ While we were at it, we made sure the configuration input was now validated. Is 
 So if you ever add however invalid configuration, we'll tell you what to fix the second you run Rector:
 
 ```php
-use Rector\Core\Rector\AbstractRector;
+use Rector\Rector\AbstractRector;
 use Webmozart\Assert\Assert;
 
 final class RenameClassRector extends AbstractRector

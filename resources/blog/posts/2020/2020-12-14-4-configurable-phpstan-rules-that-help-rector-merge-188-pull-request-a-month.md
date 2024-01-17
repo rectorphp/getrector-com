@@ -19,7 +19,7 @@ A Rector rule that should change `$something` would look like this:
 use Symfony\Component\DependencyInjection\Variable;
 use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
 use PhpParser\Node;
-use Rector\Core\Rector\AbstractRector;
+use Rector\Rector\AbstractRector;
 
 final class ChangeSomethignRector extends AbstractRector
 {
@@ -97,7 +97,7 @@ services:
         tags: [phpstan.rules.rule]
         arguments:
             requiredSeeTypes:
-                - Rector\Core\Rector\AbstractRector
+                - Rector\Rector\AbstractRector
 ```
 
 <br>
