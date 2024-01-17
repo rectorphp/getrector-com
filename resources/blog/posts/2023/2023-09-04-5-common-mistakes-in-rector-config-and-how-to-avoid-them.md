@@ -92,7 +92,7 @@ During the upgrade period, it's also typical to add one rule at a time, run Rect
 That way, you might end up with 100+ rules listed one by one from a single set:
 
 ```php
-$rectorConfig->rules(
+$rectorConfig->rules([
     \Rector\DeadCode\Rector\BooleanAnd\RemoveAndTrueRector::class,
     \Rector\DeadCode\Rector\Stmt\RemoveUnreachableStatementRector::class,
     \Rector\DeadCode\Rector\ClassConst\RemoveUnusedPrivateClassConstantRector::class,
