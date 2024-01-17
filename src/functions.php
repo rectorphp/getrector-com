@@ -9,7 +9,6 @@ use League\CommonMark\GithubFlavoredMarkdownConverter;
 function markdown(string $contents): Stringable
 {
     $markdownConverter = new GithubFlavoredMarkdownConverter([
-        'html_input' => 'strip',
         'allow_unsafe_links' => false,
     ]);
 
