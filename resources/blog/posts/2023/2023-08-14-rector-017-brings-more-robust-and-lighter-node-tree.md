@@ -64,7 +64,7 @@ In the example, it should hook into the `Class_` node, find a property in the cl
 use PhpParser\Node;
 use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\ClassMethod;
-use Rector\Core\Rector\AbstractRector;
+use Rector\Rector\AbstractRector;
 
 final class AddMethodBasedonPropertyRector extends AbstactRector
 {
