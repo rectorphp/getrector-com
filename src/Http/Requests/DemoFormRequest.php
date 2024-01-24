@@ -17,7 +17,7 @@ final class DemoFormRequest extends FormRequest
     }
 
     /**
-     * @return array{php_contents: ShortPhpContentsRule[]|ValidPhpSyntaxRule[]|string[], rector_config: ValidPhpSyntaxRule[]|string[]}
+     * @return array{php_contents: ShortPhpContentsRule[]|ValidPhpSyntaxRule[]|string[], rector_config: ValidPhpSyntaxRule[]|FuncCallRule[]|string[]}
      */
     public function rules(): array
     {
