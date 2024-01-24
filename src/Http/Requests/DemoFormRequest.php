@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Rector\Website\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Rector\Website\Rules\FuncCallRule;
 use Rector\Website\Rules\ShortPhpContentsRule;
 use Rector\Website\Rules\ValidPhpSyntaxRule;
 
@@ -16,7 +17,7 @@ final class DemoFormRequest extends FormRequest
     }
 
     /**
-     * @return array{php_contents: ShortPhpContentsRule[]|ValidPhpSyntaxRule[]|string[], rector_config: ValidPhpSyntaxRule[]|string[]}
+     * @return array{php_contents: ShortPhpContentsRule[]|ValidPhpSyntaxRule[]|string[], rector_config: ValidPhpSyntaxRule[]|FuncCallRule[]|string[]}
      */
     public function rules(): array
     {
@@ -28,9 +29,13 @@ final class DemoFormRequest extends FormRequest
         $validPhpSyntaxRule = app()
             ->make(ValidPhpSyntaxRule::class);
 
+        /** @var FuncCallRule $funcCallRule */
+        $funcCallRule = app()
+            ->make(FuncCallRule::class);
+
         return [
             'php_contents' => ['required', 'string', $shortPhpContentsRule, $validPhpSyntaxRule],
-            'rector_config' => ['required', 'string', $validPhpSyntaxRule],
+            'rector_config' => ['required', 'string', $validPhpSyntaxRule, $funcCallRule],
         ];
     }
 
