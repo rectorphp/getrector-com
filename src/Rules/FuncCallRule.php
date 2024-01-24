@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Website\Rules;
 
+use Error;
 use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
 use PhpParser\Node;
@@ -24,13 +25,13 @@ final class FuncCallRule implements ValidationRule
 
             $hasFuncCall = $nodeFinder->findFirst(
                 (array) $stmts,
-                fn (Node $subNode): bool => $subNode instanceof FuncCall
+                static fn(Node $subNode): bool => $subNode instanceof FuncCall
             );
 
-            if ($hasFuncCall) {
-                $fail(sprintf('PHP config should not include func call'));
+            if ($hasFuncCall !== null) {
+                $fail('PHP config should not include func call');
             }
-        } catch (\Error $error) {
+        } catch (Error $error) {
             $fail(sprintf('PHP code is invalid: %s', $error->getMessage()));
         }
     }
