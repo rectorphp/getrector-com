@@ -61,7 +61,7 @@ final class DemoControllerTest extends AbstractTestCase
             'rector_config' => 'The rector config field is required.',
         ]];
 
-        // Invalid PHP syntax (missing semicolon)
+        // Add dangerous exec() func call
         yield ['<?php echo "test"; ?>', '<?php exec("dangerous command"); ?>', [
             'rector_config' => 'PHP config should not include func call',
         ]];
