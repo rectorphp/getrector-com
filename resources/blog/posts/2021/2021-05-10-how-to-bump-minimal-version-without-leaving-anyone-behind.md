@@ -133,11 +133,12 @@ Instead, we can use simple tagging, adding the last 2 digits to the state PHP ve
 ```bash
 # on PHP 8
 composer require symfony/console:^6.0
-...installing symfony/console:6.0.0
+
+# installing symfony/console:6.0.0
 
 # on PHP 7.1
 composer require symfony/console:^6.0
-...installing symfony/console:6.0.0.71
+# installing symfony/console:6.0.0.71
 ```
 
 This way, if any package will require `symfony/console:^6.0`, they will always match the current set of features.

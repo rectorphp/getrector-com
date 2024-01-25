@@ -15,26 +15,15 @@
 </style>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/php.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/bash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/php.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/yaml.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/diff.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/json.min.js"></script>
 
 <script>
     document.addEventListener('DOMContentLoaded', (event) => {
-        document.querySelectorAll('pre code.language-php').forEach((block) => {
-            hljs.highlightBlock(block);
-        });
-
-        document.querySelectorAll('pre code.language-yaml').forEach((block) => {
-            hljs.highlightBlock(block);
-        });
-
-        document.querySelectorAll('pre code.language-bash').forEach((block) => {
-            hljs.highlightBlock(block);
-        });
-
-        document.querySelectorAll('pre code.language-diff').forEach((block) => {
+        document.querySelectorAll('pre code.language-bash, pre code.language-php, pre code.language-yaml, pre code.language-diff, pre code.language-json').forEach((block) => {
             hljs.highlightBlock(block);
         });
     });
