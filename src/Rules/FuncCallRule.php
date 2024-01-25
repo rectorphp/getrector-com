@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Rector\Website\Rules;
 
-use Error;
 use Closure;
+use Error;
 use Illuminate\Contracts\Validation\ValidationRule;
 use PhpParser\Node;
 use PhpParser\Node\Expr\FuncCall;
@@ -25,7 +25,7 @@ final class FuncCallRule implements ValidationRule
 
             $hasFuncCall = $nodeFinder->findFirst(
                 (array) $stmts,
-                static fn(Node $subNode): bool => $subNode instanceof FuncCall
+                static fn (Node $subNode): bool => $subNode instanceof FuncCall
             );
 
             if ($hasFuncCall !== null) {

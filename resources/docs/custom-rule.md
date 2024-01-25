@@ -7,13 +7,27 @@ Let's say we want to **change method calls from `set*` to `change*`**.
 +$user->changePassword('123456');
 ```
 
+
+<br>
+
+<div class="alert alert-warning pb-0 ps-4 pe-4">
+<h1 class="float-start pe-2"> 💡</h1>
+
+<p style="margin-top: 0.7em" class="pb-3">
+Since <strong>Rector 0.19.3</strong> you can generate basic structure of your custom rule with this command:
+</p>
+
+```bash
+vendor/bin/rector custom-rule
+```
+</div>
+
+
 ## 1. Create a New Rector and Implement Methods
 
 Create a class that extends [`Rector\Rector\AbstractRector`](https://github.com/rectorphp/rector/blob/main/src/Rector/AbstractRector.php). It will inherit useful methods e.g. to check node type and name. See the source (or type `$this->` in an IDE) for a list of available methods.
 
 ```php
-declare(strict_types=1);
-
 namespace Utils\Rector\Rector;
 
 use PhpParser\Node;
@@ -31,13 +45,13 @@ final class MyFirstRector extends AbstractRector
     public function getNodeTypes(): array
     {
         // what node types are we looking for?
-        // pick any node from https://github.com/rectorphp/php-parser-nodes-docs/
+        // pick from
+        // https://github.com/rectorphp/php-parser-nodes-docs/
         return [MethodCall::class];
     }
 
     /**
-     * @param MethodCall $node - we can add "MethodCall" type here, because
-     *                         only this node is in "getNodeTypes()"
+     * @param MethodCall $node
      */
     public function refactor(Node $node): ?Node
     {
@@ -52,7 +66,9 @@ final class MyFirstRector extends AbstractRector
             return null;
         }
 
-        $newMethodCallName = preg_replace('#^set#', 'change', $methodCallName);
+        $newMethodCallName = preg_replace(
+            '#^set#', 'change', $methodCallName
+        );
 
         $node->name = new Identifier($newMethodCallName);
 
@@ -61,7 +77,8 @@ final class MyFirstRector extends AbstractRector
     }
 
     /**
-     * This method helps other to understand the rule and to generate documentation.
+     * This method helps other to understand the rule
+     * and to generate documentation.
      */
     public function getRuleDefinition(): RuleDefinition
     {
@@ -85,27 +102,15 @@ final class MyFirstRector extends AbstractRector
 This is how the file structure for custom rule in your own project will look like:
 
 ```bash
-/src/
-    /YourCode.php
+/src
+    SomeCode.php
+
 /utils
     /rector
         /src
             /Rector
                 MyFirstRector.php
-rector.php
-composer.json
-```
 
-Writing test saves you lot of time in future debugging. Here is a file structure with tests:
-
-```bash
-/src/
-    /YourCode.php
-/utils
-    /rector
-        /src
-            /Rector
-                MyFirstRector.php
         /tests
             /Rector
                 /MyFirstRector
@@ -114,6 +119,7 @@ Writing test saves you lot of time in future debugging. Here is a file structure
                     /config
                         config.php
                     MyFirstRectorTest.php
+
 rector.php
 composer.json
 ```
