@@ -4,12 +4,24 @@ so you can validate that your rule works as expected in a variety of cases.
 
 ## Requirements
 
-There are 2 composer packages that you need to write & run tests for your custom rule:
-* `phpunit/phpunit`: The test framework
-* `rector/rector`: This contains the `AbstractRectorTestCase` class to simplify test configuration
-To run the Rector default test structure, you need to have [PHPUnit](https://docs.phpunit.de/en/10.0/installation.html#composer) installed in your project.
+There are 2 composer packages to run tests for your custom rule:
 
-This page assumes you have PHPUnit installed through composer.
+* `phpunit/phpunit`: the testing framework
+* `rector/rector`: this contains the `AbstractRectorTestCase` class to simplify test configuration
+
+<br>
+
+<div class="alert alert-warning pb-0 ps-4 pe-4">
+<h1 class="float-start pe-2"> 💡</h1>
+
+<p style="margin-top: 0.7em" class="pb-3">
+Since <strong>Rector 0.19.3</strong> you can generate basic structure of your custom rule with this command:
+</p>
+
+```bash
+vendor/bin/rector custom-rule
+```
+</div>
 
 ## File Structure
 
