@@ -25,15 +25,16 @@ s you have to process rector.
 There are 3 options we can define for parallel processing:
 ```php
 public function parallel(
-    int $seconds = 60,
-    int $maxNumberOfProcess = 32,
-    int $jobSize = 20
+    int $seconds = 120,
+    int $maxNumberOfProcess = 16,
+    int $jobSize = 16
 ): void
 ```
 
 To manually set these options, call the `parallel` function within the Rector config class:
+
 ```php
-$rectorConfig->parallel(120, 16, 20);
+$rectorConfig->parallel(120, 16, 10);
 ```
 
 You can make it aligned with what you have at your disposal:
