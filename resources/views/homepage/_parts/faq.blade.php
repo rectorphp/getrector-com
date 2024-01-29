@@ -37,7 +37,7 @@
     <div class="col-12">
         <h3>Will we need to re-hire your team for future upgrades?</h3>
         <p>
-            No. Our aim is to your team self-sufficient. We improve your code quality, type coverage and PHPStan level to the highest possible level.
+            No. Our aim is to make your team self-sufficient. We improve your code quality, type coverage and PHPStan level to the highest possible level.
             <br>
             When we finish, you'll have Rector in your CI working for you.
             Your next upgrade will take a single day.
