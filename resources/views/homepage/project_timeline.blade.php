@@ -30,7 +30,7 @@
                 4. <strong>You share a Git repository</strong> with us, so we have an idea about project size
             </p>
             <p>
-                5. We give you a quote for <a href="hire-team#intro_analysis">intro analysis</a> of your project, that fits within 4 000-8 000 €
+                5. We give you a quote for <a href="hire-team#intro_analysis">intro analysis</a> of your project, that fits within 6 000-8 000 €
             </p>
             <p>
                 6. After we confirm, we send you an invoice
