@@ -27,6 +27,7 @@ final class DocumentationMenuFactory
                 new DocumentationSection('config-configuration', 'Config Configuration'),
                 new DocumentationSection('php-version-features', 'PHP Version Features'),
                 new DocumentationSection('debugging', 'Debugging'),
+                new DocumentationSection('commands', 'Commands'),
             ],
             'Testing and CI' => [
                 new DocumentationSection('cache-in-ci', 'Cache in CI'),

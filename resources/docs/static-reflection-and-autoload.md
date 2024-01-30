@@ -6,6 +6,8 @@ Do you want to know more about it? Continue here:
 - [Legacy Refactoring made Easy with Static Reflection](https://getrector.com/blog/2021/03/15/legacy-refactoring-made-easy-with-static-reflection)
 - [Zero Config Analysis with Static Reflection](https://phpstan.org/blog/zero-config-analysis-with-static-reflection) - from PHPStan
 
+<br>
+
 ```php
 use Rector\Config\RectorConfig;
 
@@ -37,33 +39,6 @@ Listed files will be executed like:
 
 ```php
 include $filePath;
-```
-
-## Troubleshooting
-
-Sometime, when we run Rector to class that detect children class, like `\Rector\Privatization\Rector\Class_\FinalizeClassesWithoutChildrenRector`, we may experience that parent class changed to final while it has children class, it because of the `PHPStan\Reflection\ReflectionProvider` cannot get all classes on scanning it on usage via `FamilyRelationsAnalyzer` service.
-
-To avoid this issue, you may dump all classes via composer:
-
-```bash
-composer dump-autoload -o
-```
-
-before run the rector.
-
-If the false positive still happen, you can skip the rule applied as last resort to do:
-
-```php
-use Rector\Privatization\Rector\Class_\FinalizeClassesWithoutChildrenRector;
-use Rector\Config\RectorConfig;
-
-return RectorConfig::configure()
-    ->withSkip([
-        FinalizeClassesWithoutChildrenRector::class => [
-            // classes that has children, and not detected even with composer dump-autoload -o
-            __DIR__ . '/src/HasChildClass.php',
-        ],
-    ]);
 ```
 
 ## Dealing with "Class ... was not found while trying to analyse it..."
@@ -100,10 +75,8 @@ return RectorConfig::configure()
 }
 ```
 
-After that, run:
+After that, dump classes and re-run Rector:
 
 ```bash
 composer dump-autoload
 ```
-
-and re-run the rector.
