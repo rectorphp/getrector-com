@@ -67,14 +67,12 @@ use Rector\Renaming\Rector\MethodCall\RenameMethodRector;
 use Rector\Config\RectorConfig
 use Rector\Renaming\ValueObject\MethodCallRename;
 
-return static function (RectorConfig $rectorConfig): void {
-    $rectorConfig->rule(ExceptionAnnotationRector::class);
-
-    $rectorConfig->ruleWithConfiguration(Rector\Renaming\Rector\MethodCall\RenameMethodRector::class, [
+return RectorConfig::configure()
+    ->withRules([ExceptionAnnotationRector::class])
+    ->withConfiguredRule(Rector\Renaming\Rector\MethodCall\RenameMethodRector::class, [
         new MethodCallRename('PHPUnit\Framework\TestClass', 'setExpectedException', 'expectedException'),
         new MethodCallRename('PHPUnit\Framework\TestClass', 'setExpectedExceptionRegExp', 'expectedException'),
     ]);
-};
 ```
 
 ### 2.3 Save File/Diff Phase

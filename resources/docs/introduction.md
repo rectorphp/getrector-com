@@ -33,15 +33,12 @@ In `rector.php` you can define paths, rules and sets you want to run on your cod
 use Rector\Config\RectorConfig;
 use Rector\Set\ValueObject\SetList;
 
-return static function (RectorConfig $rectorConfig): void {
-    $rectorConfig->paths([
+return RectorConfig::configure()
+    ->withPaths([
         __DIR__ . '/src',
         __DIR__ . '/tests',
-    ]);
-
-    $rectorConfig->sets([
-        SetList::DEAD_CODE,
-    ]);
+    ])
+    ->withPreparedSets(deadCode: true);
 };
 ```
 

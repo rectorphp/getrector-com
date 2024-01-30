@@ -9,9 +9,8 @@ Do you want to know more about it? Continue here:
 ```php
 use Rector\Config\RectorConfig;
 
-return static function (RectorConfig $rectorConfig): void {
-    // Rector is using static reflection to load code without running it - see https://phpstan.org/blog/zero-config-analysis-with-static-reflection
-    $rectorConfig->autoloadPaths([
+return RectorConfig::configure()
+    ->withAutoloadPaths([
         // discover specific file
         __DIR__ . '/file-with-functions.php',
         // or full directory
@@ -23,15 +22,15 @@ return static function (RectorConfig $rectorConfig): void {
 
 Do you need to include constants, class aliases or custom autoloader? Use bootstrap files:
 
+
 ```php
 use Rector\Config\RectorConfig;
 
-return static function (RectorConfig $rectorConfig): void {
-    $rectorConfig->bootstrapFiles([
+return RectorConfig::configure()
+    ->withBootstrapFiles([
         __DIR__ . '/constants.php',
         __DIR__ . '/project/special/autoload.php',
     ]);
-};
 ```
 
 Listed files will be executed like:
@@ -56,20 +55,19 @@ If the false positive still happen, you can skip the rule applied as last resort
 
 ```php
 use Rector\Privatization\Rector\Class_\FinalizeClassesWithoutChildrenRector;
-
 use Rector\Config\RectorConfig;
 
-return static function (RectorConfig $rectorConfig): void {
-    $rectorConfig->skip([
+return RectorConfig::configure()
+    ->withSkip([
         FinalizeClassesWithoutChildrenRector::class => [
             // classes that has children, and not detected even with composer dump-autoload -o
             __DIR__ . '/src/HasChildClass.php',
         ],
     ]);
-};
 ```
 
 ## Dealing with "Class ... was not found while trying to analyse it..."
+
 Sometimes you may encounter this error ([see here for an example](https://github.com/rectorphp/rector/issues/6688)) even if the class is there and it seems to work properly with other tools (e.g. PHPStan).
 
 In this case you may want to try one of the following solutions:
@@ -79,8 +77,8 @@ In this case you may want to try one of the following solutions:
 ```php
 use Rector\Config\RectorConfig;
 
-return static function (RectorConfig $rectorConfig): void {
-    $rectorConfig->autoloadPaths([
+return RectorConfig::configure()
+    ->withAutoloadPaths([
         // the path to the exact class file
         __DIR__ . '/vendor/acme/my-custom-dependency/src/Your/Own/Namespace/TheAffectedClass.php',
         // or you can specify a wider scope
@@ -88,12 +86,11 @@ return static function (RectorConfig $rectorConfig): void {
         // WARNING: beware of performances, try to narrow down the path
         //          as much as you can or you will slow down each run
     ]);
-};
 ```
 
 ### Register the path of the class to composer.json's `"files"` config, eg:
 
-```javascript
+```json
 {
     "autoload-dev": {
         "files": [
