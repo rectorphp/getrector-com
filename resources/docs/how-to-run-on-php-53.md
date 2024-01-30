@@ -49,13 +49,9 @@ Tune the config to fit your needs. We typically add the current project PHP vers
 ```php
 # rector.php
 use Rector\Config\RectorConfig;
-use Rector\Set\ValueObject\SetList;
 
-return static function (RectorConfig $rectorConfig): void {
-    $rectorConfig->sets([
-        SetList::PHP_53,
-    ]);
-};
+return RectorConfig::configure()
+    ->withPhpSets(php53: true);
 ```
 
 Now run Rector and see the diffs it suggests:

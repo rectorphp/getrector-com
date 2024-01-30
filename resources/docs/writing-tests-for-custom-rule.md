@@ -100,16 +100,13 @@ You can see that there are 3 functions in this test class:
 This is a `rector.php`-styled file. If your rule is not configurable, it will look like this:
 
 ```php
-<?php
-
-declare(strict_types=1);
-
 use Rector\Config\RectorConfig;
 use Package\MyFirstRector;
 
-return static function (RectorConfig $rectorConfig): void {
-    $rectorConfig->rule(MyFirstRector::class);
-};
+return RectorConfig::configure()
+    ->withRules([
+        MyFirstRector::class,
+    ]);
 ```
 
 This essentially reflects how you would use your rule in real life.

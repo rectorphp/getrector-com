@@ -6,9 +6,8 @@ Typical example is `Rector\Renaming\Rector\Name\RenameClassRector`:
 use Rector\Renaming\Rector\Name\RenameClassRector;
 use Rector\Config\RectorConfig;
 
-return static function (RectorConfig $rectorConfig): void {
-    $rectorConfig->ruleWithConfiguration(RenameClassRector::class, [
+return RectorConfig::configure()
+    ->withConfiguredRule(RenameClassRector::class, [
         'App\SomeOldClass' => 'App\SomeNewClass',
     ]);
-};
 ```

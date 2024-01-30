@@ -3,12 +3,11 @@ You can define paths to process in the `rector.php` config:
 ```php
 use Rector\Config\RectorConfig;
 
-return static function (RectorConfig $rectorConfig): void {
-    $rectorConfig->paths([
+return RectorConfig::configure()
+    ->withPaths([
         __DIR__ . '/src/SingleFile.php',
         __DIR__ . '/src/WholeDirectory',
     ]);
-};
 ```
 
 Or in the command line, in case you want to run Rector on single file right now:
@@ -24,7 +23,6 @@ Rector is looking for `*.php` files only out of the box. If you want to process 
 ```php
 use Rector\Config\RectorConfig;
 
-return static function (RectorConfig $rectorConfig): void {
-    $rectorConfig->fileExtensions(['php', 'phtml']);
-};
+return RectorConfig::configure()
+    ->withFileExtensions(['php', 'phtml']);
 ```

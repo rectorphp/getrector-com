@@ -1,21 +1,32 @@
-Rector is working with PHP features of your project. That means it will not add attributes, unless you're at least on PHP 8.
+Rector is working with PHP features of your project and uses only features, compatible with your code. That means it will not add attributes, unless you're at least on PHP 8.
 
-It looks for PHP version in multiple places. If it does not find the version in first place, it looks for in the next one:
+The best practise is to let pickup the PHP version from `composer.json`:
+
+```json
+{
+    "require": {
+        "php": "^7.4"
+    }
+}
+```
+
+<br>
+
+If it's not there, Rector look into other places:
 
 * PHP version defined in `rector.php`
 * `composer.json` require of PHP
 * `composer.json` config platform of PHP
 * the current PHP version runtime
 
-The highest priority is the current PHP version you define in `rector.php`:
+<br>
+
+If you want to force different PHP version than your codebase, you can do it at your own risk in `rector.php`:
 
 ```php
 use Rector\Config\RectorConfig;
 use Rector\ValueObject\PhpVersion;
 
-return static function (RectorConfig $rectorConfig): void {
-    $rectorConfig->phpVersion(PhpVersion::PHP_80);
-};
+return RectorConfig::configure()
+    ->withPhpVersion(PhpVersion::PHP_80);
 ```
-
-Use `PhpVersion` enum to define the value there.

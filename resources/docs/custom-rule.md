@@ -7,7 +7,6 @@ Let's say we want to **change method calls from `set*` to `change*`**.
 +$user->changePassword('123456');
 ```
 
-
 <br>
 
 <div class="alert alert-warning pb-0 ps-4 pe-4">
@@ -156,9 +155,10 @@ composer dump-autoload
 use Utils\Rector\Rector\MyFirstRector;
 use Rector\Config\RectorConfig;
 
-return static function (RectorConfig $rectorConfig): void {
-    $rectorConfig->rule(MyFirstRector::class);
-};
+return RectorConfig::configure()
+    ->withRules([
+        MyFirstRector::class
+    ]);
 ```
 
 ## 3. Let Rector Refactor Your Code
