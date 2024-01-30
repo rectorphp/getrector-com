@@ -1,11 +1,13 @@
 ---
 id: 57
-title: "Grab a Fresh Book Release with Rector 0.19"
+title: "Grab Fresh Book Release with Rector 0.19"
 perex: |
     We are thrilled to introduce the latest update to our book, along with Rector version 0.19.5 from this week. This release includes 2 new commands, brand new configuration with smart IDE autocomplete, brand new chapter and DX improvements to help you master code refactoring with ease.
+
+    We've worked on this release back and forth past 3 weeks and we're excited to share it with you.
 ---
 
-We've released the [Rector - The Power of Automated Refactoring](https://leanpub.com/rector-the-power-of-automated-refactoring) book with goal of continuous upgrades. It's been a year since last upgrade, so it's our time to setup up and make book 2024 release.
+We've released the [Rector - The Power of Automated Refactoring](https://leanpub.com/rector-the-power-of-automated-refactoring) book with goal of continuous upgrades. It's been a year since last upgrade, so it's time to step up and deliver fresh 2024 book release.
 
 <br>
 
