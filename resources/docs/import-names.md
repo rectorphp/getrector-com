@@ -12,7 +12,10 @@ Rector works with all class names as fully qualified by default. That way it kno
 To import FQN like these, configure `rector.php` with:
 
 ```php
-$rectorConfig->importNames();
+use Rector\Config\RectorConfig;
+
+return RectorConfig::configure()
+    ->importNames();
 ```
 
 <br>
@@ -30,29 +33,20 @@ Single short classes are imported too:
 To keep those:
 
 ```php
-$rectorConfig->importShortClasses(false);
+use Rector\Config\RectorConfig;
+
+return RectorConfig::configure()
+    ->importNames(importShortClasses: false);
 ```
+
 
 ## How to Remove Unused Imports?
 
-To remove imports, use [ECS](https://github.com/symplify/easy-coding-standard) with `NoUnusedImportsFixer`rule:
-
 ```php
-// ecs.php
-use PhpCsFixer\Fixer\Import\NoUnusedImportsFixer;
-use Symplify\EasyCodingStandard\Config\ECSConfig;
+use Rector\Config\RectorConfig;
 
-return static function (ECSConfig $ecsConfig): void {
-    $ecsConfig->rule(NoUnusedImportsFixer::class);
-};
-```
-
-<br>
-
-Run it to remove unused imports:
-
-```bash
-vendor/bin/ecs check src --fix
+return RectorConfig::configure()
+    ->importNames(removeUnusedImports: true);
 ```
 
 <br>
