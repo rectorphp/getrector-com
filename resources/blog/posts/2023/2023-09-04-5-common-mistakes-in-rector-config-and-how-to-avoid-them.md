@@ -17,7 +17,7 @@ We want to share them with you so you can get the most out of Rector.
 
 ## 1. Use explicit paths over `/vendor`
 
-This happens very rarely, but it's worth mentioning. Rector should always run only on the code you own**. If you run it in the root directory, the memory might bloat on the bare `/vendor` directory.
+This happens very rarely, but it's worth mentioning. Rector should always **run only on the code you own**. If you run it in the root directory, the memory might bloat on the bare `/vendor` directory.
 
 ```php
 $rectorConfig->paths([
