@@ -20,10 +20,13 @@ We want to share them with you so you can get the most out of Rector.
 This happens very rarely, but it's worth mentioning. Rector should always **run only on the code you own**. If you run it in the root directory, the memory might bloat on the bare `/vendor` directory.
 
 ```php
-$rectorConfig->paths([
-    __DIR__ . '/../first-project',
-    __DIR__ . '/../second-project',
-]);
+use Rector\Config\RectorConfig;
+
+return RectorConfig::configure()
+    ->withPaths([
+        __DIR__ . '/../first-project',
+        __DIR__ . '/../second-project',
+    ]);
 ```
 
 * Be sure to **install Rector directly to your project** using composer, like any other dev package, to avoid such accidents on climbing paths up.
@@ -31,11 +34,14 @@ $rectorConfig->paths([
 * Make sure you use the paths you own - including tests and config directory:
 
 ```php
-$rectorConfig->paths([
-    __DIR__ . '/config',
-    __DIR__ . '/src',
-    __DIR__ . '/tests',
-]);
+use Rector\Config\RectorConfig;
+
+return RectorConfig::configure()
+    ->withPaths([
+        __DIR__ . '/config',
+        __DIR__ . '/src',
+        __DIR__ . '/tests',
+    ]);
 ```
 
 <br>
@@ -48,9 +54,12 @@ We've seen projects with 200-600 migration files carefully hidden in `/src/Migra
 These files should be excluded not only for performance gains but also to make sure their structure and behavior will persist.
 
 ```php
-$rectorConfig->skip([
-    __DIR__ '/app/Migrations',
-]);
+use Rector\Config\RectorConfig;
+
+return RectorConfig::configure()
+    ->withSkip([
+        __DIR__ '/app/Migrations',
+    ]);
 ```
 
 Moving those files into the root `/migrations` directory is even better, so Rector and other tools like PHPStan and ECS do not check them.
@@ -66,12 +75,15 @@ Symfony, PHPUnit and Twig level sets caused mutually conflicting changes and hea
 Rector can handle both code improvements and package upgrades. The upgrade is usually a one-time job to get your codebase to the latest PHP and packages. You can find the following sets in your code:
 
 ```php
-$rectorConfig->sets([
-    LevelSetList::UP_TO_PHP_81,
-    // deprecated since 0.19.2
-    PHPUnitLevelSetList::UP_TO_PHPUNIT_100,
-    SymfonyLevelSetList::UP_TO_SYMFONY_63,
-]);
+use Rector\Config\RectorConfig;
+
+return RectorConfig::configure()
+    ->withSets([
+        LevelSetList::UP_TO_PHP_81,
+        // deprecated since 0.19.2
+        PHPUnitLevelSetList::UP_TO_PHPUNIT_100,
+        SymfonyLevelSetList::UP_TO_SYMFONY_63,
+    ]);
 ```
 
 These are what we call **low-hit sets**. They contain dozens of rules that will never find any code to upgrade or change, yet they're still run on every Rector run. That's like checking every release of The Time magazine for prime numbers higher than 1,000,000 - it's a waste of your time and resources.
