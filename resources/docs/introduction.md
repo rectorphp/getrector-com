@@ -39,7 +39,6 @@ return RectorConfig::configure()
         __DIR__ . '/tests',
     ])
     ->withPreparedSets(deadCode: true);
-};
 ```
 
 To see preview of suggested changed, run `process` command with `--dry-run` option:
