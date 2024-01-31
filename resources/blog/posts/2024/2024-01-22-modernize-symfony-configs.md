@@ -29,7 +29,7 @@ How about YAML? It does not, so we first have to migrate to PHP.
 It is not necessary to bother with a manual flip. Use [symplify/config-transformer](https://github.com/symplify/config-transformer) to automate the process instead:
 
 ```bash
-composer require simplify/config-transformer --dev
+composer require symplify/config-transformer --dev
 vendor/bin/config-transformer switch-format config/security.yml
 ```
 
