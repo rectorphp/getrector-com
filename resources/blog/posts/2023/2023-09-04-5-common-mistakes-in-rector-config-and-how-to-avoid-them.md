@@ -86,36 +86,38 @@ Don't worry; any leftovers will be reported again in 6 months when you handle th
 
 <br>
 
-## 4. Instead of long `rules()` calls, use slim `sets()`
+## 4. Instead of long `withRules()` calls, use slim `withPreparedSets()`
 
 During the upgrade period, it's also typical to add one rule at a time, run Rector, and push the fixed cases. Then repeat.
 That way, you might end up with 100+ rules listed one by one from a single set:
 
 ```php
-$rectorConfig->rules([
-    \Rector\DeadCode\Rector\BooleanAnd\RemoveAndTrueRector::class,
-    \Rector\DeadCode\Rector\Stmt\RemoveUnreachableStatementRector::class,
-    \Rector\DeadCode\Rector\ClassConst\RemoveUnusedPrivateClassConstantRector::class,
-    \Rector\DeadCode\Rector\ClassMethod\RemoveUnusedPrivateMethodParameterRector::class,
-    \Rector\DeadCode\Rector\Concat\RemoveConcatAutocastRector::class,
-    \Rector\DeadCode\Rector\Return_\RemoveDeadConditionAboveReturnRector::class,
-    \Rector\DeadCode\Rector\For_\RemoveDeadContinueRector::class,
-    \Rector\DeadCode\Rector\For_\RemoveDeadIfForeachForRector::class,
-    \Rector\DeadCode\Rector\If_\RemoveDeadInstanceOfRector::class,
-]);
+use Rector\Config\RectorConfig;
+
+return RectorConfig::configure()
+    ->withRules([
+        \Rector\DeadCode\Rector\BooleanAnd\RemoveAndTrueRector::class,
+        \Rector\DeadCode\Rector\Stmt\RemoveUnreachableStatementRector::class,
+        \Rector\DeadCode\Rector\ClassConst\RemoveUnusedPrivateClassConstantRector::class,
+        \Rector\DeadCode\Rector\ClassMethod\RemoveUnusedPrivateMethodParameterRector::class,
+        \Rector\DeadCode\Rector\Concat\RemoveConcatAutocastRector::class,
+        \Rector\DeadCode\Rector\Return_\RemoveDeadConditionAboveReturnRector::class,
+        \Rector\DeadCode\Rector\For_\RemoveDeadContinueRector::class,
+        \Rector\DeadCode\Rector\For_\RemoveDeadIfForeachForRector::class,
+        \Rector\DeadCode\Rector\If_\RemoveDeadInstanceOfRector::class,
+    ]);
 ```
 
-This makes `rector.php` hard to read and maintain. Instead, use the `sets()` method with the whole set to keep it slim:
+This makes `rector.php` hard to read and maintain. Instead, use the whole set to keep it slim:
 
 ```php
-use Rector\Set\ValueObject\SetList;
+use Rector\Config\RectorConfig;
 
-$rectorConfig->sets([
-    SetList::DEAD_CODE,
-]);
+return RectorConfig::configure()
+    ->withPreparedSets(deadCode: true);
 ```
 
-In case there are rules you don't like from a particular set, [skip them using `skip()`](https://getrector.com/documentation/ignoring-rules-or-paths).
+Are there rules you don't like from a particular set? You can [skip them](https://getrector.com/documentation/ignoring-rules-or-paths).
 
 <br>
 
@@ -125,21 +127,11 @@ Last but not least, make sure you're using the most powerful feature of Rector. 
 
 Those sets are the opposite of the low-hit sets discussed in point 3. **They're helping you with everyday coding** - in PHP 7.0, PHP 8.2, Laravel, Symfony, or in plain PHP.
 
-You can find them in `SetList`:
-
 ```php
-use Rector\Set\ValueObject\SetList;
+use Rector\Config\RectorConfig;
 
-$rectorConfig->sets([
-    SetList::DEAD_CODE,
-    SetList::CODE_QUALITY,
-    SetList::CODING_STYLE,
-    SetList::NAMING,
-    SetList::TYPE_DECLARATION,
-    SetList::PRIVATIZATION,
-    SetList::EARLY_RETURN,
-    SetList::INSTANCEOF,
-]);
+return RectorConfig::configure()
+    ->withPreparedSets(deadCode: true, codeQuality: true, naming: true, privatization: true);
 ```
 
 Avoid adding them all at once, as such a PR is impossible to review. Instead, add one set by another and push the fixes in between.
