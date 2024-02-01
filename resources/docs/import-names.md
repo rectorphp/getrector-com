@@ -15,7 +15,7 @@ To import FQN like these, configure `rector.php` with:
 use Rector\Config\RectorConfig;
 
 return RectorConfig::configure()
-    ->importNames();
+    ->withImportNames();
 ```
 
 <br>
@@ -36,7 +36,7 @@ To keep those:
 use Rector\Config\RectorConfig;
 
 return RectorConfig::configure()
-    ->importNames(importShortClasses: false);
+    ->withImportNames(importShortClasses: false);
 ```
 
 
@@ -46,7 +46,7 @@ return RectorConfig::configure()
 use Rector\Config\RectorConfig;
 
 return RectorConfig::configure()
-    ->importNames(removeUnusedImports: true);
+    ->withImportNames(removeUnusedImports: true);
 ```
 
 <br>
