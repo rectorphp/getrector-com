@@ -27,7 +27,7 @@
             <div class="col-12 col-md-7 mt-5 mt-md-0">
                 <div class="navbar">
                     <ul class="navbar-nav">
-                        @include('_snippets/menu_items')
+                        @include('_snippets/menu_items', ['includeBook' => true])
                     </ul>
                 </div>
             </div>
@@ -36,7 +36,7 @@
         <br>
 
         <div class="text-start mt-5 mb-5 text-medium text-sm-center">
-            We've helped <strong>12 companies</strong> to improve PHP code and reduce technical debt
+            We've helped <strong>15 companies</strong> to improve PHP code and reduce technical debt
             last year.
         </div>
     </div>

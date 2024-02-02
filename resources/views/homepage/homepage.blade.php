@@ -66,7 +66,7 @@
         @include('_snippets/homepage_separator')
 
         <div class="text-center mt-5 mb-5 text-rector-green text-bigger">
-            <strong>12 companies</strong> hired us this year to improve their PHP code and reduce
+            <strong>15 companies</strong> hired us this year to improve their PHP code and reduce
             technical debt
         </div>
 
