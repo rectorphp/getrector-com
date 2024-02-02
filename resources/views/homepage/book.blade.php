@@ -22,7 +22,6 @@
                     Checkout <a href="/blog/grab-fresh-book-release-with-rector-019">release post</a>!
                 </div>
 
-
                 <p>In this book, seasoned developers Matthias Noback and Tomas Votruba give you all the information you need to become a Rector power user.</p>
 
                 <h3>What will You Learn?</h3>
