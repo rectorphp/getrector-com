@@ -26,3 +26,10 @@
     <a href="{{ action(\Rector\Website\Http\Controllers\DocumentationController::class) }}"
        class="nav-link">Docs</a>
 </li>
+
+@if (isset($includeBook))
+    <li class="nav-item">
+        <a href="{{ action(\Rector\Website\Http\Controllers\BookController::class) }}"
+           class="nav-link">Book</a>
+    </li>
+@endif

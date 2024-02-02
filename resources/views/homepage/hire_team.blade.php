@@ -19,7 +19,7 @@
 
         <div class="text-center mt-5">
             <div class="text-rector-green mb-5 text-bigger">
-                <strong>12 companies</strong> hired us this year to improve PHP code and reduce
+                <strong>15 companies</strong> hired us this year to improve PHP code and reduce
                 technical debt
             </div>
 
