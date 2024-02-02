@@ -29,12 +29,11 @@
 
 @section('main')
     <div class="alert alert-info mt-3 mb-5" role="alert">
-        Would you like to <strong>learn Rector in depth</strong>?
+        Do you want to <strong>learn Rector in depth and fast</strong>?
 
-        The <strong>Rector - The Power of Automated Refactoring</strong> book is out now.
+        The <strong>Rector book 2024 edition</strong> is out now.
 
-        <a href="{{ action(\Rector\Website\Http\Controllers\BookController::class) }} ">Grab a
-            copy!</a>
+        <a href="{{ action(\Rector\Website\Http\Controllers\BookController::class) }} ">Grab your copy!</a>
     </div>
 
     <div id="post">
