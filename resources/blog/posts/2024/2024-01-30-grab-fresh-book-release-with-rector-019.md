@@ -7,6 +7,11 @@ perex: |
     We've worked on this release back and forth past 3 weeks and we're excited to share it with you.
 ---
 
+<a href="https://leanpub.com/rector-the-power-of-automated-refactoring?utm_source=getrectororg_book_detail" style="float:right;max-width: 16em">
+    <img src="/assets/images/logo/logo_bigger/rector_book.png" class="img-fluid img-thumbnail ms-4 mt-0">
+</a>
+
+
 We've released the [Rector - The Power of Automated Refactoring](https://leanpub.com/rector-the-power-of-automated-refactoring) book with goal of continuous upgrades. It's been a year since last upgrade, so it's time to step up and deliver fresh 2024 book release.
 
 <br>
@@ -21,25 +26,31 @@ Featuring typical `refactor()` use-cases, enhancing your refactoring skills.
 
 Introducing a minimalist `RectorConfig::configure()` config for smoother setup.
 
+```php
+use Rector\Config\RectorConfig;
+
+return RectorConfig::configure()
+    ->withPaths([__DIR__ . '/app', __DIR__ . '/tests'])
+    ->withImportNames(removeUnusedImports: true)
+    ->withPreparedSets(codeQuality: true, codingStyle: true,  instanceOf: true)
+    ->withPhpSets();
+```
 
 ### Convenient Commands
 
 New commands, such as `setup-ci` and `custom-rule`, to streamline your workflow.
 
-### Code Examples
+### Code Examples in Git Repository
 
 Access a complete code repository at [`rectorphp/rector-book-code-examples`](https://github.com/rectorphp/rector-book-code-examples) for comprehensive learning.
 
 
 ### Improved Visuals
 
-Enhancements in test file visualization for better understanding.
-
-<br>
-
+* Enhancements in rule and test file visualization for better understanding.
 * Dependency Updates: Keeping pace with technology, we've updated dependencies, including Rector (0.15 → 0.19.3), PHP (8.0 → 8.2), ECS (to 12.1), and PHPUnit (9.5 → 10.5).
 * Clarification: Added a section on differentiating between `Stmt` and `Expr` in the "Creating Your First Rector Rule" chapter.
-* Refactoring Insights: Discover the power of removed parent nodes and the use of attributes for more efficient refactoring.
+* Refactoring Insights: Discover use of attributes for more efficient refactoring.
 
 <br>
 
