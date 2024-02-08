@@ -39,8 +39,8 @@ On GitHub Actions, you can use the [built-in cache action](https://github.com/ac
         uses: actions/cache@v3
         with:
           path: ./var/cache/rector
-          key: ${{ runner.os }}-rector-${{ hashFiles('**/composer.lock') }}
-          restore-keys: ${{ runner.os }}-rector-
+          key: ${{ steps.setup-php.outputs.php-version }}-rector-${{ github.run_id }}
+          restore-keys: ${{ steps.setup-php.outputs.php-version }}-rector- 
 
       - name: Rector Dry Run
         run: php vendor/bin/rector process --dry-run --config=rector.php
