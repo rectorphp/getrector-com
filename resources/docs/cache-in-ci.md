@@ -40,7 +40,7 @@ On GitHub Actions, you can use the [built-in cache action](https://github.com/ac
         with:
           path: ./var/cache/rector
           key: ${{ steps.setup-php.outputs.php-version }}-rector-${{ github.run_id }}
-          restore-keys: ${{ steps.setup-php.outputs.php-version }}-rector- 
+          restore-keys: ${{ steps.setup-php.outputs.php-version }}-rector-
 
       - name: Rector Dry Run
         run: php vendor/bin/rector process --dry-run --config=rector.php
