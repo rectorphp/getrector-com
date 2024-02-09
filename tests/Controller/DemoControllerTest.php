@@ -61,9 +61,9 @@ final class DemoControllerTest extends AbstractTestCase
             'rector_config' => 'The rector config field is required.',
         ]];
 
-        // invalid php syntax (missing semicolon in config box)
-        yield ['<?php echo "test"; ?>', '<?php return ?>', [
-            'rector_config' => 'PHP code is invalid: Syntax error, unexpected EOF on line 1',
+         // Invalid PHP syntax (missing semicolon in code box)
+         yield ['<?php print $x; ?>', '<?php return static function() {}', [
+            'rector_config' => 'PHP code is invalid: Syntax error, unexpected EOF, expecting \';\' on line 1',
         ]];
 
         // Add dangerous exec() func call
