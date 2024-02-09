@@ -13,8 +13,6 @@ since_rector: "0.14.7"
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Based on a great experience with other frameworks, it&#39;s time to give <a href="https://twitter.com/hashtag/laravel?src=hash&amp;ref_src=twsrc%5Etfw">#laravel</a> <a href="https://twitter.com/rectorphp?ref_src=twsrc%5Etfw">@rectorphp</a> package to the community it belongs to 🙏<br><br>We look for person, who will take over current package <a href="https://t.co/S1rlIiRfZr">https://t.co/S1rlIiRfZr</a> and builds it further into propper &quot;Laractor&quot;😉</p>&mdash; Rector (@rectorphp) <a href="https://twitter.com/rectorphp/status/1585361016262639616?ref_src=twsrc%5Etfw">October 26, 2022</a></blockquote>
 
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
 <br><br>
 
 ## Communities in Control of Their Standards
