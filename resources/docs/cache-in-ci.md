@@ -12,7 +12,7 @@ return RectorConfig::configure()
         cacheClass: FileCacheStorage::class,
 
         // specify a path that works locally as well as on CI job runners
-        cacheDirectory: './var/cache/rector'
+        cacheDirectory: '/tmp/rector'
     );
 ```
 
@@ -38,9 +38,11 @@ On GitHub Actions, you can use the [built-in cache action](https://github.com/ac
       - name: Rector Cache
         uses: actions/cache@v3
         with:
-          path: ./var/cache/rector
+          path: /tmp/rector
           key: ${{ runner.os }}-rector-${{ github.run_id }}
           restore-keys: ${{ runner.os }}-rector-
+
+      - run: mkdir -p /tmp/rector
 
       - name: Rector Dry Run
         run: php vendor/bin/rector process --dry-run --config=rector.php
