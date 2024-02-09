@@ -79,4 +79,9 @@ final class Post
             'postSlug' => $this->slug,
         ]);
     }
+
+    public function hasTweets(): bool
+    {
+        return str_contains($this->contents, 'class="twitter-tweet"');
+    }
 }

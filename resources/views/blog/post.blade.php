@@ -25,6 +25,10 @@
             content="{{ action(\Rector\Website\Http\Controllers\ThumbnailController::class, ['title' => $post->getClearTitle()]) }}"
     />
     <meta name="twitter:description" content="{{ $post->getPerex() }}"/>
+
+    @if ($post->hasTweets())
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    @endif
 @endsection
 
 @section('main')

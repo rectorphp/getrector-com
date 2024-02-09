@@ -19,9 +19,6 @@ That's why [we slowly refactored away from these rules](/blog/how-to-automatical
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Next release brings huge improvement in type inferring 💪<br><br>We moved many rules from unreliable docblocks <br>to 100 % sure type declarations ↓<br><br>Every project will get the most type coverage they can with guaranteed safety 😎<a href="https://t.co/kAuyIbaK48">https://t.co/kAuyIbaK48</a> <a href="https://t.co/xQlyxf6vTz">pic.twitter.com/xQlyxf6vTz</a></p>&mdash; Rector (@rectorphp) <a href="https://twitter.com/rectorphp/status/1599001416718163968?ref_src=twsrc%5Etfw">December 3, 2022</a></blockquote>
 
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-
 
 <br>
 
