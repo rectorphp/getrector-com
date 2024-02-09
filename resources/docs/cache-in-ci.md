@@ -26,7 +26,7 @@ Generate the cache on your development machine, by running the command:
 vendor/bin/rector process --dry-run
 ```
 
-You can find it in your repository directory under `./var/cache/rector/`, containing folders like `0a`, `0b`, `0c`, ... containing the cache objects representing the latest run.
+You can find it in `/tmp/rector`, containing folders like `0a`, `0b`, `0c`, ... containing the cache objects representing the latest run.
 
 This, preferably prepended with `php `, command is also what your CI action should run, after mapping the cache directory from an earlier run.
 
