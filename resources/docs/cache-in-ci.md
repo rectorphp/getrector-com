@@ -39,7 +39,7 @@ On GitHub Actions, you can use the [built-in cache action](https://github.com/ac
         uses: actions/cache@v3
         with:
           path: ./var/cache/rector
-          key: ${{ runner.os }}-rector-${{ hashFiles('**/composer.lock') }}
+          key: ${{ runner.os }}-rector-${{ github.run_id }}
           restore-keys: ${{ runner.os }}-rector-
 
       - name: Rector Dry Run
