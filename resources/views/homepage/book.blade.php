@@ -17,7 +17,7 @@
 
             <div class="col-12 col-sm-7 mt-4 mt-sm-0">
                 <div class="alert alert-success mb-4" role="alert">
-                    In <strong>February 2024</strong> we've released an updated edition using Rector&nbsp;0.19 with brand new chapter and more.<br>
+                    In <strong>February 2024</strong> we've released an updated edition using <strong>Rector&nbsp;1.0</strong> with brand new chapter and more.<br>
                     <br>
                     Checkout <a href="/blog/grab-fresh-book-release-with-rector-019">release post</a>!
                 </div>
