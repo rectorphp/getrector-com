@@ -63,7 +63,7 @@ final class DemoControllerTest extends AbstractTestCase
 
         // invalid php syntax (missing semicolon in config box)
         yield ['<?php echo "test"; ?>', '<?php return ?>', [
-            'rector_config' => 'PHP config should not include func call',
+            'rector_config' => 'PHP code is invalid: Syntax error, unexpected EOF on line 1',
         ]];
 
         // Add dangerous exec() func call
