@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Rector\Website\Rules;
 
 use Closure;
-use PhpParser\Error;
 use Illuminate\Contracts\Validation\ValidationRule;
+use PhpParser\Error;
 use PhpParser\Node;
 use PhpParser\Node\Expr\FuncCall;
 use PhpParser\NodeFinder;
