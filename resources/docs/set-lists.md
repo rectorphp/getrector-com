@@ -1,6 +1,8 @@
 You can use particular single rules, or whole list of rules, called "set lists":
 
 ```php
+<?php
+
 use Rector\Config\RectorConfig;
 
 return RectorConfig::configure()
@@ -16,6 +18,8 @@ That way you can include group of rules that focus on certain topic, e.g. in thi
 How can you upgrade to the PHP 7.3?
 
 ```php
+<?php
+
 use Rector\Config\RectorConfig;
 
 return RectorConfig::configure()
@@ -30,6 +34,8 @@ That way you can use all the sets that are needed to upgrade your code to the de
 How can I use Rector with community sets or my custom one?
 
 ```php
+<?php
+
 use Rector\Config\RectorConfig;
 
 return RectorConfig::configure()

@@ -1,6 +1,8 @@
 You can add new NodeVisitors to process nodes in the `rector.php` config, make sure you tag it correctly so dependency injection knows where to look:
 
 ```php
+<?php
+
 use Rector\Config\RectorConfig;
 use My\Rector\Visitor\HelloVisitor;
 use Rector\NodeTypeResolver\PHPStan\Scope\Contract\NodeVisitor\ScopeResolverNodeVisitorInterface;

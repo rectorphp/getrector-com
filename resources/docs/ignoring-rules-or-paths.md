@@ -1,6 +1,8 @@
 Do you want to skip whole directory or just single rule? Use `skip()` method:
 
 ```php
+<?php
+
 use Rector\Config\RectorConfig;
 
 return RectorConfig::configure()
@@ -15,6 +17,8 @@ return RectorConfig::configure()
 Do you want to skip Rector rule?
 
 ```php
+<?php
+
 use Rector\Config\RectorConfig;
 use Rector\CodeQuality\Rector\If_\SimplifyIfReturnBoolRector;
 
@@ -27,6 +31,8 @@ return RectorConfig::configure()
 Do you want to skip specific rule only in a specific file?
 
 ```php
+<?php
+
 use Rector\Config\RectorConfig;
 use Rector\CodeQuality\Rector\If_\SimplifyIfReturnBoolRector;
 

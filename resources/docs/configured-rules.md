@@ -3,6 +3,8 @@ Rector rules that implement `Rector\Contract\Rector\ConfigurableRectorInterface`
 Typical example is `Rector\Renaming\Rector\Name\RenameClassRector`:
 
 ```php
+<?php
+
 use Rector\Renaming\Rector\Name\RenameClassRector;
 use Rector\Config\RectorConfig;
 

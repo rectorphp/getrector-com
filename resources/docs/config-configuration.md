@@ -12,6 +12,8 @@ By default, Rector prints code with 4 spaces indent and unix newline.
 If you have other preference, change it:
 
 ```php
+<?php
+
 use Rector\Config\RectorConfig;
 
 return RectorConfig::configure()

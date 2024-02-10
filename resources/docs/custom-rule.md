@@ -2,7 +2,9 @@ First, make sure it's not covered by [any existing Rectors](https://github.com/r
 Let's say we want to **change method calls from `set*` to `change*`**.
 
 ```diff
- $user = new User();
+<?php
+
+$user = new User();
 -$user->setPassword('123456');
 +$user->changePassword('123456');
 ```
@@ -27,6 +29,8 @@ vendor/bin/rector custom-rule
 Create a class that extends [`Rector\Rector\AbstractRector`](https://github.com/rectorphp/rector/blob/main/src/Rector/AbstractRector.php). It will inherit useful methods e.g. to check node type and name. See the source (or type `$this->` in an IDE) for a list of available methods.
 
 ```php
+<?php
+
 namespace Utils\Rector\Rector;
 
 use PhpParser\Node;
@@ -152,6 +156,8 @@ composer dump-autoload
 ## 2. Register It
 
 ```php
+<?php
+
 use Utils\Rector\Rector\MyFirstRector;
 use Rector\Config\RectorConfig;
 

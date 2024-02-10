@@ -1,6 +1,8 @@
 Rector works with all class names as fully qualified by default. That way it knows the exact types even on just changed nodes. In the most projects, that's not a desired behavior, because short version with `use` statement is easier to read:
 
 ```diff
+<?php
+
 +use App\Some\Namespace\SomeClass;
 
 -$object = new \App\Some\Namespace\SomeClass();
@@ -12,6 +14,8 @@ Rector works with all class names as fully qualified by default. That way it kno
 To import FQN like these, configure `rector.php` with:
 
 ```php
+<?php
+
 use Rector\Config\RectorConfig;
 
 return RectorConfig::configure()
@@ -23,6 +27,8 @@ return RectorConfig::configure()
 Single short classes are imported too:
 
 ```diff
+<?php
+
 +use DateTime;
 -$someClass = \DateTime();
 +$someClass = DateTime();
@@ -33,6 +39,8 @@ Single short classes are imported too:
 To keep those:
 
 ```php
+<?php
+
 use Rector\Config\RectorConfig;
 
 return RectorConfig::configure()
@@ -43,6 +51,8 @@ return RectorConfig::configure()
 ## How to Remove Unused Imports?
 
 ```php
+<?php
+
 use Rector\Config\RectorConfig;
 
 return RectorConfig::configure()
