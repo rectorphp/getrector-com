@@ -47,6 +47,8 @@ It will create a `rector.php` config in your project directory:
 Tune the config to fit your needs. We typically add the current project PHP version set, e.g.:
 
 ```php
+<?php
+
 # rector.php
 use Rector\Config\RectorConfig;
 

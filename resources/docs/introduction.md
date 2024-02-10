@@ -30,6 +30,8 @@ vendor/bin/rector
 In `rector.php` you can define paths, rules and sets you want to run on your code:
 
 ```php
+<?php
+
 use Rector\Config\RectorConfig;
 use Rector\Set\ValueObject\SetList;
 

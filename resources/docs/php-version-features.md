@@ -24,6 +24,8 @@ If it's not there, Rector look into other places:
 If you want to force different PHP version than your codebase, you can do it at your own risk in `rector.php`:
 
 ```php
+<?php
+
 use Rector\Config\RectorConfig;
 use Rector\ValueObject\PhpVersion;
 

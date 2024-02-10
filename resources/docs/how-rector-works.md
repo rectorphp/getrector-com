@@ -62,6 +62,8 @@ E.g. in this case, first the `@expectedException` annotation will be changed to 
 then the `setExpectedException` method will be changed to `expectedException`.
 
 ```php
+<?php
+
 use Rector\PHPUnit\Rector\ClassMethod\ExceptionAnnotationRector;
 use Rector\Renaming\Rector\MethodCall\RenameMethodRector;
 use Rector\Config\RectorConfig

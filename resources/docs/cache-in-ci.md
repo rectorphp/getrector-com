@@ -3,6 +3,8 @@ While parsing your application code, Rector generates objects representing that 
 When running Rector in a Continuous Integration (CI) system such as [GitHub Actions](https://github.com/features/actions), the default implementation [uses an in-memory cache](https://github.com/rectorphp/rector/blob/1d28ca109ca536e8034c3c756ee61c65e6e63c8a/config/config.php#L89-L94). This means the next job that runs, will have to parse all code from scratch.
 
 ```php
+<?php
+
 use Rector\Caching\ValueObject\Storage\FileCacheStorage;
 use Rector\Config\RectorConfig;
 

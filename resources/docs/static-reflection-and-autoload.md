@@ -9,6 +9,8 @@ Do you want to know more about it? Continue here:
 <br>
 
 ```php
+<?php
+
 use Rector\Config\RectorConfig;
 
 return RectorConfig::configure()
@@ -26,6 +28,8 @@ Do you need to include constants, class aliases or custom autoloader? Use bootst
 
 
 ```php
+<?php
+
 use Rector\Config\RectorConfig;
 
 return RectorConfig::configure()
@@ -50,6 +54,8 @@ In this case you may want to try one of the following solutions:
 ### Register
 
 ```php
+<?php
+
 use Rector\Config\RectorConfig;
 
 return RectorConfig::configure()
