@@ -88,7 +88,7 @@ and is always a challenge from scratch, often costly.<br>
 
 ## Migrate to Symfony/Laravel
 
-Since migration to Symfony/Laravel isis requested so often that we have a boilerplate ready, and can fill in edge cases specific toto your project.
+Since migration to Symfony/Laravel is requested so often that we have a boilerplate ready, and can fill in edge cases specific toto your project.
 
 We mainly handle these migrations behind NDA, but we can share some stories:
 
