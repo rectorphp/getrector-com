@@ -66,7 +66,7 @@ then the `setExpectedException` method will be changed to `expectedException`.
 
 use Rector\PHPUnit\Rector\ClassMethod\ExceptionAnnotationRector;
 use Rector\Renaming\Rector\MethodCall\RenameMethodRector;
-use Rector\Config\RectorConfig
+use Rector\Config\RectorConfig;
 use Rector\Renaming\ValueObject\MethodCallRename;
 
 return RectorConfig::configure()
