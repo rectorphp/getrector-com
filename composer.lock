@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c795d0b4a2032a486e53cfa03d90435b",
+    "content-hash": "41f6854e6fc1892241c5d7aea9052cb0",
     "packages": [
         {
             "name": "brick/math",
@@ -6628,6 +6628,48 @@
             "time": "2024-01-22T14:35:40+00:00"
         },
         {
+            "name": "rector/swiss-knife",
+            "version": "0.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rectorphp/swiss-knife.git",
+                "reference": "0f7a2c7935d05b68898c8e66db1c434a9284032d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rectorphp/swiss-knife/zipball/0f7a2c7935d05b68898c8e66db1c434a9284032d",
+                "reference": "0f7a2c7935d05b68898c8e66db1c434a9284032d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2"
+            },
+            "bin": [
+                "bin/swiss-knife"
+            ],
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Swiss knife in pocket of every upgrade architect",
+            "support": {
+                "issues": "https://github.com/rectorphp/swiss-knife/issues",
+                "source": "https://github.com/rectorphp/swiss-knife/tree/0.1.2"
+            },
+            "funding": [
+                {
+                    "url": "https://www.paypal.me/rectorphp",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/tomasvotruba",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-02-10T22:22:41+00:00"
+        },
+        {
             "name": "sebastian/cli-parser",
             "version": "2.0.0",
             "source": {
@@ -7767,5 +7809,5 @@
         "php": "^8.2"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.2.0"
 }
