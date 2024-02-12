@@ -42,6 +42,8 @@ final class HasRectorRule implements ValidationRule
                             'withPreparedSets',
                             'withRules',
                             'withConfiguredRule',
+                            'withTypeCoverageLevel',
+                            'withDeadCodeLevel',
                         ],
                         true
                     )
