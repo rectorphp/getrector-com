@@ -6,6 +6,7 @@ namespace Rector\Website\Http\Request;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Rector\Website\Rules\FuncCallRule;
+use Rector\Website\Rules\HasRectorRule;
 use Rector\Website\Rules\ShortPhpContentsRule;
 use Rector\Website\Rules\ValidPhpSyntaxRule;
 
@@ -33,9 +34,13 @@ final class DemoFormRequest extends FormRequest
         $funcCallRule = app()
             ->make(FuncCallRule::class);
 
+        /** @var HasRectorRule $hasRectorRule */
+        $hasRectorRule = app()
+            ->make(HasRectorRule::class);
+
         return [
             'php_contents' => ['required', 'string', $shortPhpContentsRule, $validPhpSyntaxRule],
-            'rector_config' => ['required', 'string', $validPhpSyntaxRule, $funcCallRule],
+            'rector_config' => ['required', 'string', $validPhpSyntaxRule, $funcCallRule, $hasRectorRule],
         ];
     }
 
