@@ -11,7 +11,7 @@ In 2010-2015 there was a boom of PHP frameworks - FuelPHP, CodeIgniter, CakePHP 
 
 ## Finished Upgrade != Successful Upgrade
 
-We did a huge Phalcon upgrade to from version 4 in 2019, and we used to provide [upgrade set in Rector](https://github.com/rectorphp/rector/pull/2437). It was quite a challenge, because Phalcon project is not written in PHP, but in slightly different syntax. We had to create a custom parser for it.
+We did a huge Phalcon upgrade to from version 4 in 2019 lead by [Kerrial Newham](https://www.linkedin.com/in/kerrial-newham-030484176/), and we used to provide [upgrade set in Rector](https://github.com/rectorphp/rector/pull/2437). It was quite a challenge, because Phalcon project is not written in PHP, but in slightly different syntax. We had to create a custom parser for it.
 
 Yes, we helped our client to use a newer version... but:
 
