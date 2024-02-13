@@ -17,16 +17,20 @@ final class DocumentationMenuFactory
     public function create(): array
     {
         return [
-            'Configuration' => [
+            'First Steps' => [
+                new DocumentationSection('integration-to-new-project', 'Integration to new Project'),
                 new DocumentationSection('define-paths', 'Define Paths'),
                 new DocumentationSection('set-lists', 'Set Lists'),
                 new DocumentationSection('ignoring-rules-or-paths', 'Ignoring Rules or Paths'),
                 new DocumentationSection('import-names', 'Import Names'),
                 new DocumentationSection('configured-rules', 'Configured Rules'),
+            ],
+            'Configuration' => [
                 new DocumentationSection('static-reflection-and-autoload', 'Static Reflection And Autoload'),
                 new DocumentationSection('config-configuration', 'Config Configuration'),
                 new DocumentationSection('php-version-features', 'PHP Version Features'),
                 new DocumentationSection('commands', 'Commands'),
+                new DocumentationSection('friendly-tools', 'Friendly Tools'),
             ],
             'Testing and CI' => [
                 new DocumentationSection('cache-in-ci', 'Cache in CI'),
