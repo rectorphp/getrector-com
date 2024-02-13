@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 use Rector\Config\RectorConfig;
-use Rector\Privatization\Rector\Class_\FinalizeClassesWithoutChildrenRector;
 
 return RectorConfig::configure()
     ->withPaths([__DIR__ . '/config', __DIR__ . '/src', __DIR__ . '/tests', __DIR__ . '/routes'])
@@ -16,7 +15,6 @@ return RectorConfig::configure()
         privatization: true,
         typeDeclarations: true
     )
-    ->withRules([FinalizeClassesWithoutChildrenRector::class])
     ->withSkip([
         '*/Fixture/*',
         '*/Expected/*',

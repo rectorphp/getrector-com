@@ -12,6 +12,7 @@ final class DocumentationSection
     public function __construct(
         private readonly string $slug,
         private readonly string $name,
+        private readonly bool $isNew = false,
     ) {
     }
 
@@ -23,5 +24,10 @@ final class DocumentationSection
     public function getName(): string
     {
         return $this->name;
+    }
+
+    public function isNew(): bool
+    {
+        return $this->isNew;
     }
 }

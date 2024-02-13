@@ -11,8 +11,6 @@ The iteration of files, nodes and Rectors respects this lifecycle:
 ```php
 <?php
 
-declare(strict_types=1);
-
 use Rector\Contract\Rector\PhpRectorInterface;
 use PhpParser\Parser;
 
