@@ -29,8 +29,17 @@
                         @endphp
 
                         <li>
-                            <a href="{{ action(\Rector\Website\Http\Controllers\DocumentationController::class, ['section' => $documentation_section->getSlug()]) }}">
+                            @if ($documentation_section->isNew())
+                                <div class="badge text-white bg-danger">NEW</div>
+                                &nbsp;
+                            @endif
+
+                            <a href="{{ action(\Rector\Website\Http\Controllers\DocumentationController::class, ['section' => $documentation_section->getSlug()]) }}"
+                               class="{{ $documentation_section->isNew() ? 'text-bold' : '' }}"
+                            >
                                 {{ $documentation_section->getName() }}
+
+
                             </a>
                         </li>
                     @endforeach
