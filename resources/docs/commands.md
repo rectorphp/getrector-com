@@ -1,7 +1,6 @@
 Rector has one main CLI command to process files. There are few less known, but useful commands that you might use in different situations:
 
-
-## 1. Show loaded rules
+## Show loaded rules
 
 Are you curious, how many rules are running in your project? Run:
 
@@ -21,9 +20,7 @@ Do you want to pipe result into next tool? Get it in JSON:
 vendor/bin/rector list-rules --output-format json
 ```
 
-<br>
-
-## 2. Setup CI script
+## Add Rector to your CI
 
 Do you use Github Actions or Gitlab CI? Rector can generate a CI script for you:
 
@@ -33,10 +30,7 @@ vendor/bin/rector setup-ci
 
 It will generate `.github/workflows/rector.yaml` or `.gitlab-ci.yml` file with Rector run that works for you. Fill you credentials and Rector will work for you on CI.
 
-<br>
-
-
-## 3. Generate Custom Rule
+## Generate Custom Rule
 
 Do you want to create a custom rule? Rector can generate a basic structure for you:
 
@@ -50,9 +44,7 @@ Just fill your rule name and Rector generates a basic structure for you, includi
 composer dump-autoload
 ```
 
-<br>
-
-## 4. Learn Nodes
+## Learn AST Nodes by Playing
 
 Following command comes handy when you want to write your custom rule.
 If you're new to the abstract syntax tree, it might take a while to understand what PHP code is represented by which node.

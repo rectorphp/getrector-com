@@ -26,11 +26,11 @@ final class DocumentationMenuFactory
                 new DocumentationSection('static-reflection-and-autoload', 'Static Reflection And Autoload'),
                 new DocumentationSection('config-configuration', 'Config Configuration'),
                 new DocumentationSection('php-version-features', 'PHP Version Features'),
-                new DocumentationSection('debugging', 'Debugging'),
                 new DocumentationSection('commands', 'Commands'),
             ],
             'Testing and CI' => [
                 new DocumentationSection('cache-in-ci', 'Cache in CI'),
+                new DocumentationSection('debugging', 'Debugging'),
                 new DocumentationSection('troubleshooting-parallel', 'Troubleshooting Parallel'),
                 new DocumentationSection('reporting-issue-with-rector', 'Reporting Issue With Rector'),
             ],

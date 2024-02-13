@@ -11,8 +11,6 @@ return RectorConfig::configure()
 
 That way you can include group of rules that focus on certain topic, e.g. in this case on dead detection. It makes config small and clear.
 
-<br>
-
 ## PHP Sets
 
 How can you upgrade to the PHP 7.3?
@@ -27,8 +25,6 @@ return RectorConfig::configure()
 ```
 
 That way you can use all the sets that are needed to upgrade your code to the desired PHP version in single line.
-
-<br>
 
 ## PHP 8.0 Attributes
 
@@ -56,8 +52,6 @@ use Rector\Config\RectorConfig;
 return RectorConfig::configure()
     ->withAttributesSets(symfony: true, doctrine: true);
 ```
-
-<br>
 
 ## Community or External Sets
 
