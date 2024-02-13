@@ -28,10 +28,25 @@ return RectorConfig::configure()
 
 That way you can use all the sets that are needed to upgrade your code to the desired PHP version in single line.
 
+<br>
 
-## External Sets
+## PHP 8.0 Attributes
 
-How can I use Rector with community sets or my custom one?
+Do you want to migrate your annotations to native PHP 8.0 attributes?
+
+```diff
+ use Doctrine\ORM\Mapping as ORM;
+
+-/**
+- * @ORM\Entity
+- */
++#[ORM\Entity]
+ class SomeEntity
+ {
+ }
+```
+
+You can pick the groups you need with `withAttributesSets()` method:
 
 ```php
 <?php
@@ -39,5 +54,24 @@ How can I use Rector with community sets or my custom one?
 use Rector\Config\RectorConfig;
 
 return RectorConfig::configure()
-    ->withSets([__DIR__ '/config/rector-custom-set.php']);
+    ->withAttributesSets(symfony: true, doctrine: true);
+```
+
+<br>
+
+## Community or External Sets
+
+How can I use Rector with community sets or my custom one?
+
+```php
+<?php
+
+use Rector\Config\RectorConfig;
+use Rector\Doctrine\Set\DoctrineSetList;
+
+return RectorConfig::configure()
+    ->withSets([
+        DoctrineSetList::DOCTRINE_CODE_QUALITY,
+        __DIR__ '/config/rector-custom-set.php'
+    ]);
 ```
