@@ -5,6 +5,8 @@ perex: |
     What is the most requested project we get from our clients? PHP upgrade, Symfony upgrade, framework switch... yes, these belong to the most common ones. But one of the requests is far beyond the most requested one. From CakePHP 2 to Symfony/Laravel.
 ---
 
+<img src="https://raw.githubusercontent.com/detain/svg-logos/master/svg/c/cakephp-1.svg" style="float: right; max-width: 8em">
+
 *Disclaimer: This post is no rant about any framework. It's about the process of migration that our clients often request.*
 
 Most companies can handle PHP, Laravel, or Symfony upgrades themselves by using bare Rector. But the CakePHP 2 migration is a different story. It's a framework feature-wise similar to Symfony/Laravel, so it's an obvious target to migrate to one of them. We get, on average, 3 requests a year and can only handle some of them. We thought we'd share the process with you so you can start yourself.
