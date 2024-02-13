@@ -18,19 +18,19 @@ final class DocumentationMenuFactory
     {
         return [
             'Configuration' => [
-                new DocumentationSection('import-names', 'Import Names'),
                 new DocumentationSection('define-paths', 'Define Paths'),
                 new DocumentationSection('set-lists', 'Set Lists'),
                 new DocumentationSection('ignoring-rules-or-paths', 'Ignoring Rules or Paths'),
+                new DocumentationSection('import-names', 'Import Names'),
                 new DocumentationSection('configured-rules', 'Configured Rules'),
                 new DocumentationSection('static-reflection-and-autoload', 'Static Reflection And Autoload'),
                 new DocumentationSection('config-configuration', 'Config Configuration'),
                 new DocumentationSection('php-version-features', 'PHP Version Features'),
-                new DocumentationSection('debugging', 'Debugging'),
                 new DocumentationSection('commands', 'Commands'),
             ],
             'Testing and CI' => [
                 new DocumentationSection('cache-in-ci', 'Cache in CI'),
+                new DocumentationSection('debugging', 'Debugging'),
                 new DocumentationSection('troubleshooting-parallel', 'Troubleshooting Parallel'),
                 new DocumentationSection('reporting-issue-with-rector', 'Reporting Issue With Rector'),
             ],
