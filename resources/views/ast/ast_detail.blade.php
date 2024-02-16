@@ -5,27 +5,29 @@
 @endphp
 
 @section('main')
-    <div class="mt-4 mb-5">
+    <div class="float-end mt-4">
+        <a href="{{ action(\Rector\Website\Http\Controller\Ast\AstController::class) }}" class="btn btn-outline-success">
+            ← Create new code
+        </a>
+    </div>
+
+    <div class="mt-4 mb-5" style="min-height: 30em">
         <p>Click on code part to see its AST</p>
 
-        <div class="row">
-            <div class="col-4">
-                <code>
-                    {!! $matrix_vision !!}
-                </code>
-            </div>
+        <code>
+                {!! $matrix_vision !!}
+        </code>
 
-            <div class="col-8">
+        <br>
+        <br>
+        <br>
+
+        <div class="row">
+            <div class="col-12">
                 <pre><code class="language-php">{{ $simple_node_dump }}</code></pre>
             </div>
         </div>
 
         <br>
-
-        <div>
-            <a href="{{ action(\Rector\Website\Http\Controller\Ast\AstController::class) }}" class="btn btn-outline-success">
-                ← Create new code
-            </a>
-        </div>
     </div>
 @endsection

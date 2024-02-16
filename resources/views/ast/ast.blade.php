@@ -28,8 +28,7 @@
 
                     <div class="card mb-4">
                         <div class="card-body p-0 mb-0">
-                            <textarea name="php_contents" class="codemirror_php" required>{{ session('_old_input')['php_contents'] ?? '' }}
-                            </textarea>
+                            <textarea name="php_contents" class="codemirror_php" required>{{ session('_old_input')['php_contents'] ?? "<?php\n\n" }}</textarea>
                         </div>
                     </div>
 
@@ -42,6 +41,7 @@
                     </div>
 
                 </form>
+            </div>
         </div>
     </div>
 @endsection

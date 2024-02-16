@@ -7,7 +7,7 @@ namespace Rector\Website\Http\Controller\Ast;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Controller;
 use Rector\Website\Entity\AstRun;
-use Rector\Website\Http\Requests\AstFormRequest;
+use Rector\Website\Http\Request\AstFormRequest;
 use Rector\Website\Repository\AstRunRepository;
 use Symfony\Component\Uid\Uuid;
 

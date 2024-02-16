@@ -22,15 +22,7 @@
         <div class="text-center mt-5 mb-5 bigger-buttons">
             <a href="{{ action(\Rector\Website\Http\Controller\ForCompaniesController::class) }}"
                class="btn btn-lg btn-primary me-3">Hire Upgrade Team</a>
-<<<<<<< HEAD
-<<<<<<< HEAD
             <a href="{{ action(\Rector\Website\Http\Controller\Demo\DemoController::class) }}"
-=======
-            <a href="{{ action(\Rector\Website\Http\Controllers\Demo\DemoController::class) }}"
->>>>>>> 3b46dec (be toelrant about uiud)
-=======
-            <a href="{{ action(\Rector\Website\Http\Controller\Demo\DemoController::class) }}"
->>>>>>> b18d765 (lock carbon to keep compatbility with laravel)
                class="btn btn-lg btn-success">Try It Online</a>
         </div>
 

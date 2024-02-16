@@ -9,19 +9,7 @@
 @section('main')
     <div id="rector_run_form" class="mt-4 mb-3">
         <form
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             action="{{ action(\Rector\Website\Http\Controller\Demo\ProcessDemoFormController::class) }}"
-=======
-            action="{{ action(\Rector\Website\Http\Controllers\ProcessDemoFormController::class) }}"
->>>>>>> 1adf23a (add abstract repositoy)
-=======
-            action="{{ action(\Rector\Website\Http\Controllers\Demo\ProcessDemoFormController::class) }}"
->>>>>>> 3b46dec (be toelrant about uiud)
-=======
-            action="{{ action(\Rector\Website\Http\Controller\Demo\ProcessDemoFormController::class) }}"
->>>>>>> b18d765 (lock carbon to keep compatbility with laravel)
             method="post">
 
             @csrf <!-- {{ csrf_field() }} -->

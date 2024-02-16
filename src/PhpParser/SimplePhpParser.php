@@ -6,16 +6,21 @@ namespace Rector\Website\PhpParser;
 
 use Nette\Utils\FileSystem;
 use PhpParser\Node;
+use PhpParser\Node\Stmt\Class_;
+use PhpParser\NodeFinder;
 use PhpParser\NodeTraverser;
 use PhpParser\NodeVisitor\NameResolver;
 use PhpParser\Parser;
 use PhpParser\ParserFactory;
+use Rector\Website\Exception\ShouldNotHappenException;
 
 final class SimplePhpParser
 {
     private Parser $phpParser;
 
     private NodeTraverser $nodeTraverser;
+
+    private NodeFinder $nodeFinder;
 
     public function __construct()
     {
@@ -24,6 +29,8 @@ final class SimplePhpParser
 
         $this->nodeTraverser = new NodeTraverser();
         $this->nodeTraverser->addVisitor(new NameResolver());
+
+        $this->nodeFinder = new NodeFinder();
     }
 
     /**
@@ -34,6 +41,22 @@ final class SimplePhpParser
     {
         $fileContent = FileSystem::read($filePath);
         return $this->parseString($fileContent);
+    }
+
+    /**
+     * @api tests
+     */
+    public function parseFileToClass(string $filePath): Class_
+    {
+        $fileContent = FileSystem::read($filePath);
+        $nodes = $this->parseString($fileContent);
+
+        $foundClass = $this->nodeFinder->findFirstInstanceOf($nodes, Class_::class);
+        if (! $foundClass instanceof Class_) {
+            throw new ShouldNotHappenException();
+        }
+
+        return $foundClass;
     }
 
     /**
