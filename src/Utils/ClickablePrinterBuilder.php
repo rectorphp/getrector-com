@@ -104,7 +104,7 @@ final class ClickablePrinterBuilder
         }
 
         // skip overly detailed method, that take context off
-        if (in_array($methodName, ['pStaticDereferenceLhs'], true)) {
+        if ($methodName === 'pStaticDereferenceLhs') {
             return false;
         }
 
