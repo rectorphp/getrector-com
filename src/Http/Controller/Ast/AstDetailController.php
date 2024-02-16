@@ -13,7 +13,7 @@ use PhpParser\NodeTraverser;
 use Rector\CustomRules\SimpleNodeDumper;
 use Rector\Website\Entity\AstRun;
 use Rector\Website\Enum\AttributeKey;
-use Rector\Website\PhpParser\ClickableAstPrinter;
+use Rector\Website\PhpParser\ClickablePrinter;
 use Rector\Website\PhpParser\NodeVisior\NodeMarkerNodeVisitor;
 use Rector\Website\PhpParser\SimplePhpParser;
 use Rector\Website\Repository\AstRunRepository;
@@ -41,7 +41,7 @@ final class AstDetailController extends Controller
 
         // @todo fill the node that is being clicked, e.g. based on the node hash
         // + colorize
-        $matrixVision = $this->makeNodeClickable($nodes, $uuid);
+        $matrixVision = $this->makeNodeClickable($nodes, $uuid, $activeNodeId);
 
         $nodes = $this->focusNodes($activeNodeId, $nodes);
 
@@ -57,14 +57,14 @@ final class AstDetailController extends Controller
     /**
      * @param Node[] $nodes
      */
-    private function makeNodeClickable(array $nodes, string $uuid): string
+    private function makeNodeClickable(array $nodes, string $uuid, ?int $activeNodeId): string
     {
         $nodeTraverser = new NodeTraverser();
         $nodeTraverser->addVisitor(new NodeMarkerNodeVisitor());
         $nodeTraverser->traverse($nodes);
 
-        $clickableAstPrinter = new ClickableAstPrinter($uuid);
-        return $clickableAstPrinter->prettyPrint($nodes);
+        $clickablePrinter = new ClickablePrinter($uuid, $activeNodeId);
+        return $clickablePrinter->prettyPrint($nodes);
     }
 
     /**

@@ -559,19 +559,21 @@ label.required:before {
 }
 
 #clickable-nodes-code {
-
     a {
-        color: #DDD;
-        display: inline;
+        // color: #DDD;
+        color: #f08e48;
         padding: .4em .5em;
         margin: -.4em -.5em;
+        flex: 1;
 
         &:hover {
             color: #5dd7b9;
-            transition-duration: .3s;
-            background: #00151d;
+            transition-duration: .7s;
+        }
+
+        &.active-node {
+            color: #5dd7b9;
+            text-decoration: underline;
         }
     }
-
 }
-
