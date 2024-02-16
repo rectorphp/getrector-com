@@ -1,7 +1,6 @@
 @import "bootstrap/scss/bootstrap";
 @import "@fortawesome/fontawesome-free/css/all.css";
 @import "menu";
-@import "shiki";
 
 
 // setting the value of this variable to an empty data URL is the only working solution
@@ -558,3 +557,21 @@ label.required:before {
         line-height: 1.6em;
     }
 }
+
+#clickable-nodes-code {
+
+    a {
+        color: #DDD;
+        display: inline;
+        padding: .4em .5em;
+        margin: -.4em -.5em;
+
+        &:hover {
+            color: #5dd7b9;
+            transition-duration: .3s;
+            background: #00151d;
+        }
+    }
+
+}
+

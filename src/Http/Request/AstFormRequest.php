@@ -5,19 +5,23 @@ declare(strict_types=1);
 namespace Rector\Website\Http\Request;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Rector\Website\Rules\FuncCallRule;
 use Rector\Website\Rules\ShortPhpContentsRule;
 use Rector\Website\Rules\ValidPhpSyntaxRule;
 
-final class DemoFormRequest extends FormRequest
+final class AstFormRequest extends FormRequest
 {
+    /**
+     * @var string
+     */
+    private const KEY_PHP_CONTENTS = 'php_contents';
+
     public function authorize(): bool
     {
         return true;
     }
 
     /**
-     * @return array{php_contents: mixed[], rector_config: mixed[]}
+     * @return array<string,mixed[]>
      */
     public function rules(): array
     {
@@ -29,25 +33,14 @@ final class DemoFormRequest extends FormRequest
         $validPhpSyntaxRule = app()
             ->make(ValidPhpSyntaxRule::class);
 
-        /** @var FuncCallRule $funcCallRule */
-        $funcCallRule = app()
-            ->make(FuncCallRule::class);
-
         return [
-            'php_contents' => ['required', 'string', $shortPhpContentsRule, $validPhpSyntaxRule],
-            'rector_config' => ['required', 'string', $validPhpSyntaxRule, $funcCallRule],
+            self::KEY_PHP_CONTENTS => ['required', 'string', $shortPhpContentsRule, $validPhpSyntaxRule],
         ];
     }
 
     public function getPhpContents(): string
     {
-        return $this->string('php_contents')
-            ->value();
-    }
-
-    public function getRectorConfig(): string
-    {
-        return $this->string('rector_config')
+        return $this->string(self::KEY_PHP_CONTENTS)
             ->value();
     }
 }
