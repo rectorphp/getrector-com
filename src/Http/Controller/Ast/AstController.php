@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Http\Controllers\Ast;
+namespace Rector\Website\Http\Controller\Ast;
 
 use Illuminate\Routing\Controller;
 use Illuminate\View\View;

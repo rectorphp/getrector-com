@@ -9,7 +9,15 @@
 </li>
 
 <li class="nav-item">
+<<<<<<< HEAD
+<<<<<<< HEAD
     <a href="{{ action(\Rector\Website\Http\Controller\Demo\DemoController::class) }}"
+=======
+    <a href="{{ action(\Rector\Website\Http\Controllers\Demo\DemoController::class) }}"
+>>>>>>> 3b46dec (be toelrant about uiud)
+=======
+    <a href="{{ action(\Rector\Website\Http\Controller\Demo\DemoController::class) }}"
+>>>>>>> b18d765 (lock carbon to keep compatbility with laravel)
        class="nav-link">Try
         Rector</a>
 </li>

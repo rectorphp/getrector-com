@@ -1,13 +1,27 @@
 @extends('base')
 
 @php
+    use Rector\Website\Utils\RectorMetadata;
+
     /** @var $rector_run \Rector\Website\Entity\RectorRun */
 @endphp
 
 @section('main')
     <div id="rector_run_form" class="mt-4 mb-3">
         <form
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
             action="{{ action(\Rector\Website\Http\Controller\Demo\ProcessDemoFormController::class) }}"
+=======
+            action="{{ action(\Rector\Website\Http\Controllers\ProcessDemoFormController::class) }}"
+>>>>>>> 1adf23a (add abstract repositoy)
+=======
+            action="{{ action(\Rector\Website\Http\Controllers\Demo\ProcessDemoFormController::class) }}"
+>>>>>>> 3b46dec (be toelrant about uiud)
+=======
+            action="{{ action(\Rector\Website\Http\Controller\Demo\ProcessDemoFormController::class) }}"
+>>>>>>> b18d765 (lock carbon to keep compatbility with laravel)
             method="post">
 
             @csrf <!-- {{ csrf_field() }} -->
@@ -124,8 +138,8 @@
 
                 <div class="col-6 text-end text-secondary" id="rector_version">
                     Rector version:
-                    <a href="https://github.com/rectorphp/rector-src/commit/{{ \Rector\Website\Utils\RectorMetadata::getReleaseVersion() }}">{{ \Rector\Website\Utils\RectorMetadata::getReleaseVersion() }}</a>
-                    - released at {{ \Rector\Website\Utils\RectorMetadata::getReleaseDate() }}
+                    <a href="https://github.com/rectorphp/rector-src/commit/{{ RectorMetadata::getReleaseVersion() }}">{{ RectorMetadata::getReleaseVersion() }}</a>
+                    - released at {{ RectorMetadata::getReleaseDate() }}
                 </div>
             </div>
 

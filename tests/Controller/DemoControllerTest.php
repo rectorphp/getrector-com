@@ -7,7 +7,15 @@ namespace Rector\Website\Tests\Controller;
 use Illuminate\Foundation\Http\Middleware\ValidateCsrfToken;
 use Iterator;
 use PHPUnit\Framework\Attributes\DataProvider;
+<<<<<<< HEAD
+<<<<<<< HEAD
 use Rector\Website\Http\Controller\Demo\ProcessDemoFormController;
+=======
+use Rector\Website\Http\Controllers\Demo\ProcessDemoFormController;
+>>>>>>> 3b46dec (be toelrant about uiud)
+=======
+use Rector\Website\Http\Controller\Demo\ProcessDemoFormController;
+>>>>>>> b18d765 (lock carbon to keep compatbility with laravel)
 use Rector\Website\Tests\AbstractTestCase;
 
 final class DemoControllerTest extends AbstractTestCase
