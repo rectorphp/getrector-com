@@ -13,7 +13,7 @@ use PhpParser\NodeTraverser;
 use Rector\CustomRules\SimpleNodeDumper;
 use Rector\Website\Entity\AstRun;
 use Rector\Website\Enum\AttributeKey;
-use Rector\Website\PhpParser\ClickablePrinter;
+use Rector\Website\PhpParser\ClickableAstPrinter;
 use Rector\Website\PhpParser\NodeVisior\NodeMarkerNodeVisitor;
 use Rector\Website\PhpParser\SimplePhpParser;
 use Rector\Website\Repository\AstRunRepository;
@@ -63,8 +63,8 @@ final class AstDetailController extends Controller
         $nodeTraverser->addVisitor(new NodeMarkerNodeVisitor());
         $nodeTraverser->traverse($nodes);
 
-        $clickablePrinter = new ClickablePrinter($uuid);
-        return $clickablePrinter->prettyPrint($nodes);
+        $clickableAstPrinter = new ClickableAstPrinter($uuid);
+        return $clickableAstPrinter->prettyPrint($nodes);
     }
 
     /**

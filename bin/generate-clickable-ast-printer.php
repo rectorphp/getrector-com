@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use PhpParser\Builder\Method;
+use PhpParser\BuilderFactory;
 use PhpParser\Node;
 use PhpParser\Node\Arg;
 use PhpParser\Node\Expr\Assign;
@@ -15,37 +16,39 @@ use PhpParser\Node\Name;
 use PhpParser\Node\Name\FullyQualified;
 use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\ClassMethod;
+use PhpParser\Node\Stmt\Namespace_;
 use PhpParser\Node\Stmt\Return_;
 use PhpParser\PrettyPrinter\Standard;
+use Rector\ValueObject\MethodName;
 use Rector\Website\Enum\AttributeKey;
 use Rector\Website\PhpParser\SimplePhpParser;
+use Webmozart\Assert\Assert;
 
 require __DIR__ . '/../vendor/autoload.php';
 
 // simple script to generate clickable AST printer
 // use in https://getrector.com/ast
 
-$classBuilder = new \PhpParser\Builder\Class_('ClickableAstPrinter');
-$classBuilder->makeFinal();
-$classBuilder->extend('PhpParser\PrettyPrinter\Standard');
-
 final class ClickableAstPrinterBuilder
 {
     private SimplePhpParser $simplePhpParser;
 
-    private \PhpParser\BuilderFactory $builderFactory;
+    private BuilderFactory $builderFactory;
 
     public function __construct()
     {
         $this->simplePhpParser = new SimplePhpParser();
-        $this->builderFactory = new \PhpParser\BuilderFactory();
+        $this->builderFactory = new BuilderFactory();
     }
 
     public function buildClass(string $standardPrinterFilePath): Class_
     {
         $standardPrinterClass = $this->simplePhpParser->parseFileToClass($standardPrinterFilePath);
 
-        $classBuilder = $this->createClassBuilder();
+        $constructClassMethod = $this->createConstructClassMethod();
+
+        $classBuilder = $this->createClassBuilder()
+            ->addStmt($constructClassMethod);
 
         foreach ($standardPrinterClass->getMethods() as $classMethod) {
             // handle only protected method, as printer ones
@@ -64,7 +67,7 @@ final class ClickableAstPrinterBuilder
     {
         $classBuilder = new \PhpParser\Builder\Class_('ClickableAstPrinter');
         $classBuilder->makeFinal();
-        $classBuilder->extend('PhpParser\PrettyPrinter\Standard');
+        $classBuilder->extend(new FullyQualified('PhpParser\PrettyPrinter\Standard'));
 
         return $classBuilder;
     }
@@ -107,27 +110,35 @@ final class ClickableAstPrinterBuilder
 
     private function createClassMethodWithLink(ClassMethod $originalClassMethod): ClassMethod
     {
-        $methodBuilder = new Method($originalClassMethod->name->toString());
-        $methodBuilder->makeProtected();
-        $methodBuilder->addParams($originalClassMethod->params);
-        $methodBuilder->setReturnType('string');
+        $methodBuilder = $this->createMethodBuilder($originalClassMethod);
 
         // add wrapped method body
         /** @var Node\Param $originalParam */
         $originalParam = $originalClassMethod->params[0];
 
         $originalParamVariable = $originalParam->var;
-        Webmozart\Assert\Assert::isInstanceOf($originalParamVariable, Node\Expr\Variable::class);
+        Assert::isInstanceOf($originalParamVariable, Variable::class);
 
-        $getAttributeMethodCall = new MethodCall(
-            new Variable($originalParamVariable->name),
-            'getAttribute',
-            [new Arg(new ClassConstFetch(new FullyQualified(AttributeKey::class), 'NODE_ID'))]
-        );
+        $assign = $this->createAttributeAssign($originalParamVariable);
+        $sprintfFuncCall = $this->createSprintfFuncCall($originalClassMethod, $originalParamVariable);
 
-        $assign = new Assign(new Variable('nodeId'), $getAttributeMethodCall);
-        $methodBuilder->addStmt($assign);
+        $methodBuilder->addStmts([$assign, new Return_($sprintfFuncCall)]);
 
+        return $methodBuilder->getNode();
+    }
+
+    private function createMethodBuilder(ClassMethod $originalClassMethod): Method
+    {
+        $methodBuilder = new Method($originalClassMethod->name->toString());
+        $methodBuilder->makeProtected();
+        $methodBuilder->addParams($originalClassMethod->params);
+        $methodBuilder->setReturnType('string');
+
+        return $methodBuilder;
+    }
+
+    private function createSprintfFuncCall(ClassMethod $originalClassMethod, Variable $originalParamVariable): FuncCall
+    {
         $sprintfFuncCall = new FuncCall(new Name('sprintf'));
 
         // parent method call
@@ -137,6 +148,7 @@ final class ClickableAstPrinterBuilder
             [new Arg($originalParamVariable)]
         );
 
+        // string concat
         $args = $this->builderFactory->args([
             '<a href="/ast/%s/%s">%s</a>',
             new Node\Expr\PropertyFetch(new Variable('this'), 'uuid'),
@@ -144,11 +156,37 @@ final class ClickableAstPrinterBuilder
             $parentMethodCall,
         ]);
 
-        $methodBuilder->addStmt(new Return_($sprintfFuncCall));
-
         $sprintfFuncCall->args = $args;
 
-        return $methodBuilder->getNode();
+        return $sprintfFuncCall;
+    }
+
+    private function createAttributeAssign(Variable $paramVariable): Assign
+    {
+        $classConstFetch = new ClassConstFetch(new FullyQualified(AttributeKey::class), 'NODE_ID');
+
+        $getAttributeMethodCall = new MethodCall(
+            new Variable($paramVariable->name),
+            'getAttribute',
+            [new Arg($classConstFetch)]
+        );
+
+        return new Assign(new Variable('nodeId'), $getAttributeMethodCall);
+    }
+
+    private function createConstructClassMethod(): ClassMethod
+    {
+        $uuidParamBuilder = $this->builderFactory->param('uuid');
+        $uuidParamBuilder->makePrivate();
+        $uuidParamBuilder->setType('string');
+
+        $parentStaticCall = new StaticCall(new Name('parent'), MethodName::CONSTRUCT);
+
+        return $this->builderFactory->method(MethodName::CONSTRUCT)
+            ->makePublic()
+            ->addParam($uuidParamBuilder->getNode())
+            ->addStmts([$parentStaticCall])
+            ->getNode();
     }
 }
 
@@ -157,6 +195,12 @@ $clickableAstPrinterClass = $clickableAstPrinterBuilder->buildClass(
     __DIR__ . '/../vendor/nikic/php-parser/lib/PhpParser/PrettyPrinter/Standard.php'
 );
 
+$localNamespace = new Namespace_(new Name('Rector\Website\PhpParser'));
+$localNamespace->stmts[] = $clickableAstPrinterClass;
+
 $standardPrinter = new Standard();
-$printedClass = $standardPrinter->prettyPrint([$clickableAstPrinterClass]);
-dd($printedClass);
+$printedClass = $standardPrinter->prettyPrintFile([$localNamespace]);
+
+\Nette\Utils\FileSystem::write(getcwd() . '/src/PhpParser/ClickableAstPrinter.php', $printedClass);
+
+echo sprintf('Done and generated to%ssrc/PhpParser/ClickableAstPrinter.php', PHP_EOL) . PHP_EOL;
