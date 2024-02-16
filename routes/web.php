@@ -3,20 +3,20 @@
 declare(strict_types=1);
 
 use Illuminate\Support\Facades\Route;
-use Rector\Website\Http\Controllers\AboutController;
-use Rector\Website\Http\Controllers\BlogController;
-use Rector\Website\Http\Controllers\BookController;
-use Rector\Website\Http\Controllers\ContactController;
-use Rector\Website\Http\Controllers\DemoController;
-use Rector\Website\Http\Controllers\DemoDetailController;
-use Rector\Website\Http\Controllers\DocumentationController;
-use Rector\Website\Http\Controllers\ForCompaniesController;
-use Rector\Website\Http\Controllers\HomepageController;
-use Rector\Website\Http\Controllers\PostController;
-use Rector\Website\Http\Controllers\ProcessDemoFormController;
-use Rector\Website\Http\Controllers\ProjectTimelineController;
-use Rector\Website\Http\Controllers\RssController;
-use Rector\Website\Http\Controllers\ThumbnailController;
+use Rector\Website\Http\Controller\AboutController;
+use Rector\Website\Http\Controller\Blog\BlogController;
+use Rector\Website\Http\Controller\Blog\PostController;
+use Rector\Website\Http\Controller\BookController;
+use Rector\Website\Http\Controller\ContactController;
+use Rector\Website\Http\Controller\Demo\DemoController;
+use Rector\Website\Http\Controller\Demo\DemoDetailController;
+use Rector\Website\Http\Controller\Demo\ProcessDemoFormController;
+use Rector\Website\Http\Controller\DocumentationController;
+use Rector\Website\Http\Controller\ForCompaniesController;
+use Rector\Website\Http\Controller\HomepageController;
+use Rector\Website\Http\Controller\ProjectTimelineController;
+use Rector\Website\Http\Controller\RssController;
+use Rector\Website\Http\Controller\ThumbnailController;
 
 Route::get('/', HomepageController::class);
 

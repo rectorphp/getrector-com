@@ -10,7 +10,7 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
             <ul class="navbar-nav me-auto text-start text-md-center">
                 <li class="nav-item me-0 me-md-5 mb-3 mb-md-0" id="top_right_logo">
-                    <a href="{{ action(\Rector\Website\Http\Controllers\HomepageController::class) }}">
+                    <a href="{{ action(\Rector\Website\Http\Controller\HomepageController::class) }}">
                         <img src="/assets/images/logo/rector-white.svg" alt="">
                     </a>
                 </li>

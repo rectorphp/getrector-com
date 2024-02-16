@@ -7,7 +7,7 @@ namespace Rector\Website\Tests\Controller;
 use Illuminate\Foundation\Http\Middleware\ValidateCsrfToken;
 use Iterator;
 use PHPUnit\Framework\Attributes\DataProvider;
-use Rector\Website\Http\Controllers\ProcessDemoFormController;
+use Rector\Website\Http\Controller\Demo\ProcessDemoFormController;
 use Rector\Website\Tests\AbstractTestCase;
 
 final class DemoControllerTest extends AbstractTestCase

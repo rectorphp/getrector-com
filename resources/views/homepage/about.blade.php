@@ -14,7 +14,7 @@
 
             <p>
                 You can learn about it from the <a
-                        href="{{ action(\Rector\Website\Http\Controllers\DocumentationController::class) }}">documentation</a>
+                        href="{{ action(\Rector\Website\Http\Controller\DocumentationController::class) }}">documentation</a>
                 or
                 from our book <a
                         href="https://leanpub.com/rector-the-power-of-automated-refactoring">Rector
@@ -31,7 +31,7 @@
 
             <p>
                 You can <a
-                        href="{{ action(\Rector\Website\Http\Controllers\ForCompaniesController::class) }}">hire
+                        href="{{ action(\Rector\Website\Http\Controller\ForCompaniesController::class) }}">hire
                     our team</a> to get this expertise integrated into your team instantly.
             </p>
         </div>
