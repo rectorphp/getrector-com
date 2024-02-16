@@ -9,20 +9,20 @@
     <meta property="og:description" content="{{ $post->getPerex() }}"/>
     <meta property="og:type" content="article"/>
     <meta
-        property="og:image"
-        content="{{ action(\Rector\Website\Http\Controller\ThumbnailController::class, ['title' => $post->getClearTitle()]) }}"
+            property="og:image"
+            content="{{ action(\Rector\Website\Http\Controllers\ThumbnailController::class, ['title' => $post->getClearTitle()]) }}"
     />
 
     <meta
-        property="og:url"
-        content="{{ action(\Rector\Website\Http\Controller\Blog\PostController::class, ['postSlug' => $post->getSlug()]) }}"
+            property="og:url"
+            content="{{ action(\Rector\Website\Http\Controllers\Blog\PostController::class, ['postSlug' => $post->getSlug()]) }}"
     />
 
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:title" content="{{ $post->getClearTitle() }}"/>
     <meta
-        name="twitter:image"
-        content="{{ action(\Rector\Website\Http\Controller\ThumbnailController::class, ['title' => $post->getClearTitle()]) }}"
+            name="twitter:image"
+            content="{{ action(\Rector\Website\Http\Controllers\ThumbnailController::class, ['title' => $post->getClearTitle()]) }}"
     />
     <meta name="twitter:description" content="{{ $post->getPerex() }}"/>
 
@@ -37,7 +37,7 @@
 
         The <strong>Rector book 2024 edition</strong> is out now.
 
-        <a href="{{ action(\Rector\Website\Http\Controller\BookController::class) }} ">Grab your
+        <a href="{{ action(\Rector\Website\Http\Controllers\BookController::class) }} ">Grab your
             copy!</a>
     </div>
 

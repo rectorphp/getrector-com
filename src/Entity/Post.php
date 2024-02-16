@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Rector\Website\Entity;
 
 use DateTimeInterface;
-use Rector\Website\Http\Controller\Blog\PostController;
+use Rector\Website\Http\Controllers\Blog\PostController;
 
 final class Post
 {

@@ -17,7 +17,7 @@
         <h3>We're in a hurry. Can you start today?</h3>
         <p>
             We begin with a 3-week <a
-                    href="{{ action(\Rector\Website\Http\Controller\ProjectTimelineController::class) }}">intro
+                    href="{{ action(\Rector\Website\Http\Controllers\ProjectTimelineController::class) }}">intro
                 analysis</a>, followed by immediate upgrade work.
         </p>
     </div>

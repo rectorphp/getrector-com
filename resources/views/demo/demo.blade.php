@@ -7,7 +7,7 @@
 @section('main')
     <div id="rector_run_form" class="mt-4 mb-3">
         <form
-            action="{{ action(\Rector\Website\Http\Controller\Demo\ProcessDemoFormController::class) }}"
+            action="{{ action(\Rector\Website\Http\Controllers\Demo\ProcessDemoFormController::class) }}"
             method="post">
 
             @csrf <!-- {{ csrf_field() }} -->

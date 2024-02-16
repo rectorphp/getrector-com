@@ -18,7 +18,7 @@
                     <em class="fab fa-linkedin fa-fw fa-lg"></em>
                 </a>
 
-                <a href="{{ action(\Rector\Website\Http\Controller\RssController::class) }}"
+                <a href="{{ action(\Rector\Website\Http\Controllers\RssController::class) }}"
                    class="p-2">
                     <em class="fas fa-rss fa-fw fa-lg"></em>
                 </a>

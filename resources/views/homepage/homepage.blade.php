@@ -20,9 +20,9 @@
         </div>
 
         <div class="text-center mt-5 mb-5 bigger-buttons">
-            <a href="{{ action(\Rector\Website\Http\Controller\ForCompaniesController::class) }}"
+            <a href="{{ action(\Rector\Website\Http\Controllers\ForCompaniesController::class) }}"
                class="btn btn-lg btn-primary me-3">Hire Upgrade Team</a>
-            <a href="{{ action(\Rector\Website\Http\Controller\Demo\DemoController::class) }}"
+            <a href="{{ action(\Rector\Website\Http\Controllers\Demo\DemoController::class) }}"
                class="btn btn-lg btn-success">Try It Online</a>
         </div>
 
@@ -83,12 +83,12 @@
         <br>
 
         <div class="text-center mt-2 mt-md-5">
-            <a href="{{ action(\Rector\Website\Http\Controller\ForCompaniesController::class) }}"
+            <a href="{{ action(\Rector\Website\Http\Controllers\ForCompaniesController::class) }}"
                class="btn btn-primary btn-lg">
                 Hire Rector Team
             </a>
 
-            <a href="{{ action(\Rector\Website\Http\Controller\ContactController::class) }}"
+            <a href="{{ action(\Rector\Website\Http\Controllers\ContactController::class) }}"
                class="btn btn-success btn-lg ms-3">
                 Contact us to Join them
             </a>
