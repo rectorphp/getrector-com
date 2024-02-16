@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Website\Http\Controller\Ast;
 
+use PhpParser\Node\Identifier;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Controller;
 use Illuminate\View\View;
@@ -73,7 +74,7 @@ final class AstDetailController extends Controller
         }
 
         // target one level up
-        if ($node instanceof Node\Identifier) {
+        if ($node instanceof Identifier) {
             $parentNode = $node->getAttribute('parent');
             if ($parentNode instanceof Node) {
                 return $parentNode::class;
