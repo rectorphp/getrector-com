@@ -33,7 +33,7 @@
 
         @if ($target_node_class)
             <p>
-                What node should you hook into to modify this?
+                What node you hook into to modify it? In <code>Rector::getNodeTypes()</code> method.
             </p>
 
             <pre><code class="language-php">{{ $target_node_class }}</code></pre>

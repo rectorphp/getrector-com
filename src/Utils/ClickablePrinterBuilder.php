@@ -67,7 +67,7 @@ final class ClickablePrinterBuilder
 
         foreach ($standardPrinterClass->getMethods() as $classMethod) {
             // handle only protected method, as printer ones
-            if (! $this->isNodePrinterMethod($classMethod)) {
+            if (! $this->isUsefulNodePrinterMethod($classMethod)) {
                 continue;
             }
 
@@ -87,7 +87,7 @@ final class ClickablePrinterBuilder
         return $class;
     }
 
-    private function isNodePrinterMethod(ClassMethod $classMethod): bool
+    private function isUsefulNodePrinterMethod(ClassMethod $classMethod): bool
     {
         if (! $classMethod->isProtected()) {
             return false;
@@ -95,6 +95,16 @@ final class ClickablePrinterBuilder
 
         $methodName = $classMethod->name->toString();
         if (! str_starts_with($methodName, 'p')) {
+            return false;
+        }
+
+        // useful methods
+        if ($methodName === 'pObjectProperty') {
+            return true;
+        }
+
+        // skip overly detailed method, that take context off
+        if ($methodName === 'pStaticDereferenceLhs') {
             return false;
         }
 

@@ -17,9 +17,11 @@ return RectorConfig::configure()
     )
     ->withRules([\Rector\TypeDeclaration\Rector\StmtsAwareInterface\DeclareStrictTypesRector::class])
     ->withSkip([
+        // generated
+        __DIR__ . '/src/PhpParser/ClickablePrinter.php',
         '*/Fixture/*',
         '*/Expected/*',
-        // on purpose
+
         // fix date time on master
         \Rector\Naming\Rector\Class_\RenamePropertyToMatchTypeRector::class,
 
