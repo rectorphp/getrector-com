@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Http\Controllers;
+namespace Rector\Website\Http\Controller;
 
 use Illuminate\Routing\Controller;
 use Imagine\Gd\Imagine;

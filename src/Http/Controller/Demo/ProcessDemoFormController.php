@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Http\Controllers;
+namespace Rector\Website\Http\Controller\Demo;
 
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Controller;

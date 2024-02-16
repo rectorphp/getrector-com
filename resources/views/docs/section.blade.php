@@ -12,7 +12,7 @@
             <ul class="mt-3">
                 <li>
                     <a
-                            href="{{ action(\Rector\Website\Http\Controllers\DocumentationController::class) }}"
+                        href="{{ action(\Rector\Website\Http\Controller\DocumentationController::class) }}"
                     >Introduction</a>
                 </li>
             </ul>
@@ -34,7 +34,7 @@
                                 &nbsp;
                             @endif
 
-                            <a href="{{ action(\Rector\Website\Http\Controllers\DocumentationController::class, ['section' => $documentation_section->getSlug()]) }}"
+                            <a href="{{ action(\Rector\Website\Http\Controller\DocumentationController::class, ['section' => $documentation_section->getSlug()]) }}"
                                class="{{ $documentation_section->isNew() ? 'text-bold' : '' }}"
                             >
                                 {{ $documentation_section->getName() }}
@@ -48,7 +48,7 @@
 
             <ul>
                 <li>
-                    <a href="{{ action(\Rector\Website\Http\Controllers\BookController::class) }}">
+                    <a href="{{ action(\Rector\Website\Http\Controller\BookController::class) }}">
                         Learn Rector in Depth from Book
                     </a>
                 </li>

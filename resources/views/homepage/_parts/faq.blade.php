@@ -17,7 +17,7 @@
         <h3>We're in a hurry. Can you start today?</h3>
         <p>
             We begin with a 3-week <a
-                href="{{ action(\Rector\Website\Http\Controllers\ProjectTimelineController::class) }}">intro
+                    href="{{ action(\Rector\Website\Http\Controller\ProjectTimelineController::class) }}">intro
                 analysis</a>, followed by immediate upgrade work.
         </p>
     </div>
@@ -37,7 +37,8 @@
     <div class="col-12">
         <h3>Will we need to re-hire your team for future upgrades?</h3>
         <p>
-            No. Our aim is to make your team self-sufficient. We improve your code quality, type coverage and PHPStan level to the highest possible level.
+            No. Our aim is to make your team self-sufficient. We improve your code quality, type
+            coverage and PHPStan level to the highest possible level.
             <br>
             When we finish, you'll have Rector in your CI working for you.
             Your next upgrade will take a single day.
@@ -49,7 +50,8 @@
     <div class="col-12">
         <h3>Can we continue developing new features during the upgrade?</h3>
         <p>
-            Absolutely. Our upgrade process runs parallel to your ongoing development, ensuring no slowdown in your business growth.
+            Absolutely. Our upgrade process runs parallel to your ongoing development, ensuring no
+            slowdown in your business growth.
         </p>
     </div>
 
@@ -57,7 +59,8 @@
 
     <div class="col-12">
         <h3>Can you migrate our framework to an open-source one?</h3>
-        <p>Yes. We specialize in framework migration, leveraging our extensive experience and custom Rector rules.</p>
+        <p>Yes. We specialize in framework migration, leveraging our extensive experience and custom
+            Rector rules.</p>
     </div>
 
     <br>
@@ -67,7 +70,8 @@
         <p>
             The art of cost-effective upgrades takes years of experience with dozens of projects.
             <br>
-            We focus on small, targeted changes with quick integration, ensuring continuous improvement and avoiding long, fruitless upgrade cycles.
+            We focus on small, targeted changes with quick integration, ensuring continuous
+            improvement and avoiding long, fruitless upgrade cycles.
         </p>
     </div>
 </div>

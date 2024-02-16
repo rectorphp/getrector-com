@@ -6,8 +6,9 @@
 
 @section('main')
     <div id="rector_run_form" class="mt-4 mb-3">
-        <form action="{{ action(\Rector\Website\Http\Controllers\ProcessDemoFormController::class) }}"
-              method="post">
+        <form
+            action="{{ action(\Rector\Website\Http\Controller\Demo\ProcessDemoFormController::class) }}"
+            method="post">
 
             @csrf <!-- {{ csrf_field() }} -->
 
@@ -46,7 +47,7 @@
             <div class="card mb-4">
                 <div class="card-body p-0 mb-0">
                     <textarea name="php_contents" class="codemirror_php"
-                        required="required">{{ session('_old_input')['php_contents'] ?? $rector_run->getContent() }}</textarea>
+                              required="required">{{ session('_old_input')['php_contents'] ?? $rector_run->getContent() }}</textarea>
                 </div>
             </div>
 
@@ -58,7 +59,7 @@
 
                     <div class="card-body p-0">
                         <textarea
-                                class="codemirror_diff">{{ $rector_run->getContentDiff() }}</textarea>
+                            class="codemirror_diff">{{ $rector_run->getContentDiff() }}</textarea>
                     </div>
                 </div>
 
@@ -110,7 +111,7 @@
 
                 <div class="card-body p-0">
                     <textarea name="rector_config" class="codemirror_php"
-                        required="required">{{ session('_old_input')['rector_config'] ?? $rector_run->getConfig() }}</textarea>
+                              required="required">{{ session('_old_input')['rector_config'] ?? $rector_run->getConfig() }}</textarea>
                 </div>
             </div>
 
