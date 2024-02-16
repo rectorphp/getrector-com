@@ -10,9 +10,11 @@ use PhpParser\Node\Stmt\Class_;
 use PhpParser\NodeFinder;
 use PhpParser\NodeTraverser;
 use PhpParser\NodeVisitor\NameResolver;
+use PhpParser\NodeVisitor\ParentConnectingVisitor;
 use PhpParser\Parser;
 use PhpParser\ParserFactory;
 use Rector\Website\Exception\ShouldNotHappenException;
+use Rector\Website\PhpParser\NodeVisior\NodeMarkerNodeVisitor;
 
 final class SimplePhpParser
 {
@@ -29,6 +31,8 @@ final class SimplePhpParser
 
         $this->nodeTraverser = new NodeTraverser();
         $this->nodeTraverser->addVisitor(new NameResolver());
+        $this->nodeTraverser->addVisitor(new NodeMarkerNodeVisitor());
+        $this->nodeTraverser->addVisitor(new ParentConnectingVisitor());
 
         $this->nodeFinder = new NodeFinder();
     }
