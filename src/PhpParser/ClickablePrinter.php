@@ -4,155 +4,9 @@ declare(strict_types=1);
 
 namespace Rector\Website\PhpParser;
 
-use PhpParser\Node;
-use PhpParser\Node\Arg;
-use PhpParser\Node\Attribute;
-use PhpParser\Node\AttributeGroup;
-use PhpParser\Node\Const_;
-use PhpParser\Node\Expr\ArrayDimFetch;
-use PhpParser\Node\Expr\ArrayItem;
-use PhpParser\Node\Expr\ArrowFunction;
 use PhpParser\Node\Expr\Assign;
-use PhpParser\Node\Expr\AssignOp\BitwiseAnd;
-use PhpParser\Node\Expr\AssignOp\BitwiseOr;
-use PhpParser\Node\Expr\AssignOp\BitwiseXor;
-use PhpParser\Node\Expr\AssignOp\Coalesce;
-use PhpParser\Node\Expr\AssignOp\Concat;
-use PhpParser\Node\Expr\AssignOp\Div;
-use PhpParser\Node\Expr\AssignOp\Minus;
-use PhpParser\Node\Expr\AssignOp\Mod;
-use PhpParser\Node\Expr\AssignOp\Mul;
-use PhpParser\Node\Expr\AssignOp\Plus;
-use PhpParser\Node\Expr\AssignOp\Pow;
-use PhpParser\Node\Expr\AssignOp\ShiftLeft;
-use PhpParser\Node\Expr\AssignOp\ShiftRight;
-use PhpParser\Node\Expr\AssignRef;
-use PhpParser\Node\Expr\BinaryOp\BooleanAnd;
-use PhpParser\Node\Expr\BinaryOp\BooleanOr;
-use PhpParser\Node\Expr\BinaryOp\Equal;
-use PhpParser\Node\Expr\BinaryOp\Greater;
-use PhpParser\Node\Expr\BinaryOp\GreaterOrEqual;
-use PhpParser\Node\Expr\BinaryOp\Identical;
-use PhpParser\Node\Expr\BinaryOp\LogicalAnd;
-use PhpParser\Node\Expr\BinaryOp\LogicalOr;
-use PhpParser\Node\Expr\BinaryOp\LogicalXor;
-use PhpParser\Node\Expr\BinaryOp\NotEqual;
-use PhpParser\Node\Expr\BinaryOp\NotIdentical;
-use PhpParser\Node\Expr\BinaryOp\Smaller;
-use PhpParser\Node\Expr\BinaryOp\SmallerOrEqual;
-use PhpParser\Node\Expr\BinaryOp\Spaceship;
-use PhpParser\Node\Expr\BitwiseNot;
-use PhpParser\Node\Expr\BooleanNot;
-use PhpParser\Node\Expr\Cast\Array_;
-use PhpParser\Node\Expr\Cast\Bool_;
-use PhpParser\Node\Expr\Cast\Double;
-use PhpParser\Node\Expr\Cast\Int_;
-use PhpParser\Node\Expr\Cast\Object_;
-use PhpParser\Node\Expr\Cast\Unset_;
-use PhpParser\Node\Expr\ClassConstFetch;
-use PhpParser\Node\Expr\Clone_;
-use PhpParser\Node\Expr\Closure;
-use PhpParser\Node\Expr\ClosureUse;
-use PhpParser\Node\Expr\ConstFetch;
-use PhpParser\Node\Expr\Empty_;
-use PhpParser\Node\Expr\Error;
-use PhpParser\Node\Expr\ErrorSuppress;
-use PhpParser\Node\Expr\Eval_;
-use PhpParser\Node\Expr\Exit_;
-use PhpParser\Node\Expr\FuncCall;
-use PhpParser\Node\Expr\Include_;
-use PhpParser\Node\Expr\Instanceof_;
-use PhpParser\Node\Expr\Isset_;
-use PhpParser\Node\Expr\List_;
-use PhpParser\Node\Expr\Match_;
-use PhpParser\Node\Expr\MethodCall;
-use PhpParser\Node\Expr\New_;
-use PhpParser\Node\Expr\NullsafeMethodCall;
-use PhpParser\Node\Expr\NullsafePropertyFetch;
-use PhpParser\Node\Expr\PostDec;
-use PhpParser\Node\Expr\PostInc;
-use PhpParser\Node\Expr\PreDec;
-use PhpParser\Node\Expr\PreInc;
-use PhpParser\Node\Expr\Print_;
-use PhpParser\Node\Expr\PropertyFetch;
-use PhpParser\Node\Expr\ShellExec;
-use PhpParser\Node\Expr\StaticCall;
-use PhpParser\Node\Expr\StaticPropertyFetch;
-use PhpParser\Node\Expr\Ternary;
-use PhpParser\Node\Expr\Throw_;
-use PhpParser\Node\Expr\UnaryMinus;
-use PhpParser\Node\Expr\UnaryPlus;
-use PhpParser\Node\Expr\Variable;
-use PhpParser\Node\Expr\Yield_;
-use PhpParser\Node\Expr\YieldFrom;
-use PhpParser\Node\Identifier;
-use PhpParser\Node\IntersectionType;
-use PhpParser\Node\MatchArm;
-use PhpParser\Node\Name;
-use PhpParser\Node\Name\FullyQualified;
-use PhpParser\Node\Name\Relative;
-use PhpParser\Node\NullableType;
-use PhpParser\Node\Param;
-use PhpParser\Node\Scalar\DNumber;
-use PhpParser\Node\Scalar\Encapsed;
-use PhpParser\Node\Scalar\EncapsedStringPart;
-use PhpParser\Node\Scalar\LNumber;
-use PhpParser\Node\Scalar\MagicConst\Class_;
-use PhpParser\Node\Scalar\MagicConst\Dir;
-use PhpParser\Node\Scalar\MagicConst\File;
-use PhpParser\Node\Scalar\MagicConst\Function_;
-use PhpParser\Node\Scalar\MagicConst\Line;
-use PhpParser\Node\Scalar\MagicConst\Method;
-use PhpParser\Node\Scalar\MagicConst\Namespace_;
-use PhpParser\Node\Scalar\MagicConst\Trait_;
-use PhpParser\Node\Scalar\String_;
-use PhpParser\Node\Stmt\Break_;
-use PhpParser\Node\Stmt\Case_;
-use PhpParser\Node\Stmt\Catch_;
-use PhpParser\Node\Stmt\ClassConst;
-use PhpParser\Node\Stmt\ClassMethod;
-use PhpParser\Node\Stmt\Continue_;
-use PhpParser\Node\Stmt\Declare_;
-use PhpParser\Node\Stmt\DeclareDeclare;
-use PhpParser\Node\Stmt\Do_;
-use PhpParser\Node\Stmt\Echo_;
-use PhpParser\Node\Stmt\Else_;
-use PhpParser\Node\Stmt\ElseIf_;
-use PhpParser\Node\Stmt\Enum_;
-use PhpParser\Node\Stmt\EnumCase;
-use PhpParser\Node\Stmt\Expression;
-use PhpParser\Node\Stmt\Finally_;
-use PhpParser\Node\Stmt\For_;
-use PhpParser\Node\Stmt\Foreach_;
-use PhpParser\Node\Stmt\Global_;
-use PhpParser\Node\Stmt\Goto_;
-use PhpParser\Node\Stmt\GroupUse;
-use PhpParser\Node\Stmt\HaltCompiler;
-use PhpParser\Node\Stmt\If_;
-use PhpParser\Node\Stmt\InlineHTML;
-use PhpParser\Node\Stmt\Interface_;
-use PhpParser\Node\Stmt\Label;
-use PhpParser\Node\Stmt\Nop;
-use PhpParser\Node\Stmt\Property;
-use PhpParser\Node\Stmt\PropertyProperty;
-use PhpParser\Node\Stmt\Return_;
-use PhpParser\Node\Stmt\Static_;
-use PhpParser\Node\Stmt\StaticVar;
-use PhpParser\Node\Stmt\Switch_;
-use PhpParser\Node\Stmt\TraitUse;
-use PhpParser\Node\Stmt\TraitUseAdaptation\Alias;
-use PhpParser\Node\Stmt\TraitUseAdaptation\Precedence;
-use PhpParser\Node\Stmt\TryCatch;
-use PhpParser\Node\Stmt\Use_;
-use PhpParser\Node\Stmt\UseUse;
-use PhpParser\Node\Stmt\While_;
-use PhpParser\Node\UnionType;
-use PhpParser\Node\VariadicPlaceholder;
-use PhpParser\Node\VarLikeIdentifier;
-use PhpParser\PrettyPrinter\Standard;
-use Rector\Website\Enum\AttributeKey;
 
-final class ClickablePrinter extends Standard
+final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 {
     public function __construct(
         private string $uuid,
@@ -161,1305 +15,1330 @@ final class ClickablePrinter extends Standard
         parent::__construct();
     }
 
-    protected function pParam(Param $param): string
+    protected function pParam(\PhpParser\Node\Param $node): string
     {
-        $nodeId = $param->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pParam($param)
+            parent::pParam($node)
         );
     }
 
-    protected function pArg(Arg $arg): string
+    protected function pArg(\PhpParser\Node\Arg $node): string
     {
-        $nodeId = $arg->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pArg($arg)
+            parent::pArg($node)
         );
     }
 
-    protected function pVariadicPlaceholder(VariadicPlaceholder $variadicPlaceholder): string
+    protected function pVariadicPlaceholder(\PhpParser\Node\VariadicPlaceholder $node): string
     {
-        $nodeId = $variadicPlaceholder->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pVariadicPlaceholder($variadicPlaceholder)
+            parent::pVariadicPlaceholder($node)
         );
     }
 
-    protected function pConst(Const_ $const): string
+    protected function pConst(\PhpParser\Node\Const_ $node): string
     {
-        $nodeId = $const->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pConst($const)
+            parent::pConst($node)
         );
     }
 
-    protected function pNullableType(NullableType $nullableType): string
+    protected function pNullableType(\PhpParser\Node\NullableType $node): string
     {
-        $nodeId = $nullableType->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pNullableType($nullableType)
+            parent::pNullableType($node)
         );
     }
 
-    protected function pUnionType(UnionType $unionType): string
+    protected function pUnionType(\PhpParser\Node\UnionType $node): string
     {
-        $nodeId = $unionType->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pUnionType($unionType)
+            parent::pUnionType($node)
         );
     }
 
-    protected function pIntersectionType(IntersectionType $intersectionType): string
+    protected function pIntersectionType(\PhpParser\Node\IntersectionType $node): string
     {
-        $nodeId = $intersectionType->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pIntersectionType($intersectionType)
+            parent::pIntersectionType($node)
         );
     }
 
-    protected function pIdentifier(Identifier $identifier): string
+    protected function pIdentifier(\PhpParser\Node\Identifier $node): string
     {
-        $nodeId = $identifier->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pIdentifier($identifier)
+            parent::pIdentifier($node)
         );
     }
 
-    protected function pVarLikeIdentifier(VarLikeIdentifier $varLikeIdentifier): string
+    protected function pVarLikeIdentifier(\PhpParser\Node\VarLikeIdentifier $node): string
     {
-        $nodeId = $varLikeIdentifier->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pVarLikeIdentifier($varLikeIdentifier)
+            parent::pVarLikeIdentifier($node)
         );
     }
 
-    protected function pAttribute(Attribute $attribute): string
+    protected function pAttribute(\PhpParser\Node\Attribute $node): string
     {
-        $nodeId = $attribute->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pAttribute($attribute)
+            parent::pAttribute($node)
         );
     }
 
-    protected function pAttributeGroup(AttributeGroup $attributeGroup): string
+    protected function pAttributeGroup(\PhpParser\Node\AttributeGroup $node): string
     {
-        $nodeId = $attributeGroup->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pAttributeGroup($attributeGroup)
+            parent::pAttributeGroup($node)
         );
     }
 
-    protected function pName(Name $name): string
+    protected function pName(\PhpParser\Node\Name $node): string
     {
-        $nodeId = $name->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pName($name)
+            parent::pName($node)
         );
     }
 
-    protected function pName_FullyQualified(FullyQualified $fullyQualified): string
+    protected function pName_FullyQualified(\PhpParser\Node\Name\FullyQualified $node): string
     {
-        $nodeId = $fullyQualified->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pName_FullyQualified($fullyQualified)
+            parent::pName_FullyQualified($node)
         );
     }
 
-    protected function pName_Relative(Relative $relative): string
+    protected function pName_Relative(\PhpParser\Node\Name\Relative $node): string
     {
-        $nodeId = $relative->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pName_Relative($relative)
+            parent::pName_Relative($node)
         );
     }
 
-    protected function pScalar_MagicConst_Class(Class_ $class): string
+    protected function pScalar_MagicConst_Class(\PhpParser\Node\Scalar\MagicConst\Class_ $node): string
     {
-        $nodeId = $class->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pScalar_MagicConst_Class($class)
+            parent::pScalar_MagicConst_Class($node)
         );
     }
 
-    protected function pScalar_MagicConst_Dir(Dir $dir): string
+    protected function pScalar_MagicConst_Dir(\PhpParser\Node\Scalar\MagicConst\Dir $node): string
     {
-        $nodeId = $dir->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pScalar_MagicConst_Dir($dir)
+            parent::pScalar_MagicConst_Dir($node)
         );
     }
 
-    protected function pScalar_MagicConst_File(File $file): string
+    protected function pScalar_MagicConst_File(\PhpParser\Node\Scalar\MagicConst\File $node): string
     {
-        $nodeId = $file->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pScalar_MagicConst_File($file)
+            parent::pScalar_MagicConst_File($node)
         );
     }
 
-    protected function pScalar_MagicConst_Function(Function_ $function): string
+    protected function pScalar_MagicConst_Function(\PhpParser\Node\Scalar\MagicConst\Function_ $node): string
     {
-        $nodeId = $function->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pScalar_MagicConst_Function($function)
+            parent::pScalar_MagicConst_Function($node)
         );
     }
 
-    protected function pScalar_MagicConst_Line(Line $line): string
+    protected function pScalar_MagicConst_Line(\PhpParser\Node\Scalar\MagicConst\Line $node): string
     {
-        $nodeId = $line->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pScalar_MagicConst_Line($line)
+            parent::pScalar_MagicConst_Line($node)
         );
     }
 
-    protected function pScalar_MagicConst_Method(Method $method): string
+    protected function pScalar_MagicConst_Method(\PhpParser\Node\Scalar\MagicConst\Method $node): string
     {
-        $nodeId = $method->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pScalar_MagicConst_Method($method)
+            parent::pScalar_MagicConst_Method($node)
         );
     }
 
-    protected function pScalar_MagicConst_Namespace(Namespace_ $namespace): string
+    protected function pScalar_MagicConst_Namespace(\PhpParser\Node\Scalar\MagicConst\Namespace_ $node): string
     {
-        $nodeId = $namespace->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pScalar_MagicConst_Namespace($namespace)
+            parent::pScalar_MagicConst_Namespace($node)
         );
     }
 
-    protected function pScalar_MagicConst_Trait(Trait_ $trait): string
+    protected function pScalar_MagicConst_Trait(\PhpParser\Node\Scalar\MagicConst\Trait_ $node): string
     {
-        $nodeId = $trait->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pScalar_MagicConst_Trait($trait)
+            parent::pScalar_MagicConst_Trait($node)
         );
     }
 
-    protected function pScalar_String(String_ $string): string
+    protected function pScalar_String(\PhpParser\Node\Scalar\String_ $node): string
     {
-        $nodeId = $string->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pScalar_String($string)
+            parent::pScalar_String($node)
         );
     }
 
-    protected function pScalar_Encapsed(Encapsed $encapsed): string
+    protected function pScalar_Encapsed(\PhpParser\Node\Scalar\Encapsed $node): string
     {
-        $nodeId = $encapsed->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pScalar_Encapsed($encapsed)
+            parent::pScalar_Encapsed($node)
         );
     }
 
-    protected function pScalar_LNumber(LNumber $lNumber): string
+    protected function pScalar_LNumber(\PhpParser\Node\Scalar\LNumber $node): string
     {
-        $nodeId = $lNumber->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pScalar_LNumber($lNumber)
+            parent::pScalar_LNumber($node)
         );
     }
 
-    protected function pScalar_DNumber(DNumber $dNumber): string
+    protected function pScalar_DNumber(\PhpParser\Node\Scalar\DNumber $node): string
     {
-        $nodeId = $dNumber->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pScalar_DNumber($dNumber)
+            parent::pScalar_DNumber($node)
         );
     }
 
-    protected function pScalar_EncapsedStringPart(EncapsedStringPart $encapsedStringPart): string
+    protected function pScalar_EncapsedStringPart(\PhpParser\Node\Scalar\EncapsedStringPart $node): string
     {
-        $nodeId = $encapsedStringPart->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pScalar_EncapsedStringPart($encapsedStringPart)
+            parent::pScalar_EncapsedStringPart($node)
         );
     }
 
-    protected function pExpr_Assign(Assign $assign): string
+    protected function pExpr_Assign(\PhpParser\Node\Expr\Assign $node): string
     {
-        $nodeId = $assign->getAttribute(AttributeKey::NODE_ID);
-        return sprintf(
-            '<a href="/ast/%s/%s" %s>%s</a>',
-            $this->uuid,
-            $nodeId,
-            $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_Assign($assign)
-        );
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $link = PrinterHelper::printLink(' = ', $this->uuid, $nodeId, $this->activeNodeId);
+
+        return $this->pInfixOp(Assign::class, $node->var, $link, $node->expr);
     }
 
-    protected function pExpr_AssignRef(AssignRef $assignRef): string
+    protected function pExpr_AssignRef(\PhpParser\Node\Expr\AssignRef $node): string
     {
-        $nodeId = $assignRef->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_AssignRef($assignRef)
+            parent::pExpr_AssignRef($node)
         );
     }
 
-    protected function pExpr_AssignOp_Plus(Plus $plus): string
+    protected function pExpr_AssignOp_Plus(\PhpParser\Node\Expr\AssignOp\Plus $node): string
     {
-        $nodeId = $plus->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_AssignOp_Plus($plus)
+            parent::pExpr_AssignOp_Plus($node)
         );
     }
 
-    protected function pExpr_AssignOp_Minus(Minus $minus): string
+    protected function pExpr_AssignOp_Minus(\PhpParser\Node\Expr\AssignOp\Minus $node): string
     {
-        $nodeId = $minus->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_AssignOp_Minus($minus)
+            parent::pExpr_AssignOp_Minus($node)
         );
     }
 
-    protected function pExpr_AssignOp_Mul(Mul $mul): string
+    protected function pExpr_AssignOp_Mul(\PhpParser\Node\Expr\AssignOp\Mul $node): string
     {
-        $nodeId = $mul->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_AssignOp_Mul($mul)
+            parent::pExpr_AssignOp_Mul($node)
         );
     }
 
-    protected function pExpr_AssignOp_Div(Div $div): string
+    protected function pExpr_AssignOp_Div(\PhpParser\Node\Expr\AssignOp\Div $node): string
     {
-        $nodeId = $div->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_AssignOp_Div($div)
+            parent::pExpr_AssignOp_Div($node)
         );
     }
 
-    protected function pExpr_AssignOp_Concat(Concat $concat): string
+    protected function pExpr_AssignOp_Concat(\PhpParser\Node\Expr\AssignOp\Concat $node): string
     {
-        $nodeId = $concat->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_AssignOp_Concat($concat)
+            parent::pExpr_AssignOp_Concat($node)
         );
     }
 
-    protected function pExpr_AssignOp_Mod(Mod $mod): string
+    protected function pExpr_AssignOp_Mod(\PhpParser\Node\Expr\AssignOp\Mod $node): string
     {
-        $nodeId = $mod->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_AssignOp_Mod($mod)
+            parent::pExpr_AssignOp_Mod($node)
         );
     }
 
-    protected function pExpr_AssignOp_BitwiseAnd(BitwiseAnd $bitwiseAnd): string
+    protected function pExpr_AssignOp_BitwiseAnd(\PhpParser\Node\Expr\AssignOp\BitwiseAnd $node): string
     {
-        $nodeId = $bitwiseAnd->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_AssignOp_BitwiseAnd($bitwiseAnd)
+            parent::pExpr_AssignOp_BitwiseAnd($node)
         );
     }
 
-    protected function pExpr_AssignOp_BitwiseOr(BitwiseOr $bitwiseOr): string
+    protected function pExpr_AssignOp_BitwiseOr(\PhpParser\Node\Expr\AssignOp\BitwiseOr $node): string
     {
-        $nodeId = $bitwiseOr->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_AssignOp_BitwiseOr($bitwiseOr)
+            parent::pExpr_AssignOp_BitwiseOr($node)
         );
     }
 
-    protected function pExpr_AssignOp_BitwiseXor(BitwiseXor $bitwiseXor): string
+    protected function pExpr_AssignOp_BitwiseXor(\PhpParser\Node\Expr\AssignOp\BitwiseXor $node): string
     {
-        $nodeId = $bitwiseXor->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_AssignOp_BitwiseXor($bitwiseXor)
+            parent::pExpr_AssignOp_BitwiseXor($node)
         );
     }
 
-    protected function pExpr_AssignOp_ShiftLeft(ShiftLeft $shiftLeft): string
+    protected function pExpr_AssignOp_ShiftLeft(\PhpParser\Node\Expr\AssignOp\ShiftLeft $node): string
     {
-        $nodeId = $shiftLeft->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_AssignOp_ShiftLeft($shiftLeft)
+            parent::pExpr_AssignOp_ShiftLeft($node)
         );
     }
 
-    protected function pExpr_AssignOp_ShiftRight(ShiftRight $shiftRight): string
+    protected function pExpr_AssignOp_ShiftRight(\PhpParser\Node\Expr\AssignOp\ShiftRight $node): string
     {
-        $nodeId = $shiftRight->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_AssignOp_ShiftRight($shiftRight)
+            parent::pExpr_AssignOp_ShiftRight($node)
         );
     }
 
-    protected function pExpr_AssignOp_Pow(Pow $pow): string
+    protected function pExpr_AssignOp_Pow(\PhpParser\Node\Expr\AssignOp\Pow $node): string
     {
-        $nodeId = $pow->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_AssignOp_Pow($pow)
+            parent::pExpr_AssignOp_Pow($node)
         );
     }
 
-    protected function pExpr_AssignOp_Coalesce(Coalesce $coalesce): string
+    protected function pExpr_AssignOp_Coalesce(\PhpParser\Node\Expr\AssignOp\Coalesce $node): string
     {
-        $nodeId = $coalesce->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_AssignOp_Coalesce($coalesce)
+            parent::pExpr_AssignOp_Coalesce($node)
         );
     }
 
-    protected function pExpr_BinaryOp_Plus(\PhpParser\Node\Expr\BinaryOp\Plus $plus): string
+    protected function pExpr_BinaryOp_Plus(\PhpParser\Node\Expr\BinaryOp\Plus $node): string
     {
-        $nodeId = $plus->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_BinaryOp_Plus($plus)
+            parent::pExpr_BinaryOp_Plus($node)
         );
     }
 
-    protected function pExpr_BinaryOp_Minus(\PhpParser\Node\Expr\BinaryOp\Minus $minus): string
+    protected function pExpr_BinaryOp_Minus(\PhpParser\Node\Expr\BinaryOp\Minus $node): string
     {
-        $nodeId = $minus->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_BinaryOp_Minus($minus)
+            parent::pExpr_BinaryOp_Minus($node)
         );
     }
 
-    protected function pExpr_BinaryOp_Mul(\PhpParser\Node\Expr\BinaryOp\Mul $mul): string
+    protected function pExpr_BinaryOp_Mul(\PhpParser\Node\Expr\BinaryOp\Mul $node): string
     {
-        $nodeId = $mul->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_BinaryOp_Mul($mul)
+            parent::pExpr_BinaryOp_Mul($node)
         );
     }
 
-    protected function pExpr_BinaryOp_Div(\PhpParser\Node\Expr\BinaryOp\Div $div): string
+    protected function pExpr_BinaryOp_Div(\PhpParser\Node\Expr\BinaryOp\Div $node): string
     {
-        $nodeId = $div->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_BinaryOp_Div($div)
+            parent::pExpr_BinaryOp_Div($node)
         );
     }
 
-    protected function pExpr_BinaryOp_Concat(\PhpParser\Node\Expr\BinaryOp\Concat $concat): string
+    protected function pExpr_BinaryOp_Concat(\PhpParser\Node\Expr\BinaryOp\Concat $node): string
     {
-        $nodeId = $concat->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_BinaryOp_Concat($concat)
+            parent::pExpr_BinaryOp_Concat($node)
         );
     }
 
-    protected function pExpr_BinaryOp_Mod(\PhpParser\Node\Expr\BinaryOp\Mod $mod): string
+    protected function pExpr_BinaryOp_Mod(\PhpParser\Node\Expr\BinaryOp\Mod $node): string
     {
-        $nodeId = $mod->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_BinaryOp_Mod($mod)
+            parent::pExpr_BinaryOp_Mod($node)
         );
     }
 
-    protected function pExpr_BinaryOp_BooleanAnd(BooleanAnd $booleanAnd): string
+    protected function pExpr_BinaryOp_BooleanAnd(\PhpParser\Node\Expr\BinaryOp\BooleanAnd $node): string
     {
-        $nodeId = $booleanAnd->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_BinaryOp_BooleanAnd($booleanAnd)
+            parent::pExpr_BinaryOp_BooleanAnd($node)
         );
     }
 
-    protected function pExpr_BinaryOp_BooleanOr(BooleanOr $booleanOr): string
+    protected function pExpr_BinaryOp_BooleanOr(\PhpParser\Node\Expr\BinaryOp\BooleanOr $node): string
     {
-        $nodeId = $booleanOr->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_BinaryOp_BooleanOr($booleanOr)
+            parent::pExpr_BinaryOp_BooleanOr($node)
         );
     }
 
-    protected function pExpr_BinaryOp_BitwiseAnd(\PhpParser\Node\Expr\BinaryOp\BitwiseAnd $bitwiseAnd): string
+    protected function pExpr_BinaryOp_BitwiseAnd(\PhpParser\Node\Expr\BinaryOp\BitwiseAnd $node): string
     {
-        $nodeId = $bitwiseAnd->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_BinaryOp_BitwiseAnd($bitwiseAnd)
+            parent::pExpr_BinaryOp_BitwiseAnd($node)
         );
     }
 
-    protected function pExpr_BinaryOp_BitwiseOr(\PhpParser\Node\Expr\BinaryOp\BitwiseOr $bitwiseOr): string
+    protected function pExpr_BinaryOp_BitwiseOr(\PhpParser\Node\Expr\BinaryOp\BitwiseOr $node): string
     {
-        $nodeId = $bitwiseOr->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_BinaryOp_BitwiseOr($bitwiseOr)
+            parent::pExpr_BinaryOp_BitwiseOr($node)
         );
     }
 
-    protected function pExpr_BinaryOp_BitwiseXor(\PhpParser\Node\Expr\BinaryOp\BitwiseXor $bitwiseXor): string
+    protected function pExpr_BinaryOp_BitwiseXor(\PhpParser\Node\Expr\BinaryOp\BitwiseXor $node): string
     {
-        $nodeId = $bitwiseXor->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_BinaryOp_BitwiseXor($bitwiseXor)
+            parent::pExpr_BinaryOp_BitwiseXor($node)
         );
     }
 
-    protected function pExpr_BinaryOp_ShiftLeft(\PhpParser\Node\Expr\BinaryOp\ShiftLeft $shiftLeft): string
+    protected function pExpr_BinaryOp_ShiftLeft(\PhpParser\Node\Expr\BinaryOp\ShiftLeft $node): string
     {
-        $nodeId = $shiftLeft->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_BinaryOp_ShiftLeft($shiftLeft)
+            parent::pExpr_BinaryOp_ShiftLeft($node)
         );
     }
 
-    protected function pExpr_BinaryOp_ShiftRight(\PhpParser\Node\Expr\BinaryOp\ShiftRight $shiftRight): string
+    protected function pExpr_BinaryOp_ShiftRight(\PhpParser\Node\Expr\BinaryOp\ShiftRight $node): string
     {
-        $nodeId = $shiftRight->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_BinaryOp_ShiftRight($shiftRight)
+            parent::pExpr_BinaryOp_ShiftRight($node)
         );
     }
 
-    protected function pExpr_BinaryOp_Pow(\PhpParser\Node\Expr\BinaryOp\Pow $pow): string
+    protected function pExpr_BinaryOp_Pow(\PhpParser\Node\Expr\BinaryOp\Pow $node): string
     {
-        $nodeId = $pow->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_BinaryOp_Pow($pow)
+            parent::pExpr_BinaryOp_Pow($node)
         );
     }
 
-    protected function pExpr_BinaryOp_LogicalAnd(LogicalAnd $logicalAnd): string
+    protected function pExpr_BinaryOp_LogicalAnd(\PhpParser\Node\Expr\BinaryOp\LogicalAnd $node): string
     {
-        $nodeId = $logicalAnd->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_BinaryOp_LogicalAnd($logicalAnd)
+            parent::pExpr_BinaryOp_LogicalAnd($node)
         );
     }
 
-    protected function pExpr_BinaryOp_LogicalOr(LogicalOr $logicalOr): string
+    protected function pExpr_BinaryOp_LogicalOr(\PhpParser\Node\Expr\BinaryOp\LogicalOr $node): string
     {
-        $nodeId = $logicalOr->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_BinaryOp_LogicalOr($logicalOr)
+            parent::pExpr_BinaryOp_LogicalOr($node)
         );
     }
 
-    protected function pExpr_BinaryOp_LogicalXor(LogicalXor $logicalXor): string
+    protected function pExpr_BinaryOp_LogicalXor(\PhpParser\Node\Expr\BinaryOp\LogicalXor $node): string
     {
-        $nodeId = $logicalXor->getAttribute(AttributeKey::NODE_ID);
-        return sprintf(
-            '<a href="/ast/%s/%s" %s>%s</a>',
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+
+        $link = PrinterHelper::printLink(
+            ' ' . $node->getOperatorSigil() . '  ',
             $this->uuid,
             $nodeId,
-            $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_BinaryOp_LogicalXor($logicalXor)
+            $this->activeNodeId
         );
+
+        return $this->pInfixOp(\PhpParser\Node\Expr\BinaryOp\LogicalXor::class, $node->left, $link, $node->right);
     }
 
-    protected function pExpr_BinaryOp_Equal(Equal $equal): string
+    protected function pExpr_BinaryOp_Equal(\PhpParser\Node\Expr\BinaryOp\Equal $node): string
     {
-        $nodeId = $equal->getAttribute(AttributeKey::NODE_ID);
-        return sprintf(
-            '<a href="/ast/%s/%s" %s>%s</a>',
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+
+        $link = PrinterHelper::printLink(
+            ' ' . $node->getOperatorSigil() . '  ',
             $this->uuid,
             $nodeId,
-            $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_BinaryOp_Equal($equal)
+            $this->activeNodeId
         );
+
+        return $this->pInfixOp(\PhpParser\Node\Expr\BinaryOp\Equal::class, $node->left, $link, $node->right);
     }
 
-    protected function pExpr_BinaryOp_NotEqual(NotEqual $notEqual): string
+    protected function pExpr_BinaryOp_NotEqual(\PhpParser\Node\Expr\BinaryOp\NotEqual $node): string
     {
-        $nodeId = $notEqual->getAttribute(AttributeKey::NODE_ID);
-        return sprintf(
-            '<a href="/ast/%s/%s" %s>%s</a>',
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+
+        $link = PrinterHelper::printLink(
+            ' ' . $node->getOperatorSigil() . '  ',
             $this->uuid,
             $nodeId,
-            $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_BinaryOp_NotEqual($notEqual)
+            $this->activeNodeId
         );
+
+        return $this->pInfixOp(\PhpParser\Node\Expr\BinaryOp\NotEqual::class, $node->left, $link, $node->right);
     }
 
-    protected function pExpr_BinaryOp_Identical(Identical $identical): string
+    /**
+     * @override
+     */
+    protected function pExpr_BinaryOp_Identical(\PhpParser\Node\Expr\BinaryOp\Identical $node): string
     {
-        $nodeId = $identical->getAttribute(AttributeKey::NODE_ID);
-        return sprintf(
-            '<a href="/ast/%s/%s" %s>%s</a>',
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+
+        $link = PrinterHelper::printLink(
+            ' ' . $node->getOperatorSigil() . '  ',
             $this->uuid,
             $nodeId,
-            $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_BinaryOp_Identical($identical)
+            $this->activeNodeId
         );
+
+        return $this->pInfixOp(\PhpParser\Node\Expr\BinaryOp\Identical::class, $node->left, $link, $node->right);
     }
 
-    protected function pExpr_BinaryOp_NotIdentical(NotIdentical $notIdentical): string
+    protected function pExpr_BinaryOp_NotIdentical(\PhpParser\Node\Expr\BinaryOp\NotIdentical $node): string
     {
-        $nodeId = $notIdentical->getAttribute(AttributeKey::NODE_ID);
-        return sprintf(
-            '<a href="/ast/%s/%s" %s>%s</a>',
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+
+        $link = PrinterHelper::printLink(
+            ' ' . $node->getOperatorSigil() . '  ',
             $this->uuid,
             $nodeId,
-            $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_BinaryOp_NotIdentical($notIdentical)
+            $this->activeNodeId
         );
+
+        return $this->pInfixOp(\PhpParser\Node\Expr\BinaryOp\NotIdentical::class, $node->left, $link, $node->right);
     }
 
-    protected function pExpr_BinaryOp_Spaceship(Spaceship $spaceship): string
+    protected function pExpr_BinaryOp_Spaceship(\PhpParser\Node\Expr\BinaryOp\Spaceship $node): string
     {
-        $nodeId = $spaceship->getAttribute(AttributeKey::NODE_ID);
-        return sprintf(
-            '<a href="/ast/%s/%s" %s>%s</a>',
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+
+        $link = PrinterHelper::printLink(
+            ' ' . $node->getOperatorSigil() . '  ',
             $this->uuid,
             $nodeId,
-            $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_BinaryOp_Spaceship($spaceship)
+            $this->activeNodeId
         );
+
+        return $this->pInfixOp(\PhpParser\Node\Expr\BinaryOp\Spaceship::class, $node->left, $link, $node->right);
     }
 
-    protected function pExpr_BinaryOp_Greater(Greater $greater): string
+    protected function pExpr_BinaryOp_Greater(\PhpParser\Node\Expr\BinaryOp\Greater $node): string
     {
-        $nodeId = $greater->getAttribute(AttributeKey::NODE_ID);
-        return sprintf(
-            '<a href="/ast/%s/%s" %s>%s</a>',
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+
+        $link = PrinterHelper::printLink(
+            ' ' . $node->getOperatorSigil() . '  ',
             $this->uuid,
             $nodeId,
-            $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_BinaryOp_Greater($greater)
+            $this->activeNodeId
         );
+
+        return $this->pInfixOp(\PhpParser\Node\Expr\BinaryOp\Greater::class, $node->left, $link, $node->right);
     }
 
-    protected function pExpr_BinaryOp_GreaterOrEqual(GreaterOrEqual $greaterOrEqual): string
+    protected function pExpr_BinaryOp_GreaterOrEqual(\PhpParser\Node\Expr\BinaryOp\GreaterOrEqual $node): string
     {
-        $nodeId = $greaterOrEqual->getAttribute(AttributeKey::NODE_ID);
-        return sprintf(
-            '<a href="/ast/%s/%s" %s>%s</a>',
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+
+        $link = PrinterHelper::printLink(
+            ' ' . $node->getOperatorSigil() . '  ',
             $this->uuid,
             $nodeId,
-            $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_BinaryOp_GreaterOrEqual($greaterOrEqual)
+            $this->activeNodeId
         );
+
+        return $this->pInfixOp(\PhpParser\Node\Expr\BinaryOp\GreaterOrEqual::class, $node->left, $link, $node->right);
     }
 
-    protected function pExpr_BinaryOp_Smaller(Smaller $smaller): string
+    protected function pExpr_BinaryOp_Smaller(\PhpParser\Node\Expr\BinaryOp\Smaller $node): string
     {
-        $nodeId = $smaller->getAttribute(AttributeKey::NODE_ID);
-        return sprintf(
-            '<a href="/ast/%s/%s" %s>%s</a>',
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+
+        $link = PrinterHelper::printLink(
+            ' ' . $node->getOperatorSigil() . '  ',
             $this->uuid,
             $nodeId,
-            $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_BinaryOp_Smaller($smaller)
+            $this->activeNodeId
         );
+
+        return $this->pInfixOp(\PhpParser\Node\Expr\BinaryOp\Smaller::class, $node->left, $link, $node->right);
     }
 
-    protected function pExpr_BinaryOp_SmallerOrEqual(SmallerOrEqual $smallerOrEqual): string
+    protected function pExpr_BinaryOp_SmallerOrEqual(\PhpParser\Node\Expr\BinaryOp\SmallerOrEqual $node): string
     {
-        $nodeId = $smallerOrEqual->getAttribute(AttributeKey::NODE_ID);
-        return sprintf(
-            '<a href="/ast/%s/%s" %s>%s</a>',
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+
+        $link = PrinterHelper::printLink(
+            ' ' . $node->getOperatorSigil() . '  ',
             $this->uuid,
             $nodeId,
-            $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_BinaryOp_SmallerOrEqual($smallerOrEqual)
+            $this->activeNodeId
         );
+
+        return $this->pInfixOp(\PhpParser\Node\Expr\BinaryOp\SmallerOrEqual::class, $node->left, $link, $node->right);
     }
 
-    protected function pExpr_BinaryOp_Coalesce(\PhpParser\Node\Expr\BinaryOp\Coalesce $coalesce): string
+    protected function pExpr_BinaryOp_Coalesce(\PhpParser\Node\Expr\BinaryOp\Coalesce $node): string
     {
-        $nodeId = $coalesce->getAttribute(AttributeKey::NODE_ID);
-        return sprintf(
-            '<a href="/ast/%s/%s" %s>%s</a>',
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+
+        $link = PrinterHelper::printLink(
+            ' ' . $node->getOperatorSigil() . '  ',
             $this->uuid,
             $nodeId,
-            $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_BinaryOp_Coalesce($coalesce)
+            $this->activeNodeId
         );
+
+        return $this->pInfixOp(\PhpParser\Node\Expr\BinaryOp\Coalesce::class, $node->left, $link, $node->right);
     }
 
-    protected function pExpr_Instanceof(Instanceof_ $instanceof): string
+    protected function pExpr_Instanceof(\PhpParser\Node\Expr\Instanceof_ $node): string
     {
-        $nodeId = $instanceof->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_Instanceof($instanceof)
+            parent::pExpr_Instanceof($node)
         );
     }
 
-    protected function pExpr_BooleanNot(BooleanNot $booleanNot): string
+    protected function pExpr_BooleanNot(\PhpParser\Node\Expr\BooleanNot $node): string
     {
-        $nodeId = $booleanNot->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_BooleanNot($booleanNot)
+            parent::pExpr_BooleanNot($node)
         );
     }
 
-    protected function pExpr_BitwiseNot(BitwiseNot $bitwiseNot): string
+    protected function pExpr_BitwiseNot(\PhpParser\Node\Expr\BitwiseNot $node): string
     {
-        $nodeId = $bitwiseNot->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_BitwiseNot($bitwiseNot)
+            parent::pExpr_BitwiseNot($node)
         );
     }
 
-    protected function pExpr_UnaryMinus(UnaryMinus $unaryMinus): string
+    protected function pExpr_UnaryMinus(\PhpParser\Node\Expr\UnaryMinus $node): string
     {
-        $nodeId = $unaryMinus->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_UnaryMinus($unaryMinus)
+            parent::pExpr_UnaryMinus($node)
         );
     }
 
-    protected function pExpr_UnaryPlus(UnaryPlus $unaryPlus): string
+    protected function pExpr_UnaryPlus(\PhpParser\Node\Expr\UnaryPlus $node): string
     {
-        $nodeId = $unaryPlus->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_UnaryPlus($unaryPlus)
+            parent::pExpr_UnaryPlus($node)
         );
     }
 
-    protected function pExpr_PreInc(PreInc $preInc): string
+    protected function pExpr_PreInc(\PhpParser\Node\Expr\PreInc $node): string
     {
-        $nodeId = $preInc->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_PreInc($preInc)
+            parent::pExpr_PreInc($node)
         );
     }
 
-    protected function pExpr_PreDec(PreDec $preDec): string
+    protected function pExpr_PreDec(\PhpParser\Node\Expr\PreDec $node): string
     {
-        $nodeId = $preDec->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_PreDec($preDec)
+            parent::pExpr_PreDec($node)
         );
     }
 
-    protected function pExpr_PostInc(PostInc $postInc): string
+    protected function pExpr_PostInc(\PhpParser\Node\Expr\PostInc $node): string
     {
-        $nodeId = $postInc->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_PostInc($postInc)
+            parent::pExpr_PostInc($node)
         );
     }
 
-    protected function pExpr_PostDec(PostDec $postDec): string
+    protected function pExpr_PostDec(\PhpParser\Node\Expr\PostDec $node): string
     {
-        $nodeId = $postDec->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_PostDec($postDec)
+            parent::pExpr_PostDec($node)
         );
     }
 
-    protected function pExpr_ErrorSuppress(ErrorSuppress $errorSuppress): string
+    protected function pExpr_ErrorSuppress(\PhpParser\Node\Expr\ErrorSuppress $node): string
     {
-        $nodeId = $errorSuppress->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_ErrorSuppress($errorSuppress)
+            parent::pExpr_ErrorSuppress($node)
         );
     }
 
-    protected function pExpr_YieldFrom(YieldFrom $yieldFrom): string
+    protected function pExpr_YieldFrom(\PhpParser\Node\Expr\YieldFrom $node): string
     {
-        $nodeId = $yieldFrom->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_YieldFrom($yieldFrom)
+            parent::pExpr_YieldFrom($node)
         );
     }
 
-    protected function pExpr_Print(Print_ $print): string
+    protected function pExpr_Print(\PhpParser\Node\Expr\Print_ $node): string
     {
-        $nodeId = $print->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_Print($print)
+            parent::pExpr_Print($node)
         );
     }
 
-    protected function pExpr_Cast_Int(Int_ $int): string
+    protected function pExpr_Cast_Int(\PhpParser\Node\Expr\Cast\Int_ $node): string
     {
-        $nodeId = $int->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_Cast_Int($int)
+            parent::pExpr_Cast_Int($node)
         );
     }
 
-    protected function pExpr_Cast_Double(Double $double): string
+    protected function pExpr_Cast_Double(\PhpParser\Node\Expr\Cast\Double $node): string
     {
-        $nodeId = $double->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_Cast_Double($double)
+            parent::pExpr_Cast_Double($node)
         );
     }
 
-    protected function pExpr_Cast_String(\PhpParser\Node\Expr\Cast\String_ $string): string
+    protected function pExpr_Cast_String(\PhpParser\Node\Expr\Cast\String_ $node): string
     {
-        $nodeId = $string->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_Cast_String($string)
+            parent::pExpr_Cast_String($node)
         );
     }
 
-    protected function pExpr_Cast_Array(Array_ $array): string
+    protected function pExpr_Cast_Array(\PhpParser\Node\Expr\Cast\Array_ $node): string
     {
-        $nodeId = $array->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_Cast_Array($array)
+            parent::pExpr_Cast_Array($node)
         );
     }
 
-    protected function pExpr_Cast_Object(Object_ $object): string
+    protected function pExpr_Cast_Object(\PhpParser\Node\Expr\Cast\Object_ $node): string
     {
-        $nodeId = $object->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_Cast_Object($object)
+            parent::pExpr_Cast_Object($node)
         );
     }
 
-    protected function pExpr_Cast_Bool(Bool_ $bool): string
+    protected function pExpr_Cast_Bool(\PhpParser\Node\Expr\Cast\Bool_ $node): string
     {
-        $nodeId = $bool->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_Cast_Bool($bool)
+            parent::pExpr_Cast_Bool($node)
         );
     }
 
-    protected function pExpr_Cast_Unset(Unset_ $unset): string
+    protected function pExpr_Cast_Unset(\PhpParser\Node\Expr\Cast\Unset_ $node): string
     {
-        $nodeId = $unset->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_Cast_Unset($unset)
+            parent::pExpr_Cast_Unset($node)
         );
     }
 
-    protected function pExpr_FuncCall(FuncCall $funcCall): string
+    protected function pExpr_FuncCall(\PhpParser\Node\Expr\FuncCall $node): string
     {
-        $nodeId = $funcCall->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_FuncCall($funcCall)
+            parent::pExpr_FuncCall($node)
         );
     }
 
-    protected function pExpr_MethodCall(MethodCall $methodCall): string
+    /**
+     * @overloaded
+     */
+    protected function pExpr_MethodCall(\PhpParser\Node\Expr\MethodCall $node): string
     {
-        $nodeId = $methodCall->getAttribute(AttributeKey::NODE_ID);
-        return sprintf(
-            '<a href="/ast/%s/%s" %s>%s</a>',
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+
+        $link = sprintf(
+            '<a href="/ast/%s/%s" %s>-></a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_MethodCall($methodCall)
         );
+
+        return $this->pDereferenceLhs($node->var) . $link . $this->pObjectProperty($node->name)
+            . '(' . $this->pMaybeMultiline($node->args) . ')';
     }
 
-    protected function pExpr_NullsafeMethodCall(NullsafeMethodCall $nullsafeMethodCall): string
+    protected function pExpr_NullsafeMethodCall(\PhpParser\Node\Expr\NullsafeMethodCall $node): string
     {
-        $nodeId = $nullsafeMethodCall->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_NullsafeMethodCall($nullsafeMethodCall)
+            parent::pExpr_NullsafeMethodCall($node)
         );
     }
 
-    protected function pExpr_StaticCall(StaticCall $staticCall): string
+    protected function pExpr_StaticCall(\PhpParser\Node\Expr\StaticCall $node): string
     {
-        $nodeId = $staticCall->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_StaticCall($staticCall)
+            parent::pExpr_StaticCall($node)
         );
     }
 
-    protected function pExpr_Empty(Empty_ $empty): string
+    protected function pExpr_Empty(\PhpParser\Node\Expr\Empty_ $node): string
     {
-        $nodeId = $empty->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_Empty($empty)
+            parent::pExpr_Empty($node)
         );
     }
 
-    protected function pExpr_Isset(Isset_ $isset): string
+    protected function pExpr_Isset(\PhpParser\Node\Expr\Isset_ $node): string
     {
-        $nodeId = $isset->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_Isset($isset)
+            parent::pExpr_Isset($node)
         );
     }
 
-    protected function pExpr_Eval(Eval_ $eval): string
+    protected function pExpr_Eval(\PhpParser\Node\Expr\Eval_ $node): string
     {
-        $nodeId = $eval->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_Eval($eval)
+            parent::pExpr_Eval($node)
         );
     }
 
-    protected function pExpr_Include(Include_ $include): string
+    protected function pExpr_Include(\PhpParser\Node\Expr\Include_ $node): string
     {
-        $nodeId = $include->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_Include($include)
+            parent::pExpr_Include($node)
         );
     }
 
-    protected function pExpr_List(List_ $list): string
+    protected function pExpr_List(\PhpParser\Node\Expr\List_ $node): string
     {
-        $nodeId = $list->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_List($list)
+            parent::pExpr_List($node)
         );
     }
 
-    protected function pExpr_Error(Error $error): string
+    protected function pExpr_Error(\PhpParser\Node\Expr\Error $node): string
     {
-        $nodeId = $error->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_Error($error)
+            parent::pExpr_Error($node)
         );
     }
 
-    protected function pExpr_Variable(Variable $variable): string
+    protected function pExpr_Variable(\PhpParser\Node\Expr\Variable $node): string
     {
-        $nodeId = $variable->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_Variable($variable)
+            parent::pExpr_Variable($node)
         );
     }
 
-    protected function pExpr_Array(\PhpParser\Node\Expr\Array_ $array): string
+    protected function pExpr_Array(\PhpParser\Node\Expr\Array_ $node): string
     {
-        $nodeId = $array->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_Array($array)
+            parent::pExpr_Array($node)
         );
     }
 
-    protected function pExpr_ArrayItem(ArrayItem $arrayItem): string
+    protected function pExpr_ArrayItem(\PhpParser\Node\Expr\ArrayItem $node): string
     {
-        $nodeId = $arrayItem->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_ArrayItem($arrayItem)
+            parent::pExpr_ArrayItem($node)
         );
     }
 
-    protected function pExpr_ArrayDimFetch(ArrayDimFetch $arrayDimFetch): string
+    protected function pExpr_ArrayDimFetch(\PhpParser\Node\Expr\ArrayDimFetch $node): string
     {
-        $nodeId = $arrayDimFetch->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_ArrayDimFetch($arrayDimFetch)
+            parent::pExpr_ArrayDimFetch($node)
         );
     }
 
-    protected function pExpr_ConstFetch(ConstFetch $constFetch): string
+    protected function pExpr_ConstFetch(\PhpParser\Node\Expr\ConstFetch $node): string
     {
-        $nodeId = $constFetch->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_ConstFetch($constFetch)
+            parent::pExpr_ConstFetch($node)
         );
     }
 
-    protected function pExpr_ClassConstFetch(ClassConstFetch $classConstFetch): string
+    protected function pExpr_ClassConstFetch(\PhpParser\Node\Expr\ClassConstFetch $node): string
     {
-        $nodeId = $classConstFetch->getAttribute(AttributeKey::NODE_ID);
-        return sprintf(
-            '<a href="/ast/%s/%s" %s>%s</a>',
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+
+        $link = sprintf(
+            '<a href="/ast/%s/%s" %s>::</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_ClassConstFetch($classConstFetch)
         );
+
+        return $this->pStaticDereferenceLhs($node->class) . $link . $this->pObjectProperty($node->name);
     }
 
-    protected function pExpr_PropertyFetch(PropertyFetch $propertyFetch): string
+    protected function pExpr_PropertyFetch(\PhpParser\Node\Expr\PropertyFetch $node): string
     {
-        $nodeId = $propertyFetch->getAttribute(AttributeKey::NODE_ID);
-        return sprintf(
-            '<a href="/ast/%s/%s" %s>%s</a>',
-            $this->uuid,
-            $nodeId,
-            $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_PropertyFetch($propertyFetch)
-        );
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $link = PrinterHelper::printLink('->', $this->uuid, $nodeId, $this->activeNodeId);
+
+        return $this->pDereferenceLhs($node->var) . $link . $this->pObjectProperty($node->name);
     }
 
-    protected function pExpr_NullsafePropertyFetch(NullsafePropertyFetch $nullsafePropertyFetch): string
+    protected function pExpr_NullsafePropertyFetch(\PhpParser\Node\Expr\NullsafePropertyFetch $node): string
     {
-        $nodeId = $nullsafePropertyFetch->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_NullsafePropertyFetch($nullsafePropertyFetch)
+            parent::pExpr_NullsafePropertyFetch($node)
         );
     }
 
-    protected function pExpr_StaticPropertyFetch(StaticPropertyFetch $staticPropertyFetch): string
+    protected function pExpr_StaticPropertyFetch(\PhpParser\Node\Expr\StaticPropertyFetch $node): string
     {
-        $nodeId = $staticPropertyFetch->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_StaticPropertyFetch($staticPropertyFetch)
+            parent::pExpr_StaticPropertyFetch($node)
         );
     }
 
-    protected function pExpr_ShellExec(ShellExec $shellExec): string
+    protected function pExpr_ShellExec(\PhpParser\Node\Expr\ShellExec $node): string
     {
-        $nodeId = $shellExec->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_ShellExec($shellExec)
+            parent::pExpr_ShellExec($node)
         );
     }
 
-    protected function pExpr_Closure(Closure $node): string
+    protected function pExpr_Closure(\PhpParser\Node\Expr\Closure $node): string
     {
-        $nodeId = $node->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
@@ -1469,45 +1348,45 @@ final class ClickablePrinter extends Standard
         );
     }
 
-    protected function pExpr_Match(Match_ $match): string
+    protected function pExpr_Match(\PhpParser\Node\Expr\Match_ $node): string
     {
-        $nodeId = $match->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_Match($match)
+            parent::pExpr_Match($node)
         );
     }
 
-    protected function pMatchArm(MatchArm $matchArm): string
+    protected function pMatchArm(\PhpParser\Node\MatchArm $node): string
     {
-        $nodeId = $matchArm->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pMatchArm($matchArm)
+            parent::pMatchArm($node)
         );
     }
 
-    protected function pExpr_ArrowFunction(ArrowFunction $arrowFunction): string
+    protected function pExpr_ArrowFunction(\PhpParser\Node\Expr\ArrowFunction $node): string
     {
-        $nodeId = $arrowFunction->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_ArrowFunction($arrowFunction)
+            parent::pExpr_ArrowFunction($node)
         );
     }
 
-    protected function pExpr_ClosureUse(ClosureUse $node): string
+    protected function pExpr_ClosureUse(\PhpParser\Node\Expr\ClosureUse $node): string
     {
-        $nodeId = $node->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
@@ -1517,645 +1396,658 @@ final class ClickablePrinter extends Standard
         );
     }
 
-    protected function pExpr_New(New_ $new): string
+    protected function pExpr_New(\PhpParser\Node\Expr\New_ $node): string
     {
-        $nodeId = $new->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_New($new)
+            parent::pExpr_New($node)
         );
     }
 
-    protected function pExpr_Clone(Clone_ $clone): string
+    protected function pExpr_Clone(\PhpParser\Node\Expr\Clone_ $node): string
     {
-        $nodeId = $clone->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_Clone($clone)
+            parent::pExpr_Clone($node)
         );
     }
 
-    protected function pExpr_Ternary(Ternary $ternary): string
+    protected function pExpr_Ternary(\PhpParser\Node\Expr\Ternary $node): string
     {
-        $nodeId = $ternary->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_Ternary($ternary)
+            parent::pExpr_Ternary($node)
         );
     }
 
-    protected function pExpr_Exit(Exit_ $exit): string
+    protected function pExpr_Exit(\PhpParser\Node\Expr\Exit_ $node): string
     {
-        $nodeId = $exit->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_Exit($exit)
+            parent::pExpr_Exit($node)
         );
     }
 
-    protected function pExpr_Throw(Throw_ $throw): string
+    protected function pExpr_Throw(\PhpParser\Node\Expr\Throw_ $node): string
     {
-        $nodeId = $throw->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_Throw($throw)
+            parent::pExpr_Throw($node)
         );
     }
 
-    protected function pExpr_Yield(Yield_ $yield): string
+    protected function pExpr_Yield(\PhpParser\Node\Expr\Yield_ $node): string
     {
-        $nodeId = $yield->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pExpr_Yield($yield)
+            parent::pExpr_Yield($node)
         );
     }
 
-    protected function pStmt_Namespace(\PhpParser\Node\Stmt\Namespace_ $namespace): string
+    protected function pStmt_Namespace(\PhpParser\Node\Stmt\Namespace_ $node): string
     {
-        $nodeId = $namespace->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStmt_Namespace($namespace)
+            parent::pStmt_Namespace($node)
         );
     }
 
-    protected function pStmt_Use(Use_ $use): string
+    protected function pStmt_Use(\PhpParser\Node\Stmt\Use_ $node): string
     {
-        $nodeId = $use->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStmt_Use($use)
+            parent::pStmt_Use($node)
         );
     }
 
-    protected function pStmt_GroupUse(GroupUse $groupUse): string
+    protected function pStmt_GroupUse(\PhpParser\Node\Stmt\GroupUse $node): string
     {
-        $nodeId = $groupUse->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStmt_GroupUse($groupUse)
+            parent::pStmt_GroupUse($node)
         );
     }
 
-    protected function pStmt_UseUse(UseUse $useUse): string
+    protected function pStmt_UseUse(\PhpParser\Node\Stmt\UseUse $node): string
     {
-        $nodeId = $useUse->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStmt_UseUse($useUse)
+            parent::pStmt_UseUse($node)
         );
     }
 
-    protected function pStmt_Interface(Interface_ $interface): string
+    protected function pStmt_Interface(\PhpParser\Node\Stmt\Interface_ $node): string
     {
-        $nodeId = $interface->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStmt_Interface($interface)
+            parent::pStmt_Interface($node)
         );
     }
 
-    protected function pStmt_Enum(Enum_ $enum): string
+    protected function pStmt_Enum(\PhpParser\Node\Stmt\Enum_ $node): string
     {
-        $nodeId = $enum->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStmt_Enum($enum)
+            parent::pStmt_Enum($node)
         );
     }
 
-    protected function pStmt_Class(\PhpParser\Node\Stmt\Class_ $class): string
+    protected function pStmt_Class(\PhpParser\Node\Stmt\Class_ $node): string
     {
-        $nodeId = $class->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStmt_Class($class)
+            parent::pStmt_Class($node)
         );
     }
 
-    protected function pStmt_Trait(\PhpParser\Node\Stmt\Trait_ $trait): string
+    protected function pStmt_Trait(\PhpParser\Node\Stmt\Trait_ $node): string
     {
-        $nodeId = $trait->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStmt_Trait($trait)
+            parent::pStmt_Trait($node)
         );
     }
 
-    protected function pStmt_EnumCase(EnumCase $enumCase): string
+    protected function pStmt_EnumCase(\PhpParser\Node\Stmt\EnumCase $node): string
     {
-        $nodeId = $enumCase->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStmt_EnumCase($enumCase)
+            parent::pStmt_EnumCase($node)
         );
     }
 
-    protected function pStmt_TraitUse(TraitUse $traitUse): string
+    protected function pStmt_TraitUse(\PhpParser\Node\Stmt\TraitUse $node): string
     {
-        $nodeId = $traitUse->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStmt_TraitUse($traitUse)
+            parent::pStmt_TraitUse($node)
         );
     }
 
-    protected function pStmt_TraitUseAdaptation_Precedence(Precedence $precedence): string
-    {
-        $nodeId = $precedence->getAttribute(AttributeKey::NODE_ID);
+    protected function pStmt_TraitUseAdaptation_Precedence(
+        \PhpParser\Node\Stmt\TraitUseAdaptation\Precedence $node
+    ): string {
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStmt_TraitUseAdaptation_Precedence($precedence)
+            parent::pStmt_TraitUseAdaptation_Precedence($node)
         );
     }
 
-    protected function pStmt_TraitUseAdaptation_Alias(Alias $alias): string
+    protected function pStmt_TraitUseAdaptation_Alias(\PhpParser\Node\Stmt\TraitUseAdaptation\Alias $node): string
     {
-        $nodeId = $alias->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStmt_TraitUseAdaptation_Alias($alias)
+            parent::pStmt_TraitUseAdaptation_Alias($node)
         );
     }
 
-    protected function pStmt_Property(Property $property): string
+    protected function pStmt_Property(\PhpParser\Node\Stmt\Property $node): string
     {
-        $nodeId = $property->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStmt_Property($property)
+            parent::pStmt_Property($node)
         );
     }
 
-    protected function pStmt_PropertyProperty(PropertyProperty $propertyProperty): string
+    protected function pStmt_PropertyProperty(\PhpParser\Node\Stmt\PropertyProperty $node): string
     {
-        $nodeId = $propertyProperty->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStmt_PropertyProperty($propertyProperty)
+            parent::pStmt_PropertyProperty($node)
         );
     }
 
-    protected function pStmt_ClassMethod(ClassMethod $classMethod): string
+    protected function pStmt_ClassMethod(\PhpParser\Node\Stmt\ClassMethod $node): string
     {
-        $nodeId = $classMethod->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStmt_ClassMethod($classMethod)
+            parent::pStmt_ClassMethod($node)
         );
     }
 
-    protected function pStmt_ClassConst(ClassConst $classConst): string
+    protected function pStmt_ClassConst(\PhpParser\Node\Stmt\ClassConst $node): string
     {
-        $nodeId = $classConst->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStmt_ClassConst($classConst)
+            parent::pStmt_ClassConst($node)
         );
     }
 
-    protected function pStmt_Function(\PhpParser\Node\Stmt\Function_ $function): string
+    protected function pStmt_Function(\PhpParser\Node\Stmt\Function_ $node): string
     {
-        $nodeId = $function->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStmt_Function($function)
+            parent::pStmt_Function($node)
         );
     }
 
-    protected function pStmt_Const(\PhpParser\Node\Stmt\Const_ $const): string
+    protected function pStmt_Const(\PhpParser\Node\Stmt\Const_ $node): string
     {
-        $nodeId = $const->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStmt_Const($const)
+            parent::pStmt_Const($node)
         );
     }
 
-    protected function pStmt_Declare(Declare_ $declare): string
+    protected function pStmt_Declare(\PhpParser\Node\Stmt\Declare_ $node): string
     {
-        $nodeId = $declare->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStmt_Declare($declare)
+            parent::pStmt_Declare($node)
         );
     }
 
-    protected function pStmt_DeclareDeclare(DeclareDeclare $declareDeclare): string
+    protected function pStmt_DeclareDeclare(\PhpParser\Node\Stmt\DeclareDeclare $node): string
     {
-        $nodeId = $declareDeclare->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStmt_DeclareDeclare($declareDeclare)
+            parent::pStmt_DeclareDeclare($node)
         );
     }
 
-    protected function pStmt_If(If_ $if): string
+    protected function pStmt_If(\PhpParser\Node\Stmt\If_ $node): string
     {
-        $nodeId = $if->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStmt_If($if)
+            parent::pStmt_If($node)
         );
     }
 
-    protected function pStmt_ElseIf(ElseIf_ $elseIf): string
+    protected function pStmt_ElseIf(\PhpParser\Node\Stmt\ElseIf_ $node): string
     {
-        $nodeId = $elseIf->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStmt_ElseIf($elseIf)
+            parent::pStmt_ElseIf($node)
         );
     }
 
-    protected function pStmt_Else(Else_ $else): string
+    protected function pStmt_Else(\PhpParser\Node\Stmt\Else_ $node): string
     {
-        $nodeId = $else->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStmt_Else($else)
+            parent::pStmt_Else($node)
         );
     }
 
-    protected function pStmt_For(For_ $for): string
+    protected function pStmt_For(\PhpParser\Node\Stmt\For_ $node): string
     {
-        $nodeId = $for->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStmt_For($for)
+            parent::pStmt_For($node)
         );
     }
 
-    protected function pStmt_Foreach(Foreach_ $foreach): string
+    protected function pStmt_Foreach(\PhpParser\Node\Stmt\Foreach_ $node): string
     {
-        $nodeId = $foreach->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStmt_Foreach($foreach)
+            parent::pStmt_Foreach($node)
         );
     }
 
-    protected function pStmt_While(While_ $while): string
+    protected function pStmt_While(\PhpParser\Node\Stmt\While_ $node): string
     {
-        $nodeId = $while->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStmt_While($while)
+            parent::pStmt_While($node)
         );
     }
 
-    protected function pStmt_Do(Do_ $do): string
+    protected function pStmt_Do(\PhpParser\Node\Stmt\Do_ $node): string
     {
-        $nodeId = $do->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStmt_Do($do)
+            parent::pStmt_Do($node)
         );
     }
 
-    protected function pStmt_Switch(Switch_ $switch): string
+    protected function pStmt_Switch(\PhpParser\Node\Stmt\Switch_ $node): string
     {
-        $nodeId = $switch->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStmt_Switch($switch)
+            parent::pStmt_Switch($node)
         );
     }
 
-    protected function pStmt_Case(Case_ $case): string
+    protected function pStmt_Case(\PhpParser\Node\Stmt\Case_ $node): string
     {
-        $nodeId = $case->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStmt_Case($case)
+            parent::pStmt_Case($node)
         );
     }
 
-    protected function pStmt_TryCatch(TryCatch $tryCatch): string
+    protected function pStmt_TryCatch(\PhpParser\Node\Stmt\TryCatch $node): string
     {
-        $nodeId = $tryCatch->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStmt_TryCatch($tryCatch)
+            parent::pStmt_TryCatch($node)
         );
     }
 
-    protected function pStmt_Catch(Catch_ $catch): string
+    protected function pStmt_Catch(\PhpParser\Node\Stmt\Catch_ $node): string
     {
-        $nodeId = $catch->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStmt_Catch($catch)
+            parent::pStmt_Catch($node)
         );
     }
 
-    protected function pStmt_Finally(Finally_ $finally): string
+    protected function pStmt_Finally(\PhpParser\Node\Stmt\Finally_ $node): string
     {
-        $nodeId = $finally->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStmt_Finally($finally)
+            parent::pStmt_Finally($node)
         );
     }
 
-    protected function pStmt_Break(Break_ $break): string
+    protected function pStmt_Break(\PhpParser\Node\Stmt\Break_ $node): string
     {
-        $nodeId = $break->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStmt_Break($break)
+            parent::pStmt_Break($node)
         );
     }
 
-    protected function pStmt_Continue(Continue_ $continue): string
+    protected function pStmt_Continue(\PhpParser\Node\Stmt\Continue_ $node): string
     {
-        $nodeId = $continue->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStmt_Continue($continue)
+            parent::pStmt_Continue($node)
         );
     }
 
-    protected function pStmt_Return(Return_ $return): string
+    protected function pStmt_Return(\PhpParser\Node\Stmt\Return_ $node): string
     {
-        $nodeId = $return->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStmt_Return($return)
+            parent::pStmt_Return($node)
         );
     }
 
-    protected function pStmt_Throw(\PhpParser\Node\Stmt\Throw_ $throw): string
+    protected function pStmt_Throw(\PhpParser\Node\Stmt\Throw_ $node): string
     {
-        $nodeId = $throw->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStmt_Throw($throw)
+            parent::pStmt_Throw($node)
         );
     }
 
-    protected function pStmt_Label(Label $label): string
+    protected function pStmt_Label(\PhpParser\Node\Stmt\Label $node): string
     {
-        $nodeId = $label->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStmt_Label($label)
+            parent::pStmt_Label($node)
         );
     }
 
-    protected function pStmt_Goto(Goto_ $goto): string
+    protected function pStmt_Goto(\PhpParser\Node\Stmt\Goto_ $node): string
     {
-        $nodeId = $goto->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStmt_Goto($goto)
+            parent::pStmt_Goto($node)
         );
     }
 
-    protected function pStmt_Expression(Expression $expression): string
+    protected function pStmt_Expression(\PhpParser\Node\Stmt\Expression $node): string
     {
-        $nodeId = $expression->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStmt_Expression($expression)
+            parent::pStmt_Expression($node)
         );
     }
 
-    protected function pStmt_Echo(Echo_ $echo): string
+    protected function pStmt_Echo(\PhpParser\Node\Stmt\Echo_ $node): string
     {
-        $nodeId = $echo->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStmt_Echo($echo)
+            parent::pStmt_Echo($node)
         );
     }
 
-    protected function pStmt_Static(Static_ $static): string
+    protected function pStmt_Static(\PhpParser\Node\Stmt\Static_ $node): string
     {
-        $nodeId = $static->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStmt_Static($static)
+            parent::pStmt_Static($node)
         );
     }
 
-    protected function pStmt_Global(Global_ $global): string
+    protected function pStmt_Global(\PhpParser\Node\Stmt\Global_ $node): string
     {
-        $nodeId = $global->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStmt_Global($global)
+            parent::pStmt_Global($node)
         );
     }
 
-    protected function pStmt_StaticVar(StaticVar $staticVar): string
+    protected function pStmt_StaticVar(\PhpParser\Node\Stmt\StaticVar $node): string
     {
-        $nodeId = $staticVar->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStmt_StaticVar($staticVar)
+            parent::pStmt_StaticVar($node)
         );
     }
 
-    protected function pStmt_Unset(\PhpParser\Node\Stmt\Unset_ $unset): string
+    protected function pStmt_Unset(\PhpParser\Node\Stmt\Unset_ $node): string
     {
-        $nodeId = $unset->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStmt_Unset($unset)
+            parent::pStmt_Unset($node)
         );
     }
 
-    protected function pStmt_InlineHTML(InlineHTML $inlineHTML): string
+    protected function pStmt_InlineHTML(\PhpParser\Node\Stmt\InlineHTML $node): string
     {
-        $nodeId = $inlineHTML->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStmt_InlineHTML($inlineHTML)
+            parent::pStmt_InlineHTML($node)
         );
     }
 
-    protected function pStmt_HaltCompiler(HaltCompiler $haltCompiler): string
+    protected function pStmt_HaltCompiler(\PhpParser\Node\Stmt\HaltCompiler $node): string
     {
-        $nodeId = $haltCompiler->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStmt_HaltCompiler($haltCompiler)
+            parent::pStmt_HaltCompiler($node)
         );
     }
 
-    protected function pStmt_Nop(Nop $nop): string
+    protected function pStmt_Nop(\PhpParser\Node\Stmt\Nop $node): string
     {
-        $nodeId = $nop->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
             $nodeId,
             $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStmt_Nop($nop)
+            parent::pStmt_Nop($node)
         );
     }
 
-    protected function pDereferenceLhs(Node $node): string
+    protected function pObjectProperty($node): string
     {
-        $nodeId = $node->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        return sprintf(
+            '<a href="/ast/%s/%s" %s>%s</a>',
+            $this->uuid,
+            $nodeId,
+            $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
+            parent::pObjectProperty($node)
+        );
+    }
+
+    protected function pDereferenceLhs(\PhpParser\Node $node): string
+    {
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
@@ -2165,21 +2057,9 @@ final class ClickablePrinter extends Standard
         );
     }
 
-    protected function pStaticDereferenceLhs(Node $node): string
+    protected function pCallLhs(\PhpParser\Node $node): string
     {
-        $nodeId = $node->getAttribute(AttributeKey::NODE_ID);
-        return sprintf(
-            '<a href="/ast/%s/%s" %s>%s</a>',
-            $this->uuid,
-            $nodeId,
-            $this->activeNodeId == $nodeId ? 'class="active-node"' : '',
-            parent::pStaticDereferenceLhs($node)
-        );
-    }
-
-    protected function pCallLhs(Node $node): string
-    {
-        $nodeId = $node->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,
@@ -2189,9 +2069,9 @@ final class ClickablePrinter extends Standard
         );
     }
 
-    protected function pNewVariable(Node $node): string
+    protected function pNewVariable(\PhpParser\Node $node): string
     {
-        $nodeId = $node->getAttribute(AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
         return sprintf(
             '<a href="/ast/%s/%s" %s>%s</a>',
             $this->uuid,

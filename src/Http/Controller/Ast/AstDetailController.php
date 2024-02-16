@@ -78,12 +78,6 @@ final class AstDetailController extends Controller
             return $node::class;
         }
 
-        // target one level up
-        if ($node instanceof Identifier || $node instanceof Node\Name || $node instanceof Node\Expr\Variable) {
-            $parentNode = $node->getAttribute('parent');
-            return $this->resolveTargetNodeClass($parentNode);
-        }
-
         if ($node instanceof Node\Expr\Variable) {
             $parentNode = $node->getAttribute('parent');
 
@@ -91,6 +85,12 @@ final class AstDetailController extends Controller
             if ($parentNode instanceof Node\Param) {
                 return $parentNode::class;
             }
+        }
+
+        // target one level up
+        if ($node instanceof Identifier || $node instanceof Node\Name || $node instanceof Node\Expr\Variable) {
+            $parentNode = $node->getAttribute('parent');
+            return $this->resolveTargetNodeClass($parentNode);
         }
 
         return $node::class;

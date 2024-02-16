@@ -21,10 +21,8 @@ parameters:
         # float allowed
         - '#Parameter (.*?) of class Imagine\\Image\\Box constructor expects int, float given#'
 
-        # known types
-        - '#Method Rector\\Website\\Tests\\Utils\\FileDiffCleanerTest\:\:split\(\) should return array\{string, string\} but returns array\{string\|null, string\|null\}#'
-
         # will be solved most likely once Larastan is updated to Laravel 11 conventions
         - '#Call to an undefined method Illuminate\\Contracts\\(.*?)|Illuminate\\#'
 
         - '#Method Rector\\Website\\PhpParser\\NodeResolver\\FocusedNodeResolver\:\:focus\(\) should return PhpParser\\Node but returns PhpParser\\Node\|null#'
+        - '#Method Rector\\Website\\PhpParser\\ClickablePrinter\:\:pObjectProperty\(\) has parameter \$node with no type specified#'
