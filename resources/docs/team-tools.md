@@ -37,4 +37,4 @@ It helps with:
 
 <br>
 
-There is also [symplify/config-transformer](https://github.com/symplify/config-transformer) that helps with transforming YAML Symfony configs to PHP. There you can follow up with [Symfony rules for Rector](rector/) to reach config builders.
+There is also [symplify/config-transformer](https://github.com/symplify/config-transformer) that helps with transforming YAML Symfony configs to PHP. There you can follow up with [Symfony rules for Rector](https://github.com/rectorphp/rector-symfony/blob/main/docs/rector_rules_overview.md#stringextensiontoconfigbuilderrector) to reach config builders.
