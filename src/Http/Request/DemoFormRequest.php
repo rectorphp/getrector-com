@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Http\Requests;
+namespace Rector\Website\Http\Request;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Rector\Website\Rules\FuncCallRule;

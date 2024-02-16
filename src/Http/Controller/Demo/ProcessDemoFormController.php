@@ -8,7 +8,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Controller;
 use Rector\Website\DemoRunner;
 use Rector\Website\Entity\RectorRun;
-use Rector\Website\Http\Requests\DemoFormRequest;
+use Rector\Website\Http\Request\DemoFormRequest;
 use Rector\Website\Repository\RectorRunRepository;
 use Symfony\Component\Uid\Uuid;
 
