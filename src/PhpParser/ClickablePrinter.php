@@ -14,17 +14,22 @@ use Rector\Website\Enum\AttributeKey;
  */
 final class ClickablePrinter extends Standard
 {
+    function __construct(private string $uuid)
+    {
+        parent::__construct();
+    }
+
     protected function pStmt_Echo(Stmt\Echo_ $node): string
     {
         $nodeId = $node->getAttribute(AttributeKey::NODE_ID);
 
-        return '<a href="?node_detail=' . $nodeId . '">' . parent::pStmt_Echo($node) . '</a>';
+        return '<a href="/ast/' . $this->uuid . '/' . $nodeId . '">' . parent::pStmt_Echo($node) . '</a>';
     }
 
     protected function pScalar_String(String_ $node): string
     {
         $nodeId = $node->getAttribute(AttributeKey::NODE_ID);
 
-        return '<a href="?node_detail=' . $nodeId . '">' . parent::pScalar_String($node) . '</a>';
+        return '<a href="/ast/' . $this->uuid . '/' . $nodeId . '">' . parent::pScalar_String($node) . '</a>';
     }
 }

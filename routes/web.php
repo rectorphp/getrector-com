@@ -72,5 +72,5 @@ Route::post('process-demo', ProcessDemoFormController::class);
 
 // ast
 Route::get('ast', AstController::class);
-Route::get('ast/{uuid}', AstDetailController::class);
+Route::get('ast/{uuid}/{activeNodeId?}', AstDetailController::class);
 Route::post('process-ast', ProcessAstFormController::class);

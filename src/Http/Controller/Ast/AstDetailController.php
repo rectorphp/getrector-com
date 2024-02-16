@@ -10,9 +10,14 @@ use Illuminate\View\View;
 use PhpParser\Node;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+use PhpParser\NodeFinder;
+>>>>>>> a13a193 (working prorotoye)
 use PhpParser\NodeTraverser;
 use Rector\CustomRules\SimpleNodeDumper;
 use Rector\Website\Entity\AstRun;
+use Rector\Website\Enum\AttributeKey;
 use Rector\Website\PhpParser\ClickablePrinter;
 use Rector\Website\PhpParser\NodeVisior\NodeMarkerNodeVisitor;
 use Rector\Website\PhpParser\SimplePhpParser;
@@ -44,7 +49,7 @@ final class AstDetailController extends Controller
     ) {
     }
 
-    public function __invoke(string $uuid): View|RedirectResponse
+    public function __invoke(string $uuid, ?int $activeNodeId = null): View|RedirectResponse
     {
         $astRun = $this->astRunRepository->get($uuid);
 
@@ -61,7 +66,20 @@ final class AstDetailController extends Controller
 <<<<<<< HEAD
         // @todo fill the node that is being clicked, e.g. based on the node hash
         // + colorize
-        $matrixVision = $this->makeNodeClickable($nodes);
+        $matrixVision = $this->makeNodeClickable($nodes, $uuid);
+
+        // find selected node
+        if ($activeNodeId) {
+            $nodeFinder = new NodeFinder();
+            $selectedNode = $nodeFinder->findFirst($nodes, function (\PhpParser\Node $node) use ($activeNodeId) {
+                    $nodeId = $node->getAttribute(AttributeKey::NODE_ID);
+                    return $activeNodeId === $nodeId;
+            });
+
+            if ($selectedNode) {
+                $nodes = [$selectedNode];
+            }
+        }
 
         $simpleNodeDump = SimpleNodeDumper::dump($nodes);
 
@@ -96,7 +114,7 @@ final class AstDetailController extends Controller
 <<<<<<< HEAD
 <<<<<<< HEAD
      */
-    private function makeNodeClickable(array $nodes): string
+    private function makeNodeClickable(array $nodes, string $uuid): string
     {
 =======
      * @return Node[]
@@ -118,7 +136,11 @@ final class AstDetailController extends Controller
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         $standard = new ClickablePrinter();
+=======
+        $standard = new ClickablePrinter($uuid);
+>>>>>>> a13a193 (working prorotoye)
         return $standard->prettyPrint($nodes);
 =======
 //        $nodeTraverser = new NodeTraverser();
