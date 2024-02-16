@@ -15,6 +15,7 @@ return RectorConfig::configure()
         privatization: true,
         typeDeclarations: true
     )
+    ->withRules([\Rector\TypeDeclaration\Rector\StmtsAwareInterface\DeclareStrictTypesRector::class])
     ->withSkip([
         '*/Fixture/*',
         '*/Expected/*',

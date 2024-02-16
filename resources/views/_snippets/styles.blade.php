@@ -25,10 +25,6 @@
     document.addEventListener('DOMContentLoaded', (event) => {
         document.querySelectorAll('pre code.language-bash, pre code.language-php, pre code.language-yaml, pre code.language-diff, pre code.language-json').forEach((block) => {
             hljs.highlightBlock(block);
-
-            block.innerHTML = block.innerHTML.replace(/&lt;a\s+href=&quot;(.*?)&quot;&gt;(.*?)&lt;\/a&gt;/g, '<a href="$1">$2</a>');
-
-            return block;
         });
     });
 </script>

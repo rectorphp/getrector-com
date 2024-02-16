@@ -4,17 +4,16 @@ declare(strict_types=1);
 
 namespace Rector\Website\Http\Controller\Ast;
 
+use PhpParser\Node\Identifier;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Controller;
 use Illuminate\View\View;
 use PhpParser\Node;
-use PhpParser\NodeFinder;
-use PhpParser\NodeTraverser;
+use PhpParser\Node\Stmt;
 use Rector\CustomRules\SimpleNodeDumper;
 use Rector\Website\Entity\AstRun;
-use Rector\Website\Enum\AttributeKey;
-use Rector\Website\PhpParser\ClickableAstPrinter;
-use Rector\Website\PhpParser\NodeVisior\NodeMarkerNodeVisitor;
+use Rector\Website\PhpParser\ClickablePrinter;
+use Rector\Website\PhpParser\NodeResolver\FocusedNodeResolver;
 use Rector\Website\PhpParser\SimplePhpParser;
 use Rector\Website\Repository\AstRunRepository;
 
@@ -23,6 +22,7 @@ final class AstDetailController extends Controller
     public function __construct(
         private readonly AstRunRepository $astRunRepository,
         private readonly SimplePhpParser $simplePhpParser,
+        private readonly FocusedNodeResolver $focusedNodeResolver,
     ) {
     }
 
@@ -39,53 +39,48 @@ final class AstDetailController extends Controller
 
         $nodes = $this->simplePhpParser->parseString($astRun->getContent());
 
-        // @todo fill the node that is being clicked, e.g. based on the node hash
-        // + colorize
-        $matrixVision = $this->makeNodeClickable($nodes, $uuid);
+        if ($activeNodeId) {
+            $focusedNode = $this->focusedNodeResolver->focus($nodes, $activeNodeId);
+            $simpleNodeDump = SimpleNodeDumper::dump($focusedNode);
 
-        $nodes = $this->focusNodes($activeNodeId, $nodes);
-
-        $simpleNodeDump = SimpleNodeDumper::dump($nodes);
+            $targetNodeClass = $this->resolveTargetNodeClass($focusedNode);
+        } else {
+            $simpleNodeDump = SimpleNodeDumper::dump($nodes);
+            $targetNodeClass = null;
+        }
 
         return \view('ast/ast_detail', [
             'page_title' => 'Play with AST',
-            'matrix_vision' => $matrixVision,
+            'matrix_vision' => $this->makeNodeClickable($nodes, $uuid, $activeNodeId),
             'simple_node_dump' => $simpleNodeDump,
+            'active_node_id' => $activeNodeId,
+            'target_node_class' => $targetNodeClass,
         ]);
     }
 
     /**
      * @param Node[] $nodes
      */
-    private function makeNodeClickable(array $nodes, string $uuid): string
+    private function makeNodeClickable(array $nodes, string $uuid, ?int $activeNodeId): string
     {
-        $nodeTraverser = new NodeTraverser();
-        $nodeTraverser->addVisitor(new NodeMarkerNodeVisitor());
-        $nodeTraverser->traverse($nodes);
-
-        $clickableAstPrinter = new ClickableAstPrinter($uuid);
-        return $clickableAstPrinter->prettyPrint($nodes);
+        $clickablePrinter = new ClickablePrinter($uuid, $activeNodeId);
+        return $clickablePrinter->prettyPrint($nodes);
     }
 
-    /**
-     * @param Node[] $nodes
-     * @return Node[]
-     */
-    private function focusNodes(?int $activeNodeId, array $nodes): array
+    private function resolveTargetNodeClass(Node $node): string
     {
-        // find selected node
-        if ($activeNodeId) {
-            $nodeFinder = new NodeFinder();
-            $selectedNode = $nodeFinder->findFirst($nodes, static function (Node $node) use ($activeNodeId): bool {
-                $nodeId = $node->getAttribute(AttributeKey::NODE_ID);
-                return $activeNodeId === $nodeId;
-            });
+        if ($node instanceof Stmt) {
+            return $node::class;
+        }
 
-            if ($selectedNode) {
-                $nodes = [$selectedNode];
+        // target one level up
+        if ($node instanceof Identifier) {
+            $parentNode = $node->getAttribute('parent');
+            if ($parentNode instanceof Node) {
+                return $parentNode::class;
             }
         }
 
-        return $nodes;
+        return '...';
     }
 }

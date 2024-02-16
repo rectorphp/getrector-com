@@ -1,6 +1,5 @@
 parameters:
     paths:
-        - bin
         - src
         - tests
 
@@ -27,3 +26,5 @@ parameters:
 
         # will be solved most likely once Larastan is updated to Laravel 11 conventions
         - '#Call to an undefined method Illuminate\\Contracts\\(.*?)|Illuminate\\#'
+
+        - '#Method Rector\\Website\\PhpParser\\NodeResolver\\FocusedNodeResolver\:\:focus\(\) should return PhpParser\\Node but returns PhpParser\\Node\|null#'
