@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Rector\Website\Http\Controller\Ast;
 
-use PhpParser\Node\Identifier;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Controller;
 use Illuminate\View\View;
 use PhpParser\Node;
+use PhpParser\Node\Identifier;
 use PhpParser\Node\Stmt;
 use Rector\CustomRules\SimpleNodeDumper;
 use Rector\Website\Entity\AstRun;
@@ -69,18 +69,30 @@ final class AstDetailController extends Controller
 
     private function resolveTargetNodeClass(Node $node): string
     {
+        if ($node instanceof Stmt\UseUse) {
+            $parentNode = $node->getAttribute('parent');
+            return $parentNode::class;
+        }
+
         if ($node instanceof Stmt) {
             return $node::class;
         }
 
         // target one level up
-        if ($node instanceof Identifier) {
+        if ($node instanceof Identifier || $node instanceof Node\Name || $node instanceof Node\Expr\Variable) {
             $parentNode = $node->getAttribute('parent');
-            if ($parentNode instanceof Node) {
+            return $this->resolveTargetNodeClass($parentNode);
+        }
+
+        if ($node instanceof Node\Expr\Variable) {
+            $parentNode = $node->getAttribute('parent');
+
+            // special case
+            if ($parentNode instanceof Node\Param) {
                 return $parentNode::class;
             }
         }
 
-        return '...';
+        return $node::class;
     }
 }
