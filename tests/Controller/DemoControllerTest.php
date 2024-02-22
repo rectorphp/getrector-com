@@ -71,6 +71,11 @@ final class DemoControllerTest extends AbstractTestCase
             'rector_config' => 'PHP config should not include func call',
         ]];
 
+        // Add no rule in config
+        yield ['<?php echo "test"; ?>', '<?php $rectorConfig->removeUnusedImports(); ?>', [
+            'rector_config' => 'PHP config should include at least 1 rector rule',
+        ]];
+
         // valid PHP syntaxes
         yield ['<?php', '<?php', []];
     }
