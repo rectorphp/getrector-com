@@ -41,7 +41,7 @@
             @error('php_contents')
             <div class="alert alert-danger">
                 @foreach ($errors->get('php_contents') as $error)
-                    {{ $error }}
+                    {{ $error }} <br />
                 @endforeach
             </div>
             @enderror
@@ -101,7 +101,7 @@
             @error('rector_config')
             <div class="alert alert-danger">
                 @foreach ($errors->get('rector_config') as $error)
-                    {{ $error }}
+                    {{ $error }} <br />
                 @endforeach
             </div>
             @enderror
