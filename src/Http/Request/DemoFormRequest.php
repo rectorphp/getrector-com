@@ -35,7 +35,6 @@ final class DemoFormRequest extends FormRequest
         $funcCallRule = app()
             ->make(FuncCallRule::class);
 
-        /** @var ShellExecRule $funcCallRule */
         $shellExecRule = app()
             ->make(ShellExecRule::class);
 
