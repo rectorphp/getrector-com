@@ -130,7 +130,7 @@ How can we use Rector to help out with type coverage? We can add a prepared set:
 
  return RectorConfig::configure()
      ->withPaths([__DIR__ . '/src', __DIR__ . '/tests'])
-+    ->withPreparedSets(typeDeclaration: true);
++    ->withPreparedSets(typeDeclarations: true);
 ```
 
 Let's run Rector:
