@@ -14,7 +14,18 @@ $ vendor/bin/rector process
 When this happens, the first good approach is to disable parallel processing. The output of parallel failures can hide some fatal errors from the source codebase. You can do so by:
 
 ```php
-$rectorConfig->disableParallel();
+return RectorConfig::configure()
+   //
+   ->withoutParallel();
+```
+
+**or**
+
+```php
+return static function(RectorConfig $rectorConfig): void {
+   //
+   $rectorConfig->disableParallel();
+};
 ```
 
 After that, if rector processing works fine, that is an indication that you might need to adjust your parallel process to some balanced load, depending on the resource
@@ -34,7 +45,16 @@ public function parallel(
 To manually set these options, call the `parallel` function within the Rector config class:
 
 ```php
-$rectorConfig->parallel(120, 16, 10);
+return RectorConfig::configure()
+    ->withParallel(120, 16, 10);
+```
+
+**or**
+
+```php
+return static function(RectorConfig $rectorConfig): void {
+    $rectorConfig->parallel(120, 16, 10);
+};
 ```
 
 You can make it aligned with what you have at your disposal:
