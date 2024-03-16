@@ -7,10 +7,8 @@ use Rector\Config\RectorConfig;
 use My\Rector\Visitor\HelloVisitor;
 use Rector\NodeTypeResolver\PHPStan\Scope\Contract\NodeVisitor\ScopeResolverNodeVisitorInterface;
 
-return static function (RectorConfig $rectorConfig): void {
-    $rectorConfig->singleton(HelloVisitor::class);
-    $rectorConfig->tag(HelloVisitor::class, ScopeResolverNodeVisitorInterface::class);
-};
+return RectorConfig::configure()
+    ->registerService(HelloVisitor::class, null, ScopeResolverNodeVisitorInterface::class);
 ```
 
 ## A simple node visitor

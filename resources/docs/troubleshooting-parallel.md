@@ -19,14 +19,6 @@ return RectorConfig::configure()
    ->withoutParallel();
 ```
 
-**or**
-
-```php
-return static function(RectorConfig $rectorConfig): void {
-   //
-   $rectorConfig->disableParallel();
-};
-```
 
 After that, if rector processing works fine, that is an indication that you might need to adjust your parallel process to some balanced load, depending on the resource
 s you have to process rector.
@@ -47,14 +39,6 @@ To manually set these options, call the `parallel` function within the Rector co
 ```php
 return RectorConfig::configure()
     ->withParallel(120, 16, 10);
-```
-
-**or**
-
-```php
-return static function(RectorConfig $rectorConfig): void {
-    $rectorConfig->parallel(120, 16, 10);
-};
 ```
 
 You can make it aligned with what you have at your disposal:
