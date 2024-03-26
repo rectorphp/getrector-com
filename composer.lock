@@ -3152,12 +3152,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "4c2b400cdb46d7b087c5be9d9f57d4761e3ad79e"
+                "reference": "014254f0dfa0d19ea4f5a00dc328118a3cb6a2ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/4c2b400cdb46d7b087c5be9d9f57d4761e3ad79e",
-                "reference": "4c2b400cdb46d7b087c5be9d9f57d4761e3ad79e",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/014254f0dfa0d19ea4f5a00dc328118a3cb6a2ca",
+                "reference": "014254f0dfa0d19ea4f5a00dc328118a3cb6a2ca",
                 "shasum": ""
             },
             "require": {
@@ -3169,6 +3169,9 @@
                 "rector/rector-downgrade-php": "*",
                 "rector/rector-phpunit": "*",
                 "rector/rector-symfony": "*"
+            },
+            "suggest": {
+                "ext-dom": "To manipulate phpunit.xml via the custom-rule command"
             },
             "default-branch": true,
             "bin": [
@@ -3201,7 +3204,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-03-25T15:52:31+00:00"
+            "time": "2024-03-26T09:28:34+00:00"
         },
         {
             "name": "samsonasik/array-lookup",
