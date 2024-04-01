@@ -11,8 +11,8 @@
         </p>
 
         <p class="text-bigger">
-            We help them to <strong>cut feature development costs to a fraction</strong> and ensure
-            their teams are <strong>productive again</strong>.
+            We help you to <strong>cut feature development costs to a fraction</strong><br>
+            and ensure your teams is <strong>productive again</strong>.
         </p>
 
         <br>

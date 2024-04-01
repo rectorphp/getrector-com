@@ -44,7 +44,14 @@ final class DemoFormRequest extends FormRequest
 
         return [
             'php_contents' => ['required', 'string', $shortPhpContentsRule, $validPhpSyntaxRule],
-            'rector_config' => ['required', 'string', $validPhpSyntaxRule, $funcCallRule, $hasRectorRule, $shellExecRule],
+            'rector_config' => [
+                'required',
+                'string',
+                $validPhpSyntaxRule,
+                $funcCallRule,
+                $hasRectorRule,
+                $shellExecRule,
+            ],
         ];
     }
 

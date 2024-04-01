@@ -5,9 +5,10 @@ perex: |
     Last December, we started to use PHP 8.0 and Symfony 5.2. This exact combination opens [many cool tricks](https://tomasvotruba.com/blog/2020/12/21/5-new-combos-opened-by-symfony-52-and-php-80/) we could never use before.
     One of those tricks is using constants for route name in `#[Route]` attribute.
 
-updated_at: '2022-04'
+updated_at: '2023-04'
 updated_message: |
-    Since **Rector 0.12** a new `RectorConfig` is available with simpler and easier to use config methods.
+    This rule was deprecated as it depended on access to app Symfony container, and was error prone.
+    If you need it, [fork the rule locally](https://github.com/rectorphp/rector-symfony/commit/f582138536394e74a66c5e77050cf891d8acaa53) and tune it to fit your needs.
 ---
 
 If you're not on PHP 8, [switch with Rector today](https://getrector.com/blog/2020/11/30/smooth-upgrade-to-php-8-in-diffs).
