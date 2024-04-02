@@ -30,7 +30,7 @@ Route::get('contact', ContactController::class);
 Route::get('hire-team', HireTeamController::class);
 
 // redirect of old page
-Route::get('project-timeline', function () {
+Route::get('project-timeline', static function () {
     return redirect()->action(HireTeamController::class);
 });
 
