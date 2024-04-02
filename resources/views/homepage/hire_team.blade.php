@@ -214,6 +214,8 @@
     <div class="clearfix"></div>
 
     <br>
+    <br>
+    <br>
 
     <div class="text-center mt-2">
         <a href="{{ action(\Rector\Website\Http\Controller\ContactController::class) }}"
