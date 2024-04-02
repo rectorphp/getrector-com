@@ -24,32 +24,30 @@
         </div>
 
         <br>
+        <br>
 
         @include('hire_team/references')
 
         <br>
 
-        <h2>Strong and Reliable Relationship with you is our Priority</h2>
-
-        <p>
-            We <strong>build long-term relationships</strong> with our clients. Haphazard changes
-            can quickly backfire and introduce regression bugs. But small, gradual steps lead to
-            <strong>long-term success</strong>.
-        </p>
-
+        <a name="process"></a>
         <hr class="project-border-line m-5">
 
         <div class="text-center">
-            How do we build such a relationship?
+            We build a long-term and <strong>reliable relationship with you</strong> &ndash; our client.
             <br>
-            One step at a time.
+            <br>
+            Haphazard changes can quickly backfire and introduce regression bugs.
+            <br>
+            That's why we take small, safe, gradual steps to reach our goal.
+
+            <br><br>
+            Our cooperation has 2 phases.
         </div>
 
         <hr class="project-border-line m-5">
 
-        <h2 id="intro_analysis">Phase 1: Intro Analysis</h2>
-
-        <div class="col-12 col-sm-5 float-end">
+        <div class="col-12 col-sm-5 float-end ps-4">
             <div class="card shadow ms-3">
                 <div class="card-header">
                     <h3 class="card-title m-2 text-center">In short</h3>
@@ -59,29 +57,39 @@
                     <ul class="list-nobullet">
                         <li>
                             <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
-                            We highlight weak spots in your code
+                            We sign NDA, so you're safe with repository share
                         </li>
+                        <li>
+                            <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
+                            We deep dive into your codebase
+                        </li>
+
+                        <li>
+                            <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
+                            We run automated tools to find spots we'll have to address during the upgrade
+                        </li>
+
+                        <li>
+                            <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
+                            We highlight specific weak spots
+                        </li>
+
                         <li>
                             <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
                             We deliver a plan detailing upgrade steps
                         </li>
-                        <li>
+
+                        <li class="mb-4">
                             <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
-                            Every phase has a detailed scope and a "why"
-                        </li>
-                        <li>
-                            <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
-                            Good choice for a yearly project health check
+                            Every phase has a detailed scope and explain its role in the process
                         </li>
 
-                        <br>
-
-                        <li>
+                        <li class="mb-4">
                             <em class="fas fa-calendar text-info fa-fw"></em>
                             <strong>Delivered in 3 weeks</strong>
                         </li>
 
-                        <li class="mt-4 mb-3">
+                        <li class="mb-3">
                             <em class="fa fa-credit-card text-primary fa-fw"></em>&nbsp;
                             One time charge of 6 000-8 000 €
                         </li>
@@ -90,59 +98,45 @@
             </div>
         </div>
 
-        <p>
-            At first, we have to make sure we are able to help you in your time and budget constraint. We look into your codebase and explore the weak spots that would complicate the process. Then we get ready for the battle.
-        </p>
-
-        <h4>What steps are involved?</h4>
+        <h2 id="intro_analysis">Phase 1: Intro Analysis</h2>
 
         <p>
-            2. In the intro call, you tell us about you problems, state of your project and your goals
-        </p>
-        <p>
-            3. <strong>We sign an NDA</strong>, so your project is safe with us (got ready-made NDA to save time)
-        </p>
-        <p>
-            4. <strong>You share a Git repository</strong> with us, so we have an idea about project size
-        </p>
-        <p>
-            5. We give you a quote for <a href="hire-team#intro_analysis">intro analysis</a> of your project, that fits within 6 000-8 000 €
-        </p>
-        <p>
-            6. After we confirm, we send you an invoice
+            In the first meeintg, you'll tell us about you problems, state of your project and your goals.
         </p>
 
         <p>
-            7. <strong>Upon the payment, we start an intro analysis</strong>
+            We want to make sure we are able to help you within your time and budget constraints. We do that by doing and "intro analysis" of your project. That means we look into your codebase, where we explore the weak spots that would complicate the process.
         </p>
 
-        <ul>
-            <li>We sign an NDA so your code is safe with us</li>
-            <li>Then you share your codebase with us, e.g. in a git repository</li>
-            <li>We look into the code with various tools, exploit weak spots and work out the
-                step-by-step plan tailored to your project
-            </li>
-            <li>The analysis <strong>takes 3 weeks</strong></li>
-            <li>Then we <strong>send you a PDF with the results and a suggested plan</strong> so you
-                can discuss it with your team
-            </li>
-            <li>We finish this phase with a call about how to proceed</li>
-        </ul>
+        <p>
+            <strong>We sign an NDA</strong>, so your project is safe with us.
+        </p>
 
-        <a href="/assets/demo_intro_analysis.pdf" class="btn btn-warning me-3">
-            <em class="fa fa-file-pdf fa-fw"></em>
-            Open Demo PDF
-        </a>
+        <p>
+            After you <strong>share a Git repository</strong> with us, we measure project size and comlexity, and give you intro analysis quota &ndash; a one-time charge that ranges 6&nbsp;000-8&nbsp;000 €.
+        </p>
+
+        <p>
+            After we confirm the price, we send you an invoice. Upon the payment <strong>we start to work on the intro analysis</strong>.
+
+        </p>
+
+        <p>
+            Result of this phase is <strong>a PDF report with timeline and step-by-step process tailored to your project</strong>. To give you an idea about the contents of intro analysis, we prepared a <a href="/assets/demo_intro_analysis.pdf">demo intro analysis</a>.
+        </p>
 
         <br>
 
-
         <div class="clearfix"></div>
+
+        <br>
 
         <hr class="project-border-line m-5">
 
         <div class="text-center">
-            After we deliver the intro analysis in PDF, we'll have a call about next steps.
+            After we deliver the intro analysis in PDF, you can explore the plan with your team.
+            <br>
+            Then we'll have a call about next steps.
             <br>
             We agree on the best place to start and move to the 2nd phase.
         </div>
@@ -151,14 +145,12 @@
 
         <div class="clearfix"></div>
 
-        <h2 id="hands_on_upgrade">Phase 2: Hands-on Upgrade</h2>
+        <br>
 
-        <div class="col-12 col-sm-5 float-end">
+        <div class="col-12 col-sm-5 float-end ps-4">
             <div class="card shadow ms-3">
                 <div class="card-header">
-                    <h3 class="card-title m-2 text-center">
-                        In short
-                    </h3>
+                    <h3 class="card-title m-2 text-center">In short</h3>
                 </div>
 
                 <div class="card-body">
@@ -175,6 +167,10 @@
                             <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
                             We share our experience of 50+ project upgrades
                         </li>
+                        <li>
+                            <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
+                            We handle upgrade and code-quality back and forth, as both are need to healthy project
+                        </li>
                         <li class="mb-4">
                             <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
                             You learn smart tricks with tools you already use
@@ -182,7 +178,7 @@
 
                         <li class="mb-4">
                             <em class="fas fa-calendar text-info fa-fw"></em>
-                            &nbsp;Ongoing 6-12 months
+                            &nbsp;Typically 6-12 months
                         </li>
 
                         <li class="mt-4 mb-3">
@@ -194,30 +190,39 @@
             </div>
         </div>
 
+        <h2 id="hands_on_upgrade">Phase 2: Hands-on Upgrade</h2>
+
         <p>
             In this phase, we provide <strong>20-40 hours/week of direct help</strong>, depending on the pace you prefer. We dedicate a developer with Rector experience on legacy code to your project.
         </p>
 
-        <h4>What steps are involved?</h4>
+        <p>We'll work on improving code quality to make bigger changes more reliable and stable. <strong>We start with low-hanging fruit so your team feels comfortable with us.</strong>.
+        </p>
 
-        <ul>
-            <li>We improve code quality to make bigger changes more reliable</li>
-            <li>We deliver the smallest PR possible so that you can see changes yourself and merge
-                it immediately
-            </li>
-            <li>We make sure the work is always in a finished state in every PR</li>
-            <li>We ensure CI helps catch regressions so there is a safety net, and we can move
-                without fear
-            </li>
-            <li>
-                We <strong>work in parallel</strong> to your team, so you can keep delivering
-                features and <strong>grow your business</strong>
-            </li>
-        </ul>
+        <p>
+            We always deliver as small changes as possible, so you can understand changes yourself and merge it immediately. We make sure <strong>the work is always in a finished state</strong>, no weeks-ongoing in-the-air changes.</p>
+
+        <p>
+            We <strong>work in parallel</strong> to your team, so you can keep delivering  features and <strong>grow your business</strong>.
+        </p>
+
+        <p>
+            We can schedule <strong>once-a-month meeting</strong> to discuss progress, blockers and address just in time direction of the upgrade.
+        </p>
     </div>
 
     <div class="clearfix"></div>
 
+    <br>
+
+    <div class="text-center mt-2">
+        <a href="{{ action(\Rector\Website\Http\Controller\ContactController::class) }}"
+           class="btn btn-success btn-lg ms-3">
+            Ready for phase 1? Contact us
+        </a>
+    </div>
+
+    <br>
     <br>
     <br>
     <br>

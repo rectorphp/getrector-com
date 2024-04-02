@@ -17,7 +17,6 @@ use Rector\Website\Http\Controller\Demo\ProcessDemoFormController;
 use Rector\Website\Http\Controller\DocumentationController;
 use Rector\Website\Http\Controller\HireTeamController;
 use Rector\Website\Http\Controller\HomepageController;
-use Rector\Website\Http\Controller\ProjectTimelineController;
 use Rector\Website\Http\Controller\RssController;
 use Rector\Website\Http\Controller\ThumbnailController;
 
