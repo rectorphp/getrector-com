@@ -8,7 +8,9 @@
 
     <div class="col-12">
         <h3>What's the typical timeframe for an upgrade?</h3>
-        <p>Time varies per project, but most upgrades are completed within 6 to 12 months.</p>
+        <p>
+            Time varies per project, but most upgrades are completed within 6 to 12 months. For step-by-step timeline, see <a href="{{ action(\Rector\Website\Http\Controller\HireTeamController::class) }} #project-timeline">project timeline</a>.
+        </p>
     </div>
 
     <br>
@@ -37,9 +39,7 @@
     <div class="col-12">
         <h3>Will we need to re-hire your team for future upgrades?</h3>
         <p>
-            No. Our goal is to make your team self-sufficient. We get your code quality the highest possible level.
-            <br>
-            You'll have Rector in your CI working for you, so you'll upgrade within a day yourself.
+            No. Part of our work is to make your team self-sufficient. We get your code quality the highest possible level, get Rector to your CI working for you and then, next upgrade will be a matter of days on your own.
         </p>
     </div>
 

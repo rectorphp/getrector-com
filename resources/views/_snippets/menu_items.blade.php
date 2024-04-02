@@ -4,7 +4,7 @@
 </li>
 
 <li class="nav-item">
-    <a href="{{ action(\Rector\Website\Http\Controller\ForCompaniesController::class) }}"
+    <a href="{{ action(\Rector\Website\Http\Controller\HireTeamController::class) }}"
        class="nav-link">Hire Team</a>
 </li>
 

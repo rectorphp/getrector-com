@@ -25,123 +25,88 @@
 
         <br>
 
-        <div id="references">
-            <div class="row mb-5">
-                <div class="col-12">
-                    <div class="float-end col-3 text-end">
-                        <a href="https://www.arestravel.com/">
-                            <img src="/assets/images/logo/logo_bigger/ares_travel.svg" class="img-fluid company-logo mb-1" style="max-width: 16em">
-                        </a>
-
-                        <p>
-                            <em class="fas fa-location-pin"></em>
-                            &nbsp;
-                            California
-                        </p>
-                    </div>
-
-                    <h3>
-                        <strong>From PHP 7.2 to 8.3, from Symfony 2.8 to 7.0</strong>
-                    </h3>
-
-                    <ul class="mt-3">
-                        <li>Set up a high-quality CI pipeline with bulletproof checks</li>
-                        <li>Removed dead methods and classes, unused packages - over 20 % of code-base</li>
-                        <li>Highly improved test coverage to make changes more reliable and safer</li>
-                        <li>Covered code with type declarations from 5 % to 99 %</li>
-                    </ul>
-                </div>
-
-                <div class="card shadow border-danger ms-2 mt-4">
-                    <div class="card-body company-quote-card-body" style="display: flex">
-                        <div>
-                            <img src="https://www.adamgleiss.com/images/face.jpg"
-                                 class="rounded-circle img-face-smaller-left shadow-sm me-4" alt="">
-                        </div>
-
-                        <blockquote class="blockquote company-quote me-4">
-                            <p>
-                                "I'm <strong>extremely pleased with the progress</strong> we are making.<br>
-                                It's really come a long way."
-                            </p>
-                            <footer class="blockquote-footer mt-1">
-                                William Adam Gleiss, VP of Technology at aRes Travel
-                            </footer>
-                        </blockquote>
-                    </div>
-                </div>
-            </div>
-
-            <br>
-            <br>
-            <br>
-            <br>
-
-            <div class="row mb-5">
-                <div class="col-12">
-                    <div class="float-end col-3 text-end">
-                        <a href="https://eonx.com/">
-                            <img src="/assets/images/logo/logo_bigger/eonx.png" class="img-fluid company-logo mb-3" style="max-width: 8em">
-                        </a>
-
-                        <p>
-                            <em class="fas fa-location-pin"></em>
-                            &nbsp;
-                            Australia
-                        </p>
-                    </div>
-
-                    <h3>
-                        <strong>From Laravel 5.5 to 6.0, Setup CI Code Analysis</strong>
-                    </h3>
-
-                    <ul>
-                        <li>Implemented of ECS with PSR-2, PHPStan from level 0 to 4, and Rector</li>
-                        <li>Set up full PSR-4 composer autoloader with unique classes</li>
-                        <li>Standardized tests to PSR-4</li>
-                    </ul>
-                </div>
-
-                <div class="card shadow border-primary  ms-2 mt-4">
-                    <div class="card-body company-quote-card-body" style="display: flex">
-                        <div>
-                            <img src="https://user-images.githubusercontent.com/77585053/110624235-38a3b200-819e-11eb-9ecc-a8f7b62d3da3.jpeg"
-                                 class="rounded-circle img-face-smaller-left shadow-sm me-4" alt="">
-                        </div>
-
-                        <blockquote class="blockquote company-quote me-4">
-                            <p>
-                                "From upgrading our legacy project and <strong>improving team's
-                                    productivity, to faster and easier code reviews</strong>,
-                                Rector is in the center of our PHP ecosystem."
-                            </p>
-                            <footer class="blockquote-footer mt-1">
-                                Nathan Page, Technical Lead at EONX
-                            </footer>
-                        </blockquote>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @include('hire_team/references')
 
         <br>
 
         <h2>Strong and Reliable Relationship with you is our Priority</h2>
 
-        <p class="text-medium">
+        <p>
             We <strong>build long-term relationships</strong> with our clients. Haphazard changes
             can quickly backfire and introduce regression bugs. But small, gradual steps lead to
             <strong>long-term success</strong>.
         </p>
 
-        <h3 id="intro_analysis">Step 1: We look into your project</h3>
+        <p>How do we build such a relationship? Step by step.</p>
+
+        <h2 id="intro_analysis">Phase 1: Intro Analysis</h2>
+
+        <div class="col-12 col-sm-5 float-end">
+            <div class="card shadow ms-3">
+                <div class="card-header">
+                    <h3 class="card-title m-2 text-center">In short</h3>
+                </div>
+                <div class="card-body">
+
+                    <ul class="list-nobullet">
+                        <li>
+                            <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
+                            We highlight weak spots in your code
+                        </li>
+                        <li>
+                            <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
+                            We deliver a plan detailing upgrade steps
+                        </li>
+                        <li>
+                            <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
+                            Every phase has a detailed scope and a "why"
+                        </li>
+                        <li>
+                            <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
+                            Good choice for a yearly project health check
+                        </li>
+
+                        <br>
+
+                        <li>
+                            <em class="fas fa-calendar text-info fa-fw"></em>
+                            <strong>Delivered in 3 weeks</strong>
+                        </li>
+
+                        <li class="mt-4 mb-3">
+                            <em class="fa fa-credit-card text-primary fa-fw"></em>&nbsp;
+                            One time charge of 6 000-8 000 €
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
         <p>
-            At first, we have to make sure we can help you. We explore the weak spots that would
-            complicate the process and get ready for the battle.
+            At first, we have to make sure we are able to help you in your time and budget constraint. We look into your codebase and explore the weak spots that would complicate the process. Then we get ready for the battle.
         </p>
 
         <h4>What steps are involved?</h4>
+
+        <p>
+            2. In the intro call, you tell us about you problems, state of your project and your goals
+        </p>
+        <p>
+            3. <strong>We sign an NDA</strong>, so your project is safe with us (got ready-made NDA to save time)
+        </p>
+        <p>
+            4. <strong>You share a Git repository</strong> with us, so we have an idea about project size
+        </p>
+        <p>
+            5. We give you a quote for <a href="hire-team#intro_analysis">intro analysis</a> of your project, that fits within 6 000-8 000 €
+        </p>
+        <p>
+            6. After we confirm, we send you an invoice
+        </p>
+
+        <p>
+            7. <strong>Upon the payment, we start an intro analysis</strong>
+        </p>
 
         <ul>
             <li>We sign an NDA so your code is safe with us</li>
@@ -156,19 +121,78 @@
             <li>We finish this phase with a call about how to proceed</li>
         </ul>
 
+        <a href="/assets/demo_intro_analysis.pdf" class="btn btn-warning me-3">
+            <em class="fa fa-file-pdf fa-fw"></em>
+            Open Demo PDF
+        </a>
+
         <br>
 
-        <h3 id="hands_on_upgrade">Step 2: Hands-on Upgrade</h3>
+
+        <div class="clearfix"></div>
+
+        <br>
+        <br>
+
+        <hr class="project-border-line m-4">
+
+        <div class="text-center">
+            After we deliver the intro analysis in PDF, we'll have a call about next steps.
+            <br>
+            We agree on the best place to start and move to the 2nd phase.
+        </div>
+
+        <hr class="project-border-line m-4">
+
+        <br>
+
+        <div class="clearfix"></div>
+
+        <h2 id="hands_on_upgrade">Phase 2: Hands-on Upgrade</h2>
+
+        <div class="col-12 col-sm-5 float-end">
+            <div class="card shadow ms-3">
+                <div class="card-header">
+                    <h3 class="card-title m-2 text-center">
+                        In short
+                    </h3>
+                </div>
+
+                <div class="card-body">
+                    <ul class="list-nobullet">
+                        <li class="mb-4">
+                            <em class="fa fa-star text-warning fa-fw"></em>&nbsp;
+                            <strong>We handle full project upgrade</strong>
+                        </li>
+                        <li>
+                            <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
+                            We improve your CI with advanced tooling
+                        </li>
+                        <li>
+                            <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
+                            We share our experience of 50+ project upgrades
+                        </li>
+                        <li class="mb-4">
+                            <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
+                            You learn smart tricks with tools you already use
+                        </li>
+
+                        <li class="mb-4">
+                            <em class="fas fa-calendar text-info fa-fw"></em>
+                            &nbsp;Ongoing 6-12 months
+                        </li>
+
+                        <li class="mt-4 mb-3">
+                            <em class="fa fa-credit-card text-primary fa-fw"></em>&nbsp;
+                            Charged hourly, from 20 hours/week<br>and 140-160 €/hour
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
         <p>
-            After we agree on next steps, we start the upgrade work. Our team provides <strong>10-30
-                hours/week of direct help</strong>, depending on the pace you prefer. We dedicate a
-            developer with Rector experience on legacy code to your project.
-        </p>
-
-        <p>
-            This phase usually <strong>takes 6-12 months</strong> depending on the upgrade target
-            and code quality of your project.
+            In this phase, we provide <strong>20-40 hours/week of direct help</strong>, depending on the pace you prefer. We dedicate a developer with Rector experience on legacy code to your project.
         </p>
 
         <h4>What steps are involved?</h4>
@@ -187,116 +211,12 @@
                 features and <strong>grow your business</strong>
             </li>
         </ul>
-
-        <hr class="project-border-line">
-
-        <h2>Choose a Plan That Fits Your Project</h2>
-
-        <div class="row mt-5">
-            <div class="col-12 col-sm-6">
-                <div class="card shadow m-3">
-                    <div class="card-header text-center bg-dark border-dark bg-opacity-10 border-opacity-25 pt-3 pb-3">
-                        Starter Choice
-                    </div>
-                    <div class="card-body">
-                        <h3 class="card-title mb-4 text-center">Intro Analysis</h3>
-
-                        <ul class="list-nobullet">
-                            <li>
-                                <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
-                                We highlight current weak spots in your code
-                            </li>
-                            <li>
-                                <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
-                                We deliver a plan detailing upgrade steps
-                            </li>
-                            <li>
-                                <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
-                                Every phase has a detailed scope and a "why"
-                            </li>
-                            <li>
-                                <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
-                                Good choice for a yearly project health check
-                            </li>
-                            <li>
-                                <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
-                                Delivered in 3 weeks
-                            </li>
-
-                            <li class="mt-4 mb-3">
-                                <em class="fa fa-credit-card text-primary fa-fw"></em>&nbsp;
-                                One time charge
-                            </li>
-
-                            <li>
-                                <em class="fa fa-star text-warning fa-fw"></em>&nbsp;
-                                <strong>You apply the plan yourself</strong>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="card-footer text-center pt-4 pb-4">
-                        <a href="/assets/demo_intro_analysis.pdf" class="btn btn-warning me-3">
-                            <em class="fa fa-file-pdf fa-fw"></em>
-                            Open Demo PDF
-                        </a>
-                        <a href="{{ action(\Rector\Website\Http\Controller\ContactController::class) }}"
-                           class="btn btn-success text">Contact us</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-sm-6">
-                <div class="card shadow m-3">
-                    <div class="card-header text-center bg-success text-white bg-opacity-75 border-success pt-3 pb-3 border-opacity-50">
-                        <strong>Most Wanted Choice</strong>
-                    </div>
-
-                    <div class="card-body">
-                        <h3 class="card-title mb-4 text-center">
-                            Intro Analysis + Hands-on Upgrade
-                        </h3>
-
-                        <ul class="list-nobullet">
-                            <li class="text-secondary">
-                                <em class="fa fa-left-long text-secondary fa-fw"></em>&nbsp;
-                                All from previous, and also...
-                            </li>
-                            <li>
-                                <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
-                                We improve your CI with advanced tooling
-                            </li>
-                            <li>
-                                <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
-                                We share our experience of 50+ project upgrades
-                            </li>
-                            <li>
-                                <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
-                                You learn smart tricks with tools you already use
-                            </li>
-                            <li>
-                                <em class="fa fa-check-circle text-success fa-fw"></em>&nbsp;
-                                You learn how to avoid making legacy code
-                            </li>
-
-                            <li class="mt-4 mb-3">
-                                <em class="fa fa-credit-card text-primary fa-fw"></em>&nbsp;
-                                Charged per hour, 10-30 hours/week
-                            </li>
-
-                            <li>
-                                <em class="fa fa-star text-warning fa-fw"></em>&nbsp;
-                                <strong>You leave the project upgrade to us</strong>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="card-footer text-center pt-4 pb-4">
-                        <a href="{{ action(\Rector\Website\Http\Controller\ContactController::class) }}"
-                           class="btn btn-success text">Contact us</a>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
+
+    <div class="clearfix"></div>
+
+    <br>
+    <br>
+    <br>
+
 @endsection

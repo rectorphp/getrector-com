@@ -20,7 +20,7 @@
         </div>
 
         <div class="text-center mt-5 mb-5 bigger-buttons">
-            <a href="{{ action(\Rector\Website\Http\Controller\ForCompaniesController::class) }}"
+            <a href="{{ action(\Rector\Website\Http\Controller\HireTeamController::class) }}"
                class="btn btn-lg btn-primary me-3">Hire Upgrade Team</a>
             <a href="{{ action(\Rector\Website\Http\Controller\Demo\DemoController::class) }}"
                class="btn btn-lg btn-success">Try It Online</a>
@@ -29,7 +29,8 @@
         @include('_snippets/homepage_separator')
 
         <div class="text-center mt-5 mb-5 text-rector-green text-bigger">
-            We've helped <strong>50+ companies</strong> to improve their PHP code and reduce technical debt
+            We've helped <strong>50+ companies</strong> to improve their PHP code and reduce
+            technical debt
         </div>
 
         @include('_snippets/line/company_logos')
@@ -56,7 +57,8 @@
                         90% of problems you'll face are new to you.
                     </p>
                     <p>
-                        We've already seen them and know exactly how to solve them cost-effectively and quickly.
+                        We've already seen them and know exactly how to solve them cost-effectively
+                        and quickly.
                     </p>
                 </div>
             </div>
@@ -73,7 +75,7 @@
         <br>
 
         <div class="text-center mt-5">
-            <a href="{{ action(\Rector\Website\Http\Controller\ForCompaniesController::class) }}"
+            <a href="{{ action(\Rector\Website\Http\Controller\HireTeamController::class) }}"
                class="btn btn-success btn-lg">
                 Hire us to Empower Your project
             </a>
@@ -103,7 +105,7 @@
         @include('homepage/_parts/faq')
 
         <div class="text-center mt-5">
-            <a href="{{ action(\Rector\Website\Http\Controller\ForCompaniesController::class) }}"
+            <a href="{{ action(\Rector\Website\Http\Controller\HireTeamController::class) }}"
                class="btn btn-success btn-lg">
                 Got a different question? Ask us
             </a>

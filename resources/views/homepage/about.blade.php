@@ -13,24 +13,28 @@
             <p>
                 It helps yous especially with:
 
-                <ul>
-                    <li>PHP upgrades,</li>
-                    <li>framework upgrades,</li>
-                    <li>improving your code quality</li>
-                    <li>it gives you safety and light-speed</li>
-                </ul>
+            <ul>
+                <li>PHP upgrades,</li>
+                <li>framework upgrades,</li>
+                <li>improving your code quality</li>
+                <li>it gives you safety and light-speed</li>
+            </ul>
             </p>
 
             <p>
                 The best way to learn it is <a
-                        href="{{ action(\Rector\Website\Http\Controller\DocumentationController::class) }}">documentation</a>, followed by in-depth book <a
-                        href="https://leanpub.com/rector-the-power-of-automated-refactoring">The Power of Automated Refactoring</a>.
+                    href="{{ action(\Rector\Website\Http\Controller\DocumentationController::class) }}">documentation</a>,
+                followed by in-depth book <a
+                    href="https://leanpub.com/rector-the-power-of-automated-refactoring">The Power
+                    of Automated Refactoring</a>.
             </p>
         </div>
 
         <div class="text-medium mt-5">
             <p>
-                In the hands of an expert, Rector massively reduces your work-time. In a project where upgrade of PHP 8.0 to 8.3 <strong>would take from 3 months, Rector will help you achieve same in 3 days</strong>.
+                In the hands of an expert, Rector massively reduces your work-time. In a project
+                where upgrade of PHP 8.0 to 8.3 <strong>would take from 3 months, Rector will help
+                    you achieve same in 3 days</strong>.
             </p>
 
             <p>
@@ -40,7 +44,8 @@
             <br>
 
             <p>
-                <a href="{{ action(\Rector\Website\Http\Controller\ForCompaniesController::class) }}">Hire our upgrade team</a> to get this expertise integrated into your team instantly.
+                <a href="{{ action(\Rector\Website\Http\Controller\HireTeamController::class) }}">Hire
+                    our upgrade team</a> to get this expertise integrated into your team instantly.
             </p>
         </div>
 

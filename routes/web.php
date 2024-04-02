@@ -15,7 +15,7 @@ use Rector\Website\Http\Controller\Demo\DemoController;
 use Rector\Website\Http\Controller\Demo\DemoDetailController;
 use Rector\Website\Http\Controller\Demo\ProcessDemoFormController;
 use Rector\Website\Http\Controller\DocumentationController;
-use Rector\Website\Http\Controller\ForCompaniesController;
+use Rector\Website\Http\Controller\HireTeamController;
 use Rector\Website\Http\Controller\HomepageController;
 use Rector\Website\Http\Controller\ProjectTimelineController;
 use Rector\Website\Http\Controller\RssController;
@@ -28,8 +28,12 @@ Route::get('about', AboutController::class);
 Route::get('blog', BlogController::class);
 Route::get('book', BookController::class);
 Route::get('contact', ContactController::class);
-Route::get('hire-team', ForCompaniesController::class);
-Route::get('project-timeline', ProjectTimelineController::class);
+Route::get('hire-team', HireTeamController::class);
+
+// redirect of old page
+Route::get('project-timeline', function () {
+    return redirect()->action(HireTeamController::class);
+});
 
 Route::get('blog/{postSlug}', PostController::class);
 

@@ -7,7 +7,7 @@ namespace Rector\Website\Http\Controller;
 use Illuminate\Contracts\View\View;
 use Illuminate\Routing\Controller;
 
-final class ForCompaniesController extends Controller
+final class HireTeamController extends Controller
 {
     public function __invoke(): View
     {
