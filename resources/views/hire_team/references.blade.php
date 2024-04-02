@@ -78,7 +78,7 @@
         <div class="card shadow border-primary  ms-2 mt-4">
             <div class="card-body company-quote-card-body" style="display: flex">
                 <div>
-                    <img src="https://user-images.githubusercontent.com/77585053/110624235-38a3b200-819e-11eb-9ecc-a8f7b62d3da3.jpeg"
+                    <img src="/assets/images/faces/nathan_page.jpg"
                          class="rounded-circle img-face-smaller-left shadow-sm me-4" alt="">
                 </div>
 

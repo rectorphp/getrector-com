@@ -37,7 +37,15 @@
             <strong>long-term success</strong>.
         </p>
 
-        <p>How do we build such a relationship? Step by step.</p>
+        <hr class="project-border-line m-5">
+
+        <div class="text-center">
+            How do we build such a relationship?
+            <br>
+            One step at a time.
+        </div>
+
+        <hr class="project-border-line m-5">
 
         <h2 id="intro_analysis">Phase 1: Intro Analysis</h2>
 
@@ -131,10 +139,7 @@
 
         <div class="clearfix"></div>
 
-        <br>
-        <br>
-
-        <hr class="project-border-line m-4">
+        <hr class="project-border-line m-5">
 
         <div class="text-center">
             After we deliver the intro analysis in PDF, we'll have a call about next steps.
@@ -142,9 +147,7 @@
             We agree on the best place to start and move to the 2nd phase.
         </div>
 
-        <hr class="project-border-line m-4">
-
-        <br>
+        <hr class="project-border-line m-5">
 
         <div class="clearfix"></div>
 
