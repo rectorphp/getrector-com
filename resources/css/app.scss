@@ -377,6 +377,10 @@ label.required:before {
     h3 {
         font-size: 1.8rem;
         margin-top: 0;
+
+        @media (max-width: 750px) {
+            font-size: 1.4em;
+        }
     }
 }
 

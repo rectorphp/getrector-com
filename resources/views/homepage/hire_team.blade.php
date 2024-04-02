@@ -19,7 +19,7 @@
 
         <div class="text-center mt-5">
             <div class="text-rector-green mb-5 text-bigger">
-                We've helped <strong>50 companies</strong> to speed-up work and reduce technical debt
+                We've helped <strong>50+ companies</strong> to speed-up work and reduce technical debt
             </div>
         </div>
 
@@ -30,12 +30,14 @@
                 <div class="col-12">
                     <div class="float-end col-3 text-end">
                         <a href="https://www.arestravel.com/">
-                            <img src="/assets/images/logo/logo_bigger/ares_travel.svg" class="img-fluid company-logo" style="max-width: 16em">
+                            <img src="/assets/images/logo/logo_bigger/ares_travel.svg" class="img-fluid company-logo mb-1" style="max-width: 16em">
                         </a>
 
-                        <em class="fas fa-location-pin"></em>
-                        &nbsp;
-                        California
+                        <p>
+                            <em class="fas fa-location-pin"></em>
+                            &nbsp;
+                            California
+                        </p>
                     </div>
 
                     <h3>
@@ -61,7 +63,6 @@
                             <p>
                                 "I'm <strong>extremely pleased with the progress</strong> we are making.<br>
                                 It's really come a long way."
-
                             </p>
                             <footer class="blockquote-footer mt-1">
                                 William Adam Gleiss, VP of Technology at aRes Travel
@@ -83,11 +84,11 @@
                             <img src="/assets/images/logo/logo_bigger/eonx.png" class="img-fluid company-logo mb-3" style="max-width: 8em">
                         </a>
 
-                        <br>
-
-                        <em class="fas fa-location-pin"></em>
-                        &nbsp;
-                        Australia
+                        <p>
+                            <em class="fas fa-location-pin"></em>
+                            &nbsp;
+                            Australia
+                        </p>
                     </div>
 
                     <h3>
@@ -123,7 +124,7 @@
             </div>
         </div>
 
-        <hr class="project-border-line">
+        <br>
 
         <h2>Strong and Reliable Relationship with you is our Priority</h2>
 
@@ -133,16 +134,7 @@
             <strong>long-term success</strong>.
         </p>
 
-        <p class="text-medium">
-            We get you to the latest PHP/framework version, make CI the next member of your team and
-            help you deliver features faster and cheaper.
-        </p>
-
-        <hr class="project-border-line">
-
-        <h2 id="process">What Does the Process Look Like?</h2>
-
-        <h3 id="intro_analysis">1. Intro Analysis</h3>
+        <h3 id="intro_analysis">Step 1: We look into your project</h3>
 
         <p>
             At first, we have to make sure we can help you. We explore the weak spots that would
@@ -166,7 +158,7 @@
 
         <br>
 
-        <h3 id="hands_on_upgrade">2. Hands-on Upgrade</h3>
+        <h3 id="hands_on_upgrade">Step 2: Hands-on Upgrade</h3>
 
         <p>
             After we agree on next steps, we start the upgrade work. Our team provides <strong>10-30
