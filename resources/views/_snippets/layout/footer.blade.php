@@ -36,7 +36,7 @@
         <br>
 
         <div class="text-start mt-5 mb-5 text-medium text-sm-center">
-            We've helped <strong>15 companies</strong> to improve PHP code and reduce technical debt
+            We've helped <strong>20 companies</strong> to speed-up work and reduce technical debt
             last year.
         </div>
     </div>

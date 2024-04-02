@@ -12,7 +12,7 @@ final class ForCompaniesController extends Controller
     public function __invoke(): View
     {
         return \view('homepage/hire_team', [
-            'page_title' => 'Hire the Rector Team to Reduce Costs and Technical Debt',
+            'page_title' => 'We help you Reduce Costs and Erase Technical Debt',
         ]);
     }
 }

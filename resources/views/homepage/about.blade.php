@@ -7,32 +7,40 @@
         <div class="text-medium">
             <p>
                 Rector is a PHP tool that you can run on any PHP project to get an instant upgrade
-                or automated refactoring. It helps with PHP upgrades, framework upgrades and
-                improves your code quality. Also, it helps with type-coverage and getting to the
-                latest PHPStan level.
+                or automated refactoring.
             </p>
 
             <p>
-                You can learn about it from the <a
-                        href="{{ action(\Rector\Website\Http\Controller\DocumentationController::class) }}">documentation</a>
-                or
-                from our book <a
-                        href="https://leanpub.com/rector-the-power-of-automated-refactoring">Rector
-                    - The Power of Automated Refactoring</a>.
+                It helps yous especially with:
+
+                <ul>
+                    <li>PHP upgrades,</li>
+                    <li>framework upgrades,</li>
+                    <li>improving your code quality</li>
+                    <li>it gives you safety and light-speed</li>
+                </ul>
+            </p>
+
+            <p>
+                The best way to learn it is <a
+                        href="{{ action(\Rector\Website\Http\Controller\DocumentationController::class) }}">documentation</a>, followed by in-depth book <a
+                        href="https://leanpub.com/rector-the-power-of-automated-refactoring">The Power of Automated Refactoring</a>.
             </p>
         </div>
 
         <div class="text-medium mt-5">
             <p>
-                In the hands of an expert, Rector achieves massive changes in minutes that would
-                take typical team couple of months. It's very reliable because it looks for narrowly
-                defined AST patterns.
+                In the hands of an expert, Rector massively reduces your work-time. In a project where upgrade of PHP 8.0 to 8.3 <strong>would take from 3 months, Rector will help you achieve same in 3 days</strong>.
             </p>
 
             <p>
-                You can <a
-                        href="{{ action(\Rector\Website\Http\Controller\ForCompaniesController::class) }}">hire
-                    our team</a> to get this expertise integrated into your team instantly.
+                It's intuitive and 100 % reliable, because it looks for narrowly defined patterns.
+            </p>
+
+            <br>
+
+            <p>
+                <a href="{{ action(\Rector\Website\Http\Controller\ForCompaniesController::class) }}">Hire our upgrade team</a> to get this expertise integrated into your team instantly.
             </p>
         </div>
 

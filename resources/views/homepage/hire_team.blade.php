@@ -5,21 +5,21 @@
         <h1 class="main-title">{{ $page_title }}</h1>
 
         <p class="mt-5 text-bigger">
-            Your project is a success, but why is the development slowing down?
+            Your project is a success, but your technical debt is slowing you down?
             <br>
             Our clients used to have similar problem.
         </p>
 
         <p class="text-bigger">
             We help you to <strong>cut feature development costs to a fraction</strong><br>
-            and ensure your teams is <strong>productive again</strong>.
+            and ensure your teams is <strong>productive and happy again</strong>.
         </p>
 
         <br>
 
         <div class="text-center mt-5">
             <div class="text-rector-green mb-5 text-bigger">
-                <strong>15 companies</strong> hired us this year to improve PHP code and reduce
+                <strong>20 companies</strong> hired us this year to speed-up work and reduce
                 technical debt
             </div>
 
@@ -29,113 +29,70 @@
         <hr class="project-border-line">
 
         <div id="references">
-            <div class="row">
-                <div class="col-sm-4 text-end pr-5">
-                    <img src="/assets/images/logo/logo_bigger/complex.jpg"
-                         class="img-fluid company-logo mb-4" style="max-width: 16em">
+            <div class="row mb-5">
+                <div class="col-12">
+                    <div class="float-end col-3 text-end">
+                        <a href="https://www.arestravel.com/">
+                            <img src="/assets/images/logo/logo_bigger/ares_travel.svg" class="img-fluid company-logo" style="max-width: 16em">
+                        </a>
 
-                    <div class="clearfix"></div>
-
-                    <p>Germany</p>
-                </div>
-                <div class="col-sm-8">
-                    <h3>
-                        <strong>Framework Migration, PHP Upgrade and CI Hardening</strong>
-                    </h3>
-
-                    <ul>
-                        <li>Set up advanced custom PHPStan rules</li>
-                        <li>Increase type coverage, Rector and ECS integration</li>
-                        <li>Optimization of Processes</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="card shadow border-success mt-4">
-                <div class="card-body company-quote-card-body" style="display: flex">
-                    <div>
-                        <img src="https://avatars.githubusercontent.com/u/47448731?v=4"
-                             class="rounded-circle img-face-smaller-left shadow-sm me-4" alt="">
+                        <em class="fas fa-location-pin"></em>
+                        &nbsp;
+                        California
                     </div>
 
-                    <blockquote class="blockquote company-quote me-4 mb-5">
-                        <p>
-                            "It's a lot of fun and we killed/transformed already a lot of legacy
-                            code.
-                            Using our very own continuous deployment pipeline <strong>we shipping
-                                this changes to production since day 1</strong>."
-                        </p>
-                        <footer class="blockquote-footer mt-1">
-                            Markus Staab,
-                            Project Technical Lead
-                        </footer>
-                    </blockquote>
-                </div>
-            </div>
-
-            <hr class="project-border-line">
-
-            <div class="row">
-                <div class="col-sm-4 text-end pr-5">
-                    <img src="/assets/images/logo/logo_bigger/ares_travel.svg"
-                         class="img-fluid company-logo mb-4" style="max-width: 16em">
-
-                    <div class="clearfix"></div>
-
-                    <p>California</p>
-                </div>
-                <div class="col-sm-8">
                     <h3>
-                        <strong>Upgrade from PHP 7.2, Symfony 2.8 to fully-typed PHP 8</strong>
+                        <strong>From PHP 7.2 to 8.3, from Symfony 2.8 to 7.0</strong>
                     </h3>
 
-                    <ul>
-                        <li>Set up a high quality CI pipeline battery with bulletproof checks</li>
-                        <li>Removed dead methods and classes, unused packages, TWIG filters and
-                            helpers
-                        </li>
-                        <li>Highly improved unit test coverage to make changes more reliable and
-                            safer
-                        </li>
+                    <ul class="mt-3">
+                        <li>Set up a high-quality CI pipeline with bulletproof checks</li>
+                        <li>Removed dead methods and classes, unused packages - over 20 % of code-base</li>
+                        <li>Highly improved test coverage to make changes more reliable and safer</li>
+                        <li>Covered code with type declarations from 5 % to 99 %</li>
                     </ul>
                 </div>
-            </div>
 
-            <div class="card shadow border-danger mt-4">
-                <div class="card-body company-quote-card-body" style="display: flex">
-                    <div>
-                        <img src="https://www.adamgleiss.com/images/face.jpg"
-                             class="rounded-circle img-face-smaller-left shadow-sm me-4" alt="">
+                <div class="card shadow border-danger mt-4">
+                    <div class="card-body company-quote-card-body" style="display: flex">
+                        <div>
+                            <img src="https://www.adamgleiss.com/images/face.jpg"
+                                 class="rounded-circle img-face-smaller-left shadow-sm me-4" alt="">
+                        </div>
+
+                        <blockquote class="blockquote company-quote me-4">
+                            <p>
+                                "I'm <strong>extremely pleased with the progress</strong> we are making.<br>
+                                It's really come a long way."
+
+                            </p>
+                            <footer class="blockquote-footer mt-1">
+                                William Adam Gleiss, VP of Technology at aRes Travel
+                            </footer>
+                        </blockquote>
                     </div>
-
-                    <blockquote class="blockquote company-quote me-4">
-                        <p>
-                            "I'm <strong>extremely pleased with the progress</strong> we are making.<br>
-                            It's really come a long way."
-
-                        </p>
-                        <footer class="blockquote-footer mt-1">
-                            William Adam Gleiss,
-                            VP of Technology at aRes Travel
-                        </footer>
-                    </blockquote>
                 </div>
             </div>
 
-            <hr class="project-border-line">
+            <br>
+            <br>
 
             <div class="row">
-                <div class="col-sm-4 text-end pr-5">
-                    <img src="/assets/images/logo/logo_bigger/eonx.png"
-                         class="img-fluid company-logo" style="max-width: 12em">
+                <div class="col-12">
+                    <div class="float-end col-3 text-end">
+                        <a href="https://eonx.com/">
+                            <img src="/assets/images/logo/logo_bigger/eonx.png" class="img-fluid company-logo mb-3" style="max-width: 9em">
+                        </a>
 
-                    <div class="clearfix mb-4"></div>
+                        <br>
 
-                    <p>Australia</p>
-                </div>
-                <div class="col-sm-8">
+                        <em class="fas fa-location-pin"></em>
+                        &nbsp;
+                        Australia
+                    </div>
+
                     <h3>
-                        <strong>Upgrade from Laravel 5.5</strong>
+                        <strong>From Laravel 5.5 to 6.0, Setup CI Code Analysis</strong>
                     </h3>
 
                     <ul>
@@ -166,24 +123,29 @@
                 </div>
             </div>
 
-            <hr class="project-border-line">
+            <br>
+            <br>
+            <br>
+            <br>
 
-            <div class="row mt-4">
-                <div class="col-sm-4">
-                    <a href="https://spaceflow.io/">
-                        <img src="/assets/images/logo/logo_bigger/spaceflow.png"
-                             class="img-fluid mt-3" style="max-width: 16em">
-                    </a>
+            <div class="row">
+                <div class="col-12">
+                    <div class="col-4 text-end float-end">
+                        <a href="https://spaceflow.io/">
+                            <img src="/assets/images/logo/logo_bigger/spaceflow.png"
+                                 class="img-fluid mb-3" style="max-width: 16em">
+                        </a>
 
-                    <div class="clearfix mb-4"></div>
+                        <br>
 
-                    <p>New York</p>
-                </div>
-                <div class="col-sm-8">
+                        <em class="fas fa-location-pin"></em>
+                        &nbsp;
+                        New York
+                    </div>
+
                     <h3>
-                        <strong>Upgrade from Symfony 3.4</strong>
+                        <strong>From Symfony 3.4 to 4.4, move to PSR-4</strong>
                     </h3>
-
 
                     <ul>
                         <li>Migration from Doctrine ID to UUID</li>
@@ -217,7 +179,7 @@
 
         <hr class="project-border-line">
 
-        <h2>What Relationship Do We Build with You?</h2>
+        <h2>Strong and Reliable Relationship with you is our Priority</h2>
 
         <p class="text-medium">
             We <strong>build long-term relationships</strong> with our clients. Haphazard changes
