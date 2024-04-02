@@ -50,7 +50,7 @@
                     </ul>
                 </div>
 
-                <div class="card shadow border-danger mt-4">
+                <div class="card shadow border-danger ms-2 mt-4">
                     <div class="card-body company-quote-card-body" style="display: flex">
                         <div>
                             <img src="https://www.adamgleiss.com/images/face.jpg"
@@ -101,7 +101,7 @@
                     </ul>
                 </div>
 
-                <div class="card shadow border-primary mt-4">
+                <div class="card shadow border-primary  ms-2 mt-4">
                     <div class="card-body company-quote-card-body" style="display: flex">
                         <div>
                             <img src="https://user-images.githubusercontent.com/77585053/110624235-38a3b200-819e-11eb-9ecc-a8f7b62d3da3.jpeg"
@@ -116,59 +116,6 @@
                             </p>
                             <footer class="blockquote-footer mt-1">
                                 Nathan Page, Technical Lead at EONX
-                            </footer>
-                        </blockquote>
-                    </div>
-                </div>
-            </div>
-
-            <br>
-            <br>
-            <br>
-            <br>
-
-            <div class="row">
-                <div class="col-12">
-                    <div class="col-4 text-end float-end">
-                        <a href="https://spaceflow.io/">
-                            <img src="/assets/images/logo/logo_bigger/spaceflow.png"
-                                 class="img-fluid mb-3" style="max-width: 14em">
-                        </a>
-
-                        <br>
-
-                        <em class="fas fa-location-pin"></em>
-                        &nbsp;
-                        New York
-                    </div>
-
-                    <h3>
-                        <strong>From Symfony 3.4 to 4.4, move to PSR-4</strong>
-                    </h3>
-
-                    <ul>
-                        <li>Migration from Doctrine ID to UUID</li>
-                        <li>Implementation of Gitlab CI with ECS, PHPStan and Rector</li>
-                        <li>Replacement of messy classes with PSR-4</li>
-                    </ul>
-                </div>
-
-                <div class="card shadow mt-4 border-warning">
-                    <div class="card-body company-quote-card-body" style="display: flex">
-                        <div>
-                            <img src="https://user-images.githubusercontent.com/77585053/110624233-37728500-819e-11eb-9efb-269e161c2ad4.jpeg"
-                                 class="rounded-circle img-face-smaller-left shadow-sm me-4" alt="">
-                        </div>
-
-                        <blockquote class="blockquote company-quote me-4">
-                            <p>
-                                "Thanks to Rector, we were able to quite simply refactor the core of our
-                                API, which <strong>saved a lot of work</strong> that our developers
-                                would otherwise have to do manually."
-                            </p>
-                            <footer class="blockquote-footer mt-1">
-                                Milan Mimra,
-                                CTO at Spaceflow
                             </footer>
                         </blockquote>
                     </div>
