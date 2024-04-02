@@ -5,7 +5,7 @@
 
     <div class="ms-3 ms-md-0">
         <p>
-            "Thanks to Rector, we were able to quite simply refactor the core of our API, which <strong>saved a lot of work</strong> that our developers would otherwise have to do manually."
+            "Thanks to Rector, we were able to refactor the core of our API, which <strong>saved a lot of work</strong> that our developers would <strong>otherwise have to do manually</strong>."
         </p>
 
         <footer class="blockquote-footer mt-2">
@@ -19,7 +19,8 @@
 <blockquote class="blockquote" style="display: flex">
     <div>
         <p class="me-4 me-md-0">
-            "I'm <strong>extremely pleased with the progress</strong> we are making. It's really come a long way."
+            "I'm <strong>extremely pleased with the progress</strong> we are making.<br>
+            It's really come a long way."
         </p>
 
         <footer class="blockquote-footer mt-2 ms-0 ms-md-5">
@@ -41,7 +42,7 @@
 
     <div class="ms-3 ms-md-0">
         <p>
-            "From upgrading our legacy projects and <strong>improving team's productivity, to making code review easier and reliable</strong>, Rector is in the center within our PHP ecosystem."
+            "From upgrading our project and <strong>improving team's productivity, to faster and easier code reviews</strong>, Rector is in the center of our PHP ecosystem."
         </p>
 
         <footer class="blockquote-footer mt-2">
