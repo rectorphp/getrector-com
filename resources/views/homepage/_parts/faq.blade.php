@@ -37,11 +37,9 @@
     <div class="col-12">
         <h3>Will we need to re-hire your team for future upgrades?</h3>
         <p>
-            No. Our aim is to make your team self-sufficient. We improve your code quality, type
-            coverage and PHPStan level to the highest possible level.
+            No. Our goal is to make your team self-sufficient. We get your code quality the highest possible level.
             <br>
-            When we finish, you'll have Rector in your CI working for you.
-            Your next upgrade will take a single day.
+            You'll have Rector in your CI working for you, so you'll upgrade within a day yourself.
         </p>
     </div>
 
@@ -58,15 +56,14 @@
     <br>
 
     <div class="col-12">
-        <h3>Can you migrate our framework to an open-source one?</h3>
-        <p>Yes. We specialize in framework migration, leveraging our extensive experience and custom
-            Rector rules.</p>
+        <h3>We have a custom framework. Can you migrate it to an open-source one?</h3>
+        <p>Yes. We specialize in framework migration, especially to Symfony and Laravel.</p>
     </div>
 
     <br>
 
     <div class="col-12">
-        <h3>Our last upgrade took 12 months with no result. How do you help us to avoid it?</h3>
+        <h3>Our last upgrade took 2 years with no results. How do you help us to avoid it?</h3>
         <p>
             The art of cost-effective upgrades takes years of experience with dozens of projects.
             <br>

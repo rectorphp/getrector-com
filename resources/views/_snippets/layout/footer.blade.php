@@ -36,8 +36,7 @@
         <br>
 
         <div class="text-start mt-5 mb-5 text-medium text-sm-center">
-            We've helped <strong>20 companies</strong> to speed-up work and reduce technical debt
-            last year.
+            We've helped <strong>50+ companies</strong> to speed-up work and reduce technical debt
         </div>
     </div>
 </div>

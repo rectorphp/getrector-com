@@ -12,21 +12,18 @@
 
         <p class="text-bigger">
             We help you to <strong>cut feature development costs to a fraction</strong><br>
-            and ensure your teams is <strong>productive and happy again</strong>.
+            and make your team <strong>productive and happy again</strong>.
         </p>
 
         <br>
 
         <div class="text-center mt-5">
             <div class="text-rector-green mb-5 text-bigger">
-                <strong>20 companies</strong> hired us this year to speed-up work and reduce
-                technical debt
+                We've helped <strong>50 companies</strong> to speed-up work and reduce technical debt
             </div>
-
-            @include('_snippets/line/company_logos')
         </div>
 
-        <hr class="project-border-line">
+        <br>
 
         <div id="references">
             <div class="row mb-5">
@@ -76,12 +73,14 @@
 
             <br>
             <br>
+            <br>
+            <br>
 
-            <div class="row">
+            <div class="row mb-5">
                 <div class="col-12">
                     <div class="float-end col-3 text-end">
                         <a href="https://eonx.com/">
-                            <img src="/assets/images/logo/logo_bigger/eonx.png" class="img-fluid company-logo mb-3" style="max-width: 9em">
+                            <img src="/assets/images/logo/logo_bigger/eonx.png" class="img-fluid company-logo mb-3" style="max-width: 8em">
                         </a>
 
                         <br>
@@ -96,30 +95,30 @@
                     </h3>
 
                     <ul>
-                        <li>Implementation of ECS, PHPStan and Rector</li>
-                        <li>Standardization of namespace</li>
-                        <li>Standardization of tests</li>
+                        <li>Implemented of ECS with PSR-2, PHPStan from level 0 to 4, and Rector</li>
+                        <li>Set up full PSR-4 composer autoloader with unique classes</li>
+                        <li>Standardized tests to PSR-4</li>
                     </ul>
                 </div>
-            </div>
 
-            <div class="card shadow border-primary mt-4">
-                <div class="card-body company-quote-card-body" style="display: flex">
-                    <div>
-                        <img src="https://user-images.githubusercontent.com/77585053/110624235-38a3b200-819e-11eb-9ecc-a8f7b62d3da3.jpeg"
-                             class="rounded-circle img-face-smaller-left shadow-sm me-4" alt="">
+                <div class="card shadow border-primary mt-4">
+                    <div class="card-body company-quote-card-body" style="display: flex">
+                        <div>
+                            <img src="https://user-images.githubusercontent.com/77585053/110624235-38a3b200-819e-11eb-9ecc-a8f7b62d3da3.jpeg"
+                                 class="rounded-circle img-face-smaller-left shadow-sm me-4" alt="">
+                        </div>
+
+                        <blockquote class="blockquote company-quote me-4">
+                            <p>
+                                "From upgrading our legacy project and <strong>improving team's
+                                    productivity, to faster and easier code reviews</strong>,
+                                Rector is in the center of our PHP ecosystem."
+                            </p>
+                            <footer class="blockquote-footer mt-1">
+                                Nathan Page, Technical Lead at EONX
+                            </footer>
+                        </blockquote>
                     </div>
-
-                    <blockquote class="blockquote company-quote me-4">
-                        <p>
-                            "From upgrading our legacy projects and <strong>improving team's
-                                productivity, to making code review easier and reliable</strong>,
-                            Rector is in the center within our PHP ecosystem."
-                        </p>
-                        <footer class="blockquote-footer mt-1">
-                            Nathan Page, Technical Lead at EONX
-                        </footer>
-                    </blockquote>
                 </div>
             </div>
 
@@ -133,7 +132,7 @@
                     <div class="col-4 text-end float-end">
                         <a href="https://spaceflow.io/">
                             <img src="/assets/images/logo/logo_bigger/spaceflow.png"
-                                 class="img-fluid mb-3" style="max-width: 16em">
+                                 class="img-fluid mb-3" style="max-width: 14em">
                         </a>
 
                         <br>
@@ -153,26 +152,26 @@
                         <li>Replacement of messy classes with PSR-4</li>
                     </ul>
                 </div>
-            </div>
 
-            <div class="card shadow mt-4 border-warning">
-                <div class="card-body company-quote-card-body" style="display: flex">
-                    <div>
-                        <img src="https://user-images.githubusercontent.com/77585053/110624233-37728500-819e-11eb-9efb-269e161c2ad4.jpeg"
-                             class="rounded-circle img-face-smaller-left shadow-sm me-4" alt="">
+                <div class="card shadow mt-4 border-warning">
+                    <div class="card-body company-quote-card-body" style="display: flex">
+                        <div>
+                            <img src="https://user-images.githubusercontent.com/77585053/110624233-37728500-819e-11eb-9efb-269e161c2ad4.jpeg"
+                                 class="rounded-circle img-face-smaller-left shadow-sm me-4" alt="">
+                        </div>
+
+                        <blockquote class="blockquote company-quote me-4">
+                            <p>
+                                "Thanks to Rector, we were able to quite simply refactor the core of our
+                                API, which <strong>saved a lot of work</strong> that our developers
+                                would otherwise have to do manually."
+                            </p>
+                            <footer class="blockquote-footer mt-1">
+                                Milan Mimra,
+                                CTO at Spaceflow
+                            </footer>
+                        </blockquote>
                     </div>
-
-                    <blockquote class="blockquote company-quote me-4">
-                        <p>
-                            "Thanks to Rector, we were able to quite simply refactor the core of our
-                            API, which <strong>saved a lot of work</strong> that our developers
-                            would otherwise have to do manually."
-                        </p>
-                        <footer class="blockquote-footer mt-1">
-                            Milan Mimra,
-                            CTO at Spaceflow
-                        </footer>
-                    </blockquote>
                 </div>
             </div>
         </div>
@@ -194,7 +193,7 @@
 
         <hr class="project-border-line">
 
-        <h2>What Does the Process Look Like?</h2>
+        <h2 id="process">What Does the Process Look Like?</h2>
 
         <h3 id="intro_analysis">1. Intro Analysis</h3>
 
