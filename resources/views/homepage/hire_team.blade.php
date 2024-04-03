@@ -129,7 +129,6 @@
 
         <div class="clearfix"></div>
 
-        <br>
 
         <hr class="project-border-line m-5">
 
@@ -144,8 +143,6 @@
         <hr class="project-border-line m-5">
 
         <div class="clearfix"></div>
-
-        <br>
 
         <div class="col-12 col-sm-5 float-end ps-4">
             <div class="card shadow ms-3">
@@ -196,7 +193,7 @@
             In this phase, we provide <strong>20-40 hours/week of direct help</strong>, depending on the pace you prefer. We dedicate a developer with Rector experience on legacy code to your project.
         </p>
 
-        <p>We'll work on improving code quality to make bigger changes more reliable and stable. <strong>We start with low-hanging fruit so your team feels comfortable with us.</strong>.
+        <p>We'll work on improving code quality to make bigger changes more reliable and stable. <strong>We start with low-hanging fruit so your team feels comfortable with us.</strong>
         </p>
 
         <p>
