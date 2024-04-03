@@ -65,7 +65,7 @@
             </div>
 
             <h3>
-                <strong>From Laravel 5.5 to 6.0, Setup CI Code Analysis</strong>
+                <strong>Laravel 5.5 and PHP 7.0 upgrade</strong>
             </h3>
 
             <ul>
