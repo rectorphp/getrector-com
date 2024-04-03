@@ -101,7 +101,7 @@
         <h2 id="intro_analysis">Phase 1: Intro Analysis</h2>
 
         <p>
-            In the first meeintg, you'll tell us about you problems, state of your project and your goals.
+            In the first meeting, you'll tell us about you problems, state of your project and your goals.
         </p>
 
         <p>
