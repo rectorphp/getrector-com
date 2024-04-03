@@ -64,6 +64,12 @@
             </div>
         </div>
 
+        <!--
+        @todo they write about us
+        * post
+        * rector talk at laracon https://www.youtube.com/watch?v=qGrsvcWdERc&ab_channel=LaraconEU
+        -->
+
         @include('_snippets/homepage_separator')
 
         <h2>
