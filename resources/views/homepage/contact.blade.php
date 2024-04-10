@@ -5,7 +5,9 @@
         <h1 class="main-title">{{ $page_title }}</h1>
 
         <div class="row">
-            <div class="col-12 col-sm-10 text-bigger">
+            <div class="col-12 text-bigger">
+                <img src="/assets/images/contact.jpg" class="float-end rounded-4 ms-5" style="max-width: 13em">
+
                 <p class="mb-5">Tell us your biggest problems that you struggle with.<br>
                     We won't judge you, we've seen a lot of legacy projects and are here to help.</p>
 
