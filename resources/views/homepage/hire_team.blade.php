@@ -47,6 +47,12 @@
 
         <hr class="project-border-line m-5">
 
+        <h2 id="intro_analysis">Phase 1: Intro Analysis</h2>
+
+        <div class="mb-5">
+            <img src="/assets/images/intro-analysis.jpg" class="rounded-4" style="max-width: 100%">
+        </div>
+
         <div class="col-12 col-sm-5 float-end ps-4">
             <div class="card shadow ms-3">
                 <div class="card-header">
@@ -98,7 +104,6 @@
             </div>
         </div>
 
-        <h2 id="intro_analysis">Phase 1: Intro Analysis</h2>
 
         <p>
             In the first meeting, you'll tell us about you problems, state of your project and your goals.
@@ -144,6 +149,12 @@
 
         <div class="clearfix"></div>
 
+        <h2 id="hands_on_upgrade">Phase 2: Hands-on Upgrade</h2>
+
+        <div class="mb-5">
+            <img src="/assets/images/hands-on-upgrade.jpg" class="rounded-4" style="max-width: 100%">
+        </div>
+
         <div class="col-12 col-sm-5 float-end ps-4">
             <div class="card shadow ms-3">
                 <div class="card-header">
@@ -187,7 +198,6 @@
             </div>
         </div>
 
-        <h2 id="hands_on_upgrade">Phase 2: Hands-on Upgrade</h2>
 
         <p>
             In this phase, we provide <strong>20-40 hours/week of direct help</strong>, depending on the pace you prefer. We dedicate a developer with Rector experience on legacy code to your project.
