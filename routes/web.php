@@ -48,8 +48,6 @@ Route::post('process-demo', ProcessDemoFormController::class);
 
 // ast
 // hide on production, until it's finished
-if (app()->environment('dev')) {
-    Route::get('ast', AstController::class);
-    Route::get('ast/{uuid}/{activeNodeId?}', AstDetailController::class);
-    Route::post('process-ast', ProcessAstFormController::class);
-}
+Route::get('ast', AstController::class);
+Route::get('ast/{uuid}/{activeNodeId?}', AstDetailController::class);
+Route::post('process-ast', ProcessAstFormController::class);
