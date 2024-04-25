@@ -17,8 +17,6 @@ return RectorConfig::configure()
     )
     ->withRules([\Rector\TypeDeclaration\Rector\StmtsAwareInterface\DeclareStrictTypesRector::class])
     ->withSkip([
-        // generated
-        __DIR__ . '/src/PhpParser/ClickablePrinter.php',
         '*/Fixture/*',
         '*/Expected/*',
 
