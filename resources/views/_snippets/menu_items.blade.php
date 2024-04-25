@@ -15,6 +15,11 @@
 </li>
 
 <li class="nav-item">
+    <a href="{{ action(\Rector\Website\Http\Controller\Ast\AstController::class) }}"
+       class="nav-link">Ast Explorer</a>
+</li>
+
+<li class="nav-item">
     <a href="{{ action(\Rector\Website\Http\Controller\ContactController::class) }}"
        class="nav-link">Contact</a>
 </li>
