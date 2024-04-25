@@ -16,7 +16,7 @@
 
 <li class="nav-item">
     <a href="{{ action(\Rector\Website\Http\Controller\Ast\AstController::class) }}"
-       class="nav-link">Ast Explorer</a>
+       class="nav-link">Explore AST</a>
 </li>
 
 <li class="nav-item">
