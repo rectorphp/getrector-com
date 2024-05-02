@@ -71,9 +71,9 @@ I came to Prague in 2014, looking for a PHP community. I only found "Zend meetup
 
 It didn't mean the Symfony was a better framework per se. It meant it was easier to find a Symfony developer in that city in that year.
 
-**If you can hire developers who know your framework in your city, maybe you can find talented 10x developers who will take your project to the next level.
+* **If you can hire developers who know your framework in your city**, maybe you can find talented 10x developers who will take your project to the next level.
 
-**If you struggle to hire a developer who knows the framework you use, you'll have to spend resources to teach them. They'll most likely misuse the framework in a non-standard way, so other developers who know the framework won't understand it. They'll make wrong design choices that will influence the future, maintainability, and costs of your project.
+* **If you struggle to hire a developer who knows the framework you use**, you'll have to spend resources to teach them. They'll most likely misuse the framework in a non-standard way, so other developers who know the framework won't understand it. They'll make wrong design choices that will influence the future, maintainability, and costs of your project.
 
 <br>
 

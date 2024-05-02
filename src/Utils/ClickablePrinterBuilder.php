@@ -26,7 +26,7 @@ use Rector\Website\PhpParser\SimplePhpParser;
 use Webmozart\Assert\Assert;
 
 /**
- * Builds
+ * @api used in bin
  * @see \Rector\Website\PhpParser\ClickablePrinter
  */
 final class ClickablePrinterBuilder
