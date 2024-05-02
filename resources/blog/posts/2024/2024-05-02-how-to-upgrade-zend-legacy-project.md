@@ -26,8 +26,6 @@ Congrats! This is the best Zend version you can have. Zend 3 itself was more or 
 
 It's also worth reading [Zend Framework 3: A retrospective](https://getlaminas.org/blog/2020-03-09-transferring-zf-to-laminas.html) from 2020 to understand what's ahead of you after you migrate to Laminas.
 
-<br>
-
 ## Zend 2
 
 If you have Zend 2, deciding what to do next is more complex.
