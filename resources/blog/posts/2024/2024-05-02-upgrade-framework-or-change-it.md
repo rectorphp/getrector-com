@@ -97,7 +97,56 @@ As we wrote in [How to Upgrade Zend Legacy Project](/blog/how-to-upgrade-zend-le
 
 Here, we'll share a few practical examples of how to evaluate these data so you can have a better idea of whether to upgrade or change.
 
-@todo
+### Usecase A
+
+* framework X is CakePHP 2
+* hiring pool is active with Symfony and Zend developers
+* Symfony has more downloads than Zend
+* your developers use Symfony or Laravel in their hobby projects
+
+Upgrading CakePHP 2 to the CakePHP 4 doesn't make sense, as you don't have any new CakePHP developers to hire from.
+You can choose Symfony or Zend developers. To decide, we check the downloads stats. Symfony has more downloads than Zend. Last but not least, we verify with the team. They'd prefer any of Symfony or Laravel.
+
+**Symfony is the best choice**
+
+### Usecase B
+
+* hiring pool is active with Symfony and Laravel
+* framework X is Symfony 5.0
+* Symfony and Laravel have quite similar downloads
+* your developers use rather Laravel in their hobby projects
+
+Symfony is a living framework, so we might stick with. Your hiring pool has Symfony developers, so we're good to grow. The latest Symfony version is 7, so we'd only have to upgarde 2 major version = doable. Despite your developers prefer Laravel, we'd stick with Symfony.
+
+### Usecase C
+
+Same as above, but:
+
+* your framework X is Symfony 2.x.
+
+Here we want to demonstrate when it might be **cheaper to switch framework than upgrade, depending on the age of your current version**. Symfony 2 has been released in 2011 and has completely different architecture than current Symfony 7.
+
+To get Symfony 2 to Symfony 7, we'd have to go:
+
+* Symfony 2 → Symfony 3
+* Symfony 3 → Symfony 4
+* Symfony 4 → Symfony 5
+* Symfony 5 → Symfony 6
+* Symfony 6 → Symfony 7
+
+On the other hand, your developers developers prefer Laravel. That means your project could grow further with Laravel developers. The switch from Symfony 2 to Laravel 11 would be only single step:
+
+* Symfony 2 → Laravel 11
+
+Here, we'd go for framework switch as cheaper and more beneficial solution.
+
+<br>
+
+This is how we discuss descission to upgrade or change framework completely with our clients.
+
+<br>
+
+Happy coding!
 
 
 
