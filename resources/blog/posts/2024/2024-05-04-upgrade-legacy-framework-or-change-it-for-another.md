@@ -101,7 +101,7 @@ Here, we'll share a few practical examples of how to evaluate these data so you 
 
 ## Usecase A
 
-* framework X is CakePHP 2
+* your framework is CakePHP 2
 * the hiring pool is active with Symfony and Zend developers
 * Symfony has more downloads than Zend
 * your developers use Symfony or Laravel in their hobby projects
@@ -125,7 +125,7 @@ Symfony is a living framework we can stick with. Your hiring pool has Symfony de
 
 Same as above, but:
 
-* your framework X is Symfony 2.x.
+* your framework is Symfony 2.x
 
 Here, we want to demonstrate when it might be **cheaper to change frameworks, depending on the age of your current version**. Symfony 2 was released in 2011 and has an entirely different architecture than the current Symfony 7. It's 13 years technology gap and 5 major versions to upgrade.
 
