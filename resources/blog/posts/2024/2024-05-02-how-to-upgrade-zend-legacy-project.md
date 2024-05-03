@@ -22,7 +22,7 @@ Let's look at the Zend version first.
 
 ## Zend 3
 
-Congrats! This is the best Zend version you can have. Zend 3 itself was more or less only rebranded in 2018 to Laminass and continues its development. Here is how to [migrate from Zend to Laminas](https://docs.laminas.dev/migration/).
+Congrats! This is the best Zend version you can have. Zend 3 itself was more or less only rebranded in 2018 to Laminas and continues its development. Here is how to [migrate from Zend to Laminas](https://docs.laminas.dev/migration/).
 
 It's also worth reading [Zend Framework 3: A retrospective](https://getlaminas.org/blog/2020-03-09-transferring-zf-to-laminas.html) from 2020 to understand what's ahead of you after you migrate to Laminas.
 
