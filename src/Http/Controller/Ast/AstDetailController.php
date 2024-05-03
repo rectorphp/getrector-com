@@ -20,6 +20,7 @@ use Rector\Website\PhpParser\ClickablePrinter;
 use Rector\Website\PhpParser\NodeResolver\FocusedNodeResolver;
 use Rector\Website\PhpParser\SimplePhpParser;
 use Rector\Website\Repository\AstRunRepository;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 final class AstDetailController extends Controller
 {
@@ -45,9 +46,14 @@ final class AstDetailController extends Controller
 
         if ($activeNodeId) {
             $focusedNode = $this->focusedNodeResolver->focus($nodes, $activeNodeId);
-            $simpleNodeDump = SimpleNodeDumper::dump($focusedNode);
 
-            $targetNodeClass = $this->resolveTargetNodeClass($focusedNode);
+            if (! $focusedNode instanceof Node) {
+                $simpleNodeDump = SimpleNodeDumper::dump($nodes);
+                $targetNodeClass = null;
+            } else {
+                $simpleNodeDump = SimpleNodeDumper::dump($focusedNode);
+                $targetNodeClass = $this->resolveTargetNodeClass($focusedNode);
+            }
         } else {
             $simpleNodeDump = SimpleNodeDumper::dump($nodes);
             $targetNodeClass = null;
