@@ -1,6 +1,6 @@
 ---
 id: 63
-title: "Upgrade Legacy Framework or Change it for Newer"
+title: "Upgrade Legacy Framework or Change it for Another"
 perex: |
     Would you upgrade your Nokia 3310 to a newer Nokia or change it to an iPhone with USB-C? Would you upgrade your old Ford Fiesta to a newer Ford or change it to a Tesla Model 3? Would you upgrade your house's wooden windows for better wood or use plastic 3-layers?
 
@@ -14,7 +14,7 @@ When we get reached by clients with "we need to upgrade framework X from version
 * What is the most used framework by your dev team in their hobby projects?
 * What meetups do your developers go to?
 
-It might sound like we ask technical questions that have nothing to do with productivity and business value. After all, the main reason we upgrade is to get fast, deliver value, and quickly adapt to beat the competition.
+It might sound like we ask technical questions that have nothing to do with productivity and business value. After all, we upgrade mainly to get fast, deliver value, and quickly adapt to beat the competition.
 
 ## Newer Technology = Faster Learning
 
@@ -26,21 +26,21 @@ Those 3 developers go to an IT meetup in your city every month. They share their
 
 These new developers attend the meetup, share their great experiences with your company, and attract other talents. The circle continues.
 
-This way, you can hire great developers without heavy HR investments by supporting your technical stack. We've seen many startups using this approach with success, which was followed by a successful exit to a global fund.
+This way, you can hire great developers without heavy HR investments by supporting your technical stack. We've seen many startups successfully using this approach, followed by a successful exit to a global fund.
 
 ## Active Hiring Pool
 
-The goal of the upgrade is not to have a great codebase now. **The goal is to be competitive in the next 3-5 years, prepare for any unexpected changes, and provide a superior experience for our customers. That's why they buy products or services from us, and that's what keeps the company growing.
+The goal of the upgrade is not to have a great codebase at the moment. **The goal is to be competitive in the next 3-5 years, prepare for any unexpected changes, and provide a superior experience for our customers. That's why they buy products or services from us, which keeps the company growing.
 
 There is a lack of developers who bring value to your project. This is obvious for any growing company that needs to hire more developers. That's why focus on a hiring pool—a group of developers you can hire from. These developers meet your conditions, and you meet their payment expectations. Like a fish pool, this pool has to be growing and healthy.
 
-What does this mean in practice? For example, let's say your project uses the latest Symfony 7.x. But the applicants around you know Laravel well. Of course, you can teach them different technology than they use daily. But most likely, they won't be productive. It's more likely your developer count will head to zero as your hiring pool is dry.
+What does this mean in practice? For example, your project uses the latest Symfony 7.x. But your job applicants know only Laravel. Of course, you can teach them different technology than they use daily, but they won't be productive. It's more likely your developer count will head to zero as your hiring pool is dry.
 
 This applies vise versa: if you use the latest Laravel, but all you can hire from are Symfony developers, your project will be unable to grow. **So always consider your specific hiring pool first**.
 
 ## Upgrade or Change?
 
-We can move to the technology itself once we have considered your hiring pool.
+We can move to the technology once we consider your hiring pool.
 
 * There is a group we call "dying frameworks". Those are frameworks that very few people would choose to build a new project in 2024.
 
@@ -73,7 +73,7 @@ We also wrote about [Phalcon framework](/blog/how-to-upgrace-phalcon-project). W
 <br>
 <br>
 
-Once we have stats for your *framework X*, we need  **a stable reference to compare to**. We use Symfony or Laravel stats. Here let's check [Laravel stats](https://packagist.org/packages/laravel/framework/stats):
+Once we have stats for your *framework X*, we need  **a stable reference to compare to**. We use Symfony or Laravel stats. Here, let's check [Laravel stats](https://packagist.org/packages/laravel/framework/stats):
 
 <img src="https://private-user-images.githubusercontent.com/924196/327701706-b8cd6271-37f4-4647-a3df-565a11adfcf5.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTQ3MjY4NjcsIm5iZiI6MTcxNDcyNjU2NywicGF0aCI6Ii85MjQxOTYvMzI3NzAxNzA2LWI4Y2Q2MjcxLTM3ZjQtNDY0Ny1hM2RmLTU2NWExMWFkZmNmNS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwNTAzJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDUwM1QwODU2MDdaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT00ZjYzMGYxMTBlMWYyMTg0ZWQ1Nzc2ZTNkNzU5Mzc0MmRiMWIzODRiNDFmNTRmM2IxYjliMzQ4YmQwZDNmM2JmJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.iaoUNWx51OS-JVZOtGEs5p_scKNbJ0azO6Pq1uzgGno" class="img-thumbnail">
 
@@ -95,28 +95,29 @@ Now that we have data about the hiring pool and the dying or living framework, t
 
 As we wrote in [How to Upgrade Zend Legacy Project](/blog/how-to-upgrade-zend-legacy-project), it's cheaper to completely change from an ancient framework like Zend 1 to the latest Laravel/Symfony. But if your project uses Zend 3, sticking with it and upgrading is generally cheaper.
 
-Here, we'll share a few practical examples of how to evaluate these data so you can have a better idea of whether to upgrade or change.
+Here, we'll share a few practical examples of how to evaluate these data so you can better decide whether to upgrade or change.
 
 ### Usecase A
 
 * framework X is CakePHP 2
-* hiring pool is active with Symfony and Zend developers
+* The hiring pool is active with Symfony and Zend developers
 * Symfony has more downloads than Zend
 * your developers use Symfony or Laravel in their hobby projects
 
-Upgrading CakePHP 2 to the CakePHP 4 doesn't make sense, as you don't have any new CakePHP developers to hire from.
-You can choose Symfony or Zend developers. To decide, we check the downloads stats. Symfony has more downloads than Zend. Last but not least, we verify with the team. They'd prefer any of Symfony or Laravel.
+Upgrading CakePHP 2 to the CakePHP 4 doesn't make sense, as you need to have new CakePHP developers to hire from.
+
+You can choose Symfony or Zend developers. To decide, we check the download stats. Symfony has more downloads than Zend. Last but not least, we verify with the team. They'd prefer any of Symfony or Laravel.
 
 **Symfony is the best choice**
 
 ### Usecase B
 
-* hiring pool is active with Symfony and Laravel
+ the hiring pool is active with Symfony and Laravel
 * framework X is Symfony 5.0
 * Symfony and Laravel have quite similar downloads
 * your developers use rather Laravel in their hobby projects
 
-Symfony is a living framework, so we might stick with. Your hiring pool has Symfony developers, so we're good to grow. The latest Symfony version is 7, so we'd only have to upgarde 2 major version = doable. Despite your developers prefer Laravel, we'd stick with Symfony.
+Symfony is a living framework we can stick with. Your hiring pool has Symfony developers, so we're suitable to grow. The latest Symfony version is 7, so we'd only have to upgrade 2 major versions = doable. Despite your developers prefer Laravel, we'd stick with Symfony.
 
 ### Usecase C
 
@@ -124,7 +125,7 @@ Same as above, but:
 
 * your framework X is Symfony 2.x.
 
-Here we want to demonstrate when it might be **cheaper to switch framework than upgrade, depending on the age of your current version**. Symfony 2 has been released in 2011 and has completely different architecture than current Symfony 7.
+Here, we want to demonstrate when it might be **cheaper to switch frameworks than upgrade, depending on the age of your current version**. Symfony 2 was released in 2011 and has an entirely different architecture than the current Symfony 7.
 
 To get Symfony 2 to Symfony 7, we'd have to go:
 
@@ -134,19 +135,16 @@ To get Symfony 2 to Symfony 7, we'd have to go:
 * Symfony 5 → Symfony 6
 * Symfony 6 → Symfony 7
 
-On the other hand, your developers developers prefer Laravel. That means your project could grow further with Laravel developers. The switch from Symfony 2 to Laravel 11 would be only single step:
+On the other hand, your developers developers prefer Laravel. That means your project could grow further with Laravel developers. The switch from Symfony 2 to Laravel 11 would be only a single step:
 
 * Symfony 2 → Laravel 11
 
-Here, we'd go for framework switch as cheaper and more beneficial solution.
+Here, we'd choose a framework switch as a cheaper and more beneficial solution.
 
 <br>
 
-This is how we discuss descission to upgrade or change framework completely with our clients.
+This is how we discuss with our clients about the decision to upgrade or change the framework entirely.
 
 <br>
 
 Happy coding!
-
-
-
