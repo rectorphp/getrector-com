@@ -35,7 +35,10 @@ final class Post
     public function getClearTitle(): string
     {
         $clearTitle = strip_tags($this->title);
-        return str_replace('&nbsp;', ' ', $clearTitle);
+        $clearTitle = str_replace('&nbsp;', ' ', $clearTitle);
+
+        // this would break urls
+        return str_replace('?', '', $clearTitle);
     }
 
     public function getPerex(): string
