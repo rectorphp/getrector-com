@@ -19,15 +19,24 @@ We'll likely start hands-on upgrade work not even 40 days after first contact. W
 
 ## 2. Space for Deep work focus
 
-Some PHP projects become hard to work with because there is something deeply wrong with them. It's like a traumatized person who needs help out of depression. Their problems will disappear after watching a few YouTube videos on self-help. In the same way, legacy code will not be upgraded by reading a few documentation pages. Otherwise, these projects would already be fixed by their own developers' team.
+Some PHP projects become hard to work with because there is something deeply wrong with them. It's like a traumatized person who needs help out of depression. Their problems will not disappear after watching a few YouTube videos on self-help.
 
-Successful companies understand this, and they're willing to invest and give space for deep work exploration. They know that it takes time to understand the complexity of the problem and that we need to think about the problem deeply before coming up with a solution.
+In the same way, legacy code will not be upgraded by reading a few articles about legacy upgrades. Otherwise, these projects would already be fixed by their own developers' team.
+
+Successful companies understand this, and they're willing to invest and give space for deep work exploration. **They know that it takes time to understand the complexity of the problem** and that we need to think about the problem deeply before coming up with a solution.
 
 For example, a couple of projects we worked on used synonymous testing tools to test the same logic—there was PHPUnit, PHPSpec, and Codeception at the same time—all using unit testing of the same code.
 
-This makes tests hard to read, as you have to switch context and distract.
+It's like having 3 cars to drive to work everyday. This makes tests hard to read, as you have to switch context.
 
-We could quickly delete 2 of them or ignore them (worked so far, right?). None of these would be a sustainable solution, only postponing the problem. Instead, we thought about it and came up with migrating all tests to PHPUnit using custom Rector rules. The test value is kept; we have 1 tool instead of 3.
+We could quickly delete 2 of them or ignore them (worked so far, right?). None of these would be a sustainable solution, only postponing the problem.
+
+Instead, we took time to think deeply and came up with solution that:
+
+ * keeps the value of tests
+ * and reduces complexity from 3 to 1
+
+We migrated all tests to PHPUnit using custom Rector rules.
 
 ## 3. Trust
 
@@ -68,12 +77,15 @@ Every gardener knows that if you want your apple tree to grow, you must prune br
 
 Successful companies understand this principle. Remember the [Twitter firing 80 % of stuff](https://edition.cnn.com/2023/04/12/tech/elon-musk-bbc-interview-twitter-intl-hnk/index.html) to deliver more features than ever before.
 
- Legacy projects are similar to overgrown trees. In the first couple, prune packages bring little value but cost maintenance. For example, some projects we started with had PHPStan, SARB, Psalm, ppm,d, and a colossal baseline. That's five different approaches to static analysis with little extra value. It's like paying taxes in five countries from the same income. It takes a lot of pruning to get to a bare PHPStan setup with a single config. Successful companies are willing to do so and replicate similar approaches in other places.
+ Legacy projects are similar to overgrown trees. In the first couple of months, we radically prune packages that bring marginal value to the project.
 
+ For example, some projects we started with had PHPStan, SARB, Psalm, ppm,d, and a colossal baseline. That's 5 different approaches to static analysis with little extra value.
+
+ It's like paying taxes in 5 countries for the same income. It takes a lot of pruning to get to a bare PHPStan setup with a single config. Successful companies are willing to do so and actually replicate this approaches in other places themselves.
 
 <br>
 
-Last but not least, people from successful companies care about the company. In a way, they want the best for the project in the future, not to fast-tick the KPI and bonus in a salary. If we look at the headlines, it's a deep friendship.
+Last but not least, **people from successful companies care about the company**. They want the best for the project in the future, not to fast-tick the KPI and bonus in a salary. If we look at the headlines of this post, it's like a recipe for good friendship.
 
 Do you recognize yourself in some of those traits? Would you like to learn the other ones? [Let us know](https://getrector.com/contact); we're ready to help.
 
