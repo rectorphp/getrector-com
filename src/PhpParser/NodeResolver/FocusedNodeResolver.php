@@ -13,7 +13,7 @@ final class FocusedNodeResolver
     /**
      * @param Node[] $nodes
      */
-    public function focus(array $nodes, int $activeNodeId): Node
+    public function focus(array $nodes, int $activeNodeId): ?Node
     {
         // find selected node
         $nodeFinder = new NodeFinder();
