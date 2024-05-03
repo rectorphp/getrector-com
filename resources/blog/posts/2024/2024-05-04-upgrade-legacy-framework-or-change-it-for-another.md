@@ -1,6 +1,6 @@
 ---
 id: 63
-title: "Upgrade Legacy Framework or Change it for Another"
+title: "Upgrade Legacy Framework or Change it for Another?"
 perex: |
     Would you upgrade your Nokia 3310 to a newer Nokia or change it to an iPhone with USB-C? Would you upgrade your old Ford Fiesta to a newer Ford or change it to a Tesla Model 3? Would you upgrade your house's wooden windows for better wood or use plastic 3-layers?
 
