@@ -48,9 +48,9 @@ We can move to the technology once we consider your hiring pool.
 
 If you're a business owner/CTO and not an active part of the online/offline PHP community, it can be hard to know which is which. Your company has used the *framework X* since the beginning, so it's only reasonable to keep using it.
 
-**There is a quick way to guesstimate whether framework X belongs to the "dying" or "living" category. The download statistics show that if framework X is popular, most developers will know about it, use it, learn it, and improve it.
+**There is a quick way to guesstimate whether framework X belongs to the "dying" or "living" category** The download statistics show that if framework X is popular, most developers will know about it, use it, learn it, and improve it.
 
-How to find out downloads stat numbers?
+### How to find out downloads stat numbers?
 
 * Go to https://packagist.org/
 * Type your framework name into the search bar and press Enter
@@ -85,9 +85,9 @@ Now we have the data to compare. What to look at?
 * **absolute daily/monthly downloads** - this will give you an idea if your framework is popular or not
 * **trending line** - how healthy community is, is framework growing or not; look for past 1-2 years
 
+<br>
 
-
-## Decision Tree
+## Examples of Decisions based on data
 
 Now that we have data about the hiring pool and the dying or living framework, the last criterion is the framework's age.
 
@@ -97,10 +97,12 @@ As we wrote in [How to Upgrade Zend Legacy Project](/blog/how-to-upgrade-zend-le
 
 Here, we'll share a few practical examples of how to evaluate these data so you can better decide whether to upgrade or change.
 
-### Usecase A
+<br>
+
+## Usecase A
 
 * framework X is CakePHP 2
-* The hiring pool is active with Symfony and Zend developers
+* the hiring pool is active with Symfony and Zend developers
 * Symfony has more downloads than Zend
 * your developers use Symfony or Laravel in their hobby projects
 
@@ -108,38 +110,32 @@ Upgrading CakePHP 2 to the CakePHP 4 doesn't make sense, as you need to have new
 
 You can choose Symfony or Zend developers. To decide, we check the download stats. Symfony has more downloads than Zend. Last but not least, we verify with the team. They'd prefer any of Symfony or Laravel.
 
-**Symfony is the best choice**
+**Symfony is the best choice.**
 
-### Usecase B
+## Usecase B
 
- the hiring pool is active with Symfony and Laravel
-* framework X is Symfony 5.0
+* your framework is Symfony 5.0
+* the hiring pool is active with Symfony and Laravel
 * Symfony and Laravel have quite similar downloads
 * your developers use rather Laravel in their hobby projects
 
-Symfony is a living framework we can stick with. Your hiring pool has Symfony developers, so we're suitable to grow. The latest Symfony version is 7, so we'd only have to upgrade 2 major versions = doable. Despite your developers prefer Laravel, we'd stick with Symfony.
+Symfony is a living framework we can stick with. Your hiring pool has Symfony developers, so we're suitable to grow. The latest Symfony version is 7, so we'd only have to upgrade 2 major versions = doable. Despite your developers prefer Laravel, **we'd stick with Symfony**.
 
-### Usecase C
+## Usecase C
 
 Same as above, but:
 
 * your framework X is Symfony 2.x.
 
-Here, we want to demonstrate when it might be **cheaper to change frameworks, depending on the age of your current version**. Symfony 2 was released in 2011 and has an entirely different architecture than the current Symfony 7.
+Here, we want to demonstrate when it might be **cheaper to change frameworks, depending on the age of your current version**. Symfony 2 was released in 2011 and has an entirely different architecture than the current Symfony 7. It's 13 years technology gap and 5 major versions to upgrade.
 
-To get Symfony 2 to Symfony 7, we'd have to go:
+<br>
 
-* Symfony 2 → Symfony 3
-* Symfony 3 → Symfony 4
-* Symfony 4 → Symfony 5
-* Symfony 5 → Symfony 6
-* Symfony 6 → Symfony 7
-
-On the other hand, your developers developers prefer Laravel. That means your project could grow further with Laravel developers. The change from Symfony 2 to Laravel 11 would be only a single step:
+On the other hand, **your developers developers prefer Laravel**. That means your project could grow further with Laravel developers. The change from Symfony 2 to Laravel 11 would be only a single step:
 
 * Symfony 2 → Laravel 11
 
-Here, we'd choose a framework change as a cheaper and more beneficial solution.
+Here, we'd choose a framework **change from Symfony to Laravel** as a cheaper and more beneficial solution.
 
 <br>
 
