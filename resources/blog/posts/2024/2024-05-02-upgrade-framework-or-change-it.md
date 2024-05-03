@@ -125,7 +125,7 @@ Same as above, but:
 
 * your framework X is Symfony 2.x.
 
-Here, we want to demonstrate when it might be **cheaper to switch frameworks than upgrade, depending on the age of your current version**. Symfony 2 was released in 2011 and has an entirely different architecture than the current Symfony 7.
+Here, we want to demonstrate when it might be **cheaper to change frameworks, depending on the age of your current version**. Symfony 2 was released in 2011 and has an entirely different architecture than the current Symfony 7.
 
 To get Symfony 2 to Symfony 7, we'd have to go:
 
@@ -135,11 +135,11 @@ To get Symfony 2 to Symfony 7, we'd have to go:
 * Symfony 5 → Symfony 6
 * Symfony 6 → Symfony 7
 
-On the other hand, your developers developers prefer Laravel. That means your project could grow further with Laravel developers. The switch from Symfony 2 to Laravel 11 would be only a single step:
+On the other hand, your developers developers prefer Laravel. That means your project could grow further with Laravel developers. The change from Symfony 2 to Laravel 11 would be only a single step:
 
 * Symfony 2 → Laravel 11
 
-Here, we'd choose a framework switch as a cheaper and more beneficial solution.
+Here, we'd choose a framework change as a cheaper and more beneficial solution.
 
 <br>
 

@@ -32,7 +32,7 @@ If you have Zend 2, deciding what to do next is more complex.
 
 You have 2 options:
 
-First, similar to the above, upgrade your project to Zend 3. Once you're on Zend 3, you can switch to Laminas. **The huge downside of this approach** is that there is no Zend 2 to 3 upgrade set. You'd have to do this manually or with Rector's help by writing custom rules.
+First, similar to the above, upgrade your project to Zend 3. Once you're on Zend 3, you can change to Laminas. **The huge downside of this approach** is that there is no Zend 2 to 3 upgrade set. You'd have to do this manually or with Rector's help by writing custom rules.
 
 Zend 2 and 3 are quite different, with some packages removed and some newly added - you can read more about it in the documentation - [Upgrading to Zend 3.0
 ](https://docs.zendframework.com/zend-mvc/migration/to-v3-0/).
@@ -41,7 +41,7 @@ We strongly recommend hiring a senior developer who's done such a migration as a
 
 <br>
 
-Second, you can switch to another framework like Symfony/Laravel. Surprisingly, such a switch is **cheaper to perform**, thanks to the vast Symfony/Laravel ecosystem and well community support.
+Second, you can change to another framework like Symfony/Laravel. Surprisingly, such a change is **cheaper to perform**, thanks to the vast Symfony/Laravel ecosystem and well community support.
 
 Instead of a 2-step migration, going Zend 2 to 3, then Laminas, this is only a single step. The work is done in parallel, so feature [delivery keeps running](/blog/success-story-of-automated-framework-migration-from-fuelphp-to-laravel-of-400k-lines-application). The only work that needs to be done is to identify MVC patterns in your specific Zend 2 project. MVC patterns in Symfony/Laravel are very well documented, and Zend 2 features are a major subset of them.
 
@@ -55,7 +55,7 @@ Go from Zend 1 to Zend 2, Zend 2 to Zend 3, and then to Laminas. If you decide t
 
 It's like upgrading from Windows 3.11 to 95, from 95 to 2000, from 200O to NT, then to XP and Windows 11. The difference is so huge that the A to Z jump is cheaper and more effective than going through all the versions.
 
-The second option is to switch Zend 1 to Symfony/Laravel. This requires identifying MVC patterns in Zend 1 and then writing custom rules to migrate to Symfony/Laravel. Based on our experience, Zend 1 has fewer features than Zend 2, so mapping to Symfony/Laravel is easier as there are fewer features to migrate.
+The second option is to change Zend 1 to Symfony/Laravel. This requires identifying MVC patterns in Zend 1 and then writing custom rules to migrate to Symfony/Laravel. Based on our experience, Zend 1 has fewer features than Zend 2, so mapping to Symfony/Laravel is easier as there are fewer features to migrate.
 
 ## What is the community you Hire From
 
