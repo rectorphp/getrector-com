@@ -20,7 +20,6 @@ use Rector\Website\PhpParser\ClickablePrinter;
 use Rector\Website\PhpParser\NodeResolver\FocusedNodeResolver;
 use Rector\Website\PhpParser\SimplePhpParser;
 use Rector\Website\Repository\AstRunRepository;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 final class AstDetailController extends Controller
 {
