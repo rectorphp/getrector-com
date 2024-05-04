@@ -46,7 +46,7 @@ We don't have meetings to rethink, we don't discuss for weeks in PR, and they do
 
 If we feel our clients trust us, we react responsibly and take projects seriously like our own. We come up with solutions that are harder for us to prepare and execute but will bring more value to the project in the future.
 
-## 4. Fast merging
+## 4. Fast Merging
 
 This is related to trust. If we trust our clients and our clients trust us, we also trust the code. It's our job to increase the trust in the code itself by anyone working with it. If a junior comes to the project, they have to be confident they can make a change and it will not break the project.
 
@@ -70,14 +70,16 @@ That way, we know there is no loss of information, and our client knows they're 
 
 Every gardener knows that if you want your apple tree to grow, you must prune branches yearly. You have to cut branches that are weak, growing upwards or downwards, or too close to each other. It takes courage to do so—if a tree is neglected for a couple of years, up to 80 % of its branches have to be cut. As a result, the tree will grow juicy, full apples rich in vitamins.
 
-<blockquote class="blockquote mt-5 mb-5">
-    Perfection is achieved not when there is nothing more to add. <br>
-    but when there is nothing left to take away.
+<blockquote class="blockquote mt-5 mb-5 text-center">
+    "Perfection is achieved not when there is nothing more to add,<br>
+    but when there is nothing left to take away."
 </blockquote>
 
 Successful companies understand this principle. Remember the [Twitter firing 80 % of stuff](https://edition.cnn.com/2023/04/12/tech/elon-musk-bbc-interview-twitter-intl-hnk/index.html) to deliver more features than ever before.
 
  Legacy projects are similar to overgrown trees. In the first couple of months, we radically prune packages that bring marginal value to the project.
+
+<br>
 
  For example, some projects we started with had PHPStan, SARB, Psalm, ppm,d, and a colossal baseline. That's 5 different approaches to static analysis with little extra value.
 
