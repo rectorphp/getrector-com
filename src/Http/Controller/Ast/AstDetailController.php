@@ -8,6 +8,8 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Controller;
 use Illuminate\View\View;
 use PhpParser\Node;
+use PhpParser\Node\Attribute;
+use PhpParser\Node\AttributeGroup;
 use PhpParser\Node\Expr\Variable;
 use PhpParser\Node\Identifier;
 use PhpParser\Node\Name;
@@ -78,9 +80,15 @@ final class AstDetailController extends Controller
 
     private function resolveTargetNodeClass(Node $node): string
     {
-        if ($node instanceof UseUse) {
+        if ($node instanceof UseUse || $node instanceof AttributeGroup) {
             $parentNode = $node->getAttribute('parent');
             return $parentNode::class;
+        }
+
+        if ($node instanceof Attribute) {
+            $attributeGroup = $node->getAttribute('parent');
+            $stmt = $attributeGroup->getAttribute('parent');
+            return $stmt::class;
         }
 
         if ($node instanceof Stmt) {
