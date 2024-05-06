@@ -45,16 +45,13 @@ final class AstDetailController extends Controller
 
         $nodes = $this->simplePhpParser->parseString($astRun->getContent());
 
-        if ($activeNodeId) {
-            $focusedNode = $this->focusedNodeResolver->focus($nodes, $activeNodeId);
+        $focusedNode = $activeNodeId
+            ? $this->focusedNodeResolver->focus($nodes, $activeNodeId)
+            : null;
 
-            if (! $focusedNode instanceof Node) {
-                $simpleNodeDump = SimpleNodeDumper::dump($nodes);
-                $targetNodeClass = null;
-            } else {
-                $simpleNodeDump = SimpleNodeDumper::dump($focusedNode);
-                $targetNodeClass = $this->resolveTargetNodeClass($focusedNode);
-            }
+        if ($focusedNode instanceof Node) {
+            $simpleNodeDump = SimpleNodeDumper::dump($focusedNode);
+            $targetNodeClass = $this->resolveTargetNodeClass($focusedNode);
         } else {
             $simpleNodeDump = SimpleNodeDumper::dump($nodes);
             $targetNodeClass = null;
