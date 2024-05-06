@@ -42,12 +42,14 @@ Route::get('/thumbnail/{title}.png', ThumbnailController::class)
 Route::get('rss.xml', RssController::class);
 
 // demo
-Route::get('demo/{uuid}', DemoDetailController::class);
+Route::get('demo/{uuid}', DemoDetailController::class)
+    ->whereUuid('uuid');
 Route::get('demo', DemoController::class);
 Route::post('process-demo', ProcessDemoFormController::class);
 
 // ast
-// hide on production, until it's finished
 Route::get('ast', AstController::class);
-Route::get('ast/{uuid}/{activeNodeId?}', AstDetailController::class);
+Route::get('ast/{uuid}/{activeNodeId?}', AstDetailController::class)
+    ->whereUuid('uuid')
+    ->where('activeNodeId', '\d+');
 Route::post('process-ast', ProcessAstFormController::class);
