@@ -29,9 +29,14 @@
        class="nav-link">Docs</a>
 </li>
 
-@if (isset($includeBook))
+@if (isset($includeFooterLinks))
     <li class="nav-item">
         <a href="{{ action(\Rector\Website\Http\Controller\BookController::class) }}"
            class="nav-link">Book</a>
+    </li>
+
+    <li class="nav-item">
+        <a href="{{ action(\Rector\Website\Http\Controller\Ast\AstController::class) }}"
+           class="nav-link">Play with AST</a>
     </li>
 @endif

@@ -27,7 +27,7 @@
             <div class="col-12 col-md-7 mt-5 mt-md-0">
                 <div class="navbar">
                     <ul class="navbar-nav">
-                        @include('_snippets/menu_items', ['includeBook' => true])
+                        @include('_snippets/menu_items', ['includeFooterLinks' => true])
                     </ul>
                 </div>
             </div>
