@@ -23,10 +23,7 @@ You can start with open [https://getrector.com/ast](https://getrector.com/ast), 
 
 function foo()
 {
-    if (\rand(0, 1)) {
-        return 1;
-    }
-    return 2;
+    return 1;
 }
 ```
 
