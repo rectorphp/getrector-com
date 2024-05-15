@@ -67,15 +67,19 @@ For example, you want to remove `If_` stmt:
 -}
 ```
 
-You can returns `PhpParser\NodeTraverser::REMOVE_NODE`, eg:
+You can returns `\PhpParser\NodeTraverser::REMOVE_NODE`, eg:
 
 ```php
+use PhpParser\Node\Expr\BinaryOp\Identical;
+use PhpParser\NodeTraverser;
+use PhpParser\Node\Stmt\If_;
+
 /**
  * @param If_ $node
  */
 public function refactor(Node $node): ?int
 {
-    if ($node->cond instanceof \PhpParser\Node\Expr\BinaryOp\Identical) {
+    if ($node->cond instanceof Identical) {
         return null;
     }
 
@@ -87,12 +91,59 @@ public function refactor(Node $node): ?int
         return null;
     }
 
-    return \PhpParser\NodeTraverser::REMOVE_NODE;
+    return NodeTraverser::REMOVE_NODE;
 }
 ```
 
 so the `If_` node will be removed.
 
+## 4. Return `NodeTraverser::DONT_TRAVERSE_CURRENT_AND_CHILDREN` to skip `Node` below target `Node` on current `Rector` Rule
+
+For example, you need to check `Array_` node, but don't want to check if the `Array_` is inside `Property` or `ClassConst` `Node`, you can returns `\PhpParser\NodeTraverser::DONT_TRAVERSE_CURRENT_AND_CHILDREN`, which the `AbstractRector` cover it to ensure it remembered to [only skip below target `Node` on current `Rector` rule](https://github.com/rectorphp/rector-src/blob/6bd2b871c4e9741928fb48df3ca8e899be42be81/src/Rector/AbstractRector.php#L269-L291).
+
+so, you have the following target node types:
+
+```php
+use PhpParser\Node\Stmt\Property;
+use PhpParser\Node\Stmt\ClassConst;
+use PhpParser\Node\Expr\Array_;
+
+// ...
+    public function getNodeTypes(): array
+    {
+        return [
+            Property::class,
+            ClassConst::class,
+            Array_::class
+        ];
+    }
+```
+
+then, you can check:
+
+```php
+use PhpParser\NodeTraverser;
+
+// ...
+/**
+ * @param Property|ClassConst|Array_ $node
+ */
+public function refactor(Node $node): ?int
+{
+    if ($node instanceof Property || $node instanceof ClassConst) {
+        return NodeTraverser::DONT_TRAVERSE_CURRENT_AND_CHILDREN;
+    }
+
+    // process Array_ node
+}
+```
+
+so, it will not chek:
+
+- below current `Node`
+- on current Rector rule only.
+
+otherwise, it will be processsed.
 
 <br>
 
