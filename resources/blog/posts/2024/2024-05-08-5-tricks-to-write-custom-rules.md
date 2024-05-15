@@ -73,6 +73,16 @@ You can returns `\PhpParser\NodeTraverser::REMOVE_NODE`, eg:
 use PhpParser\Node\Expr\BinaryOp\Identical;
 use PhpParser\NodeTraverser;
 use PhpParser\Node\Stmt\If_;
+use Rector\PhpParser\Node\Value\ValueResolver;
+
+public function __construct(private readonly ValueResolver $valueResolver)
+{
+}
+
+public function getNodeTypes(): array
+{
+    return [If_::class];
+}
 
 /**
  * @param If_ $node
@@ -97,9 +107,9 @@ public function refactor(Node $node): ?int
 
 so the `If_` node will be removed.
 
-## 4. Return `NodeTraverser::DONT_TRAVERSE_CURRENT_AND_CHILDREN` to skip `Node` below target `Node` on current `Rector` Rule
+## 4. Return `NodeTraverser::DONT_TRAVERSE_CHILDREN` to skip `Node` below target `Node` on current `Rector` Rule
 
-For example, you need to check `Array_` node, but don't want to check if the `Array_` is inside `Property` or `ClassConst` `Node`, you can returns `\PhpParser\NodeTraverser::DONT_TRAVERSE_CURRENT_AND_CHILDREN`, which the `AbstractRector` cover it to ensure it remembered to [only skip below target `Node` on current `Rector` rule](https://github.com/rectorphp/rector-src/blob/6bd2b871c4e9741928fb48df3ca8e899be42be81/src/Rector/AbstractRector.php#L269-L291).
+For example, you need to check `Array_` node, but don't want to check if the `Array_` is inside `Property` or `ClassConst` `Node`, you can returns `\PhpParser\NodeTraverser::DONT_TRAVERSE_CHILDREN`, which the `AbstractRector` cover it to ensure it remembered to [only skip below target `Node` on current `Rector` rule](https://github.com/rectorphp/rector-src/blob/6bd2b871c4e9741928fb48df3ca8e899be42be81/src/Rector/AbstractRector.php#L269-L291).
 
 so, you have the following target node types:
 
@@ -132,19 +142,21 @@ public function refactor(Node $node): ?int
 {
     if ($node instanceof Property || $node instanceof ClassConst) {
         // Array_ below Property and ClassConst wont' be processed
-        return NodeTraverser::DONT_TRAVERSE_CURRENT_AND_CHILDREN;
+        return NodeTraverser::DONT_TRAVERSE_CHILDREN;
     }
 
     // process Array_ node that not below Property and ClassConst
 }
 ```
 
-so, it will not chek:
+so, it will:
 
-- below current `Node`
+- skip below current `Node`
 - on current Rector rule only.
 
 otherwise, it will be processsed.
+
+
 
 <br>
 
