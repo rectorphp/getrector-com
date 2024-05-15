@@ -4,10 +4,10 @@ title: "5 Tricks to Write Custom Rules"
 perex: |
     Rector and its [extensions](https://github.com/rectorphp/rector/?tab=readme-ov-file#empowered-by-community-heart) already consist of many rules for PHP upgrades, Framework upgrades, improve code quality and type coverage, however, you may need your own needs, that's the time you need to write your own custom rules.
 
-    Yes, there is documentation for how to write custom rules [https://getrector.com/documentation/custom-rule](https://getrector.com/documentation/custom-rule), but the following tricks can help you more.
+    Yes, there is documentation for how to [write custom rules](https://getrector.com/documentation/custom-rule), but the following tricks can help you more.
 ---
 
-## 1. Know what `Node` to be changed **before** vs **after** that is Needed
+## 1. Decide what `Node` to be changed **before** vs **after** that is Needed
 
 There are usually 2 kinds of `Node` instance that you can use:
 
@@ -30,9 +30,9 @@ Except you have a very specific use case that it may be ok to not refresh it, eg
 
 The list are in [`ScopeAnalyzer::NON_REFRESHABLE_NODES` constant](https://github.com/rectorphp/rector-src/blob/650dcc6394c6df206772350e525311f8080e5077/src/NodeAnalyzer/ScopeAnalyzer.php#L19).
 
-To know what `Node` is needed to be changed, you can see visual documentation of PHP Parser nodes [https://github.com/rectorphp/php-parser-nodes-docs](https://github.com/rectorphp/php-parser-nodes-docs), that you can see online at Play with AST Page [https://getrector.com/ast](https://getrector.com/ast) to see what target node to be used. We have a blog post for that at [https://getrector.com/blog/introducing-play-with-ast-page](https://getrector.com/blog/introducing-play-with-ast-page).
+To know what `Node` is needed to be changed, you can see visual [documentation of PHP Parser nodes](https://github.com/rectorphp/php-parser-nodes-docs), that you can see online at [Play with AST Page](https://getrector.com/ast) to see what target node to be used. We have a blog post for that at [Introducing with AST Page](https://getrector.com/blog/introducing-play-with-ast-page).
 
-## 2. Set Return `null` on no change, return the `Node` or array of `Stmt` `Node` on changed
+## 2. Return `null` on no change, return the `Node` or array of `Stmt` `Node` on changed
 
 For example:
 
@@ -57,9 +57,42 @@ public function refactor(Node $node): ?Node
 }
 ```
 
-## 3.
+## 3. Return `NodeTraverser::REMOVE_NODE` to remove `Stmt` node
 
-xxx
+For example, you want to remove `If_` stmt:
+
+```diff
+-if (false === true) {
+-    echo 'dead code';
+-}
+```
+
+You can returns `PhpParser\NodeTraverser::REMOVE_NODE`, eg:
+
+```php
+/**
+ * @param If_ $node
+ */
+public function refactor(Node $node): ?int
+{
+    if ($node->cond instanceof \PhpParser\Node\Expr\BinaryOp\Identical) {
+        return null;
+    }
+
+    if (! $this->valueResolver->isFalse($node->cond->left)) {
+        return null;
+    }
+
+    if (! $this->valueResolver->isTrue($node->cond->right)) {
+        return null;
+    }
+
+    return \PhpParser\NodeTraverser::REMOVE_NODE;
+}
+```
+
+so the `If_` node will be removed.
+
 
 <br>
 
