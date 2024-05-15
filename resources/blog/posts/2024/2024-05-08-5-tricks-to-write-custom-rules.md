@@ -32,7 +32,7 @@ The list are in [`ScopeAnalyzer::NON_REFRESHABLE_NODES` constant](https://github
 
 To know what `Node` is needed to be changed, you can see visual documentation of PHP Parser nodes [https://github.com/rectorphp/php-parser-nodes-docs](https://github.com/rectorphp/php-parser-nodes-docs), that you can see online at Play with AST Page [https://getrector.com/ast](https://getrector.com/ast) to see what target node to be used. We have a blog post for that at [https://getrector.com/blog/introducing-play-with-ast-page](https://getrector.com/blog/introducing-play-with-ast-page).
 
-## 2. Set Return `null` on no change, return the `Node` or array of `Nodes` on changed
+## 2. Set Return `null` on no change, return the `Node` or array of `Stmt` `Node` on changed
 
 For example:
 
@@ -48,7 +48,7 @@ public function refactor(Node $node): ?Node
         return $node;
     }
 
-    // return array of nodes, usually array of Stmt[],
+    // return array of nodes, which should be array of Stmt[],
     // eg: insert new line before existing stmt
     return [
         new \PhpParser\Node\Stmt\Nop(),
@@ -57,7 +57,7 @@ public function refactor(Node $node): ?Node
 }
 ```
 
-## 3. XXX
+## 3.
 
 xxx
 
