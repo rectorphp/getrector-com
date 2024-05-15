@@ -7,7 +7,7 @@ perex: |
     Yes, there is documentation for how to [write custom rules](https://getrector.com/documentation/custom-rule), but the following tricks can help you more.
 ---
 
-## 1. Decide what `Node` to be changed **before** vs **after** that is Needed
+## 1. Decide What `Node` to be Changed **before** vs **after** that is Needed
 
 There are usually 2 kinds of `Node` instance that you can use:
 
@@ -32,7 +32,16 @@ The list are in [`ScopeAnalyzer::NON_REFRESHABLE_NODES` constant](https://github
 
 To know what `Node` is needed to be changed, you can see visual [documentation of PHP Parser nodes](https://github.com/rectorphp/php-parser-nodes-docs), that you can see online at [Play with AST Page](https://getrector.com/ast) to see what target node to be used. We have a blog post for that at [Introducing with AST Page](https://getrector.com/blog/introducing-play-with-ast-page).
 
-## 2. Return `null` on no change, return the `Node` or array of `Stmt` `Node` on changed
+## 2. Utilize `dump_node()` and `print_node()` for Debugging During Writing
+
+When you're on deep `Node` checking, you can directly get the `Node` structure or printed `Node` via Node utility:
+
+```php
+dump_node($node); // show AST structure
+print_node($node); // print content of Node
+```
+
+## 3. Return `null` on No change, the `Node` or Array of `Stmt` `Node` on Changed
 
 For example:
 
@@ -57,7 +66,7 @@ public function refactor(Node $node): ?Node
 }
 ```
 
-## 3. Return `NodeTraverser::REMOVE_NODE` to remove `Stmt` node
+## 4. Return `NodeTraverser::REMOVE_NODE` to remove `Stmt` node
 
 For example, you want to remove `If_` stmt:
 
@@ -107,7 +116,7 @@ public function refactor(Node $node): ?int
 
 so the `If_` node will be removed.
 
-## 4. Return `NodeTraverser::DONT_TRAVERSE_CHILDREN` to skip `Node` below target `Node` on current `Rector` Rule
+## 5. Return `NodeTraverser::DONT_TRAVERSE_CHILDREN` to Skip `Node` Below Target `Node` on Current `Rector` Rule
 
 For example, you need to check `Array_` node, but don't want to check if the `Array_` is inside `Property` or `ClassConst` `Node`, you can returns `\PhpParser\NodeTraverser::DONT_TRAVERSE_CHILDREN`, which the `AbstractRector` cover it to ensure it remembered to [only skip below target `Node` on current `Rector` rule](https://github.com/rectorphp/rector-src/blob/6bd2b871c4e9741928fb48df3ca8e899be42be81/src/Rector/AbstractRector.php#L269-L291).
 
