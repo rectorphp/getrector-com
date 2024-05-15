@@ -131,10 +131,11 @@ use PhpParser\NodeTraverser;
 public function refactor(Node $node): ?int
 {
     if ($node instanceof Property || $node instanceof ClassConst) {
+        // Array_ below Property and ClassConst wont' be processed
         return NodeTraverser::DONT_TRAVERSE_CURRENT_AND_CHILDREN;
     }
 
-    // process Array_ node
+    // process Array_ node that not below Property and ClassConst
 }
 ```
 
