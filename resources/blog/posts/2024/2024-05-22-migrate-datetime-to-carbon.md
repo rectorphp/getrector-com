@@ -2,9 +2,9 @@
 id: 66
 title: "Migrate DateTime to Carbon"
 perex: |
-    Carbon is a great library for working with dates and times in PHP. It's being used [by Laravel](https://medium.com/@mhmmdtech/datetime-handling-in-laravel-by-carbon-39e032a15a15) as default date time library.
+    Carbon is an excellent library for working with dates and times in PHP. It's being used [by Laravel](https://medium.com/@mhmmdtech/datetime-handling-in-laravel-by-carbon-39e032a15a15) as the default date-time library.
 
-    But it's not only syntax sugar wrap around `DateTime` class. It brings reliable way to test your code that depends on exact dates and times.
+    But it's not only syntax sugar wrapped around the `DateTime` class. It provides a reliable way to test your code that depends on exact dates and times.
 ---
 
 The [Carbon package](https://github.com/briannesbitt/Carbon) brings a practical API to work with dates:
@@ -29,12 +29,12 @@ $date = \Carbon\Carbon::now()->addMonths(2);
 
 ## Reliable Tests Under Control
 
-Where the Carbon package brings real value? Tests that depends on exact date. Native `DateTime` depends on timezone of server, or commiter. If they get into conflicts, "+1 day" can yield different result and make tests fail. Then we have to find out if that's false positive or a real problem. That's not the tests we want to debug.
+Where does the Carbon package bring real value? Tests that depend on the exact date. Native `DateTime` depends on the timezone of the server or commiter. If they get into conflicts, "+1 day" can yield different results and make tests fail. Then, we have to find out if that's a false positive or a real problem. That's not the tests we want to debug.
 
-Instead we can [mock the "now" directly](https://medium.com/@stefanledin/mock-date-and-time-with-carbon-8a9f72cb843d):
+Instead, we can [mock the "now" directly](https://medium.com/@stefanledin/mock-date-and-time-with-carbon-8a9f72cb843d):
 
 ```php
-// Don't really want this to happen so mock now
+// Don't want this to happen so mock now
 Carbon::setTestNow(Carbon::createFromDate(2000, 1, 1));
 
 // comparisons are always done in UTC
@@ -42,11 +42,11 @@ if (Carbon::now()->gte($internetWillBlowUpOn)) {
     die();
 }
 
-// Phew! Return to normal behaviour
+// Phew! Return to normal behavior
 Carbon::setTestNow();
 ```
 
-That way we  **make date constant through our test suite** for any developer or server.
+That way, we  **make a date constant through our test suite** for any developer or server.
 
 ## How to Migrate DateTime to Carbon
 
@@ -73,12 +73,12 @@ return RectorConfig::configure()
     ->withPreparedSets(carbon: true);
 ```
 
-This way your tests will become reliable and you won't have to wait for another developer to make CI trigger in the "right time" again.
+This way, your tests will become reliable, and you won't have to wait for another developer to trigger CI at the "right time" again.
 
 <br>
 
 
-This set is still fresh, so if it misses some case, [let us know in the issues](https://github.com/rectorphp/rector/issues).
+This set is still fresh, so if it misses some cases, [let us know](https://github.com/rectorphp/rector/issues).
 
 <br>
 
