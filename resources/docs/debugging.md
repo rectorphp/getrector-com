@@ -6,7 +6,13 @@ You can use `--debug` option, that will print nested exceptions output:
 vendor/bin/rector process src/Controller --debug
 ```
 
-Also an Xdebug:
+This option additionally disables parallel processing for debug purposes.
+
+<br>
+
+### Xdebug
+
+You can also make use of xdebug:
 
 1. Make sure [Xdebug](https://xdebug.org/) is installed and enabled
 2. Add `--xdebug` option when running Rector

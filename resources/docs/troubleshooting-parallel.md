@@ -11,17 +11,11 @@ $ vendor/bin/rector process
     "Reached system errors count limit of 50, exiting..."
 ```
 
-When this happens, the first good approach is to disable parallel processing. The output of parallel failures can hide some fatal errors from the source codebase. You can do so by:
+When this happens, the first good approach is to use `--debug` option that automatically disables parallel processing.
 
-```php
-return RectorConfig::configure()
-   //
-   ->withoutParallel();
-```
+<br>
 
-
-After that, if rector processing works fine, that is an indication that you might need to adjust your parallel process to some balanced load, depending on the resource
-s you have to process rector.
+After that, if Rector processing works fine, that is an indication that you might need to adjust your parallel process to some balanced load, depending on the resources you have to process rector.
 
 ## Configure Parallel
 
