@@ -69,10 +69,10 @@ final class PostFactory
             $dateTime,
             $perex,
             $htmlContent,
+            $author,
             $updatedAt,
             $updatedMessage,
-            $sinceRector,
-            $author
+            $sinceRector
         );
     }
 }

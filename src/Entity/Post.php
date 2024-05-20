@@ -16,10 +16,10 @@ final class Post
         private readonly DateTimeInterface $dateTime,
         private readonly string $perex,
         private readonly string $contents,
+        private readonly string $author,
         private readonly ?DateTimeInterface $updatedAt = null,
         private readonly ?string $updatedMessage = null,
-        private readonly ?string $sinceRector = null,
-        private readonly string $author
+        private readonly ?string $sinceRector = null
     ) {
     }
 
