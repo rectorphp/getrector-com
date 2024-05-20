@@ -18,7 +18,8 @@ final class Post
         private readonly string $contents,
         private readonly ?DateTimeInterface $updatedAt = null,
         private readonly ?string $updatedMessage = null,
-        private readonly ?string $sinceRector = null
+        private readonly ?string $sinceRector = null,
+        private readonly string $author
     ) {
     }
 
@@ -86,5 +87,10 @@ final class Post
     public function hasTweets(): bool
     {
         return str_contains($this->contents, 'class="twitter-tweet"');
+    }
+
+    public function getAuthor(): ?string
+    {
+        return $this->author;
     }
 }

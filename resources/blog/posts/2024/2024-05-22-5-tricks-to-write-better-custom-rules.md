@@ -24,7 +24,7 @@ Complete parent node of "PhpParser\Node\Attribute" be a stmt.
 
 <br>
 
-Except you have a particular use case that it may be ok not to refresh it, e.g.:
+In some cases, it may be ok not to refresh the node, e.g.:
 
 - `PhpParser\Node\Name`
 - `PhpParser\Node\Identifier`

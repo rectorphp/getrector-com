@@ -13,6 +13,7 @@ use Imagine\Image\Point;
 use Nette\Utils\FileSystem;
 use Nette\Utils\Strings;
 use Rector\Website\Enum\FontFile;
+use Rector\Website\Repository\PostRepository;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Webmozart\Assert\Assert;
 
@@ -24,7 +25,8 @@ final class ThumbnailController extends Controller
     private const THUMBNAIL_DIRECTORY = __DIR__ . '/../../../storage/thumbnail/';
 
     public function __construct(
-        private readonly Imagine $imagine
+        private readonly Imagine $imagine,
+        private readonly PostRepository $postRepository,
     ) {
     }
 
@@ -60,10 +62,22 @@ final class ThumbnailController extends Controller
         $drawer->text($title, $blackFont, new Point(130, 340), 0, 1800);
 
         $greenFont = $this->createFont(FontFile::INTER, '59a35e', 40);
-        $drawer->text('Written by Tomas Votruba', $greenFont, new Point(130, 870), 0, 400);
+
+        $post = $this->postRepository->findByTitle($title);
+
+        $author = $post->getAuthor();
+        if ($author === 'samsonasik') {
+            $authorName = 'Abdul Malik Ikhsan';
+            $authorPicture = __DIR__ . '/../../../public/assets/images/samsonasik_circle.jpg';
+        } else {
+            $authorName = 'Tomas Votruba';
+            $authorPicture = __DIR__ . '/../../../public/assets/images/tomas_votruba_circle.jpg';
+        }
+
+        $drawer->text("Written by \n" . $authorName, $greenFont, new Point(130, 870), 0, 550);
 
         // add author face
-        $faceImage = $this->imagine->open(__DIR__ . '/../../../public/assets/images/tomas_votruba_circle.jpg');
+        $faceImage = $this->imagine->open($authorPicture);
         $faceImage->resize(new Box(200, 200));
 
         $image->paste($faceImage, new Point(1700, 800));
