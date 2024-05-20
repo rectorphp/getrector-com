@@ -12,6 +12,7 @@ use Imagine\Image\Palette\RGB;
 use Imagine\Image\Point;
 use Nette\Utils\FileSystem;
 use Nette\Utils\Strings;
+use Rector\Website\Entity\Post;
 use Rector\Website\Enum\FontFile;
 use Rector\Website\Repository\PostRepository;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
@@ -65,8 +66,7 @@ final class ThumbnailController extends Controller
 
         $post = $this->postRepository->findByTitle($title);
 
-        $author = $post->getAuthor();
-        if ($author === 'samsonasik') {
+        if ($post instanceof Post && $post->getAuthor() === 'samsonasik') {
             $authorName = 'Abdul Malik Ikhsan';
             $authorPicture = __DIR__ . '/../../../public/assets/images/samsonasik_circle.jpg';
         } else {
