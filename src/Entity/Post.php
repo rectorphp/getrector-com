@@ -16,6 +16,7 @@ final class Post
         private readonly DateTimeInterface $dateTime,
         private readonly string $perex,
         private readonly string $contents,
+        private readonly string $author,
         private readonly ?DateTimeInterface $updatedAt = null,
         private readonly ?string $updatedMessage = null,
         private readonly ?string $sinceRector = null
@@ -86,5 +87,10 @@ final class Post
     public function hasTweets(): bool
     {
         return str_contains($this->contents, 'class="twitter-tweet"');
+    }
+
+    public function getAuthor(): ?string
+    {
+        return $this->author;
     }
 }

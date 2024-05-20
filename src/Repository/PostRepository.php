@@ -36,6 +36,12 @@ final class PostRepository
         return $this->posts;
     }
 
+    public function findByTitle(string $title): ?Post
+    {
+        $filter = static fn (Post $post): bool => $post->getTitle() === $title;
+        return ArrayLookupFinder::first($this->posts, $filter);
+    }
+
     public function findBySlug(string $slug): ?Post
     {
         $filter = static fn (Post $post): bool => $post->getSlug() === $slug;

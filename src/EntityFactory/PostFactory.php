@@ -58,6 +58,7 @@ final class PostFactory
 
         $updatedAt = isset($configuration['updated_at']) ? new DateTime($configuration['updated_at']) : null;
         $updatedMessage = $configuration['updated_message'] ?? null;
+        $author = $configuration['author'] ?? 'tomasvotruba';
 
         $sinceRector = isset($configuration['since_rector']) ? (string) $configuration['since_rector'] : null;
 
@@ -68,6 +69,7 @@ final class PostFactory
             $dateTime,
             $perex,
             $htmlContent,
+            $author,
             $updatedAt,
             $updatedMessage,
             $sinceRector
