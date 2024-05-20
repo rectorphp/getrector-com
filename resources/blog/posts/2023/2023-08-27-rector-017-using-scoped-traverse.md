@@ -5,6 +5,8 @@ perex: |
     Rector [no longer supports parent node lookup](/blog/rector-017-brings-more-robust-and-lighter-node-tree) since version 0.17. To look up a specific node, we'll have to traverse from parent to child node instead.
 
     Here is how we can achieve it.
+
+author: samsonasik
 ---
 
 For example, we want to find all the `return` nodes in the following code. But we want to skip those inside **inner scope** - _anonymous classes_, _inner functions_ or _closures_.
