@@ -5,6 +5,7 @@ perex: |
     Correctness has more priority than speed. Since version 0.14.x, Rector has better scope refresh handling for multiple rules and handle more crash that happen on 0.13.x. On 0.15.x, Rector give optimization a chance to raise.
 
 since_rector: 0.15.22
+author: samsonasik
 ---
 
 
