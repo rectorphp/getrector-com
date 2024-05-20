@@ -1,5 +1,5 @@
 ---
-id: 66
+id: 67
 title: "5 Tricks to Write Better Custom Rules"
 perex: |
     Rector and its [extensions](https://github.com/rectorphp/rector/?tab=readme-ov-file#empowered-by-community-heart) already consist of many rules for PHP and Framework upgrades, improving code quality and type coverage. However, you may have your own needs - that's when you need to write your own custom rules.
