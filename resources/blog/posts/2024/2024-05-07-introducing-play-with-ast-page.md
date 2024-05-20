@@ -3,6 +3,8 @@ id: 65
 title: "Introducing Play with AST page"
 perex: |
     Do you want to know what the AST structure from a PHP Source code? The getrector.com will help you with new interactive form.
+
+author: samsonasik
 ---
 
 Even for experienced Rector users, manual trial and error may be needed to decide which `Node` to use when creating a new Rector rule or refactoring an existing one. We are here to help you so that you can play before deciding which `Node` you want to use to refactor your code.

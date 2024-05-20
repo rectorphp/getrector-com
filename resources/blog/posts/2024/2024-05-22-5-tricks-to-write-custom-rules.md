@@ -5,6 +5,8 @@ perex: |
     Rector and its [extensions](https://github.com/rectorphp/rector/?tab=readme-ov-file#empowered-by-community-heart) already consist of many rules for PHP upgrades, Framework upgrades, improve code quality and type coverage, however, you may need your own needs, that's the time you need to write your own custom rules.
 
     Yes, there is documentation for how to [write custom rules](https://getrector.com/documentation/custom-rule), but the following tricks can help you more.
+
+author: samsonasik
 ---
 
 ## 1. Decide What `Node` to be Changed **before** vs **after** that is Needed
