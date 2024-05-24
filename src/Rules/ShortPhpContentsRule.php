@@ -16,7 +16,7 @@ final class ShortPhpContentsRule implements ValidationRule
     private const INPUT_LINES_LIMIT = 100;
 
     /**
-     * @param \Closure(string):PotentiallyTranslatedString $fail
+     * @param Closure(string):PotentiallyTranslatedString $fail
      */
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
