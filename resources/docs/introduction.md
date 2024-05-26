@@ -43,6 +43,14 @@ return RectorConfig::configure()
     ->withPreparedSets(deadCode: true);
 ```
 
+> If you're on PHP 7.x, you need to passed value argument instead, on `deadCode` argument set as first argument:
+> ```php
+>    ->withPreparedSets(true)
+> ```
+>
+> and set other argument position to true if needed.
+
+
 To see preview of suggested changed, run `process` command with `--dry-run` option:
 
 ```bash
