@@ -43,6 +43,12 @@ return RectorConfig::configure()
     ->withPreparedSets(deadCode: true);
 ```
 
+> If you're on PHP 7.x, you can use `withSets()` instead, for `deadCode` set, so you can define:
+> ```diff
+> -   ->withPreparedSets(deadCode: true);
+> +   ->withSets([SetList::DEAD_CODE]);
+> ```
+
 To see preview of suggested changed, run `process` command with `--dry-run` option:
 
 ```bash
