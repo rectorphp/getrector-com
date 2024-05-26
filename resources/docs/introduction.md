@@ -43,14 +43,11 @@ return RectorConfig::configure()
     ->withPreparedSets(deadCode: true);
 ```
 
-> If you're on PHP 7.x, you need to passed value argument instead, for `deadCode` set, it is a first argument, so you can define:
+> If you're on PHP 7.x, you can use `withSets()` instead, for `deadCode` set, so you can define:
 > ```diff
-> -   ->withPreparedSets(deadCode: true)
-> +   ->withPreparedSets(true)
+> -   ->withPreparedSets(deadCode: true);
+> +   ->withSets([SetList::DEAD_CODE]);
 > ```
->
-> and set other argument position to true if needed.
-
 
 To see preview of suggested changed, run `process` command with `--dry-run` option:
 
