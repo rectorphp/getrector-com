@@ -13,16 +13,10 @@ return RectorConfig::configure()
         codingStyle: true,
         naming: true,
         privatization: true,
-        typeDeclarations: true
+        typeDeclarations: true,
+        rectorPreset: true,
     )
-    ->withRules([\Rector\TypeDeclaration\Rector\StmtsAwareInterface\DeclareStrictTypesRector::class])
     ->withSkip([
         '*/Fixture/*',
         '*/Expected/*',
-
-        // fix date time on master
-        \Rector\Naming\Rector\Class_\RenamePropertyToMatchTypeRector::class,
-
-        // keep FQN names to avoid scoping
-        \Rector\Php55\Rector\String_\StringClassNameToClassConstantRector::class => [__DIR__ . '/utils/Rector'],
     ]);
