@@ -16,6 +16,7 @@ return RectorConfig::configure()
         typeDeclarations: true,
         rectorPreset: true,
     )
+    ->withRootFiles()
     ->withSkip([
         '*/Fixture/*',
         '*/Expected/*',
