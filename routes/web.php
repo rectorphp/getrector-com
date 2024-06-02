@@ -15,6 +15,7 @@ use Rector\Website\Http\Controller\Demo\DemoController;
 use Rector\Website\Http\Controller\Demo\DemoDetailController;
 use Rector\Website\Http\Controller\Demo\ProcessDemoFormController;
 use Rector\Website\Http\Controller\DocumentationController;
+use Rector\Website\Http\Controller\FilterRectorController;
 use Rector\Website\Http\Controller\HireTeamController;
 use Rector\Website\Http\Controller\HomepageController;
 use Rector\Website\Http\Controller\RssController;
@@ -40,7 +41,7 @@ Route::get('/thumbnail/{title}.png', ThumbnailController::class)
      ->where('title', '.*');
 
 Route::get('rss.xml', RssController::class);
-Route::get('filter', \Rector\Website\Http\Controller\FilterRectorController::class);
+Route::get('filter', FilterRectorController::class);
 
 // demo
 Route::get('demo/{uuid}', DemoDetailController::class)

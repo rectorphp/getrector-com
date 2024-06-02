@@ -1,5 +1,6 @@
 parameters:
     paths:
+        - bootstrap
         - src
         - tests
 
@@ -26,3 +27,7 @@ parameters:
 
         - '#Method Rector\\Website\\PhpParser\\NodeResolver\\FocusedNodeResolver\:\:focus\(\) should return PhpParser\\Node but returns PhpParser\\Node\|null#'
         - '#Method Rector\\Website\\PhpParser\\ClickablePrinter\:\:pObjectProperty\(\) has parameter \$node with no type specified#'
+
+        -
+            message: '#Method Rector\\Website\\FileSystem\\RectorFinder\:\:findRectorClasses\(\) should return array<class\-string<Rector\\Contract\\Rector\\RectorInterface>> but returns array<int, string>#'
+            path: src/FileSystem/RectorFinder.php
