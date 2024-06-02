@@ -40,6 +40,7 @@ Route::get('/thumbnail/{title}.png', ThumbnailController::class)
      ->where('title', '.*');
 
 Route::get('rss.xml', RssController::class);
+Route::get('filter', \Rector\Website\Http\Controller\FilterRectorController::class);
 
 // demo
 Route::get('demo/{uuid}', DemoDetailController::class)
