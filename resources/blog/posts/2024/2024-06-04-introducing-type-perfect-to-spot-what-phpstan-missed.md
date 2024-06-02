@@ -215,7 +215,7 @@ That's where this group comes in. It checks all the passed types and tells us ho
 
 ## Add Type Perfect to your project
 
-First, make sure you have  [`phpstan/extension-installer`](https://github.com/phpstan/extension-installer#usage) to load the necessary service configs. Then add the package:
+First, make sure you have  [`phpstan/extension-installer`](https://github.com/phpstan/extension-installer#usage) to load the necessary service configs. Then add the [type-perfect package](https://github.com/rectorphp/type-perfect/) to your project:
 
 ```bash
 composer require rector/type-perfect --dev
