@@ -9,8 +9,8 @@
 @section('main')
     <div id="rector_run_form" class="mt-4 mb-3">
         <form
-            action="{{ action(\Rector\Website\Http\Controller\Demo\ProcessDemoFormController::class) }}"
-            method="post">
+                action="{{ action(\Rector\Website\Http\Controller\Demo\ProcessDemoFormController::class) }}"
+                method="post">
 
             @csrf <!-- {{ csrf_field() }} -->
 
@@ -41,7 +41,7 @@
             @error('php_contents')
             <div class="alert alert-danger">
                 @foreach ($errors->get('php_contents') as $error)
-                    {{ $error }} <br />
+                    {{ $error }} <br/>
                 @endforeach
             </div>
             @enderror
@@ -61,7 +61,7 @@
 
                     <div class="card-body p-0">
                         <textarea
-                            class="codemirror_diff">{{ $rector_run->getContentDiff() }}</textarea>
+                                class="codemirror_diff">{{ $rector_run->getContentDiff() }}</textarea>
                     </div>
                 </div>
 
@@ -90,7 +90,8 @@
                                 issue</a>
 
                             @if ($rector_run->canCreateFixture())
-                                <a href="{{ prLink($rector_run) }}" class="btn btn-primary ms-3">Create
+                                <a href="{{ pullRequestLink($rector_run) }}"
+                                   class="btn btn-primary ms-3">Create
                                     a Test</a>
                             @endif
                         </div>
@@ -101,7 +102,7 @@
             @error('rector_config')
             <div class="alert alert-danger">
                 @foreach ($errors->get('rector_config') as $error)
-                    {{ $error }} <br />
+                    {{ $error }} <br/>
                 @endforeach
             </div>
             @enderror

@@ -7,7 +7,9 @@ namespace Rector\Website\Http\Controller;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use PHPUnit\Framework\Assert;
 use Rector\Website\FileSystem\RectorFinder;
+use Rector\Website\Utils\ClassNameResolver;
 use Rector\Website\ValueObject\RichRuleDefinition;
 use Symfony\Component\Finder\Finder;
 use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
@@ -58,7 +60,37 @@ final class FilterRectorController extends Controller
                     }
                 }
 
-                // @todo reverse-engineer sets to get the rank
+                // @todo find sets lsits
+                // what set is this rules part of?
+                $setsListFileInfos = Finder::create()
+                    ->files()
+
+                    ->in(__DIR__ . '/../../../vendor/rector/rector/src/Set')
+                    ->in(__DIR__ . '/../../../vendor/rector/rector/vendor/rector/rector-doctrine/src/Set')
+                    ->in(__DIR__ . '/../../../vendor/rector/rector/vendor/rector/rector-symfony/src/Set')
+                    ->in(__DIR__ . '/../../../vendor/rector/rector/vendor/rector/rector-phpunit/src/Set')
+                    // @todo add unofficial extensions as well
+                    ->name('*SetList.php')
+                    ->files()
+                    ->getIterator();
+
+                foreach ($setsListFileInfos as $setListFileInfo) {
+                    $setListContents = $setListFileInfo->getContents();
+                    $setListClassName = ClassNameResolver::resolveFromFileContents($setListContents);
+                    \Webmozart\Assert\Assert::string($setListClassName);
+                    \Webmozart\Assert\Assert::classExists($setListClassName);
+
+                    // $setList = new $setListClassName();
+                    $setListReflectionClass = new \ReflectionClass($setListClassName);
+
+                    // @sort list names to constnats to file paths to included class names
+                    // trree :)
+                    dump($setListReflectionClass->getConstants());
+                }
+
+                die;
+
+                // @todo reverse-engineer sets to get the either set constant or predefeind set name
                 dump($matchingSetFiles);
                 dump($ruleDefinition->getRuleClass());
                 die;
