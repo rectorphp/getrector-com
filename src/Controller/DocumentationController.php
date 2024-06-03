@@ -18,7 +18,7 @@ final class DocumentationController extends Controller
 
     public function __invoke(string $section = 'introduction'): View
     {
-        $markdownContents = FileSystem::read(__DIR__ . '/../../../resources/docs/' . $section . '.md');
+        $markdownContents = FileSystem::read(__DIR__ . '/../../resources/docs/' . $section . '.md');
 
         return \view('docs/section', [
             'section_title' => $this->documentationMenuFactory->createSectionTitle($section),
