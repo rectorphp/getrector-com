@@ -1,13 +1,13 @@
 @extends('base')
 
 @php
-    /** @var \Symplify\RuleDocGenerator\ValueObject\RuleDefinition[] $coreRectorRules */
+    /** @var \Rector\Website\ValueObject\RichRuleDefinition[] $coreRectorRules */
 @endphp
 
 @section('main')
     <style>
         .filter-code-sample {
-            font-size: .8em;
+            font-size: .9em;
         }
     </style>
 
@@ -48,18 +48,31 @@
 
                 <div class="mt-2">
                     <input type="text" class="form-control"
-                           value="{{ $coreRectorRule->getRuleClass() }}"></input>
+                           value="{{ $coreRectorRule->getRuleClass() }}">
                 </div>
             </div>
 
             @foreach ($coreRectorRule->getCodeSamples() as $codeSample)
                 <!-- @todo make a diff -->
-                <div class="filter-code-sample">
+                <div class="filter-code-sample col-8">
                 <pre><code class="language-php">{{ $codeSample->getGoodCode() }}
                 </code></pre>
                 </div>
             @endforeach
 
+            @if ($coreRectorRule->isConfigurable())
+                <div class="mb-3">
+                    <span class="badge bg-primary">Configurable</span>
+                </div>
+            @endif
+
+            @if ($coreRectorRule->getSets())
+                SETS:&nbsp;
+
+                @foreach ($coreRectorRule->getSets() as $set)
+                    <span class="badge bg-danger">{{ $set }}</span>
+                @endforeach
+            @endif
             <br>
 
             <hr>

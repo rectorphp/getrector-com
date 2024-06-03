@@ -41,7 +41,11 @@ Route::get('/thumbnail/{title}.png', ThumbnailController::class)
      ->where('title', '.*');
 
 Route::get('rss.xml', RssController::class);
-Route::get('filter', FilterRectorController::class);
+
+// on dev for now only
+if (app('env') === 'dev') {
+    Route::get('filter', FilterRectorController::class);
+}
 
 // demo
 Route::get('demo/{uuid}', DemoDetailController::class)

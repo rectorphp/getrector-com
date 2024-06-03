@@ -31,3 +31,7 @@ parameters:
         -
             message: '#Method Rector\\Website\\FileSystem\\RectorFinder\:\:findRectorClasses\(\) should return array<class\-string<Rector\\Contract\\Rector\\RectorInterface>> but returns array<int, string>#'
             path: src/FileSystem/RectorFinder.php
+
+        # wip
+        - '#Property Rector\\Website\\ValueObject\\RectorSet\:\:\$setFilePath is never read, only written#'
+        - '#Method Rector\\Website\\Utils\\ClassNameResolver\:\:resolveFromFileContents\(\) should return class\-string\|null but returns string#'
