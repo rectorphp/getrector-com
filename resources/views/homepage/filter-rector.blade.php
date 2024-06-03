@@ -14,7 +14,9 @@
     <div id="filter-rector" class="mt-4">
         <div class="row">
             <div class="col-4">
-                <form action="{{ action(\Rector\Website\Http\Controller\FilterRectorController::class) }}" method="GET">
+                <form
+                    action="{{ action(\Rector\Website\Controller\FilterRectorController::class) }}"
+                    method="GET">
                     <div class="form-field">
                         <input
                             name="query"
@@ -24,11 +26,12 @@
                         >
 
                         @error('name')
-                            <div>{{ $message }}</div>
+                        <div>{{ $message }}</div>
                         @enderror
 
                         <button type="submit" id="ast_form_process" name="process"
-                                class="btn btn-success d-inline mt-2">Filter (will be removed and replaced by livewire)
+                                class="btn btn-success d-inline mt-2">Filter (will be removed and
+                            replaced by livewire)
                         </button>
                     </div>
                 </form>
@@ -44,7 +47,8 @@
                 <h3 class="mb-4s">{{ $coreRectorRule->getRuleShortClass() }} </h3>
 
                 <div class="mt-2">
-                    <input type="text" class="form-control" value="{{ $coreRectorRule->getRuleClass() }}"></input>
+                    <input type="text" class="form-control"
+                           value="{{ $coreRectorRule->getRuleClass() }}"></input>
                 </div>
             </div>
 

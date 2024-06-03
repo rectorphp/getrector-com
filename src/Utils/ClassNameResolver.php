@@ -6,9 +6,6 @@ namespace Rector\Website\Utils;
 
 use Nette\Utils\Strings;
 
-/**
- * @see \Rector\SwissKnife\Tests\Helpers\ClassNameResolverTest
- */
 final class ClassNameResolver
 {
     /**

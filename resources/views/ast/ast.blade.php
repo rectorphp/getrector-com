@@ -7,7 +7,7 @@
 @section('main')
     <div id="ast_run_form" class="mt-4 mb-3" style="min-height: 35em">
         <form
-            action="{{ action(\Rector\Website\Http\Controller\Ast\ProcessAstFormController::class) }}"
+            action="{{ action(\Rector\Website\Controller\Ast\ProcessAstFormController::class) }}"
             method="post">
 
             @csrf <!-- {{ csrf_field() }} -->
@@ -26,7 +26,8 @@
 
             <div class="card mb-4">
                 <div class="card-body p-0 mb-0">
-                    <textarea name="php_contents" class="codemirror_php" required>{{ session('_old_input')['php_contents'] ?? "<?php\n\n" }}</textarea>
+                    <textarea name="php_contents" class="codemirror_php"
+                              required>{{ session('_old_input')['php_contents'] ?? "<?php\n\n" }}</textarea>
                 </div>
             </div>
 

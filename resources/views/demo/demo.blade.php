@@ -9,8 +9,8 @@
 @section('main')
     <div id="rector_run_form" class="mt-4 mb-3">
         <form
-                action="{{ action(\Rector\Website\Http\Controller\Demo\ProcessDemoFormController::class) }}"
-                method="post">
+            action="{{ action(\Rector\Website\Controller\Demo\ProcessDemoFormController::class) }}"
+            method="post">
 
             @csrf <!-- {{ csrf_field() }} -->
 
@@ -61,7 +61,7 @@
 
                     <div class="card-body p-0">
                         <textarea
-                                class="codemirror_diff">{{ $rector_run->getContentDiff() }}</textarea>
+                            class="codemirror_diff">{{ $rector_run->getContentDiff() }}</textarea>
                     </div>
                 </div>
 
