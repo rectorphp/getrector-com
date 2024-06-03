@@ -6,7 +6,8 @@
 
 @section('main')
     <div class="float-end mt-4">
-        <a href="{{ action(\Rector\Website\Http\Controller\Ast\AstController::class) }}" class="btn btn-outline-success" style="margin-top: -.7em">
+        <a href="{{ action(\Rector\Website\Controller\Ast\AstController::class) }}"
+           class="btn btn-outline-success" style="margin-top: -.7em">
             ← Create new code
         </a>
     </div>
