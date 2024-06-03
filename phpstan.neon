@@ -8,6 +8,9 @@ parameters:
         - */Fixture/*
         - */Expected/*
 
+    bootstrapFiles:
+        - vendor/rector/rector/vendor/symplify/rule-doc-generator-contracts/src/ValueObject/RuleDefinition.php
+
     level: 8
 
     reportUnmatchedIgnoredErrors: false

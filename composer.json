@@ -8,6 +8,7 @@
         "jajo/jsondb": "^3.0.1",
         "laravel/framework": "^11.9",
         "league/commonmark": "^2.4",
+        "livewire/livewire": "^3.5",
         "nesbot/carbon": "^2.72",
         "nikic/php-parser": "^4.19",
         "rector/rector": "dev-main",

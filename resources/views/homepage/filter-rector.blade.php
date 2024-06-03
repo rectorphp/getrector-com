@@ -38,10 +38,6 @@
             </div>
         </div>
 
-        @if ($isFilterEnabled)
-            <p class="mt-3">Found {{ count($coreRectorRules) }} rules</p>
-        @endif
-
         @foreach ($coreRectorRules as $coreRectorRule)
             <div class="mb-3 pt-3">
                 <h3 class="mb-4s">{{ $coreRectorRule->getRuleShortClass() }} </h3>
@@ -52,30 +48,31 @@
                 </div>
             </div>
 
-            @foreach ($coreRectorRule->getCodeSamples() as $codeSample)
-                <!-- @todo make a diff -->
-                <div class="filter-code-sample col-8">
-                <pre><code class="language-php">{{ $codeSample->getGoodCode() }}
-                </code></pre>
-                </div>
-            @endforeach
+        <div class="row">
+            <div class="col-8 filter-code-sample">
+                <pre><code class="language-diff">{{ $coreRectorRule->getDiffCodeSample() }}</code></pre>
+            </div>
 
-            @if ($coreRectorRule->isConfigurable())
-                <div class="mb-3">
-                    <span class="badge bg-primary">Configurable</span>
-                </div>
-            @endif
+            <div class="col-4">
+                @if ($coreRectorRule->isConfigurable())
+                    <div class="mb-3">
+                        <span class="badge bg-primary">Configurable</span>
+                    </div>
+                @endif
 
-            @if ($coreRectorRule->getSets())
-                SETS:&nbsp;
+                @if ($coreRectorRule->getSets())
+                    SETS:&nbsp;
 
-                @foreach ($coreRectorRule->getSets() as $set)
-                    <span class="badge bg-danger">{{ $set }}</span>
-                @endforeach
-            @endif
-            <br>
+                    @foreach ($coreRectorRule->getSets() as $set)
+                        <span class="badge bg-danger">{{ $set }}</span>
+                    @endforeach
+                @endif
+            </div>
+        </div>
 
-            <hr>
+        <br>
         @endforeach
+
+        <br>
     </div>
 @endsection
