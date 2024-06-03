@@ -14,7 +14,6 @@ $application = Application::configure()
     ->withMiddleware(function (Middleware $middleware) {
     })
     ->withExceptions(function (Exceptions $exceptions) {
-        //
     })
     ->create();
 

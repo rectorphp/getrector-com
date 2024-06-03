@@ -12,6 +12,8 @@
     </style>
 
     <div id="filter-rector" class="mt-4">
+        @livewire('rector-filter-component')
+
         <div class="row">
             <div class="col-4">
                 <form
