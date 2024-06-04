@@ -12,8 +12,6 @@
     </style>
 
     <div id="filter-rector" class="mt-4">
-        Put Livewire here
-
         @livewire('rector-filter-component')
 
         <hr>

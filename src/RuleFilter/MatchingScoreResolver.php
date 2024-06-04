@@ -25,8 +25,4 @@ final class MatchingScoreResolver
 
         return $score;
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> af0a9a7 (misc)
 }

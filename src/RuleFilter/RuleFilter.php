@@ -19,11 +19,18 @@ final class RuleFilter
 
     /**
      * @param RuleDefinition[] $ruleDefinitions
+     * @return RuleMetadata[]
      */
-    public function filter(
-        array $ruleDefinitions,
-        string $query,
-    ): array {
+    public function filter(array $ruleDefinitions, ?string $query): array
+    {
+        if ($query === null) {
+            return [];
+        }
+
+        if (strlen($query) < 3) {
+            return [];
+        }
+
         $rectorSets = $this->rectorSetsTreeFactory->create();
         $richRuleDefinitions = [];
 

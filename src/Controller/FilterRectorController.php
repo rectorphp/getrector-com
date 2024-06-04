@@ -22,13 +22,8 @@ final class FilterRectorController extends Controller
     {
         $query = $request->get('query');
 
-        // at least 3 chars to invoke
-        if (is_string($query) && strlen($query) > 2) {
-            $ruleDefinitions = $this->rectorFinder->findCore();
-            $filteredRules = $this->ruleFilter->filter($ruleDefinitions, $query);
-        } else {
-            $filteredRules = [];
-        }
+        $ruleDefinitions = $this->rectorFinder->findCore();
+        $filteredRules = $this->ruleFilter->filter($ruleDefinitions, $query);
 
         return \view('homepage/filter-rector', [
             'page_title' => 'Filter Rector',
