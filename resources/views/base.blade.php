@@ -19,14 +19,15 @@
 
         @include('_snippets/layout/footer')
 
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-46082345-2"></script>
         <script>
-            ga=function(){ ga.q.push(arguments) };
-            ga.q=[];
-            ga.l=+new Date;
-            ga('create', 'UA-46082345-2', 'auto');
-            ga('send','pageview');
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-46082345-2');
         </script>
-        <script src="https://www.google-analytics.com/analytics.js" async defer></script>
 
         @include('_snippets/javascripts')
 
