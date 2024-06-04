@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Rector\Website\RuleFilter\ValueObject;
 
-use ReflectionProperty;
 use Rector\Contract\Rector\ConfigurableRectorInterface;
 use Rector\Website\RuleFilter\Markdown\MarkdownDiffer;
+use ReflectionProperty;
 use SebastianBergmann\Diff\Differ;
 use SebastianBergmann\Diff\Output\UnifiedDiffOutputBuilder;
 use Symplify\RuleDocGenerator\Contract\CodeSampleInterface;
