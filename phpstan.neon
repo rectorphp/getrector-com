@@ -36,5 +36,5 @@ parameters:
             path: src/FileSystem/RectorFinder.php
 
         # wip
-        - '#Property Rector\\Website\\ValueObject\\RectorSet\:\:\$setFilePath is never read, only written#'
+        - '#Property Rector\\Website\\RuleFilter\\ValueObject\\RectorSet\:\:\$setFilePath is never read, only written#'
         - '#Method Rector\\Website\\Utils\\ClassNameResolver\:\:resolveFromFileContents\(\) should return class\-string\|null but returns string#'

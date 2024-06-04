@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Markdown;
+namespace Rector\Website\RuleFilter\Markdown;
 
 use Nette\Utils\Strings;
 use SebastianBergmann\Diff\Differ;

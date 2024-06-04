@@ -2,18 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\ValueObject;
+namespace Rector\Website\RuleFilter\ValueObject;
 
 use Rector\Contract\Rector\ConfigurableRectorInterface;
-use Rector\Website\Markdown\MarkdownDiffer;
-use SebastianBergmann\Diff\Diff;
+use Rector\Website\RuleFilter\Markdown\MarkdownDiffer;
 use SebastianBergmann\Diff\Differ;
-use SebastianBergmann\Diff\Output\StrictUnifiedDiffOutputBuilder;
 use SebastianBergmann\Diff\Output\UnifiedDiffOutputBuilder;
 use Symplify\RuleDocGenerator\Contract\CodeSampleInterface;
 use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
 
-final class RichRuleDefinition
+final class RuleMetadata
 {
     /**
      * @param string[] $sets
@@ -42,7 +40,6 @@ final class RichRuleDefinition
             return '';
         }
 
-
         // this is required to show full diffs from start to end
         $unifiedDiffOutputBuilder = new UnifiedDiffOutputBuilder('');
         $contextLinesReflectionProperty = new \ReflectionProperty($unifiedDiffOutputBuilder, 'contextLines');
@@ -50,10 +47,7 @@ final class RichRuleDefinition
 
         $markdownDiffer = new MarkdownDiffer(new Differ($unifiedDiffOutputBuilder));
 
-        return $markdownDiffer->diff(
-            $codeSample->getBadCode(),
-            $codeSample->getGoodCode()
-        );
+        return $markdownDiffer->diff($codeSample->getBadCode(), $codeSample->getGoodCode());
     }
 
     public function getRank(): int

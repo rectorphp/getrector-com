@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\ValueObject;
+namespace Rector\Website\RuleFilter\ValueObject;
 
 /**
  * @api to be used somehow

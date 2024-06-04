@@ -34,7 +34,7 @@
         },
         "files": [
             "src/functions.php",
-            "src/Blade/functions.php"
+            "src/GitHubMagicLink/functions.php"
         ]
     },
     "autoload-dev": {

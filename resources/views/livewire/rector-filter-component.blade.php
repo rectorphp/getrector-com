@@ -1,4 +1,5 @@
 <div>
-    {{-- Knowing others is intelligence; knowing yourself is true wisdom. --}}
-    <input type="text"> todo
+    <input type="text" class="form-control d-inline" style="width: 15em"  wire:model.live="filter">
+
+    {{ $query }}
 </div>
