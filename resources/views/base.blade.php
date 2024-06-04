@@ -36,12 +36,14 @@
 
         <script>
             // Listen for events dispatched from Livewire components...
-            Livewire.on('rules-filtered', () => {
-                document.querySelectorAll('pre code.language-diff').forEach((block) => {
-                    hljs.highlightBlock(block);
+            document.addEventListener('DOMContentLoaded', function () {
+                document.addEventListener('rules-filtered', () => {
+                    setTimeout(() => {
+                        document.querySelectorAll('pre code.language-diff').forEach((element) => {
+                            hljs.highlightElement(element);
+                        });
+                    }, 0);
                 });
-
-                // alert('555');
             })
         </script>
     </body>
