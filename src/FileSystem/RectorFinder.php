@@ -50,7 +50,12 @@ final class RectorFinder
     private function findRectorClasses(): array
     {
         $robotLoader = new RobotLoader();
-        $robotLoader->addDirectory(__DIR__ . '/../../vendor/rector');
+
+        // note: skip downgrade on purpose, as not likely to be used explicitly but as part of set
+        $robotLoader->addDirectory(__DIR__ . '/../../vendor/rector/rector/rules');
+        $robotLoader->addDirectory(__DIR__ . '/../../vendor/rector/rector/vendor/rector/rector-symfony/rules');
+        $robotLoader->addDirectory(__DIR__ . '/../../vendor/rector/rector/vendor/rector/rector-phpunit/rules');
+        $robotLoader->addDirectory(__DIR__ . '/../../vendor/rector/rector/vendor/rector/rector-doctrine/rules');
 
         $robotLoader->acceptFiles = ['*Rector.php'];
         $robotLoader->setTempDirectory(\sys_get_temp_dir() . '/dump-rector');
