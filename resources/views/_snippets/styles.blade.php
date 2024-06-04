@@ -23,8 +23,8 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', (event) => {
-        document.querySelectorAll('pre code.language-bash, pre code.language-php, pre code.language-yaml, pre code.language-diff, pre code.language-json').forEach((block) => {
-            hljs.highlightBlock(block);
+        document.querySelectorAll('pre code.language-bash, pre code.language-php, pre code.language-yaml, pre code.language-diff, pre code.language-json').forEach((element) => {
+            hljs.highlightElement(element);
         });
     });
 </script>
