@@ -35,7 +35,7 @@
         @livewireScripts
 
         <script>
-            document.addEventListener('DOMContentLoaded', (event) => {
+            document.addEventListener('livewire:init', () => {
                 // Listen for events dispatched from Livewire components...
                 Livewire.on('rules-filtered', () => {
                     requestAnimationFrame(() => {
