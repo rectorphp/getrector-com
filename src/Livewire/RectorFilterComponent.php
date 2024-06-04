@@ -22,6 +22,9 @@ final class RectorFilterComponent extends Component
 
         $ruleFilter = app(RuleFilter::class);
 
+        // to trigger event in component javascript
+        $this->dispatch('rules-filtered');
+
         return view('livewire.rector-filter-component', [
             'filteredRules' => $ruleFilter->filter($coreRuleDefinitions, $this->query),
         ]);

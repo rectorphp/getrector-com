@@ -15,6 +15,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/mode/diff/diff.min.js"></script>
 
 {{-- @see https://codemirror.net/mode/ --}}
+
 <script type="text/javascript">
     $('.codemirror_php').each(function(index, elem){
         CodeMirror.fromTextArea(elem, {

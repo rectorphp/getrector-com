@@ -45,6 +45,23 @@
             </div>
         </div>
 
+
+
         <br>
     @endforeach
+
+
+
 </div>
+
+
+@script
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('pre code.language-diff').forEach((block) => {
+            hljs.highlightBlock(block);
+        });
+    })
+})
+</script>
+@endscript

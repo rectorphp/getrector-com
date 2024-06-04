@@ -6,6 +6,7 @@
         @include('_snippets/styles')
 
         <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
     </head>
 
     <body>
@@ -32,5 +33,16 @@
         @include('_snippets/javascripts')
 
         @livewireScripts
+
+        <script>
+            // Listen for events dispatched from Livewire components...
+            Livewire.on('rules-filtered', () => {
+                document.querySelectorAll('pre code.language-diff').forEach((block) => {
+                    hljs.highlightBlock(block);
+                });
+
+                // alert('555');
+            })
+        </script>
     </body>
 </html>
