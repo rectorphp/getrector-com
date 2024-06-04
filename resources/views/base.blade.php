@@ -35,14 +35,16 @@
         @livewireScripts
 
         <script>
-            // Listen for events dispatched from Livewire components...
-            Livewire.on('rules-filtered', () => {
-                document.querySelectorAll('pre code.language-diff').forEach((block) => {
-                    hljs.highlightBlock(block);
+            document.addEventListener('DOMContentLoaded', (event) => {
+                // Listen for events dispatched from Livewire components...
+                Livewire.on('rules-filtered', () => {
+                    requestAnimationFrame(() => {
+                        document.querySelectorAll('pre code.language-diff').forEach((block) => {
+                            hljs.highlightBlock(block);
+                        });
+                    });
                 });
-
-                // alert('555');
-            })
+            });
         </script>
     </body>
 </html>
