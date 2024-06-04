@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Website\RuleFilter\ValueObject;
 
+use ReflectionProperty;
 use Rector\Contract\Rector\ConfigurableRectorInterface;
 use Rector\Website\RuleFilter\Markdown\MarkdownDiffer;
 use SebastianBergmann\Diff\Differ;
@@ -42,7 +43,7 @@ final class RuleMetadata
 
         // this is required to show full diffs from start to end
         $unifiedDiffOutputBuilder = new UnifiedDiffOutputBuilder('');
-        $contextLinesReflectionProperty = new \ReflectionProperty($unifiedDiffOutputBuilder, 'contextLines');
+        $contextLinesReflectionProperty = new ReflectionProperty($unifiedDiffOutputBuilder, 'contextLines');
         $contextLinesReflectionProperty->setValue($unifiedDiffOutputBuilder, 10000);
 
         $markdownDiffer = new MarkdownDiffer(new Differ($unifiedDiffOutputBuilder));

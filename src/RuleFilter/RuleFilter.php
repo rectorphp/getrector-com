@@ -67,6 +67,7 @@ final class RuleFilter
                 $activeSets[] = $rectorSet->getName();
             }
         }
+
         return $activeSets;
     }
 }
