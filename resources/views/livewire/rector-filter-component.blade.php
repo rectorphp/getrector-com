@@ -49,4 +49,18 @@
 
         <br>
     @endforeach
+
+    <script>
+        // Listen for events dispatched from Livewire components...
+        document.addEventListener('DOMContentLoaded', function () {
+            // render event from src/Livewire/RectorFilterComponent.php:12
+            document.addEventListener('rules-filtered', () => {
+                requestAnimationFrame(() => {
+                    document.querySelectorAll('pre code.language-diff').forEach((element) => {
+                        hljs.highlightElement(element);
+                    });
+                });
+            });
+        })
+    </script>
 </div>
