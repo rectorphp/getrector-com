@@ -17,12 +17,12 @@ use Symfony\Component\Uid\Uuid;
 abstract class AbstractRepository implements RepositoryInterface
 {
     // @see https://github.com/donjajo/php-jsondb
-    private readonly JSONDB $jsonDb;
+    private readonly JSONDB $jsondb;
 
     public function __construct()
     {
         $storageDirectory = __DIR__ . '/../../resources/json-database';
-        $this->jsonDb = new JSONDB($storageDirectory);
+        $this->jsondb = new JSONDB($storageDirectory);
 
         $repositoryStorageFile = $storageDirectory . '/' . $this->getTableFile();
 
@@ -38,7 +38,7 @@ abstract class AbstractRepository implements RepositoryInterface
      */
     public function save(object $entity): void
     {
-        $this->jsonDb->insert($this->getTableFile(), $entity->jsonSerialize());
+        $this->jsondb->insert($this->getTableFile(), $entity->jsonSerialize());
     }
 
     /**
@@ -51,7 +51,7 @@ abstract class AbstractRepository implements RepositoryInterface
             $uuid = Uuid::fromString($uuid);
         }
 
-        $rows = $this->jsonDb->select()
+        $rows = $this->jsondb->select()
             ->from($this->getTableFile())
             ->where([
                 'uuid' => $uuid->jsonSerialize(),
