@@ -2513,16 +2513,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.11.3",
+            "version": "1.11.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "e64220a05c1209fc856d58e789c3b7a32c0bb9a5"
+                "reference": "9100a76ce8015b9aa7125b9171ae3a76887b6c82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/e64220a05c1209fc856d58e789c3b7a32c0bb9a5",
-                "reference": "e64220a05c1209fc856d58e789c3b7a32c0bb9a5",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/9100a76ce8015b9aa7125b9171ae3a76887b6c82",
+                "reference": "9100a76ce8015b9aa7125b9171ae3a76887b6c82",
                 "shasum": ""
             },
             "require": {
@@ -2567,7 +2567,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-05-31T13:53:37+00:00"
+            "time": "2024-06-06T12:19:22+00:00"
         },
         {
             "name": "psr/clock",
@@ -3212,12 +3212,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "b8683386b94c40ee16156015a90060a5a99468c7"
+                "reference": "3f16b6500c5f711f8b6ae4b780ddbb4d824aa56d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/b8683386b94c40ee16156015a90060a5a99468c7",
-                "reference": "b8683386b94c40ee16156015a90060a5a99468c7",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/3f16b6500c5f711f8b6ae4b780ddbb4d824aa56d",
+                "reference": "3f16b6500c5f711f8b6ae4b780ddbb4d824aa56d",
                 "shasum": ""
             },
             "require": {
@@ -3264,7 +3264,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-06-06T10:54:57+00:00"
+            "time": "2024-06-06T14:25:22+00:00"
         },
         {
             "name": "samsonasik/array-lookup",
