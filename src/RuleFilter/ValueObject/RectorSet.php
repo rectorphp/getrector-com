@@ -23,6 +23,11 @@ final class RectorSet
         return in_array($rectorClass, $this->rectorClasses, true);
     }
 
+    public function getSlug(): string
+    {
+        return strtolower($this->constantName);
+    }
+
     public function getName(): string
     {
         // @todo figure out human-readbale set name

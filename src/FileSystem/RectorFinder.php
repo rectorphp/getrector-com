@@ -8,18 +8,28 @@ use Nette\Loaders\RobotLoader;
 use Rector\Contract\Rector\RectorInterface;
 use Rector\PostRector\Contract\Rector\PostRectorInterface;
 use Rector\Rector\AbstractRector;
+use Rector\Website\RuleFilter\ValueObject\RectorSet;
+use Rector\Website\RuleFilter\ValueObject\RuleMetadata;
+use Rector\Website\Sets\RectorSetsTreeProvider;
 use ReflectionClass;
 use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
 
 final class RectorFinder
 {
+    public function __construct(
+        private readonly RectorSetsTreeProvider $rectorSetsTreeProvider,
+    ) {
+    }
+
     /**
-     * @return RuleDefinition[]
+     * @return RuleMetadata[]
      */
     public function findCore(): array
     {
+        $rectorSets = $this->rectorSetsTreeProvider->provide();
+
         // 1. find all rector rules
-        $ruleDefinitions = [];
+        $ruleMetadatas = [];
 
         foreach ($this->findRectorClasses() as $rectorClass) {
             $rectorReflectionClass = new ReflectionClass($rectorClass);
@@ -38,10 +48,20 @@ final class RectorFinder
             $ruleDefinition = $rector->getRuleDefinition();
             $ruleDefinition->setRuleClass($rectorClass);
 
-            $ruleDefinitions[] = $ruleDefinition;
+            $currentRuleSets = $this->findRuleUsedSets($ruleDefinition, $rectorSets);
+
+            $ruleMetadatas[] = new RuleMetadata(
+                $ruleDefinition->getRuleClass(),
+                $ruleDefinition->getDescription(),
+                $ruleDefinition->getCodeSamples(),
+                $rector->getNodeTypes(),
+                $currentRuleSets
+            );
         }
 
-        return $ruleDefinitions;
+        // @todo this should be possibly cached to json, as heavy on load
+
+        return $ruleMetadatas;
     }
 
     /**
@@ -62,5 +82,21 @@ final class RectorFinder
         $robotLoader->rebuild();
 
         return array_keys($robotLoader->getIndexedClasses());
+    }
+
+    /**
+     * @param RectorSet[] $rectorSets
+     * @return string[]
+     */
+    private function findRuleUsedSets(RuleDefinition $ruleDefinition, array $rectorSets): array
+    {
+        $activeSets = [];
+        foreach ($rectorSets as $rectorSet) {
+            if ($rectorSet->hasRule($ruleDefinition->getRuleClass())) {
+                $activeSets[] = $rectorSet->getName();
+            }
+        }
+
+        return $activeSets;
     }
 }

@@ -4,23 +4,23 @@ declare(strict_types=1);
 
 namespace Rector\Website\RuleFilter;
 
-use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
+use Rector\Website\RuleFilter\ValueObject\RuleMetadata;
 
 final class MatchingScoreResolver
 {
-    public function resolve(RuleDefinition $ruleDefinition, string $query): int
+    public function resolve(RuleMetadata $ruleMetadata, string $query): int
     {
         $score = 0;
 
         $queryParts = explode(' ', $query);
         foreach ($queryParts as $queryPart) {
-            if (str_contains(strtolower($ruleDefinition->getRuleClass()), strtolower($queryPart))) {
+            if (str_contains(strtolower($ruleMetadata->getRectorClass()), strtolower($queryPart))) {
                 ++$score;
             }
         }
 
         foreach ($queryParts as $queryPart) {
-            if (str_contains($ruleDefinition->getDescription(), $queryPart)) {
+            if (str_contains($ruleMetadata->getDescription(), $queryPart)) {
                 ++$score;
             }
         }
