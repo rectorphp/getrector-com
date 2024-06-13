@@ -1,6 +1,6 @@
 ---
 id: 68
-title: "Introducing Type Perfect to spot what PHPStan missed"
+title: "Introducing Type Perfect for extra Safety"
 perex: |
     When dealing with legacy, we first focus on safety by knowing the important types. Code must have reliable type declarations to be refactored safely.
 

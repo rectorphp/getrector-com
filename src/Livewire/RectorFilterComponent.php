@@ -21,7 +21,7 @@ final class RectorFilterComponent extends Component
         $coreRuleDefinitions = $rectorFinder->findCore();
 
         $ruleFilter = app(RuleFilter::class);
-
+i
         // to trigger event in component javascript
         $this->dispatch('rules-filtered');
 
