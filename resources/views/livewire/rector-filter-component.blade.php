@@ -16,6 +16,7 @@
 
     <select class="form-select d-inline ms-3" name="node_type" style="width: 15em" wire:model.live="nodeType">
         <option value="">Any element</option>
+
         @foreach ($nodeTypeSelectOptions as $optionValue => $optionName)
             <option value="{{ $optionValue }}">{{ $optionName }}</option>
         @endforeach
@@ -43,14 +44,19 @@
                     </div>
                 @endif
 
+{{--                @todo open in demo :)--}}
+{{--                    <...> ___ :)--}}
+
                 <h3 class="mb-4">{{ $filteredRule->getRuleShortClass() }}</h3>
 
                 <p>{{ $filteredRule->getDescription() }}</p>
 
                 <div class="mt-2">
-                    <input type="text" class="form-control"
-                           onClick="this.select();"
-                           value="{{ $filteredRule->getRectorClass() }}">
+                    <input
+                        type="text" class="form-control"
+                       onClick="this.select();"
+                       value="{{ $filteredRule->getRectorClass() }}"
+                    >
                 </div>
 
                 <div class="row mt-3 mb-2">
@@ -74,6 +80,10 @@
 
         <br>
     @endforeach
+
+    @if ($isFilterActive && $filteredRules === [])
+        <p>No rules found. Try different query.</p>
+    @endif
 
     <script>
         // Listen for events dispatched from Livewire components...
