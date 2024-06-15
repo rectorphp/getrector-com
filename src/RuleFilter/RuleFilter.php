@@ -4,24 +4,22 @@ declare(strict_types=1);
 
 namespace Rector\Website\RuleFilter;
 
-use Rector\Website\RuleFilter\ValueObject\RectorSet;
+use PhpParser\Node;
 use Rector\Website\RuleFilter\ValueObject\RuleMetadata;
-use Rector\Website\Sets\RectorSetsTreeFactory;
-use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
 
 final class RuleFilter
 {
     public function __construct(
-        private readonly RectorSetsTreeFactory $rectorSetsTreeFactory,
         private readonly MatchingScoreResolver $matchingScoreResolver,
     ) {
     }
 
     /**
-     * @param RuleDefinition[] $ruleDefinitions
+     * @param RuleMetadata[] $ruleMetadatas
+     * @param class-string<Node>|null $nodeType
      * @return RuleMetadata[]
      */
-    public function filter(array $ruleDefinitions, ?string $query): array
+    public function filter(array $ruleMetadatas, ?string $query, ?string $nodeType): array
     {
         if ($query === null) {
             return [];
@@ -31,43 +29,33 @@ final class RuleFilter
             return [];
         }
 
-        $rectorSets = $this->rectorSetsTreeFactory->create();
-        $richRuleDefinitions = [];
+        // filter by node type first
+        if ($nodeType && is_a($nodeType, Node::class, true)) {
+            $ruleMetadatas = array_filter(
+                $ruleMetadatas,
+                fn (RuleMetadata $ruleMetadata): bool => in_array($nodeType, $ruleMetadata->getNodeTypes())
+            );
+        }
 
-        foreach ($ruleDefinitions as $ruleDefinition) {
-            $score = $this->matchingScoreResolver->resolve($ruleDefinition, $query);
+        $filteredRuleMetadatas = [];
+        foreach ($ruleMetadatas as $ruleMetadata) {
+            $score = $this->matchingScoreResolver->resolve($ruleMetadata, $query);
             if ($score === 0) {
                 continue;
             }
 
-            $activeSets = $this->findRuleUsedSets($ruleDefinition, $rectorSets);
-            $richRuleDefinitions[] = new RuleMetadata($ruleDefinition, $activeSets, $score);
+            $ruleMetadata->changeFilterScore($score);
+            $filteredRuleMetadatas[] = $ruleMetadata;
         }
 
         usort(
-            $richRuleDefinitions,
-            function (RuleMetadata $firstRuleDefinitionAndRank, RuleMetadata $secondRuleDefinitionAndRank): int {
-                return $secondRuleDefinitionAndRank->getRank() <=> $firstRuleDefinitionAndRank->getRank();
+            $filteredRuleMetadatas,
+            function (RuleMetadata $firstRuleMetadata, RuleMetadata $secondRuleMetadata): int {
+                return $secondRuleMetadata->getFilterScore() <=> $firstRuleMetadata->getFilterScore();
             }
         );
 
-        // get max 10 results to keep page clear
-        return array_slice($richRuleDefinitions, 0, 10);
-    }
-
-    /**
-     * @param RectorSet[] $rectorSets
-     * @return string[]
-     */
-    private function findRuleUsedSets(RuleDefinition $ruleDefinition, array $rectorSets): array
-    {
-        $activeSets = [];
-        foreach ($rectorSets as $rectorSet) {
-            if ($rectorSet->hasRule($ruleDefinition->getRuleClass())) {
-                $activeSets[] = $rectorSet->getName();
-            }
-        }
-
-        return $activeSets;
+        // limit results to keep page clear
+        return array_slice($filteredRuleMetadatas, 0, 5);
     }
 }

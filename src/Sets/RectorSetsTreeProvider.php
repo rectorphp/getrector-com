@@ -18,8 +18,14 @@ use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
 use Webmozart\Assert\Assert;
 
-final class RectorSetsTreeFactory
+final class RectorSetsTreeProvider
 {
+    /**
+     * Cache to keep it fast
+     * @var RectorSet[]
+     */
+    private array $rectorSets = [];
+
     public function __construct(
         private SimplePhpParser $simplePhpParser,
     ) {
@@ -28,8 +34,12 @@ final class RectorSetsTreeFactory
     /**
      * @return RectorSet[]
      */
-    public function create(): array
+    public function provide(): array
     {
+        if ($this->rectorSets !== []) {
+            return $this->rectorSets;
+        }
+
         $rectorSets = [];
 
         // what set is this rules part of?
@@ -58,6 +68,8 @@ final class RectorSetsTreeFactory
                 $rectorSets[] = new RectorSet($constantName, $rectorClasses);
             }
         }
+
+        $this->rectorSets = $rectorSets;
 
         return $rectorSets;
     }

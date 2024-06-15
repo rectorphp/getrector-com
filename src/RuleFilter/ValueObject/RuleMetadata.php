@@ -4,39 +4,54 @@ declare(strict_types=1);
 
 namespace Rector\Website\RuleFilter\ValueObject;
 
+use PhpParser\Node;
 use Rector\Contract\Rector\ConfigurableRectorInterface;
+use Rector\Contract\Rector\RectorInterface;
 use Rector\Website\RuleFilter\Markdown\MarkdownDiffer;
 use ReflectionProperty;
 use SebastianBergmann\Diff\Differ;
 use SebastianBergmann\Diff\Output\UnifiedDiffOutputBuilder;
 use Symplify\RuleDocGenerator\Contract\CodeSampleInterface;
-use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
+use Webmozart\Assert\Assert;
 
 final class RuleMetadata
 {
+    private ?int $filterScore = null;
+
     /**
+     * @param array<class-string<Node>> $nodeTypes
      * @param string[] $sets
+     * @param CodeSampleInterface[] $codeSamples
      */
     public function __construct(
-        private RuleDefinition $ruleDefinition,
-        private array $sets,
-        private int $rank
+        private string $ruleClass,
+        private string $description,
+        private array $codeSamples,
+        private array $nodeTypes,
+        private array $sets
     ) {
+        Assert::isAOf($ruleClass, RectorInterface::class);
+        Assert::allIsAOf($nodeTypes, Node::class);
     }
 
     public function getRuleShortClass(): string
     {
-        return $this->ruleDefinition->getRuleShortClass();
+        return \basename(\str_replace('\\', '/', $this->ruleClass));
     }
 
-    public function getRuleClass(): string
+    public function getDescription(): string
     {
-        return $this->ruleDefinition->getRuleClass();
+        return $this->description;
+    }
+
+    public function getRectorClass(): string
+    {
+        return $this->ruleClass;
     }
 
     public function getDiffCodeSample(): string
     {
-        $codeSample = $this->ruleDefinition->getCodeSamples()[0] ?? null;
+        $codeSample = $this->codeSamples[0] ?? null;
         if (! $codeSample instanceof CodeSampleInterface) {
             return '';
         }
@@ -51,14 +66,9 @@ final class RuleMetadata
         return $markdownDiffer->diff($codeSample->getBadCode(), $codeSample->getGoodCode());
     }
 
-    public function getRank(): int
-    {
-        return $this->rank;
-    }
-
     public function isConfigurable(): bool
     {
-        return is_a($this->ruleDefinition->getRuleClass(), ConfigurableRectorInterface::class, true);
+        return is_a($this->ruleClass, ConfigurableRectorInterface::class, true);
     }
 
     /**
@@ -67,5 +77,23 @@ final class RuleMetadata
     public function getSets(): array
     {
         return $this->sets;
+    }
+
+    /**
+     * @return array<class-string<Node>>
+     */
+    public function getNodeTypes(): array
+    {
+        return $this->nodeTypes;
+    }
+
+    public function changeFilterScore(int $filterScore): void
+    {
+        $this->filterScore = $filterScore;
+    }
+
+    public function getFilterScore(): ?int
+    {
+        return $this->filterScore;
     }
 }

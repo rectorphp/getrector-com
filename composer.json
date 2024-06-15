@@ -16,6 +16,7 @@
         "symfony/filesystem": "^7.0",
         "symfony/uid": "^7.0",
         "symfony/yaml": "^7.0",
+        "symplify/vendor-patches": "^11.3",
         "tomasvotruba/bladestan": "^0.5"
     },
     "require-dev": {
@@ -69,7 +70,15 @@
     "config": {
         "sort-packages": true,
         "allow-plugins": {
-            "phpstan/extension-installer": true
+            "phpstan/extension-installer": true,
+            "cweagans/composer-patches": true
+        }
+    },
+    "extra": {
+        "patches": {
+            "illuminate/container": [
+                "https://raw.githubusercontent.com/rectorphp/vendor-patches/main/patches/illuminate-container-container-php.patch"
+            ]
         }
     }
 }
