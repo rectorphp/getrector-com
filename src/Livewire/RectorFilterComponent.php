@@ -37,6 +37,10 @@ final class RectorFilterComponent extends Component
         return view('livewire.rector-filter-component', [
             'filteredRules' => $ruleFilter->filter($ruleMetadatas, $this->query, $this->nodeType),
             'nodeTypeSelectOptions' => $nodeTypeSelect,
+            'isFilterActive' => $this->query !== null && $this->query !== '',
+            'queryExamples' => [
+                'add return type strict'
+            ]
         ]);
     }
 
