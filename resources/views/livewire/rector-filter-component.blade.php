@@ -83,6 +83,16 @@
 
     @if ($isFilterActive && $filteredRules === [])
         <p>No rules found. Try different query.</p>
+    @else
+        <p>How to search? Try these:</p>
+
+        <ul>
+            @foreach ($queryExamples as $queryExample)
+                <li>
+                    <a href="?query={{ $queryExample }}">{{ $queryExample }}</a>
+                </li>
+          @endforeach
+        </ul>
     @endif
 
     <script>

@@ -38,6 +38,9 @@ final class RectorFilterComponent extends Component
             'filteredRules' => $ruleFilter->filter($ruleMetadatas, $this->query, $this->nodeType),
             'nodeTypeSelectOptions' => $nodeTypeSelect,
             'isFilterActive' => $this->query !== null && $this->query !== '',
+            'queryExamples' => [
+                'add return type strict'
+            ]
         ]);
     }
 
