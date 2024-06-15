@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Website\RuleFilter;
 
+use PhpParser\Node;
 use Rector\Website\RuleFilter\ValueObject\RuleMetadata;
 
 final class RuleFilter
@@ -15,7 +16,7 @@ final class RuleFilter
 
     /**
      * @param RuleMetadata[] $ruleMetadatas
-     * @param class-string<\PhpParser\Node>|null $nodeType
+     * @param class-string<Node>|null $nodeType
      * @return RuleMetadata[]
      */
     public function filter(array $ruleMetadatas, ?string $query, ?string $nodeType): array
@@ -29,7 +30,7 @@ final class RuleFilter
         }
 
         // filter by node type first
-        if ($nodeType && is_a($nodeType, \PhpParser\Node::class, true)) {
+        if ($nodeType && is_a($nodeType, Node::class, true)) {
             $ruleMetadatas = array_filter(
                 $ruleMetadatas,
                 fn (RuleMetadata $ruleMetadata): bool => in_array($nodeType, $ruleMetadata->getNodeTypes())

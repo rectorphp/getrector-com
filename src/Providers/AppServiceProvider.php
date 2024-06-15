@@ -13,8 +13,4 @@ final class AppServiceProvider extends ServiceProvider
     {
         $this->app->singleton(RectorSetsTreeProvider::class);
     }
-
-    public function boot(): void
-    {
-    }
 }

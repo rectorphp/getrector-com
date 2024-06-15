@@ -68,11 +68,12 @@ final class RectorFilterComponent extends Component
 
         // create select from these
         $nodeTypeSelect = [];
-        foreach ($nodeTypesToCount as $nodeType => $count) {
+        foreach (array_keys($nodeTypesToCount) as $nodeType) {
             $nodeTypeSelect[$nodeType] = ucfirst(
                 NodeTypeToHumanReadable::MAP[$nodeType] ?? $nodeType . '_todo_add_to_map'
             );
         }
+
         return $nodeTypeSelect;
     }
 }
