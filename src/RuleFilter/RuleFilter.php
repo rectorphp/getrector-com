@@ -15,9 +15,10 @@ final class RuleFilter
 
     /**
      * @param RuleMetadata[] $ruleMetadatas
+     * @param class-string<\PhpParser\Node>|null $nodeType
      * @return RuleMetadata[]
      */
-    public function filter(array $ruleMetadatas, ?string $query): array
+    public function filter(array $ruleMetadatas, ?string $query, ?string $nodeType): array
     {
         if ($query === null) {
             return [];
@@ -27,6 +28,15 @@ final class RuleFilter
             return [];
         }
 
+        // filter by node type first
+        if ($nodeType && is_a($nodeType, \PhpParser\Node::class, true)) {
+            $ruleMetadatas = array_filter(
+                $ruleMetadatas,
+                fn (RuleMetadata $ruleMetadata): bool => in_array($nodeType, $ruleMetadata->getNodeTypes())
+            );
+        }
+
+        $filteredRuleMetadatas = [];
         foreach ($ruleMetadatas as $ruleMetadata) {
             $score = $this->matchingScoreResolver->resolve($ruleMetadata, $query);
             if ($score === 0) {
@@ -34,16 +44,17 @@ final class RuleFilter
             }
 
             $ruleMetadata->changeFilterScore($score);
+            $filteredRuleMetadatas[] = $ruleMetadata;
         }
 
         usort(
-            $ruleMetadatas,
+            $filteredRuleMetadatas,
             function (RuleMetadata $firstRuleMetadata, RuleMetadata $secondRuleMetadata): int {
                 return $secondRuleMetadata->getFilterScore() <=> $firstRuleMetadata->getFilterScore();
             }
         );
 
-        // get max 10 results to keep page clear
-        return array_slice($ruleMetadatas, 0, 10);
+        // limit results to keep page clear
+        return array_slice($filteredRuleMetadatas, 0, 5);
     }
 }

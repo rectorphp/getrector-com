@@ -5,15 +5,17 @@
 
 <div>
     <input
-        placeholder="Search for a rule"
+        placeholder="Type to start searching a rule"
         type="text"
         class="form-control d-inline"
         style="width: 15em"
         wire:model.live.debounce.300ms="query"
     >
 
-    <select class="form-select d-inline ms-3" name="node_type" style="width: 15em">
-        <option value="any">Any element</option>
+    <label for="node_type" class="ms-4">Element to change:</label>
+
+    <select class="form-select d-inline ms-3" name="node_type" style="width: 15em" wire:model.live="nodeType">
+        <option value="">Any element</option>
         @foreach ($nodeTypeSelectOptions as $optionValue => $optionName)
             <option value="{{ $optionValue }}">{{ $optionName }}</option>
         @endforeach
@@ -51,21 +53,21 @@
                            value="{{ $filteredRule->getRectorClass() }}">
                 </div>
 
-                <div class="row mt-3">
-                    <div class="col-8 filter-code-sample">
+                <div class="row mt-3 mb-2">
+                    <div class="col-12 filter-code-sample">
                             <pre><code
                                     class="language-diff">{{ $filteredRule->getDiffCodeSample() }}</code></pre>
                     </div>
 
-                    <div class="col-4">
-                        @if ($filteredRule->getSets())
+                    @if ($filteredRule->getSets())
+                        <div class="col-12 mb-1">
                             SETS:&nbsp;
 
                             @foreach ($filteredRule->getSets() as $set)
                                 <span class="badge bg-danger">{{ $set }}</span>
                             @endforeach
-                        @endif
-                    </div>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>
