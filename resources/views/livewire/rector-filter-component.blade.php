@@ -19,8 +19,12 @@
     <select class="form-select d-inline ms-3" name="node_type" style="width: 15em" wire:model.live="nodeType">
         <option value="">Any element</option>
 
-        @foreach ($nodeTypeSelectOptions as $optionValue => $optionName)
-            <option value="{{ $optionValue }}">{{ $optionName }}</option>
+        @foreach ($groupedNodeTypeSelectOptions as $groupName => $nodeTypesToNames)
+            <optgroup label="{{ $groupName }}">
+                @foreach ($nodeTypesToNames as $optionValue => $optionName)
+                    <option value="{{ $optionValue }}">{{ $optionName }}</option>
+                @endforeach
+            </optgroup>
         @endforeach
     </select>
 
@@ -36,17 +40,19 @@
                     @endif
                 "
             >
-                <div class="card-body pt-2 pb-2 ps-4 pe-4">
-                    <div style="float: right" class="mt-2">
+                <div class="card-body pt-0 pb-3 ps-4 pe-4">
+                    <div style="float: right" class="mt-3">
                         @if ($filteredRule->isConfigurable())
                             <span class="mt-4">
                                 <span class="badge bg-primary">Configurable</span>
                             </span>
                         @endif
 
-                        <small class="text-secondary ms-2">
-                            Score: {{ $filteredRule->getFilterScore() }}
-                        </small>
+                        @if ($filteredRule->getFilterScore())
+                            <small class="text-secondary ms-2">
+                                Score: {{ $filteredRule->getFilterScore() }}
+                            </small>
+                        @endif
                     </div>
 
                     <h3 class="mb-4">{{ $filteredRule->getRuleShortClass() }}</h3>
@@ -82,10 +88,10 @@
 
             <br>
         @endforeach
-    @endif
 
-    @if ($isFilterActive && $filteredRules === [])
-        <p>No rules found. Try different query.</p>
+        @if ($filteredRules === [])
+            <p>No rules found. Try different query.</p>
+        @endif
     @else
         <p>How to search? Try these:</p>
 
