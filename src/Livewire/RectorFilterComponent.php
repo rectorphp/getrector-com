@@ -52,13 +52,12 @@ final class RectorFilterComponent extends Component
 
         /** @var RectorSetsTreeProvider $rectorSetsTreeProvider */
         $rectorSetsTreeProvider = app(RectorSetsTreeProvider::class);
-        $rectorSets = $rectorSetsTreeProvider->provide();
 
         return view('livewire.rector-filter-component', [
             'filteredRules' => $filteredRules,
             'isFilterActive' => $this->isFilterActive(),
             'queryExamples' => self::QUERY_EXAMPLES,
-            'rectorSets' => $rectorSets,
+            'rectorSetsByGroup' => $rectorSetsTreeProvider->provideGrouped(),
         ]);
     }
 

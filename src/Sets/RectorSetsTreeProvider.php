@@ -4,12 +4,15 @@ declare(strict_types=1);
 
 namespace Rector\Website\Sets;
 
+use Nette\Utils\Strings;
 use PhpParser\Node;
 use PhpParser\Node\Name;
 use PhpParser\NodeFinder;
 use Rector\Config\Level\CodeQualityLevel;
 use Rector\Config\Level\DeadCodeLevel;
 use Rector\Config\Level\TypeDeclarationLevel;
+use Rector\Set\Contract\SetListInterface;
+use Rector\Set\ValueObject\SetList;
 use Rector\Website\PhpParser\SimplePhpParser;
 use Rector\Website\RuleFilter\ValueObject\RectorSet;
 use Rector\Website\Utils\ClassNameResolver;
@@ -32,6 +35,19 @@ final class RectorSetsTreeProvider
     }
 
     /**
+     * @return array<string, RectorSet[]>
+     */
+    public function provideGrouped(): array
+    {
+        $rectorSetsByGroup = [];
+        foreach ($this->rectorSets as $rectorSet) {
+            $rectorSetsByGroup[$rectorSet->getGroupName()][] = $rectorSet;
+        }
+
+        return $rectorSetsByGroup;
+    }
+
+    /**
      * @return RectorSet[]
      */
     public function provide(): array
@@ -42,17 +58,23 @@ final class RectorSetsTreeProvider
 
         $rectorSets = [];
 
-        // what set is this rules part of?
         // @todo possibly cache or prebuild this?
         foreach ($this->findSetListFileInfos() as $setListFileInfo) {
+            // no level sets, as deprecated
+            if (str_contains($setListFileInfo->getRealPath(), 'Level')) {
+                continue;
+            }
+
             $setListClassName = $this->resolveClassName($setListFileInfo);
             $setListReflectionClass = new ReflectionClass($setListClassName);
 
             foreach ($setListReflectionClass->getConstants() as $constantName => $constantValue) {
-                // meta sets, can be skipped
-                if (str_contains($constantName, 'UP_TO_')) {
+                // skipped as internal
+                if ($constantName === 'RECTOR_PRESET') {
                     continue;
                 }
+
+                $groupName = $this->resolveGroupName($setListReflectionClass, $constantName);
 
                 // step by step level reference
                 if ($constantName === 'CODE_QUALITY') {
@@ -65,7 +87,7 @@ final class RectorSetsTreeProvider
                     $rectorClasses = $this->resolveRectorClassesFromSetFilePath($constantValue);
                 }
 
-                $rectorSets[] = new RectorSet($constantName, $rectorClasses);
+                $rectorSets[] = new RectorSet($constantName, $rectorClasses, $groupName);
             }
         }
 
@@ -95,7 +117,7 @@ final class RectorSetsTreeProvider
     }
 
     /**
-     * @return class-string
+     * @return class-string<SetListInterface>
      */
     private function resolveClassName(SplFileInfo $fileInfo): string
     {
@@ -132,5 +154,25 @@ final class RectorSetsTreeProvider
         }
 
         return $rectorClasses;
+    }
+
+    /**
+     * @param ReflectionClass<SetListInterface> $setListReflectionClass
+     */
+    private function resolveGroupName(ReflectionClass $setListReflectionClass, string $constantName): string
+    {
+        if (str_starts_with($constantName, 'PHP_')) {
+            return 'PHP';
+        }
+
+        if ($setListReflectionClass->getName() === SetList::class) {
+            return 'Core';
+        }
+
+        // rector split package
+        $match = Strings::match($setListReflectionClass->getName(), '#\\\\(?<name>[\w]+)SetList#');
+        Assert::isArray($match);
+
+        return $match['name'];
     }
 }

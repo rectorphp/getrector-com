@@ -14,9 +14,9 @@
     >
     <!-- @see https://livewire.laravel.com/docs/wire-model#customizing-the-debounce -->
 
-    <label for="node_type" class="ms-4">Element to change:</label>
+    <label for="node_type" class="ms-5 me-3">Element to change:</label>
 
-    <select class="form-select d-inline ms-3" name="node_type" style="width: 12em" wire:model.live="nodeType">
+    <select class="form-select d-inline" name="node_type" style="width: 12em" wire:model.live="nodeType">
         <option value="">Any element</option>
 
         @foreach (\Rector\Website\Enum\NodeTypeToHumanReadable::SELECT_ITEMS_BY_GROUP as $groupName => $nodeTypesToNames)
@@ -28,11 +28,16 @@
         @endforeach
     </select>
 
-    <select class="form-select" name="set" style="width: 12em" wire:model.live="set">
+    <label for="node_type" class="ms-5 me-3">Set:</label>
+
+    <select class="form-select d-inline" name="set" style="width: 8em" wire:model.live="set">
         <option value="">Any set</option>
 
-        @foreach ($rectorSets as $rectorSet)
-            <option value="{{ $rectorSet->getName() }}">{{ $rectorSet->getName() }}</option>
+        @foreach ($rectorSetsByGroup as $groupName => $rectorSets)
+            <optgroup label="{{ $groupName }}">
+            @foreach ($rectorSets as $rectorSet)
+                <option value="{{ $rectorSet->getName() }}">{{ $rectorSet->getHumanName() }}</option>
+            @endforeach
         @endforeach
     </select>
 

@@ -64,10 +64,12 @@ use PhpParser\Node\Stmt\While_;
 use Rector\Contract\PhpParser\Node\StmtsAwareInterface;
 use Rector\PhpParser\Node\CustomNode\FileWithoutNamespace;
 
+/**
+ * @api used in blade
+ */
 final class NodeTypeToHumanReadable
 {
     /**
-     * @api used in blade
      * @var array<string, array<class-string<Node>, string>>
      */
     public const SELECT_ITEMS_BY_GROUP = [
