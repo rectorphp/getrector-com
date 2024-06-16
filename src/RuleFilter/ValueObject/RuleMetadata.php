@@ -82,6 +82,11 @@ final class RuleMetadata
         return $this->sets;
     }
 
+    public function isInSet(string $set): bool
+    {
+        return in_array($set, $this->sets, true);
+    }
+
     /**
      * @return array<class-string<Node>>
      */

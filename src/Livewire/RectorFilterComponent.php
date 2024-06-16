@@ -48,7 +48,7 @@ final class RectorFilterComponent extends Component
 
         /** @var RuleFilter $ruleFilter */
         $ruleFilter = app(RuleFilter::class);
-        $filteredRules = $ruleFilter->filter($ruleMetadatas, $this->query, $this->nodeType);
+        $filteredRules = $ruleFilter->filter($ruleMetadatas, $this->query, $this->nodeType, $this->set);
 
         /** @var RectorSetsTreeProvider $rectorSetsTreeProvider */
         $rectorSetsTreeProvider = app(RectorSetsTreeProvider::class);
@@ -67,6 +67,10 @@ final class RectorFilterComponent extends Component
             return true;
         }
 
-        return $this->nodeType !== null && $this->nodeType !== '';
+        if ($this->nodeType !== null && $this->nodeType !== '') {
+            return true;
+        }
+
+        return $this->set !== null && $this->set !== '';
     }
 }
