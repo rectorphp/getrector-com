@@ -8,6 +8,7 @@ use Nette\Loaders\RobotLoader;
 use Rector\Contract\Rector\RectorInterface;
 use Rector\PostRector\Contract\Rector\PostRectorInterface;
 use Rector\Rector\AbstractRector;
+use Rector\Website\Enum\RuleNodeRedirectMap;
 use Rector\Website\RuleFilter\ValueObject\RectorSet;
 use Rector\Website\RuleFilter\ValueObject\RuleMetadata;
 use Rector\Website\Sets\RectorSetsTreeProvider;
@@ -50,11 +51,17 @@ final class RectorFinder
 
             $currentRuleSets = $this->findRuleUsedSets($ruleDefinition, $rectorSets);
 
+            if (isset(RuleNodeRedirectMap::MAP[$rectorClass])) {
+                $changedNodeTypes = RuleNodeRedirectMap::MAP[$rectorClass];
+            } else {
+                $changedNodeTypes = $rector->getNodeTypes();
+            }
+
             $ruleMetadatas[] = new RuleMetadata(
                 $ruleDefinition->getRuleClass(),
                 $ruleDefinition->getDescription(),
                 $ruleDefinition->getCodeSamples(),
-                $rector->getNodeTypes(),
+                $changedNodeTypes,
                 $currentRuleSets
             );
         }

@@ -82,9 +82,7 @@
 
             <br>
         @endforeach
-    @endif
-
-    @if ($isFilterActive && $filteredRules === [])
+    @elseif ($filteredRules === [])
         <p>No rules found. Try different query.</p>
     @else
         <p>How to search? Try these:</p>
