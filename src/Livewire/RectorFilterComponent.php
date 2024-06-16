@@ -15,6 +15,11 @@ use Rector\Website\RuleFilter\ValueObject\RuleMetadata;
 
 final class RectorFilterComponent extends Component
 {
+    /**
+     * @var string[]
+     */
+    private const QUERY_EXAMPLES = ['add constant type', 'add return type strict', 'remove unused property'];
+
     #[Url]
     public ?string $query = null;
 
@@ -34,21 +39,21 @@ final class RectorFilterComponent extends Component
         // create select from hooked nodes
         $nodeTypeSelect = $this->createNodeTypeSelect($ruleMetadatas);
 
+        $filteredRules = $ruleFilter->filter($ruleMetadatas, $this->query, $this->nodeType);
+
         return view('livewire.rector-filter-component', [
-            'filteredRules' => $ruleFilter->filter($ruleMetadatas, $this->query, $this->nodeType),
+            'filteredRules' => $filteredRules,
             'nodeTypeSelectOptions' => $nodeTypeSelect,
-            'isFilterActive' => $this->query !== null && $this->query !== '',
-            'queryExamples' => [
-                'add return type strict'
-            ]
+            'isFilterActive' => ($this->query !== null && $this->query !== '') || ($this->nodeType !== null && $this->nodeType !== ''),
+            'queryExamples' => self::QUERY_EXAMPLES,
         ]);
     }
 
     /**
      * @param RuleMetadata[] $ruleMetadatas
-     * @return array<class-string<Node>, int>
+     * @return array<class-string<Node>>
      */
-    private function resolveUsedNodesTypeToCount(array $ruleMetadatas): array
+    private function resolveUsedNodesTypeFromMostUsed(array $ruleMetadatas): array
     {
         $usedNodeTypes = [];
 
@@ -56,10 +61,11 @@ final class RectorFilterComponent extends Component
             $usedNodeTypes = array_merge($usedNodeTypes, $ruleMetadata->getNodeTypes());
         }
 
+        /** @var array<class-string<Node>, int> $nodeTypesToCount */
         $nodeTypesToCount = array_count_values($usedNodeTypes);
         arsort($nodeTypesToCount);
 
-        return $nodeTypesToCount;
+        return array_keys($nodeTypesToCount);
     }
 
     /**
@@ -68,11 +74,11 @@ final class RectorFilterComponent extends Component
      */
     private function createNodeTypeSelect(array $ruleMetadatas): array
     {
-        $nodeTypesToCount = $this->resolveUsedNodesTypeToCount($ruleMetadatas);
+        $nodeTypes = $this->resolveUsedNodesTypeFromMostUsed($ruleMetadatas);
 
         // create select from these
         $nodeTypeSelect = [];
-        foreach (array_keys($nodeTypesToCount) as $nodeType) {
+        foreach ($nodeTypes as $nodeType) {
             $nodeTypeSelect[$nodeType] = ucfirst(
                 NodeTypeToHumanReadable::MAP[$nodeType] ?? $nodeType . '_todo_add_to_map'
             );

@@ -39,4 +39,9 @@
         <a href="{{ action(\Rector\Website\Controller\Ast\AstController::class) }}"
            class="nav-link">Play with AST</a>
     </li>
+
+    <li class="nav-item">
+        <a href="{{ action(\Rector\Website\Controller\FilterRectorController::class) }}"
+           class="nav-link">Find rule</a>
+    </li>
 @endif
