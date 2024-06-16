@@ -9,6 +9,11 @@ use Rector\Website\RuleFilter\ValueObject\RuleMetadata;
 
 final class RuleFilter
 {
+    /**
+     * @var int
+     */
+    private const MAX_RESULTS = 5;
+
     public function __construct(
         private readonly MatchingScoreResolver $matchingScoreResolver,
     ) {
@@ -25,7 +30,7 @@ final class RuleFilter
         $ruleMetadatas = $this->filterByQuery($ruleMetadatas, $query);
 
         // limit results to keep page clear
-        return array_slice($ruleMetadatas, 0, 5);
+        return array_slice($ruleMetadatas, 0, self::MAX_RESULTS);
     }
 
     /**

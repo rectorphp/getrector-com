@@ -44,6 +44,9 @@ final class RuleMetadata
         return $this->description;
     }
 
+    /**
+     * @api used in blade
+     */
     public function getRectorClass(): string
     {
         return $this->ruleClass;
