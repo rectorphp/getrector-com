@@ -153,13 +153,4 @@ final class NodeTypeToHumanReadable
             StmtsAwareInterface::class => 'Statement array',
         ],
     ];
-
-    /**
-     * @var array<class-string<Node>, string>
-     */
-    public const MAP = [
-        // @todo include inversed by check in Class_, Trait_, Enum_, Interface_ etc.
-        FunctionLike::class => 'function-like',
-        ClassLike::class => 'class-like statements',
-    ];
 }
