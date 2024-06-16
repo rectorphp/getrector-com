@@ -11,25 +11,9 @@ use PhpParser\Node\Expr\ArrayDimFetch;
 use PhpParser\Node\Expr\ArrayItem;
 use PhpParser\Node\Expr\ArrowFunction;
 use PhpParser\Node\Expr\Assign;
-use PhpParser\Node\Expr\AssignOp\Minus;
-use PhpParser\Node\Expr\AssignOp\Plus;
+use PhpParser\Node\Expr\AssignOp;
 use PhpParser\Node\Expr\BinaryOp;
-use PhpParser\Node\Expr\BinaryOp\BooleanAnd;
-use PhpParser\Node\Expr\BinaryOp\BooleanOr;
-use PhpParser\Node\Expr\BinaryOp\Concat;
-use PhpParser\Node\Expr\BinaryOp\Div;
-use PhpParser\Node\Expr\BinaryOp\Equal;
-use PhpParser\Node\Expr\BinaryOp\Greater;
-use PhpParser\Node\Expr\BinaryOp\Identical;
-use PhpParser\Node\Expr\BinaryOp\LogicalAnd;
-use PhpParser\Node\Expr\BinaryOp\LogicalOr;
-use PhpParser\Node\Expr\BinaryOp\Mul;
-use PhpParser\Node\Expr\BinaryOp\NotEqual;
-use PhpParser\Node\Expr\BinaryOp\NotIdentical;
-use PhpParser\Node\Expr\BinaryOp\Smaller;
-use PhpParser\Node\Expr\BooleanNot;
 use PhpParser\Node\Expr\Cast;
-use PhpParser\Node\Expr\Cast\Double;
 use PhpParser\Node\Expr\Cast\Unset_;
 use PhpParser\Node\Expr\ClassConstFetch;
 use PhpParser\Node\Expr\Closure;
@@ -64,6 +48,7 @@ use PhpParser\Node\Stmt\Continue_;
 use PhpParser\Node\Stmt\Do_;
 use PhpParser\Node\Stmt\Else_;
 use PhpParser\Node\Stmt\ElseIf_;
+use PhpParser\Node\Stmt\Enum_;
 use PhpParser\Node\Stmt\Expression;
 use PhpParser\Node\Stmt\For_;
 use PhpParser\Node\Stmt\Foreach_;
@@ -74,6 +59,7 @@ use PhpParser\Node\Stmt\Namespace_;
 use PhpParser\Node\Stmt\Property;
 use PhpParser\Node\Stmt\Switch_;
 use PhpParser\Node\Stmt\Trait_;
+use PhpParser\Node\Stmt\TraitUse;
 use PhpParser\Node\Stmt\TryCatch;
 use PhpParser\Node\Stmt\While_;
 use Rector\Contract\PhpParser\Node\StmtsAwareInterface;
@@ -82,86 +68,98 @@ use Rector\PhpParser\Node\CustomNode\FileWithoutNamespace;
 final class NodeTypeToHumanReadable
 {
     /**
+     * @var array<string, array<class-string<Node>, string>>
+     */
+    public const SELECT_ITEMS_BY_GROUP = [
+        'Class-likes' => [
+            Class_::class => 'Class',
+            Trait_::class => 'Trait',
+            Interface_::class => 'Interface',
+            Enum_::class => 'Enum',
+        ],
+        'Class elements' => [
+            TraitUse::class => 'Trait use',
+            ClassConst::class => 'Constant',
+            Property::class => 'Property',
+            ClassMethod::class => 'Method',
+        ],
+        'Function-likes' => [
+            Function_::class => 'Functions',
+            ArrowFunction::class => 'Arrow functions',
+            Closure::class => 'Closures',
+            Param::class => 'Parameter',
+        ],
+        'Fetches' => [
+            PropertyFetch::class => 'Property fetch',
+            StaticPropertyFetch::class => 'Static property fetch',
+            ClassConstFetch::class => 'Class constant fetch',
+            ConstFetch::class => 'Constant fetch',
+        ],
+        'Calls' => [
+            MethodCall::class => 'Method calls',
+            StaticCall::class => 'Static calls',
+            FuncCall::class => 'Function calls',
+            Arg::class => 'argument',
+            NullsafeMethodCall::class => 'Nullsafe method call',
+            New_::class => 'New instance',
+        ],
+        'Operations' => [
+            BinaryOp::class => 'Binary operations (+, -, /...)',
+            AssignOp::class => 'Assign operations(+=, -=...)',
+        ],
+        'Scalars' => [
+            String_::class => 'String',
+            LNumber::class => 'Decimal number',
+            DNumber::class => 'Float number',
+            Cast::class => 'Casts',
+            Encapsed::class => 'Encapsed string',
+        ],
+        'Conditions and loops' => [
+            If_::class => 'If',
+            ElseIf_::class => 'Elseif',
+            Else_::class => 'Else',
+            Ternary::class => 'Ternary',
+            While_::class => 'While',
+            Do_::class => 'Do',
+            Foreach_::class => 'Foreach',
+            For_::class => 'For',
+        ],
+        'Arrays' => [
+            Array_::class => 'Array',
+            ArrayItem::class => 'Array item',
+            ArrayDimFetch::class => 'Array dimension fetch',
+            List_::class => 'List',
+            Unset_::class => 'Unset',
+            Isset_::class => 'Isset',
+            Empty_::class => 'Empty',
+        ],
+        'Try' => [
+            Switch_::class => 'Switch',
+            Break_::class => 'Break statement',
+            TryCatch::class => 'Try-catch statement',
+            Catch_::class => 'Catch statement',
+            Continue_::class => 'continue statement',
+        ],
+        'Namespace' => [
+            FileWithoutNamespace::class => 'Files without namespace',
+            Namespace_::class => 'Namespace',
+            Include_::class => 'Include',
+        ],
+        'Rest' => [
+            Assign::class => 'Assignment',
+            Variable::class => 'Variable',
+            FullyQualified::class => 'Fully qualified name',
+            Expression::class => 'Expression',
+            StmtsAwareInterface::class => 'Statement array',
+        ],
+    ];
+
+    /**
      * @var array<class-string<Node>, string>
      */
     public const MAP = [
-        Class_::class => 'class',
-        ClassMethod::class => 'class method',
-        MethodCall::class => 'method call',
-        FuncCall::class => 'function call',
-        StaticCall::class => 'static call',
-        Function_::class => 'function',
-        Closure::class => 'closure',
-        StmtsAwareInterface::class => 'statements',
-        Property::class => 'property',
-        If_::class => 'if',
-        Ternary::class => 'ternary',
-        Expression::class => 'expression',
-        Identical::class => '===',
-        BooleanNot::class => 'boolean not',
-        New_::class => 'new instance',
-        Assign::class => 'assignment',
-        Foreach_::class => 'foreach statement',
-        String_::class => 'string',
-        ArrowFunction::class => 'arrow function',
-        ClassConst::class => 'class constant',
-        NotIdentical::class => '!==',
-        FileWithoutNamespace::class => 'files without namespace',
-        Switch_::class => 'switch',
-        Namespace_::class => 'namespace',
-        Interface_::class => 'interface',
-        Param::class => 'parameter',
-        ClassLike::class => 'class-like statements',
-        NotEqual::class => '!=',
-        While_::class => 'while statement',
-        BooleanAnd::class => '&&',
-        For_::class => 'for statement',
-        Array_::class => 'array',
-        Equal::class => 'equal binary operation',
-        ConstFetch::class => 'constant fetch',
-        Do_::class => 'do statement',
-        Empty_::class => 'empty expression',
-        BooleanOr::class => 'boolean or operation',
-        ElseIf_::class => 'elseif statement',
-        Encapsed::class => 'encapsed string',
-        Variable::class => 'variable',
-        Break_::class => 'break statement',
-        PropertyFetch::class => 'property fetch',
+        // @todo include inversed by check in Class_, Trait_, Enum_, Interface_ etc.
         FunctionLike::class => 'function-like',
-        ClassConstFetch::class => 'class constant fetch',
-        NullsafeMethodCall::class => 'nullsafe method call',
-        Concat::class => 'concatenation .',
-        Plus::class => '+=',
-        Minus::class => '-=',
-        TryCatch::class => 'try-catch statement',
-        ArrayDimFetch::class => 'array dimension fetch',
-        BinaryOp::class => 'binary operation',
-        StaticPropertyFetch::class => 'static property fetch',
-        List_::class => 'list',
-        Unset_::class => 'unset cast',
-        FullyQualified::class => 'fully qualified name',
-        \PhpParser\Node\Expr\BinaryOp\Plus::class => '+',
-        \PhpParser\Node\Expr\BinaryOp\Minus::class => '-',
-        Mul::class => '*',
-        Div::class => '/',
-        \PhpParser\Node\Expr\AssignOp\Mul::class => '=*',
-        \PhpParser\Node\Expr\AssignOp\Div::class => '=/',
-        Cast::class => 'cast',
-        Trait_::class => 'trait',
-        LNumber::class => 'integer literal',
-        DNumber::class => 'float literal',
-        Double::class => 'double cast',
-        Catch_::class => 'catch statement',
-        Else_::class => 'else statement',
-        Isset_::class => 'isset expression',
-        Include_::class => 'include expression',
-        LogicalOr::class => 'logical or operation',
-        LogicalAnd::class => 'logical and operation',
-        ArrayItem::class => 'array item',
-        Arg::class => 'argument',
-        Continue_::class => 'continue statement',
-        \PhpParser\Node\Scalar\MagicConst\Class_::class => 'class magic constant',
-        Greater::class => 'greater than binary operation',
-        Smaller::class => 'less than binary operation',
+        ClassLike::class => 'class-like statements',
     ];
 }

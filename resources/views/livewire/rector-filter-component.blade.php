@@ -16,13 +16,26 @@
 
     <label for="node_type" class="ms-4">Element to change:</label>
 
+{{--    <select class="form-select d-inline ms-3" name="node_type" style="width: 15em" wire:model.live="nodeType">--}}
+{{--        <option value="">Any element</option>--}}
+
+{{--        @foreach ($nodeTypeSelectOptions as $optionValue => $optionName)--}}
+{{--            <option value="{{ $optionValue }}">{{ $optionName }}</option>--}}
+{{--        @endforeach--}}
+{{--    </select>--}}
+
     <select class="form-select d-inline ms-3" name="node_type" style="width: 15em" wire:model.live="nodeType">
         <option value="">Any element</option>
 
-        @foreach ($nodeTypeSelectOptions as $optionValue => $optionName)
-            <option value="{{ $optionValue }}">{{ $optionName }}</option>
+        @foreach ($groupedNodeTypeSelectOptions as $groupName => $nodeTypesToNames)
+            <optgroup label="{{ $groupName }}">
+                @foreach ($nodeTypesToNames as $optionValue => $optionName)
+                    <option value="{{ $optionValue }}">{{ $optionName }}</option>
+                @endforeach
+            </optgroup>
         @endforeach
     </select>
+
 
     <div class="clearfix mb-2"></div>
 
@@ -82,8 +95,10 @@
 
             <br>
         @endforeach
-    @elseif ($filteredRules === [])
-        <p>No rules found. Try different query.</p>
+
+        @if ($filteredRules === [])
+            <p>No rules found. Try different query.</p>
+        @endif
     @else
         <p>How to search? Try these:</p>
 
