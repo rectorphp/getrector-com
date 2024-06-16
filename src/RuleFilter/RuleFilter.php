@@ -21,20 +21,38 @@ final class RuleFilter
      */
     public function filter(array $ruleMetadatas, ?string $query, ?string $nodeType): array
     {
-        if ($query === null) {
-            return [];
+        $ruleMetadatas = $this->filterByNodeTypeFirst($ruleMetadatas, $nodeType);
+        $ruleMetadatas = $this->filterByQuery($ruleMetadatas, $query);
+
+        // limit results to keep page clear
+        return array_slice($ruleMetadatas, 0, 5);
+    }
+
+    /**
+     * @param RuleMetadata[] $ruleMetadatas
+     * @return RuleMetadata[]
+     */
+    private function filterByNodeTypeFirst(array $ruleMetadatas, ?string $nodeType): array
+    {
+        if ($nodeType === null || ! is_a($nodeType, Node::class, true)) {
+            return $ruleMetadatas;
         }
 
-        if (strlen($query) < 3) {
-            return [];
-        }
+        return array_filter(
+            $ruleMetadatas,
+            fn (RuleMetadata $ruleMetadata): bool => in_array($nodeType, $ruleMetadata->getNodeTypes())
+        );
+    }
 
-        // filter by node type first
-        if ($nodeType && is_a($nodeType, Node::class, true)) {
-            $ruleMetadatas = array_filter(
-                $ruleMetadatas,
-                fn (RuleMetadata $ruleMetadata): bool => in_array($nodeType, $ruleMetadata->getNodeTypes())
-            );
+    /**
+     * @param RuleMetadata[] $ruleMetadatas
+     * @return RuleMetadata[]
+     */
+    private function filterByQuery(array $ruleMetadatas, ?string $query): array
+    {
+        // nothing to filter
+        if ($query === null || strlen($query) < 3) {
+            return $ruleMetadatas;
         }
 
         $filteredRuleMetadatas = [];
@@ -48,6 +66,7 @@ final class RuleFilter
             $filteredRuleMetadatas[] = $ruleMetadata;
         }
 
+        // sort by score
         usort(
             $filteredRuleMetadatas,
             function (RuleMetadata $firstRuleMetadata, RuleMetadata $secondRuleMetadata): int {
@@ -55,7 +74,6 @@ final class RuleFilter
             }
         );
 
-        // limit results to keep page clear
-        return array_slice($filteredRuleMetadatas, 0, 5);
+        return $filteredRuleMetadatas;
     }
 }

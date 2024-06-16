@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Website\RuleFilter;
 
+use Nette\Utils\Strings;
 use Rector\Website\RuleFilter\ValueObject\RuleMetadata;
 
 final class MatchingScoreResolver
@@ -12,10 +13,25 @@ final class MatchingScoreResolver
     {
         $score = 0;
 
-        $queryParts = explode(' ', $query);
+        // resolv equery parts
+        $queryParts = Strings::split($query, '#\s+#');
+        $queryParts = array_map('strtolower', $queryParts);
+
+        $rectorClassNameParts = $this->resolveRectorClassNameParts($ruleMetadata);
+
         foreach ($queryParts as $queryPart) {
-            if (str_contains(strtolower($ruleMetadata->getRectorClass()), strtolower($queryPart))) {
-                ++$score;
+            // make "constant" match "const", "parameter" match "param" etc., only in rule name
+            if ($queryPart === 'constant') {
+                $queryPart = 'const';
+            }
+
+            if ($queryPart === 'parameters') {
+                $queryPart = 'param';
+            }
+
+            if (in_array($queryPart, $rectorClassNameParts, true)) {
+                // name is more relevant, as description can include various words
+                $score += 5;
             }
         }
 
@@ -26,5 +42,18 @@ final class MatchingScoreResolver
         }
 
         return $score;
+    }
+
+    /**
+     * @return string[]
+     */
+    private function resolveRectorClassNameParts(RuleMetadata $ruleMetadata): array
+    {
+        $rectorClassNameParts = Strings::split($ruleMetadata->getRuleShortClass(), '#(?=[A-Z])#');
+        // lowercase all parts
+        $rectorClassNameParts = array_map('strtolower', $rectorClassNameParts);
+
+        // remove empty parts
+        return array_filter($rectorClassNameParts);
     }
 }

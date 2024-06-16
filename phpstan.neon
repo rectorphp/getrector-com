@@ -28,7 +28,6 @@ parameters:
         # will be solved most likely once Larastan is updated to Laravel 11 conventions
         - '#Call to an undefined method Illuminate\\Contracts\\(.*?)|Illuminate\\#'
 
-        - '#Method Rector\\Website\\PhpParser\\NodeResolver\\FocusedNodeResolver\:\:focus\(\) should return PhpParser\\Node but returns PhpParser\\Node\|null#'
         - '#Method Rector\\Website\\PhpParser\\ClickablePrinter\:\:pObjectProperty\(\) has parameter \$node with no type specified#'
 
         -
@@ -36,5 +35,4 @@ parameters:
             path: src/FileSystem/RectorFinder.php
 
         # wip
-        - '#Property Rector\\Website\\RuleFilter\\ValueObject\\RectorSet\:\:\$setFilePath is never read, only written#'
         - '#Method Rector\\Website\\Utils\\ClassNameResolver\:\:resolveFromFileContents\(\) should return class\-string\|null but returns string#'
