@@ -55,6 +55,9 @@ final class AppliedRule
         return $rulesDirectory . '/Rector/' . $nodeClass . '/' . $shortClass . '/Fixture';
     }
 
+    /**
+     * @api used in blade
+     */
     public function getGitHubReadmeLink(): string
     {
         return self::README_URL . '#' . Strings::webalize($this->shortClass);

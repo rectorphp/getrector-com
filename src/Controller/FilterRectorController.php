@@ -12,7 +12,7 @@ final class FilterRectorController extends Controller
     public function __invoke(): View
     {
         return \view('homepage/filter-rector', [
-            'page_title' => 'Filter Rector',
+            'page_title' => 'Find the best Rule',
         ]);
     }
 }

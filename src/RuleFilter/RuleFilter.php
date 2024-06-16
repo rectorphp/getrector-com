@@ -9,6 +9,11 @@ use Rector\Website\RuleFilter\ValueObject\RuleMetadata;
 
 final class RuleFilter
 {
+    /**
+     * @var int
+     */
+    private const MAX_RESULTS = 10;
+
     public function __construct(
         private readonly MatchingScoreResolver $matchingScoreResolver,
     ) {
@@ -19,13 +24,14 @@ final class RuleFilter
      * @param class-string<Node>|null $nodeType
      * @return RuleMetadata[]
      */
-    public function filter(array $ruleMetadatas, ?string $query, ?string $nodeType): array
+    public function filter(array $ruleMetadatas, ?string $query, ?string $nodeType, ?string $set): array
     {
         $ruleMetadatas = $this->filterByNodeTypeFirst($ruleMetadatas, $nodeType);
         $ruleMetadatas = $this->filterByQuery($ruleMetadatas, $query);
+        $ruleMetadatas = $this->filterBySet($ruleMetadatas, $set);
 
         // limit results to keep page clear
-        return array_slice($ruleMetadatas, 0, 5);
+        return array_slice($ruleMetadatas, 0, self::MAX_RESULTS);
     }
 
     /**
@@ -75,5 +81,18 @@ final class RuleFilter
         );
 
         return $filteredRuleMetadatas;
+    }
+
+    /**
+     * @param RuleMetadata[] $ruleMetadatas
+     * @return RuleMetadata[]
+     */
+    private function filterBySet(array $ruleMetadatas, ?string $set): array
+    {
+        if ($set === '' || $set === null) {
+            return $ruleMetadatas;
+        }
+
+        return array_filter($ruleMetadatas, fn (RuleMetadata $ruleMetadata): bool => $ruleMetadata->isInSet($set));
     }
 }

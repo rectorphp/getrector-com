@@ -6,6 +6,7 @@ namespace Rector\Website\Enum;
 
 use PhpParser\Node;
 use PhpParser\Node\Arg;
+use PhpParser\Node\AttributeGroup;
 use PhpParser\Node\Expr\Array_;
 use PhpParser\Node\Expr\ArrayDimFetch;
 use PhpParser\Node\Expr\ArrayItem;
@@ -31,7 +32,6 @@ use PhpParser\Node\Expr\StaticCall;
 use PhpParser\Node\Expr\StaticPropertyFetch;
 use PhpParser\Node\Expr\Ternary;
 use PhpParser\Node\Expr\Variable;
-use PhpParser\Node\FunctionLike;
 use PhpParser\Node\Name\FullyQualified;
 use PhpParser\Node\Param;
 use PhpParser\Node\Scalar\DNumber;
@@ -42,7 +42,6 @@ use PhpParser\Node\Stmt\Break_;
 use PhpParser\Node\Stmt\Catch_;
 use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\ClassConst;
-use PhpParser\Node\Stmt\ClassLike;
 use PhpParser\Node\Stmt\ClassMethod;
 use PhpParser\Node\Stmt\Continue_;
 use PhpParser\Node\Stmt\Do_;
@@ -65,23 +64,29 @@ use PhpParser\Node\Stmt\While_;
 use Rector\Contract\PhpParser\Node\StmtsAwareInterface;
 use Rector\PhpParser\Node\CustomNode\FileWithoutNamespace;
 
+/**
+ * @api used in blade
+ */
 final class NodeTypeToHumanReadable
 {
     /**
      * @var array<string, array<class-string<Node>, string>>
      */
     public const SELECT_ITEMS_BY_GROUP = [
+        'Modern' => [
+            AttributeGroup::class => 'Attributes',
+        ],
         'Class-likes' => [
             Class_::class => 'Class',
-            Trait_::class => 'Trait',
             Interface_::class => 'Interface',
+            Trait_::class => 'Trait',
             Enum_::class => 'Enum',
         ],
         'Class elements' => [
-            TraitUse::class => 'Trait use',
             ClassConst::class => 'Constant',
             Property::class => 'Property',
             ClassMethod::class => 'Method',
+            TraitUse::class => 'Trait use',
         ],
         'Function-likes' => [
             Function_::class => 'Functions',
@@ -141,7 +146,7 @@ final class NodeTypeToHumanReadable
             Continue_::class => 'continue statement',
         ],
         'Namespace' => [
-            FileWithoutNamespace::class => 'Files without namespace',
+            FileWithoutNamespace::class => 'Namespace-less',
             Namespace_::class => 'Namespace',
             Include_::class => 'Include',
         ],
@@ -152,14 +157,5 @@ final class NodeTypeToHumanReadable
             Expression::class => 'Expression',
             StmtsAwareInterface::class => 'Statement array',
         ],
-    ];
-
-    /**
-     * @var array<class-string<Node>, string>
-     */
-    public const MAP = [
-        // @todo include inversed by check in Class_, Trait_, Enum_, Interface_ etc.
-        FunctionLike::class => 'function-like',
-        ClassLike::class => 'class-like statements',
     ];
 }

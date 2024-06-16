@@ -7,7 +7,6 @@ namespace Rector\Website\FileSystem;
 use Nette\Loaders\RobotLoader;
 use Rector\Contract\Rector\RectorInterface;
 use Rector\PostRector\Contract\Rector\PostRectorInterface;
-use Rector\Rector\AbstractRector;
 use Rector\Website\Enum\RuleNodeRedirectMap;
 use Rector\Website\RuleFilter\ValueObject\RectorSet;
 use Rector\Website\RuleFilter\ValueObject\RuleMetadata;
@@ -45,7 +44,7 @@ final class RectorFinder
 
             $rector = $rectorReflectionClass->newInstanceWithoutConstructor();
 
-            /** @var AbstractRector $rector */
+            /** @var RectorInterface $rector */
             $ruleDefinition = $rector->getRuleDefinition();
             $ruleDefinition->setRuleClass($rectorClass);
 

@@ -14,17 +14,30 @@
     >
     <!-- @see https://livewire.laravel.com/docs/wire-model#customizing-the-debounce -->
 
-    <label for="node_type" class="ms-4">Element to change:</label>
+    <label for="node_type" class="ms-5 me-3">Element to change:</label>
 
-    <select class="form-select d-inline ms-3" name="node_type" style="width: 15em" wire:model.live="nodeType">
+    <select class="form-select d-inline" name="node_type" style="width: 12em" wire:model.live="nodeType">
         <option value="">Any element</option>
 
-        @foreach ($groupedNodeTypeSelectOptions as $groupName => $nodeTypesToNames)
+        @foreach (\Rector\Website\Enum\NodeTypeToHumanReadable::SELECT_ITEMS_BY_GROUP as $groupName => $nodeTypesToNames)
             <optgroup label="{{ $groupName }}">
                 @foreach ($nodeTypesToNames as $optionValue => $optionName)
                     <option value="{{ $optionValue }}">{{ $optionName }}</option>
                 @endforeach
             </optgroup>
+        @endforeach
+    </select>
+
+    <label for="node_type" class="ms-5 me-3">Set:</label>
+
+    <select class="form-select d-inline" name="set" style="width: 8em" wire:model.live="set">
+        <option value="">Any set</option>
+
+        @foreach ($rectorSetsByGroup as $groupName => $rectorSets)
+            <optgroup label="{{ $groupName }}">
+            @foreach ($rectorSets as $rectorSet)
+                <option value="{{ $rectorSet->getName() }}">{{ $rectorSet->getHumanName() }}</option>
+            @endforeach
         @endforeach
     </select>
 
@@ -93,7 +106,7 @@
             <p>No rules found. Try different query.</p>
         @endif
     @else
-        <p>How to search? Try these:</p>
+        <p>Not sure how what to search? Try on of these:</p>
 
         <ul>
             @foreach ($queryExamples as $queryExample)

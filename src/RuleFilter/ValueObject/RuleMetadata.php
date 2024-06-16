@@ -44,6 +44,9 @@ final class RuleMetadata
         return $this->description;
     }
 
+    /**
+     * @api used in blade
+     */
     public function getRectorClass(): string
     {
         return $this->ruleClass;
@@ -77,6 +80,11 @@ final class RuleMetadata
     public function getSets(): array
     {
         return $this->sets;
+    }
+
+    public function isInSet(string $set): bool
+    {
+        return in_array($set, $this->sets, true);
     }
 
     /**

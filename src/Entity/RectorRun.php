@@ -157,6 +157,9 @@ final class RectorRun implements JsonSerializable
         return $this->jsonResult !== [];
     }
 
+    /**
+     * @api used in blade
+     */
     public function canCreateFixture(): bool
     {
         return count($this->getAppliedRules()) === 1;
