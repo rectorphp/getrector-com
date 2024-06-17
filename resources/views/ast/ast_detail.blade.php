@@ -22,6 +22,8 @@
 
         </div>
 
+        <br>
+
         <p>Selected code is represented by following abstract syntax tree:</p>
 
         <div class="row">
@@ -34,10 +36,10 @@
 
         @if ($target_node_class)
             <p>
-                What node you hook into to modify it? In <code>Rector::getNodeTypes()</code> method.
+                What class to put into <code>Rector::getNodeTypes()</code> method to hook into?
             </p>
 
-            <pre><code class="language-php">{{ $target_node_class }}</code></pre>
+            <input type="text" class="form-control" onClick="this.select();" value="{{ $target_node_class }}::class" style="width: 25em">
         @endif
 
         <br>

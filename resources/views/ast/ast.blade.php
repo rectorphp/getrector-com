@@ -13,7 +13,7 @@
             @csrf <!-- {{ csrf_field() }} -->
 
             <p>
-                Fill in the PHP code you want to see the AST of:
+                Fill in the PHP code to see its clickable abstract-syntax-tree:
             </p>
 
             @error('php_contents')
@@ -34,7 +34,7 @@
             <div class="row">
                 <div class="col-6 mt-4 mb-5">
                     <button type="submit" id="ast_form_process" name="process"
-                            class="btn btn-lg btn-success m-auto">Show me
+                            class="btn btn-lg btn-success m-auto">Show AST
                     </button>
                 </div>
             </div>
