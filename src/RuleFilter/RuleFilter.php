@@ -31,7 +31,7 @@ final class RuleFilter
         $ruleMetadatas = $this->filterBySet($ruleMetadatas, $set);
 
         // limit results to keep page clear
-        return array_slice($ruleMetadatas, 0, self::MAX_RESULTS);
+        return array_slice($ruleMetadatas, 0, $set ? 1000 : self::MAX_RESULTS);
     }
 
     /**
