@@ -18,6 +18,7 @@ use Rector\Website\Controller\DocumentationController;
 use Rector\Website\Controller\FilterRectorController;
 use Rector\Website\Controller\HireTeamController;
 use Rector\Website\Controller\HomepageController;
+use Rector\Website\Controller\InteractiveController;
 use Rector\Website\Controller\RssController;
 use Rector\Website\Controller\ThumbnailController;
 
@@ -29,6 +30,8 @@ Route::get('blog', BlogController::class);
 Route::get('book', BookController::class);
 Route::get('contact', ContactController::class);
 Route::get('hire-team', HireTeamController::class);
+
+Route::get('play-and-learn', InteractiveController::class);
 
 // redirect of old page
 Route::get('project-timeline', static function () {

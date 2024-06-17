@@ -25,6 +25,9 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 body {
     font-family: 'Source Sans Pro', sans-serif;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    font-size: 110%;
 }
 
 a, a:hover, a:focus, button, button:focus {
@@ -70,14 +73,6 @@ h3 {
 // sticky footer: see https://css-tricks.com/couple-takes-sticky-footer/#article-header-id-3
 html, body {
     height: 100%;
-}
-
-body {
-    font-size: 111%;
-    font-family: 'Source Sans Pro', sans-serif;
-    overflow-x: hidden;
-    display: flex;
-    flex-direction: column;
 }
 
 #faq {
@@ -129,7 +124,7 @@ body {
 }
 
 h1 {
-    font-size: 2.9rem;
+    font-size: 3.1rem;
     line-height: 3.8rem;
 
     @include media-breakpoint-down(md) {
@@ -142,8 +137,8 @@ h1 {
 
     &.main-title {
         margin-top: 3.5rem;
-        line-height: 4.7rem;
-        font-size: 3.4em;
+        line-height: 5.3rem;
+        font-size: 4em;
 
         font-weight: 800;
         text-align: center;
@@ -167,7 +162,7 @@ h2 {
 }
 
 .container {
-    max-width: 55em;
+    max-width: 1100px;
     padding-left: 1em;
     padding-right: 1em;
 }
@@ -215,16 +210,6 @@ ul.list-nobullet {
 .img-face {
     max-width: 10em;
     margin: .1em auto 2.8em auto;
-}
-
-#homepage {
-    margin-bottom: 8em;
-    clear: both;
-
-    h2 {
-        text-align: center;
-        font-weight: 500 !important;
-    }
 }
 
 h4 {
@@ -278,7 +263,7 @@ h4 {
     font-weight: bold;
 }
 
-#homepage, #post, #blog, #contact, #hire_team, #documentation, #about, #filter {
+#homepage, #post, #blog, #interactive, #contact, #hire_team, #documentation, #about, #filter {
     margin-top: 1em;
     margin-bottom: 6em;
 
@@ -298,7 +283,7 @@ h4 {
     }
 
     h2 {
-        margin-top: 1.8em;
+        margin-top: 1.3em;
         margin-bottom: .6em;
     }
 
@@ -308,6 +293,17 @@ h4 {
 
     .text-body {
         font-size: 1.1em;
+    }
+}
+
+#homepage {
+    margin-bottom: 8em;
+    clear: both;
+
+    h2 {
+        text-align: center;
+        margin-bottom: 2.5em;
+        font-weight: 500 !important;
     }
 }
 
@@ -364,7 +360,7 @@ label.required:before {
 
     .company-quote {
         margin-top: .4em;
-        font-size: 1.2em;
+        font-size: 1.4em;
 
         @media (max-width: 750px) {
             font-size: 1em;
@@ -484,9 +480,12 @@ label.required:before {
 
 #company_logos {
     img {
-        max-width: 10rem;
+        max-width: 16%;
         opacity: 60%;
         transition-duration: .3s;
+        padding: 0 .7em;
+
+        flex: 1 1 10%;
 
         &:hover {
             opacity: 100%;
@@ -592,4 +591,8 @@ label.required:before {
     .filter-code-sample {
         font-size: .9em;
     }
+}
+
+#interactive h3 em, #homepage h3 em {
+    font-size: 1.2em;
 }

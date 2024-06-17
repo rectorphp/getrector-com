@@ -21,9 +21,9 @@
 
         <div class="text-center mt-5 mb-5 bigger-buttons">
             <a href="{{ action(\Rector\Website\Controller\HireTeamController::class) }}"
-               class="btn btn-lg btn-primary me-3">Hire Upgrade Team</a>
+               class="btn btn-lg btn-success me-3">Hire Upgrade Team</a>
             <a href="{{ action(\Rector\Website\Controller\Demo\DemoController::class) }}"
-               class="btn btn-lg btn-success">Try It Online</a>
+               class="btn btn-lg btn-primary">Try It Online</a>
         </div>
 
         @include('_snippets/homepage_separator')
@@ -54,10 +54,10 @@
             <div class="col-12 col-md-4 mt-4 mt-md-0">
                 <div class="text-bigger">
                     <p>
-                        90% of problems you'll face are new to you.
+                        90% of problems you'll face are&nbsp;new to you.
                     </p>
                     <p>
-                        We've already seen them and know exactly how to solve them cost-effectively
+                        We've already seen them and&nbsp;know exactly how to solve them cost-effectively
                         and quickly.
                     </p>
                 </div>
@@ -93,7 +93,7 @@
             What Do Companies <span class="text-rector-green">Love&nbsp;About&nbsp;Rector</span>?
         </h2>
 
-        @include('homepage/_parts/quotes')
+        @include('hire_team/references')
 
         <br>
 
@@ -113,7 +113,7 @@
         <div class="text-center mt-5">
             <a href="{{ action(\Rector\Website\Controller\HireTeamController::class) }}"
                class="btn btn-success btn-lg">
-                Got a different question? Ask us
+                Do you more questions? Ask us
             </a>
         </div>
     </div>

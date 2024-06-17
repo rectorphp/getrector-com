@@ -7,12 +7,12 @@ namespace Rector\Website\Controller;
 use Illuminate\Contracts\View\View;
 use Illuminate\Routing\Controller;
 
-final class HireTeamController extends Controller
+final class InteractiveController extends Controller
 {
     public function __invoke(): View
     {
-        return \view('homepage/hire_team', [
-            'page_title' => 'We help you Reduce Costs and&nbsp;Erase Technical Debt',
+        return \view('homepage/interactive', [
+            'page_title' => 'Play and Learn',
         ]);
     }
 }
