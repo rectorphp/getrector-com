@@ -6,7 +6,7 @@
             Get High-Quality Code
         </h3>
 
-        <img src="/assets/images/high-quality.jpg"  class="rounded-4 mb-3 mt-2" style="max-width: 100%;">
+        <img src="/assets/images/high-quality.jpg"  class="rounded-4 mb-3 mt-2 border border-dark border-opacity-50" style="max-width: 100%;">
 
         <p>
             Improves your code quality code to the highest possible level. The knowledge is embedded in the Rector rules and sets. All you have to do is to run and apply them to your code base.
