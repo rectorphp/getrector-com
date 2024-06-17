@@ -18,6 +18,7 @@ use Rector\Website\Controller\DocumentationController;
 use Rector\Website\Controller\FilterRectorController;
 use Rector\Website\Controller\HireTeamController;
 use Rector\Website\Controller\HomepageController;
+use Rector\Website\Controller\InteractiveController;
 use Rector\Website\Controller\RssController;
 use Rector\Website\Controller\ThumbnailController;
 
