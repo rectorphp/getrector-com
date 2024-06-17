@@ -2,32 +2,20 @@
 
 @section('main')
     <div id="hire_team">
-        <h1 class="main-title">{{ $page_title }}</h1>
+        <h1 class="main-title">{!! $page_title !!}</h1>
 
-        <p class="mt-5 text-bigger">
-            Your project is a success, but your technical debt is slowing you down?
-            <br>
-            Our clients used to have similar problem.
-        </p>
+        <div class="offset-2">
+            <p class="mt-5 text-bigger">
+                Your project is a success, but your technical debt is slowing you down?
+                <br>
+                Our clients used to have similar problem.
+            </p>
 
-        <p class="text-bigger">
-            We help you to <strong>cut feature development costs to a fraction</strong><br>
-            and make your team <strong>productive and happy again</strong>.
-        </p>
-
-        <br>
-
-        <div class="text-center mt-5">
-            <div class="text-rector-green mb-5 text-bigger">
-                We've helped <strong>50+ companies</strong> to speed-up work and reduce technical
-                debt
-            </div>
+            <p class="text-bigger">
+                We help you to <strong>cut feature development costs to a fraction</strong><br>
+                and make your team <strong>productive and happy again</strong>.
+            </p>
         </div>
-
-        <br>
-        <br>
-
-        @include('hire_team/references')
 
         <br>
 

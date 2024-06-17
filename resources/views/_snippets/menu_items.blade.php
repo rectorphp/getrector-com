@@ -1,6 +1,6 @@
 <li class="nav-item">
     <a href="{{ action(\Rector\Website\Controller\AboutController::class) }}"
-       class="nav-link">About Rector</a>
+       class="nav-link">About</a>
 </li>
 
 <li class="nav-item">

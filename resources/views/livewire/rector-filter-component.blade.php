@@ -30,7 +30,7 @@
 
     <label for="node_type" class="ms-5 me-3">Set:</label>
 
-    <select class="form-select d-inline" name="set" style="width: 8em" wire:model.live="set">
+    <select class="form-select d-inline" name="set" style="width: 9.3em" wire:model.live="set">
         <option value="">Any set</option>
 
         @foreach ($rectorSetsByGroup as $groupName => $rectorSets)
