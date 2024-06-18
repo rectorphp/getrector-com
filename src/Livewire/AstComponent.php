@@ -4,18 +4,18 @@ declare(strict_types=1);
 
 namespace Rector\Website\Livewire;
 
-use PhpParser\Node\Stmt\UseUse;
-use PhpParser\Node\AttributeGroup;
-use PhpParser\Node\Stmt;
-use PhpParser\Node\Param;
-use PhpParser\Node\Identifier;
-use PhpParser\Node\Name;
 use Illuminate\View\View;
 use Livewire\Attributes\Url;
 use Livewire\Component;
 use PhpParser\Node;
 use PhpParser\Node\Attribute;
+use PhpParser\Node\AttributeGroup;
 use PhpParser\Node\Expr\Variable;
+use PhpParser\Node\Identifier;
+use PhpParser\Node\Name;
+use PhpParser\Node\Param;
+use PhpParser\Node\Stmt;
+use PhpParser\Node\Stmt\UseUse;
 use Rector\CustomRules\SimpleNodeDumper;
 use Rector\Website\Entity\AstRun;
 use Rector\Website\PhpParser\ClickablePrinter;
