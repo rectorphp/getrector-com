@@ -113,7 +113,7 @@
         <div class="text-center mt-5">
             <a href="{{ action(\Rector\Website\Controller\HireTeamController::class) }}"
                class="btn btn-success btn-lg">
-                Do you more questions? Ask us
+                Do you have more questions? Ask us
             </a>
         </div>
     </div>
