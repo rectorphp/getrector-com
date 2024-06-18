@@ -27,10 +27,19 @@ final class RectorSet
             return;
         }
 
-        if (str_starts_with($this->constantName, 'PHPUNIT_')) {
-            $match = Strings::match($this->constantName, '#(?<major>\d+)(?<minor>\d)$#');
+        if (str_starts_with($this->constantName, 'TWIG_') || str_starts_with(
+            $this->constantName,
+            'PHPUNIT_'
+        ) || str_starts_with($this->constantName, 'DOCTRINE_')) {
+            $match = Strings::match($this->constantName, '#(?<name>.*?)_(?<major>\d)(?<minor>\d+)$#');
             if ($match) {
-                $this->humanName = 'PHPUnit ' . $match['major'] . '.' . $match['minor'];
+                $name = $match['name'];
+                $name = str_replace(['PHPUNIT', 'DOCTRINE_'], ['PHPUnit', 'Doctrine '], $name);
+
+                // only exception for PHPUnit
+                $humanVersion = $name === 'PHPUnit' && $match['major'] === '1' ? '10.0' : $match['major'] . '.' . $match['minor'];
+
+                $this->humanName = $name . ' ' . $humanVersion;
                 return;
             }
         }
