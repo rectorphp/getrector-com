@@ -37,11 +37,7 @@ final class RectorSet
                 $name = str_replace(['PHPUNIT', 'DOCTRINE_'], ['PHPUnit', 'Doctrine '], $name);
 
                 // only exception for PHPUnit
-                if ($name === 'PHPUnit' && $match['major'] === '1') {
-                    $humanVersion = '10.0';
-                } else {
-                    $humanVersion = $match['major'] . '.' . $match['minor'];
-                }
+                $humanVersion = $name === 'PHPUnit' && $match['major'] === '1' ? '10.0' : $match['major'] . '.' . $match['minor'];
 
                 $this->humanName = $name . ' ' . $humanVersion;
                 return;
