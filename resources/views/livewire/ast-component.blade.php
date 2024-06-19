@@ -27,7 +27,7 @@
 
         @if ($targetNodeClass)
             <p>
-                What class to put into <code>Rector::getNodeTypes()</code> method to hook into?
+                What class-string to put into <code>Rector::getNodeTypes()</code> method to hook into?
             </p>
 
             <pre><code class="language-php">\{{ $targetNodeClass }}::class</code></pre>
