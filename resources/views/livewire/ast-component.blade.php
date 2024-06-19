@@ -30,7 +30,7 @@
                 What class to put into <code>Rector::getNodeTypes()</code> method to hook into?
             </p>
 
-            <input type="text" class="form-control" onClick="this.select();" value="{{ $targetNodeClass }}::class" style="width: 25em">
+            <pre><code class="language-php">\{{ $targetNodeClass }}::class</code></pre>
         @endif
 
         <br>
