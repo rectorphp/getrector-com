@@ -27,7 +27,7 @@ use Webmozart\Assert\Assert;
 
 /**
  * @api used in bin
- * @see \Rector\Website\PhpParser\ClickablePrinter
+ * @see \Rector\Website\Ast\PhpParser\ClickablePrinter
  */
 final class ClickablePrinterBuilder
 {
@@ -35,6 +35,11 @@ final class ClickablePrinterBuilder
      * @var string
      */
     private const CLASS_NAME = 'ClickablePrinter';
+
+    /**
+     * @var string
+     */
+    private const ACTIVE_NODE_ID = 'activeNodeId';
 
     public function __construct(
         private readonly SimplePhpParser $simplePhpParser,
@@ -50,7 +55,7 @@ final class ClickablePrinterBuilder
     {
         $strictTypesDeclare = new Declare_([new DeclareDeclare('strict_types', new LNumber(1))]);
 
-        $namespace = new Namespace_(new Name('Rector\Website\PhpParser'));
+        $namespace = new Namespace_(new Name('Rector\Website\Ast\PhpParser'));
         $namespace->stmts[] = $class;
 
         return [$strictTypesDeclare, $namespace];
@@ -167,12 +172,7 @@ final class ClickablePrinterBuilder
 
     private function createConstructClassMethod(): ClassMethod
     {
-        $uuidParam = $this->builderFactory->param('uuid')
-            ->makePrivate()
-            ->setType('string')
-            ->getNode();
-
-        $activeNodeIdParam = $this->builderFactory->param('activeNodeId')
+        $activeNodeIdParam = $this->builderFactory->param(self::ACTIVE_NODE_ID)
             ->makePrivate()
             ->setType('?int')
             ->getNode();
@@ -181,7 +181,7 @@ final class ClickablePrinterBuilder
 
         return $this->builderFactory->method(MethodName::CONSTRUCT)
             ->makePublic()
-            ->addParams([$uuidParam, $activeNodeIdParam])
+            ->addParams([$activeNodeIdParam])
             ->addStmts([$parentStaticCall])
             ->getNode();
     }

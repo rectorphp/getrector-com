@@ -14,7 +14,12 @@ jobs:
                 actions:
                     -
                         name: 'PHPStan'
-                        run: composer phpstan
+                        run: |
+                            # model mixins
+                            php artisan ide-helper:generate
+                            php artisan ide-helper:meta
+                            php artisan ide-helper:models "Rector\\Website\\Ast\\Entity\\AstRun" --write-mixin
+                            composer phpstan
 
                     -
                         name: 'Check Active Classes'

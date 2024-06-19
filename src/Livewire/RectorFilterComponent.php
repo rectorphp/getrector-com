@@ -8,6 +8,7 @@ use Illuminate\View\View;
 use Livewire\Attributes\Url;
 use Livewire\Component;
 use PhpParser\Node;
+use Rector\Website\Enum\ComponentEvent;
 use Rector\Website\FileSystem\RectorFinder;
 use Rector\Website\RuleFilter\RuleFilter;
 use Rector\Website\Sets\RectorSetsTreeProvider;
@@ -44,7 +45,7 @@ final class RectorFilterComponent extends Component
         $ruleMetadatas = $rectorFinder->findCore();
 
         // to trigger event in component javascript
-        $this->dispatch('rules-filtered');
+        $this->dispatch(ComponentEvent::RULES_FILTERED);
 
         /** @var RuleFilter $ruleFilter */
         $ruleFilter = app(RuleFilter::class);

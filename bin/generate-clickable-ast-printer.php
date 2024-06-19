@@ -26,7 +26,7 @@ $fileStmts = $clickablePrinterBuilder->buildFileStmts($clickableAstPrinterClass)
 $standardPrinter = new Standard();
 $printedClass = $standardPrinter->prettyPrintFile($fileStmts);
 
-$targetFilePath = getcwd() . '/src/PhpParser/ClickablePrinter.php';
+$targetFilePath = getcwd() . '/src/Ast/PhpParser/ClickablePrinter.php';
 FileSystem::write($targetFilePath, $printedClass);
 
 echo sprintf('Done and generated to%s%s', PHP_EOL, $targetFilePath) . PHP_EOL;

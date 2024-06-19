@@ -10,6 +10,8 @@ parameters:
 
     bootstrapFiles:
         - vendor/rector/rector/vendor/symplify/rule-doc-generator-contracts/src/ValueObject/RuleDefinition.php
+        - _ide_helper.php
+        - _ide_helper_models.php
 
     level: 8
 
@@ -32,7 +34,7 @@ parameters:
         # will be solved most likely once Larastan is updated to Laravel 11 conventions
         - '#Call to an undefined method Illuminate\\Contracts\\(.*?)|Illuminate\\#'
 
-        - '#Method Rector\\Website\\PhpParser\\ClickablePrinter\:\:pObjectProperty\(\) has parameter \$node with no type specified#'
+        - '#Method Rector\\Website\\Ast\\PhpParser\\ClickablePrinter\:\:pObjectProperty\(\) has parameter \$node with no type specified#'
 
         -
             message: '#Method Rector\\Website\\FileSystem\\RectorFinder\:\:findRectorClasses\(\) should return array<class\-string<Rector\\Contract\\Rector\\RectorInterface>> but returns array<int, string>#'
@@ -41,3 +43,6 @@ parameters:
         # wip
         - '#Method Rector\\Website\\Utils\\ClassNameResolver\:\:resolveFromFileContents\(\) should return class\-string\|null but returns string#'
         - '#Method Rector\\Website\\Sets\\RectorSetsTreeProvider\:\:resolveClassName\(\) should return class\-string<Rector\\Set\\Contract\\SetListInterface> but returns class\-string#'
+
+        # parent laravel model configuration property
+        - '#Public property "Rector\\Website\\Ast\\Entity\\AstRun\:\:\$timestamps" is never used#'
