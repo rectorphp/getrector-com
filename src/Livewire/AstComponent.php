@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Rector\Website\Livewire;
 
 use Illuminate\View\View;
+use Livewire\Attributes\On;
 use Livewire\Attributes\Url;
 use Livewire\Component;
 use PhpParser\Node;
@@ -17,8 +18,9 @@ use PhpParser\Node\Param;
 use PhpParser\Node\Stmt;
 use PhpParser\Node\Stmt\UseUse;
 use Rector\CustomRules\SimpleNodeDumper;
-use Rector\Website\Entity\AstRun;
-use Rector\Website\PhpParser\ClickablePrinter;
+use Rector\Website\Ast\Entity\AstRun;
+use Rector\Website\Ast\PhpParser\ClickablePrinter;
+use Rector\Website\Enum\ComponentEvent;
 use Rector\Website\PhpParser\NodeResolver\FocusedNodeResolver;
 use Rector\Website\PhpParser\SimplePhpParser;
 
@@ -27,11 +29,12 @@ final class AstComponent extends Component
     #[Url]
     public ?int $nodeId = null;
 
-    private AstRun $astRun;
+    public AstRun $astRun;
 
-    public function mount(AstRun $astRun): void
+    #[On(ComponentEvent::SELECT_NODE)]
+    public function selectNode(int $nodeId): void
     {
-        $this->astRun = $astRun;
+        $this->nodeId = $nodeId;
     }
 
     public function render(): View
@@ -56,8 +59,11 @@ final class AstComponent extends Component
             $targetNodeClass = null;
         }
 
+        // to trigger event in component javascript
+        $this->dispatch(ComponentEvent::NODE_SELECTED);
+
         return view('livewire.ast-component', [
-            'matrixVision' => $this->makeNodeClickable($nodes, (string) $this->astRun->getUuid(), $this->nodeId),
+            'matrixVision' => $this->makesNodeClickable($nodes, $this->nodeId),
             'simpleNodeDump' => $simpleNodeDump,
             'targetNodeClass' => $targetNodeClass,
         ]);
@@ -66,9 +72,9 @@ final class AstComponent extends Component
     /**
      * @param Node[] $nodes
      */
-    private function makeNodeClickable(array $nodes, string $uuid, ?int $activeNodeId): string
+    private function makesNodeClickable(array $nodes, ?int $activeNodeId): string
     {
-        $clickablePrinter = new ClickablePrinter($uuid, $activeNodeId);
+        $clickablePrinter = new ClickablePrinter($activeNodeId);
         return $clickablePrinter->prettyPrint($nodes);
     }
 

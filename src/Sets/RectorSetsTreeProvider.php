@@ -121,8 +121,7 @@ final class RectorSetsTreeProvider
      */
     private function resolveClassName(SplFileInfo $fileInfo): string
     {
-        $className = ClassNameResolver::resolveFromFileContents($fileInfo->getContents());
-        Assert::string($className);
+        $className = ClassNameResolver::resolveFromFileContents($fileInfo->getContents(), $fileInfo->getRealPath());
         Assert::classExists($className);
 
         return $className;

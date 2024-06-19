@@ -35,6 +35,7 @@
 
         @foreach ($rectorSetsByGroup as $groupName => $rectorSets)
             <optgroup label="{{ $groupName }}">
+
             @foreach ($rectorSets as $rectorSet)
                 <option value="{{ $rectorSet->getName() }}">{{ $rectorSet->getHumanName() }}</option>
             @endforeach
@@ -83,7 +84,8 @@
 
                     <div class="row mt-3 mb-2">
                         <div class="col-12 filter-code-sample">
-                            <pre><code class="language-diff">{{ $filteredRule->getDiffCodeSample() }}</code></pre>
+                            <pre><code
+                                    class="language-diff">{{ $filteredRule->getDiffCodeSample() }}</code></pre>
                         </div>
 
                         @if ($filteredRule->getSets())
@@ -121,7 +123,7 @@
         // Listen for events dispatched from Livewire components...
         document.addEventListener('DOMContentLoaded', function () {
             // render event from src/Livewire/RectorFilterComponent.php:12
-            document.addEventListener('rules-filtered', () => {
+            document.addEventListener('{{ \Rector\Website\Enum\ComponentEvent::RULES_FILTERED }}', () => {
                 requestAnimationFrame(() => {
                     document.querySelectorAll('pre code.language-diff').forEach((element) => {
                         hljs.highlightElement(element);

@@ -20,6 +20,7 @@ use PhpParser\Node\Name\FullyQualified;
 use PhpParser\Node\Scalar\String_;
 use PhpParser\Node\Stmt\ClassMethod;
 use Rector\Website\Enum\AttributeKey;
+use Rector\Website\Enum\ComponentEvent;
 
 final class ClickablePrinterNodeFactory
 {
@@ -56,8 +57,9 @@ final class ClickablePrinterNodeFactory
         );
 
         $args = $builderFactory->args([
-            '<a href="/ast/%s/%s" %s>%s</a>',
-            new PropertyFetch(new Variable('this'), 'uuid'),
+            '<a href="#" wire:click="$dispatch(\'' . ComponentEvent::SELECT_NODE . '\', {
+            nodeId: %s,
+        })" %s>%s</a>',
             new Variable('nodeId'),
             $activeNodeTernary,
             $staticCall,
