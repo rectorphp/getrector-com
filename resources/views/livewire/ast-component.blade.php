@@ -10,7 +10,7 @@
         <p>Click on code part to see its AST</p>
 
         <div id="clickable-nodes-code" class="mb-4">
-            <pre><code class="hljs">&lt;?php {!! $matrixVision !!}</code></pre>
+            <pre><code class="hljs">&lt;?php<br/><br/>{!! $matrixVision !!}</code></pre>
         </div>
 
         <br>
