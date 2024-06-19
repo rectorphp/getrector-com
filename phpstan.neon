@@ -10,8 +10,7 @@ parameters:
 
     bootstrapFiles:
         - vendor/rector/rector/vendor/symplify/rule-doc-generator-contracts/src/ValueObject/RuleDefinition.php
-        - _ide_helper.php
-        - _ide_helper_models.php
+        - tests/bootstrap.php
 
     level: 8
 
@@ -27,22 +26,29 @@ parameters:
 
         # invalid doc type
         - '#Parameter \#2 \$font of method Imagine\\Draw\\DrawerInterface\:\:text\(\) expects Imagine\\Image\\AbstractFont, Imagine\\Image\\FontInterface given#'
-
         # float allowed
         - '#Parameter (.*?) of class Imagine\\Image\\Box constructor expects int, float given#'
 
-        # will be solved most likely once Larastan is updated to Laravel 11 conventions
         - '#Call to an undefined method Illuminate\\Contracts\\(.*?)|Illuminate\\#'
 
+        # generated based on php-parser
         - '#Method Rector\\Website\\Ast\\PhpParser\\ClickablePrinter\:\:pObjectProperty\(\) has parameter \$node with no type specified#'
 
         -
             message: '#Method Rector\\Website\\FileSystem\\RectorFinder\:\:findRectorClasses\(\) should return array<class\-string<Rector\\Contract\\Rector\\RectorInterface>> but returns array<int, string>#'
             path: src/FileSystem/RectorFinder.php
 
-        # wip
         - '#Method Rector\\Website\\Utils\\ClassNameResolver\:\:resolveFromFileContents\(\) should return class\-string\|null but returns string#'
         - '#Method Rector\\Website\\Sets\\RectorSetsTreeProvider\:\:resolveClassName\(\) should return class\-string<Rector\\Set\\Contract\\SetListInterface> but returns class\-string#'
 
         # parent laravel model configuration property
         - '#Public property "Rector\\Website\\Ast\\Entity\\AstRun\:\:\$timestamps" is never used#'
+
+        # make models pass without ide helper
+        -
+            path: src/Ast/Entity/AstRun.php
+            message: '#Access to an undefined property Rector\\Website\\Ast\\Entity\\AstRun\:\:\$(content|hash)#'
+        - '#PHPDoc tag @mixin contains unknown class Rector\\Website\\Ast\\Entity\\IdeHelperAstRun#'
+        - '#Call to an undefined static method Rector\\Website\\Ast\\Entity\\AstRun\:\:firstWhere\(\)#'
+
+

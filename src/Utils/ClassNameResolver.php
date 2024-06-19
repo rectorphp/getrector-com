@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Rector\Website\Utils;
 
 use Nette\Utils\Strings;
+use Rector\Website\Exception\ShouldNotHappenException;
 
 final class ClassNameResolver
 {
@@ -20,10 +21,7 @@ final class ClassNameResolver
      */
     private const SHORT_CLASS_NAME_REGEX = '#\bclass\s+(?<short_class_name>[A-Z][A-Za-z]+)#';
 
-    /**
-     * @return class-string|null
-     */
-    public static function resolveFromFileContents(string $fileContents): ?string
+    public static function resolveFromFileContents(string $fileContents, string $filePath): string
     {
         // @todo use php-parser to make more reliable?
 
@@ -32,7 +30,7 @@ final class ClassNameResolver
 
         // short class must exist
         if (! isset($classMatch['short_class_name'])) {
-            return null;
+            throw new ShouldNotHappenException(sprintf('Unable to resolve class from "%s" file', $filePath));
         }
 
         return ($namespaceMatch['namespace'] ?? '') . '\\' . $classMatch['short_class_name'];

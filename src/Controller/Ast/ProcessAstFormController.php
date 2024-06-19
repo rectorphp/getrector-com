@@ -14,12 +14,11 @@ final class ProcessAstFormController extends Controller
     public function __invoke(AstFormRequest $astFormRequest): RedirectResponse
     {
         $astRun = new AstRun();
-        $astRun->content = $astFormRequest->getPhpContents();
-        $astRun->hash = sha1($astFormRequest->getPhpContents());
+        $astRun->setContent($astFormRequest->getPhpContents());
         $astRun->save();
 
         return redirect()->action(AstDetailController::class, [
-            'hash' => $astRun->hash,
+            'hash' => $astRun->getHash(),
         ]);
     }
 }

@@ -39,4 +39,15 @@ final class AstRun extends Model
     {
         return $this->content !== '';
     }
+
+    public function setContent(string $content): void
+    {
+        $this->content = $content;
+        $this->hash = sha1($content);
+    }
+
+    public function getHash(): string
+    {
+        return $this->hash;
+    }
 }
