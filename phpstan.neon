@@ -38,8 +38,8 @@ parameters:
             message: '#Method Rector\\Website\\FileSystem\\RectorFinder\:\:findRectorClasses\(\) should return array<class\-string<Rector\\Contract\\Rector\\RectorInterface>> but returns array<int, string>#'
             path: src/FileSystem/RectorFinder.php
 
-        - '#Method Rector\\Website\\Utils\\ClassNameResolver\:\:resolveFromFileContents\(\) should return class\-string\|null but returns string#'
         - '#Method Rector\\Website\\Sets\\RectorSetsTreeProvider\:\:resolveClassName\(\) should return class\-string<Rector\\Set\\Contract\\SetListInterface> but returns class\-string#'
+
 
         # parent laravel model configuration property
         - '#Public property "Rector\\Website\\Ast\\Entity\\AstRun\:\:\$timestamps" is never used#'
