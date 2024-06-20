@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Rector\Website\RuleFilter\ValueObject;
 
 use Nette\Utils\Strings;
-use Webmozart\Assert\Assert;
 
 final class RectorSet
 {
