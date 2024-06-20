@@ -19,8 +19,8 @@ final class RectorSet
         private readonly array $rectorClasses,
         private readonly string $groupName
     ) {
-        if (str_starts_with($this->constantName, 'PHP_')) {
-            $match = Strings::match($this->constantName, '#(?<major>\d)(?<minor>\d)#');
+        if (str_starts_with($constantName, 'PHP_')) {
+            $match = Strings::match($constantName, '#(?<major>\d)(?<minor>\d)#');
             Assert::isArray($match);
 
             $this->humanName = 'PHP ' . $match['major'] . '.' . $match['minor'];
