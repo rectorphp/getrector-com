@@ -42,6 +42,12 @@
         @endforeach
     </select>
 
+    @if ($isFilterActive)
+        &nbsp;
+        &nbsp;
+        <a href="{{ action(\Rector\Website\Controller\FilterRectorController::class) }}">Clear</a>
+    @endif
+
     <div class="clearfix mb-2"></div>
 
     <br>
@@ -108,7 +114,7 @@
             <p>No rules found. Try different query.</p>
         @endif
     @else
-        <p>Not sure how what to search? Try on of these:</p>
+        <p>Not sure how to search? Try one of these for a start:</p>
 
         <ul>
             @foreach ($queryExamples as $queryExample)
