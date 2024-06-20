@@ -21,7 +21,10 @@ final class RectorSet
     ) {
         if (str_starts_with($constantName, 'PHP_')) {
             $match = Strings::match($constantName, '#(?<major>\d)(?<minor>\d)#');
-            Assert::isArray($match);
+            if ($match === null) {
+                $this->humanName = 'Polyfills';
+                return;
+            }
 
             $this->humanName = 'PHP ' . $match['major'] . '.' . $match['minor'];
             return;
