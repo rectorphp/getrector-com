@@ -16,17 +16,40 @@ They're easier to resolve than getting your project to level 1. Their goal is to
 There are 2 checks enabled out of the box. The first one makes sure we don't miss a chance to use `instanceof` to make further code know about the exact object type:
 
 ```php
-private ?SomeType $someType = null;
+$someType = $this->vendorServices->getSomeType();
 
-if (! empty($this->someType)) {
+if (! empty($someType)) {
     // ...
 }
 
-if (! isset($this->someType)) {
+if (! isset($someType)) {
     // ...
 }
 
 // here we only know, that $this->someType is not empty/null
+```
+
+Why it's dangerous? Because we don't know how reliable the `/vendor` class is. It can be strict:
+
+```php
+public function getSomeType(): ?SomeType
+{
+    // ...
+}
+```
+
+Or it can be loose:
+
+```php
+/**
+ * @return SomeType|null
+ */
+public function getSomeType()
+{
+    // ...
+
+    return 'error message';
+}
 ```
 
 🙅
