@@ -109,8 +109,8 @@ final class NodeTypeToHumanReadable
             New_::class => 'New instance',
         ],
         'Operations' => [
-            BinaryOp::class => 'Binary operations (+, -, /...)',
-            AssignOp::class => 'Assign operations(+=, -=...)',
+            BinaryOp::class => 'Binary (+, -, /...)',
+            AssignOp::class => 'Assign (+=, -=...)',
         ],
         'Scalars' => [
             String_::class => 'String',
@@ -119,11 +119,13 @@ final class NodeTypeToHumanReadable
             Cast::class => 'Casts',
             Encapsed::class => 'Encapsed string',
         ],
-        'Conditions and loops' => [
+        'Conditions' => [
             If_::class => 'If',
             ElseIf_::class => 'Elseif',
             Else_::class => 'Else',
             Ternary::class => 'Ternary',
+        ],
+        'Loops' => [
             While_::class => 'While',
             Do_::class => 'Do',
             Foreach_::class => 'Foreach',
