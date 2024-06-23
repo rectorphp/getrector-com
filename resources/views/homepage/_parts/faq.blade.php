@@ -49,6 +49,6 @@
 
     <div class="col-12">
         <h3>We have a custom framework. Can you migrate it to an open-source one?</h3>
-        <p>Yes. We specialize in framework migration, especially to Symfony and Laravel.</p>
+        <p>Yes. We specialize in framework migration, mostly to Symfony or Laravel frameworks.</p>
     </div>
 </div>
