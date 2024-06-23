@@ -5,48 +5,56 @@
 @endphp
 
 <div>
-    <input
-        placeholder="Type to start searching a rule"
-        type="text"
-        class="form-control d-inline"
-        style="width: 15em"
-        wire:model.live.debounce.300ms="query"
-    >
-    <!-- @see https://livewire.laravel.com/docs/wire-model#customizing-the-debounce -->
+    <div class="row">
+        <div class="col-12 col-md-4 mb-3">
+            <input
+                placeholder="Type to start searching a rule"
+                type="text"
+                class="form-control d-inline"
+                style="width: 14em"
+                wire:model.live.debounce.300ms="query"
+            >
+            <!-- @see https://livewire.laravel.com/docs/wire-model#customizing-the-debounce -->
 
-    <label for="node_type" class="ms-5 me-3">Element to change:</label>
+            @if ($isFilterActive)
+                &nbsp;
+                &nbsp;
+                <a href="{{ action(\Rector\Website\Controller\FilterRectorController::class) }}">Clear</a>
+            @endif
 
-    <select class="form-select d-inline" name="node_type" style="width: 12em" wire:model.live="nodeType">
-        <option value="">Any element</option>
+        </div>
+        <div class="col-12 col-md-5 mb-3">
+            <label for="node_type">Element to change:</label>
 
-        @foreach (\Rector\Website\Enum\NodeTypeToHumanReadable::SELECT_ITEMS_BY_GROUP as $groupName => $nodeTypesToNames)
-            <optgroup label="{{ $groupName }}">
-                @foreach ($nodeTypesToNames as $optionValue => $optionName)
-                    <option value="{{ $optionValue }}">{{ $optionName }}</option>
+            <select class="form-select d-inline ms-3" name="node_type" style="max-width: 12em" wire:model.live="nodeType">
+                <option value="">Any element</option>
+
+                @foreach (\Rector\Website\Enum\NodeTypeToHumanReadable::SELECT_ITEMS_BY_GROUP as $groupName => $nodeTypesToNames)
+                    <optgroup label="{{ $groupName }}">
+                        @foreach ($nodeTypesToNames as $optionValue => $optionName)
+                            <option value="{{ $optionValue }}">{{ $optionName }}</option>
+                        @endforeach
+                    </optgroup>
                 @endforeach
-            </optgroup>
-        @endforeach
-    </select>
+            </select>
+        </div>
 
-    <label for="node_type" class="ms-5 me-3">Set:</label>
+        <div class="col-12 col-md-3 mb-3">
+            <label for="node_type">Set:</label>
 
-    <select class="form-select d-inline" name="set" style="width: 9.3em" wire:model.live="set">
-        <option value="">Any set</option>
+            <select class="form-select d-inline ms-3" name="set" style="max-width: 11.3em" wire:model.live="set">
+                <option value="">Any set</option>
 
-        @foreach ($rectorSetsByGroup as $groupName => $rectorSets)
-            <optgroup label="{{ $groupName }}">
+                @foreach ($rectorSetsByGroup as $groupName => $rectorSets)
+                    <optgroup label="{{ $groupName }}">
 
-            @foreach ($rectorSets as $rectorSet)
-                <option value="{{ $rectorSet->getName() }}">{{ $rectorSet->getHumanName() }}</option>
-            @endforeach
-        @endforeach
-    </select>
-
-    @if ($isFilterActive)
-        &nbsp;
-        &nbsp;
-        <a href="{{ action(\Rector\Website\Controller\FilterRectorController::class) }}">Clear</a>
-    @endif
+                    @foreach ($rectorSets as $rectorSet)
+                        <option value="{{ $rectorSet->getName() }}">{{ $rectorSet->getHumanName() }}</option>
+                    @endforeach
+                @endforeach
+            </select>
+        </div>
+    </div>
 
     <div class="clearfix mb-2"></div>
 
