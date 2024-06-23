@@ -1,7 +1,7 @@
 <div class="row" id="faq">
     <div class="col-12">
         <h3>Can you help with upgrade of PHP 5.3 code?</h3>
-        <p>Yes, we handle any code from PHP 5.3 to PHP 8.3. Open-source framework, internal one or spaghetti code.</p>
+        <p>Yes, we handle any code from PHP 5.3 onward. Open-source framework, internal one or spaghetti code.</p>
     </div>
 
     <br>
