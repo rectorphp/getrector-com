@@ -20,7 +20,7 @@
         <p>
             We begin with a 3-week <a
                     href="{{ action(\Rector\Website\Controller\HireTeamController::class) }}">intro
-                analysis</a>, followed by an upgrade work. Usually waiting time is 1-2 months.
+                analysis</a>, followed by an upgrade work.
         </p>
     </div>
 
