@@ -1,7 +1,7 @@
 <div class="row" id="faq">
     <div class="col-12">
-        <h3>Can Rector upgrade PHP 5.3 code?</h3>
-        <p>Yes, Rector seamlessly upgrades code from PHP 5.3 to PHP 8.3.</p>
+        <h3>Can you help with upgrade of PHP 5.3 code?</h3>
+        <p>Yes, we handle any code from PHP 5.3 to PHP 8.3. Open-source framework, internal one or spaghetti code.</p>
     </div>
 
     <br>
@@ -9,10 +9,7 @@
     <div class="col-12">
         <h3>What's the typical timeframe for an upgrade?</h3>
         <p>
-            Time varies per project, but most upgrades are completed within 6 to 12 months. For
-            step-by-step timeline, see <a
-                    href="{{ action(\Rector\Website\Controller\HireTeamController::class) }}#process">project
-                timeline</a>.
+            An average project upgrade is completed within 6-12 months. We approach each project individually and deliver the detailed estimate in the intro analysis.
         </p>
     </div>
 
@@ -22,7 +19,7 @@
         <h3>We're in a hurry. Can you start today?</h3>
         <p>
             We begin with a 3-week <a
-                    href="{{ action(\Rector\Website\Controller\HireTeamController::class) }}#process">intro
+                    href="{{ action(\Rector\Website\Controller\HireTeamController::class) }}">intro
                 analysis</a>, followed by an upgrade work. Usually waiting time is 1-2 months.
         </p>
     </div>
