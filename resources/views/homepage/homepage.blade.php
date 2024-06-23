@@ -8,7 +8,7 @@
             <span class="text-rector-green">Upgrade PHP</span>
         </h1>
 
-        <div class="text-bigger mt-3 text-center">
+        <div class="text-bigger text-center">
             <p>We help successful and growing companies to get the most of the code they already
                 have.</p>
 
@@ -21,9 +21,9 @@
 
         <div class="text-center mt-5 mb-5 bigger-buttons">
             <a href="{{ action(\Rector\Website\Controller\HireTeamController::class) }}"
-               class="btn btn-lg btn-success me-3">Hire Upgrade Team</a>
+               class="btn btn-success me-3">Hire Upgrade Team</a>
             <a href="{{ action(\Rector\Website\Controller\Demo\DemoController::class) }}"
-               class="btn btn-lg btn-primary">Try It Online</a>
+               class="btn btn-primary">Try It Online</a>
         </div>
 
         @include('_snippets/homepage_separator')

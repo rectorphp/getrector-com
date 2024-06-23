@@ -34,9 +34,15 @@
                 </div>
             @endif
 
+            <div style="float: right">
+                Do you want to learn AST?
+                Try new <a href="{{ action(\Rector\Website\Controller\InteractiveController::class) }}">Learn and Play</a> page
+            </div>
+
             <p>
                 Run Rector on your code to see what it can do for you:
             </p>
+
 
             @error('php_contents')
             <div class="alert alert-danger">

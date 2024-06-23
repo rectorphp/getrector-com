@@ -37,12 +37,12 @@ a, a:hover, a:focus, button, button:focus {
 }
 
 .bigger-buttons .btn {
-    padding: .8rem 1.4rem;
-    font-size: 1.5rem;
+    padding: .8rem 1.3rem;
+    font-size: 1.3rem;
 
     @include media-breakpoint-down(sm) {
         padding: .5rem 1.1rem;
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 }
 
@@ -124,7 +124,7 @@ html, body {
 }
 
 h1 {
-    font-size: 3.1rem;
+    font-size: 3rem;
     line-height: 3.8rem;
 
     @include media-breakpoint-down(md) {
@@ -263,7 +263,7 @@ h4 {
     font-weight: bold;
 }
 
-#homepage, #post, #blog, #interactive, #contact, #hire_team, #documentation, #about, #filter {
+#homepage, #post, #blog, #interactive, #contact, #hire_team, #documentation, #about, #filter, #rector_run_form {
     margin-top: 1em;
     margin-bottom: 6em;
 

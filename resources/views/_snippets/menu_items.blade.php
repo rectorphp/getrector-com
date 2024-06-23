@@ -36,6 +36,11 @@
     </li>
 
     <li class="nav-item">
+        <a href="{{ action(\Rector\Website\Controller\InteractiveController::class) }}"
+           class="nav-link">Play and Learn</a>
+    </li>
+
+    <li class="nav-item">
         <a href="{{ action(\Rector\Website\Controller\Ast\AstController::class) }}"
            class="nav-link">Play with AST</a>
     </li>
