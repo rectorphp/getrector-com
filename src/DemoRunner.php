@@ -56,8 +56,6 @@ final class DemoRunner
         } catch (Throwable $throwable) {
             $normalizedMessage = $this->errorMessageNormalizer->normalize($throwable->getMessage());
             $rectorRun->setFatalErrorMessage($normalizedMessage);
-
-            // @TODO log to monolog
         }
     }
 

@@ -9,7 +9,7 @@ use Illuminate\Routing\Controller;
 use Rector\Website\DemoRunner;
 use Rector\Website\Entity\RectorRun;
 use Rector\Website\Repository\RectorRunRepository;
-use Rector\Website\Request\DemoFormRequest;
+use Rector\Website\Request\RectorRunFormRequest;
 use Symfony\Component\Uid\Uuid;
 
 final class ProcessDemoFormController extends Controller
@@ -20,9 +20,13 @@ final class ProcessDemoFormController extends Controller
     ) {
     }
 
-    public function __invoke(DemoFormRequest $demoFormRequest): RedirectResponse
+    public function __invoke(RectorRunFormRequest $rectorRunFormRequest): RedirectResponse
     {
-        $rectorRun = new RectorRun(Uuid::v4(), $demoFormRequest->getPhpContents(), $demoFormRequest->getRectorConfig());
+        $rectorRun = new RectorRun(
+            Uuid::v4(),
+            $rectorRunFormRequest->getPhpContents(),
+            $rectorRunFormRequest->getRunnableContents()
+        );
 
         $this->demoRunner->processRectorRun($rectorRun);
         $this->rectorRunRepository->save($rectorRun);

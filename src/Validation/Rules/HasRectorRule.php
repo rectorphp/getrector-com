@@ -17,6 +17,13 @@ final class HasRectorRule implements ValidationRule
 {
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
+
+        // dummy check for custom rule request
+        if (str_contains($value, 'Rector\Rector\AbstractRector')) {
+            return;
+        }
+
+        // @todo load the config and simply see if any rule is loaded
         $parserFactory = new ParserFactory();
         $parser = $parserFactory->create(ParserFactory::PREFER_PHP7);
 

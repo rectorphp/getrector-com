@@ -39,12 +39,12 @@
                 Run to see how will your custom rule change PHP code:
             </p>
 
-            @error('custom_rule')
-            <div class="alert alert-danger">
-                @foreach ($errors->get('custom_rule') as $error)
-                    {{ $error }} <br/>
-                @endforeach
-            </div>
+            @error('runnable_contents')
+                <div class="alert alert-danger">
+                    @foreach ($errors->get('runnable_contents') as $error)
+                        {{ $error }} <br/>
+                    @endforeach
+                </div>
             @enderror
 
             <div class="card mb-4">
@@ -52,8 +52,8 @@
                     rule</div>
 
                 <div class="card-body p-0">
-                    <textarea name="custom_rule" class="codemirror_php"
-                              required="required">{{ session('_old_input')['custom_rule'] ?? $customRuleRun->getRectorRule() }}</textarea>
+                    <textarea name="runnable_contents" class="codemirror_php"
+                              required="required">{{ session('_old_input')['runnable_contents'] ?? $customRuleRun->getRectorRule() }}</textarea>
                 </div>
             </div>
 
@@ -76,7 +76,7 @@
             </div>
 
             @if ($customRuleRun->isSuccessful())
-                <div class="card bg-warning border-warning mb-3">
+                <div class="card bg-success border-success mb-3">
                     <div class="card-header text-bold">
                         What did Rector change?
                     </div>

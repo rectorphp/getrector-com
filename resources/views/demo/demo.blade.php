@@ -57,8 +57,8 @@
             </div>
 
             @if ($rectorRun->isSuccessful())
-                <div class="card bg-warning border-warning mb-3">
-                    <div class="card-header text-bold">
+                <div class="card bg-success border-success mb-3">
+                    <div class="card-header text-bold text-white">
                         What did Rector change?
                     </div>
 
@@ -102,9 +102,9 @@
                 @endif
             @endif
 
-            @error('rector_config')
+            @error('runnable_contents')
             <div class="alert alert-danger">
-                @foreach ($errors->get('rector_config') as $error)
+                @foreach ($errors->get('runnable_contents') as $error)
                     {{ $error }} <br/>
                 @endforeach
             </div>
@@ -116,8 +116,8 @@
                 </div>
 
                 <div class="card-body p-0">
-                    <textarea name="rector_config" class="codemirror_php"
-                              required="required">{{ session('_old_input')['rector_config'] ?? $rectorRun->getRectorConfig() }}</textarea>
+                    <textarea name="runnable_contents" class="codemirror_php"
+                              required="required">{{ session('_old_input')['runnable_contents'] ?? $rectorRun->getRectorConfig() }}</textarea>
                 </div>
             </div>
 
