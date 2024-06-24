@@ -29,7 +29,12 @@ final class ProcessCustomRuleFormController extends Controller
             $rectorRunFormRequest->getRunnableContents()
         );
 
+
         $this->demoRunner->processRectorRun($rectorRun);
+
+        dump($rectorRun);
+        die;
+
         $this->rectorRunRepository->save($rectorRun);
 
         return redirect()->action(CustomRuleDetailController::class, [

@@ -10,6 +10,7 @@ use Nette\Utils\Random;
 use Rector\Website\Entity\AbstractRectorRun;
 use Rector\Website\Exception\RectorRunFailedException;
 use Rector\Website\Exception\ShouldNotHappenException;
+use Rector\Website\Utils\ClassNameResolver;
 use Rector\Website\Utils\ErrorMessageNormalizer;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Process\Process;
@@ -59,10 +60,10 @@ final class DemoRunner
         }
     }
 
-    private function processRun(string $analyzedFilePath, string $configPath): Process
+    private function processRun(string $analyzedFilePath, string $configPath, ?string $extraFilePath): Process
     {
         if (getenv('APP_ENV') !== 'prod') {
-            $process = new Process([
+            $processOptions = [
                 PHP_BINARY,
                 // paths for phpunit differs based on test/demo, not sure why
                 \defined('PHPUNIT_COMPOSER_INSTALL') ? 'vendor/bin/rector' : '../vendor/bin/rector',
@@ -72,9 +73,9 @@ final class DemoRunner
                 $configPath,
                 '--output-format',
                 'json',
-            ]);
+            ];
         } else {
-            $process = new Process([
+            $processOptions = [
                 // paths for phpunit differs based on test/demo, not sure why
                 \defined('PHPUNIT_COMPOSER_INSTALL') ? 'vendor/bin/rector' : '../vendor/bin/rector',
                 'process',
@@ -83,10 +84,18 @@ final class DemoRunner
                 $configPath,
                 '--output-format',
                 'json',
-            ]);
+            ];
         }
 
+        // autoload custom Rector rule
+        if ($extraFilePath) {
+            $processOptions[] = '--autoload-file';
+            $processOptions[] = $extraFilePath;
+        }
+
+        $process = new Process($processOptions);
         $process->run();
+
         return $process;
     }
 
@@ -100,21 +109,45 @@ final class DemoRunner
         $analyzedFilePath = $this->demoDir . DIRECTORY_SEPARATOR . $identifier . DIRECTORY_SEPARATOR . self::ANALYZED_FILE_NAME;
         $configPath = $this->demoDir . DIRECTORY_SEPARATOR . $identifier . DIRECTORY_SEPARATOR . self::CONFIG_NAME;
 
+        // this can be both rector config or rector rule
+        // for the latter, append simple config to be part of the file
+        $extraFileContents = null;
+        $extraFilePath = null;
+        if (str_contains($rectorConfig, 'extends') && str_contains($rectorConfig, 'Rector\Rector\AbstractRector')) {
+            // is Rector rule
+            $extraFileContents = $rectorConfig;
+            $analyzedFilePath = $this->demoDir . DIRECTORY_SEPARATOR . $identifier . DIRECTORY_SEPARATOR . 'CustomRuleRector.php';
+
+            $rectorClassName = ClassNameResolver::resolveFromFileContents($rectorConfig, $analyzedFilePath);
+            $rectorConfig = sprintf(
+                'return \Rector\Config\RectorConfig::configure()->withRules([%s::class]);' . PHP_EOL,
+                $rectorClassName
+            );
+        }
+
+        // prepare files
         $this->filesystem->dumpFile($analyzedFilePath, $fileContent);
         $this->filesystem->dumpFile($configPath, $rectorConfig);
+        if ($extraFileContents !== null) {
+            $this->filesystem->dumpFile($analyzedFilePath, $extraFileContents);
+        }
 
         $temporaryFilePaths = [$analyzedFilePath, $configPath];
-        $process = $this->processRun($analyzedFilePath, $configPath);
+        if ($analyzedFilePath) {
+            $temporaryFilePaths[] = $analyzedFilePath;
+        }
+
+        $rectorProcess = $this->processRun($analyzedFilePath, $configPath, $extraFilePath);
 
         // remove temporary files
         $this->filesystem->remove($temporaryFilePaths);
 
         // error
-        if ($process->getExitCode() !== self::EXIT_CODE_SUCCESS) {
-            throw new RectorRunFailedException($process->getErrorOutput() ?: $process->getOutput());
+        if ($rectorProcess->getExitCode() !== self::EXIT_CODE_SUCCESS) {
+            throw new RectorRunFailedException($rectorProcess->getErrorOutput() ?: $rectorProcess->getOutput());
         }
 
-        $output = $process->getOutput();
+        $output = $rectorProcess->getOutput();
         if ($output === '') {
             throw new RectorRunFailedException('Empty result returned');
         }

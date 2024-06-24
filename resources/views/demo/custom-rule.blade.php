@@ -18,7 +18,7 @@
             @include('_snippets/demo/learn_ast_link')
 
             <p>
-                Run to see how will your custom rule change PHP code:
+                Create custom Rector rule and see how it works:
             </p>
 
             @include('_snippets.form.form_textarea', [
@@ -47,7 +47,7 @@
             @endif
 
             <button type="submit" id="demo_form_process" name="process"
-                    class="btn btn-lg btn-success btn-demo-submit">Run Rector
+                    class="btn btn-lg btn-success btn-demo-submit mt-3">Run Rector
             </button>
         </form>
     </div>

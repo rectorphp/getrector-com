@@ -1,11 +1,8 @@
 <?php
 
-// some code snippet
+$result = mt_rand(1, 2);
+if ($result === 'value') {
+    return 'yes';
+}
 
-
-
-
-
-
-
-// 10 lines is enough
+return 'no';

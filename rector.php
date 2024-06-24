@@ -15,6 +15,7 @@ return RectorConfig::configure()
         privatization: true,
         typeDeclarations: true,
         rectorPreset: true,
+
     )
     ->withRootFiles()
     ->withSkip([
