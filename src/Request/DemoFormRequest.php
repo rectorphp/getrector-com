@@ -43,7 +43,6 @@ final class DemoFormRequest extends FormRequest
         $hasRectorRule = app()
             ->make(HasRectorRule::class);
 
-        /** @var IncludeRule $hasRectorRule */
         $includeRule = app()
             ->make(IncludeRule::class);
 
