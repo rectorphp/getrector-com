@@ -1,5 +1,5 @@
 @php
-    /** @var $post \Rector\Website\Entity\Post */
+    /** @var $post \App\Entity\Post */
 @endphp
 
 @extends('base')
@@ -10,19 +10,19 @@
     <meta property="og:type" content="article"/>
     <meta
             property="og:image"
-            content="{{ action(\Rector\Website\Controller\ThumbnailController::class, ['title' => $post->getClearTitle()]) }}"
+            content="{{ action(\App\Controller\ThumbnailController::class, ['title' => $post->getClearTitle()]) }}"
     />
 
     <meta
             property="og:url"
-            content="{{ action(\Rector\Website\Controller\Blog\PostController::class, ['postSlug' => $post->getSlug()]) }}"
+            content="{{ action(\App\Controller\Blog\PostController::class, ['postSlug' => $post->getSlug()]) }}"
     />
 
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:title" content="{{ $post->getClearTitle() }}"/>
     <meta
             name="twitter:image"
-            content="{{ action(\Rector\Website\Controller\ThumbnailController::class, ['title' => $post->getClearTitle()]) }}"
+            content="{{ action(\App\Controller\ThumbnailController::class, ['title' => $post->getClearTitle()]) }}"
     />
     <meta name="twitter:description" content="{{ $post->getPerex() }}"/>
 
@@ -37,7 +37,7 @@
 
         The <strong>Rector book 2024 edition</strong> is out now.
 
-        <a href="{{ action(\Rector\Website\Controller\BookController::class) }} ">Grab your
+        <a href="{{ action(\App\Controller\BookController::class) }} ">Grab your
             copy!</a>
     </div>
 

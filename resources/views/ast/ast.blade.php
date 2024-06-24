@@ -3,7 +3,7 @@
 @section('main')
     <div id="ast_run_form" class="mt-4 mb-3" style="min-height: 35em">
         <form
-                action="{{ action(\Rector\Website\Ast\Controller\ProcessAstFormController::class) }}"
+                action="{{ action(\App\Ast\Controller\ProcessAstFormController::class) }}"
                 method="post"
         >
 

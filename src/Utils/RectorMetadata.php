@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Utils;
+namespace App\Utils;
 
 use Rector\Application\VersionResolver;
 

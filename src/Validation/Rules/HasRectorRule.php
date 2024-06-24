@@ -2,9 +2,8 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Validation\Rules;
+namespace App\Validation\Rules;
 
-use Rector\Rector\AbstractRector;
 use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
 use PhpParser\Error;
@@ -13,6 +12,7 @@ use PhpParser\Node\Expr\MethodCall;
 use PhpParser\Node\Identifier;
 use PhpParser\NodeFinder;
 use PhpParser\ParserFactory;
+use Rector\Rector\AbstractRector;
 
 final class HasRectorRule implements ValidationRule
 {

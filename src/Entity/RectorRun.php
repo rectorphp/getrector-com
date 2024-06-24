@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Entity;
+namespace App\Entity;
 
+use App\Exception\ShouldNotHappenException;
+use App\Utils\ClassNameResolver;
+use App\Utils\StringsConverter;
+use App\ValueObject\AppliedRule;
 use Nette\Utils\FileSystem;
-use Rector\Website\Exception\ShouldNotHappenException;
-use Rector\Website\Utils\ClassNameResolver;
-use Rector\Website\Utils\StringsConverter;
-use Rector\Website\ValueObject\AppliedRule;
 use Symfony\Component\Uid\Uuid;
 
 final class RectorRun extends AbstractRectorRun

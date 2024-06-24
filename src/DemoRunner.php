@@ -2,24 +2,24 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website;
+namespace App;
 
-use Rector\Rector\AbstractRector;
-use Rector\Config\RectorConfig;
+use App\Demo\Process\RectorProcessFactory;
+use App\Entity\AbstractRectorRun;
+use App\Exception\RectorRunFailedException;
+use App\Exception\ShouldNotHappenException;
+use App\Utils\ClassNameResolver;
+use App\Utils\ErrorMessageNormalizer;
 use Nette\Utils\Json;
 use Nette\Utils\JsonException;
 use Nette\Utils\Random;
-use Rector\Website\Demo\Process\RectorProcessFactory;
-use Rector\Website\Entity\AbstractRectorRun;
-use Rector\Website\Exception\RectorRunFailedException;
-use Rector\Website\Exception\ShouldNotHappenException;
-use Rector\Website\Utils\ClassNameResolver;
-use Rector\Website\Utils\ErrorMessageNormalizer;
+use Rector\Config\RectorConfig;
+use Rector\Rector\AbstractRector;
 use Symfony\Component\Filesystem\Filesystem;
 use Throwable;
 
 /**
- * @see \Rector\Website\Tests\DemoRunnerTest
+ * @see \App\Tests\DemoRunnerTest
  */
 final class DemoRunner
 {

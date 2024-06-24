@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Controller;
+namespace App\Controller;
 
+use App\Entity\Post;
+use App\Repository\PostRepository;
 use DateTimeInterface;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-use Rector\Website\Entity\Post;
-use Rector\Website\Repository\PostRepository;
 
 final class RssController extends Controller
 {

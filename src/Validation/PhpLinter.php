@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Validation;
+namespace App\Validation;
 
 use PhpParser\Error;
 use PhpParser\ParserFactory;

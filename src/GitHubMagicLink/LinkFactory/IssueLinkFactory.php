@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\GitHubMagicLink\LinkFactory;
+namespace App\GitHubMagicLink\LinkFactory;
 
-use Rector\Website\Entity\RectorRun;
-use Rector\Website\GitHubMagicLink\BodyFactory\IssueBodyFactory;
-use Rector\Website\ValueObject\AppliedRule;
+use App\Entity\RectorRun;
+use App\GitHubMagicLink\BodyFactory\IssueBodyFactory;
+use App\ValueObject\AppliedRule;
 
 final class IssueLinkFactory
 {

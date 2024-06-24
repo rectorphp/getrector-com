@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\EntityFactory;
+namespace App\EntityFactory;
 
+use App\Entity\Post;
+use App\Exception\ShouldNotHappenException;
+use App\FileSystem\PathAnalyzer;
 use DateTimeInterface;
 use Nette\Utils\DateTime;
 use Nette\Utils\FileSystem;
 use Nette\Utils\Strings;
-use Rector\Website\Entity\Post;
-use Rector\Website\Exception\ShouldNotHappenException;
-use Rector\Website\FileSystem\PathAnalyzer;
 use Symfony\Component\Yaml\Yaml;
 use Webmozart\Assert\Assert;
 

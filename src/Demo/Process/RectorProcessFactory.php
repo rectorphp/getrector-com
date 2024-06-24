@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Demo\Process;
+namespace App\Demo\Process;
 
 use Symfony\Component\Process\Process;
 

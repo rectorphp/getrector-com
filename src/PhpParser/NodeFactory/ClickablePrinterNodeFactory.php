@@ -2,8 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\PhpParser\NodeFactory;
+namespace App\PhpParser\NodeFactory;
 
+use App\Enum\AttributeKey;
+use App\Enum\ComponentEvent;
 use PhpParser\BuilderFactory;
 use PhpParser\Node\Arg;
 use PhpParser\Node\Expr\Assign;
@@ -19,8 +21,6 @@ use PhpParser\Node\Name;
 use PhpParser\Node\Name\FullyQualified;
 use PhpParser\Node\Scalar\String_;
 use PhpParser\Node\Stmt\ClassMethod;
-use Rector\Website\Enum\AttributeKey;
-use Rector\Website\Enum\ComponentEvent;
 
 final class ClickablePrinterNodeFactory
 {

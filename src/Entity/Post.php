@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Entity;
+namespace App\Entity;
 
+use App\Controller\Blog\PostController;
 use DateTimeInterface;
-use Rector\Website\Controller\Blog\PostController;
 
 final class Post
 {

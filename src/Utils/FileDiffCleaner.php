@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Utils;
+namespace App\Utils;
 
+use App\Enum\Comment;
 use ArrayLookup\AtLeast;
 use Nette\Utils\Strings;
-use Rector\Website\Enum\Comment;
 
 /**
- * @see \Rector\Website\Tests\Utils\FileDiffCleanerTest
+ * @see \App\Tests\Utils\FileDiffCleanerTest
  */
 final class FileDiffCleaner
 {

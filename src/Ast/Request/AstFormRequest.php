@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Ast\Request;
+namespace App\Ast\Request;
 
+use App\Validation\Rules\ShortPhpContentsRule;
+use App\Validation\Rules\ValidPhpSyntaxRule;
 use Illuminate\Foundation\Http\FormRequest;
-use Rector\Website\Validation\Rules\ShortPhpContentsRule;
-use Rector\Website\Validation\Rules\ValidPhpSyntaxRule;
 
 final class AstFormRequest extends FormRequest
 {

@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Request;
+namespace App\Request;
 
+use App\Validation\Rules\FuncCallRule;
+use App\Validation\Rules\HasRectorRule;
+use App\Validation\Rules\IncludeRule;
+use App\Validation\Rules\ShellExecRule;
+use App\Validation\Rules\ShortPhpContentsRule;
+use App\Validation\Rules\ValidPhpSyntaxRule;
 use Illuminate\Foundation\Http\FormRequest;
-use Rector\Website\Validation\Rules\FuncCallRule;
-use Rector\Website\Validation\Rules\HasRectorRule;
-use Rector\Website\Validation\Rules\IncludeRule;
-use Rector\Website\Validation\Rules\ShellExecRule;
-use Rector\Website\Validation\Rules\ShortPhpContentsRule;
-use Rector\Website\Validation\Rules\ValidPhpSyntaxRule;
 
 final class RectorRunFormRequest extends FormRequest
 {

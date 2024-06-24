@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Tests\GitHubMagicLink\BodyFactory\PullRequestDescriptionFactory;
+namespace App\Tests\GitHubMagicLink\BodyFactory\PullRequestDescriptionFactory;
 
-use Rector\Website\GitHubMagicLink\BodyFactory\PullRequestDescriptionFactory;
-use Rector\Website\Tests\AbstractTestCase;
-use Rector\Website\Tests\Helpers\DummyRectorRunFactory;
+use App\GitHubMagicLink\BodyFactory\PullRequestDescriptionFactory;
+use App\Tests\AbstractTestCase;
+use App\Tests\Helpers\DummyRectorRunFactory;
 
 final class PullRequestDescriptionFactoryTest extends AbstractTestCase
 {

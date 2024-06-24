@@ -1,29 +1,29 @@
 <?php
 
 declare(strict_types=1);
-use Rector\Website\Controller\Demo\CustomRuleDetailController;
+use App\Controller\Demo\CustomRuleDetailController;
 
 use Illuminate\Support\Facades\Route;
-use Rector\Website\Ast\Controller\AstController;
-use Rector\Website\Ast\Controller\AstDetailController;
-use Rector\Website\Ast\Controller\ProcessAstFormController;
-use Rector\Website\Controller\AboutController;
-use Rector\Website\Controller\Blog\BlogController;
-use Rector\Website\Controller\Blog\PostController;
-use Rector\Website\Controller\BookController;
-use Rector\Website\Controller\ContactController;
-use Rector\Website\Controller\Demo\CustomRuleController;
-use Rector\Website\Controller\Demo\DemoController;
-use Rector\Website\Controller\Demo\DemoDetailController;
-use Rector\Website\Controller\Demo\ProcessCustomRuleFormController;
-use Rector\Website\Controller\Demo\ProcessDemoFormController;
-use Rector\Website\Controller\DocumentationController;
-use Rector\Website\Controller\FilterRectorController;
-use Rector\Website\Controller\HireTeamController;
-use Rector\Website\Controller\HomepageController;
-use Rector\Website\Controller\InteractiveController;
-use Rector\Website\Controller\RssController;
-use Rector\Website\Controller\ThumbnailController;
+use App\Ast\Controller\AstController;
+use App\Ast\Controller\AstDetailController;
+use App\Ast\Controller\ProcessAstFormController;
+use App\Controller\AboutController;
+use App\Controller\Blog\BlogController;
+use App\Controller\Blog\PostController;
+use App\Controller\BookController;
+use App\Controller\ContactController;
+use App\Controller\Demo\CustomRuleController;
+use App\Controller\Demo\DemoController;
+use App\Controller\Demo\DemoDetailController;
+use App\Controller\Demo\ProcessCustomRuleFormController;
+use App\Controller\Demo\ProcessDemoFormController;
+use App\Controller\DocumentationController;
+use App\Controller\FilterRectorController;
+use App\Controller\HireTeamController;
+use App\Controller\HomepageController;
+use App\Controller\InteractiveController;
+use App\Controller\RssController;
+use App\Controller\ThumbnailController;
 
 Route::get('/', HomepageController::class);
 Route::get('documentation/{section?}', DocumentationController::class);

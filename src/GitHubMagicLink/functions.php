@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-use Rector\Website\Entity\RectorRun;
-use Rector\Website\GitHubMagicLink\LinkFactory\FixtureLinkFactory;
-use Rector\Website\GitHubMagicLink\LinkFactory\IssueLinkFactory;
+use App\Entity\RectorRun;
+use App\GitHubMagicLink\LinkFactory\FixtureLinkFactory;
+use App\GitHubMagicLink\LinkFactory\IssueLinkFactory;
 
 function pullRequestLink(RectorRun $rectorRun): string
 {

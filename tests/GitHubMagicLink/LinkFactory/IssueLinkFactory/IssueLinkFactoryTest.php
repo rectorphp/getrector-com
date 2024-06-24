@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Tests\GitHubMagicLink\LinkFactory\IssueLinkFactory;
+namespace App\Tests\GitHubMagicLink\LinkFactory\IssueLinkFactory;
 
-use Rector\Website\GitHubMagicLink\LinkFactory\IssueLinkFactory;
-use Rector\Website\Tests\AbstractTestCase;
-use Rector\Website\Tests\Helpers\DummyRectorRunFactory;
+use App\GitHubMagicLink\LinkFactory\IssueLinkFactory;
+use App\Tests\AbstractTestCase;
+use App\Tests\Helpers\DummyRectorRunFactory;
 
 final class IssueLinkFactoryTest extends AbstractTestCase
 {

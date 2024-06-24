@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Entity;
+namespace App\Entity;
 
+use App\Enum\Comment;
+use App\Utils\FileDiffCleaner;
 use JsonSerializable;
 use Nette\Utils\Strings;
-use Rector\Website\Enum\Comment;
-use Rector\Website\Utils\FileDiffCleaner;
 use Symfony\Component\Uid\Uuid;
 
 abstract class AbstractRectorRun implements JsonSerializable

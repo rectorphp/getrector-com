@@ -1,11 +1,11 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="{{ \Rector\Website\Enum\Design::MAIN_TITLE }}" />
+<meta name="description" content="{{ \App\Enum\Design::MAIN_TITLE }}" />
 <meta name="keywords" content="php, rector, instant upgrades, instant refactoring, upgrade symfony, upgrade php, upgrade cakephp, upgrade legacy, php migration, laravel shift alternative, php shift" />
 
 @php
-$full_title = (isset($page_title) ? $page_title . ' | ' : '') . \Rector\Website\Enum\Design::MAIN_TITLE;
+$full_title = (isset($page_title) ? $page_title . ' | ' : '') . \App\Enum\Design::MAIN_TITLE;
 @endphp
 
 <title>{{ $full_title }}</title>
@@ -27,8 +27,8 @@ $full_title = (isset($page_title) ? $page_title . ' | ' : '') . \Rector\Website\
     <meta property="og:title" content="{{ $full_title }}">
     <meta property="twitter:title" content="{{ $full_title }}">
 
-    <meta property="og:image" content="{{ \Rector\Website\Enum\Design::SOCIAL_RECTOR_LOGO }}">
-    <meta name="twitter:image" content="{{ \Rector\Website\Enum\Design::SOCIAL_RECTOR_LOGO }}">
+    <meta property="og:image" content="{{ \App\Enum\Design::SOCIAL_RECTOR_LOGO }}">
+    <meta name="twitter:image" content="{{ \App\Enum\Design::SOCIAL_RECTOR_LOGO }}">
     <meta property="og:type" content="website">
 @endif
 

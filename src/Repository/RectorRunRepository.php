@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Repository;
+namespace App\Repository;
 
-use Rector\Website\Entity\RectorRun;
+use App\Entity\RectorRun;
 use Symfony\Component\Uid\Uuid;
 
 /**

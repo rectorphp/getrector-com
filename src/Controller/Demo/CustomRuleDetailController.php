@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Controller\Demo;
+namespace App\Controller\Demo;
 
+use App\Entity\RectorRun;
+use App\Repository\RectorRunRepository;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Controller;
 use Illuminate\View\View;
-use Rector\Website\Entity\RectorRun;
-use Rector\Website\Repository\RectorRunRepository;
 
 final class CustomRuleDetailController extends Controller
 {

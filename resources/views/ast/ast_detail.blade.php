@@ -1,7 +1,7 @@
 @extends('base')
 
 @php
-    /** @var $ast_run \Rector\Website\Entity\AstRun */
+    /** @var $ast_run \App\Entity\AstRun */
 @endphp
 
 @section('main')

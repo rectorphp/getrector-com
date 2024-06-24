@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\ValueObject;
+namespace App\ValueObject;
 
 /**
  * @api used in the templates

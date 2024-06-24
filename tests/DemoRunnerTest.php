@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Tests;
+namespace App\Tests;
 
-use Rector\Website\DemoRunner;
-use Rector\Website\Entity\RectorRun;
+use App\DemoRunner;
+use App\Entity\RectorRun;
 
 final class DemoRunnerTest extends AbstractTestCase
 {

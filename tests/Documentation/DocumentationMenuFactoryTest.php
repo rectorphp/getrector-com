@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Tests\Documentation;
+namespace App\Tests\Documentation;
 
+use App\Documentation\DocumentationMenuFactory;
+use App\ValueObject\DocumentationSection;
 use PHPUnit\Framework\TestCase;
-use Rector\Website\Documentation\DocumentationMenuFactory;
-use Rector\Website\ValueObject\DocumentationSection;
 
 final class DocumentationMenuFactoryTest extends TestCase
 {

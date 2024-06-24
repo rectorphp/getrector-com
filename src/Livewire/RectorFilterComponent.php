@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Livewire;
+namespace App\Livewire;
 
+use App\Enum\ComponentEvent;
+use App\FileSystem\RectorFinder;
+use App\RuleFilter\RuleFilter;
+use App\Sets\RectorSetsTreeProvider;
 use Illuminate\View\View;
 use Livewire\Attributes\Url;
 use Livewire\Component;
 use PhpParser\Node;
-use Rector\Website\Enum\ComponentEvent;
-use Rector\Website\FileSystem\RectorFinder;
-use Rector\Website\RuleFilter\RuleFilter;
-use Rector\Website\Sets\RectorSetsTreeProvider;
 
 final class RectorFilterComponent extends Component
 {

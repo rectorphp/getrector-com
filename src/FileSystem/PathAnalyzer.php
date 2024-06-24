@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\FileSystem;
+namespace App\FileSystem;
 
+use App\Exception\ShouldNotHappenException;
 use DateTimeInterface;
 use Nette\Utils\DateTime;
 use Nette\Utils\Strings;
-use Rector\Website\Exception\ShouldNotHappenException;
 
 final class PathAnalyzer
 {

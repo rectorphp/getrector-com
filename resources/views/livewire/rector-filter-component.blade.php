@@ -1,6 +1,6 @@
 @php
-    /** @var \Rector\Website\RuleFilter\ValueObject\RuleMetadata[] $filteredRules */
-    /** @var \Rector\Website\RuleFilter\ValueObject\RectorSet[] $rectorSets */
+    /** @var \App\RuleFilter\ValueObject\RuleMetadata[] $filteredRules */
+    /** @var \App\RuleFilter\ValueObject\RectorSet[] $rectorSets */
     /** @var array<string, string> $nodeTypeSelectOptions */
 @endphp
 
@@ -19,7 +19,7 @@
             @if ($isFilterActive)
                 &nbsp;
                 &nbsp;
-                <a href="{{ action(\Rector\Website\Controller\FilterRectorController::class) }}">Clear</a>
+                <a href="{{ action(\App\Controller\FilterRectorController::class) }}">Clear</a>
             @endif
 
         </div>
@@ -29,7 +29,7 @@
             <select class="form-select d-inline ms-3" name="node_type" style="max-width: 12em" wire:model.live="nodeType">
                 <option value="">Any element</option>
 
-                @foreach (\Rector\Website\Enum\NodeTypeToHumanReadable::SELECT_ITEMS_BY_GROUP as $groupName => $nodeTypesToNames)
+                @foreach (\App\Enum\NodeTypeToHumanReadable::SELECT_ITEMS_BY_GROUP as $groupName => $nodeTypesToNames)
                     <optgroup label="{{ $groupName }}">
                         @foreach ($nodeTypesToNames as $optionValue => $optionName)
                             <option value="{{ $optionValue }}">{{ $optionName }}</option>
@@ -137,7 +137,7 @@
         // Listen for events dispatched from Livewire components...
         document.addEventListener('DOMContentLoaded', function () {
             // render event from src/Livewire/RectorFilterComponent.php:12
-            document.addEventListener('{{ \Rector\Website\Enum\ComponentEvent::RULES_FILTERED }}', () => {
+            document.addEventListener('{{ \App\Enum\ComponentEvent::RULES_FILTERED }}', () => {
                 requestAnimationFrame(() => {
                     document.querySelectorAll('pre code.language-diff').forEach((element) => {
                         hljs.highlightElement(element);

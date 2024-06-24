@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Ast\Entity;
+namespace App\Ast\Entity;
 
 use Illuminate\Database\Eloquent\Model;
 

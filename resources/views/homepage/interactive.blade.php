@@ -31,7 +31,7 @@
 
                 <div class="text-center mt-5">
                     <a
-                            href="{{ action(\Rector\Website\Ast\Controller\AstController::class) }}"
+                            href="{{ action(\App\Ast\Controller\AstController::class) }}"
                             class="btn btn-success btn-lg mt-auto"
                     >
                         Try Interactive AST
@@ -57,7 +57,7 @@
 
                 <div class="text-center mt-5">
                     <a
-                            href="{{ action(\Rector\Website\Controller\FilterRectorController::class) }}"
+                            href="{{ action(\App\Controller\FilterRectorController::class) }}"
                             class="btn btn-success btn-lg mt-auto"
                     >
                         Find the Rule

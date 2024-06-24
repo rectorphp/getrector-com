@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Controller\Demo;
+namespace App\Controller\Demo;
 
+use App\Entity\RectorRun;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\View\View;
-use Rector\Website\Entity\RectorRun;
 
 /**
- * @see \Rector\Website\Tests\Controller\DemoControllerTest
+ * @see \App\Tests\Controller\DemoControllerTest
  */
 final class DemoController extends Controller
 {

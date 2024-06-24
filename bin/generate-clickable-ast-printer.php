@@ -5,7 +5,7 @@ use Illuminate\Container\Container;
 
 use Nette\Utils\FileSystem;
 use PhpParser\PrettyPrinter\Standard;
-use Rector\Website\Utils\ClickablePrinterBuilder;
+use App\Utils\ClickablePrinterBuilder;
 
 require __DIR__ . '/../vendor/autoload.php';
 

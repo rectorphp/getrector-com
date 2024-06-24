@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\FileSystem;
+namespace App\FileSystem;
 
+use App\Enum\RuleNodeRedirectMap;
+use App\RuleFilter\ValueObject\RectorSet;
+use App\RuleFilter\ValueObject\RuleMetadata;
+use App\Sets\RectorSetsTreeProvider;
 use Nette\Loaders\RobotLoader;
 use Rector\Contract\Rector\RectorInterface;
 use Rector\PostRector\Contract\Rector\PostRectorInterface;
-use Rector\Website\Enum\RuleNodeRedirectMap;
-use Rector\Website\RuleFilter\ValueObject\RectorSet;
-use Rector\Website\RuleFilter\ValueObject\RuleMetadata;
-use Rector\Website\Sets\RectorSetsTreeProvider;
 use ReflectionClass;
 use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
 

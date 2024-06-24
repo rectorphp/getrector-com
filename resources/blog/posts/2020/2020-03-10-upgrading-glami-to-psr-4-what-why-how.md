@@ -38,8 +38,8 @@ Example is worth 1000 words here:
       <td>./vendor/Symfony/Core/Request.php</td>
     </tr>
     <tr>
-      <td>Rector\Website\Demo\Controller\DemoController</td>
-      <td>Rector\Website</td>
+      <td>App\Demo\Controller\DemoController</td>
+      <td>App</td>
       <td>./src</td>
       <td>./src/Controller/DemoController.php</td>
     </tr>

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Controller\Blog;
+namespace App\Controller\Blog;
 
+use App\Entity\Post;
+use App\Repository\PostRepository;
 use Illuminate\Contracts\View\View;
 use Illuminate\Routing\Controller;
-use Rector\Website\Entity\Post;
-use Rector\Website\Repository\PostRepository;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 final class PostController extends Controller

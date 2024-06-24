@@ -2,8 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Livewire;
+namespace App\Livewire;
 
+use App\Ast\Entity\AstRun;
+use App\Ast\PhpParser\ClickablePrinter;
+use App\Enum\ComponentEvent;
+use App\PhpParser\NodeResolver\FocusedNodeResolver;
+use App\PhpParser\SimplePhpParser;
 use Illuminate\View\View;
 use Livewire\Attributes\On;
 use Livewire\Attributes\Url;
@@ -18,11 +23,6 @@ use PhpParser\Node\Param;
 use PhpParser\Node\Stmt;
 use PhpParser\Node\Stmt\UseUse;
 use Rector\CustomRules\SimpleNodeDumper;
-use Rector\Website\Ast\Entity\AstRun;
-use Rector\Website\Ast\PhpParser\ClickablePrinter;
-use Rector\Website\Enum\ComponentEvent;
-use Rector\Website\PhpParser\NodeResolver\FocusedNodeResolver;
-use Rector\Website\PhpParser\SimplePhpParser;
 
 final class AstComponent extends Component
 {

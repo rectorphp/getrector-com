@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\GitHubMagicLink\BodyFactory;
+namespace App\GitHubMagicLink\BodyFactory;
 
-use Rector\Website\Entity\RectorRun;
+use App\Entity\RectorRun;
 
 final class IssueBodyFactory
 {

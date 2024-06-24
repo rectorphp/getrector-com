@@ -1,13 +1,13 @@
 @extends('base')
 
 @php
-    /** @var $rectorRun \Rector\Website\Entity\CustomRuleRun */
+    /** @var $rectorRun \App\Entity\CustomRuleRun */
 @endphp
 
 @section('main')
     <div id="rector_run_form" class="mt-4 mb-3">
         <form
-            action="{{ action(\Rector\Website\Controller\Demo\ProcessCustomRuleFormController::class) }}"
+            action="{{ action(\App\Controller\Demo\ProcessCustomRuleFormController::class) }}"
             method="post"
             class="mb-5"
         >

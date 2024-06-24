@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Tests\Validator;
+namespace App\Tests\Validator;
 
+use App\Tests\AbstractTestCase;
+use App\Utils\ErrorMessageNormalizer;
 use Iterator;
 use PHPUnit\Framework\Attributes\DataProvider;
-use Rector\Website\Tests\AbstractTestCase;
-use Rector\Website\Utils\ErrorMessageNormalizer;
 
 final class ErrorMessageNormalizerTest extends AbstractTestCase
 {
