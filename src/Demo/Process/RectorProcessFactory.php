@@ -10,31 +10,22 @@ final class RectorProcessFactory
 {
     public function create(string $analyzedFilePath, string $configPath, ?string $extraFilePath): Process
     {
-        // dev and test
-        if (app('env') !== 'prod') {
-            $processOptions = [
-                PHP_BINARY,
-                $this->resolveRectorBinPath(),
-                'process',
-                $analyzedFilePath,
-                '--config',
-                $configPath,
-                '--output-format',
-                'json',
-                '--debug',
-            ];
-        } else {
-            $processOptions = [
-                // paths for phpunit differs based on test/demo, not sure why
-                $this->resolveRectorBinPath(),
-                'process',
-                $analyzedFilePath,
-                '--config',
-                $configPath,
-                '--output-format',
-                'json',
-            ];
+        $processOptions = [];
+
+        // env() cannot be used in tests
+        if (getenv('APP_ENV') !== 'prod') {
+            $processOptions[] = PHP_BINARY;
         }
+
+        $processOptions = array_merge($processOptions, [
+            $this->resolveRectorBinPath(),
+            'process',
+            $analyzedFilePath,
+            '--config',
+            $configPath,
+            '--output-format',
+            'json',
+        ]);
 
         // autoload custom Rector rule
         if ($extraFilePath) {
@@ -42,14 +33,7 @@ final class RectorProcessFactory
             $processOptions[] = $extraFilePath;
         }
 
-        $process = new Process($processOptions);
-
-        dump($process->getCommandLine());
-        die;
-
-        $process->run();
-
-        return $process;
+        return new Process($processOptions);
     }
 
     private function resolveRectorBinPath(): string

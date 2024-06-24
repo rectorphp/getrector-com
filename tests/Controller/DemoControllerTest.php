@@ -78,7 +78,7 @@ final class DemoControllerTest extends AbstractTestCase
 
         // include file is dangerous
         yield ['<?php echo "test"; ?>', '<?php include "index.php"; ?>', [
-            'rector_config' => 'PHP config should not include include/require usage',
+            'runnable_contents' => 'PHP config should not include include/require usage',
         ]];
 
         // Add no rule in config

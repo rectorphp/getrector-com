@@ -14,7 +14,6 @@ use Rector\Website\Exception\ShouldNotHappenException;
 use Rector\Website\Utils\ClassNameResolver;
 use Rector\Website\Utils\ErrorMessageNormalizer;
 use Symfony\Component\Filesystem\Filesystem;
-use Symfony\Component\Process\Process;
 use Throwable;
 
 /**
@@ -79,11 +78,12 @@ final class DemoRunner
         if (str_contains($rectorConfig, 'extends') && str_contains($rectorConfig, 'Rector\Rector\AbstractRector')) {
             // is Rector rule
             $extraFileContents = $rectorConfig;
-            $analyzedFilePath = $this->demoDir . DIRECTORY_SEPARATOR . $identifier . DIRECTORY_SEPARATOR . 'CustomRuleRector.php';
+            $extraFilePath = $this->demoDir . DIRECTORY_SEPARATOR . $identifier . DIRECTORY_SEPARATOR . 'CustomRuleRector.php';
 
             $rectorClassName = ClassNameResolver::resolveFromFileContents($rectorConfig, $analyzedFilePath);
             $rectorConfig = sprintf(
-                'return \Rector\Config\RectorConfig::configure()->withRules([%s::class]);' . PHP_EOL,
+                '<?php%s return \Rector\Config\RectorConfig::configure()->withRules([%s::class]);' . PHP_EOL,
+                PHP_EOL . PHP_EOL,
                 $rectorClassName
             );
         }
@@ -92,15 +92,16 @@ final class DemoRunner
         $this->filesystem->dumpFile($analyzedFilePath, $fileContent);
         $this->filesystem->dumpFile($configPath, $rectorConfig);
         if ($extraFileContents !== null) {
-            $this->filesystem->dumpFile($analyzedFilePath, $extraFileContents);
+            $this->filesystem->dumpFile($extraFilePath, $extraFileContents);
         }
 
         $temporaryFilePaths = [$analyzedFilePath, $configPath];
-        if ($analyzedFilePath) {
-            $temporaryFilePaths[] = $analyzedFilePath;
+        if ($extraFilePath) {
+            $temporaryFilePaths[] = $extraFilePath;
         }
 
         $rectorProcess = $this->rectorProcessFactory->create($analyzedFilePath, $configPath, $extraFilePath);
+        $rectorProcess->run();
 
         // remove temporary files
         $this->filesystem->remove($temporaryFilePaths);

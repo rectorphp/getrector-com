@@ -56,7 +56,7 @@ final class RectorRunFormRequest extends FormRequest
                 $funcCallRule,
                 $hasRectorRule,
                 $shellExecRule,
-                $includeRule
+                $includeRule,
             ],
         ];
     }

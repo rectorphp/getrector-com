@@ -34,6 +34,7 @@ parameters:
             message: '#Offset 1 on array\{string\} on left side of \?\? does not exist#'
             paths:
                  - src/Controller/
+                 - src/Ast/Controller/
 
         - '#Call to an undefined method Illuminate\\Contracts\\(.*?)|Illuminate\\#'
 

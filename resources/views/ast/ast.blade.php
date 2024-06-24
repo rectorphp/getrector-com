@@ -3,8 +3,8 @@
 @section('main')
     <div id="ast_run_form" class="mt-4 mb-3" style="min-height: 35em">
         <form
-            action="{{ action(\Rector\Website\Controller\Ast\ProcessAstFormController::class) }}"
-            method="post"
+                action="{{ action(\Rector\Website\Ast\Controller\ProcessAstFormController::class) }}"
+                method="post"
         >
 
             @csrf <!-- {{ csrf_field() }} -->

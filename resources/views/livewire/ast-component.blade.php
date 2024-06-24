@@ -1,6 +1,6 @@
 <div>
     <div class="float-end mt-0">
-        <a href="{{ action(\Rector\Website\Controller\Ast\AstController::class) }}"
+        <a href="{{ action(\Rector\Website\Ast\Controller\AstController::class) }}"
            class="btn btn-outline-success" style="margin-top: -.7em">
             ← Create new code
         </a>
@@ -27,7 +27,8 @@
 
         @if ($targetNodeClass)
             <p>
-                What class-string to put into <code>Rector::getNodeTypes()</code> method to hook into?
+                What class-string to put into <code>Rector::getNodeTypes()</code> method to hook
+                into?
             </p>
 
             <pre><code class="language-php">\{{ $targetNodeClass }}::class</code></pre>

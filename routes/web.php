@@ -3,10 +3,10 @@
 declare(strict_types=1);
 
 use Illuminate\Support\Facades\Route;
+use Rector\Website\Ast\Controller\AstController;
+use Rector\Website\Ast\Controller\AstDetailController;
+use Rector\Website\Ast\Controller\ProcessAstFormController;
 use Rector\Website\Controller\AboutController;
-use Rector\Website\Controller\Ast\AstController;
-use Rector\Website\Controller\Ast\AstDetailController;
-use Rector\Website\Controller\Ast\ProcessAstFormController;
 use Rector\Website\Controller\Blog\BlogController;
 use Rector\Website\Controller\Blog\PostController;
 use Rector\Website\Controller\BookController;

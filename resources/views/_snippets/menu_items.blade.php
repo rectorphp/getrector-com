@@ -41,7 +41,7 @@
     </li>
 
     <li class="nav-item">
-        <a href="{{ action(\Rector\Website\Controller\Ast\AstController::class) }}"
+        <a href="{{ action(\Rector\Website\Ast\Controller\AstController::class) }}"
            class="nav-link">Play with AST</a>
     </li>
 
