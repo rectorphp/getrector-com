@@ -5,23 +5,20 @@ declare(strict_types=1);
 namespace Rector\Website\Tests;
 
 use Rector\Website\DemoRunner;
-use Rector\Website\EntityFactory\RectorRunFactory;
+use Rector\Website\Entity\RectorRun;
 
 final class DemoRunnerTest extends AbstractTestCase
 {
     private DemoRunner $demoRunner;
 
-    private RectorRunFactory $rectorRunFactory;
-
     protected function setUp(): void
     {
         $this->demoRunner = $this->make(DemoRunner::class);
-        $this->rectorRunFactory = $this->make(RectorRunFactory::class);
     }
 
     public function test(): void
     {
-        $rectorRun = $this->rectorRunFactory->createEmpty();
+        $rectorRun = RectorRun::createEmpty();
         $this->demoRunner->processRectorRun($rectorRun);
 
         $fatalErrorMessage = $rectorRun->getFatalErrorMessage();

@@ -21,6 +21,23 @@ final class ClassNameResolver
      */
     private const SHORT_CLASS_NAME_REGEX = '#\bclass\s+(?<short_class_name>[A-Z][A-Za-z]+)#';
 
+    /**
+     * @see https://regex101.com/r/13A0W9/1
+     * @var string
+     */
+    private const CLASS_NAME_REGEX = '#class\s+(?<' . self::PART_CLASS_NAME . '>\w+)#';
+
+    /**
+     * @var string
+     */
+    private const PART_CLASS_NAME = 'class_name';
+
+    public static function resolveShortClassName(string $fileContents): ?string
+    {
+        $matches = Strings::match($fileContents, self::CLASS_NAME_REGEX);
+        return $matches[self::PART_CLASS_NAME] ?? null;
+    }
+
     public static function resolveFromFileContents(string $fileContents, string $filePath): string
     {
         // @todo use php-parser to make more reliable?

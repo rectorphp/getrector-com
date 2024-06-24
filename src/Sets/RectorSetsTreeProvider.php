@@ -101,6 +101,7 @@ final class RectorSetsTreeProvider
      */
     private function findSetListFileInfos(): array
     {
+        // @todo possibly add to SetProvider to use directly without any this magic
         $setsListFileIterator = Finder::create()
             ->files()
             ->in(__DIR__ . '/../../vendor/rector/rector/src/Set')

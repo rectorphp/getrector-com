@@ -3,75 +3,52 @@
 @php
     use Rector\Website\Utils\RectorMetadata;
 
-    /** @var $rector_run \Rector\Website\Entity\RectorRun */
+    /** @var $rectorRun \Rector\Website\Entity\RectorRun */
 @endphp
 
 @section('main')
     <div id="rector_run_form" class="mt-4 mb-3">
         <form
             action="{{ action(\Rector\Website\Controller\Demo\ProcessDemoFormController::class) }}"
-            method="post">
+            method="post"
+            class="mb-5"
+        >
 
             @csrf <!-- {{ csrf_field() }} -->
 
-            @if ($rector_run->hasRun() && $rector_run->isSuccessful() !== true)
-                <div class="alert alert-danger mb-3">
-                    <p>
-                        <strong>Rector run Failed:</strong>
-                    </p>
+            @include('_snippets/form/form_fatal_errors')
 
-                    {!! $rector_run->getFatalErrorMessage() !!}
-
-                    @if ($rector_run->getErrors() !== [])
-                        <ul class="mt-3 ms-0 pl-4">
-                            @foreach ($rector_run->getErrors() as $error)
-                                <li>
-                                    {{ $error }}
-                                </li>
-                            @endforeach
-                        </ul>
-                    @endif
-                </div>
-            @endif
+            @include('_snippets/demo/learn_ast_link')
 
             <p>
                 Run Rector on your code to see what it can do for you:
             </p>
 
-            @error('php_contents')
-            <div class="alert alert-danger">
-                @foreach ($errors->get('php_contents') as $error)
-                    {{ $error }} <br/>
-                @endforeach
-            </div>
-            @enderror
+            @include('_snippets.form.form_textarea', [
+                'label' => 'PHP snippet to change',
+                'inputName' => 'php_contents',
+                'defaultValue' => $rectorRun->getContent()
+            ])
 
-            <div class="card mb-4">
-                <div class="card-body p-0 mb-0">
-                    <textarea name="php_contents" class="codemirror_php"
-                              required="required">{{ session('_old_input')['php_contents'] ?? $rector_run->getContent() }}</textarea>
-                </div>
-            </div>
-
-            @if ($rector_run->isSuccessful())
-                <div class="card bg-warning border-warning mb-3">
-                    <div class="card-header text-bold">
+            @if ($rectorRun->isSuccessful())
+                <div class="card bg-success border-success mb-3">
+                    <div class="card-header text-bold text-white">
                         What did Rector change?
                     </div>
 
                     <div class="card-body p-0">
                         <textarea
-                            class="codemirror_diff">{{ $rector_run->getContentDiff() }}</textarea>
+                            class="codemirror_diff">{{ $rectorRun->getContentDiff() }}</textarea>
                     </div>
                 </div>
 
-                @if ($rector_run->getAppliedRules())
+                @if ($rectorRun->getAppliedRules())
                     <div class="row">
                         <div class="pt-0 pb-4 col-12 col-sm-6">
                             <p class="mb-2">Applied Rules:</p>
 
                             <ul class="list-noindent">
-                                @foreach ($rector_run->getAppliedRules() as $applied_rule)
+                                @foreach ($rectorRun->getAppliedRules() as $applied_rule)
                                     @php
                                         /** @var $applied_rule \Rector\Website\ValueObject\AppliedRule */
                                     @endphp
@@ -86,11 +63,11 @@
                         </div>
                         <div class="pt-0 pb-4 col-12 col-sm-6">
                             <p class="mb-2">Is the result wrong?</p>
-                            <a href="{{ issueLink($rector_run) }}" class="btn btn-danger">Create an
+                            <a href="{{ issueLink($rectorRun) }}" class="btn btn-danger">Create an
                                 issue</a>
 
-                            @if ($rector_run->canCreateFixture())
-                                <a href="{{ pullRequestLink($rector_run) }}"
+                            @if ($rectorRun->canCreateFixture())
+                                <a href="{{ pullRequestLink($rectorRun) }}"
                                    class="btn btn-primary ms-3">Create
                                     a Test</a>
                             @endif
@@ -99,29 +76,16 @@
                 @endif
             @endif
 
-            @error('rector_config')
-            <div class="alert alert-danger">
-                @foreach ($errors->get('rector_config') as $error)
-                    {{ $error }} <br/>
-                @endforeach
-            </div>
-            @enderror
-
-            <div class="card mb-2">
-                <div class="card-header">
-                    Config&nbsp;&nbsp;<code>rector.php</code>
-                </div>
-
-                <div class="card-body p-0">
-                    <textarea name="rector_config" class="codemirror_php"
-                              required="required">{{ session('_old_input')['rector_config'] ?? $rector_run->getConfig() }}</textarea>
-                </div>
-            </div>
+            @include('_snippets.form.form_textarea', [
+                'label' => 'Config&nbsp;&nbsp;<code>rector.php</code>',
+                'inputName' => 'runnable_contents',
+                'defaultValue' => $rectorRun->getRunnablePhp()
+            ])
 
             <div class="row">
                 <div class="col-6 mt-4 mb-5">
                     <button type="submit" id="demo_form_process" name="process"
-                            class="btn btn-lg btn-success m-auto btn-demo-submit">Process
+                            class="btn btn-lg btn-success m-auto btn-demo-submit">Run Rector
                     </button>
                 </div>
 

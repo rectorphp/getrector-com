@@ -10,7 +10,7 @@ use Illuminate\View\View;
 use Rector\Website\Entity\RectorRun;
 use Rector\Website\Repository\RectorRunRepository;
 
-final class DemoDetailController extends Controller
+final class CustomRuleDetailController extends Controller
 {
     public function __construct(
         private readonly RectorRunRepository $rectorRunRepository,
@@ -22,13 +22,13 @@ final class DemoDetailController extends Controller
         $rectorRun = $this->rectorRunRepository->get($uuid);
         if (! $rectorRun instanceof RectorRun) {
             return redirect_with_error(
-                DemoController::class,
+                CustomRuleController::class,
                 sprintf('Rector run "%s" was not found. Try to run code again for new result', $uuid)
             );
         }
 
-        return \view('demo/demo', [
-            'page_title' => 'Try Rector Online',
+        return \view('demo/custom-rule', [
+            'page_title' => 'Design Custom Rule',
             'rectorRun' => $rectorRun,
         ]);
     }

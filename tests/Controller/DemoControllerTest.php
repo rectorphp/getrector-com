@@ -28,7 +28,7 @@ final class DemoControllerTest extends AbstractTestCase
 
         $testResponse = $this->post($postUrl, [
             'php_contents' => $contentData,
-            'rector_config' => $configData,
+            'runnable_contents' => $configData,
         ]);
 
         $this->assertTrue($testResponse->isRedirect());
@@ -46,44 +46,44 @@ final class DemoControllerTest extends AbstractTestCase
         // Send empty form
         yield ['', '', [
             'php_contents' => 'The php contents field is required.',
-            'rector_config' => 'The rector config field is required.',
+            'runnable_contents' => 'The runnable contents field is required.',
         ]];
 
         // missing php open tag
         yield ['failed', 'services:', [
             'php_contents' => 'PHP code is invalid: Missing PHP opening tag',
-            'rector_config' => 'PHP code is invalid: Missing PHP opening tag',
+            'runnable_contents' => 'PHP code is invalid: Missing PHP opening tag',
         ]];
 
         // Invalid PHP syntax (missing semicolon in code box)
         yield ['<?php print $x', '', [
             'php_contents' => 'PHP code is invalid: Syntax error, unexpected EOF on line 1',
-            'rector_config' => 'The rector config field is required.',
+            'runnable_contents' => 'The runnable contents field is required.',
         ]];
 
         // Invalid PHP syntax (missing semicolon in config box)
         yield ['<?php print $x; ?>', '<?php return static function() {}', [
-            'rector_config' => "PHP code is invalid: Syntax error, unexpected EOF, expecting ';' on line 1",
+            'runnable_contents' => "PHP code is invalid: Syntax error, unexpected EOF, expecting ';' on line 1",
         ]];
 
         // Add dangerous exec() func call
         yield ['<?php echo "test"; ?>', '<?php exec("dangerous command"); ?>', [
-            'rector_config' => 'PHP config should not include func call',
+            'runnable_contents' => 'PHP config should not include func call',
         ]];
 
         // Add dangerous `` execution operator
         yield ['<?php echo "test"; ?>', '<?php `dangerous command`; ?>', [
-            'rector_config' => 'PHP config should not include execution operator',
+            'runnable_contents' => 'PHP config should not include execution operator',
         ]];
 
         // include file is dangerous
         yield ['<?php echo "test"; ?>', '<?php include "index.php"; ?>', [
-            'rector_config' => 'PHP config should not include include/require usage',
+            'runnable_contents' => 'PHP config should not include include/require usage',
         ]];
 
         // Add no rule in config
         yield ['<?php echo "test"; ?>', '<?php $rectorConfig->removeUnusedImports(); ?>', [
-            'rector_config' => 'PHP config should include at least 1 rector rule',
+            'runnable_contents' => 'PHP config should include at least 1 rector rule',
         ]];
 
         // valid PHP syntaxes

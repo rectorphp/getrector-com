@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Website\Validation\Rules;
 
+use Rector\Rector\AbstractRector;
 use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
 use PhpParser\Error;
@@ -17,6 +18,13 @@ final class HasRectorRule implements ValidationRule
 {
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
+
+        // dummy check for custom rule request
+        if (str_contains($value, AbstractRector::class)) {
+            return;
+        }
+
+        // @todo load the config and simply see if any rule is loaded
         $parserFactory = new ParserFactory();
         $parser = $parserFactory->create(ParserFactory::PREFER_PHP7);
 

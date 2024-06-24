@@ -14,7 +14,7 @@
             </div>
 
             <h3>
-                <strong>From PHP 7.2 to 8.3, from Symfony 2.8 to 7.2</strong>
+                <strong>From PHP 7.2 to 8.3, from Symfony 2.8 to 7.1</strong>
             </h3>
 
             <ul class="mt-3">

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Request;
+namespace Rector\Website\Ast\Request;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Rector\Website\Validation\Rules\ShortPhpContentsRule;

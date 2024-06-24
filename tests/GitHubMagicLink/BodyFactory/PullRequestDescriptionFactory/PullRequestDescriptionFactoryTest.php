@@ -12,19 +12,16 @@ final class PullRequestDescriptionFactoryTest extends AbstractTestCase
 {
     private PullRequestDescriptionFactory $pullRequestDescriptionFactory;
 
-    private DummyRectorRunFactory $dummyRectorRunFactory;
-
     protected function setUp(): void
     {
         parent::setUp();
 
         $this->pullRequestDescriptionFactory = $this->make(PullRequestDescriptionFactory::class);
-        $this->dummyRectorRunFactory = $this->make(DummyRectorRunFactory::class);
     }
 
     public function test(): void
     {
-        $rectorRun = $this->dummyRectorRunFactory->create();
+        $rectorRun = DummyRectorRunFactory::create();
         $pullRequestDescription = $this->pullRequestDescriptionFactory->create($rectorRun);
 
         $this->assertStringMatchesFormatFile(

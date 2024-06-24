@@ -12,7 +12,7 @@ use Rector\Website\Validation\Rules\ShellExecRule;
 use Rector\Website\Validation\Rules\ShortPhpContentsRule;
 use Rector\Website\Validation\Rules\ValidPhpSyntaxRule;
 
-final class DemoFormRequest extends FormRequest
+final class RectorRunFormRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -20,7 +20,7 @@ final class DemoFormRequest extends FormRequest
     }
 
     /**
-     * @return array{php_contents: mixed[], rector_config: mixed[]}
+     * @return array<string, mixed>
      */
     public function rules(): array
     {
@@ -49,14 +49,14 @@ final class DemoFormRequest extends FormRequest
 
         return [
             'php_contents' => ['required', 'string', $shortPhpContentsRule, $validPhpSyntaxRule],
-            'rector_config' => [
+            'runnable_contents' => [
                 'required',
                 'string',
                 $validPhpSyntaxRule,
                 $funcCallRule,
                 $hasRectorRule,
                 $shellExecRule,
-                $includeRule
+                $includeRule,
             ],
         ];
     }
@@ -67,9 +67,9 @@ final class DemoFormRequest extends FormRequest
             ->value();
     }
 
-    public function getRectorConfig(): string
+    public function getRunnableContents(): string
     {
-        return $this->string('rector_config')
+        return $this->string('runnable_contents')
             ->value();
     }
 }
