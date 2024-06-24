@@ -23,7 +23,7 @@
 
             <p>
                 The best way to learn it is <a
-                        href="{{ action(\Rector\Website\Controller\DocumentationController::class) }}">documentation</a>,
+                        href="{{ action(\App\Controller\DocumentationController::class) }}">documentation</a>,
                 followed by in-depth book <a
                         href="https://leanpub.com/rector-the-power-of-automated-refactoring">The
                     Power
@@ -45,7 +45,7 @@
             <br>
 
             <p>
-                <a href="{{ action(\Rector\Website\Controller\HireTeamController::class) }}">Hire
+                <a href="{{ action(\App\Controller\HireTeamController::class) }}">Hire
                     our upgrade team</a> to get this expertise integrated into your team instantly.
             </p>
         </div>

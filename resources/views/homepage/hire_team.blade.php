@@ -234,7 +234,7 @@
     <br>
 
     <div class="text-center mt-2">
-        <a href="{{ action(\Rector\Website\Controller\ContactController::class) }}"
+        <a href="{{ action(\App\Controller\ContactController::class) }}"
            class="btn btn-success btn-lg ms-3">
             Ready for phase 1? Contact us
         </a>

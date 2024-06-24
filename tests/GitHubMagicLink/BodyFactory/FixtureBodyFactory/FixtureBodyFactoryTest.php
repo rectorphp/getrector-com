@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Tests\GitHubMagicLink\BodyFactory\FixtureBodyFactory;
+namespace App\Tests\GitHubMagicLink\BodyFactory\FixtureBodyFactory;
 
-use Rector\Website\GitHubMagicLink\BodyFactory\FixtureBodyFactory;
-use Rector\Website\Tests\AbstractTestCase;
-use Rector\Website\Tests\Helpers\DummyRectorRunFactory;
+use App\GitHubMagicLink\BodyFactory\FixtureBodyFactory;
+use App\Tests\AbstractTestCase;
+use App\Tests\Helpers\DummyRectorRunFactory;
 
 final class FixtureBodyFactoryTest extends AbstractTestCase
 {

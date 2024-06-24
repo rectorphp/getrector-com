@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Controller;
+namespace App\Controller;
 
+use App\Documentation\DocumentationMenuFactory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Routing\Controller;
 use Nette\Utils\FileSystem;
-use Rector\Website\Documentation\DocumentationMenuFactory;
 
 final class DocumentationController extends Controller
 {

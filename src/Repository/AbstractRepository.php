@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Repository;
+namespace App\Repository;
 
+use App\Contract\RepositoryInterface;
 use Jajo\JSONDB;
 use JsonSerializable;
 use Nette\Utils\FileSystem;
-use Rector\Website\Contract\RepositoryInterface;
 use Symfony\Component\Uid\Uuid;
 
 /**

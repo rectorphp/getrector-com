@@ -1,10 +1,10 @@
 @php
-    /** @var \Rector\Website\Entity\Post[] $posts */
+    /** @var \App\Entity\Post[] $posts */
 @endphp
 
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>{{ action(\Rector\Website\Controller\RssController::class) }}</id>
-    <link href="{{ action(\Rector\Website\Controller\RssController::class) }}"/>
+    <id>{{ action(\App\Controller\RssController::class) }}</id>
+    <link href="{{ action(\App\Controller\RssController::class) }}"/>
     <title>
         <![CDATA[ Rector Blog ]]>
     </title>

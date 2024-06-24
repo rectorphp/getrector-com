@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Controller\Demo;
+namespace App\Controller\Demo;
 
+use App\Entity\CustomRuleRun;
 use Illuminate\Routing\Controller;
 use Illuminate\View\View;
-use Rector\Website\Entity\CustomRuleRun;
 
 final class CustomRuleController extends Controller
 {

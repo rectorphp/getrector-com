@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\GitHubMagicLink\LinkFactory;
+namespace App\GitHubMagicLink\LinkFactory;
 
+use App\Entity\RectorRun;
+use App\GitHubMagicLink\BodyFactory\FixtureBodyFactory;
+use App\GitHubMagicLink\BodyFactory\PullRequestDescriptionFactory;
 use Nette\Utils\Strings;
-use Rector\Website\Entity\RectorRun;
-use Rector\Website\GitHubMagicLink\BodyFactory\FixtureBodyFactory;
-use Rector\Website\GitHubMagicLink\BodyFactory\PullRequestDescriptionFactory;
 
 /**
- * @see \Rector\Website\GitHubMagicLink\Twig\FixtureLinkTwigExtension
+ * @see \App\GitHubMagicLink\Twig\FixtureLinkTwigExtension
  */
 final class FixtureLinkFactory
 {

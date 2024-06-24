@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\PhpParser\NodeVisior;
+namespace App\PhpParser\NodeVisior;
 
+use App\Enum\AttributeKey;
 use PhpParser\Node;
 use PhpParser\NodeVisitorAbstract;
-use Rector\Website\Enum\AttributeKey;
 
 final class NodeMarkerNodeVisitor extends NodeVisitorAbstract
 {

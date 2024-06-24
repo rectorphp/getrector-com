@@ -1,6 +1,6 @@
 <div>
     <div class="float-end mt-0">
-        <a href="{{ action(\Rector\Website\Ast\Controller\AstController::class) }}"
+        <a href="{{ action(\App\Ast\Controller\AstController::class) }}"
            class="btn btn-outline-success" style="margin-top: -.7em">
             ← Create new code
         </a>
@@ -40,7 +40,7 @@
     <script>
         // Listen for events dispatched from Livewire components...
         document.addEventListener('DOMContentLoaded', function () {
-            document.addEventListener('{{ \Rector\Website\Enum\ComponentEvent::NODE_SELECTED }}', () => {
+            document.addEventListener('{{ \App\Enum\ComponentEvent::NODE_SELECTED }}', () => {
                 requestAnimationFrame(() => {
                     document.querySelectorAll('pre code.language-php').forEach((element) => {
                         hljs.highlightElement(element);

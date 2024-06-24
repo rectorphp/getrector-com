@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Validation\Rules;
+namespace App\Validation\Rules;
 
 use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;

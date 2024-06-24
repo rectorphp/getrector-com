@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Exception;
+namespace App\Exception;
 
 use Exception;
 

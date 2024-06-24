@@ -20,9 +20,9 @@
         </div>
 
         <div class="text-center mt-5 mb-5 bigger-buttons">
-            <a href="{{ action(\Rector\Website\Controller\HireTeamController::class) }}"
+            <a href="{{ action(\App\Controller\HireTeamController::class) }}"
                class="btn btn-success me-3">Hire Upgrade Team</a>
-            <a href="{{ action(\Rector\Website\Controller\Demo\DemoController::class) }}"
+            <a href="{{ action(\App\Controller\Demo\DemoController::class) }}"
                class="btn btn-primary">Try It Online</a>
         </div>
 
@@ -81,7 +81,7 @@
         <br>
 
         <div class="text-center mt-5">
-            <a href="{{ action(\Rector\Website\Controller\HireTeamController::class) }}"
+            <a href="{{ action(\App\Controller\HireTeamController::class) }}"
                class="btn btn-success btn-lg">
                 Hire us to Empower Your project
             </a>
@@ -98,7 +98,7 @@
         <br>
 
         <div class="text-center mt-2 mt-md-5">
-            <a href="{{ action(\Rector\Website\Controller\ContactController::class) }}"
+            <a href="{{ action(\App\Controller\ContactController::class) }}"
                class="btn btn-success btn-lg ms-3">
                 Contact us to Join them
             </a>
@@ -111,7 +111,7 @@
         @include('homepage/_parts/faq')
 
         <div class="text-center mt-5">
-            <a href="{{ action(\Rector\Website\Controller\HireTeamController::class) }}"
+            <a href="{{ action(\App\Controller\HireTeamController::class) }}"
                class="btn btn-success btn-lg">
                 Do you have more questions? Ask us
             </a>

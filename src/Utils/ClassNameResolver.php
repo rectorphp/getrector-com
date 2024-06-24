@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Utils;
+namespace App\Utils;
 
+use App\Exception\ShouldNotHappenException;
 use Nette\Utils\Strings;
-use Rector\Website\Exception\ShouldNotHappenException;
 
 final class ClassNameResolver
 {

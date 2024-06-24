@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\RuleFilter;
+namespace App\RuleFilter;
 
+use App\RuleFilter\ValueObject\RuleMetadata;
 use PhpParser\Node;
-use Rector\Website\RuleFilter\ValueObject\RuleMetadata;
 
 final class RuleFilter
 {

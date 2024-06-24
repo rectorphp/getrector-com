@@ -4,12 +4,12 @@
     <div id="blog">
         <h1 class="main-title">{{ $page_title }}</h1>
 
-        @php /** @var \Rector\Website\Entity\Post[] $posts */ @endphp
+        @php /** @var \App\Entity\Post[] $posts */ @endphp
 
         @foreach ($posts as $post)
             <div class="mb-5">
                 <h2>
-                    <a href="{{ action(\Rector\Website\Controller\Blog\PostController::class, [
+                    <a href="{{ action(\App\Controller\Blog\PostController::class, [
                         'postSlug' => $post->getSlug(),
                     ]) }}">
                         {{ $post->getTitle() }}

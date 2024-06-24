@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Ast\PhpParser;
+namespace App\Ast\PhpParser;
 
 final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 {
@@ -14,7 +14,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pParam(\PhpParser\Node\Param $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pParam($node));
@@ -22,7 +22,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pArg(\PhpParser\Node\Arg $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pArg($node));
@@ -30,7 +30,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pVariadicPlaceholder(\PhpParser\Node\VariadicPlaceholder $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pVariadicPlaceholder(
@@ -40,7 +40,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pConst(\PhpParser\Node\Const_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pConst($node));
@@ -48,7 +48,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pNullableType(\PhpParser\Node\NullableType $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pNullableType(
@@ -58,7 +58,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pUnionType(\PhpParser\Node\UnionType $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pUnionType(
@@ -68,7 +68,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pIntersectionType(\PhpParser\Node\IntersectionType $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pIntersectionType(
@@ -78,7 +78,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pIdentifier(\PhpParser\Node\Identifier $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pIdentifier(
@@ -88,7 +88,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pVarLikeIdentifier(\PhpParser\Node\VarLikeIdentifier $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pVarLikeIdentifier(
@@ -98,7 +98,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pAttribute(\PhpParser\Node\Attribute $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pAttribute(
@@ -108,7 +108,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pAttributeGroup(\PhpParser\Node\AttributeGroup $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pAttributeGroup(
@@ -118,7 +118,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pName(\PhpParser\Node\Name $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pName($node));
@@ -126,7 +126,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pName_FullyQualified(\PhpParser\Node\Name\FullyQualified $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pName_FullyQualified(
@@ -136,7 +136,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pName_Relative(\PhpParser\Node\Name\Relative $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pName_Relative(
@@ -146,7 +146,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pScalar_MagicConst_Class(\PhpParser\Node\Scalar\MagicConst\Class_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pScalar_MagicConst_Class(
@@ -156,7 +156,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pScalar_MagicConst_Dir(\PhpParser\Node\Scalar\MagicConst\Dir $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pScalar_MagicConst_Dir(
@@ -166,7 +166,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pScalar_MagicConst_File(\PhpParser\Node\Scalar\MagicConst\File $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pScalar_MagicConst_File(
@@ -176,7 +176,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pScalar_MagicConst_Function(\PhpParser\Node\Scalar\MagicConst\Function_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pScalar_MagicConst_Function(
@@ -186,7 +186,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pScalar_MagicConst_Line(\PhpParser\Node\Scalar\MagicConst\Line $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pScalar_MagicConst_Line(
@@ -196,7 +196,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pScalar_MagicConst_Method(\PhpParser\Node\Scalar\MagicConst\Method $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pScalar_MagicConst_Method(
@@ -206,7 +206,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pScalar_MagicConst_Namespace(\PhpParser\Node\Scalar\MagicConst\Namespace_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pScalar_MagicConst_Namespace(
@@ -216,7 +216,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pScalar_MagicConst_Trait(\PhpParser\Node\Scalar\MagicConst\Trait_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pScalar_MagicConst_Trait(
@@ -226,7 +226,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pScalar_String(\PhpParser\Node\Scalar\String_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pScalar_String(
@@ -236,7 +236,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pScalar_Encapsed(\PhpParser\Node\Scalar\Encapsed $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pScalar_Encapsed(
@@ -246,7 +246,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pScalar_LNumber(\PhpParser\Node\Scalar\LNumber $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pScalar_LNumber(
@@ -256,7 +256,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pScalar_DNumber(\PhpParser\Node\Scalar\DNumber $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pScalar_DNumber(
@@ -266,7 +266,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pScalar_EncapsedStringPart(\PhpParser\Node\Scalar\EncapsedStringPart $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pScalar_EncapsedStringPart(
@@ -276,7 +276,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_Assign(\PhpParser\Node\Expr\Assign $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_Assign(
@@ -286,7 +286,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_AssignRef(\PhpParser\Node\Expr\AssignRef $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_AssignRef(
@@ -296,7 +296,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_AssignOp_Plus(\PhpParser\Node\Expr\AssignOp\Plus $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_AssignOp_Plus(
@@ -306,7 +306,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_AssignOp_Minus(\PhpParser\Node\Expr\AssignOp\Minus $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_AssignOp_Minus(
@@ -316,7 +316,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_AssignOp_Mul(\PhpParser\Node\Expr\AssignOp\Mul $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_AssignOp_Mul(
@@ -326,7 +326,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_AssignOp_Div(\PhpParser\Node\Expr\AssignOp\Div $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_AssignOp_Div(
@@ -336,7 +336,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_AssignOp_Concat(\PhpParser\Node\Expr\AssignOp\Concat $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_AssignOp_Concat(
@@ -346,7 +346,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_AssignOp_Mod(\PhpParser\Node\Expr\AssignOp\Mod $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_AssignOp_Mod(
@@ -356,7 +356,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_AssignOp_BitwiseAnd(\PhpParser\Node\Expr\AssignOp\BitwiseAnd $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_AssignOp_BitwiseAnd(
@@ -366,7 +366,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_AssignOp_BitwiseOr(\PhpParser\Node\Expr\AssignOp\BitwiseOr $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_AssignOp_BitwiseOr(
@@ -376,7 +376,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_AssignOp_BitwiseXor(\PhpParser\Node\Expr\AssignOp\BitwiseXor $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_AssignOp_BitwiseXor(
@@ -386,7 +386,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_AssignOp_ShiftLeft(\PhpParser\Node\Expr\AssignOp\ShiftLeft $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_AssignOp_ShiftLeft(
@@ -396,7 +396,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_AssignOp_ShiftRight(\PhpParser\Node\Expr\AssignOp\ShiftRight $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_AssignOp_ShiftRight(
@@ -406,7 +406,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_AssignOp_Pow(\PhpParser\Node\Expr\AssignOp\Pow $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_AssignOp_Pow(
@@ -416,7 +416,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_AssignOp_Coalesce(\PhpParser\Node\Expr\AssignOp\Coalesce $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_AssignOp_Coalesce(
@@ -426,7 +426,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_BinaryOp_Plus(\PhpParser\Node\Expr\BinaryOp\Plus $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_BinaryOp_Plus(
@@ -436,7 +436,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_BinaryOp_Minus(\PhpParser\Node\Expr\BinaryOp\Minus $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_BinaryOp_Minus(
@@ -446,7 +446,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_BinaryOp_Mul(\PhpParser\Node\Expr\BinaryOp\Mul $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_BinaryOp_Mul(
@@ -456,7 +456,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_BinaryOp_Div(\PhpParser\Node\Expr\BinaryOp\Div $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_BinaryOp_Div(
@@ -466,7 +466,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_BinaryOp_Concat(\PhpParser\Node\Expr\BinaryOp\Concat $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_BinaryOp_Concat(
@@ -476,7 +476,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_BinaryOp_Mod(\PhpParser\Node\Expr\BinaryOp\Mod $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_BinaryOp_Mod(
@@ -486,7 +486,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_BinaryOp_BooleanAnd(\PhpParser\Node\Expr\BinaryOp\BooleanAnd $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_BinaryOp_BooleanAnd(
@@ -496,7 +496,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_BinaryOp_BooleanOr(\PhpParser\Node\Expr\BinaryOp\BooleanOr $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_BinaryOp_BooleanOr(
@@ -506,7 +506,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_BinaryOp_BitwiseAnd(\PhpParser\Node\Expr\BinaryOp\BitwiseAnd $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_BinaryOp_BitwiseAnd(
@@ -516,7 +516,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_BinaryOp_BitwiseOr(\PhpParser\Node\Expr\BinaryOp\BitwiseOr $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_BinaryOp_BitwiseOr(
@@ -526,7 +526,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_BinaryOp_BitwiseXor(\PhpParser\Node\Expr\BinaryOp\BitwiseXor $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_BinaryOp_BitwiseXor(
@@ -536,7 +536,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_BinaryOp_ShiftLeft(\PhpParser\Node\Expr\BinaryOp\ShiftLeft $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_BinaryOp_ShiftLeft(
@@ -546,7 +546,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_BinaryOp_ShiftRight(\PhpParser\Node\Expr\BinaryOp\ShiftRight $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_BinaryOp_ShiftRight(
@@ -556,7 +556,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_BinaryOp_Pow(\PhpParser\Node\Expr\BinaryOp\Pow $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_BinaryOp_Pow(
@@ -566,7 +566,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_BinaryOp_LogicalAnd(\PhpParser\Node\Expr\BinaryOp\LogicalAnd $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_BinaryOp_LogicalAnd(
@@ -576,7 +576,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_BinaryOp_LogicalOr(\PhpParser\Node\Expr\BinaryOp\LogicalOr $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_BinaryOp_LogicalOr(
@@ -586,7 +586,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_BinaryOp_LogicalXor(\PhpParser\Node\Expr\BinaryOp\LogicalXor $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_BinaryOp_LogicalXor(
@@ -596,7 +596,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_BinaryOp_Equal(\PhpParser\Node\Expr\BinaryOp\Equal $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_BinaryOp_Equal(
@@ -606,7 +606,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_BinaryOp_NotEqual(\PhpParser\Node\Expr\BinaryOp\NotEqual $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_BinaryOp_NotEqual(
@@ -616,7 +616,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_BinaryOp_Identical(\PhpParser\Node\Expr\BinaryOp\Identical $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_BinaryOp_Identical(
@@ -626,7 +626,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_BinaryOp_NotIdentical(\PhpParser\Node\Expr\BinaryOp\NotIdentical $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_BinaryOp_NotIdentical(
@@ -636,7 +636,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_BinaryOp_Spaceship(\PhpParser\Node\Expr\BinaryOp\Spaceship $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_BinaryOp_Spaceship(
@@ -646,7 +646,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_BinaryOp_Greater(\PhpParser\Node\Expr\BinaryOp\Greater $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_BinaryOp_Greater(
@@ -656,7 +656,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_BinaryOp_GreaterOrEqual(\PhpParser\Node\Expr\BinaryOp\GreaterOrEqual $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_BinaryOp_GreaterOrEqual(
@@ -666,7 +666,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_BinaryOp_Smaller(\PhpParser\Node\Expr\BinaryOp\Smaller $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_BinaryOp_Smaller(
@@ -676,7 +676,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_BinaryOp_SmallerOrEqual(\PhpParser\Node\Expr\BinaryOp\SmallerOrEqual $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_BinaryOp_SmallerOrEqual(
@@ -686,7 +686,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_BinaryOp_Coalesce(\PhpParser\Node\Expr\BinaryOp\Coalesce $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_BinaryOp_Coalesce(
@@ -696,7 +696,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_Instanceof(\PhpParser\Node\Expr\Instanceof_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_Instanceof(
@@ -706,7 +706,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_BooleanNot(\PhpParser\Node\Expr\BooleanNot $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_BooleanNot(
@@ -716,7 +716,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_BitwiseNot(\PhpParser\Node\Expr\BitwiseNot $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_BitwiseNot(
@@ -726,7 +726,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_UnaryMinus(\PhpParser\Node\Expr\UnaryMinus $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_UnaryMinus(
@@ -736,7 +736,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_UnaryPlus(\PhpParser\Node\Expr\UnaryPlus $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_UnaryPlus(
@@ -746,7 +746,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_PreInc(\PhpParser\Node\Expr\PreInc $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_PreInc(
@@ -756,7 +756,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_PreDec(\PhpParser\Node\Expr\PreDec $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_PreDec(
@@ -766,7 +766,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_PostInc(\PhpParser\Node\Expr\PostInc $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_PostInc(
@@ -776,7 +776,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_PostDec(\PhpParser\Node\Expr\PostDec $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_PostDec(
@@ -786,7 +786,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_ErrorSuppress(\PhpParser\Node\Expr\ErrorSuppress $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_ErrorSuppress(
@@ -796,7 +796,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_YieldFrom(\PhpParser\Node\Expr\YieldFrom $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_YieldFrom(
@@ -806,7 +806,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_Print(\PhpParser\Node\Expr\Print_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_Print(
@@ -816,7 +816,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_Cast_Int(\PhpParser\Node\Expr\Cast\Int_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_Cast_Int(
@@ -826,7 +826,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_Cast_Double(\PhpParser\Node\Expr\Cast\Double $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_Cast_Double(
@@ -836,7 +836,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_Cast_String(\PhpParser\Node\Expr\Cast\String_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_Cast_String(
@@ -846,7 +846,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_Cast_Array(\PhpParser\Node\Expr\Cast\Array_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_Cast_Array(
@@ -856,7 +856,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_Cast_Object(\PhpParser\Node\Expr\Cast\Object_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_Cast_Object(
@@ -866,7 +866,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_Cast_Bool(\PhpParser\Node\Expr\Cast\Bool_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_Cast_Bool(
@@ -876,7 +876,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_Cast_Unset(\PhpParser\Node\Expr\Cast\Unset_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_Cast_Unset(
@@ -886,7 +886,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_FuncCall(\PhpParser\Node\Expr\FuncCall $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_FuncCall(
@@ -896,7 +896,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_MethodCall(\PhpParser\Node\Expr\MethodCall $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_MethodCall(
@@ -906,7 +906,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_NullsafeMethodCall(\PhpParser\Node\Expr\NullsafeMethodCall $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_NullsafeMethodCall(
@@ -916,7 +916,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_StaticCall(\PhpParser\Node\Expr\StaticCall $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_StaticCall(
@@ -926,7 +926,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_Empty(\PhpParser\Node\Expr\Empty_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_Empty(
@@ -936,7 +936,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_Isset(\PhpParser\Node\Expr\Isset_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_Isset(
@@ -946,7 +946,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_Eval(\PhpParser\Node\Expr\Eval_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_Eval(
@@ -956,7 +956,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_Include(\PhpParser\Node\Expr\Include_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_Include(
@@ -966,7 +966,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_List(\PhpParser\Node\Expr\List_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_List(
@@ -976,7 +976,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_Error(\PhpParser\Node\Expr\Error $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_Error(
@@ -986,7 +986,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_Variable(\PhpParser\Node\Expr\Variable $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_Variable(
@@ -996,7 +996,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_Array(\PhpParser\Node\Expr\Array_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_Array(
@@ -1006,7 +1006,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_ArrayItem(\PhpParser\Node\Expr\ArrayItem $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_ArrayItem(
@@ -1016,7 +1016,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_ArrayDimFetch(\PhpParser\Node\Expr\ArrayDimFetch $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_ArrayDimFetch(
@@ -1026,7 +1026,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_ConstFetch(\PhpParser\Node\Expr\ConstFetch $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_ConstFetch(
@@ -1036,7 +1036,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_ClassConstFetch(\PhpParser\Node\Expr\ClassConstFetch $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_ClassConstFetch(
@@ -1046,7 +1046,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_PropertyFetch(\PhpParser\Node\Expr\PropertyFetch $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_PropertyFetch(
@@ -1056,7 +1056,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_NullsafePropertyFetch(\PhpParser\Node\Expr\NullsafePropertyFetch $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_NullsafePropertyFetch(
@@ -1066,7 +1066,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_StaticPropertyFetch(\PhpParser\Node\Expr\StaticPropertyFetch $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_StaticPropertyFetch(
@@ -1076,7 +1076,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_ShellExec(\PhpParser\Node\Expr\ShellExec $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_ShellExec(
@@ -1086,7 +1086,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_Closure(\PhpParser\Node\Expr\Closure $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_Closure(
@@ -1096,7 +1096,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_Match(\PhpParser\Node\Expr\Match_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_Match(
@@ -1106,7 +1106,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pMatchArm(\PhpParser\Node\MatchArm $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pMatchArm(
@@ -1116,7 +1116,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_ArrowFunction(\PhpParser\Node\Expr\ArrowFunction $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_ArrowFunction(
@@ -1126,7 +1126,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_ClosureUse(\PhpParser\Node\Expr\ClosureUse $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_ClosureUse(
@@ -1136,7 +1136,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_New(\PhpParser\Node\Expr\New_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_New(
@@ -1146,7 +1146,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_Clone(\PhpParser\Node\Expr\Clone_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_Clone(
@@ -1156,7 +1156,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_Ternary(\PhpParser\Node\Expr\Ternary $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_Ternary(
@@ -1166,7 +1166,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_Exit(\PhpParser\Node\Expr\Exit_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_Exit(
@@ -1176,7 +1176,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_Throw(\PhpParser\Node\Expr\Throw_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_Throw(
@@ -1186,7 +1186,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pExpr_Yield(\PhpParser\Node\Expr\Yield_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pExpr_Yield(
@@ -1196,7 +1196,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pStmt_Namespace(\PhpParser\Node\Stmt\Namespace_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pStmt_Namespace(
@@ -1206,7 +1206,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pStmt_Use(\PhpParser\Node\Stmt\Use_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pStmt_Use(
@@ -1216,7 +1216,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pStmt_GroupUse(\PhpParser\Node\Stmt\GroupUse $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pStmt_GroupUse(
@@ -1226,7 +1226,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pStmt_UseUse(\PhpParser\Node\Stmt\UseUse $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pStmt_UseUse(
@@ -1236,7 +1236,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pStmt_Interface(\PhpParser\Node\Stmt\Interface_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pStmt_Interface(
@@ -1246,7 +1246,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pStmt_Enum(\PhpParser\Node\Stmt\Enum_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pStmt_Enum(
@@ -1256,7 +1256,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pStmt_Class(\PhpParser\Node\Stmt\Class_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pStmt_Class(
@@ -1266,7 +1266,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pStmt_Trait(\PhpParser\Node\Stmt\Trait_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pStmt_Trait(
@@ -1276,7 +1276,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pStmt_EnumCase(\PhpParser\Node\Stmt\EnumCase $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pStmt_EnumCase(
@@ -1286,7 +1286,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pStmt_TraitUse(\PhpParser\Node\Stmt\TraitUse $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pStmt_TraitUse(
@@ -1297,7 +1297,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
     protected function pStmt_TraitUseAdaptation_Precedence(
         \PhpParser\Node\Stmt\TraitUseAdaptation\Precedence $node
     ): string {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pStmt_TraitUseAdaptation_Precedence(
@@ -1307,7 +1307,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pStmt_TraitUseAdaptation_Alias(\PhpParser\Node\Stmt\TraitUseAdaptation\Alias $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pStmt_TraitUseAdaptation_Alias(
@@ -1317,7 +1317,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pStmt_Property(\PhpParser\Node\Stmt\Property $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pStmt_Property(
@@ -1327,7 +1327,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pStmt_PropertyProperty(\PhpParser\Node\Stmt\PropertyProperty $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pStmt_PropertyProperty(
@@ -1337,7 +1337,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pStmt_ClassMethod(\PhpParser\Node\Stmt\ClassMethod $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pStmt_ClassMethod(
@@ -1347,7 +1347,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pStmt_ClassConst(\PhpParser\Node\Stmt\ClassConst $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pStmt_ClassConst(
@@ -1357,7 +1357,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pStmt_Function(\PhpParser\Node\Stmt\Function_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pStmt_Function(
@@ -1367,7 +1367,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pStmt_Const(\PhpParser\Node\Stmt\Const_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pStmt_Const(
@@ -1377,7 +1377,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pStmt_Declare(\PhpParser\Node\Stmt\Declare_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pStmt_Declare(
@@ -1387,7 +1387,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pStmt_DeclareDeclare(\PhpParser\Node\Stmt\DeclareDeclare $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pStmt_DeclareDeclare(
@@ -1397,7 +1397,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pStmt_If(\PhpParser\Node\Stmt\If_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pStmt_If($node));
@@ -1405,7 +1405,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pStmt_ElseIf(\PhpParser\Node\Stmt\ElseIf_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pStmt_ElseIf(
@@ -1415,7 +1415,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pStmt_Else(\PhpParser\Node\Stmt\Else_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pStmt_Else(
@@ -1425,7 +1425,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pStmt_For(\PhpParser\Node\Stmt\For_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pStmt_For(
@@ -1435,7 +1435,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pStmt_Foreach(\PhpParser\Node\Stmt\Foreach_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pStmt_Foreach(
@@ -1445,7 +1445,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pStmt_While(\PhpParser\Node\Stmt\While_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pStmt_While(
@@ -1455,7 +1455,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pStmt_Do(\PhpParser\Node\Stmt\Do_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pStmt_Do($node));
@@ -1463,7 +1463,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pStmt_Switch(\PhpParser\Node\Stmt\Switch_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pStmt_Switch(
@@ -1473,7 +1473,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pStmt_Case(\PhpParser\Node\Stmt\Case_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pStmt_Case(
@@ -1483,7 +1483,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pStmt_TryCatch(\PhpParser\Node\Stmt\TryCatch $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pStmt_TryCatch(
@@ -1493,7 +1493,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pStmt_Catch(\PhpParser\Node\Stmt\Catch_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pStmt_Catch(
@@ -1503,7 +1503,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pStmt_Finally(\PhpParser\Node\Stmt\Finally_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pStmt_Finally(
@@ -1513,7 +1513,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pStmt_Break(\PhpParser\Node\Stmt\Break_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pStmt_Break(
@@ -1523,7 +1523,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pStmt_Continue(\PhpParser\Node\Stmt\Continue_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pStmt_Continue(
@@ -1533,7 +1533,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pStmt_Return(\PhpParser\Node\Stmt\Return_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pStmt_Return(
@@ -1543,7 +1543,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pStmt_Throw(\PhpParser\Node\Stmt\Throw_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pStmt_Throw(
@@ -1553,7 +1553,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pStmt_Label(\PhpParser\Node\Stmt\Label $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pStmt_Label(
@@ -1563,7 +1563,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pStmt_Goto(\PhpParser\Node\Stmt\Goto_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pStmt_Goto(
@@ -1573,7 +1573,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pStmt_Expression(\PhpParser\Node\Stmt\Expression $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pStmt_Expression(
@@ -1583,7 +1583,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pStmt_Echo(\PhpParser\Node\Stmt\Echo_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pStmt_Echo(
@@ -1593,7 +1593,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pStmt_Static(\PhpParser\Node\Stmt\Static_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pStmt_Static(
@@ -1603,7 +1603,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pStmt_Global(\PhpParser\Node\Stmt\Global_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pStmt_Global(
@@ -1613,7 +1613,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pStmt_StaticVar(\PhpParser\Node\Stmt\StaticVar $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pStmt_StaticVar(
@@ -1623,7 +1623,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pStmt_Unset(\PhpParser\Node\Stmt\Unset_ $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pStmt_Unset(
@@ -1633,7 +1633,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pStmt_InlineHTML(\PhpParser\Node\Stmt\InlineHTML $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pStmt_InlineHTML(
@@ -1643,7 +1643,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pStmt_HaltCompiler(\PhpParser\Node\Stmt\HaltCompiler $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pStmt_HaltCompiler(
@@ -1653,7 +1653,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pStmt_Nop(\PhpParser\Node\Stmt\Nop $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pStmt_Nop(
@@ -1663,7 +1663,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pObjectProperty($node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pObjectProperty(
@@ -1673,7 +1673,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pDereferenceLhs(\PhpParser\Node $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pDereferenceLhs(
@@ -1683,7 +1683,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pCallLhs(\PhpParser\Node $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pCallLhs($node));
@@ -1691,7 +1691,7 @@ final class ClickablePrinter extends \PhpParser\PrettyPrinter\Standard
 
     protected function pNewVariable(\PhpParser\Node $node): string
     {
-        $nodeId = $node->getAttribute(\Rector\Website\Enum\AttributeKey::NODE_ID);
+        $nodeId = $node->getAttribute(\App\Enum\AttributeKey::NODE_ID);
         return sprintf('<a href="#" wire:click="$dispatch(\'select_node\', {
             nodeId: %s,
         })" %s>%s</a>', $nodeId, $this->activeNodeId == $nodeId ? 'class="active-node"' : '', parent::pNewVariable(

@@ -2,8 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\PhpParser;
+namespace App\PhpParser;
 
+use App\Exception\ShouldNotHappenException;
+use App\PhpParser\NodeVisior\NodeMarkerNodeVisitor;
 use Nette\Utils\FileSystem;
 use PhpParser\Node;
 use PhpParser\Node\Stmt\Class_;
@@ -13,8 +15,6 @@ use PhpParser\NodeVisitor\NameResolver;
 use PhpParser\NodeVisitor\ParentConnectingVisitor;
 use PhpParser\Parser;
 use PhpParser\ParserFactory;
-use Rector\Website\Exception\ShouldNotHappenException;
-use Rector\Website\PhpParser\NodeVisior\NodeMarkerNodeVisitor;
 
 final class SimplePhpParser
 {

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Documentation;
+namespace App\Documentation;
 
-use Rector\Website\ValueObject\DocumentationSection;
+use App\ValueObject\DocumentationSection;
 
 /**
- * @see \Rector\Website\Tests\Documentation\DocumentationMenuFactoryTest
+ * @see \App\Tests\Documentation\DocumentationMenuFactoryTest
  */
 final class DocumentationMenuFactory
 {

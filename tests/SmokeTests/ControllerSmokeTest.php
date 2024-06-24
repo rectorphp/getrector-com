@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Tests\SmokeTests;
+namespace App\Tests\SmokeTests;
 
+use App\Tests\AbstractTestCase;
 use Iterator;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\RunInSeparateProcess;
-use Rector\Website\Tests\AbstractTestCase;
 
 final class ControllerSmokeTest extends AbstractTestCase
 {

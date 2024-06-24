@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Controller;
+namespace App\Controller;
 
+use App\Repository\PostRepository;
 use Illuminate\Contracts\View\View;
 use Illuminate\Routing\Controller;
-use Rector\Website\Repository\PostRepository;
 
 final class HomepageController extends Controller
 {

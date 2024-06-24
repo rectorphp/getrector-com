@@ -2,8 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Utils;
+namespace App\Utils;
 
+use App\PhpParser\NodeFactory\ClickablePrinterNodeFactory;
+use App\PhpParser\SimplePhpParser;
 use PhpParser\Builder\Method;
 use PhpParser\BuilderFactory;
 use PhpParser\Node;
@@ -21,13 +23,11 @@ use PhpParser\Node\Stmt\Namespace_;
 use PhpParser\Node\Stmt\Return_;
 use PhpParser\PrettyPrinter\Standard;
 use Rector\ValueObject\MethodName;
-use Rector\Website\PhpParser\NodeFactory\ClickablePrinterNodeFactory;
-use Rector\Website\PhpParser\SimplePhpParser;
 use Webmozart\Assert\Assert;
 
 /**
  * @api used in bin
- * @see \Rector\Website\Ast\PhpParser\ClickablePrinter
+ * @see \App\Ast\PhpParser\ClickablePrinter
  */
 final class ClickablePrinterBuilder
 {
@@ -55,7 +55,7 @@ final class ClickablePrinterBuilder
     {
         $strictTypesDeclare = new Declare_([new DeclareDeclare('strict_types', new LNumber(1))]);
 
-        $namespace = new Namespace_(new Name('Rector\Website\Ast\PhpParser'));
+        $namespace = new Namespace_(new Name('App\Ast\PhpParser'));
         $namespace->stmts[] = $class;
 
         return [$strictTypesDeclare, $namespace];

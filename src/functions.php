@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 // @see https://github.com/thephpleague/commonmark
 
+use App\Enum\FlashType;
 use Illuminate\Http\RedirectResponse;
 use League\CommonMark\GithubFlavoredMarkdownConverter;
-use Rector\Website\Enum\FlashType;
 
 function markdown(string $contents): Stringable
 {

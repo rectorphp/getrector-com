@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\GitHubMagicLink\BodyFactory;
+namespace App\GitHubMagicLink\BodyFactory;
 
-use Rector\Website\Entity\RectorRun;
+use App\Entity\RectorRun;
 
 /**
- * @see \Rector\Website\Tests\GitHubMagicLink\BodyFactory\PullRequestDescriptionFactory\PullRequestDescriptionFactoryTest
+ * @see \App\Tests\GitHubMagicLink\BodyFactory\PullRequestDescriptionFactory\PullRequestDescriptionFactoryTest
  */
 final class PullRequestDescriptionFactory
 {

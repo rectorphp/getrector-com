@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\RuleFilter\ValueObject;
+namespace App\RuleFilter\ValueObject;
 
+use App\RuleFilter\Markdown\MarkdownDiffer;
 use PhpParser\Node;
 use Rector\Contract\Rector\ConfigurableRectorInterface;
 use Rector\Contract\Rector\RectorInterface;
-use Rector\Website\RuleFilter\Markdown\MarkdownDiffer;
 use ReflectionProperty;
 use SebastianBergmann\Diff\Differ;
 use SebastianBergmann\Diff\Output\UnifiedDiffOutputBuilder;

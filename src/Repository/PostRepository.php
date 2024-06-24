@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Repository;
+namespace App\Repository;
 
+use App\Entity\Post;
+use App\EntityFactory\PostFactory;
+use App\Exception\ShouldNotHappenException;
 use ArrayLookup\Finder as ArrayLookupFinder;
-use Rector\Website\Entity\Post;
-use Rector\Website\EntityFactory\PostFactory;
-use Rector\Website\Exception\ShouldNotHappenException;
 use Webmozart\Assert\Assert;
 
 final class PostRepository

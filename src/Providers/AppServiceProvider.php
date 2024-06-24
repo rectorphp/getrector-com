@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Providers;
+namespace App\Providers;
 
+use App\Sets\RectorSetsTreeProvider;
 use Illuminate\Support\ServiceProvider;
-use Rector\Website\Sets\RectorSetsTreeProvider;
 
 final class AppServiceProvider extends ServiceProvider
 {

@@ -1,7 +1,7 @@
 @extends('base')
 
 @php
-    /** @var \Rector\Website\RuleFilter\ValueObject\RuleMetadata[] $filteredRules */
+    /** @var \App\RuleFilter\ValueObject\RuleMetadata[] $filteredRules */
 @endphp
 
 @section('main')

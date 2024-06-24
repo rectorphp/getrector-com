@@ -2,8 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Sets;
+namespace App\Sets;
 
+use App\PhpParser\SimplePhpParser;
+use App\RuleFilter\ValueObject\RectorSet;
+use App\Utils\ClassNameResolver;
 use Nette\Utils\Strings;
 use PhpParser\Node;
 use PhpParser\Node\Name;
@@ -13,9 +16,6 @@ use Rector\Config\Level\DeadCodeLevel;
 use Rector\Config\Level\TypeDeclarationLevel;
 use Rector\Set\Contract\SetListInterface;
 use Rector\Set\ValueObject\SetList;
-use Rector\Website\PhpParser\SimplePhpParser;
-use Rector\Website\RuleFilter\ValueObject\RectorSet;
-use Rector\Website\Utils\ClassNameResolver;
 use ReflectionClass;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;

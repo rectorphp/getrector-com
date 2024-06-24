@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Tests\Helpers;
+namespace App\Tests\Helpers;
 
+use App\Entity\RectorRun;
 use Nette\Utils\FileSystem;
 use Rector\DowngradePhp81\Rector\FuncCall\DowngradeArrayIsListRector;
-use Rector\Website\Entity\RectorRun;
 use Symfony\Component\Uid\Uuid;
 
 final class DowngradeArrayIsListFactory

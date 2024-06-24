@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Validation\Rules;
+namespace App\Validation\Rules;
 
+use App\Validation\PhpLinter;
 use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
-use Rector\Website\Validation\PhpLinter;
 
 final class ValidPhpSyntaxRule implements ValidationRule
 {

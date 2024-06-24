@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\PhpParser\NodeResolver;
+namespace App\PhpParser\NodeResolver;
 
+use App\Enum\AttributeKey;
 use PhpParser\Node;
 use PhpParser\NodeFinder;
-use Rector\Website\Enum\AttributeKey;
 
 final class FocusedNodeResolver
 {

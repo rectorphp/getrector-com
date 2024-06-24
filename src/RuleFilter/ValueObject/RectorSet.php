@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\RuleFilter\ValueObject;
+namespace App\RuleFilter\ValueObject;
 
 use Nette\Utils\Strings;
 

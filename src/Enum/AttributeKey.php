@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Enum;
+namespace App\Enum;
 
 final class AttributeKey
 {

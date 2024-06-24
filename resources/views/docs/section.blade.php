@@ -12,7 +12,7 @@
             <ul class="mt-3">
                 <li>
                     <a
-                            href="{{ action(\Rector\Website\Controller\DocumentationController::class) }}"
+                            href="{{ action(\App\Controller\DocumentationController::class) }}"
                     >Introduction</a>
                 </li>
             </ul>
@@ -25,7 +25,7 @@
                 <ul>
                     @foreach ($documentation_sections as $documentation_section)
                         @php
-                            /** @var $documentation_section \Rector\Website\ValueObject\DocumentationSection */
+                            /** @var $documentation_section \App\ValueObject\DocumentationSection */
                         @endphp
 
                         <li>
@@ -34,7 +34,7 @@
                                 &nbsp;
                             @endif
 
-                            <a href="{{ action(\Rector\Website\Controller\DocumentationController::class, ['section' => $documentation_section->getSlug()]) }}"
+                            <a href="{{ action(\App\Controller\DocumentationController::class, ['section' => $documentation_section->getSlug()]) }}"
                                class="{{ $documentation_section->isNew() ? 'text-bold' : '' }}"
                             >
                                 {{ $documentation_section->getName() }}
@@ -48,7 +48,7 @@
 
             <ul>
                 <li>
-                    <a href="{{ action(\Rector\Website\Controller\BookController::class) }}">
+                    <a href="{{ action(\App\Controller\BookController::class) }}">
                         Learn Rector in Depth from Book
                     </a>
                 </li>

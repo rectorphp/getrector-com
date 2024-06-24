@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Ast\Controller;
+namespace App\Ast\Controller;
 
+use App\Ast\Entity\AstRun;
+use App\Ast\Request\AstFormRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Controller;
-use Rector\Website\Ast\Entity\AstRun;
-use Rector\Website\Ast\Request\AstFormRequest;
 
 final class ProcessAstFormController extends Controller
 {

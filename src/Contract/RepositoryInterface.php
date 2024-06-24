@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Contract;
+namespace App\Contract;
 
 use JsonSerializable;
 use Symfony\Component\Uid\Uuid;

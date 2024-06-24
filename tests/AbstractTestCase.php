@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Tests;
+namespace App\Tests;
 
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Console\Kernel;

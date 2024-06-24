@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Ast\Controller;
+namespace App\Ast\Controller;
 
+use App\Ast\Entity\AstRun;
 use Illuminate\Routing\Controller;
 use Illuminate\View\View;
-use Rector\Website\Ast\Entity\AstRun;
 
 final class AstDetailController extends Controller
 {

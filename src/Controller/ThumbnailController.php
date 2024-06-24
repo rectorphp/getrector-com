@@ -2,8 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Controller;
+namespace App\Controller;
 
+use App\Entity\Post;
+use App\Enum\FontFile;
+use App\Repository\PostRepository;
 use Illuminate\Routing\Controller;
 use Imagine\Gd\Imagine;
 use Imagine\Image\Box;
@@ -12,9 +15,6 @@ use Imagine\Image\Palette\RGB;
 use Imagine\Image\Point;
 use Nette\Utils\FileSystem;
 use Nette\Utils\Strings;
-use Rector\Website\Entity\Post;
-use Rector\Website\Enum\FontFile;
-use Rector\Website\Repository\PostRepository;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Webmozart\Assert\Assert;
 

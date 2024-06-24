@@ -1,15 +1,15 @@
 @extends('base')
 
 @php
-    use Rector\Website\Utils\RectorMetadata;
+    use App\Utils\RectorMetadata;
 
-    /** @var $rectorRun \Rector\Website\Entity\RectorRun */
+    /** @var $rectorRun \App\Entity\RectorRun */
 @endphp
 
 @section('main')
     <div id="rector_run_form" class="mt-4 mb-3">
         <form
-            action="{{ action(\Rector\Website\Controller\Demo\ProcessDemoFormController::class) }}"
+            action="{{ action(\App\Controller\Demo\ProcessDemoFormController::class) }}"
             method="post"
             class="mb-5"
         >
@@ -50,7 +50,7 @@
                             <ul class="list-noindent">
                                 @foreach ($rectorRun->getAppliedRules() as $applied_rule)
                                     @php
-                                        /** @var $applied_rule \Rector\Website\ValueObject\AppliedRule */
+                                        /** @var $applied_rule \App\ValueObject\AppliedRule */
                                     @endphp
 
                                     <li>

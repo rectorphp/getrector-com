@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Entity;
+namespace App\Entity;
 
 use Nette\Utils\FileSystem;
 use Symfony\Component\Uid\Uuid;

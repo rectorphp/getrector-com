@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Tests\Controller;
+namespace App\Tests\Controller;
 
+use App\Controller\Demo\ProcessDemoFormController;
+use App\Tests\AbstractTestCase;
 use Illuminate\Foundation\Http\Middleware\ValidateCsrfToken;
 use Iterator;
 use PHPUnit\Framework\Attributes\DataProvider;
-use Rector\Website\Controller\Demo\ProcessDemoFormController;
-use Rector\Website\Tests\AbstractTestCase;
 
 final class DemoControllerTest extends AbstractTestCase
 {

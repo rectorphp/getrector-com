@@ -33,7 +33,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Rector\\Website\\": "src"
+            "App\\": "src"
         },
         "files": [
             "src/functions.php",
@@ -42,7 +42,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Rector\\Website\\Tests\\": "tests"
+            "App\\Tests\\": "tests"
         },
         "classmap": [
             "stubs"

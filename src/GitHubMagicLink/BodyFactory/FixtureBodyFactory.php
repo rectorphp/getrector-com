@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\GitHubMagicLink\BodyFactory;
+namespace App\GitHubMagicLink\BodyFactory;
 
+use App\Entity\RectorRun;
 use Nette\Utils\Strings;
-use Rector\Website\Entity\RectorRun;
 
 /**
- * @see \Rector\Website\Tests\GitHubMagicLink\BodyFactory\FixtureBodyFactory\FixtureBodyFactoryTest
+ * @see \App\Tests\GitHubMagicLink\BodyFactory\FixtureBodyFactory\FixtureBodyFactoryTest
  */
 final class FixtureBodyFactory
 {

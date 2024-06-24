@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Rector\Website\Tests\Utils;
+namespace App\Tests\Utils;
 
+use App\Utils\FileDiffCleaner;
 use Iterator;
 use Nette\Utils\FileSystem;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
-use Rector\Website\Utils\FileDiffCleaner;
 
 final class FileDiffCleanerTest extends TestCase
 {
