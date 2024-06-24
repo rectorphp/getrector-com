@@ -7,6 +7,7 @@ namespace Rector\Website;
 use Nette\Utils\Json;
 use Nette\Utils\JsonException;
 use Nette\Utils\Random;
+use Rector\Website\Demo\Process\RectorProcessFactory;
 use Rector\Website\Entity\AbstractRectorRun;
 use Rector\Website\Exception\RectorRunFailedException;
 use Rector\Website\Exception\ShouldNotHappenException;
@@ -41,6 +42,7 @@ final class DemoRunner
     public function __construct(
         private readonly ErrorMessageNormalizer $errorMessageNormalizer,
         private readonly Filesystem $filesystem,
+        private readonly RectorProcessFactory $rectorProcessFactory,
     ) {
         $this->demoDir = __DIR__ . '/../storage/demo';
     }
@@ -58,45 +60,6 @@ final class DemoRunner
             $normalizedMessage = $this->errorMessageNormalizer->normalize($throwable->getMessage());
             $rectorRun->setFatalErrorMessage($normalizedMessage);
         }
-    }
-
-    private function processRun(string $analyzedFilePath, string $configPath, ?string $extraFilePath): Process
-    {
-        if (getenv('APP_ENV') !== 'prod') {
-            $processOptions = [
-                PHP_BINARY,
-                // paths for phpunit differs based on test/demo, not sure why
-                \defined('PHPUNIT_COMPOSER_INSTALL') ? 'vendor/bin/rector' : '../vendor/bin/rector',
-                'process',
-                $analyzedFilePath,
-                '--config',
-                $configPath,
-                '--output-format',
-                'json',
-            ];
-        } else {
-            $processOptions = [
-                // paths for phpunit differs based on test/demo, not sure why
-                \defined('PHPUNIT_COMPOSER_INSTALL') ? 'vendor/bin/rector' : '../vendor/bin/rector',
-                'process',
-                $analyzedFilePath,
-                '--config',
-                $configPath,
-                '--output-format',
-                'json',
-            ];
-        }
-
-        // autoload custom Rector rule
-        if ($extraFilePath) {
-            $processOptions[] = '--autoload-file';
-            $processOptions[] = $extraFilePath;
-        }
-
-        $process = new Process($processOptions);
-        $process->run();
-
-        return $process;
     }
 
     /**
@@ -137,7 +100,7 @@ final class DemoRunner
             $temporaryFilePaths[] = $analyzedFilePath;
         }
 
-        $rectorProcess = $this->processRun($analyzedFilePath, $configPath, $extraFilePath);
+        $rectorProcess = $this->rectorProcessFactory->create($analyzedFilePath, $configPath, $extraFilePath);
 
         // remove temporary files
         $this->filesystem->remove($temporaryFilePaths);
