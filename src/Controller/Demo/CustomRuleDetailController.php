@@ -22,15 +22,14 @@ final class CustomRuleDetailController extends Controller
         $rectorRun = $this->rectorRunRepository->get($uuid);
         if (! $rectorRun instanceof RectorRun) {
             return redirect_with_error(
-                DemoController::class,
+                CustomRuleController::class,
                 sprintf('Rector run "%s" was not found. Try to run code again for new result', $uuid)
             );
         }
 
-        // map to custom rule run
-
         return \view('demo/custom-rule', [
             'page_title' => 'Design Custom Rule',
+            'rectorRun' => $rectorRun,
         ]);
     }
 }

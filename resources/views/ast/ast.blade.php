@@ -13,21 +13,11 @@
                 Fill in the PHP code to see its clickable abstract-syntax-tree:
             </p>
 
-            @error('php_contents')
-                <div class="alert alert-danger">
-                    @foreach ($errors->get('php_contents') as $error)
-                        {{ $error }}
-                    @endforeach
-                </div>
-            @enderror
-
-            <div class="card mb-4">
-                <div class="card-body p-0 mb-0">
-                    <textarea
-                        name="php_contents" class="codemirror_php"
-                        required>{{ session('_old_input')['php_contents'] ?? "<?php\n\n" }}</textarea>
-                </div>
-            </div>
+            @include('_snippets.form.form_textarea', [
+                'label' => 'PHP snippet to turn into AST',
+                'inputName' => 'php_contents',
+                'defaultValue' => "<?php\n\necho 'hey';",
+            ])
 
             <div class="row">
                 <div class="col-6 mt-4 mb-5">

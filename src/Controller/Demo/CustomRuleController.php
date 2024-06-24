@@ -14,7 +14,7 @@ final class CustomRuleController extends Controller
     {
         return \view('demo/custom-rule', [
             'page_title' => 'Design Custom Rule',
-            'customRuleRun' => CustomRuleRun::createEmpty(),
+            'rectorRun' => CustomRuleRun::createEmpty(),
         ]);
     }
 }

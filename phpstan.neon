@@ -29,6 +29,12 @@ parameters:
         # float allowed
         - '#Parameter (.*?) of class Imagine\\Image\\Box constructor expects int, float given#'
 
+        # known values
+        -
+            message: '#Offset 1 on array\{string\} on left side of \?\? does not exist#'
+            paths:
+                 - src/Controller/
+
         - '#Call to an undefined method Illuminate\\Contracts\\(.*?)|Illuminate\\#'
 
         # generated based on php-parser

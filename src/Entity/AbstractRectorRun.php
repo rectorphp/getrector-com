@@ -15,6 +15,7 @@ abstract class AbstractRectorRun implements JsonSerializable
     public function __construct(
         protected readonly Uuid $uuid,
         protected readonly string $content,
+        protected readonly string $runnablePhp,
         /** @var array<string, mixed> */
         protected array $jsonResult = [],
         protected string|null $fatalErrorMessage = null
@@ -35,6 +36,11 @@ abstract class AbstractRectorRun implements JsonSerializable
         }
 
         return Comment::NO_CHANGE_CONTENT;
+    }
+
+    public function getRunnablePhp(): string
+    {
+        return $this->runnablePhp;
     }
 
     public function getContent(): string

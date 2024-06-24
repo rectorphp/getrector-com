@@ -10,29 +10,13 @@
     <div id="rector_run_form" class="mt-4 mb-3">
         <form
             action="{{ action(\Rector\Website\Controller\Demo\ProcessDemoFormController::class) }}"
-            method="post">
+            method="post"
+            class="mb-5"
+        >
 
             @csrf <!-- {{ csrf_field() }} -->
 
-            @if ($rectorRun->hasRun() && $rectorRun->isSuccessful() !== true)
-                <div class="alert alert-danger mb-3">
-                    <p>
-                        <strong>Rector run Failed:</strong>
-                    </p>
-
-                    {!! $rectorRun->getFatalErrorMessage() !!}
-
-                    @if ($rectorRun->getErrors() !== [])
-                        <ul class="mt-3 ms-0 pl-4">
-                            @foreach ($rectorRun->getErrors() as $error)
-                                <li>
-                                    {{ $error }}
-                                </li>
-                            @endforeach
-                        </ul>
-                    @endif
-                </div>
-            @endif
+            @include('_snippets/form/form_fatal_errors')
 
             @include('_snippets/demo/learn_ast_link')
 
@@ -40,21 +24,11 @@
                 Run Rector on your code to see what it can do for you:
             </p>
 
-
-            @error('php_contents')
-            <div class="alert alert-danger">
-                @foreach ($errors->get('php_contents') as $error)
-                    {{ $error }} <br/>
-                @endforeach
-            </div>
-            @enderror
-
-            <div class="card mb-4">
-                <div class="card-body p-0 mb-0">
-                    <textarea name="php_contents" class="codemirror_php"
-                              required="required">{{ session('_old_input')['php_contents'] ?? $rectorRun->getContent() }}</textarea>
-                </div>
-            </div>
+            @include('_snippets.form.form_textarea', [
+                'label' => 'PHP snippet to change',
+                'inputName' => 'php_contents',
+                'defaultValue' => $rectorRun->getContent()
+            ])
 
             @if ($rectorRun->isSuccessful())
                 <div class="card bg-success border-success mb-3">
@@ -102,29 +76,16 @@
                 @endif
             @endif
 
-            @error('runnable_contents')
-            <div class="alert alert-danger">
-                @foreach ($errors->get('runnable_contents') as $error)
-                    {{ $error }} <br/>
-                @endforeach
-            </div>
-            @enderror
-
-            <div class="card mb-2">
-                <div class="card-header">
-                    Config&nbsp;&nbsp;<code>rector.php</code>
-                </div>
-
-                <div class="card-body p-0">
-                    <textarea name="runnable_contents" class="codemirror_php"
-                              required="required">{{ session('_old_input')['runnable_contents'] ?? $rectorRun->getRunnablePhp() }}</textarea>
-                </div>
-            </div>
+            @include('_snippets.form.form_textarea', [
+                'label' => 'Config&nbsp;&nbsp;<code>rector.php</code>',
+                'inputName' => 'runnable_contents',
+                'defaultValue' => $rectorRun->getRunnablePhp()
+            ])
 
             <div class="row">
                 <div class="col-6 mt-4 mb-5">
                     <button type="submit" id="demo_form_process" name="process"
-                            class="btn btn-lg btn-success m-auto btn-demo-submit">Process
+                            class="btn btn-lg btn-success m-auto btn-demo-submit">Run Rector
                     </button>
                 </div>
 

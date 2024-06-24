@@ -14,17 +14,12 @@ final class CustomRuleRun extends AbstractRectorRun
      */
     public function __construct(
         Uuid $uuid,
-        readonly string $rectorRule,
         string $content,
+        string $rectorRule,
         array $jsonResult = [],
         string|null $fatalErrorMessage = null
     ) {
-        parent::__construct($uuid, $content, $jsonResult, $fatalErrorMessage);
-    }
-
-    public function getRectorRule(): string
-    {
-        return $this->rectorRule;
+        parent::__construct($uuid, $content, $rectorRule, $jsonResult, $fatalErrorMessage);
     }
 
     /**
@@ -34,7 +29,6 @@ final class CustomRuleRun extends AbstractRectorRun
     {
         return [
             'uuid' => $this->uuid->jsonSerialize(),
-            'rector_rule' => $this->rectorRule,
             'content' => $this->content,
             'json_result' => $this->jsonResult,
             'fatal_error_message' => $this->fatalErrorMessage,
@@ -47,6 +41,6 @@ final class CustomRuleRun extends AbstractRectorRun
         $rectorRule = FileSystem::read(__DIR__ . '/../../resources/default-form-data/custom-rule/CustomRuleRector.php');
         $phpSnippet = FileSystem::read(__DIR__ . '/../../resources/default-form-data/custom-rule/php-snippet.php');
 
-        return new self(Uuid::v4(), $rectorRule, $phpSnippet);
+        return new self(Uuid::v4(), $phpSnippet, $rectorRule);
     }
 }

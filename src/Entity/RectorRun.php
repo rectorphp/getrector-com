@@ -19,29 +19,6 @@ final class RectorRun extends AbstractRectorRun
     private const DEFAULT_FILE_NAME = 'demo_fixture';
 
     /**
-     * @param array<string, mixed> $jsonResult
-     */
-    public function __construct(
-        Uuid $uuid,
-        string $content,
-        private readonly string $runnablePhp,
-        array $jsonResult = [],
-        string|null $fatalErrorMessage = null
-    ) {
-        parent::__construct(
-            $uuid,
-            $content,
-            $jsonResult,
-            $fatalErrorMessage
-        );
-    }
-
-    public function getRunnablePhp(): string
-    {
-        return $this->runnablePhp;
-    }
-
-    /**
      * @return AppliedRule[]
      */
     public function getAppliedRules(): array
