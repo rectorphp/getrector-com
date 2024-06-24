@@ -22,6 +22,9 @@ final class ProcessCustomRuleFormController extends Controller
 
     public function __invoke(DemoFormRequest $demoFormRequest): RedirectResponse
     {
+        dump(44);
+        die;
+
         $rectorRun = new RectorRun(Uuid::v4(), $demoFormRequest->getPhpContents(), $demoFormRequest->getRectorConfig());
 
         $this->demoRunner->processRectorRun($rectorRun);

@@ -18,7 +18,7 @@ final class DemoController extends Controller
     {
         return \view('demo/demo', [
             'page_title' => 'Try Rector Online',
-            'rector_run' => RectorRun::createEmpty(),
+            'rectorRun' => RectorRun::createEmpty(),
         ]);
     }
 }

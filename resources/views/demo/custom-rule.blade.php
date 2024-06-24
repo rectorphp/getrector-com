@@ -7,7 +7,7 @@
 @section('main')
     <div id="rector_run_form" class="mt-4 mb-3">
         <form
-            action="{{ action(\Rector\Website\Controller\Demo\ProcessDemoFormController::class) }}"
+            action="{{ action(\Rector\Website\Controller\Demo\ProcessCustomRuleFormController::class) }}"
             method="post"
             class="mb-5"
         >
@@ -33,12 +33,7 @@
                 </div>
             @endif
 
-            <div style="float: right">
-                Do you want to learn AST?
-                Try new <a
-                    href="{{ action(\Rector\Website\Controller\InteractiveController::class) }}">Learn
-                    and Play</a> page
-            </div>
+            @include('_snippets/demo/learn_ast_link')
 
             <p>
                 Run to see how will your custom rule change PHP code:
@@ -53,7 +48,8 @@
             @enderror
 
             <div class="card mb-4">
-                <div class="card-header">Custom rule</div>
+                <div class="card-header">Custom Rector
+                    rule</div>
 
                 <div class="card-body p-0">
                     <textarea name="custom_rule" class="codemirror_php"
@@ -70,7 +66,7 @@
             @enderror
 
             <div class="card mb-4">
-                <div class="card-header">PHP snippet</div>
+                <div class="card-header">PHP snippet to change</div>
 
                 <div class="card-body p-0 mb-0">
                     <textarea

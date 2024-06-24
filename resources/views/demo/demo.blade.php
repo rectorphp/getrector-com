@@ -3,7 +3,7 @@
 @php
     use Rector\Website\Utils\RectorMetadata;
 
-    /** @var $rector_run \Rector\Website\Entity\RectorRun */
+    /** @var $rectorRun \Rector\Website\Entity\RectorRun */
 @endphp
 
 @section('main')
@@ -14,17 +14,17 @@
 
             @csrf <!-- {{ csrf_field() }} -->
 
-            @if ($rector_run->hasRun() && $rector_run->isSuccessful() !== true)
+            @if ($rectorRun->hasRun() && $rectorRun->isSuccessful() !== true)
                 <div class="alert alert-danger mb-3">
                     <p>
                         <strong>Rector run Failed:</strong>
                     </p>
 
-                    {!! $rector_run->getFatalErrorMessage() !!}
+                    {!! $rectorRun->getFatalErrorMessage() !!}
 
-                    @if ($rector_run->getErrors() !== [])
+                    @if ($rectorRun->getErrors() !== [])
                         <ul class="mt-3 ms-0 pl-4">
-                            @foreach ($rector_run->getErrors() as $error)
+                            @foreach ($rectorRun->getErrors() as $error)
                                 <li>
                                     {{ $error }}
                                 </li>
@@ -34,12 +34,7 @@
                 </div>
             @endif
 
-            <div style="float: right">
-                Do you want to learn AST?
-                Try new <a
-                    href="{{ action(\Rector\Website\Controller\InteractiveController::class) }}">Learn
-                    and Play</a> page
-            </div>
+            @include('_snippets/demo/learn_ast_link')
 
             <p>
                 Run Rector on your code to see what it can do for you:
@@ -57,11 +52,11 @@
             <div class="card mb-4">
                 <div class="card-body p-0 mb-0">
                     <textarea name="php_contents" class="codemirror_php"
-                              required="required">{{ session('_old_input')['php_contents'] ?? $rector_run->getContent() }}</textarea>
+                              required="required">{{ session('_old_input')['php_contents'] ?? $rectorRun->getContent() }}</textarea>
                 </div>
             </div>
 
-            @if ($rector_run->isSuccessful())
+            @if ($rectorRun->isSuccessful())
                 <div class="card bg-warning border-warning mb-3">
                     <div class="card-header text-bold">
                         What did Rector change?
@@ -69,17 +64,17 @@
 
                     <div class="card-body p-0">
                         <textarea
-                            class="codemirror_diff">{{ $rector_run->getContentDiff() }}</textarea>
+                            class="codemirror_diff">{{ $rectorRun->getContentDiff() }}</textarea>
                     </div>
                 </div>
 
-                @if ($rector_run->getAppliedRules())
+                @if ($rectorRun->getAppliedRules())
                     <div class="row">
                         <div class="pt-0 pb-4 col-12 col-sm-6">
                             <p class="mb-2">Applied Rules:</p>
 
                             <ul class="list-noindent">
-                                @foreach ($rector_run->getAppliedRules() as $applied_rule)
+                                @foreach ($rectorRun->getAppliedRules() as $applied_rule)
                                     @php
                                         /** @var $applied_rule \Rector\Website\ValueObject\AppliedRule */
                                     @endphp
@@ -94,11 +89,11 @@
                         </div>
                         <div class="pt-0 pb-4 col-12 col-sm-6">
                             <p class="mb-2">Is the result wrong?</p>
-                            <a href="{{ issueLink($rector_run) }}" class="btn btn-danger">Create an
+                            <a href="{{ issueLink($rectorRun) }}" class="btn btn-danger">Create an
                                 issue</a>
 
-                            @if ($rector_run->canCreateFixture())
-                                <a href="{{ pullRequestLink($rector_run) }}"
+                            @if ($rectorRun->canCreateFixture())
+                                <a href="{{ pullRequestLink($rectorRun) }}"
                                    class="btn btn-primary ms-3">Create
                                     a Test</a>
                             @endif
@@ -122,7 +117,7 @@
 
                 <div class="card-body p-0">
                     <textarea name="rector_config" class="codemirror_php"
-                              required="required">{{ session('_old_input')['rector_config'] ?? $rector_run->getRectorConfig() }}</textarea>
+                              required="required">{{ session('_old_input')['rector_config'] ?? $rectorRun->getRectorConfig() }}</textarea>
                 </div>
             </div>
 
