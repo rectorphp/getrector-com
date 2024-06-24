@@ -34,9 +34,6 @@ final class RectorProcessFactory
                 '--output-format',
                 'json',
             ];
-
-            dump(123);
-            die;
         }
 
         // autoload custom Rector rule
@@ -46,6 +43,10 @@ final class RectorProcessFactory
         }
 
         $process = new Process($processOptions);
+
+        dump($process->getCommandLine());
+        die;
+
         $process->run();
 
         return $process;

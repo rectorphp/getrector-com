@@ -56,12 +56,15 @@ Route::get('demo/{uuid}', DemoDetailController::class)
 Route::get('demo', DemoController::class);
 Route::post('process-demo', ProcessDemoFormController::class);
 
-Route::get('custom-rule/{uuid}', \Rector\Website\Controller\Demo\CustomRuleDetailController::class)
-    ->whereUuid('uuid');
-Route::get('custom-rule', CustomRuleController::class);
-Route::post('process-custom-rule', ProcessCustomRuleFormController::class);
-
 // ast
 Route::get('ast', AstController::class);
 Route::get('ast/{hash}', AstDetailController::class);
 Route::post('process-ast', ProcessAstFormController::class);
+
+// in development only
+if (app('env') === 'dev') {
+    Route::get('custom-rule/{uuid}', \Rector\Website\Controller\Demo\CustomRuleDetailController::class)
+        ->whereUuid('uuid');
+    Route::get('custom-rule', CustomRuleController::class);
+    Route::post('process-custom-rule', ProcessCustomRuleFormController::class);
+}
