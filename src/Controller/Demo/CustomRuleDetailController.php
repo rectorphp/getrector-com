@@ -7,7 +7,6 @@ namespace Rector\Website\Controller\Demo;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Controller;
 use Illuminate\View\View;
-use Rector\Website\Entity\CustomRuleRun;
 use Rector\Website\Entity\RectorRun;
 use Rector\Website\Repository\RectorRunRepository;
 

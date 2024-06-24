@@ -5,25 +5,14 @@ declare(strict_types=1);
 namespace Rector\Website\Entity;
 
 use Nette\Utils\FileSystem;
-use Nette\Utils\Strings;
 use Rector\Website\Exception\ShouldNotHappenException;
+use Rector\Website\Utils\ClassNameResolver;
 use Rector\Website\Utils\StringsConverter;
 use Rector\Website\ValueObject\AppliedRule;
 use Symfony\Component\Uid\Uuid;
 
 final class RectorRun extends AbstractRectorRun
 {
-    /**
-     * @see https://regex101.com/r/13A0W9/1
-     * @var string
-     */
-    private const CLASS_NAME_REGEX = '#class\s+(?<' . self::PART_CLASS_NAME . '>\w+)#';
-
-    /**
-     * @var string
-     */
-    private const PART_CLASS_NAME = 'class_name';
-
     /**
      * @var string
      */
@@ -35,7 +24,7 @@ final class RectorRun extends AbstractRectorRun
     public function __construct(
         Uuid $uuid,
         string $content,
-        private readonly string $rectorConfig,
+        private readonly string $runnablePhp,
         array $jsonResult = [],
         string|null $fatalErrorMessage = null
     ) {
@@ -47,9 +36,9 @@ final class RectorRun extends AbstractRectorRun
         );
     }
 
-    public function getRectorConfig(): string
+    public function getRunnablePhp(): string
     {
-        return $this->rectorConfig;
+        return $this->runnablePhp;
     }
 
     /**
@@ -112,9 +101,8 @@ final class RectorRun extends AbstractRectorRun
 
     public function getFixtureFileName(): string
     {
-        $matches = Strings::match($this->content, self::CLASS_NAME_REGEX);
-
-        $baseFilename = $matches[self::PART_CLASS_NAME] ?? self::DEFAULT_FILE_NAME;
+        $shortClassName = ClassNameResolver::resolveShortClassName($this->content);
+        $baseFilename = $shortClassName ?? self::DEFAULT_FILE_NAME;
 
         $stringsConverter = new StringsConverter();
         $underscoredName = $stringsConverter->camelCaseToGlue($baseFilename, '_');
@@ -130,7 +118,7 @@ final class RectorRun extends AbstractRectorRun
         return [
             'uuid' => $this->uuid->jsonSerialize(),
             'content' => $this->content,
-            'config' => $this->rectorConfig,
+            'config' => $this->runnablePhp,
             'json_result' => $this->jsonResult,
             'fatal_error_message' => $this->fatalErrorMessage,
         ];

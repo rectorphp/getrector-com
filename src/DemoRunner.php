@@ -47,7 +47,7 @@ final class DemoRunner
     public function processRectorRun(AbstractRectorRun $rectorRun): void
     {
         try {
-            $jsonResult = $this->processFilesContents($rectorRun->getContent(), $rectorRun->getRectorConfig());
+            $jsonResult = $this->processFilesContents($rectorRun->getContent(), $rectorRun->getRunnablePhp());
             if (isset($jsonResult['fatal_errors'])) {
                 $rectorRun->setFatalErrorMessage($jsonResult['fatal_errors'][0]);
             }
@@ -104,7 +104,6 @@ final class DemoRunner
         $this->filesystem->dumpFile($configPath, $rectorConfig);
 
         $temporaryFilePaths = [$analyzedFilePath, $configPath];
-
         $process = $this->processRun($analyzedFilePath, $configPath);
 
         // remove temporary files

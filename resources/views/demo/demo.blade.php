@@ -117,7 +117,7 @@
 
                 <div class="card-body p-0">
                     <textarea name="runnable_contents" class="codemirror_php"
-                              required="required">{{ session('_old_input')['runnable_contents'] ?? $rectorRun->getRectorConfig() }}</textarea>
+                              required="required">{{ session('_old_input')['runnable_contents'] ?? $rectorRun->getRunnablePhp() }}</textarea>
                 </div>
             </div>
 
