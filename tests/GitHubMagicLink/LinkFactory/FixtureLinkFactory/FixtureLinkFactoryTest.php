@@ -34,10 +34,7 @@ final class FixtureLinkFactoryTest extends AbstractTestCase
 
     public static function provideData(): Iterator
     {
-        /** @var DummyRectorRunFactory $dummyRectorRunFactory */
-        $dummyRectorRunFactory = app()
-            ->make(DummyRectorRunFactory::class);
-        $rectorRun = $dummyRectorRunFactory->create();
+        $rectorRun = DummyRectorRunFactory::create();
         yield [$rectorRun, __DIR__ . '/Fixture/expected_link.txt'];
 
         $downgradeArrayIsListFactory = app()

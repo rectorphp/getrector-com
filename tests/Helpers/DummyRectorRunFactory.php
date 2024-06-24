@@ -14,9 +14,10 @@ final class DummyRectorRunFactory
     /**
      * @api used in tests
      */
-    public function create(): RectorRun
+    public static function create(): RectorRun
     {
         $jsonResult = [];
+
         $rectorRun = new RectorRun(
             Uuid::v4(),
             FileSystem::read(__DIR__ . '/Source/rector_run_file_content.php.inc'),

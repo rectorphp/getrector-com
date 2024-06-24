@@ -12,20 +12,16 @@ final class FixtureBodyFactoryTest extends AbstractTestCase
 {
     private FixtureBodyFactory $fixtureBodyFactory;
 
-    private DummyRectorRunFactory $dummyRectorRunFactory;
-
     protected function setUp(): void
     {
         parent::setUp();
 
         $this->fixtureBodyFactory = $this->make(FixtureBodyFactory::class);
-        $this->dummyRectorRunFactory = $this->make(DummyRectorRunFactory::class);
     }
 
     public function test(): void
     {
-        $rectorRun = $this->dummyRectorRunFactory->create();
-
+        $rectorRun = DummyRectorRunFactory::create();
         $createdLink = $this->fixtureBodyFactory->create($rectorRun);
 
         $issueContent = urldecode($createdLink);

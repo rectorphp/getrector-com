@@ -54,6 +54,9 @@ Route::get('demo/{uuid}', DemoDetailController::class)
 Route::get('demo', DemoController::class);
 Route::post('process-demo', ProcessDemoFormController::class);
 
+Route::get('custom-rule', \Rector\Website\Controller\Demo\CustomRuleController::class);
+
+
 // ast
 Route::get('ast', AstController::class);
 Route::get('ast/{hash}', AstDetailController::class);

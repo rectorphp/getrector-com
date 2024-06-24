@@ -4,15 +4,14 @@ declare(strict_types=1);
 
 namespace Rector\Website\Entity;
 
-use JsonSerializable;
+use Nette\Utils\FileSystem;
 use Nette\Utils\Strings;
 use Rector\Website\Exception\ShouldNotHappenException;
-use Rector\Website\Utils\FileDiffCleaner;
 use Rector\Website\Utils\StringsConverter;
 use Rector\Website\ValueObject\AppliedRule;
 use Symfony\Component\Uid\Uuid;
 
-final class RectorRun implements JsonSerializable
+final class RectorRun extends AbstractRectorRun
 {
     /**
      * @var string
@@ -36,88 +35,24 @@ final class RectorRun implements JsonSerializable
     private const DEFAULT_FILE_NAME = 'demo_fixture';
 
     public function __construct(
-        private readonly Uuid $uuid,
-        private readonly string $content,
+        Uuid $uuid,
+        string $content,
         private readonly string $config,
         /** @var array<string, mixed> */
-        private array $jsonResult = [],
-        private string|null $fatalErrorMessage = null
+        array $jsonResult = [],
+        string|null $fatalErrorMessage = null
     ) {
-    }
-
-    public function getUuid(): Uuid
-    {
-        return $this->uuid;
-    }
-
-    public function getContentDiff(): string
-    {
-        $fileDiff = $this->jsonResult['file_diffs'][0]['diff'] ?? null;
-        if (is_string($fileDiff)) {
-            $fileDiffCleaner = new FileDiffCleaner();
-            return $fileDiffCleaner->clean($fileDiff);
-        }
-
-        return self::NO_CHANGE_CONTENT;
-    }
-
-    public function getContent(): string
-    {
-        return $this->content;
+        parent::__construct(
+            $uuid,
+            $content,
+            $jsonResult,
+            $fatalErrorMessage
+        );
     }
 
     public function getConfig(): string
     {
         return $this->config;
-    }
-
-    public function isSuccessful(): bool
-    {
-        if ($this->fatalErrorMessage !== null) {
-            return false;
-        }
-
-        if ($this->jsonResult === []) {
-            return false;
-        }
-
-        if (! isset($this->jsonResult['errors'])) {
-            return true;
-        }
-
-        /** @var mixed[] $errors */
-        $errors = $this->jsonResult['errors'];
-
-        return $errors === [];
-    }
-
-    public function getFatalErrorMessage(): ?string
-    {
-        return $this->fatalErrorMessage;
-    }
-
-    /**
-     * @return string[]
-     */
-    public function getErrors(): array
-    {
-        $jsonErrors = $this->jsonResult['errors'] ?? [];
-
-        $errors = [];
-        foreach ($jsonErrors as $jsonError) {
-            // clear server paths for easier read
-            $rawMessage = $jsonError['message'];
-            // @see https://regex101.com/r/Viu6Tc/1
-            $clearMessage = Strings::replace($rawMessage, '#\/(.*?)vendor/#i', '');
-            $errors[] = $clearMessage;
-        }
-
-        return $errors;
-    }
-
-    public function setFatalErrorMessage(string $fatalErrorMessage): void
-    {
-        $this->fatalErrorMessage = $fatalErrorMessage;
     }
 
     /**
@@ -138,23 +73,6 @@ final class RectorRun implements JsonSerializable
         }
 
         return $appliedRules;
-    }
-
-    /**
-     * @param mixed[] $jsonResult
-     */
-    public function setJsonResult(array $jsonResult): void
-    {
-        $this->jsonResult = $jsonResult;
-    }
-
-    public function hasRun(): bool
-    {
-        if ($this->fatalErrorMessage !== null) {
-            return true;
-        }
-
-        return $this->jsonResult !== [];
     }
 
     /**
@@ -219,5 +137,14 @@ final class RectorRun implements JsonSerializable
             'json_result' => $this->jsonResult,
             'fatal_error_message' => $this->fatalErrorMessage,
         ];
+    }
+
+    public static function createEmpty(): self
+    {
+        // default values
+        $fileContents = FileSystem::read(__DIR__ . '/../../resources/demo/DemoFile.php');
+        $configContents = FileSystem::read(__DIR__ . '/../../resources/demo/demo-config.php');
+
+        return new self(Uuid::v4(), $fileContents, $configContents);
     }
 }
