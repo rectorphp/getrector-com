@@ -7,7 +7,7 @@ namespace Rector\Website;
 use Nette\Utils\Json;
 use Nette\Utils\JsonException;
 use Nette\Utils\Random;
-use Rector\Website\Entity\RectorRun;
+use Rector\Website\Entity\AbstractRectorRun;
 use Rector\Website\Exception\RectorRunFailedException;
 use Rector\Website\Exception\ShouldNotHappenException;
 use Rector\Website\Utils\ErrorMessageNormalizer;
@@ -44,10 +44,10 @@ final class DemoRunner
         $this->demoDir = __DIR__ . '/../storage/demo';
     }
 
-    public function processRectorRun(RectorRun $rectorRun): void
+    public function processRectorRun(AbstractRectorRun $rectorRun): void
     {
         try {
-            $jsonResult = $this->processFilesContents($rectorRun->getContent(), $rectorRun->getConfig());
+            $jsonResult = $this->processFilesContents($rectorRun->getContent(), $rectorRun->getRectorConfig());
             if (isset($jsonResult['fatal_errors'])) {
                 $rectorRun->setFatalErrorMessage($jsonResult['fatal_errors'][0]);
             }
@@ -95,7 +95,7 @@ final class DemoRunner
     /**
      * @return mixed[]
      */
-    private function processFilesContents(string $fileContent, string $configContent): array
+    private function processFilesContents(string $fileContent, string $rectorConfig): array
     {
         $identifier = Random::generate(20);
 
@@ -103,7 +103,7 @@ final class DemoRunner
         $configPath = $this->demoDir . DIRECTORY_SEPARATOR . $identifier . DIRECTORY_SEPARATOR . self::CONFIG_NAME;
 
         $this->filesystem->dumpFile($analyzedFilePath, $fileContent);
-        $this->filesystem->dumpFile($configPath, $configContent);
+        $this->filesystem->dumpFile($configPath, $rectorConfig);
 
         $temporaryFilePaths = [$analyzedFilePath, $configPath];
 
@@ -124,7 +124,7 @@ final class DemoRunner
 
         // is valid json?
         try {
-            return Json::decode($output, Json::FORCE_ARRAY);
+            return Json::decode($output, true);
         } catch (JsonException $jsonException) {
             if ($jsonException->getMessage() === 'Syntax error') {
                 $errorMessage = 'Invalid json syntax in "vendor/bin/rector" process output: ' . PHP_EOL . PHP_EOL . $output;

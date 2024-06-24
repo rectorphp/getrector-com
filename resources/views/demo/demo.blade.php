@@ -36,7 +36,9 @@
 
             <div style="float: right">
                 Do you want to learn AST?
-                Try new <a href="{{ action(\Rector\Website\Controller\InteractiveController::class) }}">Learn and Play</a> page
+                Try new <a
+                    href="{{ action(\Rector\Website\Controller\InteractiveController::class) }}">Learn
+                    and Play</a> page
             </div>
 
             <p>
@@ -120,7 +122,7 @@
 
                 <div class="card-body p-0">
                     <textarea name="rector_config" class="codemirror_php"
-                              required="required">{{ session('_old_input')['rector_config'] ?? $rector_run->getConfig() }}</textarea>
+                              required="required">{{ session('_old_input')['rector_config'] ?? $rector_run->getRectorConfig() }}</textarea>
                 </div>
             </div>
 

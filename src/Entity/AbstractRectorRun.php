@@ -6,16 +6,12 @@ namespace Rector\Website\Entity;
 
 use JsonSerializable;
 use Nette\Utils\Strings;
+use Rector\Website\Enum\Comment;
 use Rector\Website\Utils\FileDiffCleaner;
 use Symfony\Component\Uid\Uuid;
 
 abstract class AbstractRectorRun implements JsonSerializable
 {
-    /**
-     * @var string
-     */
-    public const NO_CHANGE_CONTENT = '// no change';
-
     public function __construct(
         protected readonly Uuid $uuid,
         protected readonly string $content,
@@ -38,7 +34,7 @@ abstract class AbstractRectorRun implements JsonSerializable
             return $fileDiffCleaner->clean($fileDiff);
         }
 
-        return self::NO_CHANGE_CONTENT;
+        return Comment::NO_CHANGE_CONTENT;
     }
 
     public function getContent(): string

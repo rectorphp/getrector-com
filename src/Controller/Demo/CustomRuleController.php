@@ -6,7 +6,7 @@ namespace Rector\Website\Controller\Demo;
 
 use Illuminate\Routing\Controller;
 use Illuminate\View\View;
-use Rector\Website\Entity\RectorRun;
+use Rector\Website\Entity\CustomRuleRun;
 
 final class CustomRuleController extends Controller
 {
@@ -14,7 +14,7 @@ final class CustomRuleController extends Controller
     {
         return \view('demo/custom-rule', [
             'page_title' => 'Design Custom Rule',
-            'rector_run' => RectorRun::createEmpty(),
+            'customRuleRun' => CustomRuleRun::createEmpty(),
         ]);
     }
 }

@@ -14,11 +14,6 @@ use Symfony\Component\Uid\Uuid;
 final class RectorRun extends AbstractRectorRun
 {
     /**
-     * @var string
-     */
-    public const NO_CHANGE_CONTENT = '// no change';
-
-    /**
      * @see https://regex101.com/r/13A0W9/1
      * @var string
      */
@@ -34,11 +29,13 @@ final class RectorRun extends AbstractRectorRun
      */
     private const DEFAULT_FILE_NAME = 'demo_fixture';
 
+    /**
+     * @param array<string, mixed> $jsonResult
+     */
     public function __construct(
         Uuid $uuid,
         string $content,
-        private readonly string $config,
-        /** @var array<string, mixed> */
+        private readonly string $rectorConfig,
         array $jsonResult = [],
         string|null $fatalErrorMessage = null
     ) {
@@ -50,9 +47,9 @@ final class RectorRun extends AbstractRectorRun
         );
     }
 
-    public function getConfig(): string
+    public function getRectorConfig(): string
     {
-        return $this->config;
+        return $this->rectorConfig;
     }
 
     /**
@@ -126,14 +123,14 @@ final class RectorRun extends AbstractRectorRun
     }
 
     /**
-     * @return array{uuid: string, content: string, config: string, json_result: mixed[], fatal_error_message: string|null}
+     * @return array<string, mixed>
      */
     public function jsonSerialize(): array
     {
         return [
             'uuid' => $this->uuid->jsonSerialize(),
             'content' => $this->content,
-            'config' => $this->config,
+            'config' => $this->rectorConfig,
             'json_result' => $this->jsonResult,
             'fatal_error_message' => $this->fatalErrorMessage,
         ];
@@ -142,8 +139,8 @@ final class RectorRun extends AbstractRectorRun
     public static function createEmpty(): self
     {
         // default values
-        $fileContents = FileSystem::read(__DIR__ . '/../../resources/demo/DemoFile.php');
-        $configContents = FileSystem::read(__DIR__ . '/../../resources/demo/demo-config.php');
+        $fileContents = FileSystem::read(__DIR__ . '/../../resources/default-form-data/demo/DemoFile.php');
+        $configContents = FileSystem::read(__DIR__ . '/../../resources/default-form-data/demo/demo-config.php');
 
         return new self(Uuid::v4(), $fileContents, $configContents);
     }

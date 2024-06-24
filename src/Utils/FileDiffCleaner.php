@@ -6,7 +6,7 @@ namespace Rector\Website\Utils;
 
 use ArrayLookup\AtLeast;
 use Nette\Utils\Strings;
-use Rector\Website\Entity\RectorRun;
+use Rector\Website\Enum\Comment;
 
 /**
  * @see \Rector\Website\Tests\Utils\FileDiffCleanerTest
@@ -58,7 +58,7 @@ final class FileDiffCleaner
             return $fileDiff;
         }
 
-        return RectorRun::NO_CHANGE_CONTENT;
+        return Comment::NO_CHANGE_CONTENT;
     }
 
     private function hasDiff(string $fileDiff): bool
