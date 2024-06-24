@@ -69,14 +69,14 @@
                 <h3>
                     <em class="fas fa-bolt fa-2x fa-fw text-rector-green"></em>
                     &nbsp;
-                    Node Instant Modify
+                    Live Custom Rules
                 </h3>
 
                 <img src="/assets/images/homepage/instant-speed.jpg" class="rounded-4 mb-3 mt-2"
                      style="max-width: 100%;">
 
                 <p>
-                    Play around with AST node effortlessly! With Node Instant Modify, tweak nodes
+                    Play around with AST nodes effortlessly! With Live Custom Rules, tweak nodes
                     instantly and see the magic happen. Learning nodes has never been this fun and
                     efficient.
                 </p>
