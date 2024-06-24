@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Rector\Website;
 
+use Rector\Rector\AbstractRector;
+use Rector\Config\RectorConfig;
 use Nette\Utils\Json;
 use Nette\Utils\JsonException;
 use Nette\Utils\Random;
@@ -75,14 +77,14 @@ final class DemoRunner
         // for the latter, append simple config to be part of the file
         $extraFileContents = null;
         $extraFilePath = null;
-        if (str_contains($rectorConfig, 'extends') && str_contains($rectorConfig, 'Rector\Rector\AbstractRector')) {
+        if (str_contains($rectorConfig, 'extends') && str_contains($rectorConfig, AbstractRector::class)) {
             // is Rector rule
             $extraFileContents = $rectorConfig;
             $extraFilePath = $this->demoDir . DIRECTORY_SEPARATOR . $identifier . DIRECTORY_SEPARATOR . 'CustomRuleRector.php';
 
             $rectorClassName = ClassNameResolver::resolveFromFileContents($rectorConfig, $analyzedFilePath);
             $rectorConfig = sprintf(
-                '<?php%s return \Rector\Config\RectorConfig::configure()->withRules([%s::class]);' . PHP_EOL,
+                '<?php%s return ' . RectorConfig::class . '::configure()->withRules([%s::class]);' . PHP_EOL,
                 PHP_EOL . PHP_EOL,
                 $rectorClassName
             );

@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+use Rector\Website\Controller\Demo\CustomRuleDetailController;
 
 use Illuminate\Support\Facades\Route;
 use Rector\Website\Ast\Controller\AstController;
@@ -63,7 +64,7 @@ Route::post('process-ast', ProcessAstFormController::class);
 
 // in development only
 if (app('env') === 'dev') {
-    Route::get('custom-rule/{uuid}', \Rector\Website\Controller\Demo\CustomRuleDetailController::class)
+    Route::get('custom-rule/{uuid}', CustomRuleDetailController::class)
         ->whereUuid('uuid');
     Route::get('custom-rule', CustomRuleController::class);
     Route::post('process-custom-rule', ProcessCustomRuleFormController::class);

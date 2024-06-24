@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Website\Validation\Rules;
 
+use Rector\Rector\AbstractRector;
 use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
 use PhpParser\Error;
@@ -19,7 +20,7 @@ final class HasRectorRule implements ValidationRule
     {
 
         // dummy check for custom rule request
-        if (str_contains($value, 'Rector\Rector\AbstractRector')) {
+        if (str_contains($value, AbstractRector::class)) {
             return;
         }
 
