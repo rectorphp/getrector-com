@@ -85,8 +85,8 @@ final class RuleMetadata
 
     public function isInSet(string $setSlug): bool
     {
-        foreach ($this->sets as $rectorSet) {
-            if ($rectorSet->getSlug() === $setSlug) {
+        foreach ($this->sets as $set) {
+            if ($set->getSlug() === $setSlug) {
                 return true;
             }
         }
