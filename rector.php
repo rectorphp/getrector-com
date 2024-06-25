@@ -22,4 +22,7 @@ return RectorConfig::configure()
         '*/Expected/*',
         // generated
         __DIR__ . '/src/Ast/PhpParser/ClickablePrinter.php',
+
+        // cause infinite loop on local with macOS
+        __DIR__ . '/_ide_helper.php',
     ]);
