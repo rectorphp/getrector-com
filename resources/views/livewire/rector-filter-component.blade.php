@@ -49,7 +49,7 @@
                     <optgroup label="{{ $groupName }}">
 
                     @foreach ($rectorSets as $rectorSet)
-                        <option value="{{ $rectorSet->getName() }}">{{ $rectorSet->getHumanName() }}</option>
+                        <option value="{{ $rectorSet->getSlug() }}">{{ $rectorSet->getName() }}</option>
                     @endforeach
                 @endforeach
             </select>

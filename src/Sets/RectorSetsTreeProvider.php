@@ -6,11 +6,19 @@ namespace App\Sets;
 
 use App\PhpParser\SimplePhpParser;
 use App\RuleFilter\ValueObject\RectorSet;
+use PhpParser\Node\Name;
+use PhpParser\NodeFinder;
+use Rector\Config\Level\CodeQualityLevel;
+use Rector\Config\Level\DeadCodeLevel;
+use Rector\Config\Level\TypeDeclarationLevel;
+use Rector\Contract\Rector\RectorInterface;
 use Rector\Doctrine\Set\SetProvider\DoctrineSetProvider;
 use Rector\PHPUnit\Set\SetProvider\PHPUnitSetProvider;
-use Rector\Set\Contract\SetInterface;
+use Rector\Set\Contract\SetProviderInterface;
 use Rector\Set\SetProvider\CoreSetProvider;
+use Rector\Set\ValueObject\SetList;
 use Rector\Symfony\Set\SetProvider\SymfonySetProvider;
+use Webmozart\Assert\Assert;
 
 final class RectorSetsTreeProvider
 {
@@ -42,8 +50,7 @@ final class RectorSetsTreeProvider
             return $this->rectorSets;
         }
 
-        $simplePhpParser = new SimplePhpParser();
-
+        /** @var array<SetProviderInterface> $setProviders */
         $setProviders = [
             new CoreSetProvider(),
             new SymfonySetProvider(),
@@ -52,54 +59,58 @@ final class RectorSetsTreeProvider
         ];
 
         $rectorSets = [];
+
+        /** @var SetProviderInterface $setProvider */
         foreach ($setProviders as $setProvider) {
             foreach ($setProvider->provide() as $set) {
+                $setFilePath = $set->getSetFilePath();
 
-                new RectorSet();
-                // SimplePhpParser $simplePhpParser
+                if ($set->getSetFilePath() === SetList::CODE_QUALITY) {
+                    $rectorClasses = CodeQualityLevel::RULES;
+                } elseif ($set->getSetFilePath() === SetList::DEAD_CODE) {
+                    $rectorClasses = DeadCodeLevel::RULES;
+                } elseif ($set->getSetFilePath() === SetList::TYPE_DECLARATION) {
+                    $rectorClasses = TypeDeclarationLevel::RULES;
+                } else {
+                    $rectorClasses = $this->resolveRectorClassesFromSetFilePath($setFilePath);
+                }
+
+                $rectorSets[] = new RectorSet($set->getGroupName(), $set->getName(), $rectorClasses);
             }
         }
-
-        //                // step by step level reference
-        //                if ($constantName === 'CODE_QUALITY') {
-        //                    $rectorClasses = CodeQualityLevel::RULES;
-        //                } elseif ($constantName === 'DEAD_CODE') {
-        //                    $rectorClasses = DeadCodeLevel::RULES;
-        //                } elseif ($constantName === 'TYPE_DECLARATION') {
-        //                    $rectorClasses = TypeDeclarationLevel::RULES;
-        //                } else {
-        //                    $rectorClasses = $this->resolveRectorClassesFromSetFilePath($constantValue);
-        //                }
-        //
-        //                $rectorSets[] = new RectorSet($constantName, $rectorClasses, $groupName);
-        //            }
-        //        }
 
         $this->rectorSets = $rectorSets;
 
         return $rectorSets;
     }
 
-    //    /**
-    //     * @return string[]
-    //     */
-    //    private function resolveRectorClassesFromSetFilePath(string $constantValue): array
-    //    {
-    //        $rectorClassesNames = $nodeFinder->find($nodes, function (Node $node): bool {
-    //            if (! $node instanceof Name) {
-    //                return false;
-    //            }
-    //
-    //            return str_ends_with($node->toString(), 'Rector');
-    //        });
-    //
-    //        $rectorClasses = [];
-    //
-    //        /** @var Name[] $rectorClassesNames */
-    //        foreach ($rectorClassesNames as $rectorClassName) {
-    //            $rectorClasses[] = $rectorClassName->toString();
-    //        }
-    //
-    //        return $rectorClasses;
-    //    }
+    /**
+     * @return array<class-string<RectorInterface>>
+     */
+    private function resolveRectorClassesFromSetFilePath(string $configFilePath): array
+    {
+        Assert::fileExists($configFilePath);
+
+        $nodes = (new SimplePhpParser())->parseFile($configFilePath);
+        $nodeFinder = new NodeFinder();
+
+        $rectorClassesNames = $nodeFinder->find($nodes, function (\PhpParser\Node $node): bool {
+            if (! $node instanceof Name) {
+                return false;
+            }
+
+            return str_ends_with($node->toString(), 'Rector');
+        });
+
+        $rectorClasses = [];
+
+        /** @var Name[] $rectorClassesNames */
+        foreach ($rectorClassesNames as $rectorClassName) {
+            $rectorClass = $rectorClassName->toString();
+            /** @var class-string<RectorInterface> $rectorClass */
+            $rectorClasses[] = $rectorClass;
+        }
+
+        return $rectorClasses;
+    }
 }

@@ -5,12 +5,11 @@ declare(strict_types=1);
 namespace App\RuleFilter\ValueObject;
 
 use Rector\Contract\Rector\RectorInterface;
+use Rector\Set\Enum\SetGroup;
 
-final readonly  class RectorSet
+final readonly class RectorSet
 {
     /**
-     * @param string $groupName
-     * @param string $name
      * @param array<class-string<RectorInterface>> $rectorClasses
      */
     public function __construct(
@@ -27,12 +26,17 @@ final readonly  class RectorSet
 
     public function getSlug(): string
     {
-        return strtolower($this->groupName) .  '_' . strtolower($this->name);
+        return strtolower($this->groupName) . '_' . strtolower($this->name);
     }
 
     public function getGroupName(): string
     {
-        return $this->groupName;
+        if ($this->groupName === SetGroup::PHPUNIT) {
+            // special case for upper case :)
+            return 'PHPUnit';
+        }
+
+        return ucfirst($this->groupName);
     }
 
     public function getName(): string
