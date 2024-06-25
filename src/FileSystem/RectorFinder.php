@@ -99,7 +99,7 @@ final class RectorFinder
         $activeSets = [];
         foreach ($rectorSets as $rectorSet) {
             if ($rectorSet->hasRule($ruleDefinition->getRuleClass())) {
-                $activeSets[] = $rectorSet->getName();
+                $activeSets[] = $rectorSet;
             }
         }
 

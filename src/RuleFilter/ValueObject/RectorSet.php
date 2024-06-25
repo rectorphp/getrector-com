@@ -19,21 +19,30 @@ final readonly class RectorSet
     ) {
     }
 
+    /**
+     * @param class-string $rectorClass
+     */
     public function hasRule(string $rectorClass): bool
     {
         return in_array($rectorClass, $this->rectorClasses, true);
     }
 
+    public function getRuleCount(): int
+    {
+        return count($this->rectorClasses);
+    }
+
     public function getSlug(): string
     {
-        return strtolower($this->groupName) . '_' . strtolower($this->name);
+        $uniqueName = $this->groupName . ' ' . $this->name;
+        return str($uniqueName)->slug('-')->toString();
     }
 
     public function getGroupName(): string
     {
-        if ($this->groupName === SetGroup::PHPUNIT) {
+        if (in_array($this->groupName, [SetGroup::PHPUNIT, SetGroup::PHP], true)) {
             // special case for upper case :)
-            return 'PHPUnit';
+            return strtoupper($this->groupName);
         }
 
         return ucfirst($this->groupName);

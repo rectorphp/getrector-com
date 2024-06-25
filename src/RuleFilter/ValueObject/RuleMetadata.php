@@ -20,7 +20,7 @@ final class RuleMetadata
 
     /**
      * @param array<class-string<Node>> $nodeTypes
-     * @param string[] $sets
+     * @param RectorSet[] $sets
      * @param CodeSampleInterface[] $codeSamples
      */
     public function __construct(
@@ -32,6 +32,7 @@ final class RuleMetadata
     ) {
         Assert::isAOf($ruleClass, RectorInterface::class);
         Assert::allIsAOf($nodeTypes, Node::class);
+        Assert::allIsAOf($sets, RectorSet::class);
     }
 
     public function getRuleShortClass(): string
@@ -75,16 +76,22 @@ final class RuleMetadata
     }
 
     /**
-     * @return string[]
+     * @return RectorSet[]
      */
     public function getSets(): array
     {
         return $this->sets;
     }
 
-    public function isInSet(string $set): bool
+    public function isInSet(string $setSlug): bool
     {
-        return in_array($set, $this->sets, true);
+        foreach ($this->sets as $rectorSet) {
+            if ($rectorSet->getSlug() === $setSlug) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
@@ -93,6 +100,11 @@ final class RuleMetadata
     public function getNodeTypes(): array
     {
         return $this->nodeTypes;
+    }
+
+    public function isPartOfSets(): bool
+    {
+        return $this->sets !== [];
     }
 
     public function changeFilterScore(int $filterScore): void

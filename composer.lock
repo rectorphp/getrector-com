@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "141b288bbc0dc729e9c74d5fc03007f2",
+    "content-hash": "ce0b2e9d8d1fcf609bac8054cfd14618",
     "packages": [
         {
             "name": "brick/math",
@@ -7445,6 +7445,59 @@
                 }
             ],
             "time": "2024-05-31T08:55:34+00:00"
+        },
+        {
+            "name": "rector/type-perfect",
+            "version": "0.1.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rectorphp/type-perfect.git",
+                "reference": "f06d35fdc78d3927635b2f67f7a9867efac85bec"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rectorphp/type-perfect/zipball/f06d35fdc78d3927635b2f67f7a9867efac85bec",
+                "reference": "f06d35fdc78d3927635b2f67f7a9867efac85bec",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2|^8.0",
+                "phpstan/phpstan": "^1.11",
+                "webmozart/assert": "^1.11"
+            },
+            "type": "phpstan-extension",
+            "extra": {
+                "phpstan": {
+                    "includes": [
+                        "config/extension.neon"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Rector\\TypePerfect\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Next level type declaration checks",
+            "support": {
+                "issues": "https://github.com/rectorphp/type-perfect/issues",
+                "source": "https://github.com/rectorphp/type-perfect/tree/0.1.6"
+            },
+            "funding": [
+                {
+                    "url": "https://www.paypal.me/rectorphp",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/tomasvotruba",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-06-18T12:50:30+00:00"
         },
         {
             "name": "sebastian/cli-parser",

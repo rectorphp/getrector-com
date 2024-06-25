@@ -7,6 +7,7 @@ namespace App\Sets;
 use App\RuleFilter\ValueObject\RectorSet;
 use Rector\Bridge\SetProviderCollector;
 use Rector\Bridge\SetRectorsResolver;
+use Rector\Set\Contract\SetInterface;
 
 final class RectorSetsTreeProvider
 {
@@ -23,13 +24,14 @@ final class RectorSetsTreeProvider
     {
         $rectorSetsByGroup = [];
         foreach ($this->rectorSets as $rectorSet) {
-            $rectorSetsByGroup[$rectorSet->getGroupName()][] = $rectorSet;
+            $rectorSetsByGroup[$rectorSet->getGroupName()][$rectorSet->getSlug()] = $rectorSet;
         }
 
         return $rectorSetsByGroup;
     }
 
     /**
+     * @todo cache this on build to json somehow to avoid unnecessary calls
      * @return RectorSet[]
      */
     public function provide(): array
@@ -44,6 +46,7 @@ final class RectorSetsTreeProvider
         $setRectorsResolver = new SetRectorsResolver();
 
         foreach ($setProviderCollector->provideSets() as $set) {
+            /** @var SetInterface $set */
             $rectorClasses = $setRectorsResolver->resolveFromFilePath($set->getSetFilePath());
             $rectorSets[] = new RectorSet($set->getGroupName(), $set->getName(), $rectorClasses);
         }
