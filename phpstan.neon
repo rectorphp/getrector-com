@@ -31,6 +31,9 @@ parameters:
         # float allowed
         - '#Parameter (.*?) of class Imagine\\Image\\Box constructor expects int, float given#'
 
+        # class-string
+        - '#Parameter \#1 \$rectorClass of method App\\RuleFilter\\ValueObject\\RectorSet\:\:hasRule\(\) expects class\-string, string given#'
+
         # known values
         -
             message: '#Offset 1 on array\{string\} on left side of \?\? does not exist#'
