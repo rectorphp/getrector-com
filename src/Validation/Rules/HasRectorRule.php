@@ -54,6 +54,7 @@ final class HasRectorRule implements ValidationRule
                             'withDeadCodeLevel',
                             'withCodeQualityLevel',
                             'withPhpPolyfill',
+                            'withDowngradeSets',
                         ],
                         true
                     )
