@@ -6,6 +6,7 @@ namespace App\Livewire;
 
 use App\Enum\ComponentEvent;
 use App\FileSystem\RectorFinder;
+use App\Logging\SearchLogger;
 use App\RuleFilter\RuleFilter;
 use App\Sets\RectorSetsTreeProvider;
 use Illuminate\View\View;
@@ -50,6 +51,10 @@ final class RectorFilterComponent extends Component
         /** @var RuleFilter $ruleFilter */
         $ruleFilter = app(RuleFilter::class);
         $filteredRules = $ruleFilter->filter($ruleMetadatas, $this->query, $this->nodeType, $this->set);
+
+        /** @var SearchLogger $searchLogger */
+        $searchLogger = app(SearchLogger::class);
+        $searchLogger->log($this->query, $this->nodeType, $this->set);
 
         /** @var RectorSetsTreeProvider $rectorSetsTreeProvider */
         $rectorSetsTreeProvider = app(RectorSetsTreeProvider::class);
