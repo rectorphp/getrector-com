@@ -15,6 +15,11 @@
 </li>
 
 <li class="nav-item">
+    <a href="{{ action(\App\Controller\InteractiveController::class) }}"
+       class="nav-link">Play & Learn</a>
+</li>
+
+<li class="nav-item">
     <a href="{{ action(\App\Controller\ContactController::class) }}"
        class="nav-link">Contact</a>
 </li>
