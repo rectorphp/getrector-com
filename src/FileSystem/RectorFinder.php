@@ -70,6 +70,17 @@ final class RectorFinder
         return $ruleMetadatas;
     }
 
+    public function findBySlug(string $slug): ?RuleMetadata
+    {
+        foreach ($this->findCore() as $ruleMetadata) {
+            if ($ruleMetadata->getSlug() === $slug) {
+                return $ruleMetadata;
+            }
+        }
+
+        return null;
+    }
+
     /**
      * @return array<class-string<RectorInterface>>
      */

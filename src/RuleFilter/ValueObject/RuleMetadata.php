@@ -39,6 +39,14 @@ final class RuleMetadata
         return \basename(\str_replace('\\', '/', $this->ruleClass));
     }
 
+    public function getSlug(): string
+    {
+        // turn "SomeRector" to "some-rector"
+        return str($this->getRuleShortClass())
+            ->snake('-')
+            ->toString();
+    }
+
     public function getDescription(): string
     {
         return $this->description;
