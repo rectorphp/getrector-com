@@ -8,6 +8,7 @@ use App\Exception\ShouldNotHappenException;
 use App\PhpParser\NodeVisior\NodeMarkerNodeVisitor;
 use Nette\Utils\FileSystem;
 use PhpParser\Node;
+use PhpParser\Node\Stmt;
 use PhpParser\Node\Stmt\Class_;
 use PhpParser\NodeFinder;
 use PhpParser\NodeTraverser;
@@ -39,7 +40,7 @@ final class SimplePhpParser
 
     /**
      * @api tests
-     * @return Node[]
+     * @return Stmt[]
      */
     public function parseFile(string $filePath): array
     {

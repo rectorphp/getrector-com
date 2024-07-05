@@ -20,32 +20,41 @@
 
             <p>{{ $ruleMetadata->getDescription() }}</p>
 
-            </div>
-
             <div class="row mt-3 mb-2">
-                <div class="col-12 filter-code-sample">
-                    <pre><code class="language-diff">{{ $ruleMetadata->getDiffCodeSample() }}</code></pre>
-                </div>
+                @if ($ruleMetadata->isConfigurable())
+                    @foreach ($ruleMetadata->getConfiguredDiffSamples() as $configuredDiffSample)
+                        <div class="col-12 filter-code-sample">
+                            <pre><code class="language-diff">{{ $configuredDiffSample->getDiffCodeSample() }}</code></pre>
+                        </div>
 
-                <div class="col-12 mt-4 mb-3">
-                    @if (! $ruleMetadata->isConfigurable())
-                    <pre><code class="language-php">// rector.php
+                        <div class="col-12 mt-4 mb-3">
+                            <pre><code class="language-php">// rector.php
 use Rector\Config\RectorConfig;
 
 return RectorConfig::configure()
-    ->withConfiguredRule(\{{ $ruleMetadata->getRectorClass() }}::class, [
-        // constant here :)
-    ]);</code></pre>
-        @else
-<pre><code class="language-php">// rector.php
+    ->withConfiguredRule(\{{ $ruleMetadata->getRectorClass() }}::class,
+        {{ $configuredDiffSample->getConfiguration() }}
+    );</code></pre>
+                        </div>
+                    @endforeach
+
+                    <hr>
+                @else
+                    <!-- not configurable rules -->
+                    <div class="col-12 filter-code-sample">
+                        <pre><code class="language-diff">{{ $ruleMetadata->getDiffCodeSample() }}</code></pre>
+                    </div>
+
+                    <div class="col-12 mt-4 mb-3">
+                        <pre><code class="language-php">// rector.php
 use Rector\Config\RectorConfig;
 
 return RectorConfig::configure()
     ->withRules([
         \{{ $ruleMetadata->getRectorClass() }}::class,
     ]);</code></pre>
-                    @endif
                 </div>
+                @endif
 
                 @if ($ruleMetadata->getSets())
                     <div class="col-12 mb-1">

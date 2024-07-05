@@ -4,13 +4,11 @@ declare(strict_types=1);
 
 namespace App\RuleFilter\ValueObject;
 
+use App\RuleFilter\ConfiguredDiffSamplesFactory;
 use App\RuleFilter\Markdown\MarkdownDiffer;
 use PhpParser\Node;
 use Rector\Contract\Rector\ConfigurableRectorInterface;
 use Rector\Contract\Rector\RectorInterface;
-use ReflectionProperty;
-use SebastianBergmann\Diff\Differ;
-use SebastianBergmann\Diff\Output\UnifiedDiffOutputBuilder;
 use Symplify\RuleDocGenerator\Contract\CodeSampleInterface;
 use Webmozart\Assert\Assert;
 
@@ -28,7 +26,8 @@ final class RuleMetadata
         private string $description,
         private array $codeSamples,
         private array $nodeTypes,
-        private array $sets
+        private array $sets,
+        private string $rectorRuleFilePath
     ) {
         Assert::isAOf($ruleClass, RectorInterface::class);
         Assert::allIsAOf($nodeTypes, Node::class);
@@ -60,6 +59,18 @@ final class RuleMetadata
         return $this->ruleClass;
     }
 
+    public function getConfiguredDiffSamples(): array
+    {
+        // nothing to return
+        if (! $this->isConfigurable()) {
+            return [];
+        }
+
+        /** @var ConfiguredDiffSamplesFactory $configuredDiffSamplesFactory */
+        $configuredDiffSamplesFactory = app(ConfiguredDiffSamplesFactory::class);
+        return $configuredDiffSamplesFactory->createFromRectorRuleFilePath($this->rectorRuleFilePath);
+    }
+
     public function getDiffCodeSample(): string
     {
         $codeSample = $this->codeSamples[0] ?? null;
@@ -67,12 +78,8 @@ final class RuleMetadata
             return '';
         }
 
-        // this is required to show full diffs from start to end
-        $unifiedDiffOutputBuilder = new UnifiedDiffOutputBuilder('');
-        $contextLinesReflectionProperty = new ReflectionProperty($unifiedDiffOutputBuilder, 'contextLines');
-        $contextLinesReflectionProperty->setValue($unifiedDiffOutputBuilder, 10000);
-
-        $markdownDiffer = new MarkdownDiffer(new Differ($unifiedDiffOutputBuilder));
+        /** @var MarkdownDiffer $markdownDiffer */
+        $markdownDiffer = app(MarkdownDiffer::class);
 
         return $markdownDiffer->diff($codeSample->getBadCode(), $codeSample->getGoodCode());
     }
