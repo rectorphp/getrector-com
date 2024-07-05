@@ -7,14 +7,14 @@
 <div>
     <div class="row">
         <div class="col-12 col-md-4 mb-3">
-            <input
-                placeholder="Type to start searching a rule"
-                type="text"
-                class="form-control d-inline"
-                style="width: 14em"
-                wire:model.live.debounce.300ms="query"
-            >
-            <!-- @see https://livewire.laravel.com/docs/wire-model#customizing-the-debounce -->
+{{--            <input--}}
+{{--                placeholder="Type to start searching a rule"--}}
+{{--                type="text"--}}
+{{--                class="form-control d-inline"--}}
+{{--                style="width: 14em"--}}
+{{--                wire:model.live.debounce.300ms="query"--}}
+{{--            >--}}
+{{--            <!-- @see https://livewire.laravel.com/docs/wire-model#customizing-the-debounce -->--}}
 
             @if ($isFilterActive)
                 &nbsp;
@@ -70,10 +70,10 @@
             >
                 <div class="card-body pt-0 pb-3 ps-4 pe-4">
                     <div style="float: right" class="mt-4">
-                        <a href="{{ action(\App\Controller\RuleDetailController::class, ['slug' => $filteredRule->getSlug()]) }}" class="me-3">Rule detail</a>
+                        <a href="{{ action(\App\Controller\RuleDetailController::class, ['slug' => $filteredRule->getSlug()]) }}">Rule detail</a>
 
                         @if ($filteredRule->isConfigurable())
-                            <span class="mt-4">
+                            <span class="ms-3 mt-4">
                                 <span class="badge bg-primary">Configurable</span>
                             </span>
                         @endif
@@ -89,14 +89,14 @@
 
                     <p>{{ $filteredRule->getDescription() }}</p>
 
-                    <div class="mt-2">
-                        <input
-                            type="text"
-                            class="form-control"
-                            onClick="this.select();"
-                            value="{{ $filteredRule->getRectorClass() }}"
-                        >
-                    </div>
+{{--                    <div class="mt-2">--}}
+{{--                        <input--}}
+{{--                            type="text"--}}
+{{--                            class="form-control"--}}
+{{--                            onClick="this.select();"--}}
+{{--                            value="{{ $filteredRule->getRectorClass() }}"--}}
+{{--                        >--}}
+{{--                    </div>--}}
 
                     <div class="row mt-3 mb-2">
                         <div class="col-12 filter-code-sample">
