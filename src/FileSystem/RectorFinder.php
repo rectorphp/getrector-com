@@ -61,13 +61,25 @@ final class RectorFinder
                 $ruleDefinition->getDescription(),
                 $ruleDefinition->getCodeSamples(),
                 $changedNodeTypes,
-                $currentRuleSets
+                $currentRuleSets,
+                (string) $rectorReflectionClass->getFileName()
             );
         }
 
         // @todo this should be possibly cached to json, as heavy on load
 
         return $ruleMetadatas;
+    }
+
+    public function findBySlug(string $slug): ?RuleMetadata
+    {
+        foreach ($this->findCore() as $ruleMetadata) {
+            if ($ruleMetadata->getSlug() === $slug) {
+                return $ruleMetadata;
+            }
+        }
+
+        return null;
     }
 
     /**
