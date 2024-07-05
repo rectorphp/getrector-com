@@ -7,7 +7,7 @@ use Nette\Utils\FileSystem;
 use PhpParser\PrettyPrinter\Standard;
 use App\Utils\ClickablePrinterBuilder;
 
-require __DIR__ . '/../vendor\/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 // simple script to generate clickable AST printer
 // use in https://getrector.com/ast
