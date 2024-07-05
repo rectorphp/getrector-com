@@ -7,6 +7,8 @@ namespace App\RuleFilter\PhpParser\NodeVisitor;
 use PhpParser\Node;
 use PhpParser\Node\Name;
 use PhpParser\Node\Name\FullyQualified;
+use PhpParser\Node\Stmt\Use_;
+use PhpParser\Node\Stmt\UseUse;
 use PhpParser\NodeVisitorAbstract;
 
 final class NameImportingNodeVisitor extends NodeVisitorAbstract
@@ -38,14 +40,14 @@ final class NameImportingNodeVisitor extends NodeVisitorAbstract
     }
 
     /**
-     * @return Node\Stmt\Use_[]
+     * @return Use_[]
      */
     public function getImportedUses(): array
     {
         $uses = [];
 
         foreach ($this->getNamesToImport() as $nameToImport) {
-            $uses[] = new Node\Stmt\Use_([new Node\Stmt\UseUse(new Name($nameToImport))]);
+            $uses[] = new Use_([new UseUse(new Name($nameToImport))]);
         }
 
         return $uses;

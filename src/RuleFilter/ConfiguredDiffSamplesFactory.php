@@ -64,7 +64,7 @@ final readonly class ConfiguredDiffSamplesFactory
         $nodeFinder = new NodeFinder();
 
         /** @var New_[] $configuredCodeSampleNews */
-        $configuredCodeSampleNews = $nodeFinder->find($stmts, function (Node $node) {
+        $configuredCodeSampleNews = $nodeFinder->find($stmts, function (Node $node): bool {
             // we look for "new ConfiguredCodeSample()"
             return $this->isNewWithClassName(
                 $node,

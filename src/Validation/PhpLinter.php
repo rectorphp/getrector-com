@@ -20,9 +20,9 @@ final class PhpLinter
 
     public function validatePhpSyntax(string $content): ?string
     {
-        $patternMatch = str($content)
+        $patternMatchStringable = str($content)
             ->match(self::OPENING_PHP_TAG_REGEX);
-        if (! $patternMatch->value()) {
+        if (! $patternMatchStringable->value()) {
             return 'Missing PHP opening tag';
         }
 

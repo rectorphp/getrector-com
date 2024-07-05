@@ -72,7 +72,7 @@ final class RuleMetadata
 
         /** @var RectorConfigFactory $rectorConfigFactory */
         $rectorConfigFactory = app(RectorConfigFactory::class);
-        $configStmts = $rectorConfigFactory->createNormal($this->getRectorClass());
+        $configStmts = $rectorConfigFactory->createNormal($this->ruleClass);
 
         /** @var RectorConfigStmtsPrinter $rectorConfigStmtsPrinter */
         $rectorConfigStmtsPrinter = app(RectorConfigStmtsPrinter::class);

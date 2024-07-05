@@ -17,6 +17,7 @@ use PhpParser\Node\Stmt;
 use PhpParser\Node\Stmt\Nop;
 use PhpParser\Node\Stmt\Return_;
 use PhpParser\NodeTraverser;
+use Rector\Config\RectorConfig;
 
 /**
  * @see \App\Tests\RuleFilter\PhpParser\RectorConfigStmtsPrinterTest
@@ -67,7 +68,7 @@ final class RectorConfigFactory
 
     private function createConfigureStaticCall(): StaticCall
     {
-        return new StaticCall(new FullyQualified('Rector\Config\RectorConfig'), 'configure');
+        return new StaticCall(new FullyQualified(RectorConfig::class), 'configure');
     }
 
     private function createRuleClassConstFetch(string $ruleClass): ClassConstFetch

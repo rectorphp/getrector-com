@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Tests\RuleFilter\Markdown;
 
 use App\RuleFilter\Markdown\MarkdownDiffer;
