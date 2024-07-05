@@ -53,8 +53,17 @@ final class RuleMetadata
 
     public function getDescription(): string
     {
+<<<<<<< HEAD
+        // change `some` to <code>some</code>
+=======
+<<<<<<< HEAD
+>>>>>>> c75071ae (spacing)
+        return Strings::replace($this->description, '#`(.*?)`#', '<code>$1</code>');
+=======
         // change `some` to <code>some</code>
         return Strings::replace($this->description, '#`(.*?)`#', '<code>$1</code>');
+        // return $this->description;
+>>>>>>> 3a2330b (spacing)
     }
 
     /**
