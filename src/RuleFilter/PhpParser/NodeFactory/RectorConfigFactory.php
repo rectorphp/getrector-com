@@ -18,6 +18,9 @@ use PhpParser\Node\Stmt\Nop;
 use PhpParser\Node\Stmt\Return_;
 use PhpParser\NodeTraverser;
 
+/**
+ * @see \App\Tests\RuleFilter\PhpParser\RectorConfigStmtsPrinterTest
+ */
 final class RectorConfigFactory
 {
     /**

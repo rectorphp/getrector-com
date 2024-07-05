@@ -10,6 +10,9 @@ use PhpParser\PrettyPrinter\Standard;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Process\Process;
 
+/**
+ * @see \App\Tests\RuleFilter\PhpParser\RectorConfigStmtsPrinterTest
+ */
 final class RectorConfigStmtsPrinter
 {
     public function __construct(
@@ -27,10 +30,7 @@ final class RectorConfigStmtsPrinter
 
         // add newline after configure() by convention
         $printedConfiguration = Strings::replace($printedConfiguration, '#configure\(\)#', 'configure()' . PHP_EOL);
-        $printedConfiguration = $this->applyCodingStandards($printedConfiguration);
-
-        // clean start
-        return Strings::replace($printedConfiguration, '#^<\?php\s+#', '');
+        return $this->applyCodingStandards($printedConfiguration);
     }
 
     private function applyCodingStandards(string $printedConfiguration): string
