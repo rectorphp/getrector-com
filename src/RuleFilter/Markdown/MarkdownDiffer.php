@@ -9,6 +9,8 @@ use SebastianBergmann\Diff\Differ;
 
 /**
  * @see https://github.com/symplify/rule-doc-generator/blob/main/src/Printer/CodeSamplePrinter/DiffCodeSamplePrinter.php
+ *
+ * @see \App\Tests\RuleFilter\Markdown\MarkdownDifferTest
  */
 final class MarkdownDiffer
 {

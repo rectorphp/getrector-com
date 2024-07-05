@@ -73,4 +73,3 @@ final class RectorConfigFactory
         return new ClassConstFetch($fullyQualified, 'class');
     }
 }
-
