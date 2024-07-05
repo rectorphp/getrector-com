@@ -7,6 +7,9 @@ parameters:
     excludePaths:
         - */Fixture/*
         - */Expected/*
+        - bootstrap/cache/*
+        # generated and slow
+        - src/Ast/PhpParser/ClickablePrinter.php
 
     bootstrapFiles:
         - vendor/rector/rector/vendor/symplify/rule-doc-generator-contracts/src/ValueObject/RuleDefinition.php
@@ -47,6 +50,8 @@ parameters:
 
         - '#Method App\\Sets\\RectorSetsTreeProvider\:\:resolveClassName\(\) should return class\-string<Rector\\Set\\Contract\\SetListInterface> but returns class\-string#'
 
+        # stmts vs nodes
+        - '#Method App\\PhpParser\\SimplePhpParser\:\:parseString\(\) should return array<PhpParser\\Node\\Stmt> but returns array<PhpParser\\Node>#'
 
         # parent laravel model configuration property
         - '#Public property "App\\Ast\\Entity\\AstRun\:\:\$timestamps" is never used#'

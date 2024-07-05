@@ -62,7 +62,7 @@ final class RectorFinder
                 $ruleDefinition->getCodeSamples(),
                 $changedNodeTypes,
                 $currentRuleSets,
-                $rectorReflectionClass->getFileName()
+                (string) $rectorReflectionClass->getFileName()
             );
         }
 

@@ -7,6 +7,8 @@ namespace App\RuleFilter;
 use App\Exception\ShouldNotHappenException;
 use App\PhpParser\SimplePhpParser;
 use App\RuleFilter\Markdown\MarkdownDiffer;
+use App\RuleFilter\PhpParser\NodeFactory\RectorConfigFactory;
+use App\RuleFilter\PhpParser\Printer\RectorConfigStmtsPrinter;
 use App\RuleFilter\ValueObject\ConfiguredDiffSample;
 use PhpParser\Node;
 use PhpParser\Node\Expr\New_;
@@ -14,7 +16,6 @@ use PhpParser\Node\Name;
 use PhpParser\Node\Scalar\String_;
 use PhpParser\Node\Stmt;
 use PhpParser\NodeFinder;
-use PhpParser\PrettyPrinter\Standard;
 use Webmozart\Assert\Assert;
 
 final readonly class ConfiguredDiffSamplesFactory
@@ -22,13 +23,15 @@ final readonly class ConfiguredDiffSamplesFactory
     public function __construct(
         private MarkdownDiffer $markdownDiffer,
         private SimplePhpParser $simplePhpParser,
+        private RectorConfigFactory $rectorConfigFactory,
+        private RectorConfigStmtsPrinter $rectorConfigStmtsPrinter,
     ) {
     }
 
     /**
      * @return ConfiguredDiffSample[]
      */
-    public function createFromRectorRuleFilePath(string $filePath): array
+    public function createFromRectorRuleFilePath(string $ruleClass, string $filePath): array
     {
         Assert::fileExists($filePath);
 
@@ -39,26 +42,12 @@ final readonly class ConfiguredDiffSamplesFactory
         $configuredDiffSamples = [];
 
         foreach ($configuredCodeSampleNews as $configuredCodeSampleNew) {
-            $before = $configuredCodeSampleNew->getArgs()[0]
-->value;
-            if (! $before instanceof String_) {
-                throw new ShouldNotHappenException();
-            }
+            $diffSample = $this->resolveDiffSample($configuredCodeSampleNew);
 
-            $after = $configuredCodeSampleNew->getArgs()[1]
-->value;
-            if (! $after instanceof String_) {
-                throw new ShouldNotHappenException();
-            }
+            $thirdArg = $configuredCodeSampleNew->getArgs()[2];
 
-            $configuration = $configuredCodeSampleNew->getArgs()[2]
-->value;
-            $diffSample = $this->markdownDiffer->diff($before->value, $after->value);
-
-            // include full configuration here, not just with placeholder
-            // @todo print smartly with impors and newlines or something :)
-            $standard = new Standard();
-            $printedConfiguration = $standard->prettyPrintExpr($configuration);
+            $stmts = $this->rectorConfigFactory->createConfigured($ruleClass, $thirdArg->value);
+            $printedConfiguration = $this->rectorConfigStmtsPrinter->print($stmts);
 
             $configuredDiffSamples[] = new ConfiguredDiffSample($diffSample, $printedConfiguration);
         }
@@ -97,5 +86,23 @@ final readonly class ConfiguredDiffSamplesFactory
         }
 
         return $node->class->toString() === $desiredClassName;
+    }
+
+    private function resolveDiffSample(New_ $new): string
+    {
+        $firstArg = $new->getArgs()[0];
+
+        $codeBefore = $firstArg->value;
+        if (! $codeBefore instanceof String_) {
+            throw new ShouldNotHappenException();
+        }
+
+        $secondArg = $new->getArgs()[1];
+        $codeAfter = $secondArg->value;
+        if (! $codeAfter instanceof String_) {
+            throw new ShouldNotHappenException();
+        }
+
+        return $this->markdownDiffer->diff($codeBefore->value, $codeAfter->value);
     }
 }

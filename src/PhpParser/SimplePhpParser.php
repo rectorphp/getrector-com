@@ -7,7 +7,6 @@ namespace App\PhpParser;
 use App\Exception\ShouldNotHappenException;
 use App\PhpParser\NodeVisior\NodeMarkerNodeVisitor;
 use Nette\Utils\FileSystem;
-use PhpParser\Node;
 use PhpParser\Node\Stmt;
 use PhpParser\Node\Stmt\Class_;
 use PhpParser\NodeFinder;
@@ -65,7 +64,7 @@ final class SimplePhpParser
     }
 
     /**
-     * @return Node[]
+     * @return Stmt[]
      */
     public function parseString(string $fileContent): array
     {

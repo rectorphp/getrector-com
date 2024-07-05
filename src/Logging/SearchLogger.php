@@ -20,7 +20,7 @@ final class SearchLogger
      */
     public function log(?string $query, ?string $nodeType, ?string $set): void
     {
-        if ($query === null && $nodeType) {
+        if ($query === null && $nodeType === null && $set === null) {
             return;
         }
 

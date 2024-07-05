@@ -4,8 +4,11 @@ declare(strict_types=1);
 
 namespace App\RuleFilter\ValueObject;
 
+use App\Exception\ShouldNotHappenException;
 use App\RuleFilter\ConfiguredDiffSamplesFactory;
 use App\RuleFilter\Markdown\MarkdownDiffer;
+use App\RuleFilter\PhpParser\NodeFactory\RectorConfigFactory;
+use App\RuleFilter\PhpParser\Printer\RectorConfigStmtsPrinter;
 use PhpParser\Node;
 use Rector\Contract\Rector\ConfigurableRectorInterface;
 use Rector\Contract\Rector\RectorInterface;
@@ -59,6 +62,26 @@ final class RuleMetadata
         return $this->ruleClass;
     }
 
+    public function getConfiguration(): string
+    {
+        if ($this->isConfigurable()) {
+            throw new ShouldNotHappenException(
+                'Configuration for whole rule is available only for non configurable rule'
+            );
+        }
+
+        /** @var RectorConfigFactory $rectorConfigFactory */
+        $rectorConfigFactory = app(RectorConfigFactory::class);
+        $configStmts = $rectorConfigFactory->createNormal($this->getRectorClass());
+
+        /** @var RectorConfigStmtsPrinter $rectorConfigStmtsPrinter */
+        $rectorConfigStmtsPrinter = app(RectorConfigStmtsPrinter::class);
+        return $rectorConfigStmtsPrinter->print($configStmts);
+    }
+
+    /**
+     * @return ConfiguredDiffSample[]
+     */
     public function getConfiguredDiffSamples(): array
     {
         // nothing to return
@@ -68,7 +91,7 @@ final class RuleMetadata
 
         /** @var ConfiguredDiffSamplesFactory $configuredDiffSamplesFactory */
         $configuredDiffSamplesFactory = app(ConfiguredDiffSamplesFactory::class);
-        return $configuredDiffSamplesFactory->createFromRectorRuleFilePath($this->rectorRuleFilePath);
+        return $configuredDiffSamplesFactory->createFromRectorRuleFilePath($this->ruleClass, $this->rectorRuleFilePath);
     }
 
     public function getDiffCodeSample(): string
