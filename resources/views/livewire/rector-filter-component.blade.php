@@ -17,9 +17,7 @@
             <!-- @see https://livewire.laravel.com/docs/wire-model#customizing-the-debounce -->
 
             @if ($isFilterActive)
-                &nbsp;
-                &nbsp;
-                <a href="{{ action(\App\Controller\FilterRectorController::class) }}">Clear</a>
+                <a href="{{ action(\App\Controller\FilterRectorController::class) }}" class="ms-2">Clear</a>
             @endif
 
         </div>
@@ -73,7 +71,11 @@
             >
                 <div class="card-body pt-0 pb-3 ps-4 pe-4">
                     <div style="float: right" class="mt-4">
+<<<<<<< HEAD
                         <a href="{{ action(\App\Controller\RuleDetailController::class, ['slug' => $filteredRule->getSlug()]) }}">Rule detail</a>
+=======
+                        <a href="{{ action(\App\Controller\RuleDetailController::class, ['slug' => $filteredRule->getSlug()]) }}" class="btn btn-success">Rule detail</a>
+>>>>>>> 3a2330b (spacing)
 
                         @if ($filteredRule->isConfigurable())
                             <span class="ms-3 mt-4">
