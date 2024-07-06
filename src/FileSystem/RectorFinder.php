@@ -13,6 +13,7 @@ use Rector\Contract\Rector\RectorInterface;
 use Rector\PostRector\Contract\Rector\PostRectorInterface;
 use ReflectionClass;
 use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
+use Webmozart\Assert\Assert;
 
 final class RectorFinder
 {
@@ -32,6 +33,7 @@ final class RectorFinder
     }
 
     /**
+     * @api will be used
      * @return RuleMetadata[]
      */
     public function findCommunity(): array
@@ -40,10 +42,9 @@ final class RectorFinder
         // clone... parse... dump json serialized?
         $comunityDirectory = __DIR__ . '/../../community-repository/laravel';
 
-        $laravelRectorClasses = $this->findRectorClasses([$comunityDirectory]);
+        $this->findRectorClasses([$comunityDirectory]);
 
-        dump($laravelRectorClasses);
-        die;
+        // dump($laravelRectorClasses);
 
         // find community ones
         // install rector-laravel locally
@@ -64,6 +65,11 @@ final class RectorFinder
         foreach ($this->findRectorClasses(self::CORE_DIRECTORIES) as $rectorClass) {
             $rectorReflectionClass = new ReflectionClass($rectorClass);
             if ($rectorReflectionClass->isAbstract()) {
+                continue;
+            }
+
+            // skip @deprecated ones
+            if (str_contains((string) $rectorReflectionClass->getDocComment(), '@deprecated')) {
                 continue;
             }
 
@@ -113,14 +119,18 @@ final class RectorFinder
     }
 
     /**
+     * @param string[] $directories
      * @return array<class-string<RectorInterface>>
      */
     private function findRectorClasses(array $directories): array
     {
+        Assert::allDirectory($directories);
+
         $robotLoader = new RobotLoader();
 
         // note: skip downgrade on purpose, as not likely to be used explicitly but as part of set
         $robotLoader->addDirectory(...$directories);
+
         $robotLoader->acceptFiles = ['*Rector.php'];
         $robotLoader->setTempDirectory(\sys_get_temp_dir() . '/dump-rector');
         $robotLoader->rebuild();
