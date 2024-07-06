@@ -39,3 +39,6 @@ database/database.sqlite
 .phpstorm.meta.php
 _ide_helper.php
 _ide_helper_models.php
+
+# local repositories
+/community-repository
