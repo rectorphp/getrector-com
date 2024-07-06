@@ -6,6 +6,7 @@ namespace App\Enum;
 
 use PhpParser\Node;
 use PhpParser\Node\AttributeGroup;
+use PhpParser\Node\Expr\Assign;
 use PhpParser\Node\Param;
 use PhpParser\Node\Stmt\ClassConst;
 use PhpParser\Node\Stmt\Enum_;
@@ -16,6 +17,7 @@ use Rector\Contract\Rector\RectorInterface;
 use Rector\EarlyReturn\Rector\If_\ChangeAndIfToEarlyReturnRector;
 use Rector\Naming\Rector\ClassMethod\RenameParamToMatchTypeRector;
 use Rector\Naming\Rector\Foreach_\RenameForeachValueVariableToMatchMethodCallReturnTypeRector;
+use Rector\Php71\Rector\Assign\AssignArrayToStringRector;
 use Rector\Php80\Rector\Class_\AnnotationToAttributeRector;
 use Rector\Php80\Rector\Property\NestedAnnotationToAttributeRector;
 use Rector\Php81\Rector\Class_\MyCLabsClassToEnumRector;
@@ -39,6 +41,7 @@ final class RuleNodeRedirectMap
      * @var array<class-string<RectorInterface>, array<class-string<Node>>>
      */
     public const MAP = [
+        AssignArrayToStringRector::class => [Assign::class],
         AddTypeToConstRector::class => [ClassConst::class],
         // attributes
         AttributeKeyToClassConstFetchRector::class => [AttributeGroup::class],
