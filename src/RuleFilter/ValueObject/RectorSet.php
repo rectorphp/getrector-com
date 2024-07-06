@@ -84,4 +84,9 @@ final class RectorSet
     {
         return $this->humanName;
     }
+
+    public function getRuleCount(): int
+    {
+        return count($this->rectorClasses);
+    }
 }

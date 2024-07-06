@@ -49,7 +49,10 @@
                     <optgroup label="{{ $groupName }}">
 
                     @foreach ($rectorSets as $rectorSet)
-                        <option value="{{ $rectorSet->getName() }}">{{ $rectorSet->getHumanName() }}</option>
+                        <option value="{{ $rectorSet->getName() }}">
+                            {{ $rectorSet->getHumanName() }}
+                            ({{ $rectorSet->getRuleCount() }})
+                        </option>
                     @endforeach
                 @endforeach
             </select>
@@ -87,16 +90,7 @@
 
                     <h3 class="mb-4">{{ $filteredRule->getRuleShortClass() }}</h3>
 
-                    <p>{{ $filteredRule->getDescription() }}</p>
-
-{{--                    <div class="mt-2">--}}
-{{--                        <input--}}
-{{--                            type="text"--}}
-{{--                            class="form-control"--}}
-{{--                            onClick="this.select();"--}}
-{{--                            value="{{ $filteredRule->getRectorClass() }}"--}}
-{{--                        >--}}
-{{--                    </div>--}}
+                    <p>{!! $filteredRule->getDescription() !!}</p>
 
                     <div class="row mt-3 mb-2">
                         <div class="col-12 filter-code-sample">
