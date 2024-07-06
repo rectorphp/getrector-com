@@ -15,25 +15,6 @@ use PhpParser\PrettyPrinter\Standard;
 final class RectorConfigStmtsPrinter extends Standard
 {
     /**
-     * Print modern array with 1 item per line
-     */
-    protected function pExpr_Array(Array_ $node) {
-        return '[' . $this->pCommaSeparatedMultiline($node->items, true) . $this->nl . ']';
-    }
-
-    /**
-     * Always newline array items
-     */
-    protected function pMaybeMultiline(array $nodes, bool $trailingComma = false) {
-        if (!$this->hasNodeWithComments($nodes)) {
-            return $this->pCommaSeparated($nodes);
-        } else {
-            return $this->pCommaSeparatedMultiline($nodes, $trailingComma) . $this->nl;
-        }
-    }
-
-
-    /**
      * @param Stmt[] $stmts
      */
     public function print(array $stmts): string
@@ -44,12 +25,16 @@ final class RectorConfigStmtsPrinter extends Standard
         $contents = Strings::replace($contents, '#configure\(\)#', 'configure()' . PHP_EOL . '    ');
 
         // indent array better
-        $contents = Strings::replace(
-            $contents,
-            '#\[\n(.*?)\n\]#ms',
-            '[' . PHP_EOL . '    $1' . PHP_EOL . '    ]',
-        );
+        $contents = Strings::replace($contents, '#\[\n(.*?)\n\]#ms', '[' . PHP_EOL . '    $1' . PHP_EOL . '    ]');
 
         return $contents . PHP_EOL;
+    }
+
+    /**
+     * Print modern array with 1 item per line
+     */
+    protected function pExpr_Array(Array_ $array): string
+    {
+        return '[' . $this->pCommaSeparatedMultiline($array->items, true) . $this->nl . ']';
     }
 }
