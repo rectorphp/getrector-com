@@ -85,7 +85,7 @@ final class NodeTypeToHumanReadable
             'Trait' => [Trait_::class, TraitUse::class],
             'Enum' => [Enum_::class, EnumCase::class],
         ],
-        'Class elements' => [
+        'Class Elements' => [
             'Constant' => [ClassConst::class, ClassConstFetch::class],
             'Property' => [Property::class, PropertyFetch::class, StaticPropertyFetch::class],
             'Method' => [ClassMethod::class],
@@ -93,62 +93,50 @@ final class NodeTypeToHumanReadable
         'Function-likes' => [
             'Functions' => [Function_::class],
             'Closures & Arrow functions' => [Closure::class, ArrowFunction::class],
-            'Parameter' => [Param::class],
+            'Parameter & Argument' => [Param::class, Arg::class],
         ],
         'Globals' => [
             'Include & Require' => [Include_::class],
             'Constants' => [Const_::class, ConstFetch::class],
         ],
         'Calls' => [
-            'Method calls' => [MethodCall::class],
+            'Method calls' => [MethodCall::class, NullsafeMethodCall::class],
             'Static calls' => [StaticCall::class],
             'Function calls' => [FuncCall::class],
-            'Argument' => [Arg::class],
-            'Nullsafe method call' => [NullsafeMethodCall::class],
             'New instance' => [New_::class],
         ],
-        'Operations' => [
-            'Binary (+, -, /...)' => [BinaryOp::class],
-            'Assign (+=, -=...)' => [AssignOp::class],
-        ],
-        'Scalars' => [
-            'String' => [String_::class],
-            'Decimal number' => [LNumber::class],
-            'Float number' => [DNumber::class],
+        'Assigns & Values' => [
+            'Assignment' => [Assign::class],
+            'Variable' => [Variable::class],
+            'Scalar Values' => [String_::class, Encapsed::class, LNumber::class, DNumber::class],
             'Casts' => [Cast::class],
-            'Encapsed string' => [Encapsed::class],
         ],
-        'Conditions' => [
+        'Code Structures' => [
             'If' => [If_::class, Else_::class, ElseIf_::class],
             'Ternary' => [Ternary::class],
-        ],
-        'Loops' => [
-            'While & do' => [While_::class, Do_::class],
+            'While & Do' => [While_::class, Do_::class],
             'Foreach' => [Foreach_::class],
             'For' => [For_::class],
+            'Break & Continue' => [Break_::class, Continue_::class],
+            'Switch' => [Switch_::class],
+            'Try-catch' => [TryCatch::class, Catch_::class],
         ],
         'Arrays' => [
-            'Array' => [Array_::class, ArrayItem::class],
-            'Array dim fetch' => [ArrayDimFetch::class],
-            'List' => [List_::class],
+            'Array' => [Array_::class, ArrayItem::class, ArrayDimFetch::class, List_::class],
             'Unset/isset' => [Unset_::class, Isset_::class, Empty_::class],
-        ],
-        'Try' => [
-            'Switch' => [Switch_::class],
-            'Break statement' => [Break_::class],
-            'Try-catch statement' => [TryCatch::class, Catch_::class],
-            'Continue statement' => [Continue_::class],
         ],
         'Namespace' => [
             'Namespace-less' => [FileWithoutNamespace::class],
             'Namespace' => [Namespace_::class],
         ],
-        'Rest' => [
-            'Assignment' => [Assign::class],
-            'Variable' => [Variable::class],
-            'Fully qualified name' => [FullyQualified::class],
+        'Others' => [
+            'Fully Qualified name' => [FullyQualified::class],
             'Expression' => [Expression::class],
             'Statement array' => [StmtsAwareInterface::class],
+        ],
+        'Operations' => [
+            'Binary (+, -, /...)' => [BinaryOp::class],
+            'Assign (+=, -=...)' => [AssignOp::class],
         ],
     ];
 }

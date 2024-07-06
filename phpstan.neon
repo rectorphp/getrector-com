@@ -1,13 +1,12 @@
 parameters:
     paths:
-        - bootstrap
+        - bootstrap/app.php
         - src
         - tests
 
     excludePaths:
         - */Fixture/*
         - */Expected/*
-        - bootstrap/cache/*
         # generated and slow
         - src/Ast/PhpParser/ClickablePrinter.php
 
