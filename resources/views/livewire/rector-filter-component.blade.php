@@ -17,14 +17,8 @@
             <!-- @see https://livewire.laravel.com/docs/wire-model#customizing-the-debounce -->
 
             @if ($isFilterActive)
-<<<<<<< HEAD
-                <a href="{{ action(\App\Controller\FindRuleController::class) }}"
-                   class="ms-2">Clear</a>
-=======
-                <a href="{{ action(\App\Controller\FilterRectorController::class) }}" class="ms-2">Clear</a>
->>>>>>> c75071ae (spacing)
+                <a href="{{ action(\App\Controller\FindRuleController::class) }}" class="ms-2">Clear</a>
             @endif
-
         </div>
         <div class="col-12 col-md-5 mb-3">
             <label for="node_type">Element to change:</label>
@@ -78,15 +72,8 @@
             >
                 <div class="card-body pt-0 pb-3 ps-4 pe-4">
                     <div style="float: right" class="mt-4">
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> d45f16c1 (allow to use multiple nodes in node filter to ease)
                         <a href="{{ action(\App\Controller\RuleDetailController::class, ['slug' => $filteredRule->getSlug()]) }}">Rule detail</a>
 
->>>>>>> c75071ae (spacing)
                         @if ($filteredRule->isConfigurable())
                             <span class="ms-3 mt-4">
                                 <span class="badge bg-primary">Configurable</span>
