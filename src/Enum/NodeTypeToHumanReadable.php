@@ -50,6 +50,7 @@ use PhpParser\Node\Stmt\Do_;
 use PhpParser\Node\Stmt\Else_;
 use PhpParser\Node\Stmt\ElseIf_;
 use PhpParser\Node\Stmt\Enum_;
+use PhpParser\Node\Stmt\EnumCase;
 use PhpParser\Node\Stmt\Expression;
 use PhpParser\Node\Stmt\For_;
 use PhpParser\Node\Stmt\Foreach_;
@@ -81,19 +82,17 @@ final class NodeTypeToHumanReadable
         'Class-likes' => [
             'Class' => [Class_::class],
             'Interface' => [Interface_::class],
-            'Trait' => [Trait_::class],
-            'Enum' => [Enum_::class],
+            'Trait' => [Trait_::class, TraitUse::class],
+            'Enum' => [Enum_::class, EnumCase::class],
         ],
         'Class elements' => [
             'Constant' => [ClassConst::class, ClassConstFetch::class],
             'Property' => [Property::class, PropertyFetch::class, StaticPropertyFetch::class],
             'Method' => [ClassMethod::class],
-            'Trait use' => [TraitUse::class],
         ],
         'Function-likes' => [
             'Functions' => [Function_::class],
-            'Closures' => [Closure::class],
-            'Arrow functions' => [ArrowFunction::class],
+            'Closures & Arrow functions' => [Closure::class, ArrowFunction::class],
             'Parameter' => [Param::class],
         ],
         'Globals' => [
