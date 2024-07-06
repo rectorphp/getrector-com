@@ -102,7 +102,7 @@ Enable in `phpstan.neon`:
 
 ```yaml
 parameters:
-    type_coverage:
+    type_perfect:
         null_over_false: true
 ```
 
@@ -148,7 +148,7 @@ Enable in `phpstan.neon`:
 
 ```yaml
 parameters:
-    type_coverage:
+    type_perfect:
         no_mixed: true
 ```
 
@@ -195,7 +195,7 @@ Enable in `phpstan.neon`:
 
 ```yaml
 parameters:
-    type_coverage:
+    type_perfect:
         narrow_param: true
 ```
 
