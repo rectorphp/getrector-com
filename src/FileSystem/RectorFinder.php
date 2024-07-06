@@ -24,6 +24,17 @@ final class RectorFinder
     /**
      * @return RuleMetadata[]
      */
+    public function findCommunity(): array
+    {
+        // find community ones
+        // install rector-laravel locally
+        // load it  :)
+        return [];
+    }
+
+    /**
+     * @return RuleMetadata[]
+     */
     public function findCore(): array
     {
         $rectorSets = $this->rectorSetsTreeProvider->provide();

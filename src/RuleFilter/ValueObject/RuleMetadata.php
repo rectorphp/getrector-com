@@ -52,6 +52,7 @@ final class RuleMetadata
 
     public function getDescription(): string
     {
+        // change `some` to <code>some</code>
         return Strings::replace($this->description, '#`(.*?)`#', '<code>$1</code>');
     }
 

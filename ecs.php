@@ -2,10 +2,12 @@
 
 declare(strict_types=1);
 
+use Symplify\CodingStandard\Fixer\LineLength\LineLengthFixer;
 use Symplify\EasyCodingStandard\Config\ECSConfig;
 
 return ECSConfig::configure()
     ->withPaths([__DIR__ . '/src', __DIR__ . '/tests'])
     ->withRootFiles()
+    ->withRules([LineLengthFixer::class])
     ->withPreparedSets(psr12: true, common: true, symplify: true)
-    ->withSkip([__DIR__ . '/config/bundles.php', '*/Fixture/*', '*/Expected/*']);
+    ->withSkip(['*/Fixture/*', '*/Expected/*', __DIR__ . '/_ide_helper.php', __DIR__ . '/_ide_helper_models.php']);
