@@ -24,7 +24,7 @@
 
                     <h2 class="mb-4 mt-4">{{ $page_title }}</h2>
 
-                <p>{{ $ruleMetadata->getDescription() }}</p>
+                <p>{!! $ruleMetadata->getDescription() !!}</p>
 
                 <div class="row mt-3 mb-2">
                     @if ($ruleMetadata->isConfigurable())

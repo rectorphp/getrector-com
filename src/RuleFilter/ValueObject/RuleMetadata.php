@@ -9,6 +9,7 @@ use App\RuleFilter\ConfiguredDiffSamplesFactory;
 use App\RuleFilter\Markdown\MarkdownDiffer;
 use App\RuleFilter\PhpParser\NodeFactory\RectorConfigFactory;
 use App\RuleFilter\PhpParser\Printer\RectorConfigStmtsPrinter;
+use Nette\Utils\Strings;
 use PhpParser\Node;
 use Rector\Contract\Rector\ConfigurableRectorInterface;
 use Rector\Contract\Rector\RectorInterface;
@@ -51,7 +52,7 @@ final class RuleMetadata
 
     public function getDescription(): string
     {
-        return $this->description;
+        return Strings::replace($this->description, '#`(.*?)`#', '<code>$1</code>');
     }
 
     /**
