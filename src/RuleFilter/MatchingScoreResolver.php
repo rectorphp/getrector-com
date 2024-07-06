@@ -13,6 +13,17 @@ final class MatchingScoreResolver
     {
         $score = 0;
 
+        // possible Rector class name search
+        if (substr_count($query, ' ') === 0 && str_ends_with($query, 'Rector')) {
+            if ($ruleMetadata->getRectorClass() === $query) {
+                return 20;
+            }
+
+            if ($ruleMetadata->getRuleShortClass() === $query) {
+                return 10;
+            }
+        }
+
         // resolv equery parts
         $queryParts = Strings::split($query, '#\s+#');
         $queryParts = array_map('strtolower', $queryParts);

@@ -15,8 +15,6 @@ final class ErrorMessageNormalizerTest extends AbstractTestCase
 
     protected function setUp(): void
     {
-        parent::setUp();
-
         $this->errorMessageNormalizer = $this->make(ErrorMessageNormalizer::class);
     }
 

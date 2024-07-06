@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\RuleFilter\PhpParser\NodeFactory;
 
+use App\RuleFilter\PhpParser\NodeVisitor\ConstantToValueNodeVisitor;
 use App\RuleFilter\PhpParser\NodeVisitor\NameImportingNodeVisitor;
 use PhpParser\Node\Arg;
 use PhpParser\Node\Expr;
@@ -30,6 +31,12 @@ final class RectorConfigFactory
     public function createConfigured(string $ruleClass, Expr $configurationExpr): array
     {
         $args = [new Arg($this->createRuleClassConstFetch($ruleClass)), new Arg($configurationExpr)];
+
+        // change constant values in args to direct strings
+        $nodeTraverser = new NodeTraverser();
+        $constantToValueNodeVisitor = new ConstantToValueNodeVisitor($ruleClass);
+        $nodeTraverser->addVisitor($constantToValueNodeVisitor);
+        $nodeTraverser->traverse($args);
 
         $withConfiguredMethodCall = new MethodCall($this->createConfigureStaticCall(), 'withConfiguredRule', $args);
         $return = new Return_($withConfiguredMethodCall);

@@ -40,7 +40,7 @@
                             </div>
 
                             @if (!$loop->last)
-                                <hr>
+                                <hr class="mb-5 mt-4">
                             @endif
                         @endforeach
                     @else
