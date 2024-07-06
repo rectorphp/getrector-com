@@ -71,7 +71,9 @@
             >
                 <div class="card-body pt-0 pb-3 ps-4 pe-4">
                     <div style="float: right" class="mt-4">
-                        <a href="{{ action(\App\Controller\RuleDetailController::class, ['slug' => $filteredRule->getSlug()]) }}">Rule detail</a>
+                        @env('dev')
+                            <a href="{{ action(\App\Controller\RuleDetailController::class, ['slug' => $filteredRule->getSlug()]) }}">Rule detail</a>
+                        @endenv
 
                         @if ($filteredRule->isConfigurable())
                             <span class="ms-3 mt-4">
