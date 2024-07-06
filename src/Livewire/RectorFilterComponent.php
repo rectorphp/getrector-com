@@ -42,7 +42,10 @@ final class RectorFilterComponent extends Component
         $ruleMetadatas = $rectorFinder->findCore();
 
         // wip
-        $rectorFinder->findCommunity();
+        $communityRectors = $rectorFinder->findCommunity();
+
+        dump($communityRectors);
+        die;
 
         // to trigger event in component javascript
         $this->dispatch(ComponentEvent::RULES_FILTERED);

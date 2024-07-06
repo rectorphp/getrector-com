@@ -16,6 +16,16 @@ use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
 
 final class RectorFinder
 {
+    /**
+     * @var string[]
+     */
+    private const CORE_DIRECTORIES = [
+        __DIR__ . '/../../vendor/rector/rector/rules',
+        __DIR__ . '/../../vendor/rector/rector/vendor/rector/rector-symfony/rules',
+        __DIR__ . '/../../vendor/rector/rector/vendor/rector/rector-phpunit/rules',
+        __DIR__ . '/../../vendor/rector/rector/vendor/rector/rector-doctrine/rules',
+    ];
+
     public function __construct(
         private readonly RectorSetsTreeProvider $rectorSetsTreeProvider,
     ) {
@@ -26,6 +36,15 @@ final class RectorFinder
      */
     public function findCommunity(): array
     {
+        // @see https://github.com/driftingly/rector-laravel
+        // clone... parse... dump json serialized?
+        $comunityDirectory = __DIR__ . '/../../community-repository/laravel';
+
+        $laravelRectorClasses = $this->findRectorClasses([$comunityDirectory]);
+
+        dump($laravelRectorClasses);
+        die;
+
         // find community ones
         // install rector-laravel locally
         // load it  :)
@@ -42,7 +61,7 @@ final class RectorFinder
         // 1. find all rector rules
         $ruleMetadatas = [];
 
-        foreach ($this->findRectorClasses() as $rectorClass) {
+        foreach ($this->findRectorClasses(self::CORE_DIRECTORIES) as $rectorClass) {
             $rectorReflectionClass = new ReflectionClass($rectorClass);
             if ($rectorReflectionClass->isAbstract()) {
                 continue;
@@ -96,16 +115,12 @@ final class RectorFinder
     /**
      * @return array<class-string<RectorInterface>>
      */
-    private function findRectorClasses(): array
+    private function findRectorClasses(array $directories): array
     {
         $robotLoader = new RobotLoader();
 
         // note: skip downgrade on purpose, as not likely to be used explicitly but as part of set
-        $robotLoader->addDirectory(__DIR__ . '/../../vendor/rector/rector/rules');
-        $robotLoader->addDirectory(__DIR__ . '/../../vendor/rector/rector/vendor/rector/rector-symfony/rules');
-        $robotLoader->addDirectory(__DIR__ . '/../../vendor/rector/rector/vendor/rector/rector-phpunit/rules');
-        $robotLoader->addDirectory(__DIR__ . '/../../vendor/rector/rector/vendor/rector/rector-doctrine/rules');
-
+        $robotLoader->addDirectory(...$directories);
         $robotLoader->acceptFiles = ['*Rector.php'];
         $robotLoader->setTempDirectory(\sys_get_temp_dir() . '/dump-rector');
         $robotLoader->rebuild();
