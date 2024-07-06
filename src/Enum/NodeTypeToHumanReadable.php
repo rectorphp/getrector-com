@@ -6,6 +6,7 @@ namespace App\Enum;
 
 use PhpParser\Node;
 use PhpParser\Node\Arg;
+use PhpParser\Node\Attribute;
 use PhpParser\Node\AttributeGroup;
 use PhpParser\Node\Expr\Array_;
 use PhpParser\Node\Expr\ArrayDimFetch;
@@ -43,6 +44,7 @@ use PhpParser\Node\Stmt\Catch_;
 use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\ClassConst;
 use PhpParser\Node\Stmt\ClassMethod;
+use PhpParser\Node\Stmt\Const_;
 use PhpParser\Node\Stmt\Continue_;
 use PhpParser\Node\Stmt\Do_;
 use PhpParser\Node\Stmt\Else_;
@@ -70,94 +72,84 @@ use Rector\PhpParser\Node\CustomNode\FileWithoutNamespace;
 final class NodeTypeToHumanReadable
 {
     /**
-     * @var array<string, array<class-string<Node>, string>>
+     * @var array<string, array<string, array<class-string<Node>>>>
      */
     public const SELECT_ITEMS_BY_GROUP = [
         'Modern' => [
-            AttributeGroup::class => 'Attributes',
+            'Attributes' => [AttributeGroup::class, Attribute::class],
         ],
         'Class-likes' => [
-            Class_::class => 'Class',
-            Interface_::class => 'Interface',
-            Trait_::class => 'Trait',
-            Enum_::class => 'Enum',
+            'Class' => [Class_::class],
+            'Interface' => [Interface_::class],
+            'Trait' => [Trait_::class],
+            'Enum' => [Enum_::class],
         ],
         'Class elements' => [
-            ClassConst::class => 'Constant',
-            Property::class => 'Property',
-            ClassMethod::class => 'Method',
-            TraitUse::class => 'Trait use',
+            'Constant' => [ClassConst::class, ClassConstFetch::class],
+            'Property' => [Property::class, PropertyFetch::class, StaticPropertyFetch::class],
+            'Method' => [ClassMethod::class],
+            'Trait use' => [TraitUse::class],
         ],
         'Function-likes' => [
-            Function_::class => 'Functions',
-            ArrowFunction::class => 'Arrow functions',
-            Closure::class => 'Closures',
-            Param::class => 'Parameter',
+            'Functions' => [Function_::class],
+            'Closures' => [Closure::class],
+            'Arrow functions' => [ArrowFunction::class],
+            'Parameter' => [Param::class],
         ],
-        'Fetches' => [
-            PropertyFetch::class => 'Property fetch',
-            StaticPropertyFetch::class => 'Static property fetch',
-            ClassConstFetch::class => 'Class constant fetch',
-            ConstFetch::class => 'Constant fetch',
+        'Globals' => [
+            'Include & Require' => [Include_::class],
+            'Constants' => [Const_::class, ConstFetch::class],
         ],
         'Calls' => [
-            MethodCall::class => 'Method calls',
-            StaticCall::class => 'Static calls',
-            FuncCall::class => 'Function calls',
-            Arg::class => 'argument',
-            NullsafeMethodCall::class => 'Nullsafe method call',
-            New_::class => 'New instance',
+            'Method calls' => [MethodCall::class],
+            'Static calls' => [StaticCall::class],
+            'Function calls' => [FuncCall::class],
+            'Argument' => [Arg::class],
+            'Nullsafe method call' => [NullsafeMethodCall::class],
+            'New instance' => [New_::class],
         ],
         'Operations' => [
-            BinaryOp::class => 'Binary (+, -, /...)',
-            AssignOp::class => 'Assign (+=, -=...)',
+            'Binary (+, -, /...)' => [BinaryOp::class],
+            'Assign (+=, -=...)' => [AssignOp::class],
         ],
         'Scalars' => [
-            String_::class => 'String',
-            LNumber::class => 'Decimal number',
-            DNumber::class => 'Float number',
-            Cast::class => 'Casts',
-            Encapsed::class => 'Encapsed string',
+            'String' => [String_::class],
+            'Decimal number' => [LNumber::class],
+            'Float number' => [DNumber::class],
+            'Casts' => [Cast::class],
+            'Encapsed string' => [Encapsed::class],
         ],
         'Conditions' => [
-            If_::class => 'If',
-            ElseIf_::class => 'Elseif',
-            Else_::class => 'Else',
-            Ternary::class => 'Ternary',
+            'If' => [If_::class, Else_::class, ElseIf_::class],
+            'Ternary' => [Ternary::class],
         ],
         'Loops' => [
-            While_::class => 'While',
-            Do_::class => 'Do',
-            Foreach_::class => 'Foreach',
-            For_::class => 'For',
+            'While & do' => [While_::class, Do_::class],
+            'Foreach' => [Foreach_::class],
+            'For' => [For_::class],
         ],
         'Arrays' => [
-            Array_::class => 'Array',
-            ArrayItem::class => 'Array item',
-            ArrayDimFetch::class => 'Array dimension fetch',
-            List_::class => 'List',
-            Unset_::class => 'Unset',
-            Isset_::class => 'Isset',
-            Empty_::class => 'Empty',
+            'Array' => [Array_::class, ArrayItem::class],
+            'Array dim fetch' => [ArrayDimFetch::class],
+            'List' => [List_::class],
+            'Unset/isset' => [Unset_::class, Isset_::class, Empty_::class],
         ],
         'Try' => [
-            Switch_::class => 'Switch',
-            Break_::class => 'Break statement',
-            TryCatch::class => 'Try-catch statement',
-            Catch_::class => 'Catch statement',
-            Continue_::class => 'continue statement',
+            'Switch' => [Switch_::class],
+            'Break statement' => [Break_::class],
+            'Try-catch statement' => [TryCatch::class, Catch_::class],
+            'Continue statement' => [Continue_::class],
         ],
         'Namespace' => [
-            FileWithoutNamespace::class => 'Namespace-less',
-            Namespace_::class => 'Namespace',
-            Include_::class => 'Include',
+            'Namespace-less' => [FileWithoutNamespace::class],
+            'Namespace' => [Namespace_::class],
         ],
         'Rest' => [
-            Assign::class => 'Assignment',
-            Variable::class => 'Variable',
-            FullyQualified::class => 'Fully qualified name',
-            Expression::class => 'Expression',
-            StmtsAwareInterface::class => 'Statement array',
+            'Assignment' => [Assign::class],
+            'Variable' => [Variable::class],
+            'Fully qualified name' => [FullyQualified::class],
+            'Expression' => [Expression::class],
+            'Statement array' => [StmtsAwareInterface::class],
         ],
     ];
 }

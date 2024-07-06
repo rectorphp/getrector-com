@@ -29,8 +29,8 @@
 
                 @foreach (\App\Enum\NodeTypeToHumanReadable::SELECT_ITEMS_BY_GROUP as $groupName => $nodeTypesToNames)
                     <optgroup label="{{ $groupName }}">
-                        @foreach ($nodeTypesToNames as $optionValue => $optionName)
-                            <option value="{{ $optionValue }}">{{ $optionName }}</option>
+                        @foreach ($nodeTypesToNames as $optionName => $nodeTypes)
+                            <option value="{{ slugify($optionName) }}">{{ $optionName }}</option>
                         @endforeach
                     </optgroup>
                 @endforeach
@@ -71,11 +71,7 @@
             >
                 <div class="card-body pt-0 pb-3 ps-4 pe-4">
                     <div style="float: right" class="mt-4">
-<<<<<<< HEAD
                         <a href="{{ action(\App\Controller\RuleDetailController::class, ['slug' => $filteredRule->getSlug()]) }}">Rule detail</a>
-=======
-                        <a href="{{ action(\App\Controller\RuleDetailController::class, ['slug' => $filteredRule->getSlug()]) }}" class="btn btn-success">Rule detail</a>
->>>>>>> 3a2330b (spacing)
 
                         @if ($filteredRule->isConfigurable())
                             <span class="ms-3 mt-4">

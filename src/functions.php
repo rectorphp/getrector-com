@@ -8,6 +8,12 @@ use App\Enum\FlashType;
 use Illuminate\Http\RedirectResponse;
 use League\CommonMark\GithubFlavoredMarkdownConverter;
 
+function slugify(string $value): string
+{
+    return str($value)->slug()
+        ->value();
+}
+
 function markdown(string $contents): Stringable
 {
     $markdownConverter = new GithubFlavoredMarkdownConverter([

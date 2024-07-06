@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\RuleFilter;
 
+use App\Enum\NodeTypeToHumanReadable;
 use App\RuleFilter\ValueObject\RuleMetadata;
-use PhpParser\Node;
 
 final class RuleFilter
 {
@@ -21,7 +21,6 @@ final class RuleFilter
 
     /**
      * @param RuleMetadata[] $ruleMetadatas
-     * @param class-string<Node>|null $nodeType
      * @return RuleMetadata[]
      */
     public function filter(array $ruleMetadatas, ?string $query, ?string $nodeType, ?string $set): array
@@ -38,15 +37,24 @@ final class RuleFilter
      * @param RuleMetadata[] $ruleMetadatas
      * @return RuleMetadata[]
      */
-    private function filterByNodeTypeFirst(array $ruleMetadatas, ?string $nodeType): array
+    private function filterByNodeTypeFirst(array $ruleMetadatas, ?string $nodeTypeSlug): array
     {
-        if ($nodeType === null || ! is_a($nodeType, Node::class, true)) {
+        if ($nodeTypeSlug === null || $nodeTypeSlug === '') {
+            return $ruleMetadatas;
+        }
+
+        // convert slug to node types
+        $matchedNodeTypes = $this->matchNodeTypesBySlug($nodeTypeSlug);
+        if ($matchedNodeTypes === null) {
             return $ruleMetadatas;
         }
 
         return array_filter(
             $ruleMetadatas,
-            fn (RuleMetadata $ruleMetadata): bool => in_array($nodeType, $ruleMetadata->getNodeTypes())
+            fn (RuleMetadata $ruleMetadata): bool => array_intersect(
+                $matchedNodeTypes,
+                $ruleMetadata->getNodeTypes()
+            ) !== []
         );
     }
 
@@ -94,5 +102,20 @@ final class RuleFilter
         }
 
         return array_filter($ruleMetadatas, fn (RuleMetadata $ruleMetadata): bool => $ruleMetadata->isInSet($set));
+    }
+
+    private function matchNodeTypesBySlug(string $nodeTypeSlug): mixed
+    {
+        foreach (NodeTypeToHumanReadable::SELECT_ITEMS_BY_GROUP as $nodeTypesToNames) {
+            foreach ($nodeTypesToNames as $label => $nodeTypes) {
+                if (slugify($label) !== $nodeTypeSlug) {
+                    continue;
+                }
+
+                return $nodeTypes;
+            }
+        }
+
+        return null;
     }
 }

@@ -12,7 +12,6 @@ use App\Sets\RectorSetsTreeProvider;
 use Illuminate\View\View;
 use Livewire\Attributes\Url;
 use Livewire\Component;
-use PhpParser\Node;
 
 final class RectorFilterComponent extends Component
 {
@@ -33,9 +32,6 @@ final class RectorFilterComponent extends Component
     #[Url]
     public ?string $set = null;
 
-    /**
-     * @var class-string<Node>|null
-     */
     #[Url]
     public ?string $nodeType = null;
 
@@ -44,6 +40,9 @@ final class RectorFilterComponent extends Component
         /** @var RectorFinder $rectorFinder */
         $rectorFinder = app(RectorFinder::class);
         $ruleMetadatas = $rectorFinder->findCore();
+
+        // wip
+        $rectorFinder->findCommunity();
 
         // to trigger event in component javascript
         $this->dispatch(ComponentEvent::RULES_FILTERED);
