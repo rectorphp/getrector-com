@@ -7,14 +7,14 @@
 <div>
     <div class="row">
         <div class="col-12 col-md-4 mb-3">
-{{--            <input--}}
-{{--                placeholder="Type to start searching a rule"--}}
-{{--                type="text"--}}
-{{--                class="form-control d-inline"--}}
-{{--                style="width: 14em"--}}
-{{--                wire:model.live.debounce.300ms="query"--}}
-{{--            >--}}
-{{--            <!-- @see https://livewire.laravel.com/docs/wire-model#customizing-the-debounce -->--}}
+            <input
+                placeholder="Type to start searching a rule"
+                type="text"
+                class="form-control d-inline"
+                style="width: 14em"
+                wire:model.live.debounce.300ms="query"
+            >
+            <!-- @see https://livewire.laravel.com/docs/wire-model#customizing-the-debounce -->
 
             @if ($isFilterActive)
                 &nbsp;
