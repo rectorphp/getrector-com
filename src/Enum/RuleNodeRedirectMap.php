@@ -23,6 +23,7 @@ use Rector\Php82\Rector\Param\AddSensitiveParameterAttributeRector;
 use Rector\Php83\Rector\ClassConst\AddTypeToConstRector;
 use Rector\Php83\Rector\ClassMethod\AddOverrideAttributeToOverriddenMethodsRector;
 use Rector\Removing\Rector\Class_\RemoveTraitUseRector;
+use Rector\Transform\Rector\Attribute\AttributeKeyToClassConstFetchRector;
 use Rector\Transform\Rector\ClassMethod\ReturnTypeWillChangeRector;
 use Rector\TypeDeclaration\Rector\Class_\TypedPropertyFromJMSSerializerAttributeTypeRector;
 
@@ -40,6 +41,7 @@ final class RuleNodeRedirectMap
     public const MAP = [
         AddTypeToConstRector::class => [ClassConst::class],
         // attributes
+        AttributeKeyToClassConstFetchRector::class => [AttributeGroup::class],
         AnnotationToAttributeRector::class => [AttributeGroup::class],
         ReturnTypeWillChangeRector::class => [AttributeGroup::class],
         NestedAnnotationToAttributeRector::class => [AttributeGroup::class],
