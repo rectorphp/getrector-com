@@ -82,6 +82,8 @@ final class NodeTypeToHumanReadable
         'Class-likes' => [
             'Class' => [Class_::class],
             'Interface' => [Interface_::class],
+<<<<<<< HEAD
+<<<<<<< HEAD
             'Trait' => [Trait_::class, TraitUse::class],
             'Enum' => [Enum_::class, EnumCase::class],
         ],
@@ -94,12 +96,31 @@ final class NodeTypeToHumanReadable
             'Functions' => [Function_::class],
             'Closures & Arrow functions' => [Closure::class, ArrowFunction::class],
             'Parameter & Argument' => [Param::class, Arg::class],
+=======
+            'Trait' => [Trait_::class],
+            'Enum' => [Enum_::class],
+=======
+            'Trait' => [Trait_::class, TraitUse::class],
+            'Enum' => [Enum_::class, EnumCase::class],
+>>>>>>> bf6679c2 (group more)
+        ],
+        'Class elements' => [
+            'Constant' => [ClassConst::class, ClassConstFetch::class],
+            'Property' => [Property::class, PropertyFetch::class, StaticPropertyFetch::class],
+            'Method' => [ClassMethod::class],
+        ],
+        'Function-likes' => [
+            'Functions' => [Function_::class],
+            'Closures & Arrow functions' => [Closure::class, ArrowFunction::class],
+            'Parameter' => [Param::class],
+>>>>>>> d45f16c1 (allow to use multiple nodes in node filter to ease)
         ],
         'Globals' => [
             'Include & Require' => [Include_::class],
             'Constants' => [Const_::class, ConstFetch::class],
         ],
         'Calls' => [
+<<<<<<< HEAD
             'Method calls' => [MethodCall::class, NullsafeMethodCall::class],
             'Static calls' => [StaticCall::class],
             'Function calls' => [FuncCall::class],
@@ -124,11 +145,52 @@ final class NodeTypeToHumanReadable
         'Arrays' => [
             'Array' => [Array_::class, ArrayItem::class, ArrayDimFetch::class, List_::class],
             'Unset/isset' => [Unset_::class, Isset_::class, Empty_::class],
+=======
+            'Method calls' => [MethodCall::class],
+            'Static calls' => [StaticCall::class],
+            'Function calls' => [FuncCall::class],
+            'Argument' => [Arg::class],
+            'Nullsafe method call' => [NullsafeMethodCall::class],
+            'New instance' => [New_::class],
+        ],
+        'Operations' => [
+            'Binary (+, -, /...)' => [BinaryOp::class],
+            'Assign (+=, -=...)' => [AssignOp::class],
+        ],
+        'Scalars' => [
+            'String' => [String_::class],
+            'Decimal number' => [LNumber::class],
+            'Float number' => [DNumber::class],
+            'Casts' => [Cast::class],
+            'Encapsed string' => [Encapsed::class],
+        ],
+        'Conditions' => [
+            'If' => [If_::class, Else_::class, ElseIf_::class],
+            'Ternary' => [Ternary::class],
+        ],
+        'Loops' => [
+            'While & do' => [While_::class, Do_::class],
+            'Foreach' => [Foreach_::class],
+            'For' => [For_::class],
+        ],
+        'Arrays' => [
+            'Array' => [Array_::class, ArrayItem::class],
+            'Array dim fetch' => [ArrayDimFetch::class],
+            'List' => [List_::class],
+            'Unset/isset' => [Unset_::class, Isset_::class, Empty_::class],
+        ],
+        'Try' => [
+            'Switch' => [Switch_::class],
+            'Break statement' => [Break_::class],
+            'Try-catch statement' => [TryCatch::class, Catch_::class],
+            'Continue statement' => [Continue_::class],
+>>>>>>> d45f16c1 (allow to use multiple nodes in node filter to ease)
         ],
         'Namespace' => [
             'Namespace-less' => [FileWithoutNamespace::class],
             'Namespace' => [Namespace_::class],
         ],
+<<<<<<< HEAD
         'Others' => [
             'Fully Qualified name' => [FullyQualified::class],
             'Expression' => [Expression::class],
@@ -137,6 +199,14 @@ final class NodeTypeToHumanReadable
         'Operations' => [
             'Binary (+, -, /...)' => [BinaryOp::class],
             'Assign (+=, -=...)' => [AssignOp::class],
+=======
+        'Rest' => [
+            'Assignment' => [Assign::class],
+            'Variable' => [Variable::class],
+            'Fully qualified name' => [FullyQualified::class],
+            'Expression' => [Expression::class],
+            'Statement array' => [StmtsAwareInterface::class],
+>>>>>>> d45f16c1 (allow to use multiple nodes in node filter to ease)
         ],
     ];
 }

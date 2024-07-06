@@ -5,7 +5,10 @@ declare(strict_types=1);
 namespace App\RuleFilter;
 
 use App\Enum\NodeTypeToHumanReadable;
+<<<<<<< HEAD
 use App\RuleFilter\Enum\MagicSearch;
+=======
+>>>>>>> d45f16c1 (allow to use multiple nodes in node filter to ease)
 use App\RuleFilter\ValueObject\RuleMetadata;
 
 final class RuleFilter
@@ -140,6 +143,7 @@ final class RuleFilter
 
         return null;
     }
+<<<<<<< HEAD
 
     /**
      * @param RuleMetadata[] $ruleMetadatas
@@ -168,4 +172,6 @@ final class RuleFilter
             fn (RuleMetadata $ruleMetadata): bool => str_starts_with($ruleMetadata->getRectorClass(), $namespaceStart)
         );
     }
+=======
+>>>>>>> d45f16c1 (allow to use multiple nodes in node filter to ease)
 }

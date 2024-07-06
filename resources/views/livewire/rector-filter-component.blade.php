@@ -79,12 +79,12 @@
                 <div class="card-body pt-0 pb-3 ps-4 pe-4">
                     <div style="float: right" class="mt-4">
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
-                        <a href="{{ action(\App\Controller\RuleDetailController::class, ['slug' => $filteredRule->getSlug()]) }}">Rule detail</a>
 =======
-                        <a href="{{ action(\App\Controller\RuleDetailController::class, ['slug' => $filteredRule->getSlug()]) }}" class="btn btn-success">Rule detail</a>
->>>>>>> 3a2330b (spacing)
+>>>>>>> d45f16c1 (allow to use multiple nodes in node filter to ease)
+                        <a href="{{ action(\App\Controller\RuleDetailController::class, ['slug' => $filteredRule->getSlug()]) }}">Rule detail</a>
 
 >>>>>>> c75071ae (spacing)
                         @if ($filteredRule->isConfigurable())

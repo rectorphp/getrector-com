@@ -8,11 +8,14 @@ use App\Enum\FlashType;
 use Illuminate\Http\RedirectResponse;
 use League\CommonMark\GithubFlavoredMarkdownConverter;
 
+<<<<<<< HEAD
 function latestPhp(): string
 {
     return '8.3';
 }
 
+=======
+>>>>>>> d45f16c1 (allow to use multiple nodes in node filter to ease)
 function slugify(string $value): string
 {
     return str($value)->slug()
