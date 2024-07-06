@@ -36,8 +36,7 @@ final readonly class ConfiguredDiffSamplesFactory
         Assert::fileExists($filePath);
 
         $stmts = $this->simplePhpParser->parseFile($filePath);
-
-        $configuredCodeSampleNews = $this->configConfiguredCodeSampleNews($stmts);
+        $configuredCodeSampleNews = $this->resolveConfiguredCodeSampleNews($stmts);
 
         $configuredDiffSamples = [];
 
@@ -59,7 +58,7 @@ final readonly class ConfiguredDiffSamplesFactory
      * @param Stmt[] $stmts
      * @return New_[]
      */
-    private function configConfiguredCodeSampleNews(array $stmts): array
+    private function resolveConfiguredCodeSampleNews(array $stmts): array
     {
         $nodeFinder = new NodeFinder();
 
