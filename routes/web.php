@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use App\Controller\CodebaseRenovationController;
+use App\Controller\Demo\CustomRuleDetailController;
 use App\Ast\Controller\AstController;
 use App\Ast\Controller\AstDetailController;
 use App\Ast\Controller\ProcessAstFormController;
@@ -11,7 +13,6 @@ use App\Controller\Blog\PostController;
 use App\Controller\BookController;
 use App\Controller\ContactController;
 use App\Controller\Demo\CustomRuleController;
-use App\Controller\Demo\CustomRuleDetailController;
 use App\Controller\Demo\DemoController;
 use App\Controller\Demo\DemoDetailController;
 use App\Controller\Demo\ProcessCustomRuleFormController;
@@ -56,6 +57,8 @@ Route::get('rss.xml', RssController::class);
 // on dev for now only
 Route::get('find-rule', FilterRectorController::class);
 Route::get('rule-detail/{slug}', RuleDetailController::class);
+
+Route::get('codebase-renovation', CodebaseRenovationController::class);
 
 // demo
 Route::get('demo/{uuid}', DemoDetailController::class)
