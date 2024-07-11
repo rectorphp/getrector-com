@@ -24,6 +24,11 @@ final class RectorSetsTreeProvider
     {
         $rectorSetsByGroup = [];
         foreach ($this->rectorSets as $rectorSet) {
+            // skip empty sets, usually for deprecated/future compatibility reasons
+            if ($rectorSet->getRuleCount() === 0) {
+                continue;
+            }
+
             $rectorSetsByGroup[$rectorSet->getGroupName()][$rectorSet->getSlug()] = $rectorSet;
         }
 

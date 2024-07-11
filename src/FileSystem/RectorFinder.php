@@ -140,7 +140,7 @@ final class RectorFinder
 
     /**
      * @param RectorSet[] $rectorSets
-     * @return string[]
+     * @return RectorSet[]
      */
     private function findRuleUsedSets(RuleDefinition $ruleDefinition, array $rectorSets): array
     {

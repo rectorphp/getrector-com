@@ -61,7 +61,7 @@ parameters:
             message: '#Access to an undefined property App\\Ast\\Entity\\AstRun\:\:\$(content|hash)#'
         - '#PHPDoc tag @mixin contains unknown class App\\Ast\\Entity\\IdeHelperAstRun#'
         - '#Call to an undefined static method App\\Ast\\Entity\\AstRun\:\:firstWhere\(\)#'
-
+        - '#Parameter \#1 \$rectorClass of method App\\RuleFilter\\ValueObject\\RectorSet\:\:hasRule\(\) expects class\-string, string given#'
 
         # inherited from php-parser
         -
