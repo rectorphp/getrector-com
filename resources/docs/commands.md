@@ -43,38 +43,3 @@ Just fill your rule name and Rector generates a basic structure for you, includi
 ```bash
 composer dump-autoload
 ```
-
-## Learn AST Nodes by Playing
-
-Following command comes handy when you want to write your custom rule.
-If you're new to the abstract syntax tree, it might take a while to understand what PHP code is represented by which node.
-
-That's why Rector has a command to help you with that:
-
-```bash
-vendor/bin/rector detect-node
-```
-
-For input, write any valid PHP code - usually a short snippet that you want to change:
-
-```bash
- Write short PHP code snippet:
- > echo "hey"
-```
-
-The command will return the AST nodes that represent the PHP code:
-
-```php
-PhpParser\Node\Stmt\Echo_(
-    exprs: [
-        0: PhpParser\Node\Scalar\String_( value: "hey" )
-    ]
-)
-```
-
-
-Do you want to keep trying various PHP code samples and play around?
-
-```bash
-vendor/bin/rector detect-node --loop
-```
