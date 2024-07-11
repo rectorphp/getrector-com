@@ -124,7 +124,7 @@ final class SomeRectorTest extends AbstractRectorTestCase
 {
     public function getRectorClass()
     {
-        return SomeRector::class;
+        return App\Tests\Validator\Rules\HasRectorRule\HasRectorRuleFixture\valid\SomeRector::class;
     }
 
     // WTF? why is this here?
@@ -132,7 +132,7 @@ final class SomeRectorTest extends AbstractRectorTestCase
     public function getRectorsWithConfiguration(): array
     {
         return [
-            SomeRector::class => [],
+            App\Tests\Validator\Rules\HasRectorRule\HasRectorRuleFixture\valid\SomeRector::class => [],
         ];
     }
 }

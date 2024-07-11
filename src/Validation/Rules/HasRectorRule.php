@@ -14,11 +14,13 @@ use PhpParser\NodeFinder;
 use PhpParser\ParserFactory;
 use Rector\Rector\AbstractRector;
 
+/**
+ * @see \App\Tests\Validator\Rules\HasRectorRuleTest
+ */
 final class HasRectorRule implements ValidationRule
 {
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
-
         // dummy check for custom rule request
         if (str_contains($value, AbstractRector::class)) {
             return;
@@ -27,6 +29,10 @@ final class HasRectorRule implements ValidationRule
         // @todo load the config and simply see if any rule is loaded
         $parserFactory = new ParserFactory();
         $parser = $parserFactory->create(ParserFactory::PREFER_PHP7);
+
+        //        dump($value);
+        //        die;
+        // @todo improve :)
 
         try {
             $stmts = $parser->parse($value);
