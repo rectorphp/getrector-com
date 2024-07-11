@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Request;
 
+use App\Enum\Request\FormKey;
 use App\Validation\Rules\ForbiddenFuncCallRule;
 use App\Validation\Rules\HasRectorRule;
 use App\Validation\Rules\ShellExecRule;
@@ -25,14 +26,16 @@ final class RectorRunFormRequest extends FormRequest
     {
         $shortPhpContentsRule = $this->make(ShortPhpContentsRule::class);
         $validAndSafePhpSyntaxRule = $this->make(ValidAndSafePhpSyntaxRule::class);
-        $forbiddenFuncCallRule = $this->make(ForbiddenFuncCallRule::class);
-        $shellExecRule = $this->make(ShellExecRule::class);
 
+        // @todo list forbidden functions? merge into @see ValidAndSafePhpSyntaxRule
+        $forbiddenFuncCallRule = $this->make(ForbiddenFuncCallRule::class);
+
+        $shellExecRule = $this->make(ShellExecRule::class);
         $hasRectorRule = $this->make(HasRectorRule::class);
 
         return [
-            'php_contents' => ['bail', 'required', 'string', $shortPhpContentsRule, $validAndSafePhpSyntaxRule],
-            'runnable_contents' => [
+            FormKey::PHP_CONTENTS => ['bail', 'required', 'string', $validAndSafePhpSyntaxRule, $shortPhpContentsRule],
+            FormKey::RUNNABLE_CONTENTS => [
                 // "bail" = stop after first error, as next does not make sense
                 'bail',
                 'required',
@@ -47,13 +50,13 @@ final class RectorRunFormRequest extends FormRequest
 
     public function getPhpContents(): string
     {
-        return $this->string('php_contents')
+        return $this->string(FormKey::PHP_CONTENTS)
             ->value();
     }
 
     public function getRunnableContents(): string
     {
-        return $this->string('runnable_contents')
+        return $this->string(FormKey::RUNNABLE_CONTENTS)
             ->value();
     }
 

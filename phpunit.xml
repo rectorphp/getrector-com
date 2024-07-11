@@ -14,5 +14,6 @@
     </testsuites>
     <php>
         <env name="APP_ENV" value="test"/>
+        <env name="APP_BASE_PATH" value="."/>
     </php>
 </phpunit>

@@ -12,6 +12,7 @@ abstract class AbstractTestCase extends TestCase
 {
     public function createApplication(): Application
     {
+        /** @var Application $application */
         $application = require __DIR__ . '/../bootstrap/app.php';
 
         /** @var Kernel $consoleKernel */

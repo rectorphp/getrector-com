@@ -52,10 +52,10 @@ final class ValidAndSafePhpSyntaxRule implements ValidationRule
             }
 
             if ($this->containsInclude($stmts)) {
-                $fail('PHP code cannot not contain any "include"/"require" calls');
+                $fail('PHP code cannot contain any "include"/"require" calls');
             }
         } catch (Error $error) {
-            $fail('PHP code is not valid: ' . $error->getMessage());
+            $fail('PHP code is invalid: ' . $error->getMessage());
         }
     }
 
