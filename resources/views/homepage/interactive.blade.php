@@ -6,7 +6,7 @@
             Play and Learn
         </h1>
 
-        <p>
+        <p class="text-bigger mb-5">
             Dive into the world of coding with our interactive tools. Play and learn as you explore
             the abstract syntax tree (AST) and nodes visually. Rector is as powerful as your
             understanding of the AST, making real-time transformations and instant modifications
