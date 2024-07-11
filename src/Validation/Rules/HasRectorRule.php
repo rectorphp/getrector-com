@@ -7,15 +7,14 @@ namespace App\Validation\Rules;
 use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
 use PhpParser\Error;
-use PhpParser\Node;
-use PhpParser\Node\Expr\MethodCall;
-use PhpParser\Node\Identifier;
-use PhpParser\NodeFinder;
-use PhpParser\ParserFactory;
+use Rector\Config\RectorConfig;
+use Rector\Contract\Rector\RectorInterface;
+use Rector\DependencyInjection\LazyContainerFactory;
 use Rector\Rector\AbstractRector;
+use Symfony\Component\Filesystem\Filesystem;
 
 /**
- * @see \App\Tests\Validator\Rules\HasRectorRuleTest
+ * @see \App\Tests\Validator\Rules\HasRectorRule\HasRectorRuleTest
  */
 final class HasRectorRule implements ValidationRule
 {
@@ -26,51 +25,40 @@ final class HasRectorRule implements ValidationRule
             return;
         }
 
-        // @todo load the config and simply see if any rule is loaded
-        $parserFactory = new ParserFactory();
-        $parser = $parserFactory->create(ParserFactory::PREFER_PHP7);
-
-        //        dump($value);
-        //        die;
-        // @todo improve :)
-
         try {
-            $stmts = $parser->parse($value);
-            $nodeFinder = new NodeFinder();
+            $filesystem = new Filesystem();
 
-            $hasRectorRule = $nodeFinder->findFirst(
-                (array) $stmts,
-                static fn (Node $subNode): bool => $subNode instanceof MethodCall
-                    && $subNode->name instanceof Identifier
-                    && in_array(
-                        $subNode->name->toString(),
-                        [
-                            'rule',
-                            'ruleWithConfiguration',
-                            'rules',
-                            'import',
-                            'sets',
-                            'withSets',
-                            'withAttributesSets',
-                            'withPhpSets',
-                            'withPreparedSets',
-                            'withRules',
-                            'withConfiguredRule',
-                            'withTypeCoverageLevel',
-                            'withDeadCodeLevel',
-                            'withCodeQualityLevel',
-                            'withPhpPolyfill',
-                            'withDowngradeSets',
-                        ],
-                        true
-                    )
-            );
+            $configFilePath = sys_get_temp_dir() . '/temp-rector-config.php';
+            $filesystem->dumpFile($configFilePath, $value);
 
-            if ($hasRectorRule === null) {
-                $fail('PHP config should include at least 1 rector rule');
+            $rectorContainer = $this->createFromConfigs([$configFilePath]);
+            $rectors = $rectorContainer->tagged(RectorInterface::class);
+
+            if ((is_countable($rectors) ? count($rectors) : 0) > 0) {
+                return;
             }
+
+            $fail('PHP config should include at least 1 rector rule');
         } catch (Error $error) {
             $fail(sprintf('PHP code is invalid: %s', $error->getMessage()));
         }
+    }
+
+    /**
+     * @todo extract to bridge
+     * @param string[] $configFiles
+     */
+    private function createFromConfigs(array $configFiles): RectorConfig
+    {
+        $lazyContainerFactory = new LazyContainerFactory();
+        $rectorConfig = $lazyContainerFactory->create();
+
+        foreach ($configFiles as $configFile) {
+            $rectorConfig->import($configFile);
+        }
+
+        $rectorConfig->boot();
+
+        return $rectorConfig;
     }
 }

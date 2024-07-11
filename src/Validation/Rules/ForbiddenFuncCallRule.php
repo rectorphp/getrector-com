@@ -12,7 +12,7 @@ use PhpParser\Node\Expr\FuncCall;
 use PhpParser\NodeFinder;
 use PhpParser\ParserFactory;
 
-final class FuncCallRule implements ValidationRule
+final class ForbiddenFuncCallRule implements ValidationRule
 {
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {

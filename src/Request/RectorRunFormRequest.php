@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Request;
 
-use App\Validation\Rules\FuncCallRule;
+use App\Validation\Rules\ForbiddenFuncCallRule;
 use App\Validation\Rules\HasRectorRule;
 use App\Validation\Rules\IncludeRule;
 use App\Validation\Rules\ShellExecRule;
@@ -24,39 +24,26 @@ final class RectorRunFormRequest extends FormRequest
      */
     public function rules(): array
     {
-        /** @var ShortPhpContentsRule $shortPhpContentsRule */
-        $shortPhpContentsRule = app()
-            ->make(ShortPhpContentsRule::class);
+        $shortPhpContentsRule = $this->make(ShortPhpContentsRule::class);
+        $validPhpSyntaxRule = $this->make(ValidPhpSyntaxRule::class);
+        $forbiddenFuncCallRule = $this->make(ForbiddenFuncCallRule::class);
+        $shellExecRule = $this->make(ShellExecRule::class);
+        $includeRule = $this->make(IncludeRule::class);
 
-        /** @var ValidPhpSyntaxRule $validPhpSyntaxRule */
-        $validPhpSyntaxRule = app()
-            ->make(ValidPhpSyntaxRule::class);
-
-        /** @var FuncCallRule $funcCallRule */
-        $funcCallRule = app()
-            ->make(FuncCallRule::class);
-
-        $shellExecRule = app()
-            ->make(ShellExecRule::class);
-
-        /** @var HasRectorRule $hasRectorRule */
-        $hasRectorRule = app()
-            ->make(HasRectorRule::class);
-
-        /** @var IncludeRule $includeRule */
-        $includeRule = app()
-            ->make(IncludeRule::class);
+        $hasRectorRule = $this->make(HasRectorRule::class);
 
         return [
-            'php_contents' => ['required', 'string', $shortPhpContentsRule, $validPhpSyntaxRule],
+            'php_contents' => ['bail', 'required', 'string', $shortPhpContentsRule, $validPhpSyntaxRule],
             'runnable_contents' => [
+                // "bail" = stop after first error, as next does not make sense
+                'bail',
                 'required',
                 'string',
                 $validPhpSyntaxRule,
-                $funcCallRule,
-                $hasRectorRule,
                 $shellExecRule,
+                $forbiddenFuncCallRule,
                 $includeRule,
+                $hasRectorRule,
             ],
         ];
     }
@@ -71,5 +58,17 @@ final class RectorRunFormRequest extends FormRequest
     {
         return $this->string('runnable_contents')
             ->value();
+    }
+
+    /**
+     * @template TService as object
+     *
+     * @param class-string<TService> $type
+     * @return TService
+     */
+    private function make(string $type): mixed
+    {
+        $app = app();
+        return $app->make($type);
     }
 }
