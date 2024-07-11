@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Ast\Request;
 
 use App\Validation\Rules\ShortPhpContentsRule;
-use App\Validation\Rules\ValidPhpSyntaxRule;
+use App\Validation\Rules\ValidAndSafePhpSyntaxRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 final class AstFormRequest extends FormRequest
@@ -29,9 +29,9 @@ final class AstFormRequest extends FormRequest
         $shortPhpContentsRule = app()
             ->make(ShortPhpContentsRule::class);
 
-        /** @var ValidPhpSyntaxRule $validPhpSyntaxRule */
+        /** @var ValidAndSafePhpSyntaxRule $validPhpSyntaxRule */
         $validPhpSyntaxRule = app()
-            ->make(ValidPhpSyntaxRule::class);
+            ->make(ValidAndSafePhpSyntaxRule::class);
 
         return [
             self::KEY_PHP_CONTENTS => ['required', 'string', $shortPhpContentsRule, $validPhpSyntaxRule],

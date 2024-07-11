@@ -4,6 +4,7 @@ package-lock.json
 .idea
 
 public/build/
+bootstrap/cache
 
 .env
 .env.local.php

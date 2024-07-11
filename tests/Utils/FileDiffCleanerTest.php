@@ -46,7 +46,8 @@ final class FileDiffCleanerTest extends TestCase
     private function split(string $fileContents): array
     {
         $parts = str($fileContents)
-            ->split('#^\-\-\-\-\-\n#m')->toArray();
+            ->split('#^\-\-\-\-\-\n#m')
+            ->toArray();
         return [$parts[0], $parts[1]];
     }
 }

@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\Request;
 
-use App\Validation\Rules\FuncCallRule;
+use App\Enum\Request\FormKey;
+use App\Validation\Rules\ForbiddenFuncCallRule;
 use App\Validation\Rules\HasRectorRule;
-use App\Validation\Rules\IncludeRule;
 use App\Validation\Rules\ShellExecRule;
 use App\Validation\Rules\ShortPhpContentsRule;
-use App\Validation\Rules\ValidPhpSyntaxRule;
+use App\Validation\Rules\ValidAndSafePhpSyntaxRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 final class RectorRunFormRequest extends FormRequest
@@ -24,52 +24,51 @@ final class RectorRunFormRequest extends FormRequest
      */
     public function rules(): array
     {
-        /** @var ShortPhpContentsRule $shortPhpContentsRule */
-        $shortPhpContentsRule = app()
-            ->make(ShortPhpContentsRule::class);
+        $shortPhpContentsRule = $this->make(ShortPhpContentsRule::class);
+        $validAndSafePhpSyntaxRule = $this->make(ValidAndSafePhpSyntaxRule::class);
 
-        /** @var ValidPhpSyntaxRule $validPhpSyntaxRule */
-        $validPhpSyntaxRule = app()
-            ->make(ValidPhpSyntaxRule::class);
+        // @todo list forbidden functions? merge into @see ValidAndSafePhpSyntaxRule
+        $forbiddenFuncCallRule = $this->make(ForbiddenFuncCallRule::class);
 
-        /** @var FuncCallRule $funcCallRule */
-        $funcCallRule = app()
-            ->make(FuncCallRule::class);
-
-        $shellExecRule = app()
-            ->make(ShellExecRule::class);
-
-        /** @var HasRectorRule $hasRectorRule */
-        $hasRectorRule = app()
-            ->make(HasRectorRule::class);
-
-        /** @var IncludeRule $includeRule */
-        $includeRule = app()
-            ->make(IncludeRule::class);
+        $shellExecRule = $this->make(ShellExecRule::class);
+        $hasRectorRule = $this->make(HasRectorRule::class);
 
         return [
-            'php_contents' => ['required', 'string', $shortPhpContentsRule, $validPhpSyntaxRule],
-            'runnable_contents' => [
+            FormKey::PHP_CONTENTS => ['bail', 'required', 'string', $validAndSafePhpSyntaxRule, $shortPhpContentsRule],
+            FormKey::RUNNABLE_CONTENTS => [
+                // "bail" = stop after first error, as next does not make sense
+                'bail',
                 'required',
                 'string',
-                $validPhpSyntaxRule,
-                $funcCallRule,
-                $hasRectorRule,
+                $validAndSafePhpSyntaxRule,
                 $shellExecRule,
-                $includeRule,
+                $forbiddenFuncCallRule,
+                $hasRectorRule,
             ],
         ];
     }
 
     public function getPhpContents(): string
     {
-        return $this->string('php_contents')
+        return $this->string(FormKey::PHP_CONTENTS)
             ->value();
     }
 
     public function getRunnableContents(): string
     {
-        return $this->string('runnable_contents')
+        return $this->string(FormKey::RUNNABLE_CONTENTS)
             ->value();
+    }
+
+    /**
+     * @template TService as object
+     *
+     * @param class-string<TService> $type
+     * @return TService
+     */
+    private function make(string $type): mixed
+    {
+        $app = app();
+        return $app->make($type);
     }
 }
