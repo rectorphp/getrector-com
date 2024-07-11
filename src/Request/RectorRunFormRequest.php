@@ -6,10 +6,9 @@ namespace App\Request;
 
 use App\Validation\Rules\ForbiddenFuncCallRule;
 use App\Validation\Rules\HasRectorRule;
-use App\Validation\Rules\IncludeRule;
 use App\Validation\Rules\ShellExecRule;
 use App\Validation\Rules\ShortPhpContentsRule;
-use App\Validation\Rules\ValidPhpSyntaxRule;
+use App\Validation\Rules\ValidAndSafePhpSyntaxRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 final class RectorRunFormRequest extends FormRequest
@@ -25,24 +24,22 @@ final class RectorRunFormRequest extends FormRequest
     public function rules(): array
     {
         $shortPhpContentsRule = $this->make(ShortPhpContentsRule::class);
-        $validPhpSyntaxRule = $this->make(ValidPhpSyntaxRule::class);
+        $validAndSafePhpSyntaxRule = $this->make(ValidAndSafePhpSyntaxRule::class);
         $forbiddenFuncCallRule = $this->make(ForbiddenFuncCallRule::class);
         $shellExecRule = $this->make(ShellExecRule::class);
-        $includeRule = $this->make(IncludeRule::class);
 
         $hasRectorRule = $this->make(HasRectorRule::class);
 
         return [
-            'php_contents' => ['bail', 'required', 'string', $shortPhpContentsRule, $validPhpSyntaxRule],
+            'php_contents' => ['bail', 'required', 'string', $shortPhpContentsRule, $validAndSafePhpSyntaxRule],
             'runnable_contents' => [
                 // "bail" = stop after first error, as next does not make sense
                 'bail',
                 'required',
                 'string',
-                $validPhpSyntaxRule,
+                $validAndSafePhpSyntaxRule,
                 $shellExecRule,
                 $forbiddenFuncCallRule,
-                $includeRule,
                 $hasRectorRule,
             ],
         ];
