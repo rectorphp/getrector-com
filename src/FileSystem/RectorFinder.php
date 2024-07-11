@@ -140,14 +140,14 @@ final class RectorFinder
 
     /**
      * @param RectorSet[] $rectorSets
-     * @return string[]
+     * @return RectorSet[]
      */
     private function findRuleUsedSets(RuleDefinition $ruleDefinition, array $rectorSets): array
     {
         $activeSets = [];
         foreach ($rectorSets as $rectorSet) {
             if ($rectorSet->hasRule($ruleDefinition->getRuleClass())) {
-                $activeSets[] = $rectorSet->getName();
+                $activeSets[] = $rectorSet;
             }
         }
 

@@ -4,89 +4,53 @@ declare(strict_types=1);
 
 namespace App\RuleFilter\ValueObject;
 
-use Nette\Utils\Strings;
+use Rector\Contract\Rector\RectorInterface;
+use Rector\Set\Enum\SetGroup;
 
-final class RectorSet
+final readonly class RectorSet
 {
-    private string $humanName;
-
     /**
-     * @param string[] $rectorClasses
+     * @param array<class-string<RectorInterface>> $rectorClasses
      */
     public function __construct(
-        private readonly string $constantName,
-        private readonly array $rectorClasses,
-        private readonly string $groupName
+        private string $groupName,
+        private string $name,
+        private array $rectorClasses,
     ) {
-        if (str_starts_with($constantName, 'PHP_')) {
-            $match = Strings::match($constantName, '#(?<major>\d)(?<minor>\d)#');
-            if ($match === null) {
-                $this->humanName = 'Polyfills';
-                return;
-            }
-
-            $this->humanName = 'PHP ' . $match['major'] . '.' . $match['minor'];
-            return;
-        }
-
-        if (str_starts_with($this->constantName, 'TWIG_') || str_starts_with(
-            $this->constantName,
-            'PHPUNIT_'
-        ) || str_starts_with($this->constantName, 'DOCTRINE_')) {
-            $match = Strings::match($this->constantName, '#(?<name>.*?)_(?<major>\d)(?<minor>\d+)$#');
-            if ($match) {
-                $name = $match['name'];
-                $name = str_replace(['PHPUNIT', 'DOCTRINE_'], ['PHPUnit', 'Doctrine '], $name);
-
-                // only exception for PHPUnit
-                $humanVersion = $name === 'PHPUnit' && $match['major'] === '1' ? '10.0' : $match['major'] . '.' . $match['minor'];
-
-                $this->humanName = $name . ' ' . $humanVersion;
-                return;
-            }
-        }
-
-        if (str_starts_with($this->constantName, 'SYMFONY_')) {
-            $match = Strings::match($this->constantName, '#(?<major>\d)(?<minor>\d)$#');
-            if ($match) {
-                $this->humanName = 'Symfony ' . $match['major'] . '.' . $match['minor'];
-                return;
-            }
-        }
-
-        // human name
-        // uppercase to first letter of each word upper only
-        $this->humanName = ucwords(strtolower(str_replace('_', ' ', $this->constantName)));
     }
 
+    /**
+     * @param class-string $rectorClass
+     */
     public function hasRule(string $rectorClass): bool
     {
         return in_array($rectorClass, $this->rectorClasses, true);
     }
 
-    public function getSlug(): string
+    public function getRuleCount(): int
     {
-        return strtolower($this->constantName);
+        return count($this->rectorClasses);
     }
 
-    public function getName(): string
+    public function getSlug(): string
     {
-        // @todo figure out human-readbale set name
-        return str_replace('_', ' ', $this->constantName);
+        $uniqueName = $this->groupName . ' ' . $this->name;
+        return str($uniqueName)->slug('-')
+            ->toString();
     }
 
     public function getGroupName(): string
     {
-        return $this->groupName;
+        if (in_array($this->groupName, [SetGroup::PHPUNIT, SetGroup::PHP], true)) {
+            // special case for upper case :)
+            return strtoupper($this->groupName);
+        }
+
+        return ucfirst($this->groupName);
     }
 
-    public function getHumanName(): string
+    public function getName(): string
     {
-        return $this->humanName;
-    }
-
-    public function getRuleCount(): int
-    {
-        return count($this->rectorClasses);
+        return $this->name;
     }
 }

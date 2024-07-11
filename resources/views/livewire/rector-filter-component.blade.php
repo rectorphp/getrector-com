@@ -45,13 +45,13 @@
 
                 @foreach ($rectorSetsByGroup as $groupName => $rectorSets)
                     <optgroup label="{{ $groupName }}">
-
                     @foreach ($rectorSets as $rectorSet)
-                        <option value="{{ $rectorSet->getName() }}">
-                            {{ $rectorSet->getHumanName() }}
+                        <option value="{{ $rectorSet->getSlug() }}">
+                            {{ $rectorSet->getName() }}
                             ({{ $rectorSet->getRuleCount() }})
                         </option>
                     @endforeach
+                    </optgroup>
                 @endforeach
             </select>
         </div>
@@ -98,12 +98,12 @@
                                     class="language-diff">{{ $filteredRule->getDiffCodeSample() }}</code></pre>
                         </div>
 
-                        @if ($filteredRule->getSets())
+                        @if ($filteredRule->isPartOfSets())
                             <div class="col-12 mb-1">
                                 SETS:&nbsp;
 
-                                @foreach ($filteredRule->getSets() as $set)
-                                    <span class="badge bg-danger">{{ $set }}</span>
+                                @foreach ($filteredRule->getSets() as $rectorSet)
+                                    <span class="badge bg-danger">{{ $rectorSet->getName() }}</span>
                                 @endforeach
                             </div>
                         @endif
