@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Controller;
+namespace App\Controller\Socials;
 
 use App\Entity\Post;
 use App\Enum\FontFile;
@@ -18,7 +18,7 @@ use Nette\Utils\Strings;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Webmozart\Assert\Assert;
 
-final class ThumbnailController extends Controller
+final class PostThumbnailController extends Controller
 {
     /**
      * @var string

@@ -1,10 +1,7 @@
 <?php
 
 declare(strict_types=1);
-use App\Controller\Demo\CustomRuleDetailController;
 
-use App\Controller\RuleDetailController;
-use Illuminate\Support\Facades\Route;
 use App\Ast\Controller\AstController;
 use App\Ast\Controller\AstDetailController;
 use App\Ast\Controller\ProcessAstFormController;
@@ -14,6 +11,7 @@ use App\Controller\Blog\PostController;
 use App\Controller\BookController;
 use App\Controller\ContactController;
 use App\Controller\Demo\CustomRuleController;
+use App\Controller\Demo\CustomRuleDetailController;
 use App\Controller\Demo\DemoController;
 use App\Controller\Demo\DemoDetailController;
 use App\Controller\Demo\ProcessCustomRuleFormController;
@@ -24,7 +22,10 @@ use App\Controller\HireTeamController;
 use App\Controller\HomepageController;
 use App\Controller\InteractiveController;
 use App\Controller\RssController;
-use App\Controller\ThumbnailController;
+use App\Controller\RuleDetailController;
+use App\Controller\Socials\PostThumbnailController;
+use App\Controller\Socials\RuleThumbnailController;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomepageController::class);
 Route::get('documentation/{section?}', DocumentationController::class);
@@ -44,8 +45,11 @@ Route::get('project-timeline', static function () {
 
 Route::get('blog/{postSlug}', PostController::class);
 
-Route::get('/thumbnail/{title}.png', ThumbnailController::class)
+Route::get('/thumbnail/{title}.png', PostThumbnailController::class)
      ->where('title', '.*');
+
+Route::get('/rule-thumbnail/{ruleSlug}.png', RuleThumbnailController::class)
+    ->where('ruleSlug', '.*');
 
 Route::get('rss.xml', RssController::class);
 
