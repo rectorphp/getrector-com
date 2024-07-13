@@ -68,10 +68,10 @@ final class ThumbnailController extends Controller
 
         if ($post instanceof Post && $post->getAuthor() === 'samsonasik') {
             $authorName = 'Abdul Malik Ikhsan';
-            $authorPicture = __DIR__ . '/../../../public/assets/images/samsonasik_circle.jpg';
+            $authorPicture = __DIR__ . '/../../public/assets/images/samsonasik_circle.jpg';
         } else {
             $authorName = 'Tomas Votruba';
-            $authorPicture = __DIR__ . '/../../../public/assets/images/tomas_votruba_circle.jpg';
+            $authorPicture = __DIR__ . '/../../public/assets/images/tomas_votruba_circle.jpg';
         }
 
         $drawer->text("Written by \n" . $authorName, $greenFont, new Point(130, 870), 0, 550);
@@ -82,7 +82,7 @@ final class ThumbnailController extends Controller
 
         $image->paste($faceImage, new Point(1700, 800));
 
-        $rectorLogoImage = $this->imagine->open(__DIR__ . '/../../../public/assets/images/logo/rector.png');
+        $rectorLogoImage = $this->imagine->open(__DIR__ . '/../../public/assets/images/logo/rector.png');
         $rectorLogoImage->resize(new Box(716 * .75, 175 * .75));
 
         $image->paste($rectorLogoImage, new Point(1400, 100));
