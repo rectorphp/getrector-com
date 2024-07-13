@@ -10,7 +10,13 @@ final class FontFile
      * Downloaded from https://fonts.google.com/specimen/Source+Sans+Pro?query=Source+Sans+Pro
      * @var string
      */
-    public const SOURCE_SANS = __DIR__ . '/../../public/assets/fonts/SourceSansPro-Bold.ttf';
+    public const SOURCE_SANS_BOLD = __DIR__ . '/../../public/assets/fonts/SourceSansPro-Bold.ttf';
+
+    /**
+     * Downloaded from https://fonts.google.com/specimen/Source+Sans+Pro?query=Source+Sans+Pro
+     * @var string
+     */
+    public const SOURCE_SANS = __DIR__ . '/../../public/assets/fonts/SourceSansPro-Regular.ttf';
 
     /**
      * @var string

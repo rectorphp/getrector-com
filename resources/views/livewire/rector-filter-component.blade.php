@@ -71,22 +71,24 @@
             >
                 <div class="card-body pt-0 pb-3 ps-4 pe-4">
                     <div style="float: right" class="mt-4">
-                        <a href="{{ action(\App\Controller\RuleDetailController::class, ['slug' => $filteredRule->getSlug()]) }}">Rule detail</a>
-
                         @if ($filteredRule->isConfigurable())
                             <span class="ms-3 mt-4">
                                 <span class="badge bg-primary">Configurable</span>
                             </span>
                         @endif
 
-                        @if ($filteredRule->getFilterScore())
+                        @if ($filteredRule->getFilterScore() && app('env') === 'dev')
                             <small class="text-secondary ms-2">
                                 Score: {{ $filteredRule->getFilterScore() }}
                             </small>
                         @endif
                     </div>
 
-                    <h3 class="mb-4">{{ $filteredRule->getRuleShortClass() }}</h3>
+                    <h3 class="mb-4">
+                        <a href="{{ action(\App\Controller\RuleDetailController::class, ['slug' => $filteredRule->getSlug()]) }}">
+                            {{ $filteredRule->getRuleShortClass() }}
+                        </a>
+                    </h3>
 
                     <p>{!! $filteredRule->getDescription() !!}</p>
 
