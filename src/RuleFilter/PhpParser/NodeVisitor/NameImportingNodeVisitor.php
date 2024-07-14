@@ -20,12 +20,16 @@ final class NameImportingNodeVisitor extends NodeVisitorAbstract
 
     public function enterNode(Node $node)
     {
-        if ($node instanceof FullyQualified) {
-            $this->namesToImport[] = $node->toString();
+        if (! $node instanceof FullyQualified) {
+            return null;
+        }
+
+        if (substr_count($node->toCodeString(), '\\') <= 1) {
             return new Name($node->getLast());
         }
 
-        return null;
+        $this->namesToImport[] = $node->toString();
+        return new Name($node->getLast());
     }
 
     /**
@@ -47,10 +51,6 @@ final class NameImportingNodeVisitor extends NodeVisitorAbstract
         $uses = [];
 
         foreach ($this->getNamesToImport() as $nameToImport) {
-            if (! str_contains($nameToImport, '\\')) {
-                continue;
-            }
-
             $uses[] = new Use_([new UseUse(new Name($nameToImport))]);
         }
 
