@@ -22,6 +22,7 @@ return RectorConfig::configure()
         RenameForeachValueVariableToMatchMethodCallReturnTypeRector::class => [
             // metadata -> datum false positive
             __DIR__ . '/src/FileSystem/RectorFinder.php',
+            __DIR__ . '/src/Controller/Socials/RuleThumbnailController.php',
         ],
         StringClassNameToClassConstantRector::class => [
             // non-existing class in /src
