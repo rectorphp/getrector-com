@@ -61,7 +61,7 @@
                             SETS:&nbsp;
 
                             @foreach ($ruleMetadata->getSets() as $set)
-                                <span class="badge bg-danger">{{ $set }}</span>
+                                <span class="badge bg-danger">{{ $set->getName() }}</span>
                             @endforeach
                         </div>
                     @endif
