@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Thumbnail;
 
-use Imagine\Gd\Image;
 use Imagine\Gd\Imagine;
 use Imagine\Image\AbstractFont;
 use Imagine\Image\Box;

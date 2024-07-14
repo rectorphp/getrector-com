@@ -62,9 +62,9 @@ final class RuleThumbnailController extends Controller
 
     private function matchRuleMetadata(string $ruleSlug): ?RuleMetadata
     {
-        foreach ($this->rectorFinder->findCore() as $ruleMetadata) {
-            if ($ruleMetadata->getSlug() === $ruleSlug) {
-                return $ruleMetadata;
+        foreach ($this->rectorFinder->findCore() as $ruleMetadatum) {
+            if ($ruleMetadatum->getSlug() === $ruleSlug) {
+                return $ruleMetadatum;
             }
         }
 
