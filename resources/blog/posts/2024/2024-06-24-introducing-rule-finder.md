@@ -15,7 +15,7 @@ There are 3 ways you can narrow your search.
 
 We have prepared 5 queries for you to try. Click on any of them to see the result.
 
-<img src="/assets/images/blog/2024/search-first.gif" class="img-thumbnail mb-4" style="max-width: 40em">
+<img src="/assets/images/blog/2024/search-first.gif" class="img-thumbnail mb-4" style="max-width: 100%">
 
 Click on the rule class input to select it. Then, you can copy it and paste it into your `rector.php` setup.
 
@@ -31,7 +31,7 @@ Are you curious about rules that modify class methods? Do you look for PHP 8 att
 
 Pick your node in the select:
 
-<img src="/assets/images/blog/2024/search-second.gif" class="img-thumbnail mb-4" style="max-width: 40em">
+<img src="/assets/images/blog/2024/search-second.gif" class="img-thumbnail mb-4" style="max-width: 100%">
 
 <br>
 
@@ -41,7 +41,7 @@ Did you know there are over 30 prepared sets in Rector? Not just PHP or framewor
 
 It would be wild to turn them on unthinkingly. Now you can **see all the rules by a single set** - pick it from the select box:
 
-<img src="/assets/images/blog/2024/search-third.gif" class="img-thumbnail mb-4" style="max-width: 40em">
+<img src="/assets/images/blog/2024/search-third.gif" class="img-thumbnail mb-4" style="max-width: 100%">
 
 <br>
 
