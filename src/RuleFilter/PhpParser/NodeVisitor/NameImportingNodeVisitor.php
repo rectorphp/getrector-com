@@ -47,6 +47,10 @@ final class NameImportingNodeVisitor extends NodeVisitorAbstract
         $uses = [];
 
         foreach ($this->getNamesToImport() as $nameToImport) {
+            if (! str_contains($nameToImport, '\\')) {
+                continue;
+            }
+
             $uses[] = new Use_([new UseUse(new Name($nameToImport))]);
         }
 
