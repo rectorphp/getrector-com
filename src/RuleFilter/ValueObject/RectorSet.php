@@ -6,9 +6,8 @@ namespace App\RuleFilter\ValueObject;
 
 use Rector\Contract\Rector\RectorInterface;
 use Rector\Set\Enum\SetGroup;
-use Stringable;
 
-final readonly class RectorSet implements Stringable
+final readonly class RectorSet
 {
     /**
      * @param array<class-string<RectorInterface>> $rectorClasses
@@ -18,11 +17,6 @@ final readonly class RectorSet implements Stringable
         private string $name,
         private array $rectorClasses,
     ) {
-    }
-
-    public function __toString(): string
-    {
-        return $this->name;
     }
 
     /**
