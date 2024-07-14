@@ -40,14 +40,9 @@ parameters:
 
         - '#Call to an undefined method Illuminate\\Contracts\\(.*?)|Illuminate\\#'
 
-        # generated based on php-parser
-        - '#Method App\\Ast\\PhpParser\\ClickablePrinter\:\:pObjectProperty\(\) has parameter \$node with no type specified#'
-
         -
             message: '#Method App\\FileSystem\\RectorFinder\:\:findRectorClasses\(\) should return array<class\-string<Rector\\Contract\\Rector\\RectorInterface>> but returns array<int, string>#'
             path: src/FileSystem/RectorFinder.php
-
-        - '#Method App\\Sets\\RectorSetsTreeProvider\:\:resolveClassName\(\) should return class\-string<Rector\\Set\\Contract\\SetListInterface> but returns class\-string#'
 
         # stmts vs nodes
         - '#Method App\\PhpParser\\SimplePhpParser\:\:parseString\(\) should return array<PhpParser\\Node\\Stmt> but returns array<PhpParser\\Node>#'
@@ -69,3 +64,5 @@ parameters:
             path: src/RuleFilter/PhpParser/Printer/RectorConfigStmtsPrinter.php
 
 
+        # only type
+        - '#Method App\\Thumbnail\\ThumbnailGenerator\:\:createFont\(\) should return Imagine\\Image\\AbstractFont but returns Imagine\\Image\\FontInterface#'

@@ -1,5 +1,24 @@
 @extends('base')
 
+@section('social_tags')
+    <meta
+        property="og:image"
+        content="{{ action(\App\Controller\Socials\RuleThumbnailController::class, ['ruleSlug' => $ruleMetadata->getSlug()]) }}"
+    />
+
+    <meta
+        property="og:url"
+        content="{{ action(\App\Controller\RuleDetailController::class, ['slug' => $ruleMetadata->getSlug()]) }}"
+    />
+
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="{{ $ruleMetadata->getRectorClass() }}"/>
+    <meta
+        name="twitter:image"
+        content="{{ action(\App\Controller\Socials\RuleThumbnailController::class, ['ruleSlug' => $ruleMetadata->getSlug()]) }}"
+    />
+@endsection
+
 @section('main')
     <div id="filter">
         <div style="float: right" class="mt-0">

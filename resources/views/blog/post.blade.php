@@ -9,20 +9,20 @@
     <meta property="og:description" content="{{ $post->getPerex() }}"/>
     <meta property="og:type" content="article"/>
     <meta
-            property="og:image"
-            content="{{ action(\App\Controller\ThumbnailController::class, ['title' => $post->getClearTitle()]) }}"
+        property="og:image"
+        content="{{ action(\App\Controller\Socials\PostThumbnailController::class, ['title' => $post->getClearTitle()]) }}"
     />
 
     <meta
-            property="og:url"
-            content="{{ action(\App\Controller\Blog\PostController::class, ['postSlug' => $post->getSlug()]) }}"
+        property="og:url"
+        content="{{ action(\App\Controller\Blog\PostController::class, ['postSlug' => $post->getSlug()]) }}"
     />
 
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:title" content="{{ $post->getClearTitle() }}"/>
     <meta
-            name="twitter:image"
-            content="{{ action(\App\Controller\ThumbnailController::class, ['title' => $post->getClearTitle()]) }}"
+        name="twitter:image"
+        content="{{ action(\App\Controller\Socials\PostThumbnailController::class, ['title' => $post->getClearTitle()]) }}"
     />
     <meta name="twitter:description" content="{{ $post->getPerex() }}"/>
 
