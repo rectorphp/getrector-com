@@ -157,7 +157,7 @@ use PhpParser\NodeTraverser;
 /**
  * @param Property|ClassConst|Array_ $node
  */
-public function refactor(Node $node): ?int
+public function refactor(Node $node): null|int|Node
 {
     if ($node instanceof Property || $node instanceof ClassConst) {
         // Array_ below Property and ClassConst won't be processed
