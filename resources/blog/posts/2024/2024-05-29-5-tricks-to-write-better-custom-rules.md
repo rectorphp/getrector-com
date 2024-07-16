@@ -50,7 +50,7 @@ print_node($node); // print content of Node
 For example:
 
 ```php
-public function refactor(Node $node): ?Node
+public function refactor(Node $node): null|Node|array
 {
     if ( /* some condition */ ) {
         return null;
