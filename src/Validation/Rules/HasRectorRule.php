@@ -6,6 +6,7 @@ namespace App\Validation\Rules;
 
 use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
+use Nette\Utils\Random;
 use PhpParser\Error;
 use Rector\Config\RectorConfig;
 use Rector\Contract\Rector\RectorInterface;
@@ -28,11 +29,15 @@ final class HasRectorRule implements ValidationRule
         try {
             $filesystem = new Filesystem();
 
-            $configFilePath = sys_get_temp_dir() . '/temp-rector-config.php';
+            $identifier = Random::generate(20);
+            $configFilePath = sys_get_temp_dir() . '/temp-' . $identifier . '-rector-config.php';
             $filesystem->dumpFile($configFilePath, $value);
 
             $rectorContainer = $this->createFromConfigs([$configFilePath]);
             $rectors = $rectorContainer->tagged(RectorInterface::class);
+
+            // remove no longer used
+            $filesystem->remove($configFilePath);
 
             if ((is_countable($rectors) ? count($rectors) : 0) > 0) {
                 return;
