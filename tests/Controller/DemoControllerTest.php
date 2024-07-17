@@ -91,6 +91,11 @@ final class DemoControllerTest extends AbstractTestCase
             FormKey::RUNNABLE_CONTENTS => 'PHP config should not include side effect func call',
         ]];
 
+        // Add dangerous exec() func call
+        yield ['<?php echo "test"; ?>', '<?php \exec("dangerous command"); ?>', [
+            FormKey::RUNNABLE_CONTENTS => 'PHP config should not include side effect func call',
+        ]];
+
         yield ['<?php echo "test"; ?>', '<?php `dangerous command`; ?>', [
             FormKey::RUNNABLE_CONTENTS => 'PHP config should not include execution operator',
         ]];

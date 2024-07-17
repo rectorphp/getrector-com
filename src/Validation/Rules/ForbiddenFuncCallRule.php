@@ -16,6 +16,7 @@ use PhpParser\Node\Name\FullyQualified;
 use PhpParser\NodeFinder;
 use PhpParser\ParserFactory;
 use Rector\DependencyInjection\LazyContainerFactory;
+use Rector\NodeTypeResolver\DependencyInjection\PHPStanServicesFactory;
 
 final class ForbiddenFuncCallRule implements ValidationRule
 {
@@ -26,7 +27,7 @@ final class ForbiddenFuncCallRule implements ValidationRule
 
         $lazyContainerFactory = new LazyContainerFactory();
         $rectorContainer = $lazyContainerFactory->create();
-        $phpstanReflectionProvider = $rectorContainer->make(ReflectionProvider::class);
+        $signatureMapProvider = $rectorContainer->make(PHPStanServicesFactory::class)->getByType(\PHPStan\Reflection\SignatureMap\SignatureMapProvider::class);
 
         try {
             $stmts = $parser->parse($value);
@@ -34,7 +35,7 @@ final class ForbiddenFuncCallRule implements ValidationRule
 
             $funcCall = $nodeFinder->findFirst(
                 (array) $stmts,
-                function (Node $subNode) use ($phpstanReflectionProvider): bool {
+                function (Node $subNode) use ($signatureMapProvider): bool {
                     if (! $subNode instanceof FuncCall) {
                         return false;
                     }
@@ -45,28 +46,21 @@ final class ForbiddenFuncCallRule implements ValidationRule
                     }
 
                     $namespaceName = $subNode->name->getAttribute('namespaced_name');
-                    $functionReflection = null;
 
-                    try {
-                        if ($namespaceName instanceof FullyQualified) {
-                            if ($phpstanReflectionProvider->hasFunction($namespaceName, null)) {
-                               // $functionReflection = $phpstanReflectionProvider->getFunction($namespaceName, null);
-                            }
-                        } else {
-                           // $functionReflection = $phpstanReflectionProvider->getFunction($subNode->name, null);
-                        }
-
-                        return true;
-                    } catch (\Throwable $t) {
-                        return true;
+                    if ($namespaceName instanceof FullyQualified) {
+                        $name = strtolower($namespaceName->toString());
+                    } else {
+                        $name = strtolower($subNode->name->toString());
                     }
 
-                    // another possible evil..
-                    if (! $functionReflection instanceof FunctionReflection) {
-                        return true;
+                    if ($signatureMapProvider->hasFunctionMetadata($name)) {
+                        $hasSideEffects = \PHPStan\TrinaryLogic::createFromBoolean($signatureMapProvider->getFunctionMetadata($name)['hasSideEffects']);
+                    } else {
+                        // possibly unknown
+                        $hasSideEffects = \PHPStan\TrinaryLogic::createYes();
                     }
 
-                    return $functionReflection->hasSideEffects()->yes();
+                    return $hasSideEffects->yes();
                 }
             );
 
