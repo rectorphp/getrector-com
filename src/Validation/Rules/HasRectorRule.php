@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Validation\Rules;
 
+use Throwable;
 use App\Exception\ShouldNotHappenException;
 use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
@@ -68,7 +69,7 @@ final class HasRectorRule implements ValidationRule
         foreach ($configFiles as $configFile) {
             try {
                 $rectorConfig->import($configFile);
-            } catch (\Throwable) {
+            } catch (Throwable) {
                 throw new ShouldNotHappenException();
             }
         }
