@@ -105,7 +105,7 @@ final class DemoControllerTest extends AbstractTestCase
         ]];
 
         // Typo in config
-        yield ['<?php echo "test"; ?>', '<?php return ' . RectorConfig::class . '::configure()->some(); ?>', [
+        yield ['<?php echo "test typo"; ?>', '<?php return ' . RectorConfig::class . '::configure()->some(); ?>', [
             FormKey::RUNNABLE_CONTENTS => 'verify if there is a typo in config',
         ]];
     }
