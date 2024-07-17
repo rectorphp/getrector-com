@@ -70,8 +70,9 @@ final class DemoRunner
     {
         $identifier = Random::generate(20);
 
-        $analyzedFilePath = $this->demoDir . DIRECTORY_SEPARATOR . $identifier . DIRECTORY_SEPARATOR . self::ANALYZED_FILE_NAME;
-        $configPath = $this->demoDir . DIRECTORY_SEPARATOR . $identifier . DIRECTORY_SEPARATOR . self::CONFIG_NAME;
+        $directoryConfig = $this->demoDir . DIRECTORY_SEPARATOR . $identifier . DIRECTORY_SEPARATOR;
+        $analyzedFilePath = $directoryConfig . self::ANALYZED_FILE_NAME;
+        $configPath = $directoryConfig . self::CONFIG_NAME;
 
         // this can be both rector config or rector rule
         // for the latter, append simple config to be part of the file
@@ -80,7 +81,7 @@ final class DemoRunner
         if (str_contains($rectorConfig, 'extends') && str_contains($rectorConfig, AbstractRector::class)) {
             // is Rector rule
             $extraFileContents = $rectorConfig;
-            $extraFilePath = $this->demoDir . DIRECTORY_SEPARATOR . $identifier . DIRECTORY_SEPARATOR . 'CustomRuleRector.php';
+            $extraFilePath = $directoryConfig . 'CustomRuleRector.php';
 
             $rectorClassName = ClassNameResolver::resolveFromFileContents($rectorConfig, $analyzedFilePath);
             $rectorConfig = sprintf(
@@ -97,16 +98,11 @@ final class DemoRunner
             $this->filesystem->dumpFile($extraFilePath, $extraFileContents);
         }
 
-        $temporaryFilePaths = [$analyzedFilePath, $configPath];
-        if ($extraFilePath) {
-            $temporaryFilePaths[] = $extraFilePath;
-        }
-
         $rectorProcess = $this->rectorProcessFactory->create($analyzedFilePath, $configPath, $extraFilePath);
         $rectorProcess->run();
 
-        // remove temporary files
-        $this->filesystem->remove($temporaryFilePaths);
+        // remove temporary directory
+        $this->filesystem->remove($directoryConfig);
 
         // error
         if ($rectorProcess->getExitCode() !== self::EXIT_CODE_SUCCESS) {
