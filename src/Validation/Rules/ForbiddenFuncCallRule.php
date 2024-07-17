@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace App\Validation\Rules;
 
-use PHPStan\Reflection\ReflectionProvider;
-use PHPStan\Reflection\FunctionReflection;
 use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
 use PhpParser\Error;
@@ -15,6 +13,8 @@ use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node\Name\FullyQualified;
 use PhpParser\NodeFinder;
 use PhpParser\ParserFactory;
+use PHPStan\Reflection\SignatureMap\SignatureMapProvider;
+use PHPStan\TrinaryLogic;
 use Rector\DependencyInjection\LazyContainerFactory;
 use Rector\NodeTypeResolver\DependencyInjection\PHPStanServicesFactory;
 
@@ -26,8 +26,10 @@ final class ForbiddenFuncCallRule implements ValidationRule
         $parser = $parserFactory->create(ParserFactory::PREFER_PHP7);
 
         $lazyContainerFactory = new LazyContainerFactory();
-        $rectorContainer = $lazyContainerFactory->create();
-        $signatureMapProvider = $rectorContainer->make(PHPStanServicesFactory::class)->getByType(\PHPStan\Reflection\SignatureMap\SignatureMapProvider::class);
+        $rectorConfig = $lazyContainerFactory->create();
+        $signatureMapProvider = $rectorConfig->make(PHPStanServicesFactory::class)->getByType(
+            SignatureMapProvider::class
+        );
 
         try {
             $stmts = $parser->parse($value);
@@ -54,10 +56,12 @@ final class ForbiddenFuncCallRule implements ValidationRule
                     }
 
                     if ($signatureMapProvider->hasFunctionMetadata($name)) {
-                        $hasSideEffects = \PHPStan\TrinaryLogic::createFromBoolean($signatureMapProvider->getFunctionMetadata($name)['hasSideEffects']);
+                        $hasSideEffects = TrinaryLogic::createFromBoolean(
+                            $signatureMapProvider->getFunctionMetadata($name)['hasSideEffects']
+                        );
                     } else {
                         // possibly unknown
-                        $hasSideEffects = \PHPStan\TrinaryLogic::createYes();
+                        $hasSideEffects = TrinaryLogic::createYes();
                     }
 
                     return $hasSideEffects->yes();
