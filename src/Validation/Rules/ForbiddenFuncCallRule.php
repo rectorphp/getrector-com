@@ -8,6 +8,8 @@ use PHPStan\Reflection\ReflectionProvider;
 use PHPStan\Reflection\FunctionReflection;
 use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
+use Nette\Utils\FileSystem;
+use Nette\Utils\Random;
 use PhpParser\Error;
 use PhpParser\Node;
 use PhpParser\Node\Expr;
@@ -15,17 +17,27 @@ use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node\Name\FullyQualified;
 use PhpParser\NodeFinder;
 use PhpParser\ParserFactory;
+use Rector\DependencyInjection\LazyContainerFactory;
 
 final class ForbiddenFuncCallRule implements ValidationRule
 {
-    public function __construct(private readonly ReflectionProvider $reflectionProvider)
-    {
-    }
-
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
         $parserFactory = new ParserFactory();
         $parser = $parserFactory->create(ParserFactory::PREFER_PHP7);
+
+        $filesystem = new FileSystem();
+
+        $identifier = Random::generate(20);
+        $configFilePath = sys_get_temp_dir() . '/temp-' . $identifier . '-rector-config.php';
+        $filesystem->write($configFilePath, $value, null);
+
+        $lazyContainerFactory = new LazyContainerFactory();
+        $rectorContainer = $lazyContainerFactory->create();
+        $rectorContainer->import($configFilePath);
+        $rectorContainer->boot();
+
+        $phpstanReflectionProvider = $rectorContainer->make(ReflectionProvider::class);
 
         try {
             $stmts = $parser->parse($value);
@@ -33,7 +45,7 @@ final class ForbiddenFuncCallRule implements ValidationRule
 
             $funcCall = $nodeFinder->findFirst(
                 (array) $stmts,
-                function (Node $subNode): bool {
+                function (Node $subNode) use ($phpstanReflectionProvider): bool {
                     if (! $subNode instanceof FuncCall) {
                         return false;
                     }
@@ -47,11 +59,11 @@ final class ForbiddenFuncCallRule implements ValidationRule
                     $functionReflection = null;
 
                     if ($namespaceName instanceof FullyQualified) {
-                        if ($this->reflectionProvider->hasFunction($namespaceName, null)) {
-                            $functionReflection = $this->reflectionProvider->getFunction($namespaceName, null);
+                        if ($phpstanReflectionProvider->hasFunction($namespaceName, null)) {
+                            $functionReflection = $phpstanReflectionProvider->getFunction($namespaceName, null);
                         }
                     } else {
-                        $functionReflection = $this->reflectionProvider->getFunction($subNode->name, null);
+                        $functionReflection = $phpstanReflectionProvider->getFunction($subNode->name, null);
                     }
 
                     // another possible evil..
