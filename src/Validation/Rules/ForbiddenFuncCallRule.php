@@ -47,12 +47,18 @@ final class ForbiddenFuncCallRule implements ValidationRule
                     $namespaceName = $subNode->name->getAttribute('namespaced_name');
                     $functionReflection = null;
 
-                    if ($namespaceName instanceof FullyQualified) {
-                        if ($phpstanReflectionProvider->hasFunction($namespaceName, null)) {
-                            $functionReflection = $phpstanReflectionProvider->getFunction($namespaceName, null);
+                    try {
+                        if ($namespaceName instanceof FullyQualified) {
+                            if ($phpstanReflectionProvider->hasFunction($namespaceName, null)) {
+                               // $functionReflection = $phpstanReflectionProvider->getFunction($namespaceName, null);
+                            }
+                        } else {
+                           // $functionReflection = $phpstanReflectionProvider->getFunction($subNode->name, null);
                         }
-                    } else {
-                        $functionReflection = $phpstanReflectionProvider->getFunction($subNode->name, null);
+
+                        return true;
+                    } catch (\Throwable $t) {
+                        return true;
                     }
 
                     // another possible evil..
