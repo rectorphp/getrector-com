@@ -28,11 +28,14 @@ final class HasRectorRule implements ValidationRule
         try {
             $filesystem = new Filesystem();
 
-            $configFilePath = sys_get_temp_dir() . '/temp-rector-config.php';
+            $configFilePath = sys_get_temp_dir() . '/temp-' . bin2hex(random_bytes(16)) . '-rector-config.php';
             $filesystem->dumpFile($configFilePath, $value);
 
             $rectorContainer = $this->createFromConfigs([$configFilePath]);
             $rectors = $rectorContainer->tagged(RectorInterface::class);
+
+            // remove no longer used
+            unlink($configFilePath);
 
             if ((is_countable($rectors) ? count($rectors) : 0) > 0) {
                 return;
