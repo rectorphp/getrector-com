@@ -68,7 +68,7 @@ final class HasRectorRule implements ValidationRule
         foreach ($configFiles as $configFile) {
             try {
                 $rectorConfig->import($configFile);
-            } catch (\Error $e) {
+            } catch (\Error) {
                 throw new ShouldNotHappenException();
             }
         }
