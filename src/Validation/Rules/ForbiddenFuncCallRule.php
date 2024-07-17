@@ -64,8 +64,6 @@ final class ForbiddenFuncCallRule implements ValidationRule
                         $hasSideEffects = TrinaryLogic::createYes();
                     }
 
-                    dump($hasSideEffects);
-
                     return $hasSideEffects->yes();
                 }
             );

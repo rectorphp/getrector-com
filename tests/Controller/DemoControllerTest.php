@@ -61,6 +61,21 @@ final class DemoControllerTest extends AbstractTestCase
         $this->assertFalse($testResponse->isServerError());
     }
 
+    public function testIncludeNonDangerousFuncCallRequest(): void
+    {
+        $postUrl = action(ProcessDemoFormController::class);
+
+        $testResponse = $this->post($postUrl, [
+            FormKey::PHP_CONTENTS => '<?php',
+            FormKey::RUNNABLE_CONTENTS => '<?php var_dump("test");  return ' . RectorConfig::class . '::configure()->withPhpPolyfill();',
+        ]);
+
+        $this->assertTrue($testResponse->isRedirect());
+
+        $this->assertFalse($testResponse->isClientError());
+        $this->assertFalse($testResponse->isServerError());
+    }
+
     public static function provideTestFormSubmitData(): Iterator
     {
         // Send empty form
@@ -84,11 +99,6 @@ final class DemoControllerTest extends AbstractTestCase
         // Invalid PHP syntax (missing semicolon in config box)
         yield ['<?php print $x; ?>', '<?php return static function() {}', [
             FormKey::RUNNABLE_CONTENTS => "PHP code is invalid: Syntax error, unexpected EOF, expecting ';' on line 1",
-        ]];
-
-        // Add dangerous exec() func call
-        yield ['<?php echo "test"; ?>', '<?php str_starts_with("a", "b"); ?>', [
-            FormKey::RUNNABLE_CONTENTS => 'PHP config should not include side effect func call',
         ]];
 
         // Add dangerous exec() func call
