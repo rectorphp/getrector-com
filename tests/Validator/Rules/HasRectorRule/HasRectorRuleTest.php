@@ -5,20 +5,22 @@ declare(strict_types=1);
 namespace App\Tests\Validator\Rules\HasRectorRule;
 
 use App\Exception\ShouldNotHappenException;
+use App\Tests\AbstractTestCase;
 use App\Validation\Rules\HasRectorRule;
 use Iterator;
 use Nette\Utils\FileSystem;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\DoesNotPerformAssertions;
-use PHPUnit\Framework\TestCase;
+use Rector\Config\RectorConfig;
 
-final class HasRectorRuleTest extends TestCase
+final class HasRectorRuleTest extends AbstractTestCase
 {
     private HasRectorRule $hasRectorRule;
 
     protected function setUp(): void
     {
-        $this->hasRectorRule = new HasRectorRule();
+        $rectorConfig = $this->make(RectorConfig::class);
+        $this->hasRectorRule = new HasRectorRule($rectorConfig);
     }
 
     #[DoesNotPerformAssertions]

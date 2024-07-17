@@ -10,7 +10,6 @@ use Nette\Utils\Random;
 use PhpParser\Error;
 use Rector\Config\RectorConfig;
 use Rector\Contract\Rector\RectorInterface;
-use Rector\DependencyInjection\LazyContainerFactory;
 use Rector\Rector\AbstractRector;
 use Symfony\Component\Filesystem\Filesystem;
 
@@ -19,6 +18,11 @@ use Symfony\Component\Filesystem\Filesystem;
  */
 final class HasRectorRule implements ValidationRule
 {
+    public function __construct(
+        private readonly RectorConfig $rectorConfig
+    ) {
+    }
+
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
         // dummy check for custom rule request
@@ -33,8 +37,8 @@ final class HasRectorRule implements ValidationRule
             $configFilePath = sys_get_temp_dir() . '/temp-' . $identifier . '-rector-config.php';
             $filesystem->dumpFile($configFilePath, $value);
 
-            $rectorContainer = $this->createFromConfigs([$configFilePath]);
-            $rectors = $rectorContainer->tagged(RectorInterface::class);
+            $this->rectorConfig->import($configFilePath);
+            $rectors = $this->rectorConfig->tagged(RectorInterface::class);
 
             // remove no longer used
             $filesystem->remove($configFilePath);
@@ -47,23 +51,5 @@ final class HasRectorRule implements ValidationRule
         } catch (Error $error) {
             $fail(sprintf('PHP code is invalid: %s', $error->getMessage()));
         }
-    }
-
-    /**
-     * @todo extract to bridge
-     * @param string[] $configFiles
-     */
-    private function createFromConfigs(array $configFiles): RectorConfig
-    {
-        $lazyContainerFactory = new LazyContainerFactory();
-        $rectorConfig = $lazyContainerFactory->create();
-
-        foreach ($configFiles as $configFile) {
-            $rectorConfig->import($configFile);
-        }
-
-        $rectorConfig->boot();
-
-        return $rectorConfig;
     }
 }
