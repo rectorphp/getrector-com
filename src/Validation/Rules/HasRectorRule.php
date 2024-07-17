@@ -37,7 +37,7 @@ final class HasRectorRule implements ValidationRule
             $rectors = $rectorContainer->tagged(RectorInterface::class);
 
             // remove no longer used
-            unlink($configFilePath);
+            $filesystem->remove($configFilePath);
 
             if ((is_countable($rectors) ? count($rectors) : 0) > 0) {
                 return;
