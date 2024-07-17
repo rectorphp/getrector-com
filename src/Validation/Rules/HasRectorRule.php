@@ -37,8 +37,8 @@ final class HasRectorRule implements ValidationRule
 
             try {
                 $rectorContainer = $this->createFromConfigs([$configFilePath]);
-            } catch (ShouldNotHappenException) {
-                $fail('PHP config should have valid method name, you may have typo');
+            } catch (ShouldNotHappenException $t) {
+                $fail($t->getMessage());
                 return;
             }
 
@@ -69,8 +69,13 @@ final class HasRectorRule implements ValidationRule
         foreach ($configFiles as $configFile) {
             try {
                 $rectorConfig->import($configFile);
-            } catch (Throwable) {
-                throw new ShouldNotHappenException();
+            } catch (\Throwable $e) {
+                $message = $e->getMessage();
+                if (str_starts_with($message, 'Call to undefined method')) {
+                    throw new ShouldNotHappenException('PHP config should have valid method name, you may have typo');
+                }
+
+                throw new ShouldNotHappenException('Expected config return callable RectorConfig instance');
             }
         }
 
