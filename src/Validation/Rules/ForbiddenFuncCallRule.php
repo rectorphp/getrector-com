@@ -8,8 +8,6 @@ use PHPStan\Reflection\ReflectionProvider;
 use PHPStan\Reflection\FunctionReflection;
 use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
-use Nette\Utils\FileSystem;
-use Nette\Utils\Random;
 use PhpParser\Error;
 use PhpParser\Node;
 use PhpParser\Node\Expr;
@@ -26,17 +24,8 @@ final class ForbiddenFuncCallRule implements ValidationRule
         $parserFactory = new ParserFactory();
         $parser = $parserFactory->create(ParserFactory::PREFER_PHP7);
 
-        $filesystem = new FileSystem();
-
-        $identifier = Random::generate(20);
-        $configFilePath = sys_get_temp_dir() . '/temp-' . $identifier . '-rector-config.php';
-        $filesystem->write($configFilePath, $value, null);
-
         $lazyContainerFactory = new LazyContainerFactory();
         $rectorContainer = $lazyContainerFactory->create();
-        $rectorContainer->import($configFilePath);
-        $rectorContainer->boot();
-
         $phpstanReflectionProvider = $rectorContainer->make(ReflectionProvider::class);
 
         try {
@@ -46,9 +35,7 @@ final class ForbiddenFuncCallRule implements ValidationRule
             $funcCall = $nodeFinder->findFirst(
                 (array) $stmts,
                 function (Node $subNode) use ($phpstanReflectionProvider): bool {
-                    if (! $subNode instanceof FuncCall) {
-                        return false;
-                    }
+                    return $subNode instanceof FuncCall;
 
                     // dynamic name? can be evil...
                     if ($subNode->name instanceof Expr) {
