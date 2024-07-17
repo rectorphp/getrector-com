@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Validation\Rules;
 
+use App\Exception\ShouldNotHappenException;
 use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Nette\Utils\Random;
@@ -33,7 +34,12 @@ final class HasRectorRule implements ValidationRule
             $configFilePath = sys_get_temp_dir() . '/temp-' . $identifier . '-rector-config.php';
             $filesystem->dumpFile($configFilePath, $value);
 
-            $rectorContainer = $this->createFromConfigs([$configFilePath]);
+            try {
+                $rectorContainer = $this->createFromConfigs([$configFilePath]);
+            } catch (ShouldNotHappenException) {
+                $fail('verify if there is a typo in method call');
+            }
+
             $rectors = $rectorContainer->tagged(RectorInterface::class);
 
             // remove no longer used
@@ -60,7 +66,7 @@ final class HasRectorRule implements ValidationRule
 
         foreach ($configFiles as $configFile) {
             if (! is_callable($configFile)) {
-                continue;
+                throw new ShouldNotHappenException();
             }
 
             $rectorConfig->import($configFile);
