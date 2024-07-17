@@ -103,5 +103,10 @@ final class DemoControllerTest extends AbstractTestCase
         yield ['<?php echo "test"; ?>', '<?php return ' . RectorConfig::class . '::configure()->withImportNames(); ?>', [
             FormKey::RUNNABLE_CONTENTS => 'PHP config should include at least 1 rector rule',
         ]];
+
+        // Typo in config
+        yield ['<?php echo "test"; ?>', '<?php return ' . RectorConfig::class . '::configure()->some(); ?>', [
+            FormKey::RUNNABLE_CONTENTS => 'verify if there is a typo in config',
+        ]];
     }
 }
