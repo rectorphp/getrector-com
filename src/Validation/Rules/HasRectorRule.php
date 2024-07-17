@@ -75,7 +75,7 @@ final class HasRectorRule implements ValidationRule
                     throw new ShouldNotHappenException('PHP config should have valid method name, you may have typo');
                 }
 
-                throw new ShouldNotHappenException('Expected config return callable RectorConfig instance');
+                throw new ShouldNotHappenException('Expected config should return callable RectorConfig instance');
             }
         }
 
