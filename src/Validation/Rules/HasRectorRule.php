@@ -59,6 +59,10 @@ final class HasRectorRule implements ValidationRule
         $rectorConfig = $lazyContainerFactory->create();
 
         foreach ($configFiles as $configFile) {
+            if (! is_callable($configFile)) {
+                continue;
+            }
+
             $rectorConfig->import($configFile);
         }
 
