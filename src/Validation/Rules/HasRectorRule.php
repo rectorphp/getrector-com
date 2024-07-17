@@ -38,6 +38,7 @@ final class HasRectorRule implements ValidationRule
             $filesystem->dumpFile($configFilePath, $value);
 
             $this->rectorConfig->import($configFilePath);
+            $this->rectorConfig->boot();
             $rectors = $this->rectorConfig->tagged(RectorInterface::class);
 
             // remove no longer used
