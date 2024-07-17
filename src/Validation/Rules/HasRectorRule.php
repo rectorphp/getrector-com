@@ -37,7 +37,8 @@ final class HasRectorRule implements ValidationRule
             try {
                 $rectorContainer = $this->createFromConfigs([$configFilePath]);
             } catch (ShouldNotHappenException) {
-                $fail('verify if there is a typo in method call');
+                $fail('verify if there is a typo in config');
+                return;
             }
 
             $rectors = $rectorContainer->tagged(RectorInterface::class);
