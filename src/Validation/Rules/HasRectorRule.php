@@ -37,7 +37,7 @@ final class HasRectorRule implements ValidationRule
             try {
                 $rectorContainer = $this->createFromConfigs([$configFilePath]);
             } catch (ShouldNotHappenException) {
-                $fail('verify if there is a typo in config');
+                $fail('PHP config should have valid method name, you may have typo');
                 return;
             }
 
@@ -68,7 +68,7 @@ final class HasRectorRule implements ValidationRule
         foreach ($configFiles as $configFile) {
             try {
                 $rectorConfig->import($configFile);
-            } catch (\Error) {
+            } catch (\Error $e) {
                 throw new ShouldNotHappenException();
             }
         }

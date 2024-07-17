@@ -106,7 +106,7 @@ final class DemoControllerTest extends AbstractTestCase
 
         // Typo in config
         yield ['<?php echo "test typo"; ?>', '<?php return ' . RectorConfig::class . '::configure()->some(); ?>', [
-            FormKey::RUNNABLE_CONTENTS => 'verify if there is a typo in config',
+            FormKey::RUNNABLE_CONTENTS => 'PHP config should have valid method name, you may have typo',
         ]];
     }
 }
