@@ -103,5 +103,15 @@ final class DemoControllerTest extends AbstractTestCase
         yield ['<?php echo "test"; ?>', '<?php return ' . RectorConfig::class . '::configure()->withImportNames(); ?>', [
             FormKey::RUNNABLE_CONTENTS => 'PHP config should include at least 1 rector rule',
         ]];
+
+        // Typo in config
+        yield ['<?php echo "test typo"; ?>', '<?php return ' . RectorConfig::class . '::configure()->some(); ?>', [
+            FormKey::RUNNABLE_CONTENTS => 'PHP config should have valid method name, you may have typo',
+        ]];
+
+        // not callable
+        yield ['<?php echo "test typo"; ?>', '<?php return (new DateTimeImmutable("2000-01-01"))->add(new DateInterval("P10D")); ?>', [
+            FormKey::RUNNABLE_CONTENTS => 'Expected config should return callable RectorConfig instance',
+        ]];
     }
 }

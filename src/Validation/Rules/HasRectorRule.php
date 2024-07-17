@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Validation\Rules;
 
+use Throwable;
+use App\Exception\ShouldNotHappenException;
 use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Nette\Utils\Random;
@@ -33,7 +35,13 @@ final class HasRectorRule implements ValidationRule
             $configFilePath = sys_get_temp_dir() . '/temp-' . $identifier . '-rector-config.php';
             $filesystem->dumpFile($configFilePath, $value);
 
-            $rectorContainer = $this->createFromConfigs([$configFilePath]);
+            try {
+                $rectorContainer = $this->createFromConfigs([$configFilePath]);
+            } catch (ShouldNotHappenException $t) {
+                $fail($t->getMessage());
+                return;
+            }
+
             $rectors = $rectorContainer->tagged(RectorInterface::class);
 
             // remove no longer used
@@ -59,7 +67,16 @@ final class HasRectorRule implements ValidationRule
         $rectorConfig = $lazyContainerFactory->create();
 
         foreach ($configFiles as $configFile) {
-            $rectorConfig->import($configFile);
+            try {
+                $rectorConfig->import($configFile);
+            } catch (Throwable $e) {
+                $message = $e->getMessage();
+                if (str_starts_with($message, 'Call to undefined method')) {
+                    throw new ShouldNotHappenException('PHP config should have valid method name, you may have typo');
+                }
+
+                throw new ShouldNotHappenException('Expected config should return callable RectorConfig instance');
+            }
         }
 
         $rectorConfig->boot();
