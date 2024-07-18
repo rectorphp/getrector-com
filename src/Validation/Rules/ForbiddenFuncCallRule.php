@@ -53,11 +53,11 @@ final class ForbiddenFuncCallRule implements ValidationRule
                             $functionMetadata[$name]['hasSideEffects']
                         );
                     } else {
-                        // possibly unknown
-                        $hasSideEffects = TrinaryLogic::createYes();
+                        $hasSideEffects = TrinaryLogic::createMaybe();
                     }
 
-                    return $hasSideEffects->yes();
+                    // yes() and maybe() may have side effect
+                    return ! $hasSideEffects->no();
                 }
             );
 
