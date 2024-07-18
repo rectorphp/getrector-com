@@ -8,9 +8,12 @@ use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
 use PhpParser\Error;
 use PhpParser\Node;
+use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\FuncCall;
+use PhpParser\Node\Name\FullyQualified;
 use PhpParser\NodeFinder;
 use PhpParser\ParserFactory;
+use PHPStan\TrinaryLogic;
 
 final class ForbiddenFuncCallRule implements ValidationRule
 {
@@ -19,17 +22,47 @@ final class ForbiddenFuncCallRule implements ValidationRule
         $parserFactory = new ParserFactory();
         $parser = $parserFactory->create(ParserFactory::PREFER_PHP7);
 
+        $functionMetadata = include_once 'phar://' . __DIR__ . '/../../../vendor/phpstan/phpstan/phpstan.phar/resources/functionMetadata.php';
+
         try {
             $stmts = $parser->parse($value);
             $nodeFinder = new NodeFinder();
 
-            $hasFuncCall = $nodeFinder->findFirst(
+            $funcCall = $nodeFinder->findFirst(
                 (array) $stmts,
-                static fn (Node $subNode): bool => $subNode instanceof FuncCall
+                function (Node $subNode) use ($functionMetadata): bool {
+                    if (! $subNode instanceof FuncCall) {
+                        return false;
+                    }
+
+                    // dynamic name? can be evil...
+                    if ($subNode->name instanceof Expr) {
+                        return true;
+                    }
+
+                    $namespaceName = $subNode->name->getAttribute('namespaced_name');
+
+                    if ($namespaceName instanceof FullyQualified) {
+                        $name = strtolower($namespaceName->toString());
+                    } else {
+                        $name = strtolower($subNode->name->toString());
+                    }
+
+                    if (isset($functionMetadata[$name])) {
+                        $hasSideEffects = TrinaryLogic::createFromBoolean(
+                            $functionMetadata[$name]['hasSideEffects']
+                        );
+                    } else {
+                        $hasSideEffects = TrinaryLogic::createMaybe();
+                    }
+
+                    // yes() and maybe() may have side effect
+                    return ! $hasSideEffects->no();
+                }
             );
 
-            if ($hasFuncCall !== null) {
-                $fail('PHP config should not include func call');
+            if ($funcCall instanceof FuncCall) {
+                $fail('PHP config should not include side effect func call');
             }
         } catch (Error $error) {
             $fail(sprintf('PHP code is invalid: %s', $error->getMessage()));

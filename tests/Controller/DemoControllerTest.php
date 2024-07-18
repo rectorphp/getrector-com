@@ -61,6 +61,21 @@ final class DemoControllerTest extends AbstractTestCase
         $this->assertFalse($testResponse->isServerError());
     }
 
+    public function testIncludeNonDangerousFuncCallRequest(): void
+    {
+        $postUrl = action(ProcessDemoFormController::class);
+
+        $testResponse = $this->post($postUrl, [
+            FormKey::PHP_CONTENTS => '<?php',
+            FormKey::RUNNABLE_CONTENTS => '<?php var_dump("test");  return ' . RectorConfig::class . '::configure()->withPhpPolyfill();',
+        ]);
+
+        $this->assertTrue($testResponse->isRedirect());
+
+        $this->assertFalse($testResponse->isClientError());
+        $this->assertFalse($testResponse->isServerError());
+    }
+
     public static function provideTestFormSubmitData(): Iterator
     {
         // Send empty form
@@ -88,7 +103,12 @@ final class DemoControllerTest extends AbstractTestCase
 
         // Add dangerous exec() func call
         yield ['<?php echo "test"; ?>', '<?php exec("dangerous command"); ?>', [
-            FormKey::RUNNABLE_CONTENTS => 'PHP config should not include func call',
+            FormKey::RUNNABLE_CONTENTS => 'PHP config should not include side effect func call',
+        ]];
+
+        // Add dangerous exec() func call
+        yield ['<?php echo "test"; ?>', '<?php \exec("dangerous command"); ?>', [
+            FormKey::RUNNABLE_CONTENTS => 'PHP config should not include side effect func call',
         ]];
 
         yield ['<?php echo "test"; ?>', '<?php `dangerous command`; ?>', [
