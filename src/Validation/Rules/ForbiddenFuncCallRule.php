@@ -13,10 +13,7 @@ use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node\Name\FullyQualified;
 use PhpParser\NodeFinder;
 use PhpParser\ParserFactory;
-use PHPStan\Reflection\SignatureMap\SignatureMapProvider;
 use PHPStan\TrinaryLogic;
-use Rector\DependencyInjection\LazyContainerFactory;
-use Rector\NodeTypeResolver\DependencyInjection\PHPStanServicesFactory;
 
 final class ForbiddenFuncCallRule implements ValidationRule
 {
@@ -25,11 +22,7 @@ final class ForbiddenFuncCallRule implements ValidationRule
         $parserFactory = new ParserFactory();
         $parser = $parserFactory->create(ParserFactory::PREFER_PHP7);
 
-        $lazyContainerFactory = new LazyContainerFactory();
-        $rectorConfig = $lazyContainerFactory->create();
-        $signatureMapProvider = $rectorConfig->make(PHPStanServicesFactory::class)->getByType(
-            SignatureMapProvider::class
-        );
+        $functionMetadata = include_once 'phar://' . __DIR__ . '/../../../vendor/phpstan/phpstan/phpstan.phar/resources/functionMetadata.php';
 
         try {
             $stmts = $parser->parse($value);
@@ -37,7 +30,7 @@ final class ForbiddenFuncCallRule implements ValidationRule
 
             $funcCall = $nodeFinder->findFirst(
                 (array) $stmts,
-                function (Node $subNode) use ($signatureMapProvider): bool {
+                function (Node $subNode) use ($functionMetadata): bool {
                     if (! $subNode instanceof FuncCall) {
                         return false;
                     }
@@ -55,9 +48,9 @@ final class ForbiddenFuncCallRule implements ValidationRule
                         $name = strtolower($subNode->name->toString());
                     }
 
-                    if ($signatureMapProvider->hasFunctionMetadata($name)) {
+                    if (isset($functionMetadata[$name])) {
                         $hasSideEffects = TrinaryLogic::createFromBoolean(
-                            $signatureMapProvider->getFunctionMetadata($name)['hasSideEffects']
+                            $functionMetadata[$name]['hasSideEffects']
                         );
                     } else {
                         // possibly unknown
