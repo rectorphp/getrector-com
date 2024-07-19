@@ -14,13 +14,16 @@ use PhpParser\Node;
 use PhpParser\Node\Expr\CallLike;
 use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node\Expr\MethodCall;
+use PhpParser\Node\Expr\New_;
 use PhpParser\Node\Expr\NullsafeMethodCall;
 use PhpParser\Node\Expr\StaticCall;
 use PhpParser\Node\Name\FullyQualified;
 use PhpParser\NodeFinder;
 use PhpParser\ParserFactory;
 use Rector\DependencyInjection\LazyContainerFactory;
+use Rector\NodeTypeResolver\NodeTypeResolver;
 use Rector\NodeTypeResolver\PHPStan\Scope\ScopeFactory;
+use Rector\StaticTypeMapper\ValueObject\Type\FullyQualifiedObjectType;
 
 final class ForbiddenCallLikeRule implements ValidationRule
 {
@@ -31,10 +34,8 @@ final class ForbiddenCallLikeRule implements ValidationRule
 
         $lazyContainerFactory = new LazyContainerFactory();
         $rectorConfig = $lazyContainerFactory->create();
-
-        /** @var ScopeFactory $scopeFactory */
-        $scopeFactory = $rectorConfig->make(ScopeFactory::class);
-        $mutatingScope = $scopeFactory->createFromFile(__FILE__);
+        /** @var NodeTypeResolver $nodeTypeResolver */
+        $nodeTypeResolver = $rectorConfig->make(NodeTypeResolver::class);
 
         try {
             $stmts = $parser->parse($value);
@@ -42,7 +43,7 @@ final class ForbiddenCallLikeRule implements ValidationRule
 
             $callLike = $nodeFinder->findFirst(
                 (array) $stmts,
-                function (Node $subNode) use ($mutatingScope): bool {
+                function (Node $subNode) use ($nodeTypeResolver): bool {
                     // already covered by ForbiddenFuncCallRule
                     if ($subNode instanceof FuncCall) {
                         return false;
@@ -58,12 +59,23 @@ final class ForbiddenCallLikeRule implements ValidationRule
                     }
 
                     /** @var MethodCall|StaticCall|New_|NullsafeMethodCall $subNode */
-                    $type = $subNode instanceof StaticCall
-                        ? $mutatingScope->getType($mutatingScope->class)
-                        : $mutatingScope->getType($subNode->var);
+                    if ($subNode instanceof New_) {
+                        $type = $nodeTypeResolver->getType($subNode);
+                    } else {
+                        $type = $subNode instanceof StaticCall
+                            ? $nodeTypeResolver->getType($subNode->class)
+                            : $nodeTypeResolver->getType($subNode->var);
+                    }
+
+                    if (! $type instanceof ObjectType && ! $type instanceof FullyQualifiedObjectType) {
+                        // fluent RectorConfigBuilder ?
+                        if ($subNode instanceof MethodCall && $subNode->var instanceof StaticCall) {
+                            $type = $nodeTypeResolver->getType($subNode->var->class);
+                        }
+                    }
 
                     // magic!
-                    if (! $type instanceof ObjectType) {
+                    if (! $type instanceof ObjectType && ! $type instanceof FullyQualifiedObjectType) {
                         return true;
                     }
 

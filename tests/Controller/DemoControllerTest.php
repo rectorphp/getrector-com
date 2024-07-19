@@ -76,6 +76,21 @@ final class DemoControllerTest extends AbstractTestCase
         $this->assertFalse($testResponse->isServerError());
     }
 
+    public function testIncludeDangerousCallLikeRequest(): void
+    {
+        $postUrl = action(ProcessDemoFormController::class);
+
+        $testResponse = $this->post($postUrl, [
+            FormKey::PHP_CONTENTS => '<?php',
+            FormKey::RUNNABLE_CONTENTS => '<?php (new Nette\Utils\FileSystem)->write("test.php", "test"); return ' . RectorConfig::class . '::configure()->withPhpPolyfill();',
+        ]);
+
+        $this->assertTrue($testResponse->isRedirect());
+
+        $this->assertFalse($testResponse->isClientError());
+        $this->assertFalse($testResponse->isServerError());
+    }
+
     public static function provideTestFormSubmitData(): Iterator
     {
         // Send empty form
@@ -132,6 +147,11 @@ final class DemoControllerTest extends AbstractTestCase
         // not callable
         yield ['<?php echo "test typo"; ?>', '<?php return (new DateTimeImmutable("2000-01-01"))->add(new DateInterval("P10D")); ?>', [
             FormKey::RUNNABLE_CONTENTS => 'Expected config should return callable RectorConfig instance',
+        ]];
+
+        // include dangerous file system write
+        yield ['<?php echo "test typo"; ?>', '<?php (new Nette\Utils\FileSystem)->write("test.php", "test") ?>', [
+            FormKey::RUNNABLE_CONTENTS => 'PHP config should not include side effect call like',
         ]];
     }
 }
