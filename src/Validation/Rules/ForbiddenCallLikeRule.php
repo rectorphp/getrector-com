@@ -15,6 +15,7 @@ use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node\Expr\MethodCall;
 use PhpParser\Node\Expr\NullsafeMethodCall;
 use PhpParser\Node\Expr\StaticCall;
+use PhpParser\Node\Name\FullyQualified;
 use PhpParser\NodeFinder;
 use PhpParser\ParserFactory;
 use Rector\DependencyInjection\LazyContainerFactory;
@@ -46,6 +47,11 @@ final class ForbiddenCallLikeRule implements ValidationRule
                         return false;
                     }
 
+                    // avoid extends, eg (new class extends \Nette\Utils\FileSystem {})
+                    if ($subNode instanceof FullyQualified && $this->isForbidden($subNode->toString())) {
+                        return false;
+                    }
+
                     if (! $subNode instanceof CallLike) {
                         return false;
                     }
@@ -60,12 +66,18 @@ final class ForbiddenCallLikeRule implements ValidationRule
                         return true;
                     }
 
-                    $reflectionClass = new ReflectionClass($type->getClassName());
-                    // @todo:
-                    // 1. verify allowed CallLike, eg: new \PHPStan\Type\MixedType(),
-                    // 2. verify not allowed CallLike, eg: (new Nette\Utils\FileSystem)->write('test.php', 'test');
+                    // non class should be safe
+                    $className = $type->getClassName();
+                    if (! class_exists($className)) {
+                        return false;
+                    }
 
-                    return !$reflectionClass->isInternal();
+                    $reflectionClass = new ReflectionClass($className);
+                    if ($reflectionClass->isInternal()) {
+                        return false;
+                    }
+
+                    return $this->isForbidden($className);
                 }
             );
 
@@ -75,5 +87,14 @@ final class ForbiddenCallLikeRule implements ValidationRule
         } catch (Error $error) {
             $fail(sprintf('PHP code is invalid: %s', $error->getMessage()));
         }
+    }
+
+    private function isForbidden(string $className): bool
+    {
+        return in_array($className, [
+            'Nette\Utils\FileSystem',
+            'Symfony\Component\Finder',
+            'Symfony\Component\Filesystem\Filesystem'
+        ], true);
     }
 }
