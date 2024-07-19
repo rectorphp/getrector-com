@@ -77,7 +77,7 @@ final class ForbiddenCallLikeRule implements ValidationRule
                     }
 
                     // non class should be safe
-                    $className = (string) $type->getClassName();
+                    $className = $type->getClassName();
                     if (! class_exists($className)) {
                         return false;
                     }
