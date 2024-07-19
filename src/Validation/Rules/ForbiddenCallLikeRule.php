@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Validation\Rules;
 
 use Nette\Utils\FileSystem;
-use PHPStan\Type\ObjectType;
 use ReflectionClass;
 use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
