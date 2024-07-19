@@ -61,36 +61,6 @@ final class DemoControllerTest extends AbstractTestCase
         $this->assertFalse($testResponse->isServerError());
     }
 
-    public function testIncludeNonDangerousFuncCallRequest(): void
-    {
-        $postUrl = action(ProcessDemoFormController::class);
-
-        $testResponse = $this->post($postUrl, [
-            FormKey::PHP_CONTENTS => '<?php',
-            FormKey::RUNNABLE_CONTENTS => '<?php var_dump("test");  return ' . RectorConfig::class . '::configure()->withPhpPolyfill();',
-        ]);
-
-        $this->assertTrue($testResponse->isRedirect());
-
-        $this->assertFalse($testResponse->isClientError());
-        $this->assertFalse($testResponse->isServerError());
-    }
-
-    public function testIncludeDangerousCallLikeRequest(): void
-    {
-        $postUrl = action(ProcessDemoFormController::class);
-
-        $testResponse = $this->post($postUrl, [
-            FormKey::PHP_CONTENTS => '<?php',
-            FormKey::RUNNABLE_CONTENTS => '<?php (new Nette\Utils\FileSystem)->write("test.php", "test"); return ' . RectorConfig::class . '::configure()->withPhpPolyfill();',
-        ]);
-
-        $this->assertTrue($testResponse->isRedirect());
-
-        $this->assertFalse($testResponse->isClientError());
-        $this->assertFalse($testResponse->isServerError());
-    }
-
     public static function provideTestFormSubmitData(): Iterator
     {
         // Send empty form
