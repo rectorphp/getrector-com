@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Validation\Rules;
 
+use Nette\Utils\FileSystem;
 use PHPStan\Type\ObjectType;
 use ReflectionClass;
 use Closure;
@@ -92,9 +93,9 @@ final class ForbiddenCallLikeRule implements ValidationRule
     private function isForbidden(string $className): bool
     {
         return in_array($className, [
-            'Nette\Utils\FileSystem',
+            FileSystem::class,
             'Symfony\Component\Finder',
-            'Symfony\Component\Filesystem\Filesystem'
+            \Symfony\Component\Filesystem\Filesystem::class
         ], true);
     }
 }
