@@ -28,7 +28,6 @@ final class RectorRunFormRequest extends FormRequest
         $shortPhpContentsRule = $this->make(ShortPhpContentsRule::class);
         $validAndSafePhpSyntaxRule = $this->make(ValidAndSafePhpSyntaxRule::class);
 
-        // @todo list forbidden functions? merge into @see ValidAndSafePhpSyntaxRule
         $forbiddenFuncCallRule = $this->make(ForbiddenFuncCallRule::class);
         $forbiddenCallLikeRule = $this->make(ForbiddenCallLikeRule::class);
 
