@@ -88,6 +88,7 @@ final class ForbiddenCallLikeRule implements ValidationRule
                                 continue;
                             }
                         }
+
                         if ($rootNode instanceof FullyQualified) {
                             $type = $nodeTypeResolver->getType($rootNode);
                         }
