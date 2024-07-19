@@ -92,9 +92,13 @@ final class ForbiddenCallLikeRule implements ValidationRule
                         if ($rootNode instanceof FullyQualified) {
                             $type = $nodeTypeResolver->getType($rootNode);
                         }
+
+                        if ($rootNode instanceof StaticCall && $rootNode->class instanceof FullyQualified) {
+                            $type = $nodeTypeResolver->getType($rootNode->class);
+                        }
                     }
 
-                    // magic!
+                    // todo: to be improved for inside closure callable
                     if (! $type instanceof FullyQualifiedObjectType) {
                         return false;
                     }
