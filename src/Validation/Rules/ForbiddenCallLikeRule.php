@@ -18,6 +18,8 @@ use PhpParser\Node\Expr\NullsafeMethodCall;
 use PhpParser\Node\Expr\StaticCall;
 use PhpParser\Node\Name\FullyQualified;
 use PhpParser\NodeFinder;
+use PhpParser\NodeTraverser;
+use PhpParser\NodeVisitor\NameResolver;
 use PhpParser\ParserFactory;
 use Rector\DependencyInjection\LazyContainerFactory;
 use Rector\NodeTypeResolver\NodeTypeResolver;
@@ -37,6 +39,13 @@ final class ForbiddenCallLikeRule implements ValidationRule
 
         try {
             $stmts = $parser->parse($value);
+
+            // ensure got FQCN for namespaced name
+            $traverser = new NodeTraverser();
+            $traverser->addVisitor(new NameResolver());
+
+            $stmts = $traverser->traverse($stmts);
+
             $nodeFinder = new NodeFinder();
 
             $callLike = $nodeFinder->findFirst(
@@ -64,15 +73,31 @@ final class ForbiddenCallLikeRule implements ValidationRule
                             ? $nodeTypeResolver->getType($subNode->class)
                             : $nodeTypeResolver->getType($subNode->var);
                     }
-
                     // fluent RectorConfigBuilder ?
-                    if (! $type instanceof FullyQualifiedObjectType && ($subNode instanceof MethodCall && $subNode->var instanceof StaticCall)) {
-                        $type = $nodeTypeResolver->getType($subNode->var->class);
+                    if (! $type instanceof FullyQualifiedObjectType) {
+                        if ($subNode instanceof MethodCall) {
+                            $rootNode = clone $subNode->var;
+                            while ($rootNode instanceof MethodCall) {
+                                if ($rootNode->var instanceof StaticCall) {
+                                    $rootNode = $rootNode->var->class;
+                                    break;
+                                }
+
+                                if ($rootNode->var instanceof MethodCall) {
+                                    $rootNode = $rootNode->var->var;
+                                    continue;
+                                }
+                            }
+
+                            if ($rootNode instanceof FullyQualified) {
+                                $type = $nodeTypeResolver->getType($rootNode);
+                            }
+                        }
                     }
 
                     // magic!
                     if (! $type instanceof FullyQualifiedObjectType) {
-                        return true;
+                        return false;
                     }
 
                     // non class should be safe
