@@ -8,6 +8,7 @@ use App\Controller\Demo\ProcessDemoFormController;
 use App\Enum\Request\FormKey;
 use App\Tests\AbstractTestCase;
 use Illuminate\Foundation\Http\Middleware\ValidateCsrfToken;
+use Illuminate\Mail\Mailables\Content;
 use Iterator;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\RunInSeparateProcess;
@@ -83,6 +84,34 @@ final class DemoControllerTest extends AbstractTestCase
         $testResponse = $this->post($postUrl, [
             FormKey::PHP_CONTENTS => '<?php echo "test"; ?>',
             FormKey::RUNNABLE_CONTENTS => '<?php new \PHPStan\Type\MixedType(); return ' . RectorConfig::class . '::configure()->withPhpPolyfill();',
+        ]);
+
+        $testResponse->assertSessionHasNoErrors();
+    }
+
+    #[RunInSeparateProcess]
+    public function testValidRectorConfigBuilder(): void
+    {
+        $postUrl = action(ProcessDemoFormController::class);
+
+        $testResponse = $this->post($postUrl, [
+            FormKey::PHP_CONTENTS => '<?php echo "test"; ?>',
+            FormKey::RUNNABLE_CONTENTS => <<<CONTENT
+<?php
+
+use Rector\Config\RectorConfig;
+use Rector\TypeDeclaration\Rector\Property\TypedPropertyFromAssignsRector;
+
+return RectorConfig::configure()
+    // A. whole set
+    ->withPreparedSets(typeDeclarations: true)
+    // B. or few rules
+    ->withRules([
+        TypedPropertyFromAssignsRector::class
+    ]);
+
+CONTENT
+            ,
         ]);
 
         $testResponse->assertSessionHasNoErrors();
