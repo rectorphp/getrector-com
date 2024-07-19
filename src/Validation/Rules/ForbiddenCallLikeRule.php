@@ -67,12 +67,12 @@ final class ForbiddenCallLikeRule implements ValidationRule
                     }
 
                     // fluent RectorConfigBuilder ?
-                    if (! $type instanceof ObjectType && ! $type instanceof FullyQualifiedObjectType && ($subNode instanceof MethodCall && $subNode->var instanceof StaticCall)) {
+                    if (! $type instanceof FullyQualifiedObjectType && ($subNode instanceof MethodCall && $subNode->var instanceof StaticCall)) {
                         $type = $nodeTypeResolver->getType($subNode->var->class);
                     }
 
                     // magic!
-                    if (! $type instanceof ObjectType && ! $type instanceof FullyQualifiedObjectType) {
+                    if (! $type instanceof FullyQualifiedObjectType) {
                         return true;
                     }
 
