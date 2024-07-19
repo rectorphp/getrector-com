@@ -38,7 +38,7 @@ final class ForbiddenCallLikeRule implements ValidationRule
         $nodeTypeResolver = $rectorConfig->make(NodeTypeResolver::class);
 
         try {
-            $stmts = $parser->parse($value);
+            $stmts = (array) $parser->parse($value);
 
             // ensure got FQCN for namespaced name
             $nodeTraverser = new NodeTraverser();
