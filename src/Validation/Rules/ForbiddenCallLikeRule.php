@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace App\Validation\Rules;
 
-use Nette\Utils\FileSystem;
-use ReflectionClass;
 use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
+use Nette\Utils\FileSystem;
 use PhpParser\Error;
 use PhpParser\Node;
 use PhpParser\Node\Expr\CallLike;
@@ -24,6 +23,7 @@ use PhpParser\ParserFactory;
 use Rector\DependencyInjection\LazyContainerFactory;
 use Rector\NodeTypeResolver\NodeTypeResolver;
 use Rector\StaticTypeMapper\ValueObject\Type\FullyQualifiedObjectType;
+use ReflectionClass;
 
 final class ForbiddenCallLikeRule implements ValidationRule
 {
@@ -75,7 +75,7 @@ final class ForbiddenCallLikeRule implements ValidationRule
                     }
 
                     // fluent RectorConfigBuilder ?
-                    if (!$type instanceof FullyQualifiedObjectType && $subNode instanceof MethodCall) {
+                    if (! $type instanceof FullyQualifiedObjectType && $subNode instanceof MethodCall) {
                         $rootNode = clone $subNode->var;
                         while ($rootNode instanceof MethodCall) {
                             if ($rootNode->var instanceof StaticCall) {
@@ -105,15 +105,6 @@ final class ForbiddenCallLikeRule implements ValidationRule
 
                     // non class should be safe
                     $className = $type->getClassName();
-                    if (! class_exists($className)) {
-                        return false;
-                    }
-
-                    $reflectionClass = new ReflectionClass($className);
-                    if ($reflectionClass->isInternal()) {
-                        return false;
-                    }
-
                     return $this->isForbidden($className);
                 }
             );
@@ -128,10 +119,19 @@ final class ForbiddenCallLikeRule implements ValidationRule
 
     private function isForbidden(string $className): bool
     {
+        if (! class_exists($className)) {
+            return false;
+        }
+
+        $reflectionClass = new ReflectionClass($className);
+        if ($reflectionClass->isInternal()) {
+            return false;
+        }
+
         return in_array($className, [
             FileSystem::class,
             'Symfony\Component\Finder',
-            \Symfony\Component\Filesystem\Filesystem::class
+            \Symfony\Component\Filesystem\Filesystem::class,
         ], true);
     }
 }
