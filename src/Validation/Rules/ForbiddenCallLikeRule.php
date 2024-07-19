@@ -41,15 +41,15 @@ final class ForbiddenCallLikeRule implements ValidationRule
             $stmts = $parser->parse($value);
 
             // ensure got FQCN for namespaced name
-            $traverser = new NodeTraverser();
-            $traverser->addVisitor(new NameResolver());
+            $nodeTraverser = new NodeTraverser();
+            $nodeTraverser->addVisitor(new NameResolver());
 
-            $stmts = $traverser->traverse($stmts);
+            $stmts = $nodeTraverser->traverse($stmts);
 
             $nodeFinder = new NodeFinder();
 
             $callLike = $nodeFinder->findFirst(
-                (array) $stmts,
+                $stmts,
                 function (Node $subNode) use ($nodeTypeResolver): bool {
                     // already covered by ForbiddenFuncCallRule
                     if ($subNode instanceof FuncCall) {
@@ -73,25 +73,23 @@ final class ForbiddenCallLikeRule implements ValidationRule
                             ? $nodeTypeResolver->getType($subNode->class)
                             : $nodeTypeResolver->getType($subNode->var);
                     }
+
                     // fluent RectorConfigBuilder ?
-                    if (! $type instanceof FullyQualifiedObjectType) {
-                        if ($subNode instanceof MethodCall) {
-                            $rootNode = clone $subNode->var;
-                            while ($rootNode instanceof MethodCall) {
-                                if ($rootNode->var instanceof StaticCall) {
-                                    $rootNode = $rootNode->var->class;
-                                    break;
-                                }
-
-                                if ($rootNode->var instanceof MethodCall) {
-                                    $rootNode = $rootNode->var->var;
-                                    continue;
-                                }
+                    if (!$type instanceof FullyQualifiedObjectType && $subNode instanceof MethodCall) {
+                        $rootNode = clone $subNode->var;
+                        while ($rootNode instanceof MethodCall) {
+                            if ($rootNode->var instanceof StaticCall) {
+                                $rootNode = $rootNode->var->class;
+                                break;
                             }
 
-                            if ($rootNode instanceof FullyQualified) {
-                                $type = $nodeTypeResolver->getType($rootNode);
+                            if ($rootNode->var instanceof MethodCall) {
+                                $rootNode = $rootNode->var->var;
+                                continue;
                             }
+                        }
+                        if ($rootNode instanceof FullyQualified) {
+                            $type = $nodeTypeResolver->getType($rootNode);
                         }
                     }
 
