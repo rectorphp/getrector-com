@@ -76,7 +76,7 @@ final class DemoControllerTest extends AbstractTestCase
     }
 
     #[RunInSeparateProcess]
-    public function testInValidPHPStanType(): void
+    public function testValidPHPStanType(): void
     {
         $postUrl = action(ProcessDemoFormController::class);
 
