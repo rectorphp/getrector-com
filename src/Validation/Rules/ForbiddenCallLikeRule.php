@@ -50,7 +50,7 @@ final class ForbiddenCallLikeRule implements ValidationRule
 
                     // avoid extends, eg (new class extends \Nette\Utils\FileSystem {})
                     if ($subNode instanceof FullyQualified && $this->isForbidden($subNode->toString())) {
-                        return false;
+                        return true;
                     }
 
                     if (! $subNode instanceof CallLike) {
