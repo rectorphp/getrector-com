@@ -95,7 +95,7 @@ final class DemoControllerTest extends AbstractTestCase
 
         $testResponse = $this->post($postUrl, [
             FormKey::PHP_CONTENTS => '<?php echo "test"; ?>',
-            FormKey::RUNNABLE_CONTENTS => <<<CONTENT
+            FormKey::RUNNABLE_CONTENTS => <<<'CODE_SAMPLE'
 <?php
 
 use Rector\Config\RectorConfig;
@@ -109,12 +109,40 @@ return RectorConfig::configure()
         TypedPropertyFromAssignsRector::class
     ]);
 
-CONTENT
+CODE_SAMPLE
             ,
         ]);
 
         $testResponse->assertSessionHasNoErrors();
     }
+
+    #[RunInSeparateProcess]
+    public function testValidRectorConfig(): void
+    {
+        $postUrl = action(ProcessDemoFormController::class);
+
+        $testResponse = $this->post($postUrl, [
+            FormKey::PHP_CONTENTS => '<?php echo "test"; ?>',
+            FormKey::RUNNABLE_CONTENTS => <<<'CODE_SAMPLE'
+<?php
+
+declare(strict_types=1);
+
+use Rector\Config\RectorConfig;
+
+return static function (RectorConfig $rectorConfig): void {
+    $rectorConfig->paths([__DIR__ . '/src']);
+
+    $rectorConfig->sets([\Rector\Set\ValueObject\SetList::CODE_QUALITY]);
+};
+
+CODE_SAMPLE
+            ,
+        ]);
+
+        $testResponse->assertSessionHasNoErrors();
+    }
+
 
     public static function provideTestFormSubmitData(): Iterator
     {
