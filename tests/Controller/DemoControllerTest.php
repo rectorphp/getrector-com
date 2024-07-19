@@ -10,6 +10,7 @@ use App\Tests\AbstractTestCase;
 use Illuminate\Foundation\Http\Middleware\ValidateCsrfToken;
 use Iterator;
 use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 use Rector\Config\RectorConfig;
 use Webmozart\Assert\Assert;
 
@@ -59,6 +60,32 @@ final class DemoControllerTest extends AbstractTestCase
 
         $this->assertFalse($testResponse->isClientError());
         $this->assertFalse($testResponse->isServerError());
+    }
+
+    #[RunInSeparateProcess]
+    public function testValidStrStartsWith(): void
+    {
+        $postUrl = action(ProcessDemoFormController::class);
+
+        $testResponse = $this->post($postUrl, [
+            FormKey::PHP_CONTENTS => '<?php echo "test"; ?>',
+            FormKey::RUNNABLE_CONTENTS => '<?php str_starts_with("a", "b"); return ' . RectorConfig::class . '::configure()->withPhpPolyfill();',
+        ]);
+
+        $testResponse->assertSessionHasNoErrors();
+    }
+
+    #[RunInSeparateProcess]
+    public function testInValidPHPStanType(): void
+    {
+        $postUrl = action(ProcessDemoFormController::class);
+
+        $testResponse = $this->post($postUrl, [
+            FormKey::PHP_CONTENTS => '<?php echo "test"; ?>',
+            FormKey::RUNNABLE_CONTENTS => '<?php new \PHPStan\Type\MixedType(); return ' . RectorConfig::class . '::configure()->withPhpPolyfill();',
+        ]);
+
+        $testResponse->assertSessionHasNoErrors();
     }
 
     public static function provideTestFormSubmitData(): Iterator
