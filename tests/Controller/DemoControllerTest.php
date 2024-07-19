@@ -133,5 +133,10 @@ final class DemoControllerTest extends AbstractTestCase
         yield ['<?php echo "test typo"; ?>', '<?php return (new DateTimeImmutable("2000-01-01"))->add(new DateInterval("P10D")); ?>', [
             FormKey::RUNNABLE_CONTENTS => 'Expected config should return callable RectorConfig instance',
         ]];
+
+        // provide not exists paths
+        yield ['<?php echo "test typo"; ?>', '<?php return ' . RectorConfig::class . '::configure()->withPaths(["non_exists_paths"]);?>', [
+            FormKey::RUNNABLE_CONTENTS => 'PHP config should have valid paths',
+        ]];
     }
 }

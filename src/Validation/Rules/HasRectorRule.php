@@ -75,6 +75,10 @@ final class HasRectorRule implements ValidationRule
                     throw new ShouldNotHappenException('PHP config should have valid method name, you may have typo');
                 }
 
+                if (str_ends_with($message, 'does not exist.')) {
+                    throw new ShouldNotHappenException('PHP config should have valid paths');
+                }
+
                 throw new ShouldNotHappenException('Expected config should return callable RectorConfig instance');
             }
         }
