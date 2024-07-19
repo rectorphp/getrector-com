@@ -22,7 +22,6 @@ use PhpParser\NodeFinder;
 use PhpParser\ParserFactory;
 use Rector\DependencyInjection\LazyContainerFactory;
 use Rector\NodeTypeResolver\NodeTypeResolver;
-use Rector\NodeTypeResolver\PHPStan\Scope\ScopeFactory;
 use Rector\StaticTypeMapper\ValueObject\Type\FullyQualifiedObjectType;
 
 final class ForbiddenCallLikeRule implements ValidationRule
@@ -67,11 +66,9 @@ final class ForbiddenCallLikeRule implements ValidationRule
                             : $nodeTypeResolver->getType($subNode->var);
                     }
 
-                    if (! $type instanceof ObjectType && ! $type instanceof FullyQualifiedObjectType) {
-                        // fluent RectorConfigBuilder ?
-                        if ($subNode instanceof MethodCall && $subNode->var instanceof StaticCall) {
-                            $type = $nodeTypeResolver->getType($subNode->var->class);
-                        }
+                    // fluent RectorConfigBuilder ?
+                    if (! $type instanceof ObjectType && ! $type instanceof FullyQualifiedObjectType && ($subNode instanceof MethodCall && $subNode->var instanceof StaticCall)) {
+                        $type = $nodeTypeResolver->getType($subNode->var->class);
                     }
 
                     // magic!
