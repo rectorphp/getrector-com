@@ -69,17 +69,8 @@ final class HasRectorRule implements ValidationRule
         foreach ($configFiles as $configFile) {
             try {
                 $rectorConfig->import($configFile);
-            } catch (Throwable $e) {
-                $message = $e->getMessage();
-                if (str_starts_with($message, 'Call to undefined method')) {
-                    throw new ShouldNotHappenException('PHP config should have valid method name, you may have typo');
-                }
-
-                if (str_ends_with($message, 'does not exist.')) {
-                    throw new ShouldNotHappenException('PHP config should have valid paths');
-                }
-
-                throw new ShouldNotHappenException('Expected config should return callable RectorConfig instance');
+            } catch (Throwable $t) {
+                throw new ShouldNotHappenException($t->getMessage());
             }
         }
 
