@@ -9,20 +9,12 @@ use Illuminate\Contracts\Validation\ValidationRule;
 use Nette\Utils\FileSystem;
 use PhpParser\Error;
 use PhpParser\Node;
-use PhpParser\Node\Expr\CallLike;
 use PhpParser\Node\Expr\FuncCall;
-use PhpParser\Node\Expr\MethodCall;
-use PhpParser\Node\Expr\New_;
-use PhpParser\Node\Expr\NullsafeMethodCall;
-use PhpParser\Node\Expr\StaticCall;
 use PhpParser\Node\Name\FullyQualified;
 use PhpParser\NodeFinder;
 use PhpParser\NodeTraverser;
 use PhpParser\NodeVisitor\NameResolver;
 use PhpParser\ParserFactory;
-use Rector\DependencyInjection\LazyContainerFactory;
-use Rector\NodeTypeResolver\NodeTypeResolver;
-use Rector\StaticTypeMapper\ValueObject\Type\FullyQualifiedObjectType;
 use ReflectionClass;
 
 final class ForbiddenCallLikeRule implements ValidationRule
@@ -31,11 +23,6 @@ final class ForbiddenCallLikeRule implements ValidationRule
     {
         $parserFactory = new ParserFactory();
         $parser = $parserFactory->create(ParserFactory::PREFER_PHP7);
-
-        $lazyContainerFactory = new LazyContainerFactory();
-        $rectorConfig = $lazyContainerFactory->create();
-        /** @var NodeTypeResolver $nodeTypeResolver */
-        $nodeTypeResolver = $rectorConfig->make(NodeTypeResolver::class);
 
         try {
             $stmts = (array) $parser->parse($value);
@@ -50,66 +37,19 @@ final class ForbiddenCallLikeRule implements ValidationRule
 
             $callLike = $nodeFinder->findFirst(
                 $stmts,
-                function (Node $subNode) use ($nodeTypeResolver): bool {
+                function (Node $subNode) : bool {
                     // already covered by ForbiddenFuncCallRule
                     if ($subNode instanceof FuncCall) {
                         return false;
                     }
 
-                    // avoid extends, eg (new class extends \Nette\Utils\FileSystem {})
-                    if ($subNode instanceof FullyQualified && $this->isForbidden($subNode->toString())) {
-                        return true;
-                    }
-
-                    if (! $subNode instanceof CallLike) {
-                        return false;
-                    }
-
-                    /** @var MethodCall|StaticCall|New_|NullsafeMethodCall $subNode */
-                    if ($subNode instanceof New_) {
-                        $type = $nodeTypeResolver->getType($subNode);
-                    } else {
-                        $type = $subNode instanceof StaticCall
-                            ? $nodeTypeResolver->getType($subNode->class)
-                            : $nodeTypeResolver->getType($subNode->var);
-                    }
-
-                    // fluent RectorConfigBuilder ?
-                    if (! $type instanceof FullyQualifiedObjectType && $subNode instanceof MethodCall) {
-                        $rootNode = clone $subNode->var;
-                        while ($rootNode instanceof MethodCall) {
-                            if ($rootNode->var instanceof StaticCall) {
-                                $rootNode = $rootNode->var->class;
-                                break;
-                            }
-
-                            if ($rootNode->var instanceof MethodCall) {
-                                $rootNode = $rootNode->var->var;
-                                continue;
-                            }
-                        }
-
-                        if ($rootNode instanceof FullyQualified) {
-                            $type = $nodeTypeResolver->getType($rootNode);
-                        }
-
-                        if ($rootNode instanceof StaticCall && $rootNode->class instanceof FullyQualified) {
-                            $type = $nodeTypeResolver->getType($rootNode->class);
-                        }
-                    }
-
-                    // todo: to be improved for inside closure callable
-                    if (! $type instanceof FullyQualifiedObjectType) {
-                        return false;
-                    }
-
-                    // non class should be safe
-                    $className = $type->getClassName();
-                    return $this->isForbidden($className);
+                    // no need CallLike validation, when found a FullyQualified and forbidden, directly stop
+                    // validate CallLike with Scope from PHPStan somehow cause error The item 'parameters' > env > REQUEST_TIME_FLOAT expects to be string
+                    return $subNode instanceof FullyQualified && $this->isForbidden($subNode->toString());
                 }
             );
 
-            if ($callLike instanceof CallLike) {
+            if ($callLike instanceof FullyQualified) {
                 $fail('PHP config should not include side effect call like');
             }
         } catch (Error $error) {
