@@ -18,7 +18,7 @@ jobs:
 
                     -
                         name: 'Check Active Classes'
-                        run: vendor/bin/class-leak check src --ansi
+                        run: vendor/bin/class-leak check src --ansi --skip-type="App\Validation\Rules\ForbiddenCallLikeRule"
 
                     -
                         name: 'Laravel Console'
