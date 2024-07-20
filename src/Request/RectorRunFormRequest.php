@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Request;
 
 use App\Enum\Request\FormKey;
-use App\Validation\Rules\ForbiddenCallLikeRule;
 use App\Validation\Rules\ForbiddenFuncCallRule;
 use App\Validation\Rules\HasRectorRule;
 use App\Validation\Rules\ShellExecRule;
