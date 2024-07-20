@@ -61,19 +61,79 @@ final class DemoControllerTest extends AbstractTestCase
         $this->assertFalse($testResponse->isServerError());
     }
 
-    public function testIncludeNonDangerousFuncCallRequest(): void
+    public function testValidStrStartsWith(): void
     {
         $postUrl = action(ProcessDemoFormController::class);
 
         $testResponse = $this->post($postUrl, [
-            FormKey::PHP_CONTENTS => '<?php',
-            FormKey::RUNNABLE_CONTENTS => '<?php var_dump("test");  return ' . RectorConfig::class . '::configure()->withPhpPolyfill();',
+            FormKey::PHP_CONTENTS => '<?php echo "test"; ?>',
+            FormKey::RUNNABLE_CONTENTS => '<?php str_starts_with("a", "b"); return ' . RectorConfig::class . '::configure()->withPhpPolyfill();',
         ]);
 
-        $this->assertTrue($testResponse->isRedirect());
+        $testResponse->assertSessionHasNoErrors();
+    }
 
-        $this->assertFalse($testResponse->isClientError());
-        $this->assertFalse($testResponse->isServerError());
+    public function testValidPHPStanType(): void
+    {
+        $postUrl = action(ProcessDemoFormController::class);
+
+        $testResponse = $this->post($postUrl, [
+            FormKey::PHP_CONTENTS => '<?php echo "test"; ?>',
+            FormKey::RUNNABLE_CONTENTS => '<?php new \PHPStan\Type\MixedType(); return ' . RectorConfig::class . '::configure()->withPhpPolyfill();',
+        ]);
+
+        $testResponse->assertSessionHasNoErrors();
+    }
+
+    public function testValidRectorConfigBuilder(): void
+    {
+        $postUrl = action(ProcessDemoFormController::class);
+
+        $testResponse = $this->post($postUrl, [
+            FormKey::PHP_CONTENTS => '<?php echo "test"; ?>',
+            FormKey::RUNNABLE_CONTENTS => <<<'CODE_SAMPLE'
+<?php
+
+use Rector\Config\RectorConfig;
+use Rector\TypeDeclaration\Rector\Property\TypedPropertyFromAssignsRector;
+
+return RectorConfig::configure()
+    // A. whole set
+    ->withPreparedSets(typeDeclarations: true)
+    // B. or few rules
+    ->withRules([
+        TypedPropertyFromAssignsRector::class
+    ]);
+
+CODE_SAMPLE
+            ,
+        ]);
+
+        $testResponse->assertSessionHasNoErrors();
+    }
+
+    public function testValidRectorConfig(): void
+    {
+        $postUrl = action(ProcessDemoFormController::class);
+
+        $testResponse = $this->post($postUrl, [
+            FormKey::PHP_CONTENTS => '<?php echo "test"; ?>',
+            FormKey::RUNNABLE_CONTENTS => <<<'CODE_SAMPLE'
+<?php
+
+declare(strict_types=1);
+
+use Rector\Config\RectorConfig;
+
+return static function (RectorConfig $rectorConfig): void {
+    $rectorConfig->sets([\Rector\Set\ValueObject\SetList::CODE_QUALITY]);
+};
+
+CODE_SAMPLE
+            ,
+        ]);
+
+        $testResponse->assertSessionHasNoErrors();
     }
 
     public static function provideTestFormSubmitData(): Iterator
@@ -132,6 +192,11 @@ final class DemoControllerTest extends AbstractTestCase
         // not callable
         yield ['<?php echo "test typo"; ?>', '<?php return (new DateTimeImmutable("2000-01-01"))->add(new DateInterval("P10D")); ?>', [
             FormKey::RUNNABLE_CONTENTS => 'Expected config should return callable RectorConfig instance',
+        ]];
+
+        // include dangerous file system write
+        yield ['<?php echo "test typo"; ?>', '<?php (new Nette\Utils\FileSystem)->write("test.php", "test") ?>', [
+            FormKey::RUNNABLE_CONTENTS => 'PHP config should not include side effect call like',
         ]];
     }
 }

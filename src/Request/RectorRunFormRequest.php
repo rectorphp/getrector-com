@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Request;
 
 use App\Enum\Request\FormKey;
+use App\Validation\Rules\ForbiddenCallLikeRule;
 use App\Validation\Rules\ForbiddenFuncCallRule;
 use App\Validation\Rules\HasRectorRule;
 use App\Validation\Rules\ShellExecRule;
@@ -27,8 +28,8 @@ final class RectorRunFormRequest extends FormRequest
         $shortPhpContentsRule = $this->make(ShortPhpContentsRule::class);
         $validAndSafePhpSyntaxRule = $this->make(ValidAndSafePhpSyntaxRule::class);
 
-        // @todo list forbidden functions? merge into @see ValidAndSafePhpSyntaxRule
         $forbiddenFuncCallRule = $this->make(ForbiddenFuncCallRule::class);
+        $forbiddenCallLikeRule = $this->make(ForbiddenCallLikeRule::class);
 
         $shellExecRule = $this->make(ShellExecRule::class);
         $hasRectorRule = $this->make(HasRectorRule::class);
@@ -43,6 +44,7 @@ final class RectorRunFormRequest extends FormRequest
                 $validAndSafePhpSyntaxRule,
                 $shellExecRule,
                 $forbiddenFuncCallRule,
+                $forbiddenCallLikeRule,
                 $hasRectorRule,
             ],
         ];
