@@ -66,6 +66,6 @@ use Rector\Doctrine\Set\DoctrineSetList;
 return RectorConfig::configure()
     ->withSets([
         DoctrineSetList::DOCTRINE_CODE_QUALITY,
-        __DIR__ '/config/rector-custom-set.php'
+        __DIR__.'/config/rector-custom-set.php'
     ]);
 ```
