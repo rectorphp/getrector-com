@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Tests\Controller;
 
+use Rector\Configuration\RectorConfigBuilder;
 use App\Controller\Demo\ProcessDemoFormController;
 use App\Enum\Request\FormKey;
 use App\Tests\AbstractTestCase;
@@ -126,7 +127,7 @@ final class DemoControllerTest extends AbstractTestCase
 
         // Typo in config
         yield ['<?php echo "test typo"; ?>', '<?php return ' . RectorConfig::class . '::configure()->some(); ?>', [
-            FormKey::RUNNABLE_CONTENTS => 'Call to undefined method Rector\\Configuration\\RectorConfigBuilder::some()',
+            FormKey::RUNNABLE_CONTENTS => 'Call to undefined method ' . RectorConfigBuilder::class . '::some()',
         ]];
 
         // not callable
