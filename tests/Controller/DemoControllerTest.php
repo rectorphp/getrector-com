@@ -10,7 +10,6 @@ use App\Tests\AbstractTestCase;
 use Illuminate\Foundation\Http\Middleware\ValidateCsrfToken;
 use Iterator;
 use PHPUnit\Framework\Attributes\DataProvider;
-use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 use Rector\Config\RectorConfig;
 use Webmozart\Assert\Assert;
 
@@ -62,7 +61,6 @@ final class DemoControllerTest extends AbstractTestCase
         $this->assertFalse($testResponse->isServerError());
     }
 
-    #[RunInSeparateProcess]
     public function testValidStrStartsWith(): void
     {
         $postUrl = action(ProcessDemoFormController::class);
@@ -75,7 +73,6 @@ final class DemoControllerTest extends AbstractTestCase
         $testResponse->assertSessionHasNoErrors();
     }
 
-    #[RunInSeparateProcess]
     public function testValidPHPStanType(): void
     {
         $postUrl = action(ProcessDemoFormController::class);
@@ -88,7 +85,6 @@ final class DemoControllerTest extends AbstractTestCase
         $testResponse->assertSessionHasNoErrors();
     }
 
-    #[RunInSeparateProcess]
     public function testValidRectorConfigBuilder(): void
     {
         $postUrl = action(ProcessDemoFormController::class);
@@ -116,7 +112,6 @@ CODE_SAMPLE
         $testResponse->assertSessionHasNoErrors();
     }
 
-    #[RunInSeparateProcess]
     public function testValidRectorConfig(): void
     {
         $postUrl = action(ProcessDemoFormController::class);
@@ -140,7 +135,6 @@ CODE_SAMPLE
 
         $testResponse->assertSessionHasNoErrors();
     }
-
 
     public static function provideTestFormSubmitData(): Iterator
     {

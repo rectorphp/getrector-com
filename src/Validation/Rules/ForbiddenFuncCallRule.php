@@ -22,7 +22,12 @@ final class ForbiddenFuncCallRule implements ValidationRule
         $parserFactory = new ParserFactory();
         $parser = $parserFactory->create(ParserFactory::PREFER_PHP7);
 
-        $functionMetadata = include_once 'phar://' . __DIR__ . '/../../../vendor/phpstan/phpstan/phpstan.phar/resources/functionMetadata.php';
+        if (defined('PHPUNIT_COMPOSER_INSTALL')) {
+            // in PHPUnit, somehow can't use include_once on multiple tests
+            $functionMetadata = include 'phar://' . __DIR__ . '/../../../vendor/phpstan/phpstan/phpstan.phar/resources/functionMetadata.php';
+        } else {
+            $functionMetadata = include_once 'phar://' . __DIR__ . '/../../../vendor/phpstan/phpstan/phpstan.phar/resources/functionMetadata.php';
+        }
 
         try {
             $stmts = $parser->parse($value);
