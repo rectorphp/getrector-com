@@ -176,7 +176,11 @@ CODE_SAMPLE
         ]];
 
         yield ['<?php echo "test"; ?>', '<?php include "index.php"; ?>', [
-            FormKey::RUNNABLE_CONTENTS => 'PHP code cannot contain any "include"/"require" calls',
+            FormKey::RUNNABLE_CONTENTS => 'PHP code cannot contain any "include"/"require"/"exit" calls',
+        ]];
+
+        yield ['<?php echo "test"; ?>', '<?php exit("debug") ?>', [
+            FormKey::RUNNABLE_CONTENTS => 'PHP code cannot contain any "include"/"require"/"exit" calls',
         ]];
 
         // Add no rule in config
@@ -195,7 +199,7 @@ CODE_SAMPLE
         ]];
 
         // include dangerous file system write
-        yield ['<?php echo "test typo"; ?>', '<?php (new Nette\Utils\FileSystem)->write("test.php", "test") ?>', [
+        yield ['<?php echo "test"; ?>', '<?php (new Nette\Utils\FileSystem)->write("test.php", "test") ?>', [
             FormKey::RUNNABLE_CONTENTS => 'PHP config should not include side effect call like',
         ]];
     }

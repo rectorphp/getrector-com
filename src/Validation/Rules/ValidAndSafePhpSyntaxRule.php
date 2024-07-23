@@ -9,6 +9,7 @@ use Illuminate\Contracts\Validation\ValidationRule;
 use Nette\Utils\Strings;
 use PhpParser\Error;
 use PhpParser\Node;
+use PhpParser\Node\Expr\Exit_;
 use PhpParser\Node\Expr\Include_;
 use PhpParser\Node\Stmt;
 use PhpParser\NodeFinder;
@@ -51,8 +52,8 @@ final class ValidAndSafePhpSyntaxRule implements ValidationRule
                 return;
             }
 
-            if ($this->containsInclude($stmts)) {
-                $fail('PHP code cannot contain any "include"/"require" calls');
+            if ($this->containsIncludeOrExit($stmts)) {
+                $fail('PHP code cannot contain any "include"/"require"/"exit" calls');
             }
         } catch (Error $error) {
             $fail('PHP code is invalid: ' . $error->getMessage());
@@ -62,13 +63,13 @@ final class ValidAndSafePhpSyntaxRule implements ValidationRule
     /**
      * @param Stmt[] $stmts
      */
-    private function containsInclude(array $stmts): bool
+    private function containsIncludeOrExit(array $stmts): bool
     {
-        $include = $this->nodeFinder->findFirst(
+        $includeOrExit = $this->nodeFinder->findFirst(
             $stmts,
-            static fn (Node $subNode): bool => $subNode instanceof Include_
+            static fn (Node $subNode): bool => $subNode instanceof Include_ || $subNode instanceof Exit_
         );
 
-        return $include instanceof Include_;
+        return $includeOrExit instanceof Include_ || $includeOrExit instanceof Exit_;
     }
 }
