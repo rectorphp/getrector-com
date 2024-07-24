@@ -73,6 +73,18 @@ final class DemoControllerTest extends AbstractTestCase
         $testResponse->assertSessionHasNoErrors();
     }
 
+    public function testValidRand(): void
+    {
+        $postUrl = action(ProcessDemoFormController::class);
+
+        $testResponse = $this->post($postUrl, [
+            FormKey::PHP_CONTENTS => '<?php echo "test"; ?>',
+            FormKey::RUNNABLE_CONTENTS => '<?php rand(0, 1); return ' . RectorConfig::class . '::configure()->withPhpPolyfill();',
+        ]);
+
+        $testResponse->assertSessionHasNoErrors();
+    }
+
     public function testValidPHPStanType(): void
     {
         $postUrl = action(ProcessDemoFormController::class);
