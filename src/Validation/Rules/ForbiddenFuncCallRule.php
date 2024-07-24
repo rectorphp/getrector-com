@@ -10,13 +10,30 @@ use PhpParser\Error;
 use PhpParser\Node;
 use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\FuncCall;
-use PhpParser\Node\Name\FullyQualified;
 use PhpParser\NodeFinder;
 use PhpParser\ParserFactory;
 use PHPStan\TrinaryLogic;
 
 final class ForbiddenFuncCallRule implements ValidationRule
 {
+    /**
+     * @var string[]
+     */
+    private const SAFE_IMPURE_FUNCTIONS = [
+        // randomize operations
+        'mt_srand',
+        'mt_rand',
+        'rand',
+        'random_int',
+        'random_bytes',
+
+        // iterator operations
+        'rewind', 'iterator_apply',
+
+        // array operations
+        'array_pop', 'array_push', 'array_shift', 'array_splice', 'array_slice', 'next', 'prev', 'sort', 'ksort',
+    ];
+
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
         $parserFactory = new ParserFactory();
@@ -45,20 +62,18 @@ final class ForbiddenFuncCallRule implements ValidationRule
                         return true;
                     }
 
-                    $namespaceName = $subNode->name->getAttribute('namespaced_name');
-
-                    if ($namespaceName instanceof FullyQualified) {
-                        $name = strtolower($namespaceName->toString());
-                    } else {
-                        $name = strtolower($subNode->name->toString());
-                    }
-
+                    // only check on native function, otherwise, mark as side effect
+                    $name = strtolower($subNode->name->toString());
                     if (isset($functionMetadata[$name])) {
                         $hasSideEffects = TrinaryLogic::createFromBoolean(
                             $functionMetadata[$name]['hasSideEffects']
                         );
                     } else {
                         $hasSideEffects = TrinaryLogic::createMaybe();
+                    }
+
+                    if (! $hasSideEffects->no() && in_array($name, self::SAFE_IMPURE_FUNCTIONS, true)) {
+                        return false;
                     }
 
                     // yes() and maybe() may have side effect
