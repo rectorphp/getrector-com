@@ -73,7 +73,7 @@ final class DemoControllerTest extends AbstractTestCase
         $testResponse->assertSessionHasNoErrors();
     }
 
-    public function testValidArrayPushWith(): void
+    public function testValidRand(): void
     {
         $postUrl = action(ProcessDemoFormController::class);
 
