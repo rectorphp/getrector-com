@@ -38,6 +38,9 @@ final class HasRectorRule implements ValidationRule
             try {
                 $rectorContainer = $this->createFromConfigs([$configFilePath]);
             } catch (ShouldNotHappenException $t) {
+                // remove no longer used
+                $filesystem->remove($configFilePath);
+
                 $fail($t->getMessage());
                 return;
             }
