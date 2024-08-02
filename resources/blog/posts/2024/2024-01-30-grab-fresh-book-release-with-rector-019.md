@@ -11,7 +11,7 @@ updated_message: |
     Updated with **Rector 1.0** and new smart configuration methods.
 ---
 
-<a href="https://leanpub.com/rector-the-power-of-automated-refactoring?utm_source=getrectororg_book_detail" style="float:right;max-width: 16em">
+<a href="https://leanpub.com/rector-the-power-of-automated-refactoring?utm_source=getrectororg_book_detail" style="float:right;max-width: 13em">
     <img src="/assets/images/logo/logo_bigger/rector_book.png" class="img-fluid img-thumbnail ms-4 mt-0">
 </a>
 
@@ -26,7 +26,7 @@ Key Highlights of this update are:
 
 Featuring typical `refactor()` use-cases, enhancing your refactoring skills.
 
-### Simplified Configuration
+## Simplified Configuration
 
 Introducing a minimalist `RectorConfig::configure()` config for smoother setup.
 
@@ -40,16 +40,16 @@ return RectorConfig::configure()
     ->withPhpSets();
 ```
 
-### Convenient Commands
+## Convenient Commands
 
 New commands, such as `setup-ci` and `custom-rule`, to streamline your workflow.
 
-### Code Examples in Git Repository
+## Code Examples in Git Repository
 
 Access a complete code repository at [`rectorphp/rector-book-code-examples`](https://github.com/rectorphp/rector-book-code-examples) for comprehensive learning.
 
 
-### Improved Visuals
+## Improved Visuals
 
 * Enhancements in rule and test file visualization for better understanding.
 * Dependency Updates: Keeping pace with technology, we've updated dependencies, including Rector (0.15 → 1.0), PHP (8.0 → 8.2), ECS (to 12.1), and PHPUnit (9.5 → 10.5).

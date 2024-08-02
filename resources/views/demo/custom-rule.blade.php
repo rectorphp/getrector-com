@@ -27,24 +27,13 @@
                 'defaultValue' => $rectorRun->getRunnablePhp()
             ])
 
+            @include('_snippets.form.form_diff')
+
             @include('_snippets.form.form_textarea', [
                 'label' => 'PHP snippet to change',
                 'inputName' => 'php_contents',
                 'defaultValue' => $rectorRun->getContent()
             ])
-
-            @if ($rectorRun->isSuccessful())
-                <div class="card bg-success border-success mb-3">
-                    <div class="card-header text-bold text-white">
-                        What did Rector change?
-                    </div>
-
-                    <div class="card-body p-0">
-                        <textarea
-                            class="codemirror_diff">{{ $rectorRun->getContentDiff() }}</textarea>
-                    </div>
-                </div>
-            @endif
 
             <button type="submit" id="demo_form_process" name="process"
                     class="btn btn-lg btn-success btn-demo-submit mt-3">Run Rector

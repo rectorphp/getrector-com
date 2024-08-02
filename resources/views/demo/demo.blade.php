@@ -24,56 +24,47 @@
                 Run Rector on your code to see what it can do for you:
             </p>
 
+            @include('_snippets.form.form_diff')
+
             @include('_snippets.form.form_textarea', [
                 'label' => 'PHP snippet to change',
                 'inputName' => 'php_contents',
                 'defaultValue' => $rectorRun->getContent()
             ])
 
-            @if ($rectorRun->isSuccessful())
-                <div class="card bg-success border-success mb-3">
-                    <div class="card-header text-bold text-white">
-                        What did Rector change?
-                    </div>
+            <div class="clearfix mb-3" style="clear: both"></div>
 
-                    <div class="card-body p-0">
-                        <textarea
-                            class="codemirror_diff">{{ $rectorRun->getContentDiff() }}</textarea>
+            @if ($rectorRun->isSuccessful() && $rectorRun->getAppliedRules())
+                <div class="row">
+                    <div class="pt-0 pb-4 col-12 col-sm-6">
+                        <p class="mb-2">Applied Rules:</p>
+
+                        <ul class="list-noindent">
+                            @foreach ($rectorRun->getAppliedRules() as $applied_rule)
+                                @php
+                                    /** @var $applied_rule \App\ValueObject\AppliedRule */
+                                @endphp
+
+                                <li>
+                                    <a href="{{ $applied_rule->getGitHubReadmeLink() }}">
+                                        {{ $applied_rule->getShortClass() }}
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    <div class="pt-0 pb-4 col-12 col-sm-6">
+                        <p class="mb-2">Is the result wrong?</p>
+                        <a href="{{ issueLink($rectorRun) }}" class="btn btn-danger">Create an
+                            issue</a>
+
+                        @if ($rectorRun->canCreateFixture())
+                            <a href="{{ pullRequestLink($rectorRun) }}"
+                               class="btn btn-primary ms-3">Create
+                                a Test</a>
+                        @endif
                     </div>
                 </div>
-
-                @if ($rectorRun->getAppliedRules())
-                    <div class="row">
-                        <div class="pt-0 pb-4 col-12 col-sm-6">
-                            <p class="mb-2">Applied Rules:</p>
-
-                            <ul class="list-noindent">
-                                @foreach ($rectorRun->getAppliedRules() as $applied_rule)
-                                    @php
-                                        /** @var $applied_rule \App\ValueObject\AppliedRule */
-                                    @endphp
-
-                                    <li>
-                                        <a href="{{ $applied_rule->getGitHubReadmeLink() }}">
-                                            {{ $applied_rule->getShortClass() }}
-                                        </a>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </div>
-                        <div class="pt-0 pb-4 col-12 col-sm-6">
-                            <p class="mb-2">Is the result wrong?</p>
-                            <a href="{{ issueLink($rectorRun) }}" class="btn btn-danger">Create an
-                                issue</a>
-
-                            @if ($rectorRun->canCreateFixture())
-                                <a href="{{ pullRequestLink($rectorRun) }}"
-                                   class="btn btn-primary ms-3">Create
-                                    a Test</a>
-                            @endif
-                        </div>
-                    </div>
-                @endif
             @endif
 
             @include('_snippets.form.form_textarea', [

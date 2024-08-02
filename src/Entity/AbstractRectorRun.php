@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use App\Demo\ValueObject\DiffSnippet;
 use App\Enum\Comment;
 use App\Utils\FileDiffCleaner;
 use JsonSerializable;
 use Nette\Utils\Strings;
 use Symfony\Component\Uid\Uuid;
+use Webmozart\Assert\Assert;
 
 abstract class AbstractRectorRun implements JsonSerializable
 {
@@ -27,9 +29,33 @@ abstract class AbstractRectorRun implements JsonSerializable
         return $this->uuid;
     }
 
+    /**
+     * @return DiffSnippet[]
+     */
+    public function getDiffSnippets(): array
+    {
+        $diffSnippets = [];
+
+        $contentDiffsRaw = Strings::split($this->getContentDiff(), '#@@ #');
+        foreach (array_filter($contentDiffsRaw) as $contentDiffRaw) {
+            [$lines, $content] = Strings::split($contentDiffRaw, "# @@\n#");
+
+            $linesMatch = Strings::match($lines, '#\-(?<line>\d+)\,#');
+
+            Assert::isArray($linesMatch);
+            Assert::keyExists($linesMatch, 'line');
+            $line = (int) $linesMatch['line'];
+
+            $diffSnippets[] = new DiffSnippet($line, $content);
+        }
+
+        return $diffSnippets;
+    }
+
     public function getContentDiff(): string
     {
         $fileDiff = $this->jsonResult['file_diffs'][0]['diff'] ?? null;
+
         if (is_string($fileDiff)) {
             $fileDiffCleaner = new FileDiffCleaner();
             return $fileDiffCleaner->clean($fileDiff);
