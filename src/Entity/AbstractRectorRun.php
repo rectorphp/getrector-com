@@ -38,7 +38,7 @@ abstract class AbstractRectorRun implements JsonSerializable
 
         $contentDiff = $this->getContentDiff();
         if ($contentDiff === Comment::NO_CHANGE_CONTENT) {
-            return [new DiffSnippet(0, $contentDiff)]];
+            return [new DiffSnippet(0, $contentDiff)];
         }
 
         $contentDiffsRaw = Strings::split($this->getContentDiff(), '#@@ #');
