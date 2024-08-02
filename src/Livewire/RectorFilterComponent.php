@@ -30,7 +30,7 @@ final class RectorFilterComponent extends Component
     public ?string $query = null;
 
     #[Url]
-    public ?string $set = null;
+    public ?string $rectorSet = null;
 
     #[Url]
     public ?string $nodeType = null;
@@ -49,11 +49,11 @@ final class RectorFilterComponent extends Component
 
         /** @var RuleFilter $ruleFilter */
         $ruleFilter = app(RuleFilter::class);
-        $filteredRules = $ruleFilter->filter($ruleMetadatas, $this->query, $this->nodeType, $this->set);
+        $filteredRules = $ruleFilter->filter($ruleMetadatas, $this->query, $this->nodeType, $this->rectorSet);
 
         /** @var SearchLogger $searchLogger */
         $searchLogger = app(SearchLogger::class);
-        $searchLogger->log($this->query, $this->nodeType, $this->set);
+        $searchLogger->log($this->query, $this->nodeType, $this->rectorSet);
 
         /** @var RectorSetsTreeProvider $rectorSetsTreeProvider */
         $rectorSetsTreeProvider = app(RectorSetsTreeProvider::class);
@@ -76,6 +76,6 @@ final class RectorFilterComponent extends Component
             return true;
         }
 
-        return $this->set !== null && $this->set !== '';
+        return $this->rectorSet !== null && $this->rectorSet !== '';
     }
 }

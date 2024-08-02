@@ -38,19 +38,19 @@
         </div>
 
         <div class="col-12 col-md-3 mb-3">
-            <label for="node_type">Set:</label>
+            <label for="rector_set">Set:</label>
 
-            <select class="form-select d-inline ms-3" name="set" style="max-width: 11.3em" wire:model.live="set">
+            <select class="form-select d-inline ms-3" name="rector_set" style="max-width: 11.3em" wire:model.live="rectorSet">
                 <option value="">Any set</option>
 
                 @foreach ($rectorSetsByGroup as $groupName => $rectorSets)
                     <optgroup label="{{ $groupName }}">
-                    @foreach ($rectorSets as $rectorSet)
-                        <option value="{{ $rectorSet->getSlug() }}">
-                            {{ $rectorSet->getName() }}
-                            ({{ $rectorSet->getRuleCount() }})
-                        </option>
-                    @endforeach
+                        @foreach ($rectorSets as $rectorSet)
+                            <option value="{{ $rectorSet->getSlug() }}">
+                                {{ $rectorSet->getName() }}
+                                ({{ $rectorSet->getRuleCount() }})
+                            </option>
+                        @endforeach
                     </optgroup>
                 @endforeach
             </select>
