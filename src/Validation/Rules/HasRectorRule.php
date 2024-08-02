@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Validation\Rules;
 
-use Throwable;
 use App\Exception\ShouldNotHappenException;
 use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
@@ -15,6 +14,7 @@ use Rector\Contract\Rector\RectorInterface;
 use Rector\DependencyInjection\LazyContainerFactory;
 use Rector\Rector\AbstractRector;
 use Symfony\Component\Filesystem\Filesystem;
+use Throwable;
 
 /**
  * @see \App\Tests\Validator\Rules\HasRectorRule\HasRectorRuleTest

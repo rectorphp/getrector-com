@@ -37,7 +37,7 @@ final class ForbiddenCallLikeRule implements ValidationRule
 
             $callLike = $nodeFinder->findFirst(
                 $stmts,
-                function (Node $subNode) : bool {
+                function (Node $subNode): bool {
                     // already covered by ForbiddenFuncCallRule
                     if ($subNode instanceof FuncCall) {
                         return false;
