@@ -4,19 +4,27 @@ declare(strict_types=1);
 
 namespace App\Validation\Rules;
 
+use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
+use Illuminate\Translation\PotentiallyTranslatedString;
 
 final class ShortPhpConfigRule implements ValidationRule
 {
-    use ShortPhpLinesTrait;
-
     /**
      * @var int
      */
     private const INPUT_LINES_LIMIT = 200;
 
-    private function getInputLineLimit(): int
+    public function __construct(
+        private readonly ShortPhpLines $shortPhpLines
+    ) {
+    }
+
+    /**
+     * @param Closure(string):PotentiallyTranslatedString $fail
+     */
+    public function validate(string $attribute, mixed $value, Closure $fail): void
     {
-        return self::INPUT_LINES_LIMIT;
+        $this->shortPhpLines->validate($value, $fail, self::INPUT_LINES_LIMIT);
     }
 }
