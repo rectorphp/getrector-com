@@ -9,6 +9,7 @@ use App\Validation\Rules\ForbiddenCallLikeRule;
 use App\Validation\Rules\ForbiddenFuncCallRule;
 use App\Validation\Rules\HasRectorRule;
 use App\Validation\Rules\ShellExecRule;
+use App\Validation\Rules\ShortPhpConfigRule;
 use App\Validation\Rules\ShortPhpContentsRule;
 use App\Validation\Rules\ValidAndSafePhpSyntaxRule;
 use Illuminate\Foundation\Http\FormRequest;
@@ -26,6 +27,7 @@ final class RectorRunFormRequest extends FormRequest
     public function rules(): array
     {
         $shortPhpContentsRule = $this->make(ShortPhpContentsRule::class);
+        $shortPhpConfigRule = $this->make(ShortPhpConfigRule::class);
         $validAndSafePhpSyntaxRule = $this->make(ValidAndSafePhpSyntaxRule::class);
 
         $forbiddenFuncCallRule = $this->make(ForbiddenFuncCallRule::class);
@@ -42,6 +44,7 @@ final class RectorRunFormRequest extends FormRequest
                 'required',
                 'string',
                 $validAndSafePhpSyntaxRule,
+                $shortPhpConfigRule,
                 $shellExecRule,
                 $forbiddenFuncCallRule,
                 $forbiddenCallLikeRule,
