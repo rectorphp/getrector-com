@@ -7,12 +7,52 @@
 {{-- code highligh posts --}}
 {{-- pick from https://highlightjs.org/demo --}}
 {{-- see ChatGPT https://chat.openai.com/share/af70716e-067c-481c-ad61-fc40de2f4dc3 --}}
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/atlas.min.css">
+
+
+<link rel="stylesheet" id="theme-link" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/atlas.min.css">
+{{--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/atelier-dune-light.min.css">--}}
+
 <style>
     pre code.hljs {
         border-radius: .6em;
     }
+
+    /* only for light theme */
+    .hljs {
+        border: 1px solid #d8d2af;
+    }
 </style>
+
+
+<button onclick="toggleTheme()">Toggle theme</button>
+
+<script>
+    // Function to load theme from local storage
+    function loadTheme() {
+        const theme = localStorage.getItem('theme');
+        if (theme) {
+            document.getElementById('theme-link').setAttribute('href', theme);
+        }
+    }
+
+    // Function to toggle theme and save preference to local storage
+    function toggleTheme() {
+        var theme = document.getElementById('theme-link');
+        var lightTheme = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/atelier-dune-light.min.css';
+        var darkTheme = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/atlas.min.css';
+
+        if (theme.getAttribute('href') === darkTheme) {
+            theme.setAttribute('href', lightTheme);
+            localStorage.setItem('theme', lightTheme);
+        } else {
+            theme.setAttribute('href', darkTheme);
+            localStorage.setItem('theme', darkTheme);
+        }
+    }
+
+    // Load the theme when the page loads
+    window.onload = loadTheme;
+</script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/bash.min.js"></script>
