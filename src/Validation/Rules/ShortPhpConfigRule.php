@@ -8,12 +8,12 @@ use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Translation\PotentiallyTranslatedString;
 
-final class ShortPhpContentsRule implements ValidationRule
+final class ShortPhpConfigRule implements ValidationRule
 {
     /**
      * @var int
      */
-    private const INPUT_LINES_LIMIT = 100;
+    private const INPUT_LINES_LIMIT = 200;
 
     public function __construct(
         private readonly ShortPhpLines $shortPhpLines
