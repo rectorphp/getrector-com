@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use App\Controller\CodebaseRenovationController;
+use App\Controller\Demo\CustomRuleDetailController;
 use App\Ast\Controller\AstController;
 use App\Ast\Controller\AstDetailController;
 use App\Ast\Controller\ProcessAstFormController;
@@ -11,7 +13,6 @@ use App\Controller\Blog\PostController;
 use App\Controller\BookController;
 use App\Controller\ContactController;
 use App\Controller\Demo\CustomRuleController;
-use App\Controller\Demo\CustomRuleDetailController;
 use App\Controller\Demo\DemoController;
 use App\Controller\Demo\DemoDetailController;
 use App\Controller\Demo\ProcessCustomRuleFormController;
@@ -70,6 +71,8 @@ Route::post('process-ast', ProcessAstFormController::class);
 
 // in development only
 if (app('env') === 'dev') {
+    Route::get('codebase-renovation', CodebaseRenovationController::class);
+
     Route::get('custom-rule/{uuid}', CustomRuleDetailController::class)
         ->whereUuid('uuid');
     Route::get('custom-rule', CustomRuleController::class);

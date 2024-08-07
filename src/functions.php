@@ -8,6 +8,11 @@ use App\Enum\FlashType;
 use Illuminate\Http\RedirectResponse;
 use League\CommonMark\GithubFlavoredMarkdownConverter;
 
+function latestPhp(): string
+{
+    return '8.3';
+}
+
 function slugify(string $value): string
 {
     return str($value)->slug()
