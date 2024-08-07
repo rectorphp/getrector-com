@@ -28,6 +28,11 @@ return RectorConfig::configure()
             // non-existing class in /src
             __DIR__ . '/src/RuleFilter/ConfiguredDiffSamplesFactory.php',
         ],
+
+        // not suitable for such a long content
+        \Rector\CodeQuality\Rector\ClassMethod\InlineArrayReturnAssignRector::class => [
+            __DIR__ . '/src/Repository/RenovationItemRepository.php',
+        ],
     ])
     ->withRootFiles()
     ->withSkip([

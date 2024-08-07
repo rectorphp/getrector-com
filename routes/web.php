@@ -58,8 +58,6 @@ Route::get('rss.xml', RssController::class);
 Route::get('find-rule', FilterRectorController::class);
 Route::get('rule-detail/{slug}', RuleDetailController::class);
 
-Route::get('codebase-renovation', CodebaseRenovationController::class);
-
 // demo
 Route::get('demo/{uuid}', DemoDetailController::class)
     ->whereUuid('uuid');
@@ -73,6 +71,8 @@ Route::post('process-ast', ProcessAstFormController::class);
 
 // in development only
 if (app('env') === 'dev') {
+    Route::get('codebase-renovation', CodebaseRenovationController::class);
+
     Route::get('custom-rule/{uuid}', CustomRuleDetailController::class)
         ->whereUuid('uuid');
     Route::get('custom-rule', CustomRuleController::class);
