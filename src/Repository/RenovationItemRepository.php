@@ -13,10 +13,12 @@ final class RenovationItemRepository
      */
     public function fetchAll(): array
     {
-        return [new RenovationItem(
-            'PHP Version',
+        $renovationItems = [];
+
+        $renovationItems[] = new RenovationItem(
+            'Exact PHP Version',
             'PHP version is ambiguous, defined in multiple places and with upper bracket.',
-            'There is single PHP version. The latest available stable version to get the best performance and code quality.',
+            'Single and exact PHP version. The latest available stable version to get the best performance and code quality.',
             <<<JSON
 {
     "requires": {
@@ -39,11 +41,13 @@ JSON
 JSON
             ,
             'json'
-        ), new RenovationItem(
-            'Static Analysis',
+        );
+
+        $renovationItems[] = new RenovationItem(
+            'Static Analysis Tailored',
             'Multiple static-analysis tools, mutually covering code with the same features, taking time of CI and cost developer attention.
                 <br>
-                Huge baseline files with hundreds ignored errors, that make purpose of analysis unreliable and dull.',
+                Huge baseline files with hundreds ignored errors.',
             'Simple setup with single <code>phpstan.neon</code>. No ignores. The best tool to do the job, with fast parallel run. Custom PHPStan rules to deal with your most common code review reports within your domain.',
             <<<JSON
 {
@@ -64,6 +68,8 @@ JSON
 JSON
             ,
             'json'
-        )];
+        );
+
+        return $renovationItems;
     }
 }
