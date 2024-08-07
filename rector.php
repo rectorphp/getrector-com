@@ -31,9 +31,7 @@ return RectorConfig::configure()
         ],
 
         // not suitable for such a long content
-        InlineArrayReturnAssignRector::class => [
-            __DIR__ . '/src/Repository/RenovationItemRepository.php',
-        ],
+        InlineArrayReturnAssignRector::class => [__DIR__ . '/src/Repository/RenovationItemRepository.php'],
     ])
     ->withRootFiles()
     ->withSkip([
