@@ -70,6 +70,46 @@ JSON
             'json'
         );
 
+        $renovationItems[] = new RenovationItem(
+            'Autoloading Perfected',
+            "Various classmap/PSR-0/files autoloading allows conflicts and make project class  loading. In some cases classes can be loaded incorrectly and cause server to crash. It's not clear, where to put new classes.",
+            'Single PSR-4 loading root, simple and clear.
+            <br>Fast composer loading, clear rules.<br><br>',
+            <<<JSON
+{
+    "autoload": {
+        "classmap": [
+            "src",
+            "libraries",
+            "classes",
+            "tests"
+            "spec"
+        ]
+        "files": [
+            "src/AppModule/SomeClass.php",
+        ]
+    }
+}
+JSON
+            ,
+            <<<JSON
+{
+    "autoload": {
+        "psr-4": {
+            "App\\\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\\\Tests\\\\": "tests"
+        }
+    }
+}
+JSON
+            ,
+            'json'
+        );
+
         return $renovationItems;
     }
 }
