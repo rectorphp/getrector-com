@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Rector\CodeQuality\Rector\ClassMethod\InlineArrayReturnAssignRector;
 use Rector\Config\RectorConfig;
 use Rector\Naming\Rector\Foreach_\RenameForeachValueVariableToMatchMethodCallReturnTypeRector;
 use Rector\Php55\Rector\String_\StringClassNameToClassConstantRector;
@@ -30,7 +31,7 @@ return RectorConfig::configure()
         ],
 
         // not suitable for such a long content
-        \Rector\CodeQuality\Rector\ClassMethod\InlineArrayReturnAssignRector::class => [
+        InlineArrayReturnAssignRector::class => [
             __DIR__ . '/src/Repository/RenovationItemRepository.php',
         ],
     ])
