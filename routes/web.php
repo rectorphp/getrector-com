@@ -29,6 +29,10 @@ use App\Controller\Socials\RuleThumbnailController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomepageController::class);
+
+// redirect of old page
+Route::redirect('/documentation/rules-overview', '/find-rule');
+
 Route::get('documentation/{section?}', DocumentationController::class);
 
 Route::get('about', AboutController::class);
@@ -54,7 +58,7 @@ Route::get('/rule-thumbnail/{ruleSlug}.png', RuleThumbnailController::class)
 
 Route::get('rss.xml', RssController::class);
 
-// on dev for now only
+// 2024 new stuff
 Route::get('find-rule', FilterRectorController::class);
 Route::get('rule-detail/{slug}', RuleDetailController::class);
 

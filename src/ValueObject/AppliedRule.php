@@ -9,32 +9,27 @@ use Nette\Utils\Strings;
 
 final class AppliedRule
 {
-    /**
-     * @var string
-     */
-    private const README_URL = 'https://github.com/rectorphp/rector/blob/main/docs/rector_rules_overview.md';
-
-    private readonly string $shortClass;
+    private readonly string $shortRectorClass;
 
     public function __construct(
-        private readonly string $class
+        private readonly string $rectorClass
     ) {
-        $shortClassName = Strings::after($class, '\\', -1);
-        if (! is_string($shortClassName)) {
+        $shortRectorClassName = Strings::after($rectorClass, '\\', -1);
+        if (! is_string($shortRectorClassName)) {
             throw new ShouldNotHappenException();
         }
 
-        $this->shortClass = $shortClassName;
+        $this->shortRectorClass = $shortRectorClassName;
     }
 
     public function getShortClass(): string
     {
-        return $this->shortClass;
+        return $this->shortRectorClass;
     }
 
     public function getTestFixtureNamespace(): string
     {
-        $classParts = explode('\\', $this->class);
+        $classParts = explode('\\', $this->rectorClass);
 
         array_splice($classParts, 1, 0, ['Tests']);
         $classParts[] = 'Fixture';
@@ -44,7 +39,7 @@ final class AppliedRule
 
     public function getTestFixtureDirectoryPath(): string
     {
-        $classParts = explode('\\', $this->class);
+        $classParts = explode('\\', $this->rectorClass);
 
         $category = $classParts[1];
         $rulesDirectory = 'rules-tests/' . $category;
@@ -56,10 +51,13 @@ final class AppliedRule
     }
 
     /**
-     * @api used in blade
+     * Mimics @see \App\RuleFilter\ValueObject\RuleMetadata::getSlug()
      */
-    public function getGitHubReadmeLink(): string
+    public function getSlug(): string
     {
-        return self::README_URL . '#' . Strings::webalize($this->shortClass);
+        // turn "SomeRector" to "some-rector"
+        return str($this->shortRectorClass)
+            ->snake('-')
+            ->toString();
     }
 }

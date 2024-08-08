@@ -40,14 +40,10 @@
                         <p class="mb-2">Applied Rules:</p>
 
                         <ul class="list-noindent">
-                            @foreach ($rectorRun->getAppliedRules() as $applied_rule)
-                                @php
-                                    /** @var $applied_rule \App\ValueObject\AppliedRule */
-                                @endphp
-
+                            @foreach ($rectorRun->getAppliedRules() as $appliedRule)
                                 <li>
-                                    <a href="{{ $applied_rule->getGitHubReadmeLink() }}">
-                                        {{ $applied_rule->getShortClass() }}
+                                    <a href="{{ action(\App\Controller\RuleDetailController::class, ['slug' => $appliedRule->getSlug()]) }}">
+                                        {{ $appliedRule->getShortClass() }}
                                     </a>
                                 </li>
                             @endforeach
