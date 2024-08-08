@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\ValueObject;
 
-use App\Controller\RuleDetailController;
 use App\Exception\ShouldNotHappenException;
 use Nette\Utils\Strings;
 
@@ -52,19 +51,9 @@ final class AppliedRule
     }
 
     /**
-     * @api used in blade
-     */
-    public function getRuleDetailLink(): string
-    {
-        return action(RuleDetailController::class, [
-            'slug' => $this->getSlug(),
-        ]);
-    }
-
-    /**
      * Mimics @see \App\RuleFilter\ValueObject\RuleMetadata::getSlug()
      */
-    private function getSlug(): string
+    public function getSlug(): string
     {
         // turn "SomeRector" to "some-rector"
         return str($this->shortRectorClass)
