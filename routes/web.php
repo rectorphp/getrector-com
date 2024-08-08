@@ -59,8 +59,16 @@ Route::get('/rule-thumbnail/{ruleSlug}.png', RuleThumbnailController::class)
 Route::get('rss.xml', RssController::class);
 
 // 2024 new stuff
+Route::get('codebase-renovation', CodebaseRenovationController::class);
+
 Route::get('find-rule', FilterRectorController::class);
 Route::get('rule-detail/{slug}', RuleDetailController::class);
+
+Route::get('custom-rule/{uuid}', CustomRuleDetailController::class)
+    ->whereUuid('uuid');
+Route::get('custom-rule', CustomRuleController::class);
+Route::post('process-custom-rule', ProcessCustomRuleFormController::class);
+
 
 // demo
 Route::get('demo/{uuid}', DemoDetailController::class)
@@ -72,13 +80,3 @@ Route::post('process-demo', ProcessDemoFormController::class);
 Route::get('ast', AstController::class);
 Route::get('ast/{hash}', AstDetailController::class);
 Route::post('process-ast', ProcessAstFormController::class);
-
-// in development only
-if (app('env') === 'dev') {
-    Route::get('codebase-renovation', CodebaseRenovationController::class);
-
-    Route::get('custom-rule/{uuid}', CustomRuleDetailController::class)
-        ->whereUuid('uuid');
-    Route::get('custom-rule', CustomRuleController::class);
-    Route::post('process-custom-rule', ProcessCustomRuleFormController::class);
-}
