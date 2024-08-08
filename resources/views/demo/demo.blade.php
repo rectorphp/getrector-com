@@ -46,7 +46,7 @@
                                 @endphp
 
                                 <li>
-                                    <a href="{{ $applied_rule->getGitHubReadmeLink() }}">
+                                    <a href="{{ $applied_rule->getRuleDetailLink() }}">
                                         {{ $applied_rule->getShortClass() }}
                                     </a>
                                 </li>

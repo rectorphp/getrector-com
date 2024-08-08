@@ -4,32 +4,33 @@ declare(strict_types=1);
 
 namespace App\ValueObject;
 
+use App\Controller\RuleDetailController;
 use App\Exception\ShouldNotHappenException;
 use Nette\Utils\Strings;
 
 final class AppliedRule
 {
-    private readonly string $shortClass;
+    private readonly string $shortRectorClass;
 
     public function __construct(
-        private readonly string $class
+        private readonly string $rectorClass
     ) {
-        $shortClassName = Strings::after($class, '\\', -1);
-        if (! is_string($shortClassName)) {
+        $shortRectorClassName = Strings::after($rectorClass, '\\', -1);
+        if (! is_string($shortRectorClassName)) {
             throw new ShouldNotHappenException();
         }
 
-        $this->shortClass = $shortClassName;
+        $this->shortRectorClass = $shortRectorClassName;
     }
 
     public function getShortClass(): string
     {
-        return $this->shortClass;
+        return $this->shortRectorClass;
     }
 
     public function getTestFixtureNamespace(): string
     {
-        $classParts = explode('\\', $this->class);
+        $classParts = explode('\\', $this->rectorClass);
 
         array_splice($classParts, 1, 0, ['Tests']);
         $classParts[] = 'Fixture';
@@ -39,7 +40,7 @@ final class AppliedRule
 
     public function getTestFixtureDirectoryPath(): string
     {
-        $classParts = explode('\\', $this->class);
+        $classParts = explode('\\', $this->rectorClass);
 
         $category = $classParts[1];
         $rulesDirectory = 'rules-tests/' . $category;
@@ -53,10 +54,21 @@ final class AppliedRule
     /**
      * @api used in blade
      */
-    public function getGitHubReadmeLink(): string
+    public function getRuleDetailLink(): string
     {
-        dump('@todo link rule detail');
-        die;
-//        return self::README_URL . '#' . Strings::webalize($this->shortClass);
+        return action(RuleDetailController::class, [
+            'slug' => $this->getSlug(),
+        ]);
+    }
+
+    /**
+     * Mimics @see \App\RuleFilter\ValueObject\RuleMetadata::getSlug()
+     */
+    private function getSlug(): string
+    {
+        // turn "SomeRector" to "some-rector"
+        return str($this->shortRectorClass)
+            ->snake('-')
+            ->toString();
     }
 }
