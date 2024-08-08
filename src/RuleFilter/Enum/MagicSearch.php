@@ -9,15 +9,15 @@ final readonly class MagicSearch
     /**
      * @var string
      */
-    public const SYMFONY_RULES = "symfony rules";
+    public const SYMFONY_RULES = 'symfony rules';
 
     /**
      * @var string
      */
-    public const DOCTRINE_RULES = "doctrine rules";
+    public const DOCTRINE_RULES = 'doctrine rules';
 
     /**
      * @var string
      */
-    public const PHPUNIT_RULES = "phpunit rules";
+    public const PHPUNIT_RULES = 'phpunit rules';
 }

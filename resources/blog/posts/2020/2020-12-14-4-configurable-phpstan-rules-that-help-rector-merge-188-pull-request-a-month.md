@@ -105,7 +105,7 @@ services:
 An unintended side effect of the [SeeAnnotationToTestRule](https://github.com/symplify/symplify/blob/master/packages/phpstan-rules/src/Rules/SeeAnnotationToTestRule.php) is that **every Rector rule is tested**.
 
 Do you want to add this PHPStan rule yourself but don't like hundreds of PHPStan errors in your CI?
-Use [this Rector rule to complete `@see` annotations](https://github.com/rectorphp/rector/blob/master/docs/rector_rules_overview.md#addseetestannotationrector) for you.
+Use [this Rector rule to complete `@see` annotations](/rule-detail/add-see-test-annotation-rector) for you.
 
 ## 3. Only one Optional Method
 

@@ -141,7 +141,7 @@ final class RuleFilter
     private function filterBySpecialQuery(array $ruleMetadatas, string $query): ?array
     {
         // special Rector namespace search
-        return match($query) {
+        return match ($query) {
             MagicSearch::SYMFONY_RULES => $this->filterByNamespaceStart($ruleMetadatas, 'Rector\\Symfony\\'),
             MagicSearch::PHPUNIT_RULES => $this->filterByNamespaceStart($ruleMetadatas, 'Rector\\PHPUnit\\'),
             MagicSearch::DOCTRINE_RULES => $this->filterByNamespaceStart($ruleMetadatas, 'Rector\\Doctrine\\'),
@@ -157,7 +157,7 @@ final class RuleFilter
     {
         return array_filter(
             $ruleMetadatas,
-            fn(RuleMetadata $ruleMetadata): bool => str_starts_with($ruleMetadata->getRectorClass(), $namespaceStart)
+            fn (RuleMetadata $ruleMetadata): bool => str_starts_with($ruleMetadata->getRectorClass(), $namespaceStart)
         );
     }
 }

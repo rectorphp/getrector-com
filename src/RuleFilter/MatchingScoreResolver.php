@@ -14,12 +14,13 @@ final class MatchingScoreResolver
         $score = 0;
 
         // possible Rector class name search
-        if (substr_count($query, ' ') === 0 && str_ends_with($query, 'Rector')) {
-            if ($ruleMetadata->getRectorClass() === $query) {
+        $lowercasedQuery = strtolower($query);
+        if (substr_count($query, ' ') === 0 && str_ends_with($lowercasedQuery, 'rector')) {
+            if (strtolower($ruleMetadata->getRectorClass()) === $lowercasedQuery) {
                 return 20;
             }
 
-            if ($ruleMetadata->getRuleShortClass() === $query) {
+            if (strtolower($ruleMetadata->getRuleShortClass()) === $lowercasedQuery) {
                 return 10;
             }
         }

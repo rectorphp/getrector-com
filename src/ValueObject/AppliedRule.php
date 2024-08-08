@@ -9,11 +9,6 @@ use Nette\Utils\Strings;
 
 final class AppliedRule
 {
-    /**
-     * @var string
-     */
-    private const README_URL = 'https://github.com/rectorphp/rector/blob/main/docs/rector_rules_overview.md';
-
     private readonly string $shortClass;
 
     public function __construct(
@@ -60,6 +55,8 @@ final class AppliedRule
      */
     public function getGitHubReadmeLink(): string
     {
-        return self::README_URL . '#' . Strings::webalize($this->shortClass);
+        dump('@todo link rule detail');
+        die;
+//        return self::README_URL . '#' . Strings::webalize($this->shortClass);
     }
 }
