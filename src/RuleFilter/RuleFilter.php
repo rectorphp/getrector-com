@@ -34,6 +34,7 @@ final class RuleFilter
         if (in_array($query, [MagicSearch::PHPUNIT_RULES, MagicSearch::SYMFONY_RULES, MagicSearch::DOCTRINE_RULES])) {
             $maxResults = 1000;
         }
+
         if ($set) {
             $maxResults = 1000;
         }
