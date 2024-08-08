@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\RuleFilter;
 
 use App\Enum\NodeTypeToHumanReadable;
+use App\RuleFilter\Enum\MagicSearch;
 use App\RuleFilter\ValueObject\RuleMetadata;
 
 final class RuleFilter
@@ -29,8 +30,17 @@ final class RuleFilter
         $ruleMetadatas = $this->filterByQuery($ruleMetadatas, $query);
         $ruleMetadatas = $this->filterBySet($ruleMetadatas, $set);
 
+        $maxResults = self::MAX_RESULTS;
+        if (in_array($query, [MagicSearch::PHPUNIT_RULES, MagicSearch::SYMFONY_RULES, MagicSearch::DOCTRINE_RULES])) {
+            $maxResults = 1000;
+        }
+
+        if ($set) {
+            $maxResults = 1000;
+        }
+
         // limit results to keep page clear
-        return array_slice($ruleMetadatas, 0, $set ? 1000 : self::MAX_RESULTS);
+        return array_slice($ruleMetadatas, 0, $maxResults);
     }
 
     /**
@@ -67,6 +77,11 @@ final class RuleFilter
         // nothing to filter
         if ($query === null || strlen($query) < 3) {
             return $ruleMetadatas;
+        }
+
+        $specialQueryRuleMetadatas = $this->filterBySpecialQuery($ruleMetadatas, $query);
+        if ($specialQueryRuleMetadatas !== null) {
+            return $specialQueryRuleMetadatas;
         }
 
         $filteredRuleMetadatas = [];
@@ -117,5 +132,32 @@ final class RuleFilter
         }
 
         return null;
+    }
+
+    /**
+     * @param RuleMetadata[] $ruleMetadatas
+     * @return RuleMetadata[]|null
+     */
+    private function filterBySpecialQuery(array $ruleMetadatas, string $query): ?array
+    {
+        // special Rector namespace search
+        return match($query) {
+            MagicSearch::SYMFONY_RULES => $this->filterByNamespaceStart($ruleMetadatas, 'Rector\\Symfony\\'),
+            MagicSearch::PHPUNIT_RULES => $this->filterByNamespaceStart($ruleMetadatas, 'Rector\\PHPUnit\\'),
+            MagicSearch::DOCTRINE_RULES => $this->filterByNamespaceStart($ruleMetadatas, 'Rector\\Doctrine\\'),
+            default => null,
+        };
+    }
+
+    /**
+     * @param RuleMetadata[] $ruleMetadatas
+     * @return RuleMetadata[]
+     */
+    private function filterByNamespaceStart(array $ruleMetadatas, string $namespaceStart): array
+    {
+        return array_filter(
+            $ruleMetadatas,
+            fn(RuleMetadata $ruleMetadata): bool => str_starts_with($ruleMetadata->getRectorClass(), $namespaceStart)
+        );
     }
 }
