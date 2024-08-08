@@ -83,10 +83,10 @@
 
                 <div class="text-center mt-5">
                     <a
-                            class="btn btn-light btn-lg mt-auto border disabled"
-
+                        href="{{ action(\App\Controller\Demo\CustomRuleController::class) }}"
+                        class="btn btn-success btn-lg mt-auto"
                     >
-                        Coming soon
+                        Create Custom Rule
                     </a>
                 </div>
             </div>
