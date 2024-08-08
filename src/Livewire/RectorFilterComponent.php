@@ -23,7 +23,7 @@ final class RectorFilterComponent extends Component
         'add constant type',
         'remove tag',
         'add return type strict',
-        'remove unused property',
+        'symfony rules',
     ];
 
     #[Url]
