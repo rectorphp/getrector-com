@@ -20,4 +20,9 @@ final readonly class MagicSearch
      * @var string
      */
     public const PHPUNIT_RULES = 'phpunit rules';
+
+    /**
+     * @var string
+     */
+    public const DOWNGRADE_RULES = 'downgrade rules';
 }
