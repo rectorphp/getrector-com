@@ -31,7 +31,14 @@ final class RuleFilter
         $ruleMetadatas = $this->filterBySet($ruleMetadatas, $set);
 
         $maxResults = self::MAX_RESULTS;
-        if (in_array($query, [MagicSearch::PHPUNIT_RULES, MagicSearch::SYMFONY_RULES, MagicSearch::DOCTRINE_RULES])) {
+        if (in_array(
+            $query,
+            [MagicSearch::DOWNGRADE_RULES,
+                MagicSearch::PHPUNIT_RULES,
+                MagicSearch::SYMFONY_RULES,
+                MagicSearch::DOCTRINE_RULES,
+            ]
+        )) {
             $maxResults = 1000;
         }
 
@@ -145,6 +152,7 @@ final class RuleFilter
             MagicSearch::SYMFONY_RULES => $this->filterByNamespaceStart($ruleMetadatas, 'Rector\\Symfony\\'),
             MagicSearch::PHPUNIT_RULES => $this->filterByNamespaceStart($ruleMetadatas, 'Rector\\PHPUnit\\'),
             MagicSearch::DOCTRINE_RULES => $this->filterByNamespaceStart($ruleMetadatas, 'Rector\\Doctrine\\'),
+            MagicSearch::DOWNGRADE_RULES => $this->filterByNamespaceStart($ruleMetadatas, 'Rector\\DowngradePhp'),
             default => null,
         };
     }
