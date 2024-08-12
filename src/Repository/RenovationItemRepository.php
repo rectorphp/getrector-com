@@ -45,10 +45,9 @@ JSON
 
         $renovationItems[] = new RenovationItem(
             'Static Analysis Tailored',
-            'Multiple static-analysis tools, mutually covering code with the same features, taking time of CI and cost developer attention.
-                <br>
-                Huge baseline files with hundreds ignored errors.',
-            'Simple setup with single <code>phpstan.neon</code>. No ignores. The best tool to do the job, with fast parallel run. Custom PHPStan rules to deal with your most common code review reports within your domain.',
+            'Multiple tools, mutually covering the same features, taking time of CI and energy of developers.
+            Huge files with 1000+ ignored errors.',
+            'Neat setup with <code>phpstan.neon</code>. No ignores. The best tool to do the job with fast parallel run. Custom PHPStan rules to deal with your domain.',
             <<<JSON
 {
     "requires-dev": {

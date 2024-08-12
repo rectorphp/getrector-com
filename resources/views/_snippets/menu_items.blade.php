@@ -51,4 +51,14 @@
         <a href="{{ action(\App\Controller\FilterRectorController::class) }}"
            class="nav-link">Find rule</a>
     </li>
+
+    <li class="nav-item">
+        <a href="{{ action(\App\Controller\Demo\CustomRuleController::class) }}"
+           class="nav-link">Custom Rule</a>
+    </li>
+
+    <li class="nav-item">
+        <a href="{{ action(\App\Controller\CodebaseRenovationController::class) }}"
+           class="nav-link">Codebase Renovation</a>
+    </li>
 @endif

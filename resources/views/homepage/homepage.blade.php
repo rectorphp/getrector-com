@@ -60,6 +60,10 @@
                         We've already seen them and&nbsp;know exactly how to solve them cost-effectively
                         and quickly.
                     </p>
+
+                    <p>
+                        How typical <a href="{{ action(\App\Controller\CodebaseRenovationController::class) }} ">codebase renovation</a> looks like?
+                    </p>
                 </div>
             </div>
         </div>
@@ -81,9 +85,9 @@
         <br>
 
         <div class="text-center mt-5">
-            <a href="{{ action(\App\Controller\HireTeamController::class) }}"
+            <a href="{{ action(\App\Controller\CodebaseRenovationController::class) }}"
                class="btn btn-success btn-lg">
-                Hire us to Empower Your project
+                How do we Renovate Codebases?
             </a>
         </div>
 
