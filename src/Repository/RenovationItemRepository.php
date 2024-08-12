@@ -110,6 +110,89 @@ JSON
             'json'
         );
 
+        $renovationItems[] = new RenovationItem(
+            'Coding Standard Working for You',
+            'Your project has overwhelming mix of IDE setup, code sniffer/php-cs-fixer XML/stringy-PHP, pre-commit hook and PSR-2 coding standard (deprecated since 2019).<br>
+            IDE and tools make you change code manually, <strong>put your developers under stress and distracts them from delivering business features</strong>.',
+            'Single tool that fixes coding standard in blazing fast parallel CLI run.<br><br>
+            Run ECS with prepared sets beyond PSR-12. Including neatly indented arrays, clean and meaningful docblocks, removed unused imports, and standardized spacing of every element.',
+            <<<'JSON'
+<?php
+
+$finder = PhpCsFixer\Finder::create()
+    ->in(__DIR__ . '/src')
+    ->append([
+        __DIR__ . '/rector.php',
+        __DIR__ . '/composer-dependency-analyser.php'
+    ]);
+
+return PhpCsFixer\Finder::create()
+    ->in(__DIR__)
+    ->setRiskyAllowed(true)
+    ->setRules([
+        '@Symfony' => true,
+        '@Symfony:risky' => true,
+        'linebreak_after_opening_tag' => true,
+        'mb_str_functions' => true,
+        'no_php4_constructor' => true,
+        'blank_line_between_import_groups' => false,
+    ])
+    ->setFinder($finder);
+JSON
+            ,
+            <<<JSON
+<?php
+
+use Symplify\EasyCodingStandard\Config\ECSConfig;
+
+return ECSConfig::configure()
+    ->withPaths([__DIR__ . '/src'])
+    ->withRootFiles()
+    ->withPreparedSets(
+        psr12: true, common: true, symplify: true
+    );
+JSON
+            ,
+            'php'
+        );
+
+        $renovationItems[] = new RenovationItem(
+            'Automated Instant CI Feedback',
+            "Knowledge of your project is scattered in multiple places, from README, through Confluence, to senior developers' memory. To achieve a change, you have to verify multiple places and ask multiple people about best practices. Verification of a single change takes hour of manual testing and is prone to human error.",
+            'The source of truth is in the CI. Every change is verified through exactly defined up-to-date steps. If any knowledge needs update or is obsolete, it will be change in CI setup.
+            <br>
+            That way any developer, junior, senior or contractor, has access to very same knowledge.',
+            <<<'JSON'
+// 1. verify in README
+
+// 2. check internal wiki
+      (mostly outdated and leading to wrong path)
+
+// 3. run tests on server manually
+      (re-run for new commit)
+
+// 4. don't forget to ping responsible devs on Slack
+JSON
+            ,
+            <<<JSON
+name: Code Analysis
+
+on:
+  pull_request: null
+
+jobs:
+  code_analysis:
+    strategy:
+      matrix:
+        actions:
+          - run: vendor/bin/class-leak check src
+
+          - run: php bin/verify-aws-secrets.hp
+JSON
+            ,
+            'yaml'
+        );
+
         return $renovationItems;
     }
 }
