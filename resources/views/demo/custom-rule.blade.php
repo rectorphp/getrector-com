@@ -15,8 +15,6 @@
 
             @include('_snippets/form/form_fatal_errors')
 
-            @include('_snippets/demo/learn_ast_link')
-
             <p>
                 Create custom Rector rule and see how it works:
             </p>

@@ -48,7 +48,7 @@
 
             <ul>
                 <li>
-                    <a href="{{ action(\App\Controller\BookController::class) }}">
+                    <a href="https://leanpub.com/rector-the-power-of-automated-refactoring">
                         Learn Rector in Depth from Book
                     </a>
                 </li>

@@ -18,8 +18,6 @@
 
             @include('_snippets/form/form_fatal_errors')
 
-            @include('_snippets/demo/learn_ast_link')
-
             <p>
                 Run Rector on your code to see what it can do for you:
             </p>

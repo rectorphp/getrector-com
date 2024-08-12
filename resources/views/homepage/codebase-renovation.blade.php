@@ -45,9 +45,14 @@
 
             <br>
 
-{{--            @include('_snippets/homepage_separator')--}}
         @endforeach
 
+        <div class="text-center mt-5">
+            <a href="{{ action(\App\Controller\HireTeamController::class) }}"
+               class="btn btn-success btn-lg">
+                Hire us to Renovate your Project
+            </a>
+        </div>
     </div>
 
     <style>

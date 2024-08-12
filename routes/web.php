@@ -10,7 +10,6 @@ use App\Ast\Controller\ProcessAstFormController;
 use App\Controller\AboutController;
 use App\Controller\Blog\BlogController;
 use App\Controller\Blog\PostController;
-use App\Controller\BookController;
 use App\Controller\ContactController;
 use App\Controller\Demo\CustomRuleController;
 use App\Controller\Demo\DemoController;
@@ -37,7 +36,10 @@ Route::get('documentation/{section?}', DocumentationController::class);
 
 Route::get('about', AboutController::class);
 Route::get('blog', BlogController::class);
-Route::get('book', BookController::class);
+Route::get('book', function () {
+    return redirect()->to('https://leanpub.com/rector-the-power-of-automated-refactoring');
+});
+
 Route::get('contact', ContactController::class);
 Route::get('hire-team', HireTeamController::class);
 

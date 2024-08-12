@@ -37,8 +37,7 @@
 
         The <strong>Rector book 2024 edition</strong> is out now.
 
-        <a href="{{ action(\App\Controller\BookController::class) }} ">Grab your
-            copy!</a>
+        <a href="https://leanpub.com/rector-the-power-of-automated-refactoring">Grab your copy!</a>
     </div>
 
     <div id="post">
