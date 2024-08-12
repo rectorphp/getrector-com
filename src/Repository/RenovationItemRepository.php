@@ -112,7 +112,7 @@ JSON
         $renovationItems[] = new RenovationItem(
             'Coding Standard Working for You',
             'Your project has overwhelming mix of IDE setup, code sniffer/php-cs-fixer XML/stringy-PHP, pre-commit hook and PSR-2 coding standard (deprecated since 2019).<br>
-            IDE and tools make you change code manually, <strong>put your developers under stress and distracts them from delivering business features</strong>.',
+            This setup makes you change code manually, <strong>put your developers under stress and distracts them from delivering business features</strong>.',
             'Single tool that fixes coding standard in blazing fast parallel CLI run.<br><br>
             Run ECS with prepared sets beyond PSR-12. Including neatly indented arrays, clean and meaningful docblocks, removed unused imports, and standardized spacing of every element.',
             <<<'JSON'
@@ -185,8 +185,8 @@ jobs:
       matrix:
         actions:
           - run: vendor/bin/class-leak check src
-
-          - run: php bin/verify-aws-secrets.hp
+          - run: php bin/verify-aws-secrets.php
+          - run: docker compose up
 JSON
             ,
             'yaml'
