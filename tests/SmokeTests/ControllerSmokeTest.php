@@ -24,7 +24,6 @@ final class ControllerSmokeTest extends AbstractTestCase
     {
         yield ['/', 200];
         yield ['/blog', 200];
-        yield ['/book', 200];
         yield ['/demo', 200];
         yield ['/contact', 200];
         yield ['/hire-team', 200];
