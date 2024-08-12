@@ -25,8 +25,11 @@
             <h2 class="text-center mt-5 mb-5" >{{ $loop->iteration }}. {{ $renovationItem->getTitle() }}</h2>
 
             <div class="row">
-                <div class="col-6">
-                    <h3 style="opacity: .7">Before</h3>
+                <div class="col-12 col-sm-6">
+                    <h3 style="text-transform: uppercase; font-weight: 300;" class="mb-3">
+                        <em class="fas fa-lg fa-times-circle text-danger fa-fw"></em>
+                        Before
+                    </h3>
 
                     <p>{!! $renovationItem->getDescriptionBefore() !!}</p>
                     <pre>
@@ -34,7 +37,10 @@
                     </pre>
                 </div>
                 <div class="col-6">
-                    <h3>After</h3>
+                    <h3 style="text-transform: uppercase; font-weight: 300;" class="mb-3">
+                        <em class="fas fa-lg fa-check-circle text-success fa-fw"></em>
+                        After
+                    </h3>
 
                     <p>{!! $renovationItem->getDescriptionAfter() !!}</p>
                     <pre>
