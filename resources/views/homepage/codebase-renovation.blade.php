@@ -36,7 +36,7 @@
                         <code class="dust language-{{ $renovationItem->getSnippetLanguage() }}">{{ $renovationItem->getCodeSnippetBefore() }}</code>
                     </pre>
                 </div>
-                <div class="col-6">
+                <div class="col-12 col-sm-6">
                     <h3 style="text-transform: uppercase; font-weight: 300;" class="mb-3">
                         <em class="fas fa-lg fa-check-circle text-success fa-fw"></em>
                         After
