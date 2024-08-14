@@ -23,7 +23,7 @@ final class DocumentationController extends Controller
         return \view('docs/section', [
             'section_title' => $this->documentationMenuFactory->createSectionTitle($section),
             'section_markdown_contents' => $markdownContents,
-            'documentations_sections_by_category' => $this->documentationMenuFactory->create(),
+            'documentation_menu_categories' => $this->documentationMenuFactory->create(),
         ]);
     }
 }

@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace App\Tests\Documentation;
 
 use App\Documentation\DocumentationMenuFactory;
-use App\ValueObject\DocumentationSection;
+use App\Documentation\DocumentationMenuItem;
+use App\Documentation\DocumentationMenuItemFactory;
+use Illuminate\Contracts\Routing\UrlGenerator;
 use PHPUnit\Framework\TestCase;
 
 final class DocumentationMenuFactoryTest extends TestCase
@@ -14,7 +16,14 @@ final class DocumentationMenuFactoryTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->documentationMenuFactory = new DocumentationMenuFactory();
+        $urlGenerator = $this->createMock(UrlGenerator::class);
+        $urlGenerator->expects($this->any())
+            ->method('action')
+            ->willReturn('/index.html');
+
+        $this->documentationMenuFactory = new DocumentationMenuFactory(
+            new DocumentationMenuItemFactory($urlGenerator)
+        );
     }
 
     public function testSectionTitle(): void
@@ -29,7 +38,7 @@ final class DocumentationMenuFactoryTest extends TestCase
 
         foreach ($documentationSectionsByCategory as $category => $documentationSections) {
             $this->assertIsString($category);
-            $this->assertContainsOnlyInstancesOf(DocumentationSection::class, $documentationSections);
+            $this->assertContainsOnlyInstancesOf(DocumentationMenuItem::class, $documentationSections);
         }
     }
 }
