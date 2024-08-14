@@ -12,33 +12,32 @@
             <ul class="mt-3">
                 <li>
                     <a
-                            href="{{ action(\App\Controller\DocumentationController::class) }}"
+                        href="{{ action(\App\Controller\DocumentationController::class) }}"
                     >Introduction</a>
                 </li>
             </ul>
 
-            @foreach ($documentations_sections_by_category as $category => $documentation_sections)
+            @foreach ($documentation_menu_categories as $category => $documentation_menu_items)
                 <hr class="border-line">
 
                 <h4 class="mt-4 mb-3">{{ $category }}</h4>
 
                 <ul>
-                    @foreach ($documentation_sections as $documentation_section)
+                    @foreach ($documentation_menu_items as $documentation_menu_item)
                         @php
-                            /** @var $documentation_section \App\ValueObject\DocumentationSection */
+                            /** @var $documentation_menu_item \App\Documentation\DocumentationMenuItem */
                         @endphp
 
                         <li>
-                            @if ($documentation_section->isNew())
+                            @if ($documentation_menu_item->isNew())
                                 <div class="badge text-white bg-danger">NEW</div>
                                 &nbsp;
                             @endif
 
-                            <a href="{{ action(\App\Controller\DocumentationController::class, ['section' => $documentation_section->getSlug()]) }}"
-                               class="{{ $documentation_section->isNew() ? 'text-bold' : '' }}"
+                            <a href="{{ $documentation_menu_item->getHref() }}"
+                               class="{{ $documentation_menu_item->isNew() ? 'text-bold' : '' }}"
                             >
-                                {{ $documentation_section->getName() }}
-
+                                {{ $documentation_menu_item->getLabel() }}
 
                             </a>
                         </li>

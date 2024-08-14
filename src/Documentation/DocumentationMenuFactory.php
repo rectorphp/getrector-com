@@ -4,47 +4,68 @@ declare(strict_types=1);
 
 namespace App\Documentation;
 
-use App\ValueObject\DocumentationSection;
+use App\Controller\FilterRectorController;
 
 /**
  * @see \App\Tests\Documentation\DocumentationMenuFactoryTest
  */
 final class DocumentationMenuFactory
 {
+    public function __construct(
+        private DocumentationMenuItemFactory $documentationMenuItemFactory
+    ) {
+    }
+
     /**
-     * @return array<string, DocumentationSection[]>
+     * @return array<string, DocumentationMenuItem[]>
      */
     public function create(): array
     {
         return [
             'First Steps' => [
-                new DocumentationSection('integration-to-new-project', 'New Project', true),
-                new DocumentationSection('define-paths', 'Define Paths'),
-                new DocumentationSection('set-lists', 'Set Lists'),
-                new DocumentationSection('ignoring-rules-or-paths', 'Ignoring Rules or Paths'),
-                new DocumentationSection('import-names', 'Import Names'),
-                new DocumentationSection('configured-rules', 'Configured Rules'),
+                $this->documentationMenuItemFactory->createSection('integration-to-new-project', 'New Project', true),
+                $this->documentationMenuItemFactory->createSection('define-paths', 'Define Paths'),
+                $this->documentationMenuItemFactory->createSection('set-lists', 'Set Lists'),
+                $this->documentationMenuItemFactory->createInternalLink(FilterRectorController::class, 'Find Rules'),
+                $this->documentationMenuItemFactory->createSection(
+                    'ignoring-rules-or-paths',
+                    'Ignoring Rules or Paths'
+                ),
+                $this->documentationMenuItemFactory->createSection('import-names', 'Import Names'),
+                $this->documentationMenuItemFactory->createSection('configured-rules', 'Configured Rules'),
             ],
             'Configuration' => [
-                new DocumentationSection('static-reflection-and-autoload', 'Static Reflection And Autoload'),
-                new DocumentationSection('config-configuration', 'Config Configuration'),
-                new DocumentationSection('php-version-features', 'PHP Version Features'),
-                new DocumentationSection('commands', 'Commands', true),
-                new DocumentationSection('team-tools', 'Team Tools', true),
+                $this->documentationMenuItemFactory->createSection(
+                    'static-reflection-and-autoload',
+                    'Static Reflection And Autoload'
+                ),
+                $this->documentationMenuItemFactory->createSection('config-configuration', 'Config Configuration'),
+                $this->documentationMenuItemFactory->createSection('php-version-features', 'PHP Version Features'),
+                $this->documentationMenuItemFactory->createSection('commands', 'Commands', true),
+                $this->documentationMenuItemFactory->createSection('team-tools', 'Team Tools', true),
             ],
             'Testing and CI' => [
-                new DocumentationSection('cache-in-ci', 'Cache in CI'),
-                new DocumentationSection('debugging', 'Debugging'),
-                new DocumentationSection('troubleshooting-parallel', 'Troubleshooting Parallel'),
-                new DocumentationSection('reporting-issue-with-rector', 'Reporting Issue With Rector'),
+                $this->documentationMenuItemFactory->createSection('cache-in-ci', 'Cache in CI'),
+                $this->documentationMenuItemFactory->createSection('debugging', 'Debugging'),
+                $this->documentationMenuItemFactory->createSection(
+                    'troubleshooting-parallel',
+                    'Troubleshooting Parallel'
+                ),
+                $this->documentationMenuItemFactory->createSection(
+                    'reporting-issue-with-rector',
+                    'Reporting Issue With Rector'
+                ),
             ],
             'Advanced' => [
-                new DocumentationSection('how-rector-works', 'How Rector Works'),
-                new DocumentationSection('custom-rule', 'Custom Rule'),
-                new DocumentationSection('writing-tests-for-custom-rule', 'Writing Tests For Custom Rule'),
-                new DocumentationSection('rules-overview', 'Rules Overview'),
-                new DocumentationSection('creating-a-node-visitor', 'Creating Node Visitor'),
-                new DocumentationSection('how-to-run-on-php-53', 'Run on PHP 5.3', true),
+                $this->documentationMenuItemFactory->createSection('how-rector-works', 'How Rector Works'),
+                $this->documentationMenuItemFactory->createSection('custom-rule', 'Custom Rule'),
+                $this->documentationMenuItemFactory->createSection(
+                    'writing-tests-for-custom-rule',
+                    'Writing Tests For Custom Rule'
+                ),
+                $this->documentationMenuItemFactory->createSection('rules-overview', 'Rules Overview'),
+                $this->documentationMenuItemFactory->createSection('creating-a-node-visitor', 'Creating Node Visitor'),
+                $this->documentationMenuItemFactory->createSection('how-to-run-on-php-53', 'Run on PHP 5.3', true),
             ],
         ];
     }
