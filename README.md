@@ -20,6 +20,13 @@ cp .env.dist .env
 composer install
 ```
 
+Setup database:
+
+```bash
+touch database/database.sqlite
+php artisan migrate
+```
+
 Run website in local browser:
 
 ```bash
