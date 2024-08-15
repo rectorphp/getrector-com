@@ -1,4 +1,4 @@
-Do you want to skip whole directory or just single rule? Use `skip()` method:
+Do you want to skip whole directory or just single rule? Use `withSkip()` method:
 
 ```php
 <?php
@@ -6,7 +6,7 @@ Do you want to skip whole directory or just single rule? Use `skip()` method:
 use Rector\Config\RectorConfig;
 
 return RectorConfig::configure()
-    ->withSkipPath([
+    ->withSkip([
         __DIR__ . '/src/SingleFile.php',
         __DIR__ . '/src/WholeDirectory',
         // or use fnmatch
