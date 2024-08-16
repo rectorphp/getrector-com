@@ -30,10 +30,8 @@ final class DocumentationMenuItemFactory
     /**
      * @param class-string<Controller> $controllerClass
      */
-    public function createInternalLink(
-        string $controllerClass,
-        string $label
-    ): DocumentationMenuItem {
+    public function createInternalLink(string $controllerClass, string $label): DocumentationMenuItem
+    {
         $href = $this->urlGenerator->action($controllerClass);
 
         return new DocumentationMenuItem($href, $label);

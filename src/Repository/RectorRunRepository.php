@@ -33,9 +33,9 @@ final class RectorRunRepository
         }
     }
 
-    public function save(RectorRun $entity): void
+    public function save(RectorRun $rectorRun): void
     {
-        $this->jsondb->insert(self::TABLE_FILE, $entity->jsonSerialize());
+        $this->jsondb->insert(self::TABLE_FILE, $rectorRun->jsonSerialize());
     }
 
     public function get(Uuid|string $uuid): RectorRun|null

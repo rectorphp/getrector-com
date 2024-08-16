@@ -43,9 +43,10 @@ final class StepByStepComponent extends Component
                 2 => 'withPhp55Sets()',
                 3 => 'withPhp56Sets()',
                 4 => 'withPhp70Sets()',
-                5 => 'withPhp71Sets()',
-                6 => 'withPhp72Sets()',
-                7 => 'withPhp73Sets()',
+                // higher jump, let's wait a few steps
+                50 => 'withPhp71Sets()',
+                51 => 'withPhp72Sets()',
+                52 => 'withPhp73Sets()',
                 default => 'withPhp74Sets()',
             };
         } else {
@@ -55,17 +56,28 @@ final class StepByStepComponent extends Component
                 2 => 'php55: true',
                 3 => 'php56: true',
                 4 => 'php70: true',
-                5 => 'php71: true',
-                6 => 'php72: true',
-                7 => 'php73: true',
+                // higher jump, let's wait a few steps
+                50 => 'php71: true',
+                51 => 'php72: true',
+                52 => 'php73: true',
                 default => 'php74: true',
             };
 
             $phpMethodContents = 'withPhpSets(' . $namedArg . ')';
         }
 
-        $baseFileContents = Strings::replace($baseFileContents, '#__WITH_PHP_SETS#', $phpMethodContents);
+        $baseFileContents = Strings::replace($baseFileContents, '#__WITH_PHP_SETS#', '->' . $phpMethodContents);
 
-        return $baseFileContents;
+        if ($step >= 5 && $step < 50) {
+            $baseFileContents = Strings::replace(
+                $baseFileContents,
+                '#__WITH_TYPE_DECLARATION_LEVEL#',
+                sprintf('->withTypeCoverageLevel(%d)', $step - 4)
+            );
+        } else {
+            $baseFileContents = Strings::replace($baseFileContents, '#__WITH_TYPE_DECLARATION_LEVEL#', '');
+        }
+
+        return rtrim($baseFileContents) . ';' . PHP_EOL;
     }
 }

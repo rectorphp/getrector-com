@@ -24,6 +24,10 @@ jobs:
                         name: 'Laravel Console'
                         run: php artisan --ansi
 
+                    -
+                        name: "Finalize classes"
+                        run: vendor/bin/swiss-knife finalize-classes src tests
+
         name: ${{ matrix.actions.name }}
         runs-on: ubuntu-latest
 
