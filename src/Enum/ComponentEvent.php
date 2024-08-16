@@ -20,4 +20,9 @@ final class ComponentEvent
      * @var string
      */
     public const RULES_FILTERED = 'rules_filtered';
+
+    /**
+     * @var string
+     */
+    public const STEP_CHANGED = 'step_changed';
 }

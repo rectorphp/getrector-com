@@ -8,23 +8,25 @@
     <div class="row">
         <div class="col-12 col-md-4 mb-3">
             <input
-                placeholder="Type to start searching a rule"
-                type="text"
-                class="form-control d-inline"
-                style="width: 14em"
-                wire:model.live.debounce.300ms="query"
+                    placeholder="Type to start searching a rule"
+                    type="text"
+                    class="form-control d-inline"
+                    style="width: 14em"
+                    wire:model.live.debounce.300ms="query"
             >
             <!-- @see https://livewire.laravel.com/docs/wire-model#customizing-the-debounce -->
 
             @if ($isFilterActive)
-                <a href="{{ action(\App\Controller\FilterRectorController::class) }}" class="ms-2">Clear</a>
+                <a href="{{ action(\App\Controller\FindRuleController::class) }}"
+                   class="ms-2">Clear</a>
             @endif
 
         </div>
         <div class="col-12 col-md-5 mb-3">
             <label for="node_type">Element to change:</label>
 
-            <select class="form-select d-inline ms-3" name="node_type" style="max-width: 12em" wire:model.live="nodeType">
+            <select class="form-select d-inline ms-3" name="node_type" style="max-width: 12em"
+                    wire:model.live="nodeType">
                 <option value="">Any element</option>
 
                 @foreach (\App\Enum\NodeTypeToHumanReadable::SELECT_ITEMS_BY_GROUP as $groupName => $nodeTypesToNames)
@@ -40,7 +42,8 @@
         <div class="col-12 col-md-3 mb-3">
             <label for="rector_set">Set:</label>
 
-            <select class="form-select d-inline ms-3" name="rector_set" style="max-width: 11.3em" wire:model.live="rectorSet">
+            <select class="form-select d-inline ms-3" name="rector_set" style="max-width: 11.3em"
+                    wire:model.live="rectorSet">
                 <option value="">Any set</option>
 
                 @foreach ($rectorSetsByGroup as $groupName => $rectorSets)
@@ -95,7 +98,7 @@
                     <div class="row mt-3 mb-2">
                         <div class="col-12 filter-code-sample">
                             <pre><code
-                                    class="language-diff">{{ $filteredRule->getDiffCodeSample() }}</code></pre>
+                                        class="language-diff">{{ $filteredRule->getDiffCodeSample() }}</code></pre>
                         </div>
 
                         @if ($filteredRule->isPartOfSets())
@@ -125,7 +128,7 @@
                 <li>
                     <a href="?query={{ $queryExample }}">{{ $queryExample }}</a>
                 </li>
-          @endforeach
+            @endforeach
         </ul>
     @endif
 

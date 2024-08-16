@@ -2,22 +2,22 @@
 
 declare(strict_types=1);
 
-use App\Controller\CodebaseRenovationController;
-use App\Controller\Demo\CustomRuleDetailController;
 use App\Ast\Controller\AstController;
 use App\Ast\Controller\AstDetailController;
 use App\Ast\Controller\ProcessAstFormController;
 use App\Controller\AboutController;
 use App\Controller\Blog\BlogController;
 use App\Controller\Blog\PostController;
+use App\Controller\CodebaseRenovationController;
 use App\Controller\ContactController;
 use App\Controller\Demo\CustomRuleController;
+use App\Controller\Demo\CustomRuleDetailController;
 use App\Controller\Demo\DemoController;
 use App\Controller\Demo\DemoDetailController;
 use App\Controller\Demo\ProcessCustomRuleFormController;
 use App\Controller\Demo\ProcessDemoFormController;
 use App\Controller\DocumentationController;
-use App\Controller\FilterRectorController;
+use App\Controller\FindRuleController;
 use App\Controller\HireTeamController;
 use App\Controller\HomepageController;
 use App\Controller\InteractiveController;
@@ -25,6 +25,7 @@ use App\Controller\RssController;
 use App\Controller\RuleDetailController;
 use App\Controller\Socials\PostThumbnailController;
 use App\Controller\Socials\RuleThumbnailController;
+use App\Controller\StepByStep\StepByStepController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomepageController::class);
@@ -63,7 +64,7 @@ Route::get('rss.xml', RssController::class);
 // 2024 new stuff
 Route::get('codebase-renovation', CodebaseRenovationController::class);
 
-Route::get('find-rule', FilterRectorController::class);
+Route::get('find-rule', FindRuleController::class);
 Route::get('rule-detail/{slug}', RuleDetailController::class);
 
 Route::get('custom-rule/{uuid}', CustomRuleDetailController::class)
@@ -82,3 +83,5 @@ Route::post('process-demo', ProcessDemoFormController::class);
 Route::get('ast', AstController::class);
 Route::get('ast/{hash}', AstDetailController::class);
 Route::post('process-ast', ProcessAstFormController::class);
+
+Route::get('step-by-step', StepByStepController::class);
