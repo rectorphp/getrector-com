@@ -28,18 +28,14 @@ final class DocumentationMenuItemFactory
     }
 
     /**
-     * @param class-string<Controller>|list<class-string<Controller>|string> $actionController
+     * @param class-string<Controller> $controllerClass
      */
     public function createInternalLink(
-        string|array $actionController,
-        string $label,
-        mixed $actionParameters = null,
-        bool $isNew = false,
+        string $controllerClass,
+        string $label
     ): DocumentationMenuItem {
-        return new DocumentationMenuItem(
-            $this->urlGenerator->action($actionController, $actionParameters),
-            $label,
-            $isNew,
-        );
+        $href = $this->urlGenerator->action($controllerClass);
+
+        return new DocumentationMenuItem($href, $label);
     }
 }

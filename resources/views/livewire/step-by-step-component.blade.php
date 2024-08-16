@@ -29,6 +29,17 @@
 
             <br>
 
+            <style>
+                input[type="range"] {
+                    width: 200px;
+                    background-color: #ddd;
+                }
+                input[type="range"]::-webkit-slider-thumb {
+                    background-color: #4CAF50;
+                    border-radius: 50%;
+                }
+            </style>
+
             <input type="range" min="0" max="100" value="0" wire:model.live="step">
         </div>
 
