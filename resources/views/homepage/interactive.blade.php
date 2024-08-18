@@ -57,7 +57,7 @@
 
                 <div class="text-center mt-5">
                     <a
-                            href="{{ action(\App\Controller\FilterRectorController::class) }}"
+                            href="{{ action(\App\Controller\FindRuleController::class) }}"
                             class="btn btn-success btn-lg mt-auto"
                     >
                         Find the Rule
@@ -83,8 +83,8 @@
 
                 <div class="text-center mt-5">
                     <a
-                        href="{{ action(\App\Controller\Demo\CustomRuleController::class) }}"
-                        class="btn btn-success btn-lg mt-auto"
+                            href="{{ action(\App\Controller\Demo\CustomRuleController::class) }}"
+                            class="btn btn-success btn-lg mt-auto"
                     >
                         Create Custom Rule
                     </a>

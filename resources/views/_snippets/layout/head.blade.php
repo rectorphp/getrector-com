@@ -5,7 +5,7 @@
 <meta name="keywords" content="php, rector, instant upgrades, instant refactoring, upgrade symfony, upgrade php, upgrade cakephp, upgrade legacy, php migration, laravel shift alternative, php shift" />
 
 @php
-$full_title = (isset($page_title) ? $page_title . ' | ' : '') . \App\Enum\Design::MAIN_TITLE;
+    $full_title = (isset($page_title) ? $page_title . ' | ' : '') . \App\Enum\Design::MAIN_TITLE;
 @endphp
 
 <title>{{ $full_title }}</title>

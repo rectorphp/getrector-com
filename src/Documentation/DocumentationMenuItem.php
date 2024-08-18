@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Documentation;
 
-class DocumentationMenuItem
+final class DocumentationMenuItem
 {
     public function __construct(
         private string $href,

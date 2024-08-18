@@ -26,13 +26,8 @@ parameters:
         # in glob() we trust
         - '#Method App\\Repository\\PostRepository\:\:findPostsFilePaths\(\) should return array<string> but returns array<int, string\|false>#'
 
-        # invalid doc type
-        - '#Parameter \#2 \$font of method Imagine\\Draw\\DrawerInterface\:\:text\(\) expects Imagine\\Image\\AbstractFont, Imagine\\Image\\FontInterface given#'
         # float allowed
         - '#Parameter (.*?) of class Imagine\\Image\\Box constructor expects int, float given#'
-
-        # class-string
-        - '#Parameter \#1 \$rectorClass of method App\\RuleFilter\\ValueObject\\RectorSet\:\:hasRule\(\) expects class\-string, string given#'
 
         # known values
         -
@@ -66,6 +61,11 @@ parameters:
             message: '#Parameter \#1 \$nodes of method PhpParser\\PrettyPrinterAbstract\:\:pCommaSeparatedMultiline\(\) expects array<PhpParser\\Node>, array<PhpParser\\Node\\Expr\\ArrayItem\|null> given#'
             path: src/RuleFilter/PhpParser/Printer/RectorConfigStmtsPrinter.php
 
+
+        # livewire component
+        -
+            message: '#Variable \$step might not be defined#'
+            path: src/Livewire/StepByStepComponent.php
 
         # only type
         - '#Method App\\Thumbnail\\ThumbnailGenerator\:\:createFont\(\) should return Imagine\\Image\\AbstractFont but returns Imagine\\Image\\FontInterface#'

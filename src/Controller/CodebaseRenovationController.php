@@ -17,7 +17,7 @@ final class CodebaseRenovationController extends Controller
 
     public function __invoke(): View
     {
-        return \view('homepage/codebase-renovation', [
+        return \view('homepage/codebase_renovation', [
             'page_title' => 'Codebase Renovation',
             'renovationItems' => $this->renovationItemRepository->fetchAll(),
         ]);

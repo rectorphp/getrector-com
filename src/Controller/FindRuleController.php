@@ -7,11 +7,11 @@ namespace App\Controller;
 use Illuminate\Contracts\View\View;
 use Illuminate\Routing\Controller;
 
-final class FilterRectorController extends Controller
+final class FindRuleController extends Controller
 {
     public function __invoke(): View
     {
-        return \view('homepage/filter-rector', [
+        return \view('homepage/find_rule', [
             'page_title' => 'Find the best Rule',
         ]);
     }

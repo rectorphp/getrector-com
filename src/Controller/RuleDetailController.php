@@ -23,10 +23,10 @@ final class RuleDetailController extends Controller
 
         if (! $ruleMetadata instanceof RuleMetadata) {
             // nothing found, get back
-            return redirect()->action(FilterRectorController::class);
+            return redirect()->action(FindRuleController::class);
         }
 
-        return \view('homepage/rule-detail', [
+        return \view('homepage/rule_detail', [
             'page_title' => $ruleMetadata->getRuleShortClass(),
             'ruleMetadata' => $ruleMetadata,
         ]);
