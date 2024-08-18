@@ -60,7 +60,7 @@
                     Optimal contents of <code>rector.php</code>
                 </p>
 
-                <pre class="mt-4 mb-1"><code class="language-php" style="min-height: 20em">{{ $rectorConfigContents }}</code></pre>
+                <pre class="mt-4 mb-1"><code class="language-php" style="min-height: 23em">{{ $rectorConfigContents }}</code></pre>
             </div>
         </div>
     </form>

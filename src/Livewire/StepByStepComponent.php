@@ -36,7 +36,7 @@ final class StepByStepComponent extends Component
     private function resolveRectorConfigContents(?string $startingPhpVersion, int $step): string
     {
         $baseFilePath = resource_path('step-by-step/base.php');
-        $baseFileContents = FileSystem::read($baseFilePath);
+        $fileContents = FileSystem::read($baseFilePath);
 
         // @tpd enable since step X, where X > ~ 30, od not start with PHP first :)
 
@@ -47,33 +47,35 @@ final class StepByStepComponent extends Component
             $phpMethodContents = 'withPhpSets(' . $namedArg . ')';
         }
 
-        $baseFileContents = Strings::replace($baseFileContents, '#__WITH_PHP_SETS#', '->' . $phpMethodContents);
+        $fileContents = Strings::replace($fileContents, '#__WITH_PHP_SETS#', '->' . $phpMethodContents);
 
-        $baseFileContents = $this->decorateLevelMethod(
+        $fileContents = $this->decorateLevelMethod(
             $step,
             5,
-            $baseFileContents,
+            $fileContents,
             '__WITH_TYPE_DECLARATION_LEVEL',
             'withTypeCoverageLevel'
         );
 
-        $baseFileContents = $this->decorateLevelMethod(
+        $fileContents = $this->decorateLevelMethod(
             $step,
             55,
-            $baseFileContents,
+            $fileContents,
             '__WITH_DEAD_CODE_LEVEL',
             'withDeadCodeLevel'
         );
 
-        $baseFileContents = $this->decorateLevelMethod(
+        $fileContents = $this->decorateLevelMethod(
             $step,
             105,
-            $baseFileContents,
+            $fileContents,
             '__WITH_CODE_QUALITY_LEVEL',
             'withCodeQualityLevel'
         );
 
-        return rtrim($baseFileContents) . ';' . PHP_EOL;
+        $fileContents = $this->decorateImportNames($step, $fileContents);
+
+        return rtrim($fileContents) . ';' . PHP_EOL;
     }
 
     private function resolvePhpMethod(int $step): string
@@ -140,5 +142,20 @@ final class StepByStepComponent extends Component
             '#' . $placeholder . '#',
             sprintf('->' . $methodName . '(%d)', (min($startingStep + 50, $step) - $startingStep))
         );
+    }
+
+    private function decorateImportNames(int $step, string $fileContents): string
+    {
+        if ($step > 157) {
+            $withImportContents = '->withImportNames(removeUnusedImports: true)';
+        } elseif ($step > 156) {
+            $withImportContents = '->withImportNames()';
+        } elseif ($step > 155) {
+            $withImportContents = '->withImportNames(importDocBlockNames: false)';
+        } else {
+            $withImportContents = '';
+        }
+
+        return Strings::replace($fileContents, '#__WITH_IMPORT_NAMES#', $withImportContents);
     }
 }
