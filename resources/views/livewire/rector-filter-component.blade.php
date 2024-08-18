@@ -103,9 +103,7 @@
                                 SETS:&nbsp;
 
                                 @foreach ($filteredRule->getSets() as $rectorSet)
-                                    <a href="{{ action(\App\Controller\FilterRectorController::class, ['rectorSet' => $rectorSet->getSlug()]) }}">
-                                        <span class="badge bg-danger">{{ $rectorSet->getName() }}</span>
-                                    </a>
+                                    <a href="{{ action(\App\Controller\FilterRectorController::class, ['rectorSet' => $rectorSet->getSlug()]) }}"><span class="badge bg-danger">{{ $rectorSet->getName() }}</span></a>
                                 @endforeach
                             </div>
                         @endif

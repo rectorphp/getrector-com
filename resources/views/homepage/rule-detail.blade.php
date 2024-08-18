@@ -80,9 +80,7 @@
                             SETS:&nbsp;
 
                             @foreach ($ruleMetadata->getSets() as $set)
-                                <a href="{{ action(\App\Controller\FilterRectorController::class, ['rectorSet' => $set->getSlug()]) }}">
-                                    <span class="badge bg-danger">{{ $set->getName() }}</span>
-                                </a>
+                                <a href="{{ action(\App\Controller\FilterRectorController::class, ['rectorSet' => $set->getSlug()]) }}"><span class="badge bg-danger">{{ $set->getName() }}</span></a>
                             @endforeach
                         </div>
                     @endif
