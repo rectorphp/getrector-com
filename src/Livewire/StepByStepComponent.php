@@ -5,16 +5,36 @@ declare(strict_types=1);
 namespace App\Livewire;
 
 use App\Enum\ComponentEvent;
-use App\Exception\ShouldNotHappenException;
+use App\Enum\StepBreakpoint;
 use Illuminate\View\View;
 use Livewire\Attributes\Url;
 use Livewire\Component;
-use Nette\Utils\FileSystem;
-use Nette\Utils\Strings;
 
 final class StepByStepComponent extends Component
 {
-    private const STEP_COUNT = 200;
+    /**
+     * @var int
+     */
+    private const STEP_COUNT = 180;
+
+    /**
+     * @var string[]
+     */
+    private const PHP_VERSION_OPTIONS = [
+        '5.3',
+        '5.4',
+        '5.5',
+        '5.6',
+        '7.0',
+        '7.1',
+        '7.2',
+        '7.3',
+        '7.4',
+        '8.0',
+        '8.1',
+        '8.2',
+        '8.3',
+    ];
 
     #[Url]
     public string $startingPhpVersion = '5.3';
@@ -28,134 +48,51 @@ final class StepByStepComponent extends Component
         $this->dispatch(ComponentEvent::STEP_CHANGED);
 
         return view('livewire.step-by-step-component', [
-            'rectorConfigContents' => $this->resolveRectorConfigContents($this->startingPhpVersion, $this->step),
+            'rectorConfigContents' => $this->renderRectorConfigContents($this->startingPhpVersion, $this->step),
             'stepCount' => self::STEP_COUNT,
+            'phpVersionOptions' => self::PHP_VERSION_OPTIONS,
         ]);
     }
 
-    private function resolveRectorConfigContents(?string $startingPhpVersion, int $step): string
+    private function renderRectorConfigContents(string $startingPhpVersion, int $step): string
     {
-        $baseFilePath = resource_path('step-by-step/base.php');
-        $fileContents = FileSystem::read($baseFilePath);
+        $view = view('step_by_step/_standalone/rector-config', [
+            'step' => $step,
+            'startingPhpVersion' => $startingPhpVersion,
+            'hasNamedArgs' => (float) $startingPhpVersion >= 8.0 || $step > StepBreakpoint::PHP_80,
+        ]);
 
-        // @tpd enable since step X, where X > ~ 30, od not start with PHP first :)
-
-        if ((float) $startingPhpVersion < 8.0) {
-            $phpMethodContents = $this->resolvePhpMethod($step);
-        } else {
-            $namedArg = $this->resolvePhpNamedArg($step);
-            $phpMethodContents = 'withPhpSets(' . $namedArg . ')';
-        }
-
-        $fileContents = Strings::replace($fileContents, '#__WITH_PHP_SETS#', '->' . $phpMethodContents);
-
-        $fileContents = $this->decorateLevelMethod(
-            $step,
-            5,
-            $fileContents,
-            '__WITH_TYPE_DECLARATION_LEVEL',
-            'withTypeCoverageLevel'
-        );
-
-        $fileContents = $this->decorateLevelMethod(
-            $step,
-            55,
-            $fileContents,
-            '__WITH_DEAD_CODE_LEVEL',
-            'withDeadCodeLevel'
-        );
-
-        $fileContents = $this->decorateLevelMethod(
-            $step,
-            105,
-            $fileContents,
-            '__WITH_CODE_QUALITY_LEVEL',
-            'withCodeQualityLevel'
-        );
-
-        $fileContents = $this->decorateImportNames($step, $fileContents);
-
-        return rtrim($fileContents) . ';' . PHP_EOL;
+        $rectorConfigContents = $view->render();
+        return $this->trimExtraSpaces($rectorConfigContents);
     }
 
-    private function resolvePhpMethod(int $step): string
+    private function trimExtraSpaces(string $contents): string
     {
-        if ($step >= 5 && $step < 51) {
-            return 'withPhp70Sets()';
+        $contentLines = explode(PHP_EOL, $contents);
+
+        $hasConfigStarted = false;
+
+        $trimmedContentLines = [];
+        foreach ($contentLines as $contentLine) {
+            if ($contentLine === 'return RectorConfig::configure()') {
+                $hasConfigStarted = true;
+                $trimmedContentLines[] = $contentLine;
+                continue;
+            }
+
+            if ($hasConfigStarted) {
+                // skip empty newlines
+                if (trim($contentLine) === '') {
+                    continue;
+                }
+
+                $contentLine = '    ' . ltrim($contentLine);
+            }
+
+            $trimmedContentLines[] = $contentLine;
         }
 
-        if ($step >= 54) {
-            return 'withPhp74Sets()';
-        }
-
-        return match ($step) {
-            0 => 'withPhp53Sets()',
-            1 => 'withPhp54Sets()',
-            2 => 'withPhp55Sets()',
-            3 => 'withPhp56Sets()',
-            4 => 'withPhp70Sets()',
-            // higher jump, let's wait a few steps
-            51 => 'withPhp71Sets()',
-            52 => 'withPhp72Sets()',
-            53 => 'withPhp73Sets()',
-            default => throw new ShouldNotHappenException()
-        };
-    }
-
-    private function resolvePhpNamedArg(int $step): string
-    {
-        if ($step > 5 && $step < 51) {
-            return 'php70: true';
-        }
-
-        if ($step >= 54) {
-            return 'php74: true';
-        }
-
-        return match ($step) {
-            0 => 'php53: true',
-            1 => 'php54: true',
-            2 => 'php55: true',
-            3 => 'php56: true',
-            4 => 'php70: true',
-            // higher jump, let's wait a few steps
-            51 => 'php71: true',
-            52 => 'php72: true',
-            53 => 'php73: true',
-            default => throw new ShouldNotHappenException()
-        };
-    }
-
-    private function decorateLevelMethod(
-        int $step,
-        int $startingStep,
-        string $baseFileContents,
-        string $placeholder,
-        string $methodName
-    ): string {
-        if ($step <= $startingStep) {
-            return Strings::replace($baseFileContents, '#' . $placeholder . '#', '');
-        }
-
-        return Strings::replace(
-            $baseFileContents,
-            '#' . $placeholder . '#',
-            sprintf('->' . $methodName . '(%d)', (min($startingStep + 50, $step) - $startingStep))
-        );
-    }
-
-    private function decorateImportNames(int $step, string $fileContents): string
-    {
-        if ($step > 157) {
-            $withImportContents = '->withImportNames(removeUnusedImports: true)';
-        } elseif ($step > 156) {
-            $withImportContents = '->withImportNames()';
-        } elseif ($step > 155) {
-            $withImportContents = '->withImportNames(importDocBlockNames: false)';
-        } else {
-            $withImportContents = '';
-        }
-
-        return Strings::replace($fileContents, '#__WITH_IMPORT_NAMES#', $withImportContents);
+        $trimmedContents = implode(PHP_EOL, $trimmedContentLines);
+        return rtrim($trimmedContents, "\n ;") . ';';
     }
 }
