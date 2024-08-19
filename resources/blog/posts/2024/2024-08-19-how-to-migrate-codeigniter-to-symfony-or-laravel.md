@@ -2,42 +2,49 @@
 id: 70
 title: "How to Migrate CodeIgniter to Symfony or Laravel"
 perex: |
-    CodeIgniter was created in 2006, and was one of first MVC PHP frameworks. Yet it never got a traction and stuck.
+    CodeIgniter was created in 2006 and was one of the first MVC PHP frameworks. Yet it never gained traction and got stuck.
 
-    Is your project running CodeIgniter and your developers want a change?
+    Is your project running CodeIgniter, and do your developers want a change?
 
-    Few clients a year reach us with project upgrade of CodeIgniter, so we'll share a few tips on how to migrate it to Symfony/Laravel.
+    We receive a few client requests a year for CodeIgniter project upgrades, so we'll share a few tips on migrating it to Symfony/Laravel.
 ---
 
-First we have to ask tough question: are you afraid framework migration will be expensive? It often easier than single framework upgrade. Let's look at a example, where upgrade of single framework takes more steps than migration from one to another:
+## How Expensive is Framework Migration?
 
-* Project A: Symfony 2, we make an upgrade to 3, 4, 5, 6, 7 - that's **5 steps**
-* Project B: CodeIgniter 2/3 to Symfony 7 - that's **1 step**, even if the step will be more complex, it's still one step
+First, we have to ask the tough question: are you afraid framework migration will be expensive? It is often easier than a single framework upgrade. Let's look at an example where an upgrade of a single framework takes more steps than migration from one to another:
+
+* Project A: Symfony 2, we make an upgrade to 3, 4, 5, 6, 7
+* Project B: CodeIgniter 1/2/3 to Symfony 7
+
+↓
+
+* Project A has **5 steps**
+* Project B has **a single step** - even if the step is quite complex, it's still only single step
 
 <br>
 
 ## Step 1: Avoid Two Entry Points
 
-Someone asked about ["Incremental migrate Codeigniter to Symfony" on Reddit](https://www.reddit.com/r/symfony/comments/gmldnk/incremental_migrate_codeigniter_to_symfony/) 4 years. First suggested solution is to introduce few Symfony controllers and create "a bridge".
+Someone asked about ["Incremental migrate Codeigniter to Symfony" on Reddit](https://www.reddit.com/r/symfony/comments/gmldnk/incremental_migrate_codeigniter_to_symfony/) 4 years. The first suggested solution is introducing a few Symfony controllers and creating "a bridge".
 
-**That's not a way to upgrade**. You'll end up with 2 frameworks mess instead, as one commented explains:
+**That's not a way to upgrade**. You'll end up with 2 frameworks mess instead, as one comment explains:
 
 <blockquote class="blockquote mt-5 mb-5 text-medium" style="font-size: 1.1em">
 "You're going to spend way more time getting the two frameworks to talk to each other than you think. Unless you have some very small, very targeted needs and are highly confident that won't change, setting up a way for them to communicate via events/messages is going to save you time in the long run.<br><br>I speak from experience having done something similar with multiple legacy code bases, including one that is Symfony wrapping CI."
 </blockquote>
 
-Instead we always use single framework. We migrate from one to another using [pattern migration](/blog/success-story-of-automated-framework-migration-from-fuelphp-to-laravel-of-400k-lines-application). This allows to run business features in CodeIgniter, while working custom Rector rules to flip to Symfony in parallel. **That way [business is growing](/blog/how-to-migrate-legacy-php-applications-without-stopping-development-of-new-features) and migration is being prepared at the same time**.
+Instead, we always use a single framework. We migrate from one to another using [pattern migration](/blog/success-story-of-automated-framework-migration-from-fuelphp-to-laravel-of-400k-lines-application). This allows us to run business features in CodeIgniter while working custom Rector rules to flip to Symfony in parallel. **That way [business is growing](/blog/how-to-migrate-legacy-php-applications-without-stopping-development-of-new-features) and migration is being prepared at the same time**.
 
 Let's dive into it.
 
 ## Step 2: Identify Patterns in both Frameworks
 
-At first, we have to identify patterns in CodeIgniter and find its equivalent in Symfony. This way we can map them and create a migration plan.
+First, we have to identify patterns in CodeIgniter and find their equivalent in Symfony. This way, we can map them and create a migration plan.
 
 **CodeIgniter** has:
 
-* models to communicate with database
-* routes map that checks specific URL string, then calls specific public method in specific contoller class
+* models to communicate with a database
+* routes map that checks specific URL string, then calls a specific public method in a specific controller class
 * controller classes that load services
 * PHP and HTML templates to render data
 * array configs to store configuration
@@ -46,7 +53,7 @@ At first, we have to identify patterns in CodeIgniter and find its equivalent in
 
 **Symfony/Laravel** has:
 
-* Doctrine repositories/Eloquent models to communicate with database
+* Doctrine repositories/Eloquent models to communicate with a database
 * `@Route()` annotations or `routes.php` that mark specific controller methods to match URL string
 * controllers using dependency injection to load services
 * TWIG/Blade templates to render data
@@ -56,18 +63,18 @@ At first, we have to identify patterns in CodeIgniter and find its equivalent in
 
 ## Step 3: From Models to Repositories
 
-In most PHP frameworks, the database is not that tightly coupled to the application. That's what *M* in MVC standrads for - **model**. Symfony is able to work with CodeIgniter models, CodeIgniter is able to work with Doctrine repositories. After all, it's only group of arrays or simple objects.
+In most PHP frameworks, the database is not tightly coupled to the application. That's what *M* in MVC standards for—**model**. Symfony can work with CodeIgniter models, and CodeIgniter can work with Doctrine repositories. After all, it's only a group of arrays or simple objects.
 
 That's why the database is low hanging fruit that we start with.
 
 <br>
 
-At first, we have to focus on basic principles - what we need to replace?
+At first, we have to focus on basic principles - what do we need to replace?
 
-* call data from database
-* return them in form of arrays
+* call data from the database
+* return them in the form of arrays
 
-Let's see how model class looks in CodeIgniter:
+Let's see how the model class looks in CodeIgniter:
 
 ```php
 class Coupon_Model extends CI_Model
@@ -87,7 +94,9 @@ class Coupon_Model extends CI_Model
 
 There we can see model class name <=> table name convention. Doctrine has the same convention.
 
-How would  look like in Doctrine?
+<br>
+
+How would it look like in Doctrine?
 
 ```php
 use Doctrine\ORM\EntityRepository;
@@ -113,23 +122,23 @@ At first, we focus only on getting data from the database. Result of both CodeIg
 public function getCoupon($couponCode)
 ```
 
-**must be the same**. It's important that we skip entities, objects and collection for now. Only focus on single pattern at a time.
+**must be the same**. For now, it's essential to skip entities, objects, and collections and **focus only on a single pattern at a time**.
 
-Once we've flipped the read model to repositories, we look at other patterns like storing data, modification and so on.
+Once we've flipped the read model to repositories, we can examine other patterns, such as data storage, modification, and so on.
 
 <br>
 
 ## Step 4: From file-routing to Controller Annotations
 
-Controllers should be as slim as possible, only delegate request data to specific services. Then rendering result.
+Controllers should be as slim as possible. Their primary function is to delegate request data to specific services and then render results.
 
-Let's check the layers that converts url to specific controller actoin - routing. Routes in CodeIgniter are defined in `application/config/routes.php`:
+Let's check the layers that convert URL to specific controller action - routing. CodeIgniter defines routes in `application/config/routes.php` as follows:
 
 ```php
 $route['blog'] = "blog/overview";
 ```
 
-The route "blog", leads to `BlogController` class, with `overview()` public method. Once we know pattern, we create a custom Rector rule to read this file and generate Symfony controller annotations in right place:
+The route "blog" leads to the `BlogController` class, with the `overview()` public method. Once we know the pattern, we create a custom Rector rule to read this file and generate Symfony controller annotations in the right place:
 
 ```php
 /**
@@ -143,11 +152,11 @@ public function overview()
 
 <br>
 
-## Step 4: Migrate Controller externals
+## Step 5: Migrate Controller externals
 
-Now that we have prepared route migration and repository migration, let's check the features used in controllers.
+Now that we have prepared the route and repository migration let's check the features used in controllers.
 
-To give you practical example, let's look at a typical CodeIgniter 1.0 controller:
+To give you a practical example, let's look at a typical CodeIgniter 1.0 controller:
 
 ```php
 class Products extends CI_Controller
@@ -216,18 +225,18 @@ Add similar migration for `$this->load->helper('...');` that looks like a servic
 
 <br>
 
-Next step is to add custom rule for template rendering. We can use Symfony Twig templating engine:
+The next step is to add a custom rule for template rendering. We can use Symfony Twig templating engine:
 
 ```diff
 -$this->load->view('products/index', $data);
 +return $this->render('products/index', $data);
 ```
 
-We respect original pattern, but we use Symfony services instead.
+We respect the original pattern, but we use Symfony services instead.
 
 <br>
 
-## Step 5: Migrate Templates from PHP to Twig
+## Step 6: Migrate Templates from PHP to Twig
 
 Out of the box, CodeIgniter users bare PHP + HTML templates:
 
@@ -257,9 +266,9 @@ We can temporarily use PHP rendering in Symfony, or better finish the job and cr
 
 <br>
 
-## Step 6: Prepare for Configs
+## Step 7: Prepare for Configs
 
-CodeIgniter has straighfoward way to configure your project:
+CodeIgniter has a straightforward way to configure your project:
 
 ```php
 <?php
@@ -284,7 +293,7 @@ return static function (SecurityConfig $securityConfig): void {
 
 <br>
 
-## Step 7: Migrate Controllers
+## Step 8: Migrate Controllers
 
 By now, we have chipped everything we could off controllers:
 
@@ -293,14 +302,14 @@ By now, we have chipped everything we could off controllers:
 * template rendering via TWIG
 * database calls via repository
 
-Nothing else to left then create custom Rector rule to migrate CodeIgniter controllers to Symfony.
+If nothing else is left, we create a custom Rector rule to migrate CodeIgniter controllers to Symfony.
 
 
 <br>
 
-This is the gist of CodeIgniter to Symfony migration. Every project is strictly individual and requires custom work on Rector rules, to cover all the patterns.
+This is the gist of CodeIgniter to Symfony migration. Every project is strictly individual and requires custom work on Rector rules to cover all the patterns.
 
-It's important to note that these rules must **dry-run in CI** on the fly, so you can see the progress and fix edge-case. Do not make migration until all the know patterns are covered by Rector rules. That way you save yourself from manual work and bugs.
+It's important to note that these rules must **dry-run in CI** on the fly so you can see the progress and fix edge cases. Do not make migration until all the known patterns are covered by Rector rules. That way, you save yourself from manual work and bugs.
 
 <br>
 
