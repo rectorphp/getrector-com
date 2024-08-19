@@ -19,7 +19,7 @@ final readonly class ThumbnailGenerator
     /**
      * @var string
      */
-    private const THUMBNAIL_DIRECTORY = __DIR__ . '/../../../storage/thumbnail/';
+    private const THUMBNAIL_DIRECTORY = __DIR__ . '/../../storage/thumbnail/';
 
     public function __construct(
         private Imagine $imagine
