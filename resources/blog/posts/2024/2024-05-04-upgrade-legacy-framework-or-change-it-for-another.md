@@ -61,21 +61,21 @@ If you're a business owner/CTO and not an active part of the online/offline PHP 
 
 For example, this year, we wrote about [CakePHP migration](/blog/what-to-expect-when-you-plan-to-migrate-away-from-cakephp-2). Let's see its [download stats](https://packagist.org/packages/cakephp/cakephp/stats):
 
-<img src="https://private-user-images.githubusercontent.com/924196/327700264-f9853d47-14df-4ae5-8f3a-a3e50ae4c9a4.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTQ3MjY4NjcsIm5iZiI6MTcxNDcyNjU2NywicGF0aCI6Ii85MjQxOTYvMzI3NzAwMjY0LWY5ODUzZDQ3LTE0ZGYtNGFlNS04ZjNhLWEzZTUwYWU0YzlhNC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwNTAzJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDUwM1QwODU2MDdaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0wYmY4ODBjMzA2YmJkOWYyM2Y0YmMxNzMzMGFiOTM5M2JmMzIxYThjYjkxNjQ5NzRjMDRiNTBkZTQwMDQ4NGViJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.6_6VEtZS9P2K3Cp-Z9t4zDoTMKaOlc3QS2qGtP_-Q7k" class="img-thumbnail">
+<img src="/assets/images/blog/2024/cake-downloads.png" class="img-thumbnail" style="max-width: 40em">
 
 <br>
 <br>
 
 We also wrote about [Phalcon framework](/blog/how-to-upgrace-phalcon-project). What are [the stats in](https://packagist.org/packages/phalcon/cphalcon/stats) there?
 
-<img src="https://private-user-images.githubusercontent.com/924196/327700442-86bc738d-d6b9-4b04-bc69-9cdaac3e9b9c.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTQ3MjY4NjcsIm5iZiI6MTcxNDcyNjU2NywicGF0aCI6Ii85MjQxOTYvMzI3NzAwNDQyLTg2YmM3MzhkLWQ2YjktNGIwNC1iYzY5LTljZGFhYzNlOWI5Yy5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwNTAzJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDUwM1QwODU2MDdaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1iZjRkNjA3NDNiZTdkNmQ1NDFjNmQ0MGM1OGJmMzY4ZDBhZjk3ZDlmN2E5N2I4NDNlMWMyZDJhMjlhZTAwNDcxJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.byepdJ-vdZSBgsFodmQGZczTfXHeNKRclVhbaRzWcz4" class="img-thumbnail">
+<img src="/assets/images/blog/2024/phalcon-downloads.png" class="img-thumbnail" style="max-width: 40em">
 
 <br>
 <br>
 
 Once we have stats for your *framework X*, we need  **a stable reference to compare to**. We use Symfony or Laravel stats. Here, let's check [Laravel stats](https://packagist.org/packages/laravel/framework/stats):
 
-<img src="https://private-user-images.githubusercontent.com/924196/327701706-b8cd6271-37f4-4647-a3df-565a11adfcf5.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTQ3MjY4NjcsIm5iZiI6MTcxNDcyNjU2NywicGF0aCI6Ii85MjQxOTYvMzI3NzAxNzA2LWI4Y2Q2MjcxLTM3ZjQtNDY0Ny1hM2RmLTU2NWExMWFkZmNmNS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwNTAzJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDUwM1QwODU2MDdaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT00ZjYzMGYxMTBlMWYyMTg0ZWQ1Nzc2ZTNkNzU5Mzc0MmRiMWIzODRiNDFmNTRmM2IxYjliMzQ4YmQwZDNmM2JmJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.iaoUNWx51OS-JVZOtGEs5p_scKNbJ0azO6Pq1uzgGno" class="img-thumbnail">
+<img src="/assets/images/blog/2024/laravel-downloads.png" class="img-thumbnail" style="max-width: 40em">
 
 <br>
 <br>
@@ -98,6 +98,7 @@ As we wrote in [How to Upgrade Zend Legacy Project](/blog/how-to-upgrade-zend-le
 Here, we'll share a few practical examples of how to evaluate these data so you can better decide whether to upgrade or change.
 
 <br>
+<br>
 
 ## Usecase A
 
@@ -112,6 +113,8 @@ You can choose Symfony or Zend developers. To decide, we check the download stat
 
 **Symfony is the best choice.**
 
+<br>
+
 ## Usecase B
 
 * your framework is Symfony 5.0
@@ -120,6 +123,8 @@ You can choose Symfony or Zend developers. To decide, we check the download stat
 * your developers use rather Laravel in their hobby projects
 
 Symfony is a living framework we can stick with. Your hiring pool has Symfony developers, so we're suitable to grow. The latest Symfony version is 7, so we'd only have to upgrade 2 major versions = doable. Despite your developers prefer Laravel, **we'd stick with Symfony**.
+
+<br>
 
 ## Usecase C
 
