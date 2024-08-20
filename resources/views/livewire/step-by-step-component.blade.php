@@ -46,16 +46,57 @@
 
         <div class="card">
             <div class="card-body">
+                <button onclick="copyConfig(event)" class="btn btn-sm btn-primary float-end" id="copyButton">
+                    <em class="fas fa-fw fa-copy"></em>
+                    &nbsp;
+                    Copy code
+                </button>
+
                 <p>
                     Optimal contents of <code>rector.php</code>
                 </p>
 
-                <pre class="mt-4 mb-1"><code class="language-php" style="min-height: 24em">{!! $rectorConfigContents !!}</code></pre>
+                <pre class="mt-4 mb-1"><code class="language-php" style="min-height: 24em" id="configContents">{!! $rectorConfigContents !!}</code></pre>
             </div>
         </div>
     </form>
 
     <script>
+        function copyConfig(event) {
+            // Prevent the link from redirecting
+            event.preventDefault();
+
+            // Get the content of the <code> element inside the <pre> element
+            var content = document.getElementById("configContents").textContent;
+
+            // Create a temporary textarea element to hold the code
+            var tempTextarea = document.createElement("textarea");
+            tempTextarea.value = content;
+
+            // Add the textarea to the document
+            document.body.appendChild(tempTextarea);
+
+            // Select the content of the textarea
+            tempTextarea.select();
+
+            // Copy the selected text
+            document.execCommand("copy");
+
+            // Remove the temporary textarea element from the document
+            document.body.removeChild(tempTextarea);
+
+            // Get the button element
+            var button = document.getElementById("copyButton");
+
+            // Change the button text to "Copied"
+             button.innerHTML = '<em class="fas fa-check fa-fw"></em>&nbsp;Copied';
+
+            // After 3 seconds, change the text back to "Copy Link"
+            setTimeout(function() {
+                 button.innerHTML = '<em class="fas fa-copy fa-fw"></em>&nbsp;Copy code';
+            }, 2000); // 2 seconds
+        }
+
         // Listen for events dispatched from Livewire components...
         document.addEventListener('DOMContentLoaded', function () {
             // render event from src/Livewire/RectorFilterComponent.php:12
