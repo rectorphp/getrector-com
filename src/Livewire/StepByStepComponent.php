@@ -6,6 +6,7 @@ namespace App\Livewire;
 
 use App\Enum\ComponentEvent;
 use App\Enum\StepBreakpoint;
+use Carbon\Carbon;
 use Illuminate\View\View;
 use Livewire\Attributes\Url;
 use Livewire\Component;
@@ -42,6 +43,8 @@ final class StepByStepComponent extends Component
     #[Url]
     public int $step = 0;
 
+    public ?Carbon $lastStepDateTime = null;
+
     public function render(): View
     {
         // to trigger javascript event in the component
@@ -57,16 +60,19 @@ final class StepByStepComponent extends Component
 
     public function nextStep(): void
     {
-        // double click moves faster
+        $this->step += $this->resolveStepSize();
 
-        ++$this->step;
+        $this->step = min($this->step, self::STEP_COUNT);
+
+        $this->lastStepDateTime = Carbon::now();
     }
 
     public function previousStep(): void
     {
-        // double click moves faster
+        $this->step -= $this->resolveStepSize();
+        $this->step = max($this->step, 0);
 
-        --$this->step;
+        $this->lastStepDateTime = Carbon::now();
     }
 
     private function renderRectorConfigContents(string $startingPhpVersion, int $step): string
@@ -109,5 +115,19 @@ final class StepByStepComponent extends Component
 
         $trimmedContents = implode(PHP_EOL, $trimmedContentLines);
         return rtrim($trimmedContents, "\n ;") . ';';
+    }
+
+    private function resolveStepSize(): int
+    {
+        $stepSize = 1;
+
+        if ($this->lastStepDateTime) {
+            $diff = Carbon::now()->diffInSeconds($this->lastStepDateTime);
+            // double click moves faster
+            if (abs($diff) < 0.8) {
+                $stepSize = 10;
+            }
+        }
+        return $stepSize;
     }
 }
