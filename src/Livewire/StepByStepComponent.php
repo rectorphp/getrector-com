@@ -121,13 +121,14 @@ final class StepByStepComponent extends Component
     {
         $stepSize = 1;
 
-        if ($this->lastStepDateTime) {
+        if ($this->lastStepDateTime instanceof Carbon) {
             $diff = Carbon::now()->diffInSeconds($this->lastStepDateTime);
             // double click moves faster
-            if (abs($diff) < 0.8) {
+            if (abs($diff) < 0.5) {
                 $stepSize = 10;
             }
         }
+
         return $stepSize;
     }
 }

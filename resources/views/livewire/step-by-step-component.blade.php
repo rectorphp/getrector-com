@@ -37,15 +37,6 @@
                         Next step
                     </button>
                 </div>
-
-                <div class="mt-2">
-
-
-                </div>
-
-{{--                <a href=""--}}
-
-{{--                <input type="range" class="form-range"  min="0" max="{{ $stepCount }}" value="0" wire:model.live="step" autofocus>--}}
             </div>
 
         </div>
@@ -59,7 +50,7 @@
                     Optimal contents of <code>rector.php</code>
                 </p>
 
-                <pre class="mt-4 mb-1"><code class="language-php" style="min-height: 23em">{!! $rectorConfigContents !!}</code></pre>
+                <pre class="mt-4 mb-1"><code class="language-php" style="min-height: 24em">{!! $rectorConfigContents !!}</code></pre>
             </div>
         </div>
     </form>
