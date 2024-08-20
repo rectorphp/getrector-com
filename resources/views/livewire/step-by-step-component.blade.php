@@ -12,33 +12,40 @@
                 </select>
             </div>
 
-            <div style="width: 10%;margin-top: .1em">
-                <span class="text-medium">
-                    Step: <strong>{{ $step }}</strong>
-                </span>
-            </div>
+            <div class="col-8">
+                <div class="d-flex">
+                    <button type="button" class="btn  btn-light" wire:click="previousStep">
+                        Previous step
+                    </button>
 
-            <div class="col-6">
-                <style>
-                    input[type="range"] {
-                        width: 100%;
-                    }
+                    <div class="progress flex-grow-1 ms-1 me-1 shadow border-light border" role="progressbar" style="height: 3.2em">
+                        <div
+                            class="progress-bar text-bg-success progress-bar-striped
+                            @if ($step < 12)
+                            text-dark
+                            @else
+                            text-white
+                            @endif
+                            text-bold"
+                            style="font-size: 2em; width: {{ $progress }}%;
+                        ">
+                            {{ $step }}
+                        </div>
+                    </div>
 
-                    input[type="range"]::-webkit-slider-thumb {
-                        background: green;
-                        border-radius: 50%;
-                        border: 3px solid white;
-                        margin-top:.1em;
-                    }
+                    <button type="button" class="btn  btn-success d-inline-block" wire:click="nextStep">
+                        Next step
+                    </button>
+                </div>
 
-                    input[type="range"]::-webkit-slider-runnable-track {
-                        background-color: #4CAF50;
-                        height: 1.2rem;
-                        margin-top: .55em;
-                    }
-                </style>
+                <div class="mt-2">
 
-                <input type="range" class="form-range"  min="0" max="{{ $stepCount }}" value="0" wire:model.live="step" autofocus>
+
+                </div>
+
+{{--                <a href=""--}}
+
+{{--                <input type="range" class="form-range"  min="0" max="{{ $stepCount }}" value="0" wire:model.live="step" autofocus>--}}
             </div>
 
         </div>

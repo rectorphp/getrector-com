@@ -51,7 +51,22 @@ final class StepByStepComponent extends Component
             'rectorConfigContents' => $this->renderRectorConfigContents($this->startingPhpVersion, $this->step),
             'stepCount' => self::STEP_COUNT,
             'phpVersionOptions' => self::PHP_VERSION_OPTIONS,
+            'progress' => round(($this->step / self::STEP_COUNT) * 100, 1),
         ]);
+    }
+
+    public function nextStep(): void
+    {
+        // double click moves faster
+
+        ++$this->step;
+    }
+
+    public function previousStep(): void
+    {
+        // double click moves faster
+
+        --$this->step;
     }
 
     private function renderRectorConfigContents(string $startingPhpVersion, int $step): string
