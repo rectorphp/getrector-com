@@ -70,6 +70,10 @@ return RectorConfig::configure()
     ->withCodeQualityLevel({{ min($step - \App\Enum\StepBreakpoint::CODE_QUALITY_LEVEL, 50) }})
 @endif
 
+@if ($step >= \App\Enum\StepBreakpoint::PHP_80 + 4)
+    ->withAttributes()
+@endif
+
 @if ($step == \App\Enum\StepBreakpoint::IMPORT_NAMES)
     ->withImportNames(importDocBlockNames: false)
 @elseif ($step == \App\Enum\StepBreakpoint::IMPORT_NAMES + 1)
