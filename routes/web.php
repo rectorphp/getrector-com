@@ -85,3 +85,4 @@ Route::get('ast/{hash}', AstDetailController::class);
 Route::post('process-ast', ProcessAstFormController::class);
 
 Route::get('step-by-step', StepByStepController::class);
+Route::get('stats/find-rule', \App\Controller\Stats\FindRuleStatsController::class);
