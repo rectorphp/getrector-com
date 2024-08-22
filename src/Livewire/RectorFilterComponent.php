@@ -43,7 +43,11 @@ final class RectorFilterComponent extends Component
 
         /** @var SearchLogger $searchLogger */
         $searchLogger = app(SearchLogger::class);
-        $searchLogger->log($this->query, $this->nodeType, $this->rectorSet);
+
+        // log only meaningful query, not a start of typing, to keep data clean
+        if ($this->query === null || (strlen($this->query) > 3)) {
+            $searchLogger->log($this->query, $this->nodeType, $this->rectorSet);
+        }
 
         /** @var RectorSetsTreeProvider $rectorSetsTreeProvider */
         $rectorSetsTreeProvider = app(RectorSetsTreeProvider::class);

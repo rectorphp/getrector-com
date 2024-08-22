@@ -69,3 +69,8 @@ parameters:
 
         # only type
         - '#Method App\\Thumbnail\\ThumbnailGenerator\:\:createFont\(\) should return Imagine\\Image\\AbstractFont but returns Imagine\\Image\\FontInterface#'
+
+        # false positive
+        -
+            message: '#Cannot call method format\(\) on Carbon\\Carbon\|null#'
+            path: src/Controller/Stats/FindRuleStatsController.php

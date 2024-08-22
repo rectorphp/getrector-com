@@ -6,8 +6,7 @@
         "@fortawesome/free-regular-svg-icons": "^6.2",
         "@fortawesome/free-solid-svg-icons": "^6.2",
         "ajv": "^6.10.1",
-        "bootstrap": "^5.2",
-        "caniuse-lite": "^1.0.30001419",
+        "bootstrap": "^5.3",
         "codemirror": "^5.0.1",
         "jquery": "^3.4.1",
         "tar": "^6.1.11"
@@ -32,6 +31,6 @@
     "private": true,
     "repository": {
         "type": "website",
-        "url": "https://github.com/rectorphp/getrector.org"
+        "url": "https://github.com/rectorphp/getrector.com"
     }
 }

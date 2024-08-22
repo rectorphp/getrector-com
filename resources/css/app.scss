@@ -595,3 +595,11 @@ label.required:before {
 #interactive h3 em, #homepage h3 em {
     font-size: 1.2em;
 }
+
+.bg-set {
+    background-color: #DC3545;
+
+    &:hover {
+        background-color: #ea283a;
+    }
+}
