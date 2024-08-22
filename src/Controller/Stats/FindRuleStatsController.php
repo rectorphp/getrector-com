@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller\Stats;
 
+use App\Enum\FindRuleQuery;
 use Illuminate\Contracts\View\View;
 use Illuminate\Routing\Controller;
 use Nette\Utils\FileSystem;
@@ -17,10 +18,23 @@ final class FindRuleStatsController extends Controller
         $searchRecords = $this->loadFileToJsonItems($searchLogFilePath);
 
         $nodeTypes = $this->getArrayFlattenKey($searchRecords, 'nodeType');
+
         $sets = $this->getArrayFlattenKey($searchRecords, 'set');
         $queries = $this->getArrayFlattenKey($searchRecords, 'query');
 
+        $nonEmptyNodeTypes = count($nodeTypes);
+        $nonEmptySets = count($sets);
+
+        // remove prepared queries
+        $queries = array_diff($queries, FindRuleQuery::EXAMPLES);
+
         $queriesToCount = $this->groupToCount($queries);
+
+        // remove super short queries
+        $queriesToCount = array_filter($queriesToCount, function (string $query): bool {
+            return strlen($query) > 2;
+        }, ARRAY_FILTER_USE_KEY);
+
         $setsToCount = $this->groupToCount($sets);
         $nodeTypesToCount = $this->groupToCount($nodeTypes);
 
@@ -28,6 +42,9 @@ final class FindRuleStatsController extends Controller
             'queriesToCount' => $queriesToCount,
             'setsToCount' => $setsToCount,
             'nodeTypesToCount' => $nodeTypesToCount,
+            // counts
+            'nonEmptyNodeTypes' => $nonEmptyNodeTypes,
+            'nonEmptySets' => $nonEmptySets,
         ]);
     }
 
@@ -37,9 +54,12 @@ final class FindRuleStatsController extends Controller
      */
     private function getArrayFlattenKey(array $items, string $keyName): array
     {
-        return array_map(function (array $item) use ($keyName) {
+        $items = array_map(function (array $item) use ($keyName) {
             return $item[$keyName];
         }, $items);
+
+        // remove empty ones
+        return array_filter($items);
     }
 
     /**
@@ -48,9 +68,7 @@ final class FindRuleStatsController extends Controller
      */
     private function groupToCount(array $items): array
     {
-        $nonEmptyItems = array_filter($items);
-
-        $itemsToValues = array_count_values($nonEmptyItems);
+        $itemsToValues = array_count_values($items);
         arsort($itemsToValues);
 
         // at least twice
