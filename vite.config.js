@@ -9,6 +9,10 @@ export default defineConfig({
                 'resources/js/app.js'
             ],
             refresh: true,
+            watch: ['resources/css'],
         }),
     ],
+    watchOptions: {
+        ignored: ['**/vendor/**']
+    }
 });
