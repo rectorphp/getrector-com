@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Livewire;
 
 use App\Enum\ComponentEvent;
+use App\Enum\FindRuleQuery;
 use App\FileSystem\RectorFinder;
 use App\Logging\SearchLogger;
 use App\RuleFilter\RuleFilter;
@@ -15,17 +16,6 @@ use Livewire\Component;
 
 final class RectorFilterComponent extends Component
 {
-    /**
-     * @var string[]
-     */
-    private const QUERY_EXAMPLES = [
-        'attributes',
-        'add constant type',
-        'remove tag',
-        'add return type strict',
-        'symfony rules',
-    ];
-
     #[Url]
     public ?string $query = null;
 
@@ -61,7 +51,7 @@ final class RectorFilterComponent extends Component
         return view('livewire.rector-filter-component', [
             'filteredRules' => $filteredRules,
             'isFilterActive' => $this->isFilterActive(),
-            'queryExamples' => self::QUERY_EXAMPLES,
+            'queryExamples' => FindRuleQuery::EXAMPLES,
             'rectorSetsByGroup' => $rectorSetsTreeProvider->provideGrouped(),
         ]);
     }

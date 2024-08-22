@@ -26,7 +26,7 @@
             <div class="col-md-4">
 
 
-        <h3>Node Types</h3>
+        <h3>Node Types ({{ $nonEmptyNodeTypes }})</h3>
 
         <ul>
         @foreach ($nodeTypesToCount as $nodeType => $count)
@@ -40,7 +40,7 @@
             <div class="col-md-4">
 
 
-            <h3>Sets</h3>
+            <h3>Sets ({{ $nonEmptySets }})</h3>
 
             <ul>
                 @foreach ($setsToCount as $set => $count)
