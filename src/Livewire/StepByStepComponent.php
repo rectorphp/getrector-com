@@ -8,6 +8,7 @@ use App\Enum\ComponentEvent;
 use App\Enum\StepBreakpoint;
 use Carbon\Carbon;
 use Illuminate\View\View;
+use Livewire\Attributes\On;
 use Livewire\Attributes\Url;
 use Livewire\Component;
 
@@ -58,6 +59,7 @@ final class StepByStepComponent extends Component
         ]);
     }
 
+    #[On(ComponentEvent::NEXT_STEP)]
     public function nextStep(): void
     {
         $this->step += $this->resolveStepSize();
@@ -67,6 +69,7 @@ final class StepByStepComponent extends Component
         $this->lastStepDateTime = Carbon::now();
     }
 
+    #[On(ComponentEvent::PREVIOUS_STEP)]
     public function previousStep(): void
     {
         $this->step -= $this->resolveStepSize();

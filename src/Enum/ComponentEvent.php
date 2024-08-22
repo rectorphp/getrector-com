@@ -9,6 +9,16 @@ final class ComponentEvent
     /**
      * @var string
      */
+    public const PREVIOUS_STEP = 'prev_step';
+
+    /**
+     * @var string
+     */
+    public const NEXT_STEP = 'next_step';
+
+    /**
+     * @var string
+     */
     public const SELECT_NODE = 'select_node';
 
     /**

@@ -108,5 +108,16 @@
                 });
             });
         })
+
+
+        function handleKeyPress(event) {
+            if (event.key === 'ArrowLeft') {
+                window.Livewire.dispatch('{{ \App\Enum\ComponentEvent::PREVIOUS_STEP }}');
+            } else if (event.key === 'ArrowRight') {
+                window.Livewire.dispatch('{{ \App\Enum\ComponentEvent::NEXT_STEP }}');
+            }
+        }
+
+        document.addEventListener('keydown', handleKeyPress);
     </script>
 </div>
