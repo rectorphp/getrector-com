@@ -1,36 +1,55 @@
-<h2>Node finder stats</h2>
+@extends('base')
 
-<h3>Queries</h3>
+@section('main')
+    <div id="simple_page">
+        <h1>Node Finder Stats</h1>
 
-<ul>
-@foreach ($queriesToCount as $query => $count)
-    <li>
-        {{ $query }}: {{ $count }}
-    </li>
-@endforeach
-</ul>
 
-<hr>
+        <p>
+            Anonymous search data from <a href="{{ action(\App\Controller\FindRuleController::class) }}">Find rule</a> page
+        </p>
 
-<h3>Node Types</h3>
+        <div class="row">
+            <div class="col-md-4">
+            <h3>Queries</h3>
 
-<ul>
-@foreach ($nodeTypesToCount as $nodeType => $count)
-    <li>
-        {{ $nodeType }}: {{ $count }}
-    </li>
-@endforeach
-</ul>
 
-<hr>
+        <ul>
+        @foreach ($queriesToCount as $query => $count)
+            <li>
+                {{ $query }}: {{ $count }}
+            </li>
+        @endforeach
+        </ul>
 
-<h3>Sets</h3>
+            </div>
+            <div class="col-md-4">
 
-<ul>
-    @foreach ($setsToCount as $set => $count)
-        <li>
-            {{ $set }}: {{ $count }}
-        </li>
-    @endforeach
-</ul>
 
+        <h3>Node Types</h3>
+
+        <ul>
+        @foreach ($nodeTypesToCount as $nodeType => $count)
+            <li>
+                {{ $nodeType }}: {{ $count }}
+            </li>
+        @endforeach
+        </ul>
+
+            </div>
+            <div class="col-md-4">
+
+
+            <h3>Sets</h3>
+
+            <ul>
+                @foreach ($setsToCount as $set => $count)
+                    <li>
+                        {{ $set }}: {{ $count }}
+                    </li>
+                @endforeach
+            </ul>
+            </div>
+        </div>
+    </div>
+@endsection

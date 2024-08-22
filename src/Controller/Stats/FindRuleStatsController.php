@@ -4,13 +4,14 @@ declare(strict_types=1);
 
 namespace App\Controller\Stats;
 
+use Illuminate\Contracts\View\View;
 use Illuminate\Routing\Controller;
 use Nette\Utils\FileSystem;
 use Nette\Utils\Json;
 
 final class FindRuleStatsController extends Controller
 {
-    public function __invoke()
+    public function __invoke(): View
     {
         $searchLogFilePath = storage_path('logs/search.json');
         $searchRecords = $this->loadFileToJsonItems($searchLogFilePath);
@@ -32,6 +33,7 @@ final class FindRuleStatsController extends Controller
 
     /**
      * @param mixed[] $items
+     * @return mixed[]
      */
     private function getArrayFlattenKey(array $items, string $keyName): array
     {
@@ -51,7 +53,10 @@ final class FindRuleStatsController extends Controller
         $itemsToValues = array_count_values($nonEmptyItems);
         arsort($itemsToValues);
 
-        return $itemsToValues;
+        // at least twice
+        return array_filter($itemsToValues, function ($value): bool {
+            return $value > 1;
+        });
     }
 
     /**
@@ -64,13 +69,13 @@ final class FindRuleStatsController extends Controller
         $fileLines = explode(PHP_EOL, $fileContents);
 
         $items = [];
-        foreach ($fileLines as $searchFileLine) {
+        foreach ($fileLines as $fileLine) {
             // skip empty
-            if (trim($searchFileLine) === '') {
+            if (trim($fileLine) === '') {
                 continue;
             }
 
-            $items[] = Json::decode($searchFileLine, true);
+            $items[] = Json::decode($fileLine, true);
         }
 
         return $items;

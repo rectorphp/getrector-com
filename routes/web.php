@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+use App\Controller\Stats\FindRuleStatsController;
 
 use App\Ast\Controller\AstController;
 use App\Ast\Controller\AstDetailController;
@@ -85,4 +86,4 @@ Route::get('ast/{hash}', AstDetailController::class);
 Route::post('process-ast', ProcessAstFormController::class);
 
 Route::get('step-by-step', StepByStepController::class);
-Route::get('stats/find-rule', \App\Controller\Stats\FindRuleStatsController::class);
+Route::get('stats/find-rule', FindRuleStatsController::class);
