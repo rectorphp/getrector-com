@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\FileSystem;
 
-use App\Enum\RuleNodeRedirectMap;
 use App\RuleFilter\ValueObject\RectorSet;
 use App\RuleFilter\ValueObject\RuleMetadata;
 use App\Sets\RectorSetsTreeProvider;
@@ -86,17 +85,10 @@ final class RectorFinder
 
             $currentRuleSets = $this->findRuleUsedSets($ruleDefinition, $rectorSets);
 
-            if (isset(RuleNodeRedirectMap::MAP[$rectorClass])) {
-                $changedNodeTypes = RuleNodeRedirectMap::MAP[$rectorClass];
-            } else {
-                $changedNodeTypes = $rector->getNodeTypes();
-            }
-
             $ruleMetadatas[] = new RuleMetadata(
                 $ruleDefinition->getRuleClass(),
                 $ruleDefinition->getDescription(),
                 $ruleDefinition->getCodeSamples(),
-                $changedNodeTypes,
                 $currentRuleSets,
                 (string) $rectorReflectionClass->getFileName()
             );
