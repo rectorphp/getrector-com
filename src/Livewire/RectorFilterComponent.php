@@ -79,10 +79,10 @@ final class RectorFilterComponent extends Component
 
     private function logRuleSearch(): void
     {
-        /** @var RectorFuleSearchLogger $searchLogger */
-        $searchLogger = app(RectorFuleSearchLogger::class);
+        /** @var RectorFuleSearchLogger $rectorFuleSearchLogger */
+        $rectorFuleSearchLogger = app(RectorFuleSearchLogger::class);
 
         // log only meaningful query, not a start of typing, to keep data clean
-        $searchLogger->log($this->query, $this->nodeType, $this->rectorSet);
+        $rectorFuleSearchLogger->log($this->query, $this->nodeType, $this->rectorSet);
     }
 }

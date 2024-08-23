@@ -27,14 +27,9 @@ final class FindRuleStatsController extends Controller
         $queriesToCount = $this->filterQueriesToCount($searchRecords);
         $rulesToCount = $this->filterRulesToCount($searchRecords);
 
-        // remove values with space as legacy
         $sets = $this->getArrayFlattenKey($searchRecords, 'set');
-        $sets = array_filter($sets, fn (string $set): bool => ! str_contains($set, ' '));
 
         $setsToCount = Arrays::groupToCount($sets, 4);
-
-        // remove ones with "\" as legacy
-        $nodeTypes = array_filter($nodeTypes, fn (string $nodeType): bool => ! str_contains($nodeType, '\\'));
         $nodeTypesToCount = Arrays::groupToCount($nodeTypes, 5);
 
         // day by day stats
