@@ -10,7 +10,6 @@ use App\RuleFilter\Markdown\MarkdownDiffer;
 use App\RuleFilter\PhpParser\NodeFactory\RectorConfigFactory;
 use App\RuleFilter\PhpParser\Printer\RectorConfigStmtsPrinter;
 use Nette\Utils\Strings;
-use PhpParser\Node;
 use Rector\Contract\Rector\ConfigurableRectorInterface;
 use Rector\Contract\Rector\RectorInterface;
 use Symplify\RuleDocGenerator\Contract\CodeSampleInterface;
@@ -21,7 +20,6 @@ final class RuleMetadata
     private ?int $filterScore = null;
 
     /**
-     * @param array<class-string<Node>> $nodeTypes
      * @param RectorSet[] $sets
      * @param CodeSampleInterface[] $codeSamples
      */
@@ -29,12 +27,10 @@ final class RuleMetadata
         private string $ruleClass,
         private string $description,
         private array $codeSamples,
-        private array $nodeTypes,
         private array $sets,
         private string $rectorRuleFilePath
     ) {
         Assert::isAOf($ruleClass, RectorInterface::class);
-        Assert::allIsAOf($nodeTypes, Node::class);
         Assert::allIsAOf($sets, RectorSet::class);
     }
 
@@ -132,14 +128,6 @@ final class RuleMetadata
         }
 
         return false;
-    }
-
-    /**
-     * @return array<class-string<Node>>
-     */
-    public function getNodeTypes(): array
-    {
-        return $this->nodeTypes;
     }
 
     public function isPartOfSets(): bool
