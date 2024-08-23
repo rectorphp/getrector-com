@@ -6,12 +6,12 @@
 
 <div>
     <div class="row">
-        <div class="col-12 col-md-4 mb-3">
+        <div class="col-12 col-md-7 mb-4">
             <input
                     placeholder="Type to start searching a rule"
                     type="text"
                     class="form-control d-inline"
-                    style="width: 14em"
+                    style="width: 20em"
                     wire:model.live.debounce.300ms="query"
             >
             <!-- @see https://livewire.laravel.com/docs/wire-model#customizing-the-debounce -->
@@ -22,27 +22,11 @@
             @endif
 
         </div>
+
         <div class="col-12 col-md-5 mb-3">
-            <label for="node_type">Element to change:</label>
-
-            <select class="form-select d-inline ms-3" name="node_type" style="max-width: 12em"
-                    wire:model.live="nodeType">
-                <option value="">Any element</option>
-
-                @foreach (\App\Enum\NodeTypeToHumanReadable::SELECT_ITEMS_BY_GROUP as $groupName => $nodeTypesToNames)
-                    <optgroup label="{{ $groupName }}">
-                        @foreach ($nodeTypesToNames as $optionName => $nodeTypes)
-                            <option value="{{ slugify($optionName) }}">{{ $optionName }}</option>
-                        @endforeach
-                    </optgroup>
-                @endforeach
-            </select>
-        </div>
-
-        <div class="col-12 col-md-3 mb-3">
             <label for="rector_set">Set:</label>
 
-            <select class="form-select d-inline ms-3" name="rector_set" style="max-width: 11.3em"
+            <select class="form-select d-inline ms-3" name="rector_set" style="max-width: 21.6em"
                     wire:model.live="rectorSet">
                 <option value="">Any set</option>
 

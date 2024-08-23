@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\RuleFilter;
 
-use App\Enum\NodeTypeToHumanReadable;
 use App\RuleFilter\Enum\MagicSearch;
 use App\RuleFilter\ValueObject\RuleMetadata;
 
@@ -48,31 +47,6 @@ final class RuleFilter
 
         // limit results to keep page clear
         return array_slice($ruleMetadatas, 0, $maxResults);
-    }
-
-    /**
-     * @param RuleMetadata[] $ruleMetadatas
-     * @return RuleMetadata[]
-     */
-    private function filterByNodeTypeFirst(array $ruleMetadatas, ?string $nodeTypeSlug): array
-    {
-        if ($nodeTypeSlug === null || $nodeTypeSlug === '') {
-            return $ruleMetadatas;
-        }
-
-        // convert slug to node types
-        $matchedNodeTypes = $this->matchNodeTypesBySlug($nodeTypeSlug);
-        if ($matchedNodeTypes === null) {
-            return $ruleMetadatas;
-        }
-
-        return array_filter(
-            $ruleMetadatas,
-            fn (RuleMetadata $ruleMetadata): bool => array_intersect(
-                $matchedNodeTypes,
-                $ruleMetadata->getNodeTypes()
-            ) !== []
-        );
     }
 
     /**
@@ -124,21 +98,6 @@ final class RuleFilter
         }
 
         return array_filter($ruleMetadatas, fn (RuleMetadata $ruleMetadata): bool => $ruleMetadata->isInSet($set));
-    }
-
-    private function matchNodeTypesBySlug(string $nodeTypeSlug): mixed
-    {
-        foreach (NodeTypeToHumanReadable::SELECT_ITEMS_BY_GROUP as $nodeTypesToNames) {
-            foreach ($nodeTypesToNames as $label => $nodeTypes) {
-                if (slugify($label) !== $nodeTypeSlug) {
-                    continue;
-                }
-
-                return $nodeTypes;
-            }
-        }
-
-        return null;
     }
 
     /**

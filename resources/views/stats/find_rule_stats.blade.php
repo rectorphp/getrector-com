@@ -10,15 +10,22 @@
 
         <div class="row">
             <div class="col-md-5">
-                <h3>Rules</h3>
+                <h3>Top 10 Rules</h3>
 
-                <ul>
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Rule</th>
+                            <th>Count</th>
+                        </tr>
+                    </thead>
                     @foreach ($rulesToCount as $rule => $count)
-                        <li>
-                            {{ $rule }}: {{ $count }}
-                        </li>
+                        <tr>
+                            <td>{{ $rule }}</td>
+                            <td class="text-right">{{ $count }}</td>
+                        </tr>
                     @endforeach
-                </ul>
+                </table>
             </div>
             <div class="col-md-3">
                 <h3>Queries</h3>

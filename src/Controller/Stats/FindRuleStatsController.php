@@ -129,7 +129,9 @@ final class FindRuleStatsController extends Controller
         // keep only items with "Rector" suffix
         $rules = array_filter($rules, fn (string $rule): bool => str_ends_with($rule, 'Rector'));
 
-        return Arrays::groupToCount($rules, 6);
+        $rulesToCount = Arrays::groupToCount($rules, 6);
+
+        return array_slice($rulesToCount, 0, 10);
 
     }
 }
