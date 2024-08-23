@@ -11,8 +11,6 @@ final class FindRuleQuery
      */
     public const EXAMPLES = [
         'attributes',
-        'add constant type',
-        'remove tag',
         'add return type strict',
         'symfony rules',
     ];
