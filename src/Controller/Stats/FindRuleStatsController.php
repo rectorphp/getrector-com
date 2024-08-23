@@ -114,31 +114,6 @@ final class FindRuleStatsController extends Controller
 
         // remove super short queries
         return array_filter($queriesToCount, function (string $query): bool {
-            // skip SQL injections
-            if (str_contains($query, ' and ')) {
-                return false;
-            }
-
-            if (str_contains($query, ' when ')) {
-                return false;
-            }
-
-            if (str_contains($query, ' or ')) {
-                return false;
-            }
-
-            if (str_contains($query, 'select ')) {
-                return false;
-            }
-
-            if (str_contains($query, 'waitfor delay')) {
-                return false;
-            }
-
-            if (str_contains($query, ' order by ')) {
-                return false;
-            }
-
             // skip rector rules
             if (str_ends_with($query, 'rector')) {
                 return false;

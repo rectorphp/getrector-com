@@ -7,7 +7,7 @@ namespace App\Livewire;
 use App\Enum\ComponentEvent;
 use App\Enum\FindRuleQuery;
 use App\FileSystem\RectorFinder;
-use App\Logging\SearchLogger;
+use App\Logging\RectorFuleSearchLogger;
 use App\RuleFilter\RuleFilter;
 use App\Sets\RectorSetsTreeProvider;
 use Illuminate\View\View;
@@ -41,8 +41,8 @@ final class RectorFilterComponent extends Component
         $ruleFilter = app(RuleFilter::class);
         $filteredRules = $ruleFilter->filter($ruleMetadatas, $this->query, $this->nodeType, $this->rectorSet);
 
-        /** @var SearchLogger $searchLogger */
-        $searchLogger = app(SearchLogger::class);
+        /** @var RectorFuleSearchLogger $searchLogger */
+        $searchLogger = app(RectorFuleSearchLogger::class);
 
         // log only meaningful query, not a start of typing, to keep data clean
         if ($this->query === null || (strlen($this->query) > 3)) {

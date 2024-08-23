@@ -6,13 +6,13 @@ namespace App\Logging;
 
 use Nette\Utils\Json;
 
-final class SearchLogger
+final class RectorFuleSearchLogger
 {
     /**
      * Skip typical SQL injection attacks, as no value
      * @var string[]
      */
-    private const EXCLUDED_QUERIES = ['ORDER BY', 'SELECT', ' AND ', ' OR '];
+    private const EXCLUDED_QUERIES = ['order by', 'select', ' and ', ' or ', ' limit ', 'when', 'waitfor delay'];
 
     /**
      * Simple search logger, to see what is needed by the community
@@ -25,12 +25,8 @@ final class SearchLogger
         }
 
         // skip typical SQL injections attacks
-        if ($query) {
-            foreach (self::EXCLUDED_QUERIES as $excludedQuery) {
-                if (str_contains($query, $excludedQuery)) {
-                    return;
-                }
-            }
+        if ($this->isSQLInjection($query)) {
+            return;
         }
 
         $searchJson = Json::encode([
@@ -41,5 +37,22 @@ final class SearchLogger
         ]) . PHP_EOL;
 
         file_put_contents(__DIR__ . '/../../storage/logs/search.json', $searchJson, FILE_APPEND);
+    }
+
+    private function isSQLInjection(?string $query): bool
+    {
+        if (! is_string($query)) {
+            return false;
+        }
+
+        $lowerQuery = strtolower($query);
+
+        foreach (self::EXCLUDED_QUERIES as $excludedQuery) {
+            if (str_contains($lowerQuery, $excludedQuery)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
