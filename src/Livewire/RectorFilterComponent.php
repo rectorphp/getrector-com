@@ -9,6 +9,7 @@ use App\Enum\FindRuleQuery;
 use App\FileSystem\RectorFinder;
 use App\Logging\RectorFuleSearchLogger;
 use App\RuleFilter\RuleFilter;
+use App\RuleFilter\ValueObject\RuleMetadata;
 use App\Sets\RectorSetsTreeProvider;
 use Illuminate\View\View;
 use Livewire\Attributes\Url;
@@ -27,27 +28,15 @@ final class RectorFilterComponent extends Component
 
     public function render(): View
     {
-        /** @var RectorFinder $rectorFinder */
-        $rectorFinder = app(RectorFinder::class);
-        $ruleMetadatas = $rectorFinder->findCore();
-
         // wip
         // $communityRectors = $rectorFinder->findCommunity();
 
         // to trigger event in component javascript
         $this->dispatch(ComponentEvent::RULES_FILTERED);
 
-        /** @var RuleFilter $ruleFilter */
-        $ruleFilter = app(RuleFilter::class);
-        $filteredRules = $ruleFilter->filter($ruleMetadatas, $this->query, $this->nodeType, $this->rectorSet);
+        $filteredRules = $this->getFilteredRuleMetadatas();
 
-        /** @var RectorFuleSearchLogger $searchLogger */
-        $searchLogger = app(RectorFuleSearchLogger::class);
-
-        // log only meaningful query, not a start of typing, to keep data clean
-        if ($this->query === null || (strlen($this->query) > 3)) {
-            $searchLogger->log($this->query, $this->nodeType, $this->rectorSet);
-        }
+        $this->logRuleSearch();
 
         /** @var RectorSetsTreeProvider $rectorSetsTreeProvider */
         $rectorSetsTreeProvider = app(RectorSetsTreeProvider::class);
@@ -71,5 +60,29 @@ final class RectorFilterComponent extends Component
         }
 
         return $this->rectorSet !== null && $this->rectorSet !== '';
+    }
+
+    /**
+     * @return RuleMetadata[]
+     */
+    private function getFilteredRuleMetadatas(): array
+    {
+        /** @var RectorFinder $rectorFinder */
+        $rectorFinder = app(RectorFinder::class);
+        $ruleMetadatas = $rectorFinder->findCore();
+
+        /** @var RuleFilter $ruleFilter */
+        $ruleFilter = app(RuleFilter::class);
+
+        return $ruleFilter->filter($ruleMetadatas, $this->query, $this->nodeType, $this->rectorSet);
+    }
+
+    private function logRuleSearch(): void
+    {
+        /** @var RectorFuleSearchLogger $searchLogger */
+        $searchLogger = app(RectorFuleSearchLogger::class);
+
+        // log only meaningful query, not a start of typing, to keep data clean
+        $searchLogger->log($this->query, $this->nodeType, $this->rectorSet);
     }
 }

@@ -24,6 +24,11 @@ final class RectorFuleSearchLogger
             return;
         }
 
+        // avoid logging short search
+        if ($query !== null && strlen($query) <= 5) {
+            return;
+        }
+
         // skip typical SQL injections attacks
         if ($this->isSQLInjection($query)) {
             return;
