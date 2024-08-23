@@ -22,15 +22,13 @@ final class FindRuleStatsController extends Controller
         $searchLogFilePath = storage_path('logs/search.json');
         $searchRecords = $this->loadFileToJsonItems($searchLogFilePath);
 
-        $nodeTypes = $this->getArrayFlattenKey($searchRecords, 'nodeType');
-
         $queriesToCount = $this->filterQueriesToCount($searchRecords);
         $rulesToCount = $this->filterRulesToCount($searchRecords);
 
         $sets = $this->getArrayFlattenKey($searchRecords, 'set');
 
         $setsToCount = Arrays::groupToCount($sets, 4);
-        $nodeTypesToCount = Arrays::groupToCount($nodeTypes, 5);
+        $setsToCount = array_slice($setsToCount, 0, 10);
 
         // day by day stats
         $timestamps = $this->getArrayFlattenKey($searchRecords, 'timestamp');
@@ -46,10 +44,7 @@ final class FindRuleStatsController extends Controller
         return view('stats.find_rule_stats', [
             'queriesToCount' => $queriesToCount,
             'setsToCount' => $setsToCount,
-            'nodeTypesToCount' => $nodeTypesToCount,
             // counts
-            'nonEmptyNodeTypes' => count($nodeTypes),
-            'nonEmptySets' => count($sets),
             'rulesToCount' => $rulesToCount,
             'datesToCount' => $datesToCount,
         ]);

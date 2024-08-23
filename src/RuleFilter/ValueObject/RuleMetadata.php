@@ -135,6 +135,7 @@ final class RuleMetadata
     }
 
     /**
+     * @api possibly used later
      * @return array<class-string<Node>>
      */
     public function getNodeTypes(): array

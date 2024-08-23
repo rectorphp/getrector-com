@@ -9,8 +9,8 @@
         </p>
 
         <div class="row">
-            <div class="col-md-5">
-                <h3>Top 10 Rules</h3>
+            <div class="col-12 col-md-6">
+                <h3>Top {{ count($rulesToCount) }} Rules</h3>
 
                 <table class="table table-bordered">
                     <thead class="table-dark">
@@ -27,6 +27,26 @@
                     @endforeach
                 </table>
             </div>
+
+            <div class="col-12 col-md-6">
+                <h3>Top {{ count($setsToCount) }} Sets</h3>
+
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                    <tr>
+                        <th>Set</th>
+                        <th>Count</th>
+                    </tr>
+                    </thead>
+                    @foreach ($setsToCount as $set => $count)
+                        <tr>
+                            <td>{{ $set }}</td>
+                            <td class="text-right">{{ $count }}</td>
+                        </tr>
+                    @endforeach
+                </table>
+            </div>
+
             <div class="col-md-3">
                 <h3>Queries</h3>
 
@@ -38,28 +58,8 @@
                     @endforeach
                 </ul>
             </div>
-            <div class="col-md-4">
-                <h3>Node Types ({{ $nonEmptyNodeTypes }})</h3>
 
-                <ul>
-                    @foreach ($nodeTypesToCount as $nodeType => $count)
-                        <li>
-                            {{ $nodeType }}: {{ $count }}
-                        </li>
-                    @endforeach
-                </ul>
-            </div>
-            <div class="col-md-4">
-                <h3>Sets ({{ $nonEmptySets }})</h3>
 
-                <ul>
-                    @foreach ($setsToCount as $set => $count)
-                        <li>
-                            {{ $set }}:&nbsp;&nbsp;<strong>{{ $count }}</strong>
-                        </li>
-                    @endforeach
-                </ul>
-            </div>
         </div>
 
         <div class="clearfix"></div>

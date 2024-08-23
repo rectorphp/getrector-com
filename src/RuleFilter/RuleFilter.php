@@ -23,9 +23,8 @@ final class RuleFilter
      * @param RuleMetadata[] $ruleMetadatas
      * @return RuleMetadata[]
      */
-    public function filter(array $ruleMetadatas, ?string $query, ?string $nodeType, ?string $set): array
+    public function filter(array $ruleMetadatas, ?string $query, ?string $set): array
     {
-        $ruleMetadatas = $this->filterByNodeTypeFirst($ruleMetadatas, $nodeType);
         $ruleMetadatas = $this->filterByQuery($ruleMetadatas, $query);
         $ruleMetadatas = $this->filterBySet($ruleMetadatas, $set);
 

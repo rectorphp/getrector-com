@@ -23,9 +23,6 @@ final class RectorFilterComponent extends Component
     #[Url]
     public ?string $rectorSet = null;
 
-    #[Url]
-    public ?string $nodeType = null;
-
     public function render(): View
     {
         // wip
@@ -55,10 +52,6 @@ final class RectorFilterComponent extends Component
             return true;
         }
 
-        if ($this->nodeType !== null && $this->nodeType !== '') {
-            return true;
-        }
-
         return $this->rectorSet !== null && $this->rectorSet !== '';
     }
 
@@ -74,7 +67,7 @@ final class RectorFilterComponent extends Component
         /** @var RuleFilter $ruleFilter */
         $ruleFilter = app(RuleFilter::class);
 
-        return $ruleFilter->filter($ruleMetadatas, $this->query, $this->nodeType, $this->rectorSet);
+        return $ruleFilter->filter($ruleMetadatas, $this->query, $this->rectorSet);
     }
 
     private function logRuleSearch(): void
@@ -83,6 +76,6 @@ final class RectorFilterComponent extends Component
         $rectorFuleSearchLogger = app(RectorFuleSearchLogger::class);
 
         // log only meaningful query, not a start of typing, to keep data clean
-        $rectorFuleSearchLogger->log($this->query, $this->nodeType, $this->rectorSet);
+        $rectorFuleSearchLogger->log($this->query, $this->rectorSet);
     }
 }
