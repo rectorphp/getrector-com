@@ -6,27 +6,38 @@
 
 <div>
     <div class="row">
-        <div class="col-12 col-md-7 mb-4">
+        <div class="col-12 col-md-5 mb-4">
             <input
-                    placeholder="Type to start searching a rule"
-                    type="text"
-                    class="form-control d-inline"
-                    style="width: 20em"
-                    wire:model.live.debounce.300ms="query"
+                placeholder="Type to start searching a rule"
+                type="text"
+                class="form-control d-inline"
+                style="width: 20em"
+                wire:model.live.debounce.300ms="query"
             >
             <!-- @see https://livewire.laravel.com/docs/wire-model#customizing-the-debounce -->
 
             @if ($isFilterActive)
-                <a href="{{ action(\App\Controller\FindRuleController::class) }}"
-                   class="ms-2">Clear</a>
+                <a href="{{ action(\App\Controller\FindRuleController::class) }}" class="ms-2">Clear</a>
             @endif
-
         </div>
 
-        <div class="col-12 col-md-5 mb-3">
-            <label for="rector_set">Set:</label>
+        <div class="col-12 col-md-3 pt-2">
+            <div class="form-switch">
+                <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="flexSwitchCheckDefault" style="cursor: pointer"
+                    wire:model.live="isCommunityRules"
+                >
+                <label class="form-check-label ps-2" for="flexSwitchCheckDefault" style="cursor: pointer">
+                    Community Rules
+                </label>
+            </div>
+        </div>
 
-            <select class="form-select d-inline ms-3" name="rector_set" style="max-width: 21.6em"
+        <div class="col-12 col-md-4 mb-3">
+            <label for="rector_set">Set:</label>
+            <select class="form-select d-inline ms-3" name="rector_set" style="max-width: 15em"
                     wire:model.live="rectorSet">
                 <option value="">Any set</option>
 

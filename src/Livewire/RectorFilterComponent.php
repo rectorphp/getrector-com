@@ -23,6 +23,9 @@ final class RectorFilterComponent extends Component
     #[Url]
     public ?string $rectorSet = null;
 
+    #[Url]
+    public bool $isCommunityRules = false;
+
     public function render(): View
     {
         // wip
@@ -35,14 +38,20 @@ final class RectorFilterComponent extends Component
 
         $this->logRuleSearch();
 
-        /** @var RectorSetsTreeProvider $rectorSetsTreeProvider */
-        $rectorSetsTreeProvider = app(RectorSetsTreeProvider::class);
+        if ($this->isCommunityRules) {
+            $rectorSetsByGroup = [];
+        } else {
+            /** @var RectorSetsTreeProvider $rectorSetsTreeProvider */
+            $rectorSetsTreeProvider = app(RectorSetsTreeProvider::class);
+            $rectorSetsByGroup = $rectorSetsTreeProvider->provideGrouped();
+        }
 
         return view('livewire.rector-filter-component', [
             'filteredRules' => $filteredRules,
             'isFilterActive' => $this->isFilterActive(),
             'queryExamples' => FindRuleQuery::EXAMPLES,
-            'rectorSetsByGroup' => $rectorSetsTreeProvider->provideGrouped(),
+            'rectorSetsByGroup' => $rectorSetsByGroup,
+            'communitySetsByGroup' => [],
         ]);
     }
 
