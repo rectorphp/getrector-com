@@ -20,24 +20,33 @@ final class RectorSetsTreeProvider
     private array $rectorSets = [];
 
     /**
+     * Cache to keep it fast
      * @var RectorSet[]
      */
     private array $communityRectorSets = [];
 
     /**
-     * @return array<string, RectorSet[]>
+     * @return RectorSet[]
      */
-    public function provideGrouped(): array
+    public function provideByGroup(string $setGroup): array
     {
-        return $this->groupSets($this->rectorSets);
+        $rectorSets = $this->provideCoreAndCommunity();
+
+        $groupRectorSets = array_filter(
+            $rectorSets,
+            fn (RectorSet $rectorSet) => $rectorSet->getGroupName() === $setGroup
+        );
+        Assert::notEmpty($groupRectorSets);
+
+        return $groupRectorSets;
     }
 
     /**
-     * @return array<string, RectorSet[]>
+     * @return RectorSet[]
      */
-    public function provideCommunityGrouped(): array
+    public function provideCoreAndCommunity(): array
     {
-        return $this->groupSets($this->provideCommunityRectorSets());
+        return array_merge($this->provide(), $this->provideCommunity());
     }
 
     /**
@@ -61,7 +70,7 @@ final class RectorSetsTreeProvider
     /**
      * @return RectorSet[]
      */
-    public function provideCommunityRectorSets(): array
+    public function provideCommunity(): array
     {
         if ($this->communityRectorSets !== []) {
             return $this->communityRectorSets;
@@ -76,28 +85,6 @@ final class RectorSetsTreeProvider
         $this->communityRectorSets = $communityRectorSets;
 
         return $communityRectorSets;
-    }
-
-    /**
-     * @param RectorSet[]  $rectorSets
-     * @return array<string, RectorSet[]>
-     */
-    private function groupSets(array $rectorSets): array
-    {
-        $rectorSetsByGroup = [];
-
-        foreach ($rectorSets as $rectorSet) {
-            // skip empty sets, usually for deprecated/future compatibility reasons
-            if ($rectorSet->getRuleCount() === 0) {
-                continue;
-            }
-
-            $rectorSetsByGroup[$rectorSet->getGroupName()][$rectorSet->getSlug()] = $rectorSet;
-        }
-
-        Assert::notEmpty($rectorSetsByGroup);
-
-        return $rectorSetsByGroup;
     }
 
     /**
