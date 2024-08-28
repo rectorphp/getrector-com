@@ -13,7 +13,7 @@ use Nette\Utils\FileSystem;
 use Nette\Utils\Json;
 
 /**
- * @see \App\Livewire\RectorFilterComponent
+ * @see \App\Livewire\FindRuleComponent
  */
 final class FindRuleStatsController extends Controller
 {

@@ -15,7 +15,7 @@ use Illuminate\View\View;
 use Livewire\Attributes\Url;
 use Livewire\Component;
 
-final class RectorFilterComponent extends Component
+final class FindRuleComponent extends Component
 {
     #[Url]
     public ?string $query = null;
@@ -38,15 +38,16 @@ final class RectorFilterComponent extends Component
 
         $this->logRuleSearch();
 
+        /** @var RectorSetsTreeProvider $rectorSetsTreeProvider */
+        $rectorSetsTreeProvider = app(RectorSetsTreeProvider::class);
+
         if ($this->isCommunityRules) {
-            $rectorSetsByGroup = [];
+            $rectorSetsByGroup = $rectorSetsTreeProvider->provideCommunityGrouped();
         } else {
-            /** @var RectorSetsTreeProvider $rectorSetsTreeProvider */
-            $rectorSetsTreeProvider = app(RectorSetsTreeProvider::class);
             $rectorSetsByGroup = $rectorSetsTreeProvider->provideGrouped();
         }
 
-        return view('livewire.rector-filter-component', [
+        return view('livewire.find-rule-component', [
             'filteredRules' => $filteredRules,
             'isFilterActive' => $this->isFilterActive(),
             'queryExamples' => FindRuleQuery::EXAMPLES,
@@ -71,7 +72,7 @@ final class RectorFilterComponent extends Component
     {
         /** @var RectorFinder $rectorFinder */
         $rectorFinder = app(RectorFinder::class);
-        $ruleMetadatas = $rectorFinder->findCore();
+        $ruleMetadatas = array_merge($rectorFinder->findCore(), $rectorFinder->findCommunity());
 
         /** @var RuleFilter $ruleFilter */
         $ruleFilter = app(RuleFilter::class);
