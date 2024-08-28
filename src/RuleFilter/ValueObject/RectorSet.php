@@ -6,6 +6,7 @@ namespace App\RuleFilter\ValueObject;
 
 use Rector\Contract\Rector\RectorInterface;
 use Rector\Set\Enum\SetGroup;
+use Webmozart\Assert\Assert;
 
 final readonly class RectorSet
 {
@@ -17,6 +18,10 @@ final readonly class RectorSet
         private string $name,
         private array $rectorClasses,
     ) {
+        // only allowed, to keep BC
+        if (! in_array($name, ['phpunit/phpunit 11.0', 'doctrine/dbal 2.10'])) {
+            Assert::notEmpty($rectorClasses, 'Set ' . $name . ' has no rules');
+        }
     }
 
     /**

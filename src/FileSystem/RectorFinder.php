@@ -32,23 +32,21 @@ final class RectorFinder
     }
 
     /**
-     * @api will be used
+     * @api to be used
      * @return RuleMetadata[]
      */
     public function findCommunity(): array
     {
         // @see https://github.com/driftingly/rector-laravel
         // clone... parse... dump json serialized?
-        $comunityDirectory = __DIR__ . '/../../community-repository/laravel';
+        $communityDirectory = __DIR__ . '/../../vendor/driftingly/rector-laravel/src';
 
-        $this->findRectorClasses([$comunityDirectory]);
+        $rectorSets = array_merge(
+            $this->rectorSetsTreeProvider->provide(),
+            $this->rectorSetsTreeProvider->provideCommunityRectorSets()
+        );
 
-        // dump($laravelRectorClasses);
-
-        // find community ones
-        // install rector-laravel locally
-        // load it  :)
-        return [];
+        return $this->findInDirectoriesAndCreateRuleMetadatas([$communityDirectory], $rectorSets);
     }
 
     /**
@@ -57,46 +55,7 @@ final class RectorFinder
     public function findCore(): array
     {
         $rectorSets = $this->rectorSetsTreeProvider->provide();
-
-        // 1. find all rector rules
-        $ruleMetadatas = [];
-
-        foreach ($this->findRectorClasses(self::CORE_DIRECTORIES) as $rectorClass) {
-            $rectorReflectionClass = new ReflectionClass($rectorClass);
-            if ($rectorReflectionClass->isAbstract()) {
-                continue;
-            }
-
-            // skip @deprecated ones
-            if (str_contains((string) $rectorReflectionClass->getDocComment(), '@deprecated')) {
-                continue;
-            }
-
-            // no definition
-            if ($rectorReflectionClass->isSubclassOf(PostRectorInterface::class)) {
-                continue;
-            }
-
-            $rector = $rectorReflectionClass->newInstanceWithoutConstructor();
-
-            /** @var RectorInterface $rector */
-            $ruleDefinition = $rector->getRuleDefinition();
-            $ruleDefinition->setRuleClass($rectorClass);
-
-            $currentRuleSets = $this->findRuleUsedSets($ruleDefinition, $rectorSets);
-
-            $ruleMetadatas[] = new RuleMetadata(
-                $ruleDefinition->getRuleClass(),
-                $ruleDefinition->getDescription(),
-                $ruleDefinition->getCodeSamples(),
-                $currentRuleSets,
-                (string) $rectorReflectionClass->getFileName()
-            );
-        }
-
-        // @todo this should be possibly cached to json, as heavy on load
-
-        return $ruleMetadatas;
+        return $this->findInDirectoriesAndCreateRuleMetadatas(self::CORE_DIRECTORIES, $rectorSets);
     }
 
     public function findBySlug(string $slug): ?RuleMetadata
@@ -144,5 +103,55 @@ final class RectorFinder
         }
 
         return $activeSets;
+    }
+
+    /**
+     * @param string[] $directories
+     * @param RectorSet[] $rectorSets
+     * @return RuleMetadata[]
+     */
+    private function findInDirectoriesAndCreateRuleMetadatas(array $directories, array $rectorSets): array
+    {
+        Assert::allDirectory($directories);
+        Assert::allIsAOf($rectorSets, RectorSet::class);
+
+        $ruleMetadatas = [];
+
+        foreach ($this->findRectorClasses($directories) as $rectorClass) {
+            $rectorReflectionClass = new ReflectionClass($rectorClass);
+            if ($rectorReflectionClass->isAbstract()) {
+                continue;
+            }
+
+            // skip @deprecated ones
+            if (str_contains((string) $rectorReflectionClass->getDocComment(), '@deprecated')) {
+                continue;
+            }
+
+            // no definition
+            if ($rectorReflectionClass->isSubclassOf(PostRectorInterface::class)) {
+                continue;
+            }
+
+            $rector = $rectorReflectionClass->newInstanceWithoutConstructor();
+
+            /** @var RectorInterface $rector */
+            $ruleDefinition = $rector->getRuleDefinition();
+            $ruleDefinition->setRuleClass($rectorClass);
+
+            $currentRuleSets = $this->findRuleUsedSets($ruleDefinition, $rectorSets);
+
+            $ruleMetadatas[] = new RuleMetadata(
+                $ruleDefinition->getRuleClass(),
+                $ruleDefinition->getDescription(),
+                $ruleDefinition->getCodeSamples(),
+                $currentRuleSets,
+                (string) $rectorReflectionClass->getFileName()
+            );
+        }
+
+        Assert::allIsInstanceOf($ruleMetadatas, RuleMetadata::class);
+
+        return $ruleMetadatas;
     }
 }
