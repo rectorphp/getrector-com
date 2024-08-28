@@ -18,9 +18,9 @@ final class RectorFuleSearchLogger
      * Simple search logger, to see what is needed by the community
      * and help to cover it with rules
      */
-    public function log(?string $query, ?string $set): void
+    public function log(?string $query, ?string $setGroup, ?string $set): void
     {
-        if ($query === null && $set === null) {
+        if ($query === null && $set === null && $setGroup === null) {
             return;
         }
 
@@ -37,6 +37,7 @@ final class RectorFuleSearchLogger
         $searchJson = Json::encode([
             'timestamp' => now(),
             'query' => $query,
+            'group' => $setGroup,
             'set' => $set,
         ]) . PHP_EOL;
 

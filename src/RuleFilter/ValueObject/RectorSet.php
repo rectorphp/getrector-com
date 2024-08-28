@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\RuleFilter\ValueObject;
 
 use Rector\Contract\Rector\RectorInterface;
-use Rector\Set\Enum\SetGroup;
 use Webmozart\Assert\Assert;
 
 final readonly class RectorSet
@@ -46,12 +45,7 @@ final readonly class RectorSet
 
     public function getGroupName(): string
     {
-        if (in_array($this->groupName, [SetGroup::PHPUNIT, SetGroup::PHP], true)) {
-            // special case for upper case :)
-            return strtoupper($this->groupName);
-        }
-
-        return ucfirst($this->groupName);
+        return $this->groupName;
     }
 
     public function getName(): string

@@ -4,8 +4,11 @@ declare(strict_types=1);
 
 namespace App\RuleFilter;
 
+use App\Exception\ShouldNotHappenException;
 use App\RuleFilter\Enum\MagicSearch;
+use App\RuleFilter\ValueObject\RectorSet;
 use App\RuleFilter\ValueObject\RuleMetadata;
+use App\Sets\RectorSetsTreeProvider;
 
 final class RuleFilter
 {
@@ -96,7 +99,26 @@ final class RuleFilter
             return $ruleMetadatas;
         }
 
-        return array_filter($ruleMetadatas, fn (RuleMetadata $ruleMetadata): bool => $ruleMetadata->isInSet($set));
+        /** @var RectorSetsTreeProvider $rectorSetsTreeProvider */
+        $rectorSetsTreeProvider = app(RectorSetsTreeProvider::class);
+        $coreAndCommunityRectorSets = $rectorSetsTreeProvider->provideCoreAndCommunity();
+
+        // find set by slug
+        $activeRectorSet = null;
+        foreach ($coreAndCommunityRectorSets as $rectorSet) {
+            if ($rectorSet->getSlug() === $set) {
+                $activeRectorSet = $rectorSet;
+            }
+        }
+
+        if (! $activeRectorSet instanceof RectorSet) {
+            throw new ShouldNotHappenException('Missmatch of Rector set');
+        }
+
+        return array_filter(
+            $ruleMetadatas,
+            fn (RuleMetadata $ruleMetadata): bool => $activeRectorSet->hasRule($ruleMetadata->getRectorClass())
+        );
     }
 
     /**

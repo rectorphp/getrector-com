@@ -14,6 +14,7 @@ use App\Sets\RectorSetsTreeProvider;
 use Illuminate\View\View;
 use Livewire\Attributes\Url;
 use Livewire\Component;
+use Rector\Set\Enum\SetGroup;
 
 final class FindRuleComponent extends Component
 {
@@ -24,41 +25,52 @@ final class FindRuleComponent extends Component
     public ?string $rectorSet = null;
 
     #[Url]
-    public bool $isCommunityRules = false;
+    public ?string $activeRectorSetGroup = null;
 
     public function render(): View
     {
-        // wip
-        // $communityRectors = $rectorFinder->findCommunity();
-
         // to trigger event in component javascript
         $this->dispatch(ComponentEvent::RULES_FILTERED);
 
         $filteredRules = $this->getFilteredRuleMetadatas();
 
-        $this->logRuleSearch();
+        $this->logRuleSearchIfUseful();
 
         /** @var RectorSetsTreeProvider $rectorSetsTreeProvider */
         $rectorSetsTreeProvider = app(RectorSetsTreeProvider::class);
 
-        if ($this->isCommunityRules) {
-            $rectorSetsByGroup = $rectorSetsTreeProvider->provideCommunityGrouped();
+        if ($this->activeRectorSetGroup) {
+            $rectorSets = $rectorSetsTreeProvider->provideByGroup($this->activeRectorSetGroup);
         } else {
-            $rectorSetsByGroup = $rectorSetsTreeProvider->provideGrouped();
+            $rectorSets = [];
         }
 
         return view('livewire.find-rule-component', [
             'filteredRules' => $filteredRules,
             'isFilterActive' => $this->isFilterActive(),
             'queryExamples' => FindRuleQuery::EXAMPLES,
-            'rectorSetsByGroup' => $rectorSetsByGroup,
-            'communitySetsByGroup' => [],
+            'rectorSets' => $rectorSets,
+            'rectorSetGroups' => [
+                null => 'Any group',
+                SetGroup::PHP => 'PHP',
+                SetGroup::CORE => 'Core',
+                // SetGroup::ATTRIBUTES => 'Attributes',
+                SetGroup::SYMFONY => 'Symfony',
+                'laravel' => 'Laravel (community)',
+                SetGroup::PHPUNIT => 'PHPUnit',
+                SetGroup::DOCTRINE => 'Doctrine',
+                SetGroup::TWIG => 'Twig',
+            ],
         ]);
     }
 
     private function isFilterActive(): bool
     {
         if ($this->query !== null && $this->query !== '') {
+            return true;
+        }
+
+        if ($this->activeRectorSetGroup !== null && $this->activeRectorSetGroup !== '') {
             return true;
         }
 
@@ -80,12 +92,12 @@ final class FindRuleComponent extends Component
         return $ruleFilter->filter($ruleMetadatas, $this->query, $this->rectorSet);
     }
 
-    private function logRuleSearch(): void
+    private function logRuleSearchIfUseful(): void
     {
         /** @var RectorFuleSearchLogger $rectorFuleSearchLogger */
         $rectorFuleSearchLogger = app(RectorFuleSearchLogger::class);
 
         // log only meaningful query, not a start of typing, to keep data clean
-        $rectorFuleSearchLogger->log($this->query, $this->rectorSet);
+        $rectorFuleSearchLogger->log($this->query, $this->activeRectorSetGroup, $this->rectorSet);
     }
 }

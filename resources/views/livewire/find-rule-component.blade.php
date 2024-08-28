@@ -11,7 +11,7 @@
                 placeholder="Type to start searching a rule"
                 type="text"
                 class="form-control d-inline"
-                style="width: 20em"
+                style="width: 18em"
                 wire:model.live.debounce.300ms="query"
             >
             <!-- @see https://livewire.laravel.com/docs/wire-model#customizing-the-debounce -->
@@ -21,36 +21,47 @@
             @endif
         </div>
 
-        <div class="col-12 col-md-3 pt-2">
-            <div class="form-switch">
-                <input
-                    class="form-check-input"
-                    type="checkbox"
-                    id="flexSwitchCheckDefault" style="cursor: pointer"
-                    wire:model.live="isCommunityRules"
-                >
-                <label class="form-check-label ps-2" for="flexSwitchCheckDefault" style="cursor: pointer">
-                    Community Rules
-                </label>
-            </div>
+        <div class="col-12 col-md-3 d-flex">
+            <label for="set_group" class="pt-2">Group:</label>
+
+            <select
+                class="form-select d-inline ms-2" name="set_group"
+                style="height: 2.4em"
+                wire:model.live="activeRectorSetGroup">
+            >
+
+            @foreach ($rectorSetGroups as $groupSlug => $groupName)
+                <option value="{{ $groupSlug }}">
+                    {{ $groupName }}
+                </option>
+            @endforeach
+            </select>
         </div>
 
-        <div class="col-12 col-md-4 mb-3">
-            <label for="rector_set">Set:</label>
-            <select class="form-select d-inline ms-3" name="rector_set" style="max-width: 15em"
-                    wire:model.live="rectorSet">
-                <option value="">Any set</option>
+        <div class="col-12 col-md-4 ps-5 d-flex">
+            <label for="rector_set" class="pt-2">Set:</label>
 
-                @foreach ($rectorSetsByGroup as $groupName => $rectorSets)
-                    <optgroup label="{{ $groupName }}">
-                        @foreach ($rectorSets as $rectorSet)
-                            <option value="{{ $rectorSet->getSlug() }}">
-                                {{ $rectorSet->getName() }}
-                                ({{ $rectorSet->getRuleCount() }})
-                            </option>
-                        @endforeach
-                    </optgroup>
-                @endforeach
+            <select
+                class="form-select ms-3"
+                name="rector_set"
+                style="height: 2.4em"
+                wire:model.live="rectorSet"
+                @if (! $activeRectorSetGroup)
+                    disabled
+                @endif
+            >
+                @if (! $activeRectorSetGroup)
+                    <option value="">Pick group to filter</option>
+                @else
+                    <option value="">All sets</option>
+
+                    @foreach ($rectorSets as $rectorSet)
+                        <option value="{{ $rectorSet->getSlug() }}">
+                            {{ $rectorSet->getName() }}
+                            ({{ $rectorSet->getRuleCount() }})
+                        </option>
+                    @endforeach
+                @endif
             </select>
         </div>
     </div>

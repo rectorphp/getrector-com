@@ -43,7 +43,7 @@ final class RectorFinder
 
         $rectorSets = array_merge(
             $this->rectorSetsTreeProvider->provide(),
-            $this->rectorSetsTreeProvider->provideCommunityRectorSets()
+            $this->rectorSetsTreeProvider->provideCommunity()
         );
 
         return $this->findInDirectoriesAndCreateRuleMetadatas([$communityDirectory], $rectorSets);
