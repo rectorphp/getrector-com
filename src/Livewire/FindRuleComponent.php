@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Livewire;
 
 use App\Enum\ComponentEvent;
+use App\Enum\FindRule\GroupName;
 use App\Enum\FindRuleQuery;
 use App\FileSystem\RectorFinder;
 use App\Logging\RectorFuleSearchLogger;
@@ -14,7 +15,6 @@ use App\Sets\RectorSetsTreeProvider;
 use Illuminate\View\View;
 use Livewire\Attributes\Url;
 use Livewire\Component;
-use Rector\Set\Enum\SetGroup;
 
 final class FindRuleComponent extends Component
 {
@@ -50,16 +50,17 @@ final class FindRuleComponent extends Component
             'isFilterActive' => $this->isFilterActive(),
             'queryExamples' => FindRuleQuery::EXAMPLES,
             'rectorSets' => $rectorSets,
+            'activeRectorSetGroup' => $this->activeRectorSetGroup,
             'rectorSetGroups' => [
                 null => 'Any group',
-                SetGroup::PHP => 'PHP',
-                SetGroup::CORE => 'Core',
-                // SetGroup::ATTRIBUTES => 'Attributes',
-                SetGroup::SYMFONY => 'Symfony',
+                GroupName::PHP => 'PHP',
+                GroupName::CORE => 'Core',
+                // GroupName::ATTRIBUTES => 'Attributes',
+                GroupName::SYMFONY => 'Symfony',
                 'laravel' => 'Laravel (community)',
-                SetGroup::PHPUNIT => 'PHPUnit',
-                SetGroup::DOCTRINE => 'Doctrine',
-                SetGroup::TWIG => 'Twig',
+                GroupName::PHPUNIT => 'PHPUnit',
+                GroupName::DOCTRINE => 'Doctrine',
+                GroupName::TWIG => 'Twig',
             ],
         ]);
     }

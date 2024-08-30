@@ -20,6 +20,7 @@ final class RectorSetsTreeProvider
     private array $rectorSets = [];
 
     /**
+     * Cache to keep it fast
      * @var RectorSet[]
      */
     private array $communityRectorSets = [];
@@ -31,7 +32,13 @@ final class RectorSetsTreeProvider
     {
         $rectorSets = $this->provideCoreAndCommunity();
 
-        return array_filter($rectorSets, fn (RectorSet $rectorSet) => $rectorSet->getGroupName() === $setGroup);
+        $groupRectorSets = array_filter(
+            $rectorSets,
+            fn (RectorSet $rectorSet) => $rectorSet->getGroupName() === $setGroup
+        );
+        Assert::notEmpty($groupRectorSets);
+
+        return $groupRectorSets;
     }
 
     /**
@@ -79,28 +86,6 @@ final class RectorSetsTreeProvider
 
         return $communityRectorSets;
     }
-
-    //    /**
-    //     * @param RectorSet[]  $sets
-    //     * @return array<string, RectorSet[]>
-    //     */
-    //    private function groupSets(array $rectorSets): array
-    //    {
-    //        $rectorSetsByGroup = [];
-    //
-    //        foreach ($rectorSets as $rectorSet) {
-    //            // skip empty sets, usually for deprecated/future compatibility reasons
-    //            if ($rectorSet->getRuleCount() === 0) {
-    //                continue;
-    //            }
-    //
-    //            $rectorSetsByGroup[$rectorSet->getGroupName()][$rectorSet->getSlug()] = $rectorSet;
-    //        }
-    //
-    //        Assert::notEmpty($rectorSetsByGroup);
-    //
-    //        return $rectorSetsByGroup;
-    //    }
 
     /**
      * @param SetInterface[] $sets
