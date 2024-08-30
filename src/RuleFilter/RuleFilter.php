@@ -26,10 +26,11 @@ final class RuleFilter
      * @param RuleMetadata[] $ruleMetadatas
      * @return RuleMetadata[]
      */
-    public function filter(array $ruleMetadatas, ?string $query, ?string $set): array
+    public function filter(array $ruleMetadatas, ?string $query, ?string $set, ?string $setGroup): array
     {
         $ruleMetadatas = $this->filterByQuery($ruleMetadatas, $query);
         $ruleMetadatas = $this->filterBySet($ruleMetadatas, $set);
+        $ruleMetadatas = $this->filterBySetGroup($ruleMetadatas, $setGroup);
 
         $maxResults = self::MAX_RESULTS;
         if (in_array(
@@ -87,6 +88,22 @@ final class RuleFilter
         );
 
         return $filteredRuleMetadatas;
+    }
+
+    /**
+     * @param RuleMetadata[] $ruleMetadatas
+     * @return RuleMetadata[]
+     */
+    private function filterBySetGroup(array $ruleMetadatas, ?string $setGroup): array
+    {
+        if ($setGroup === '' || $setGroup === null) {
+            return $ruleMetadatas;
+        }
+
+        return array_filter(
+            $ruleMetadatas,
+            fn (RuleMetadata $ruleMetadata): bool => $ruleMetadata->belongToSetGroup($setGroup)
+        );
     }
 
     /**

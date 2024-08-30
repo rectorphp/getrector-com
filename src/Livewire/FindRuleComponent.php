@@ -90,7 +90,7 @@ final class FindRuleComponent extends Component
         /** @var RuleFilter $ruleFilter */
         $ruleFilter = app(RuleFilter::class);
 
-        return $ruleFilter->filter($ruleMetadatas, $this->query, $this->rectorSet);
+        return $ruleFilter->filter($ruleMetadatas, $this->query, $this->rectorSet, $this->activeRectorSetGroup);
     }
 
     private function logRuleSearchIfUseful(): void
