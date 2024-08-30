@@ -133,4 +133,15 @@ final class RuleMetadata
     {
         return $this->filterScore;
     }
+
+    public function belongToSetGroup(string $setGroup): bool
+    {
+        foreach ($this->sets as $set) {
+            if ($set->getGroupName() === $setGroup) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

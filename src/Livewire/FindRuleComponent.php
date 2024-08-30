@@ -39,11 +39,9 @@ final class FindRuleComponent extends Component
         /** @var RectorSetsTreeProvider $rectorSetsTreeProvider */
         $rectorSetsTreeProvider = app(RectorSetsTreeProvider::class);
 
-        if ($this->activeRectorSetGroup) {
-            $rectorSets = $rectorSetsTreeProvider->provideByGroup($this->activeRectorSetGroup);
-        } else {
-            $rectorSets = [];
-        }
+        $rectorSets = $this->activeRectorSetGroup ? $rectorSetsTreeProvider->provideByGroup(
+            $this->activeRectorSetGroup
+        ) : [];
 
         return view('livewire.find-rule-component', [
             'filteredRules' => $filteredRules,
@@ -90,7 +88,7 @@ final class FindRuleComponent extends Component
         /** @var RuleFilter $ruleFilter */
         $ruleFilter = app(RuleFilter::class);
 
-        return $ruleFilter->filter($ruleMetadatas, $this->query, $this->rectorSet);
+        return $ruleFilter->filter($ruleMetadatas, $this->query, $this->rectorSet, $this->activeRectorSetGroup);
     }
 
     private function logRuleSearchIfUseful(): void

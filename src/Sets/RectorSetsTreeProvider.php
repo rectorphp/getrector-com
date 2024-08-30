@@ -34,7 +34,7 @@ final class RectorSetsTreeProvider
 
         $groupRectorSets = array_filter(
             $rectorSets,
-            fn (RectorSet $rectorSet) => $rectorSet->getGroupName() === $setGroup
+            fn (RectorSet $rectorSet): bool => $rectorSet->getGroupName() === $setGroup
         );
         Assert::notEmpty($groupRectorSets);
 
