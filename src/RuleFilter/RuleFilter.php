@@ -122,9 +122,9 @@ final class RuleFilter
 
         // find set by slug
         $activeRectorSet = null;
-        foreach ($coreAndCommunityRectorSets as $rectorSet) {
-            if ($rectorSet->getSlug() === $set) {
-                $activeRectorSet = $rectorSet;
+        foreach ($coreAndCommunityRectorSets as $coreAndCommunityRectorSet) {
+            if ($coreAndCommunityRectorSet->getSlug() === $set) {
+                $activeRectorSet = $coreAndCommunityRectorSet;
             }
         }
 

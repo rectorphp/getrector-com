@@ -136,7 +136,7 @@ final class RuleMetadata
 
     public function belongToSetGroup(string $setGroup): bool
     {
-        foreach ($this->getSets() as $set) {
+        foreach ($this->sets as $set) {
             if ($set->getGroupName() === $setGroup) {
                 return true;
             }
