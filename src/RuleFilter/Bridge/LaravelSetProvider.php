@@ -19,7 +19,7 @@ final class LaravelSetProvider implements SetProviderInterface
     /**
      * @var string[]
      */
-    private static array $laravelFiveVersions = [
+    private const LARAVEL_FIVE = [
         LaravelSetList::LARAVEL_50,
         LaravelSetList::LARAVEL_51,
         LaravelSetList::LARAVEL_52,
@@ -34,7 +34,7 @@ final class LaravelSetProvider implements SetProviderInterface
     /**
      * @var string[]
      */
-    private static array $laravelPostFiveVersions = [
+    private const LARAVEL_POST_FIVE = [
         LaravelSetList::LARAVEL_60,
         LaravelSetList::LARAVEL_70,
         LaravelSetList::LARAVEL_80,
@@ -103,7 +103,7 @@ final class LaravelSetProvider implements SetProviderInterface
     {
         $versions = [];
 
-        foreach (self::$laravelFiveVersions as $index => $version) {
+        foreach (self::LARAVEL_FIVE as $index => $version) {
             $versions[] = new Set(
                 GroupName::LARAVEL,
                 'Laravel Framework 5.' . $index,
@@ -111,7 +111,7 @@ final class LaravelSetProvider implements SetProviderInterface
             );
         }
 
-        foreach (self::$laravelPostFiveVersions as $index => $version) {
+        foreach (self::LARAVEL_POST_FIVE as $index => $version) {
             $versions[] = new Set(
                 GroupName::LARAVEL,
                 'Laravel Framework ' . ($index + 6) . '.0',
