@@ -13,16 +13,23 @@ That way you can include group of rules that focus on certain topic, e.g. in thi
 
 ## PHP Sets
 
-How can you upgrade to the PHP 7.3?
+How can you upgrade to PHP 7.3?
 
 ```php
 <?php
 
 use Rector\Config\RectorConfig;
+use Rector\Set\ValueObject\SetList;
 
 return RectorConfig::configure()
-    ->withPhpSets(php73: true);
+    ->withSets([SetList::PHP_73]);
 ```
+
+> If you're on PHP 8.x, you can use `withPreparedSets()` instead, so for the `php83` set, you can define:
+> ```diff
+> -   ->withSets([SetList::PHP_83]);
+> +   ->withPreparedSets(php83: true);
+> ```
 
 That way you can use all the sets that are needed to upgrade your code to the desired PHP version in single line.
 
