@@ -43,7 +43,7 @@ return RectorConfig::configure()
     ->withPreparedSets(deadCode: true);
 ```
 
-> If you're on PHP 7.x, you can use `withSets()` instead, for `deadCode` set, so you can define:
+> If you're on PHP 7.x, you can use `withSets()` instead, so for the `deadCode` set, you can define:
 > ```diff
 > -   ->withPreparedSets(deadCode: true);
 > +   ->withSets([SetList::DEAD_CODE]);
