@@ -25,10 +25,10 @@ return RectorConfig::configure()
     ->withSets([SetList::PHP_73]);
 ```
 
-> If you're on PHP 8.x, you can use `withPreparedSets()` instead, so for the `php83` set, you can define:
+> If you're on PHP 8.x, you can use `withPhpSets()` instead, so for the `php83` set, you can define:
 > ```diff
 > -   ->withSets([SetList::PHP_83]);
-> +   ->withPreparedSets(php83: true);
+> +   ->withPhpSets(php83: true);
 > ```
 
 That way you can use all the sets that are needed to upgrade your code to the desired PHP version in single line.
