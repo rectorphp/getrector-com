@@ -38,7 +38,7 @@ On GitHub Actions, you can use the [built-in cache action](https://github.com/ac
 
 ```yaml
       - name: Rector Cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: /tmp/rector
           key: ${{ runner.os }}-rector-${{ github.run_id }}
