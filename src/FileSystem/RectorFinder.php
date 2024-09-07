@@ -102,7 +102,7 @@ final class RectorFinder
 
     public function findBySlug(string $slug): ?RuleMetadata
     {
-        $filter = fn (RuleMetadata $ruleMetadata): bool => $ruleMetadata->getSlug() === $slug;
+        $filter = static fn (RuleMetadata $ruleMetadata): bool => $ruleMetadata->getSlug() === $slug;
         return Finder::first($this->findCore(), $filter);
     }
 
@@ -132,7 +132,7 @@ final class RectorFinder
      */
     private function findRuleUsedSets(RuleDefinition $ruleDefinition, array $rectorSets): array
     {
-        $filter = fn (RectorSet $rectorSet): bool => $rectorSet->hasRule($ruleDefinition->getRuleClass());
+        $filter = static fn (RectorSet $rectorSet): bool => $rectorSet->hasRule($ruleDefinition->getRuleClass());
         return Finder::rows($rectorSets, $filter);
     }
 }
