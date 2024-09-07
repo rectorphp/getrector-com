@@ -7,6 +7,7 @@ namespace App\FileSystem;
 use App\RuleFilter\ValueObject\RectorSet;
 use App\RuleFilter\ValueObject\RuleMetadata;
 use App\Sets\RectorSetsTreeProvider;
+use ArrayLookup\Finder;
 use Nette\Loaders\RobotLoader;
 use Rector\Contract\Rector\RectorInterface;
 use Rector\PostRector\Contract\Rector\PostRectorInterface;
@@ -101,13 +102,8 @@ final class RectorFinder
 
     public function findBySlug(string $slug): ?RuleMetadata
     {
-        foreach ($this->findCore() as $ruleMetadata) {
-            if ($ruleMetadata->getSlug() === $slug) {
-                return $ruleMetadata;
-            }
-        }
-
-        return null;
+        $filter = fn (RuleMetadata $ruleMetadata): bool => $ruleMetadata->getSlug() === $slug;
+        return Finder::first($this->findCore(), $filter);
     }
 
     /**
@@ -136,13 +132,7 @@ final class RectorFinder
      */
     private function findRuleUsedSets(RuleDefinition $ruleDefinition, array $rectorSets): array
     {
-        $activeSets = [];
-        foreach ($rectorSets as $rectorSet) {
-            if ($rectorSet->hasRule($ruleDefinition->getRuleClass())) {
-                $activeSets[] = $rectorSet;
-            }
-        }
-
-        return $activeSets;
+        $filter = fn (RectorSet $rectorSet): bool => $rectorSet->hasRule($ruleDefinition->getRuleClass());
+        return Finder::rows($rectorSets, $filter);
     }
 }

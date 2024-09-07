@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9ad73446fbb716060e4a2b3066ecc0ef",
+    "content-hash": "87e46a74bf69dfabc4231b429a0d7fd8",
     "packages": [
         {
             "name": "brick/math",
@@ -3317,16 +3317,16 @@
         },
         {
             "name": "samsonasik/array-lookup",
-            "version": "1.6.0",
+            "version": "1.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/samsonasik/ArrayLookup.git",
-                "reference": "be860ef61dda54beac1af9796302892ea5cc8e63"
+                "reference": "1f4027d5b18647f8dad650d7aa7b1c6d803e07b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/samsonasik/ArrayLookup/zipball/be860ef61dda54beac1af9796302892ea5cc8e63",
-                "reference": "be860ef61dda54beac1af9796302892ea5cc8e63",
+                "url": "https://api.github.com/repos/samsonasik/ArrayLookup/zipball/1f4027d5b18647f8dad650d7aa7b1c6d803e07b4",
+                "reference": "1f4027d5b18647f8dad650d7aa7b1c6d803e07b4",
                 "shasum": ""
             },
             "require": {
@@ -3371,7 +3371,7 @@
             ],
             "support": {
                 "issues": "https://github.com/samsonasik/ArrayLookup/issues",
-                "source": "https://github.com/samsonasik/ArrayLookup/tree/1.6.0"
+                "source": "https://github.com/samsonasik/ArrayLookup/tree/1.8.0"
             },
             "funding": [
                 {
@@ -3379,7 +3379,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-03-30T16:26:47+00:00"
+            "time": "2024-09-07T16:37:24+00:00"
         },
         {
             "name": "symfony/clock",
