@@ -32,13 +32,16 @@
 @endsection
 
 @section('main')
-    <div class="alert alert-info mt-3 mb-5" role="alert">
-        Do you want to <strong>learn Rector in depth and fast</strong>?
+    <!-- show only occasionally -->
+    @if (rand(0, 5) == 1)
+        <div class="alert alert-info mt-3 mb-5" role="alert">
+            Do you want to <strong>learn Rector in depth and fast</strong>?
 
-        The <strong>Rector book 2024 edition</strong> is out now.
+            The <strong>Rector book 2024 edition</strong> is out now.
 
-        <a href="https://leanpub.com/rector-the-power-of-automated-refactoring">Grab your copy!</a>
-    </div>
+            <a href="https://leanpub.com/rector-the-power-of-automated-refactoring">Grab your copy!</a>
+        </div>
+    @endif
 
     <div id="post">
         <div class="mt-3">
