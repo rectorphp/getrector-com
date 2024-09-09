@@ -79,8 +79,11 @@
                         <div class="col-12 mt-1 mb-1">
                             SETS:&nbsp;
 
-                            @foreach ($ruleMetadata->getSets() as $set)
-                                <a href="{{ action(\App\Controller\FindRuleController::class, ['rectorSet' => $set->getSlug()]) }}"><span class="badge bg-set">{{ $set->getName() }}</span></a>
+                            @foreach ($ruleMetadata->getSets() as $rectorSet)
+                                <a href="{{ action(\App\Controller\FindRuleController::class, [
+                                        'rectorSet' => $rectorSet->getSlug(),
+                                        'activeRectorSetGroup' => $rectorSet->getGroupName()
+                                    ]) }}"><span class="badge bg-set">{{ $rectorSet->getName()}}</span></a>
                             @endforeach
                         </div>
                     @endif
