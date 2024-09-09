@@ -57,12 +57,13 @@ In 2024, so far we've contributed:
 * [janedbal](https://github.com/sponsors/janedbal) - 1 000 $
 * [peterfox](https://github.com/sponsors/peterfox) - 1 000 $
 * [localheinz](https://github.com/sponsors/localheinz) - 333 $
+* [Ondrej Sury](https://github.com/sponsors/oerdnj) - 200 $/month
 
 <br>
 
 ## Launching Open-Source Scholarships
 
-As of this article and September 2024, we're starting 3 open-source scholarships and **give monthly**:
+As of this article and September 2024, we're starting 3 PHP open-source scholarships and **give monthly**:
 
 * [staabm](https://github.com/sponsors/staabm) - 800 $
 * [peterfox](https://github.com/sponsors/peterfox) - 500 $
@@ -70,7 +71,7 @@ As of this article and September 2024, we're starting 3 open-source scholarships
 
 <br>
 
-Total of **14 933 $** to this day.
+Total of **15 133 $** to this day.
 
 <br>
 <br>
