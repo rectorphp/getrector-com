@@ -11,11 +11,11 @@
             </p>
 
             <p>
-                It helps yous especially with:
+                It helps you with:
 
             <ul>
                 <li>PHP upgrades,</li>
-                <li>framework upgrades,</li>
+                <li>framework upgrades and migrations,</li>
                 <li>improving your code quality</li>
                 <li>it gives you safety and light-speed</li>
             </ul>
