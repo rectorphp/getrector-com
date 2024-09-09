@@ -1,6 +1,6 @@
 {
     "name": "Rector",
-    "description": "Rector is a PHP tool that you can run on any PHP project to get an instant upgrade or automated refactoring. It helps you especially with: PHP upgrades, framework upgrades, improving your code quality it gives you safety and light-speed. It's alive thanks to open-source projects and developers behind those project.",
+    "description": "Rector is a PHP tool that you can run on any PHP project to get an instant upgrade or automated refactoring. It gives you safety and lightning speed, and helps you with PHP upgrades, framework upgrades, and improving your code quality. Rector is alive thanks to Open Source projects and the developers behind those projects.",
     "urlSquareLogoWithBackground": "https://raw.githubusercontent.com/rectorphp/getrector-com/main/public/assets/images/logo/rector/rector-no_frame_vector.png",
     "urlLearnMore": "http://getrector.com/blog/rector-is-joining-open-source-pledge",
     "annualReports": [
