@@ -4,8 +4,11 @@ declare(strict_types=1);
 
 namespace App\RuleFilter;
 
+use App\Exception\ShouldNotHappenException;
 use App\RuleFilter\Enum\MagicSearch;
+use App\RuleFilter\ValueObject\RectorSet;
 use App\RuleFilter\ValueObject\RuleMetadata;
+use App\Sets\RectorSetsTreeProvider;
 
 final class RuleFilter
 {
@@ -23,10 +26,11 @@ final class RuleFilter
      * @param RuleMetadata[] $ruleMetadatas
      * @return RuleMetadata[]
      */
-    public function filter(array $ruleMetadatas, ?string $query, ?string $set): array
+    public function filter(array $ruleMetadatas, ?string $query, ?string $set, ?string $setGroup): array
     {
         $ruleMetadatas = $this->filterByQuery($ruleMetadatas, $query);
         $ruleMetadatas = $this->filterBySet($ruleMetadatas, $set);
+        $ruleMetadatas = $this->filterBySetGroup($ruleMetadatas, $setGroup);
 
         $maxResults = self::MAX_RESULTS;
         if (in_array(
@@ -90,13 +94,48 @@ final class RuleFilter
      * @param RuleMetadata[] $ruleMetadatas
      * @return RuleMetadata[]
      */
+    private function filterBySetGroup(array $ruleMetadatas, ?string $setGroup): array
+    {
+        if ($setGroup === '' || $setGroup === null) {
+            return $ruleMetadatas;
+        }
+
+        return array_filter(
+            $ruleMetadatas,
+            fn (RuleMetadata $ruleMetadata): bool => $ruleMetadata->belongToSetGroup($setGroup)
+        );
+    }
+
+    /**
+     * @param RuleMetadata[] $ruleMetadatas
+     * @return RuleMetadata[]
+     */
     private function filterBySet(array $ruleMetadatas, ?string $set): array
     {
         if ($set === '' || $set === null) {
             return $ruleMetadatas;
         }
 
-        return array_filter($ruleMetadatas, fn (RuleMetadata $ruleMetadata): bool => $ruleMetadata->isInSet($set));
+        /** @var RectorSetsTreeProvider $rectorSetsTreeProvider */
+        $rectorSetsTreeProvider = app(RectorSetsTreeProvider::class);
+        $coreAndCommunityRectorSets = $rectorSetsTreeProvider->provideCoreAndCommunity();
+
+        // find set by slug
+        $activeRectorSet = null;
+        foreach ($coreAndCommunityRectorSets as $coreAndCommunityRectorSet) {
+            if ($coreAndCommunityRectorSet->getSlug() === $set) {
+                $activeRectorSet = $coreAndCommunityRectorSet;
+            }
+        }
+
+        if (! $activeRectorSet instanceof RectorSet) {
+            throw new ShouldNotHappenException('Missmatch of Rector set');
+        }
+
+        return array_filter(
+            $ruleMetadatas,
+            fn (RuleMetadata $ruleMetadata): bool => $activeRectorSet->hasRule($ruleMetadata->getRectorClass())
+        );
     }
 
     /**

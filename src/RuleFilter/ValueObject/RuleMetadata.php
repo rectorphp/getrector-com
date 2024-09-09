@@ -119,17 +119,6 @@ final class RuleMetadata
         return $this->sets;
     }
 
-    public function isInSet(string $setSlug): bool
-    {
-        foreach ($this->sets as $set) {
-            if ($set->getSlug() === $setSlug) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
     public function isPartOfSets(): bool
     {
         return $this->sets !== [];
@@ -143,5 +132,16 @@ final class RuleMetadata
     public function getFilterScore(): ?int
     {
         return $this->filterScore;
+    }
+
+    public function belongToSetGroup(string $setGroup): bool
+    {
+        foreach ($this->sets as $set) {
+            if ($set->getGroupName() === $setGroup) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

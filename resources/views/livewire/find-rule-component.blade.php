@@ -6,40 +6,62 @@
 
 <div>
     <div class="row">
-        <div class="col-12 col-md-7 mb-4">
+        <div class="col-12 col-md-5 mb-4">
             <input
-                    placeholder="Type to start searching a rule"
-                    type="text"
-                    class="form-control d-inline"
-                    style="width: 20em"
-                    wire:model.live.debounce.300ms="query"
+                placeholder="Type to start searching a rule"
+                type="text"
+                class="form-control d-inline"
+                style="width: 18em"
+                wire:model.live.debounce.300ms="query"
             >
             <!-- @see https://livewire.laravel.com/docs/wire-model#customizing-the-debounce -->
 
             @if ($isFilterActive)
-                <a href="{{ action(\App\Controller\FindRuleController::class) }}"
-                   class="ms-2">Clear</a>
+                <a href="{{ action(\App\Controller\FindRuleController::class) }}" class="ms-2">Clear</a>
             @endif
-
         </div>
 
-        <div class="col-12 col-md-5 mb-3">
-            <label for="rector_set">Set:</label>
+        <div class="col-12 col-md-3 d-flex">
+            <label for="set_group" class="pt-2">Group:</label>
 
-            <select class="form-select d-inline ms-3" name="rector_set" style="max-width: 21.6em"
-                    wire:model.live="rectorSet">
-                <option value="">Any set</option>
+            <select
+                class="form-select d-inline ms-2" name="set_group"
+                style="height: 2.4em"
+                wire:model.live="activeRectorSetGroup">
+            >
 
-                @foreach ($rectorSetsByGroup as $groupName => $rectorSets)
-                    <optgroup label="{{ $groupName }}">
-                        @foreach ($rectorSets as $rectorSet)
-                            <option value="{{ $rectorSet->getSlug() }}">
-                                {{ $rectorSet->getName() }}
-                                ({{ $rectorSet->getRuleCount() }})
-                            </option>
-                        @endforeach
-                    </optgroup>
-                @endforeach
+            @foreach ($rectorSetGroups as $groupSlug => $groupName)
+                <option value="{{ $groupSlug }}">
+                    {{ $groupName }}
+                </option>
+            @endforeach
+            </select>
+        </div>
+
+        <div class="col-12 col-md-4 ps-5 d-flex">
+            <label for="rector_set" class="pt-2">Set:</label>
+
+            <select
+                class="form-select ms-3"
+                name="rector_set"
+                style="height: 2.4em"
+                wire:model.live="rectorSet"
+                @if (! $activeRectorSetGroup)
+                    disabled
+                @endif
+            >
+                @if (! $activeRectorSetGroup)
+                    <option value="">Pick group to filter</option>
+                @else
+                    <option value="">All sets</option>
+
+                    @foreach ($rectorSets as $rectorSet)
+                        <option value="{{ $rectorSet->getSlug() }}">
+                            {{ $rectorSet->getName() }}
+                            ({{ $rectorSet->getRuleCount() }})
+                        </option>
+                    @endforeach
+                @endif
             </select>
         </div>
     </div>
@@ -90,7 +112,10 @@
                                 SETS:&nbsp;
 
                                 @foreach ($filteredRule->getSets() as $rectorSet)
-                                    <a href="{{ action(\App\Controller\FindRuleController::class, ['rectorSet' => $rectorSet->getSlug()]) }}"><span class="badge bg-set">{{ $rectorSet->getName() }}</span></a>
+                                    <a href="{{ action(\App\Controller\FindRuleController::class, [
+                                        'rectorSet' => $rectorSet->getSlug(),
+                                        'activeRectorSetGroup' => $rectorSet->getGroupName()
+                                    ]) }}"><span class="badge bg-set">{{ $rectorSet->getName()}}</span></a>
                                 @endforeach
                             </div>
                         @endif
