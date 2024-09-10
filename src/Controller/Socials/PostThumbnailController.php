@@ -51,6 +51,9 @@ final class PostThumbnailController extends Controller
         if ($post instanceof Post && $post->getAuthor() === 'samsonasik') {
             $authorName = 'Abdul Malik Ikhsan';
             $authorPicture = __DIR__ . '/../../../public/assets/images/samsonasik_circle.jpg';
+        } elseif ($post->getAuthor() === 'carlos_granados') {
+            $authorName = 'Carlos Granados';
+            $authorPicture = __DIR__ . '/../../../public/assets/images/carlos_granados_circle.png';
         } else {
             $authorName = 'Tomas Votruba';
             $authorPicture = __DIR__ . '/../../../public/assets/images/tomas_votruba_circle.jpg';
