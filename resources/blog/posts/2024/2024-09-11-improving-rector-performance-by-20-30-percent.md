@@ -1,8 +1,10 @@
 ---
 id: 72
-title: "Improving Rector Performance"
+title: "Improving Rector Performance by 20-30 %"
 perex: |
     Today I want to talk about how I added an optimization that made Rector 20-30% faster!
+
+author: carlos_granados
 ---
 
 *This is a guest post by [Carlos Granados](https://twitter.com/carlos_granados), who uses Rector very frequently and has recently contributed several improvements to this tool.*
@@ -95,6 +97,8 @@ final class RectorNodeTraverser extends NodeTraverser
 As you can see, we don't pre-calculate the rules to be used for every single kind of node, instead we calculate this list of the fly for every type of node that we find. This allows us to avoid calculating this list for any kind of node that is not present in our code base. Also, we don't attempt to cache these lists in any way. Calculating them is quite fast and the extra complexity that would have been needed to create and use this cache is not worth the small extra performance gain that we could have obtained.
 
 When I was working on this code, before I tested it I was hoping for a performance gain of 5%-10%, so I was really happy when my tests returned a performance gain of 20-25%. This was later confirmed by Tomas Votruba, Abdul Malik Ikhsan and Markus Staab who measured similar or even greater gains.
+
+<br>
 
 I am really proud to have been able to add this improvement to Rector. I have always said that this tool is the best thing that has happened to the PHP ecosystem in the most recent years and I am always happy to see ways to improve it. And now all Rector users will benefit from much shorter runs.
 

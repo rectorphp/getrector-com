@@ -47,10 +47,16 @@ final class PostThumbnailController extends Controller
         $greenFont = $this->thumbnailGenerator->createFont(FontFile::INTER, '59a35e', 40);
 
         $post = $this->postRepository->findByTitle($title);
+        if (! $post instanceof Post) {
+            return;
+        }
 
-        if ($post instanceof Post && $post->getAuthor() === 'samsonasik') {
+        if ($post->getAuthor() === 'samsonasik') {
             $authorName = 'Abdul Malik Ikhsan';
             $authorPicture = __DIR__ . '/../../../public/assets/images/samsonasik_circle.jpg';
+        } elseif ($post->getAuthor() === 'carlos_granados') {
+            $authorName = 'Carlos Granados';
+            $authorPicture = __DIR__ . '/../../../public/assets/images/carlos_granados_circle.png';
         } else {
             $authorName = 'Tomas Votruba';
             $authorPicture = __DIR__ . '/../../../public/assets/images/tomas_votruba_circle.jpg';
