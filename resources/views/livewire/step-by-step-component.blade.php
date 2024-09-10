@@ -1,7 +1,7 @@
 <div>
     <form>
         <div class="row">
-            <div class="col-4">
+            <div class="col-12 col-md-4 mb-4">
                 <span class="me-2">Starting PHP version:</span>
 
                 <select class="form-select d-inline" style="max-width: 6em"
@@ -12,7 +12,7 @@
                 </select>
             </div>
 
-            <div class="col-8">
+            <div class="col-12 col-md-8">
                 <div class="d-flex">
                     <button type="button" class="btn  btn-light" wire:click="previousStep">
                         Previous step
