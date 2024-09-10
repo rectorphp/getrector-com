@@ -35,6 +35,7 @@ The idea behind the Open Source Pledge is simple:
 In 2023, we've contributed:
 
 * [Symfony](https://symfony.com/sponsor) - 10 000 $
+* [junior.guru](https://junior.guru/love/) - 3 530 $
 * [phpcsstandards](https://github.com/sponsors/PHPCSStandards) - 1 000 $
 * [staabm](https://github.com/sponsors/staabm) - 1 000 $
 * [3v4l.org](https://3v4l.org/sponsor) - 250 $
@@ -42,7 +43,7 @@ In 2023, we've contributed:
 
 <br>
 
-Total of **12 450 $**
+Total of **15 980 $**
 
 <br>
 
@@ -53,6 +54,7 @@ Total of **12 450 $**
 In 2024, so far we've contributed:
 
 * [Symfony](https://symfony.com/sponsor) - 10 000 $
+* [junior.guru](https://junior.guru/love/) - 3 530 $
 * [3v4l.org](https://3v4l.org/sponsor) - 1 000 $
 * [janedbal](https://github.com/sponsors/janedbal) - 1 000 $
 * [peterfox](https://github.com/sponsors/peterfox) - 1 000 $
@@ -71,7 +73,7 @@ As of this article and September 2024, we're starting 3 PHP open-source scholars
 
 <br>
 
-Total of **15 133 $** to this day.
+Total of **18 663 $** to this day.
 
 <br>
 <br>
