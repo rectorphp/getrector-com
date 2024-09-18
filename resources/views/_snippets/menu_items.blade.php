@@ -1,16 +1,11 @@
 <li class="nav-item">
-    <a href="{{ action(\App\Controller\AboutController::class) }}"
-       class="nav-link">About</a>
+    <a href="{{ action(\App\Controller\Demo\DemoController::class) }}"
+       class="nav-link">Try Rector</a>
 </li>
 
 <li class="nav-item">
     <a href="{{ action(\App\Controller\HireTeamController::class) }}"
        class="nav-link">Hire Team</a>
-</li>
-
-<li class="nav-item">
-    <a href="{{ action(\App\Controller\Demo\DemoController::class) }}"
-       class="nav-link">Try Rector</a>
 </li>
 
 <li class="nav-item">
