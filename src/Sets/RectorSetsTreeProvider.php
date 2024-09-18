@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Sets;
 
-use App\RuleFilter\Bridge\LaravelSetProvider;
 use App\RuleFilter\ValueObject\RectorSet;
 use Rector\Bridge\SetProviderCollector;
 use Rector\Bridge\SetRectorsResolver;
 use Rector\Set\Contract\SetInterface;
+use RectorLaravel\Set\LaravelSetProvider;
 use Webmozart\Assert\Assert;
 
 final class RectorSetsTreeProvider
@@ -68,6 +68,7 @@ final class RectorSetsTreeProvider
     }
 
     /**
+     * @todo not relevant separation :)
      * @return RectorSet[]
      */
     public function provideCommunity(): array
