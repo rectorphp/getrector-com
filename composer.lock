@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6ee50ca1752614a963d5b365efd46a03",
+    "content-hash": "0cb352f45b7bee07bb43708410f442eb",
     "packages": [
         {
             "name": "brick/math",
@@ -7424,16 +7424,16 @@
         },
         {
             "name": "rector/type-perfect",
-            "version": "0.1.8",
+            "version": "0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/type-perfect.git",
-                "reference": "00c585702e1d03be48f69f08ff872aa67875d7fa"
+                "reference": "0371ecbf0eb0803b160973aa386d1b7af21ad0cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/type-perfect/zipball/00c585702e1d03be48f69f08ff872aa67875d7fa",
-                "reference": "00c585702e1d03be48f69f08ff872aa67875d7fa",
+                "url": "https://api.github.com/repos/rectorphp/type-perfect/zipball/0371ecbf0eb0803b160973aa386d1b7af21ad0cd",
+                "reference": "0371ecbf0eb0803b160973aa386d1b7af21ad0cd",
                 "shasum": ""
             },
             "require": {
@@ -7461,7 +7461,7 @@
             "description": "Next level type declaration checks",
             "support": {
                 "issues": "https://github.com/rectorphp/type-perfect/issues",
-                "source": "https://github.com/rectorphp/type-perfect/tree/0.1.8"
+                "source": "https://github.com/rectorphp/type-perfect/tree/0.2.0"
             },
             "funding": [
                 {
@@ -7473,7 +7473,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-07-07T20:42:03+00:00"
+            "time": "2024-09-08T14:41:34+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -8608,16 +8608,16 @@
         },
         {
             "name": "tomasvotruba/unused-public",
-            "version": "0.3.11",
+            "version": "0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/TomasVotruba/unused-public.git",
-                "reference": "fa0586e674034961fe8d7f8e8356831f89fea64f"
+                "reference": "9a0ba0f902de88304fa0787fe18e7e19764ecf61"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TomasVotruba/unused-public/zipball/fa0586e674034961fe8d7f8e8356831f89fea64f",
-                "reference": "fa0586e674034961fe8d7f8e8356831f89fea64f",
+                "url": "https://api.github.com/repos/TomasVotruba/unused-public/zipball/9a0ba0f902de88304fa0787fe18e7e19764ecf61",
+                "reference": "9a0ba0f902de88304fa0787fe18e7e19764ecf61",
                 "shasum": ""
             },
             "require": {
@@ -8649,7 +8649,7 @@
             ],
             "support": {
                 "issues": "https://github.com/TomasVotruba/unused-public/issues",
-                "source": "https://github.com/TomasVotruba/unused-public/tree/0.3.11"
+                "source": "https://github.com/TomasVotruba/unused-public/tree/0.4.0"
             },
             "funding": [
                 {
@@ -8661,7 +8661,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-08-29T14:39:35+00:00"
+            "time": "2024-09-16T07:27:55+00:00"
         }
     ],
     "aliases": [],

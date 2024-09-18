@@ -33,18 +33,7 @@ final class RuleFilter
         $ruleMetadatas = $this->filterBySetGroup($ruleMetadatas, $setGroup);
 
         $maxResults = self::MAX_RESULTS;
-        if (in_array(
-            $query,
-            [MagicSearch::DOWNGRADE_RULES,
-                MagicSearch::PHPUNIT_RULES,
-                MagicSearch::SYMFONY_RULES,
-                MagicSearch::DOCTRINE_RULES,
-            ]
-        )) {
-            $maxResults = 1000;
-        }
-
-        if ($set) {
+        if ($setGroup || $set) {
             $maxResults = 1000;
         }
 
