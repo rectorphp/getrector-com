@@ -67,16 +67,8 @@ final class LaravelSetProvider implements SetProviderInterface
                 'Container strings to FQN types',
                 LaravelSetList::LARAVEL_CONTAINER_STRING_TO_FULLY_QUALIFIED_NAME,
             ),
-            new Set(
-                GroupName::LARAVEL,
-                'Code Quality for Laravel',
-                LaravelSetList::LARAVEL_CODE_QUALITY,
-            ),
-            new Set(
-                GroupName::LARAVEL,
-                'Replaces If statements with helpers',
-                LaravelSetList::LARAVEL_IF_HELPERS,
-            ),
+            new Set(GroupName::LARAVEL, 'Code Quality for Laravel', LaravelSetList::LARAVEL_CODE_QUALITY),
+            new Set(GroupName::LARAVEL, 'Replaces If statements with helpers', LaravelSetList::LARAVEL_IF_HELPERS),
             new Set(
                 GroupName::LARAVEL,
                 'Replace facades with service injection',
@@ -97,11 +89,7 @@ final class LaravelSetProvider implements SetProviderInterface
                 'Upgrade Legacy Factories to Modern Factories',
                 LaravelSetList::LARAVEL_LEGACY_FACTORIES_TO_CLASSES,
             ),
-            new Set(
-                GroupName::LARAVEL,
-                'Livewire 3.0',
-                LivewireSetList::LIVEWIRE_30,
-            ),
+            new Set(GroupName::LARAVEL, 'Livewire 3.0', LivewireSetList::LIVEWIRE_30),
             ...$this->getLaravelVersions(),
         ];
     }
@@ -114,19 +102,11 @@ final class LaravelSetProvider implements SetProviderInterface
         $versions = [];
 
         foreach (self::LARAVEL_FIVE as $index => $version) {
-            $versions[] = new Set(
-                GroupName::LARAVEL,
-                'Laravel Framework 5.' . $index,
-                $version,
-            );
+            $versions[] = new Set(GroupName::LARAVEL, 'Laravel Framework 5.' . $index, $version);
         }
 
         foreach (self::LARAVEL_POST_FIVE as $index => $version) {
-            $versions[] = new Set(
-                GroupName::LARAVEL,
-                'Laravel Framework ' . ($index + 6) . '.0',
-                $version,
-            );
+            $versions[] = new Set(GroupName::LARAVEL, 'Laravel Framework ' . ($index + 6) . '.0', $version);
         }
 
         return $versions;
