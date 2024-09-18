@@ -28,6 +28,40 @@
 
         @include('_snippets/homepage_separator')
 
+        <h2>
+            How does Rector <span class="text-rector-green">Improve your Business</span>?
+        </h2>
+
+        <div class="text-medium">
+            <p>
+                Rector is a PHP tool that you can run on any PHP project to get an instant upgrade
+                or automated refactoring.
+            </p>
+
+            <p>
+                It helps you with:
+
+                <ul>
+                    <li>PHP and framework upgrades,</li>
+                    <li>in-house framework migrations,</li>
+                    <li>improving your code quality to deliver features faster than competition</li>
+                </ul>
+            </p>
+
+            <p>
+                In the hands of an expert, Rector massively reduces your work-time.<br>
+                Where project upgrade PHP 8.0 to 8.3 would <strong>take 3 months</strong>, <strong>Rector is done in 3 days</strong>.
+            </p>
+
+            <p>
+                You can learn it yourself from <a href="{{ action(\App\Controller\DocumentationController::class) }}">documentation</a>,
+                or to save time and start upgrading today,
+                <strong><a href="{{ action(\App\Controller\HireTeamController::class) }}">hire our upgrade team</a></strong>.
+            </p>
+        </div>
+
+        @include('_snippets/homepage_separator')
+
         <div class="text-center mt-5 mb-5 text-rector-green text-bigger">
             We've helped <strong>50+ companies</strong> to improve their PHP code and reduce
             technical debt

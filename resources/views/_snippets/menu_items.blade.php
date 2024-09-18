@@ -1,6 +1,6 @@
 <li class="nav-item">
-    <a href="{{ action(\App\Controller\AboutController::class) }}"
-       class="nav-link">About</a>
+    <a href="{{ action(\App\Controller\Demo\DemoController::class) }}"
+       class="nav-link">Try Rector</a>
 </li>
 
 <li class="nav-item">
@@ -9,8 +9,13 @@
 </li>
 
 <li class="nav-item">
-    <a href="{{ action(\App\Controller\Demo\DemoController::class) }}"
-       class="nav-link">Try Rector</a>
+    <a href="{{ action(\App\Controller\FindRuleController::class) }}"
+       class="nav-link">Find Rule</a>
+    @if (!isset($includeFooterLinks))
+        <div class="badge text-white bg-danger"
+             style="float:right; margin-top: -4.7em; margin-right: -.3em; font-size: .6em">NEW
+        </div>
+    @endif
 </li>
 
 <li class="nav-item">

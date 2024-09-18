@@ -1,12 +1,11 @@
 <?php
 
 declare(strict_types=1);
-use App\Controller\Stats\FindRuleStatsController;
 
+use App\Controller\Stats\FindRuleStatsController;
 use App\Ast\Controller\AstController;
 use App\Ast\Controller\AstDetailController;
 use App\Ast\Controller\ProcessAstFormController;
-use App\Controller\AboutController;
 use App\Controller\Blog\BlogController;
 use App\Controller\Blog\PostController;
 use App\Controller\CodebaseRenovationController;
@@ -33,10 +32,10 @@ Route::get('/', HomepageController::class);
 
 // redirect of old page
 Route::redirect('/documentation/rules-overview', '/find-rule');
+Route::redirect('/about', '/');
 
 Route::get('documentation/{section?}', DocumentationController::class);
 
-Route::get('about', AboutController::class);
 Route::get('blog', BlogController::class);
 Route::get('book', function () {
     return redirect()->to('https://leanpub.com/rector-the-power-of-automated-refactoring');
