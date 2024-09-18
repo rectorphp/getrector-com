@@ -26,7 +26,7 @@
 
             <select
                 class="form-select d-inline ms-2" name="set_group"
-                style="height: 2.4em"
+                style="height: 2.4em; width: 11.5em"
                 wire:model.live="activeRectorSetGroup">
             >
 

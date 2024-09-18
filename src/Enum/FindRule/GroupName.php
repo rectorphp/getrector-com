@@ -11,11 +11,6 @@ final class GroupName
     /**
      * @var string
      */
-    public const LARAVEL = 'laravel';
-
-    /**
-     * @var string
-     */
     public const PHP = SetGroup::PHP;
 
     /**
