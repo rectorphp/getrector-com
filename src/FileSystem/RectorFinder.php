@@ -66,6 +66,12 @@ final class RectorFinder
             }
         }
 
+        foreach ($this->findCommunity() as $ruleMetadata) {
+            if ($ruleMetadata->getSlug() === $slug) {
+                return $ruleMetadata;
+            }
+        }
+
         return null;
     }
 
