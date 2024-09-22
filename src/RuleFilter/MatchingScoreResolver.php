@@ -25,6 +25,10 @@ final class MatchingScoreResolver
             }
         }
 
+        if (str_contains(strtolower($ruleMetadata->getRectorClass()), $lowercasedQuery)) {
+            return 5;
+        }
+
         // resolv equery parts
         $queryParts = Strings::split($query, '#\s+#');
         $queryParts = array_map('strtolower', $queryParts);

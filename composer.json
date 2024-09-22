@@ -11,7 +11,7 @@
         "livewire/livewire": "^3.5",
         "nesbot/carbon": "^3.8",
         "nikic/php-parser": "^4.19.1",
-        "rector/rector": "^1.2.5",
+        "rector/rector": "dev-main as 1.2.5",
         "samsonasik/array-lookup": "^1.6",
         "symfony/filesystem": "^7.1",
         "symfony/uid": "^7.1",
