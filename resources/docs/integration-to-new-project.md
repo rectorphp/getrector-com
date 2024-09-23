@@ -10,7 +10,7 @@ What does it mean?
 
 * don't apply all rules at once at first
 * start with 1-3 rules that are easy to integrate and are safe
-* make sure the 1st PR merged; only then start adding new rules
+* make sure the 1st PR is merged; only then start adding new rules
 
 
 ## 2. Upgrade PHP First
@@ -25,7 +25,7 @@ Before diving into any prepared sets, we start with the crucial part - the PHP u
 }
 ```
 
-This means our code base *can* use features from PHP 7.4. But it doesn't mean we it actually uses them. So at first, we check what is the lowest version our codebase uses:
+This means our code base *can* use features from PHP 7.4, but it doesn't mean it actually uses them. So at first, we check what is the lowest version our codebase uses:
 
 ```php
 <?php
@@ -37,7 +37,7 @@ return RectorConfig::configure()
     ->withPhpSets();
 ```
 
-This configuration tells Rector, "Upgrade my code to PHP 7.4, based on the composer.json version. " Does that sound about right?
+This configuration tells Rector, "Upgrade my code to PHP 7.4, based on the composer.json version." Does that sound about right?
 
 No, because this would invoke sets from PHP 5.3, 5.4, 5.5, 5.6, 7.0, 7.1, 7.2, 7.3 and 7.4 simultaneously. That's over 100 rules that will be applied. That sounds dangerous to do and even more tedious to review.
 
@@ -119,7 +119,7 @@ A horse with Tesla bodywork.
 
 <br>
 
-Type coverage is one of the most influential metrics in a modern PHP project. We can have a high PHP version in `composer.json`, but our code can still be full of `mixed` types, giving us zero confidence. There is a PHPStan package - [`type-coverage`](https://github.com/TomasVotruba/type-coverage)- that helps raise the bar one 1 % at a time.
+Type coverage is one of the most influential metrics in a modern PHP project. We can have a high PHP version in `composer.json`, but our code can still be full of `mixed` types, giving us zero confidence. There is a PHPStan package - [`type-coverage`](https://github.com/TomasVotruba/type-coverage)- that helps raise the bar 1% at a time.
 
 How can we use Rector to help out with type coverage? We can add a prepared set:
 
