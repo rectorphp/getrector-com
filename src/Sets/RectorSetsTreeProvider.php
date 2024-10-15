@@ -90,6 +90,9 @@ final class RectorSetsTreeProvider
         return $communityRectorSets;
     }
 
+    /**
+     * @return array<class-string<RectorInterface>>
+     */
     public function resolveFromFilePath(string $configFilePath): array
     {
         Assert::fileExists($configFilePath);
