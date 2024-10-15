@@ -100,7 +100,7 @@ final class RectorSetsTreeProvider
         $rectorSets = [];
 
         foreach ($sets as $set) {
-            $rectorClasses = $setRectorsResolver->resolveFromFilePath($set->getSetFilePath());
+            $rectorClasses = $setRectorsResolver->resolveFromFilePathIncludingConfiguration($set->getSetFilePath());
             $rectorSets[] = new RectorSet($set->getGroupName(), $set->getName(), $rectorClasses);
         }
 
