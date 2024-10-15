@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace App\Sets;
 
+use ReflectionProperty;
 use App\RuleFilter\ValueObject\RectorSet;
 use Rector\Bridge\SetProviderCollector;
-use Rector\Bridge\SetRectorsResolver;
+use Rector\Config\RectorConfig;
+use Rector\Contract\Rector\RectorInterface;
 use Rector\Set\Contract\SetInterface;
 use RectorLaravel\Set\LaravelSetProvider;
 use Webmozart\Assert\Assert;
@@ -88,6 +90,25 @@ final class RectorSetsTreeProvider
         return $communityRectorSets;
     }
 
+    public function resolveFromFilePath(string $configFilePath): array
+    {
+        Assert::fileExists($configFilePath);
+
+        $rectorConfig = new RectorConfig();
+        /** @var callable $configCallable */
+        $configCallable = require $configFilePath;
+        $configCallable($rectorConfig);
+
+        // get tagged class-names
+        $tagsReflectionProperty = new ReflectionProperty($rectorConfig, 'tags');
+        $tags = $tagsReflectionProperty->getValue($rectorConfig);
+
+        $rectorClasses = $tags[RectorInterface::class] ?? [];
+        sort($rectorClasses);
+
+        return array_unique($rectorClasses);
+    }
+
     /**
      * @param SetInterface[] $sets
      * @return RectorSet[]
@@ -95,12 +116,10 @@ final class RectorSetsTreeProvider
     private function createRectorSetsFromSetProviders(array $sets): array
     {
         Assert::allIsInstanceOf($sets, SetInterface::class);
-
-        $setRectorsResolver = new SetRectorsResolver();
         $rectorSets = [];
 
         foreach ($sets as $set) {
-            $rectorClasses = $setRectorsResolver->resolveFromFilePathIncludingConfiguration($set->getSetFilePath());
+            $rectorClasses = $this->resolveFromFilePath($set->getSetFilePath());
             $rectorSets[] = new RectorSet($set->getGroupName(), $set->getName(), $rectorClasses);
         }
 
