@@ -104,7 +104,7 @@ public function getNodeTypes(): array
  */
 public function refactor(Node $node): ?int
 {
-    if ($node->cond instanceof Identical) {
+    if (! $node->cond instanceof Identical) {
         return null;
     }
 
