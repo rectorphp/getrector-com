@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace App\Sets;
 
-use ReflectionProperty;
 use App\RuleFilter\ValueObject\RectorSet;
 use Rector\Bridge\SetProviderCollector;
 use Rector\Config\RectorConfig;
 use Rector\Contract\Rector\RectorInterface;
 use Rector\Set\Contract\SetInterface;
 use RectorLaravel\Set\LaravelSetProvider;
+use ReflectionProperty;
 use Webmozart\Assert\Assert;
 
 final class RectorSetsTreeProvider

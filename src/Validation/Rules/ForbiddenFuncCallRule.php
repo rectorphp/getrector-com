@@ -32,6 +32,9 @@ final class ForbiddenFuncCallRule implements ValidationRule
 
         // array operations
         'array_pop', 'array_push', 'array_shift', 'array_splice', 'array_slice', 'next', 'prev', 'sort', 'ksort',
+
+        // string operations
+        'str_replace',
     ];
 
     public function validate(string $attribute, mixed $value, Closure $fail): void
@@ -82,7 +85,12 @@ final class ForbiddenFuncCallRule implements ValidationRule
             );
 
             if ($funcCall instanceof FuncCall) {
-                $fail('PHP config should not include side effect func call');
+                $errorMessage = 'PHP config should not include side effect func call';
+                if ($funcCall->name instanceof Node\Name) {
+                    $errorMessage .= sprintf(' "%s()"', $funcCall->name->toString());
+                }
+
+                $fail($errorMessage);
             }
         } catch (Error $error) {
             $fail(sprintf('PHP code is invalid: %s', $error->getMessage()));
