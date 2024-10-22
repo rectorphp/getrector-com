@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Validation\Rules;
 
+use PhpParser\Node\Name;
 use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
 use PhpParser\Error;
@@ -86,7 +87,7 @@ final class ForbiddenFuncCallRule implements ValidationRule
 
             if ($funcCall instanceof FuncCall) {
                 $errorMessage = 'PHP config should not include side effect func call';
-                if ($funcCall->name instanceof Node\Name) {
+                if ($funcCall->name instanceof Name) {
                     $errorMessage .= sprintf(' "%s()"', $funcCall->name->toString());
                 }
 
