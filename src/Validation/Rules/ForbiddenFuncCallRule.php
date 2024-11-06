@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace App\Validation\Rules;
 
-use PhpParser\Node\Name;
 use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
 use PhpParser\Error;
 use PhpParser\Node;
 use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\FuncCall;
+use PhpParser\Node\Name;
 use PhpParser\NodeFinder;
 use PhpParser\ParserFactory;
 use PHPStan\TrinaryLogic;

@@ -11,7 +11,7 @@
         "livewire/livewire": "^3.5",
         "nesbot/carbon": "^3.8",
         "nikic/php-parser": "^4.19.1",
-        "rector/rector": "dev-main as 1.2.5",
+        "rector/rector": "dev-main as 1.2.9",
         "samsonasik/array-lookup": "^1.6",
         "symfony/filesystem": "^7.1",
         "symfony/uid": "^7.1",
@@ -26,12 +26,12 @@
         "phpstan/extension-installer": "^1.4",
         "phpstan/phpstan": "^1.12",
         "phpunit/phpunit": "^10.5",
-        "rector/swiss-knife": "^0.2.35",
-        "rector/type-perfect": "^0.2",
+        "rector/swiss-knife": "^1.0",
+        "rector/type-perfect": "^1.0",
         "symplify/easy-coding-standard": "^12.3",
         "symplify/phpstan-extensions": "^11.4",
-        "tomasvotruba/class-leak": "^0.2.16",
-        "tomasvotruba/unused-public": "^0.4"
+        "tomasvotruba/class-leak": "^1.1",
+        "tomasvotruba/unused-public": "^1.0"
     },
     "autoload": {
         "psr-4": {
