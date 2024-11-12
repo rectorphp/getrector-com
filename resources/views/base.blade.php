@@ -20,18 +20,12 @@
 
         @include('_snippets/layout/footer')
 
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-46082345-2"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'UA-46082345-2');
-        </script>
-
         @include('_snippets/javascripts')
 
         @livewireScripts
+
+        <!-- 100% privacy-first analytics -->
+        <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+        <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
     </body>
 </html>
