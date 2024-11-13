@@ -11,6 +11,6 @@ return RectorConfig::configure()
 * then it picks all sets that are relevant to your specific installed versions
 * and run those
 
-If you upgrade to Doctrine 4, Twig 4 or Symfony 10 later on, Rector will pick up sets for you.
+If you upgrade to Doctrine 4, Twig 4, or Symfony 10 later, Rector will pick up sets for you.
 
 
