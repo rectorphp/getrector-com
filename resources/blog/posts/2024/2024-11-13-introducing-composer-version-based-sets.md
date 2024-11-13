@@ -2,9 +2,9 @@
 id: 73
 title: "Introducing Composer Version-Based Sets"
 perex: |
-    Packages that ship lot of versions, can have lot of sets to apply. E.g. twig/twig has 6 sets in Rector, couple for v1 and couple for v2. What about v3? We have to always check for our local installed version, and then keep `rector.php` up to date.
+    Packages that ship a lot of versions can have a lot of sets to apply. For, twig/twig has 6 sets in Rector, a couple for v1 and a couple for v2. What about v3? We must always check for our locally installed version and then keep `rector.php` up to date.
 
-    This might lead to errors, as we might run sets with new features from v3, that we don't have yet.
+    This could lead to errors as we run sets with new features from v3 that we don't have yet.
 ---
 
 At the moment, we have to add sets manually one by one to `rector.php`:
@@ -22,19 +22,19 @@ return RectorConfig::configure()
 
 <br>
 
-This is wrong for couple reasons:
+This doesn't seem right for a couple of reasons:
 
 * we have to always check if there is a new set we should add here
-* if we use Twig 2, there is no point in running Twig 1 sets - they also may cause error, as syntax evolves
+* if we use Twig 2, there is no point in running Twig 1 set - they also may cause an error as syntax evolves
 * if we use Twig 1.20, we don't want 1.40 sets to run as they might break the code
 
 ### What should happen instead?
 
 * Rector should look into installed `composer.json` version of `twig/twig`
-* then check all Twig sets, find those that make sense to apply
+* then check all Twig sets and find those that make sense to apply
 * run those
 
-If we upgrade to Twig 3 later on, Rector should pick up sets for Twig 3 for us. So we don't maintain the `rector.php` at all.
+If we upgrade to Twig 3 later on, Rector should pick up sets for Twig 3 for us. So, we don't maintain the `rector.php` at all.
 
 ### Introducing `withComposerBased()`
 
@@ -45,18 +45,18 @@ return RectorConfig::configure()
 
 <br>
 
-You can drop all sets from above, and use this single parameter.
-Currently we support Twig, PHPUnit and Doctrine. Support for Symfony and Laravel is coming soon.
+You can drop all sets from above and use this single parameter.
+Currently, we support Twig, PHPUnit, and Doctrine. Support for Symfony and Laravel is coming soon.
 
 <br>
 
 ## How does it work?
 
-Rector will go through all Twig sets, check our installed version in `vendor/composer/installed.json`. Then it finds all sets relevant to our specific version.
+Rector will go through all Twig sets and check our installed version in `vendor/composer/installed.json`. Then, it finds all sets relevant to our specific version.
 
 If you're writing your custom extension for your community, you'll want to create your own `SetProvider` to handle complexity for your users.
 
-Let's look at real example for [`TwigSetProvider`](https://github.com/rectorphp/rector-symfony/blob/main/src/Set/SetProvider/TwigSetProvider.php) from `rector-symfony` package:
+Let's look at a real example for [`TwigSetProvider`](https://github.com/rectorphp/rector-symfony/blob/main/src/Set/SetProvider/TwigSetProvider.php) from the `rector-symfony` package:
 
 ```php
 namespace Rector\Symfony\Set\SetProvider;
@@ -94,7 +94,7 @@ final class TwigSetProvider implements SetProviderInterface
 
 <br>
 
-Setup is straightforward - just define the version and path to the set:
+Setup is straightforward - define the version and path to the set:
 
 ```php
 namespace Rector\Set\ValueObject;
@@ -114,13 +114,13 @@ final class ComposerTriggeredSet
 ```
 
 * The `$groupName` is key in `->withComposerBased()`:
-* The `$packageName` is composer package name.
+* The `$packageName` is the composer package name.
 * `$version` is the minimal version to trigger the set
 * and `$setFilePath` is the path to the Rector config with rules as we know it
 
 <br>
 
-In near future, community packages like [Laravel](https://github.com/driftingly/rector-laravel) will have their own `SetProvider` classes. To get their latest upgrade sets, all you'll have to do is add one param:
+In the near future, community packages like [Laravel](https://github.com/driftingly/rector-laravel) will have their own `SetProvider` classes. To get their latest upgrade sets, all you'll have to do is add one param:
 
 ```php
 return RectorConfig::configure()
