@@ -1,6 +1,6 @@
 ---
 id: 73
-title: "Package Version-Based Sets"
+title: "Introducing Composer Version-Based Sets"
 perex: |
     Packages that ship lot of versions, can have lot of sets to apply. E.g. twig/twig has 6 sets in Rector, couple for v1 and couple for v2. What about v3? We have to always check for our local installed version, and then keep `rector.php` up to date.
 
@@ -20,7 +20,9 @@ return RectorConfig::configure()
     ])
 ```
 
-### This is wrong for couple reasons
+<br>
+
+This is wrong for couple reasons:
 
 * we have to always check if there is a new set we should add here
 * if we use Twig 2, there is no point in running Twig 1 sets - they also may cause error, as syntax evolves
@@ -32,15 +34,18 @@ return RectorConfig::configure()
 * then check all Twig sets, find those that make sense to apply
 * run those
 
-If we upgrade to Twig 3 later on, Rector should pick up sets for Twig 3 for us. We should not maintain the `rector.php` at all.
+If we upgrade to Twig 3 later on, Rector should pick up sets for Twig 3 for us. So we don't maintain the `rector.php` at all.
 
 ### Introducing `withComposerBased()`
 
 ```php
 return RectorConfig::configure()
-    ->withComposerBased(twig: true)
+    ->withComposerBased(twig: true);
 ```
 
+<br>
+
+You can drop all sets from above, and use this single parameter.
 Currently we support Twig, PHPUnit and Doctrine. Support for Symfony and Laravel is coming soon.
 
 <br>
@@ -87,9 +92,13 @@ final class TwigSetProvider implements SetProviderInterface
 }
 ```
 
+<br>
+
 Setup is straightforward - just define the version and path to the set:
 
-```
+```php
+namespace Rector\Set\ValueObject;
+
 final class ComposerTriggeredSet
 {
     public function __construct(
@@ -104,14 +113,13 @@ final class ComposerTriggeredSet
 }
 ```
 
-The group name is key in `->withComposerBased()` in:
 
-```php
-return RectorConfig::configure()
-    ->withComposerBased(twig: true);
-```
+* The `$groupName` is key in `->withComposerBased()`:
+* The `$packageName` is composer package name.
+* `$version` is the minimal version to trigger the set
+* and `$setFilePath` is the path to the Rector config with rules as we know it
 
-Package name is composer package name. Version is the minimal version to trigger the set, and set file path is the path to the set as we know it.
+<br>
 
 In near future, community packages like [Laravel](https://github.com/driftingly/rector-laravel) will have their own `SetProvider` classes. To get their latest upgrade sets, all you'll have to do is add one param:
 
