@@ -113,7 +113,6 @@ final class ComposerTriggeredSet
 }
 ```
 
-
 * The `$groupName` is key in `->withComposerBased()`:
 * The `$packageName` is composer package name.
 * `$version` is the minimal version to trigger the set
