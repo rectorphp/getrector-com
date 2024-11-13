@@ -1,4 +1,4 @@
-Core sets like [Twig, Symfony or Doctrine](/composer-based-sets) are based on specific-versions of installed package in `/vendor`:
+Core sets like [Twig, Symfony, or Doctrine](/composer-based-sets) are based on specific versions of installed packages in `/vendor`:
 
 ```php
 use Rector\Config\RectorConfig;
@@ -9,9 +9,9 @@ return RectorConfig::configure()
 
 If you use Twig 2, Rector will load sets for Twig 2. Once you bump to Twig 3 in `composer.json`, Rector will automatically load new rules for Twig 3.
 
-These sets are configured via classes that implement `SetProviderInterface`. Let's say you want to create a custom rule set for your Laravel community. Once setup, let us know and we can add it to the Rector `withComposerBased()` method.
+These sets are configured via classes that implement `SetProviderInterface`. Let's say you want to create a custom rule set for your Laravel community. Once set up, let us know, and we can add it to the Rector `withComposerBased()` method.
 
-Let's take is step by step.
+Let's take it step by step.
 
 
 ## 1. Create a custom `LaravelSetProvider` class that implements `SetProviderInterface`
@@ -35,7 +35,7 @@ final class LaravelSetProvider implements SetProviderInterface
 
 ## 2. Add your `ComposerTriggeredSet` objects to the `provide()` method
 
-What is `ComposerTriggeredSet` object for? It connects to specific package + version with path to rule set:
+What is the `ComposerTriggeredSet` object for? It connects to a specific package + version with a path to the rule set:
 
 ```php
 namespace Rector\Set\ValueObject;
@@ -57,11 +57,11 @@ final class ComposerTriggeredSet implements SetInterface
 ```
 
 * The `$groupName` is key in `->withComposerBased()`:
-* The `$packageName` is composer package name.
+* The `$packageName` is the composer package name.
 * `$version` is the minimal version to trigger the set
 * and `$setFilePath` is the path to the Rector config with rules as we know it
 
-Lets add objects for Laravel 10 and 11:
+Let's add objects for Laravel 10 and 11:
 
 ```php
 use Rector\Set\Contract\SetInterface;
@@ -108,6 +108,6 @@ If your parameter is missing, send us [a PR to enable it](https://github.com/rec
 
 <br>
 
-And we're done. Now Rector will load `laravel10.php` rules for Laravel 10 and `laravel11.php` rules for Laravel 11.
+And we're done. Now, Rector will load the `laravel10.php` rules for Laravel 10 and `laravel11.php` rules for Laravel 11.
 
-You can be very creative with `SetListProvider` and define rule for more specific packages like `illuminate/container`. That way we handle complexity for Rector end-users and all they have to do is add single parameter to `rector.php` config.
+You can be creative with `SetListProvider` and define a rule for more specific packages like `illuminate/container`. That way, we handle complexity for Rector end-users, and all they have to do is add a single parameter to the `rector.php` config.
