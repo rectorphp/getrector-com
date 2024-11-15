@@ -141,6 +141,11 @@ final class RectorFinder
 
             $rector = $rectorReflectionClass->newInstanceWithoutConstructor();
 
+            // only list rules with rule definition
+            if (! method_exists($rector, 'getRuleDefinition')) {
+                continue;
+            }
+
             /** @var RectorInterface $rector */
             $ruleDefinition = $rector->getRuleDefinition();
             $ruleDefinition->setRuleClass($rectorClass);
