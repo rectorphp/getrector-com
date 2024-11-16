@@ -29,10 +29,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomepageController::class);
 
-// redirect of old page
+// old pages redirect
 Route::redirect('/documentation/rules-overview', '/find-rule');
 Route::redirect('step-by-step', '/hire-team');
 Route::redirect('/about', '/');
+Route::redirect('project-timeline', '/hire-team');
 
 Route::get('documentation/{section?}', DocumentationController::class);
 
@@ -46,18 +47,11 @@ Route::get('hire-team', HireTeamController::class);
 
 Route::get('play-and-learn', InteractiveController::class);
 
-// redirect of old page
-Route::get('project-timeline', static function () {
-    return redirect()->action(HireTeamController::class);
-});
-
 Route::get('blog/{postSlug}', PostController::class);
-
 Route::get('/thumbnail/{title}.png', PostThumbnailController::class)
      ->where('title', '.*');
 
-Route::get('/rule-thumbnail/{ruleSlug}.png', RuleThumbnailController::class)
-    ->where('ruleSlug', '.*');
+
 
 Route::get('rss.xml', RssController::class);
 
@@ -66,12 +60,15 @@ Route::get('codebase-renovation', CodebaseRenovationController::class);
 
 Route::get('find-rule', FindRuleController::class);
 Route::get('rule-detail/{slug}', RuleDetailController::class);
+Route::get('/rule-thumbnail/{ruleSlug}.png', RuleThumbnailController::class)
+    ->where('ruleSlug', '.*');
+
+Route::get('stats/find-rule', FindRuleStatsController::class);
 
 Route::get('custom-rule/{uuid}', CustomRuleDetailController::class)
     ->whereUuid('uuid');
 Route::get('custom-rule', CustomRuleController::class);
 Route::post('process-custom-rule', ProcessCustomRuleFormController::class);
-
 
 // demo
 Route::get('demo/{uuid}', DemoDetailController::class)
@@ -83,5 +80,3 @@ Route::post('process-demo', ProcessDemoFormController::class);
 Route::get('ast', AstController::class);
 Route::get('ast/{hash}', AstDetailController::class);
 Route::post('process-ast', ProcessAstFormController::class);
-
-Route::get('stats/find-rule', FindRuleStatsController::class);
