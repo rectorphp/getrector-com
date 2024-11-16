@@ -4,22 +4,15 @@ declare(strict_types=1);
 
 namespace App\Tests;
 
+use App\DependencyInjection\DependencyInjectionContainerFactory;
 use Illuminate\Foundation\Application;
-use Illuminate\Foundation\Console\Kernel;
 use Illuminate\Foundation\Testing\TestCase;
 
 abstract class AbstractTestCase extends TestCase
 {
     public function createApplication(): Application
     {
-        /** @var Application $application */
-        $application = require __DIR__ . '/../bootstrap/app.php';
-
-        /** @var Kernel $consoleKernel */
-        $consoleKernel = $application->make(Kernel::class);
-        $consoleKernel->bootstrap();
-
-        return $application;
+        return DependencyInjectionContainerFactory::create();
     }
 
     /**

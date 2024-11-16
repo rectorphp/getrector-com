@@ -12,13 +12,18 @@ jobs:
             fail-fast: false
             matrix:
                 actions:
+                    # validate rule definitions, so they can be used in /find-rule
+                    -
+                        name: 'Validate rule definitions'
+                        run: php bin/validate-rule-definitions.php
+
                     -
                         name: 'PHPStan'
                         run: composer phpstan
 
                     -
                         name: 'Check Active Classes'
-                        run: vendor/bin/class-leak check src --ansi
+                        run: vendor/bin/class-leak check bin src tests --ansi --skip-path=Fixture
 
                     -
                         name: 'Laravel Console'

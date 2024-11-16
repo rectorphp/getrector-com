@@ -8,6 +8,9 @@ use Illuminate\Container\Container;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Console\Kernel;
 
+/**
+ * @api used in factory and bin files
+ */
 final class DependencyInjectionContainerFactory
 {
     public static function create(): Container
