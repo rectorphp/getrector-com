@@ -25,7 +25,7 @@ final class RectorFuleSearchLogger
         }
 
         // avoid logging short search
-        if ($query !== null && strlen($query) <= 5) {
+        if ($query !== null && strlen($query) <= 8) {
             return;
         }
 

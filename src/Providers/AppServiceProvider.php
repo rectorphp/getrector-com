@@ -11,12 +11,19 @@ use Illuminate\Support\ServiceProvider;
 use ReflectionProperty;
 use SebastianBergmann\Diff\Differ;
 use SebastianBergmann\Diff\Output\UnifiedDiffOutputBuilder;
+use Symfony\Component\Console\Input\ArrayInput;
+use Symfony\Component\Console\Output\ConsoleOutput;
+use Symfony\Component\Console\Style\SymfonyStyle;
 
 final class AppServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
         $this->app->singleton(RectorSetsTreeProvider::class);
+
+        $this->app->singleton(SymfonyStyle::class, function (): SymfonyStyle {
+            return new SymfonyStyle(new ArrayInput([]), new ConsoleOutput());
+        });
 
         $this->app->singleton(MarkdownDiffer::class, function (): MarkdownDiffer {
             // this is required to show full diffs from start to end

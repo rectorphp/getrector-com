@@ -1,5 +1,6 @@
 parameters:
     paths:
+        - bin
         - bootstrap/app.php
         - src
         - tests
@@ -12,6 +13,7 @@ parameters:
 
     bootstrapFiles:
         - vendor/rector/rector/vendor/symplify/rule-doc-generator-contracts/src/ValueObject/RuleDefinition.php
+        - vendor/rector/rector/vendor/symplify/rule-doc-generator-contracts/src/Contract/CodeSampleInterface.php
         - tests/bootstrap.php
 
     level: 8
