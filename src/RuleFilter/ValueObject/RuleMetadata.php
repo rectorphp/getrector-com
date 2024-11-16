@@ -79,6 +79,14 @@ final class RuleMetadata
     }
 
     /**
+     * @return CodeSampleInterface[]
+     */
+    public function getCodeSamples(): array
+    {
+        return $this->codeSamples;
+    }
+
+    /**
      * @return ConfiguredDiffSample[]
      */
     public function getConfiguredDiffSamples(): array

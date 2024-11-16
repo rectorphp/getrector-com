@@ -8,6 +8,7 @@ use App\RuleFilter\ValueObject\RectorSet;
 use App\RuleFilter\ValueObject\RuleMetadata;
 use App\Sets\RectorSetsTreeProvider;
 use Nette\Loaders\RobotLoader;
+use Rector\Configuration\Deprecation\Contract\DeprecatedInterface;
 use Rector\Contract\Rector\RectorInterface;
 use Rector\PostRector\Contract\Rector\PostRectorInterface;
 use ReflectionClass;
@@ -134,6 +135,10 @@ final class RectorFinder
                 continue;
             }
 
+            if ($rectorReflectionClass->isSubclassOf(DeprecatedInterface::class)) {
+                continue;
+            }
+
             // no definition
             if ($rectorReflectionClass->isSubclassOf(PostRectorInterface::class)) {
                 continue;
@@ -141,10 +146,8 @@ final class RectorFinder
 
             $rector = $rectorReflectionClass->newInstanceWithoutConstructor();
 
-            // only list rules with rule definition
-            if (! method_exists($rector, 'getRuleDefinition')) {
-                continue;
-            }
+            // this is validated by bin/validate-rule-definitions.php
+            Assert::methodExists($rector, 'getRuleDefinition');
 
             /** @var RectorInterface $rector */
             $ruleDefinition = $rector->getRuleDefinition();
