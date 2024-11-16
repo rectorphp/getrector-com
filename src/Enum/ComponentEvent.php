@@ -9,16 +9,6 @@ final class ComponentEvent
     /**
      * @var string
      */
-    public const PREVIOUS_STEP = 'prev_step';
-
-    /**
-     * @var string
-     */
-    public const NEXT_STEP = 'next_step';
-
-    /**
-     * @var string
-     */
     public const SELECT_NODE = 'select_node';
 
     /**
@@ -30,9 +20,4 @@ final class ComponentEvent
      * @var string
      */
     public const RULES_FILTERED = 'rules_filtered';
-
-    /**
-     * @var string
-     */
-    public const STEP_CHANGED = 'step_changed';
 }

@@ -51,6 +51,7 @@
         ]
     },
     "scripts": {
+        "clear": "php artisan cache:clear && php artisan route:cache && php artisan config:cache && php artisan view:clear",
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"

@@ -25,13 +25,13 @@ use App\Controller\RssController;
 use App\Controller\RuleDetailController;
 use App\Controller\Socials\PostThumbnailController;
 use App\Controller\Socials\RuleThumbnailController;
-use App\Controller\StepByStep\StepByStepController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomepageController::class);
 
 // redirect of old page
 Route::redirect('/documentation/rules-overview', '/find-rule');
+Route::redirect('step-by-step', '/hire-team');
 Route::redirect('/about', '/');
 
 Route::get('documentation/{section?}', DocumentationController::class);
@@ -84,5 +84,4 @@ Route::get('ast', AstController::class);
 Route::get('ast/{hash}', AstDetailController::class);
 Route::post('process-ast', ProcessAstFormController::class);
 
-Route::get('step-by-step', StepByStepController::class);
 Route::get('stats/find-rule', FindRuleStatsController::class);
