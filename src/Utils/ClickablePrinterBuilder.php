@@ -9,16 +9,16 @@ use App\PhpParser\SimplePhpParser;
 use PhpParser\Builder\Method;
 use PhpParser\BuilderFactory;
 use PhpParser\Node;
+use PhpParser\Node\DeclareItem;
 use PhpParser\Node\Expr\StaticCall;
 use PhpParser\Node\Expr\Variable;
 use PhpParser\Node\Name;
 use PhpParser\Node\Name\FullyQualified;
-use PhpParser\Node\Scalar\LNumber;
+use PhpParser\Node\Scalar\Int_;
 use PhpParser\Node\Stmt;
 use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\ClassMethod;
 use PhpParser\Node\Stmt\Declare_;
-use PhpParser\Node\Stmt\DeclareDeclare;
 use PhpParser\Node\Stmt\Namespace_;
 use PhpParser\Node\Stmt\Return_;
 use PhpParser\PrettyPrinter\Standard;
@@ -53,7 +53,7 @@ final class ClickablePrinterBuilder
      */
     public function buildFileStmts(Class_ $class): array
     {
-        $strictTypesDeclare = new Declare_([new DeclareDeclare('strict_types', new LNumber(1))]);
+        $strictTypesDeclare = new Declare_([new DeclareItem('strict_types', new Int_(1))]);
 
         $namespace = new Namespace_(new Name('App\Ast\PhpParser'));
         $namespace->stmts[] = $class;
