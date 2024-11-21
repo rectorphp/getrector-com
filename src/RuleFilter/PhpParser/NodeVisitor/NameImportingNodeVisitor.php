@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\RuleFilter\PhpParser\NodeVisitor;
 
-use PhpParser\Node\UseItem;
 use PhpParser\Node;
 use PhpParser\Node\Name;
 use PhpParser\Node\Name\FullyQualified;
 use PhpParser\Node\Stmt\Use_;
+use PhpParser\Node\UseItem;
 use PhpParser\NodeVisitorAbstract;
 
 final class NameImportingNodeVisitor extends NodeVisitorAbstract
@@ -18,7 +18,7 @@ final class NameImportingNodeVisitor extends NodeVisitorAbstract
      */
     private array $namesToImport = [];
 
-    public function enterNode(Node $node)
+    public function enterNode(Node $node): ?Name
     {
         if (! $node instanceof FullyQualified) {
             return null;

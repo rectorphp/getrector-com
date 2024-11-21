@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Livewire;
 
-use PhpParser\Node\UseItem;
 use App\Ast\Entity\AstRun;
 use App\Ast\PhpParser\ClickablePrinter;
 use App\Enum\ComponentEvent;
@@ -22,6 +21,7 @@ use PhpParser\Node\Identifier;
 use PhpParser\Node\Name;
 use PhpParser\Node\Param;
 use PhpParser\Node\Stmt;
+use PhpParser\Node\UseItem;
 use Rector\CustomRules\SimpleNodeDumper;
 
 final class AstComponent extends Component

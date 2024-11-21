@@ -89,7 +89,7 @@ final class Post
         return str_contains($this->contents, 'class="twitter-tweet"');
     }
 
-    public function getAuthor(): ?string
+    public function getAuthor(): string
     {
         return $this->author;
     }
