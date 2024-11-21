@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Livewire;
 
+use PhpParser\Node\UseItem;
 use App\Ast\Entity\AstRun;
 use App\Ast\PhpParser\ClickablePrinter;
 use App\Enum\ComponentEvent;
@@ -21,7 +22,6 @@ use PhpParser\Node\Identifier;
 use PhpParser\Node\Name;
 use PhpParser\Node\Param;
 use PhpParser\Node\Stmt;
-use PhpParser\Node\Stmt\UseUse;
 use Rector\CustomRules\SimpleNodeDumper;
 
 final class AstComponent extends Component
@@ -80,7 +80,7 @@ final class AstComponent extends Component
 
     private function resolveTargetNodeClass(Node $node): string
     {
-        if ($node instanceof UseUse || $node instanceof AttributeGroup) {
+        if ($node instanceof UseItem || $node instanceof AttributeGroup) {
             $parentNode = $node->getAttribute('parent');
             return $parentNode::class;
         }

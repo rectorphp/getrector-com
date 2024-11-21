@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\RuleFilter\PhpParser\NodeFactory;
 
+use PhpParser\Node\ArrayItem;
 use App\RuleFilter\PhpParser\NodeVisitor\ConstantToValueNodeVisitor;
 use App\RuleFilter\PhpParser\NodeVisitor\NameImportingNodeVisitor;
 use PhpParser\Node\Arg;
 use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\Array_;
-use PhpParser\Node\Expr\ArrayItem;
 use PhpParser\Node\Expr\ClassConstFetch;
 use PhpParser\Node\Expr\MethodCall;
 use PhpParser\Node\Expr\StaticCall;

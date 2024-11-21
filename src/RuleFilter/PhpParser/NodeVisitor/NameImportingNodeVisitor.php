@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\RuleFilter\PhpParser\NodeVisitor;
 
+use PhpParser\Node\UseItem;
 use PhpParser\Node;
 use PhpParser\Node\Name;
 use PhpParser\Node\Name\FullyQualified;
 use PhpParser\Node\Stmt\Use_;
-use PhpParser\Node\Stmt\UseUse;
 use PhpParser\NodeVisitorAbstract;
 
 final class NameImportingNodeVisitor extends NodeVisitorAbstract
@@ -51,7 +51,7 @@ final class NameImportingNodeVisitor extends NodeVisitorAbstract
         $uses = [];
 
         foreach ($this->getNamesToImport() as $nameToImport) {
-            $uses[] = new Use_([new UseUse(new Name($nameToImport))]);
+            $uses[] = new Use_([new UseItem(new Name($nameToImport))]);
         }
 
         return $uses;

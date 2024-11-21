@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Tests\RuleFilter\PhpParser;
 
+use PhpParser\Node\ArrayItem;
 use App\RuleFilter\PhpParser\NodeFactory\RectorConfigFactory;
 use App\RuleFilter\PhpParser\Printer\RectorConfigStmtsPrinter;
 use App\Tests\AbstractTestCase;
 use PhpParser\Node\Expr\Array_;
-use PhpParser\Node\Expr\ArrayItem;
 use PhpParser\Node\Expr\ClassConstFetch;
 use PhpParser\Node\Expr\ConstFetch;
 use PhpParser\Node\Identifier;
