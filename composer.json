@@ -10,28 +10,24 @@
         "league/commonmark": "^2.5",
         "livewire/livewire": "^3.5",
         "nesbot/carbon": "^3.8",
-        "nikic/php-parser": "^4.19.1",
+        "nikic/php-parser": "^5.0",
         "rector/rector": "dev-main as 1.2.9",
         "samsonasik/array-lookup": "^1.6",
         "symfony/filesystem": "^7.1",
         "symfony/uid": "^7.1",
         "symfony/yaml": "^7.1",
-        "symplify/vendor-patches": "^11.3",
-        "tomasvotruba/bladestan": "^0.5"
+        "symplify/vendor-patches": "^11.3"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^3.1",
         "driftingly/rector-laravel": "^1.2.1",
         "nette/robot-loader": "^4.0",
         "phpstan/extension-installer": "^1.4",
-        "phpstan/phpstan": "^1.12",
+        "phpstan/phpstan": "^2.0",
         "phpunit/phpunit": "10.5.35",
         "rector/swiss-knife": "^1.0",
-        "rector/type-perfect": "^1.0",
         "symplify/easy-coding-standard": "^12.3",
-        "symplify/phpstan-extensions": "^11.4",
-        "tomasvotruba/class-leak": "^1.1",
-        "tomasvotruba/unused-public": "^1.0"
+        "tomasvotruba/class-leak": "^1.1"
     },
     "autoload": {
         "psr-4": {

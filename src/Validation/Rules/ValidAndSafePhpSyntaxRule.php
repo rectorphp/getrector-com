@@ -31,7 +31,7 @@ final class ValidAndSafePhpSyntaxRule implements ValidationRule
     public function __construct()
     {
         $parserFactory = new ParserFactory();
-        $this->phpParser = $parserFactory->create(ParserFactory::PREFER_PHP7);
+        $this->phpParser = $parserFactory->createForNewestSupportedVersion();
 
         $this->nodeFinder = new NodeFinder();
     }

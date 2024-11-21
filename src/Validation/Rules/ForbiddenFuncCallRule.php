@@ -41,7 +41,7 @@ final class ForbiddenFuncCallRule implements ValidationRule
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
         $parserFactory = new ParserFactory();
-        $parser = $parserFactory->create(ParserFactory::PREFER_PHP7);
+        $parser = $parserFactory->createForNewestSupportedVersion();
 
         if (defined('PHPUNIT_COMPOSER_INSTALL')) {
             // in PHPUnit, somehow can't use include_once on multiple tests

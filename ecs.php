@@ -7,6 +7,10 @@ use Symplify\EasyCodingStandard\Config\ECSConfig;
 
 return ECSConfig::configure()
     ->withPaths([__DIR__ . '/src', __DIR__ . '/tests'])
+    ->withSkip([
+        // regenerated
+        __DIR__ . '/src/Ast/PhpParser/ClickablePrinter.php',
+    ])
     ->withRootFiles()
     ->withRules([LineLengthFixer::class])
     ->withPreparedSets(psr12: true, common: true, symplify: true)
