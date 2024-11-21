@@ -17,7 +17,7 @@ final class ShellExecRule implements ValidationRule
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
         $parserFactory = new ParserFactory();
-        $parser = $parserFactory->create(ParserFactory::PREFER_PHP7);
+        $parser = $parserFactory->createForNewestSupportedVersion();
 
         try {
             $stmts = $parser->parse($value);
@@ -28,7 +28,7 @@ final class ShellExecRule implements ValidationRule
                 static fn (Node $subNode): bool => $subNode instanceof ShellExec
             );
 
-            if ($hasFuncCall !== null) {
+            if ($hasFuncCall instanceof Node) {
                 $fail('PHP config should not include execution operator');
             }
         } catch (Error $error) {

@@ -164,8 +164,6 @@ final class RectorFinder
             );
         }
 
-        Assert::allIsInstanceOf($ruleMetadatas, RuleMetadata::class);
-
         return $ruleMetadatas;
     }
 }

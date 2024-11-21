@@ -22,7 +22,7 @@ final class ForbiddenCallLikeRule implements ValidationRule
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
         $parserFactory = new ParserFactory();
-        $parser = $parserFactory->create(ParserFactory::PREFER_PHP7);
+        $parser = $parserFactory->createForNewestSupportedVersion();
 
         try {
             $stmts = (array) $parser->parse($value);

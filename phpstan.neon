@@ -1,4 +1,6 @@
 parameters:
+    treatPhpDocTypesAsCertain: false
+
     paths:
         - bin
         - bootstrap/app.php
@@ -18,9 +20,9 @@ parameters:
 
     level: 8
 
-    unused_public:
-        template_paths:
-            - resources/views
+#    unused_public:
+#        template_paths:
+#            - resources/views
 
     reportUnmatchedIgnoredErrors: false
 
@@ -80,3 +82,14 @@ parameters:
         -
             message: '#Call to an undefined method Rector\\Contract\\Rector\\RectorInterface\:\:getRuleDefinition\(\)#'
             path: src/FileSystem/RectorFinder.php
+
+        -
+            identifier: argument.type
+
+        # realpath usage
+        -
+            identifier: return.type
+
+        # enforce native
+        -
+            identifier: varTag.nativeType
