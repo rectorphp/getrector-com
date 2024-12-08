@@ -166,4 +166,9 @@ final class RectorFinder
 
         return $ruleMetadatas;
     }
+
+    public function getRuleCount(): int
+    {
+        return count($this->findCore()) + count($this->findCommunity());
+    }
 }

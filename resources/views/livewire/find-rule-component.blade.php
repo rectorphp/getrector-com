@@ -68,9 +68,17 @@
 
     <div class="clearfix mb-2"></div>
 
-    <br>
-
     @if ($isFilterActive)
+        <p>
+            @if ($filteredRules === 0)
+                No rule found. Try changing group to more generic one, or use different query.
+            @elseif (count($filteredRules) === 1)
+                Found 1 rule. That's the one:
+            @else
+                Found <strong>{{ count($filteredRules) }} rules</strong>:
+            @endif
+        </p>
+
         @foreach ($filteredRules as $filteredRule)
             <div style="--bs-border-opacity: .5;" class="mb-3 mt-2 card
                     @if ($filteredRule->isConfigurable())
@@ -130,6 +138,8 @@
             <p>No rules found. Try different query.</p>
         @endif
     @else
+        <br>
+
         <p>Not sure how to search? Try one of these for a start:</p>
 
         <ul>
