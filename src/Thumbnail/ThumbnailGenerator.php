@@ -38,7 +38,7 @@ final readonly class ThumbnailGenerator
 
     public function addRectorLogo(ImageInterface $image): void
     {
-        $rectorLogoImage = $this->imagine->open(__DIR__ . '/../../public/assets/images/logo/rector.png');
+        $rectorLogoImage = $this->imagine->open(__DIR__ . '/../../public/assets/images/new-logo/rector-square.png');
         $rectorLogoImage->resize(new Box(716 * .75, 175 * .75));
 
         $image->paste($rectorLogoImage, new Point(1400, 100));
