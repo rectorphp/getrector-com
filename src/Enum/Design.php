@@ -17,5 +17,5 @@ final class Design
     /**
      * @var string
      */
-    public const SOCIAL_RECTOR_LOGO = 'https://getrector.com/assets/images/logo/rector/rector-no_frame_vector_for_circles.png';
+    public const SOCIAL_RECTOR_LOGO = 'https://getrector.com/assets/images/new-logo/rector-square.png';
 }
