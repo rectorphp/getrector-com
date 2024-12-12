@@ -344,6 +344,11 @@ label.required:before {
 #top_right_logo {
     img {
         max-height: 3rem;
+
+        @media (max-width: 750px) {
+            max-height: 2.3rem;
+            padding: .6rem 0 .4rem 1.1rem;
+        }
     }
 }
 
