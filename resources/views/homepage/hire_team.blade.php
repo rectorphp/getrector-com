@@ -231,7 +231,6 @@
 
     <br>
     <br>
-    <br>
 
     <div class="text-center mt-2">
         <a href="{{ action(\App\Controller\ContactController::class) }}"
@@ -240,7 +239,6 @@
         </a>
     </div>
 
-    <br>
     <br>
     <br>
     <br>
