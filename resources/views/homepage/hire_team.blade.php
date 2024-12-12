@@ -4,7 +4,7 @@
     <div id="hire_team">
         <h1 class="main-title">{!! $page_title !!}</h1>
 
-        <div class="offset-2">
+        <div class="offset offset-md-2">
             <p class="mt-5 text-bigger">
                 Your project is a success, but your technical debt is slowing you down?
                 <br>
@@ -43,7 +43,7 @@
             <img src="/assets/images/intro-analysis.jpg" class="rounded-4" style="max-width: 100%">
         </div>
 
-        <div class="col-12 col-sm-5 float-end ps-4">
+        <div class="col-12 col-sm-5 float-end ps-0 mb-5 mb-md-2 ps-md-4">
             <div class="card shadow ms-3">
                 <div class="card-header">
                     <h3 class="card-title m-2 text-center">In short</h3>
@@ -156,7 +156,7 @@
                  style="max-width: 100%">
         </div>
 
-        <div class="col-12 col-sm-5 float-end ps-4">
+        <div class="col-12 col-sm-5 float-end ps-0 mb-5 mb-md-2 ps-md-4">
             <div class="card shadow ms-3">
                 <div class="card-header">
                     <h3 class="card-title m-2 text-center">In short</h3>
