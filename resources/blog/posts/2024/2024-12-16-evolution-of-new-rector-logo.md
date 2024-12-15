@@ -49,7 +49,7 @@ The logo must be:
 
 We've decided to make as many iterations as needed until we're sure it's the right one.
 
-<img src="/assets/images/blog/2024/logo/making-01.jpg" style="max-width: 30em" class="img-thumbnail">
+<img src="/assets/images/blog/2024/logo/making-01.jpg" style="width: 30em; max-width: 100%" class="img-thumbnail">
 
 <br>
 
@@ -74,7 +74,7 @@ What was the feedback?
 
 <br>
 
-<img src="/assets/images/blog/2024/logo/making-02.jpg" style="max-width: 30em" class="img-thumbnail">
+<img src="/assets/images/blog/2024/logo/making-02.jpg" style="width: 30em; max-width: 100%" class="img-thumbnail">
 
 On **3rd iteration** we've found a great [color palette](https://colorhunt.co/palette/4d46465b56567fcd91f5eaea) we fell in love:
 
@@ -145,7 +145,7 @@ We went with version 3 and made the chimney slightly bigger. Time to test on pro
 
 ## Final Version
 
-**We silently pushed the logo on our homepage to see reactions in the wild. It was great to see people noticing the change and giving us feedback.
+**We silently pushed the logo on our homepage to see reactions in the wild**. It was great to see people noticing the change and giving us feedback.
 
 Here is the final version:
 
@@ -160,7 +160,7 @@ While at it, we've designed a new cover for the [Rector book](https://leanpub.co
 
 The 5-iteration journey looked like this:
 
-<img src="/assets/images/blog/2024/logo/book-how-it-went.png" style="max-width:45em; margin: 0 0 2.5em 0">
+<img src="/assets/images/blog/2024/logo/book-how-it-went.png" style="width: 45em; max-width: 100%; margin: 0 0 2.5em 0">
 
 It's been a long but adventurous journey. **Rector is built on the PHP community, so we've really enjoyed including the community in making the new logo** the best version possible.
 
