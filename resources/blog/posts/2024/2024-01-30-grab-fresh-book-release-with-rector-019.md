@@ -11,11 +11,6 @@ updated_message: |
     Updated with **Rector 1.0** and new smart configuration methods.
 ---
 
-<a href="https://leanpub.com/rector-the-power-of-automated-refactoring?utm_source=getrectororg_book_detail" style="float:right;max-width: 13em">
-    <img src="/assets/images/logo/logo_bigger/rector_book.png" class="img-fluid img-thumbnail ms-4 mt-0">
-</a>
-
-
 We've released the [Rector - The Power of Automated Refactoring](https://leanpub.com/rector-the-power-of-automated-refactoring) book with goal of continuous upgrades. It's been a year since last upgrade, so it's time to step up and deliver fresh 2024 book release.
 
 <br>
