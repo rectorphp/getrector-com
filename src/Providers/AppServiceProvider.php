@@ -21,9 +21,7 @@ final class AppServiceProvider extends ServiceProvider
     {
         $this->app->singleton(RectorSetsTreeProvider::class);
 
-        $this->app->singleton(SymfonyStyle::class, function (): SymfonyStyle {
-            return new SymfonyStyle(new ArrayInput([]), new ConsoleOutput());
-        });
+        $this->app->singleton(SymfonyStyle::class, fn(): SymfonyStyle => new SymfonyStyle(new ArrayInput([]), new ConsoleOutput()));
 
         $this->app->singleton(MarkdownDiffer::class, function (): MarkdownDiffer {
             // this is required to show full diffs from start to end

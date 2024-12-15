@@ -15,7 +15,7 @@ use ReflectionClass;
 use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
 use Webmozart\Assert\Assert;
 
-final class RectorFinder
+final readonly class RectorFinder
 {
     /**
      * @var string[]
@@ -28,7 +28,7 @@ final class RectorFinder
     ];
 
     public function __construct(
-        private readonly RectorSetsTreeProvider $rectorSetsTreeProvider,
+        private RectorSetsTreeProvider $rectorSetsTreeProvider,
     ) {
     }
 

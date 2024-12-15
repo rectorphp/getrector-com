@@ -7,19 +7,19 @@ namespace App\Entity;
 use App\Controller\Blog\PostController;
 use DateTimeInterface;
 
-final class Post
+final readonly class Post
 {
     public function __construct(
-        private readonly int $id,
-        private readonly string $title,
-        private readonly string $slug,
-        private readonly DateTimeInterface $dateTime,
-        private readonly string $perex,
-        private readonly string $contents,
-        private readonly string $author,
-        private readonly ?DateTimeInterface $updatedAt = null,
-        private readonly ?string $updatedMessage = null,
-        private readonly ?string $sinceRector = null
+        private int $id,
+        private string $title,
+        private string $slug,
+        private DateTimeInterface $dateTime,
+        private string $perex,
+        private string $contents,
+        private string $author,
+        private ?DateTimeInterface $updatedAt = null,
+        private ?string $updatedMessage = null,
+        private ?string $sinceRector = null
     ) {
     }
 

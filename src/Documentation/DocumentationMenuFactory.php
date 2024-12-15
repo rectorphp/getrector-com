@@ -9,7 +9,7 @@ use App\Controller\FindRuleController;
 /**
  * @see \App\Tests\Documentation\DocumentationMenuFactoryTest
  */
-final class DocumentationMenuFactory
+final readonly class DocumentationMenuFactory
 {
     public function __construct(
         private DocumentationMenuItemFactory $documentationMenuItemFactory

@@ -38,9 +38,7 @@ Route::redirect('project-timeline', '/hire-team');
 Route::get('documentation/{section?}', DocumentationController::class);
 
 Route::get('blog', BlogController::class);
-Route::get('book', function () {
-    return redirect()->to('https://leanpub.com/rector-the-power-of-automated-refactoring');
-});
+Route::get('book', fn() => redirect()->to('https://leanpub.com/rector-the-power-of-automated-refactoring'));
 
 Route::get('contact', ContactController::class);
 Route::get('hire-team', HireTeamController::class);

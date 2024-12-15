@@ -14,7 +14,7 @@ use PhpParser\NodeVisitorAbstract;
 final class ConstantToValueNodeVisitor extends NodeVisitorAbstract
 {
     public function __construct(
-        private string $ruleClass
+        private readonly string $ruleClass
     ) {
     }
 

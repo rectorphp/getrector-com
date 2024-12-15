@@ -8,7 +8,7 @@ use App\Entity\RectorRun;
 use App\GitHubMagicLink\BodyFactory\IssueBodyFactory;
 use App\ValueObject\AppliedRule;
 
-final class IssueLinkFactory
+final readonly class IssueLinkFactory
 {
     /**
      * @var string
@@ -16,7 +16,7 @@ final class IssueLinkFactory
     private const BASE_URL = 'https://github.com/rectorphp/rector/issues/new?labels=bug&template=1_Bug_report.md';
 
     public function __construct(
-        private readonly IssueBodyFactory $issueBodyFactory
+        private IssueBodyFactory $issueBodyFactory
     ) {
     }
 

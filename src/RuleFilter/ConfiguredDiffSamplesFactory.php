@@ -63,13 +63,12 @@ final readonly class ConfiguredDiffSamplesFactory
         $nodeFinder = new NodeFinder();
 
         /** @var New_[] $configuredCodeSampleNews */
-        $configuredCodeSampleNews = $nodeFinder->find($stmts, function (Node $node): bool {
+        $configuredCodeSampleNews = $nodeFinder->find($stmts, fn(Node $node): bool =>
             // we look for "new ConfiguredCodeSample()"
-            return $this->isNewWithClassName(
-                $node,
-                'Symplify\RuleDocGenerator\ValueObject\CodeSample\ConfiguredCodeSample'
-            );
-        });
+            $this->isNewWithClassName(
+            $node,
+            'Symplify\RuleDocGenerator\ValueObject\CodeSample\ConfiguredCodeSample'
+        ));
 
         return $configuredCodeSampleNews;
     }

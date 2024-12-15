@@ -11,7 +11,7 @@ use Illuminate\Routing\Controller;
 final class FindRuleController extends Controller
 {
     public function __construct(
-        private RectorFinder $rectorFinder
+        private readonly RectorFinder $rectorFinder
     ) {
     }
 

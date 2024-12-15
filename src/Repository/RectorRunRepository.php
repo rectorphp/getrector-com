@@ -9,7 +9,7 @@ use Jajo\JSONDB;
 use Nette\Utils\FileSystem;
 use Symfony\Component\Uid\Uuid;
 
-final class RectorRunRepository
+final readonly class RectorRunRepository
 {
     /**
      * @var string
@@ -17,7 +17,7 @@ final class RectorRunRepository
     private const TABLE_FILE = 'rector_runs.json';
 
     // @see https://github.com/donjajo/php-jsondb
-    private readonly JSONDB $jsondb;
+    private JSONDB $jsondb;
 
     public function __construct()
     {

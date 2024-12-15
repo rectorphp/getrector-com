@@ -9,7 +9,7 @@ use App\RuleFilter\ValueObject\RectorSet;
 use App\RuleFilter\ValueObject\RuleMetadata;
 use App\Sets\RectorSetsTreeProvider;
 
-final class RuleFilter
+final readonly class RuleFilter
 {
     /**
      * @var int
@@ -17,7 +17,7 @@ final class RuleFilter
     private const MAX_RESULTS = 10;
 
     public function __construct(
-        private readonly MatchingScoreResolver $matchingScoreResolver,
+        private MatchingScoreResolver $matchingScoreResolver,
     ) {
     }
 
@@ -65,9 +65,7 @@ final class RuleFilter
         // sort by score
         usort(
             $filteredRuleMetadatas,
-            function (RuleMetadata $firstRuleMetadata, RuleMetadata $secondRuleMetadata): int {
-                return $secondRuleMetadata->getFilterScore() <=> $firstRuleMetadata->getFilterScore();
-            }
+            fn(RuleMetadata $firstRuleMetadata, RuleMetadata $secondRuleMetadata): int => $secondRuleMetadata->getFilterScore() <=> $firstRuleMetadata->getFilterScore()
         );
 
         return $filteredRuleMetadatas;

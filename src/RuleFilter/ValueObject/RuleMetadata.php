@@ -24,11 +24,11 @@ final class RuleMetadata
      * @param CodeSampleInterface[] $codeSamples
      */
     public function __construct(
-        private string $ruleClass,
-        private string $description,
+        private readonly string $ruleClass,
+        private readonly string $description,
         private array $codeSamples,
-        private array $sets,
-        private string $rectorRuleFilePath
+        private readonly array $sets,
+        private readonly string $rectorRuleFilePath
     ) {
         Assert::isAOf($ruleClass, RectorInterface::class);
         Assert::allIsAOf($sets, RectorSet::class);

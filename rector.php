@@ -19,6 +19,8 @@ return RectorConfig::configure()
         typeDeclarations: true,
         rectorPreset: true,
     )
+    ->withPhpSets()
+    ->withAttributesSets()
     ->withSkip([
         RenameForeachValueVariableToMatchMethodCallReturnTypeRector::class => [
             // metadata -> datum false positive
