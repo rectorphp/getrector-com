@@ -2,9 +2,9 @@
 id: 74
 title: "5 New Features in Rector 2.0"
 perex: |
-    Rector 2 is out! We've upgraded to PHPStan 2 and PHP-Parser 5. Based on testing on a couple huge legacy projects, Rector now runs **10-15&nbsp;%** faster.
+    Rector 2 is out! We've upgraded to PHPStan 2 and PHP-Parser 5. Based on testing on several huge legacy projects, Rector now runs **10-15&nbsp;%** faster.
 
-    We've also managed to fit in couple new features.
+    We've also managed to fit in a couple of new features.
 ---
 
 Let's take a look at what's new.
@@ -13,7 +13,7 @@ Let's take a look at what's new.
 
 ## 1. The `--only` Option to run 1 Rule
 
-At the moment, the Rector repository has a `rector.php` config that enables runs 350+ rules. What if we add a single custom rule and want to run only that one? We'd have to comment out all other rules, run Rector, and then uncomment them back. That's a lot of manual work, right?
+At the moment, the Rector repository has a `rector.php` config that enables the running of 350+ rules. What if we add a single custom rule and want to run only that one? We'd have to comment out all other rules, run Rector, and then uncomment them back. That's a lot of manual work, right?
 
 <br>
 
@@ -23,15 +23,13 @@ At the moment, the Rector repository has a `rector.php` config that enables runs
 vendor/bin/rector process src --only="Utils\Rector\MoveTraitsToConstructorRector"
 ```
 
-It's was a tough challenge to make all quotes and slashes in CLI work across all operating systems.
-
-Thanks to [Christian Weiske](https://github.com/rectorphp/rector-src/pull/6441) who's done a great job on this feature.
+Making all quotes and slashes in CLI work across all operating systems was a tough challenge. Thanks to [Christian Weiske](https://github.com/rectorphp/rector-src/pull/6441), who's done a great job on this feature.
 
 <br>
 
 ## 2. Introducing Composer-based sets
 
-In the wild, the vendor-sets like Symfony, Twig, Laravel or Doctrine, have many sets - each containing a group or rules for specific version. Symfony has over 20 sets, but let's look at simpler example - Twig:
+In the wild, vendor sets like Symfony, Twig, Laravel, or Doctrine have many sets - each containing a group or rules for a specific version. Symfony has over 20 sets, but let's look at a more straightforward example - Twig:
 
 ```php
 use Rector\Config\RectorConfig;
@@ -48,7 +46,7 @@ return RectorConfig::configure()
 
 <br>
 
-This is wrong for many reasons. It can lead to:
+This doesn't seem right for many reasons. It can lead to:
 
 * bloated `rector.php` file
 * missed new set, as we have to always add new sets as they're published
@@ -56,16 +54,16 @@ This is wrong for many reasons. It can lead to:
 
 <br>
 
-Instead, **Rector should be able to pick up version from installed version, and provide only relevant rules**.
+Instead, **the Rector should be able to pick up the version from the installed version and provide only relevant rules**.
 
-Fully automated, like following:
+Fully automated, like the following:
 
 ```php
 return RectorConfig::configure()
     ->withComposerBased(twig: true)
 ```
 
-Currently we provide `twig`, `doctrine` and `phpunit` composer-based sets.
+Currently, we provide `twig`, `doctrine`, and `phpunit` composer-based sets.
 
 If you want to **know how it works behind the scenes**, check [this dedicated post](/blog/introducing-composer-version-based-sets).
 
@@ -91,7 +89,7 @@ It works for all `->withPhp*Sets()` too.
 
 ## 4. Smarter Annotations to Attributes sets
 
-We're proving [annotations to attributes upgrade](https://getrector.com/blog/how-to-upgrade-annotations-to-attributes) since PHP 8.0 day one. You can enable them in `rector.php` easily:
+We've been providing [annotations to attributes upgrade](https://getrector.com/blog/how-to-upgrade-annotations-to-attributes) since PHP 8.0 day. You can enable them in `rector.php` easily:
 
 ```php
 use Rector\Config\RectorConfig;
@@ -102,7 +100,7 @@ return RectorConfig::configure()
 
 <br>
 
-In reality, some packages add attribute support a bit later. E.g. Rector 2 ships with [Behat attributes](https://github.com/rectorphp/rector-src/pull/6510) contributed by [Carlos Granados](https://github.com/carlos-granados). To use them in our project, we'd have to change the config:
+In reality, some packages add attribute support a bit later. E.g., Rector 2 ships with [Behat attributes](https://github.com/rectorphp/rector-src/pull/6510) contributed by [Carlos Granados](https://github.com/carlos-granados). To use them in our project, we'd have to change the config:
 
 ```diff
  use Rector\Config\RectorConfig;
@@ -114,7 +112,7 @@ In reality, some packages add attribute support a bit later. E.g. Rector 2 ships
 
 <br>
 
-But who has time to keep checking if this or that package has new attribute sets. Instead, **make the method empty**:
+But who has time to check if this or that package has new attribute sets? Instead, **make the method empty**:
 
 ```diff
  use Rector\Config\RectorConfig;
@@ -124,7 +122,7 @@ But who has time to keep checking if this or that package has new attribute sets
 +   ->withAttributesSets();
 ```
 
-Now Rector will pick up all attribute sets automatically.
+Now, the Rector will pick up all attribute sets automatically.
 
 <br>
 
@@ -135,16 +133,18 @@ Also, Rector will now check if the attribute **actually exists before it adds it
 
 ## 5. Leaner Custom Rules
 
-Last but not least, we've collected feedback from custom rule creators. We also create many custom rules for our clients. Some of them are temporary, other are fixing simple elements. Still, we always have to fill `getRuleDefinition()` with dummy data, to make Rector happy. In reality, this method is used only by Rector core rules for [Find rule](https://getrector.com/find-rule) page.
+Last but not least, we've collected feedback from custom rule creators. We also create many custom rules for our clients. Some of them are temporary, and others fix simple elements. Still, we always have to fill `getRuleDefinition()` with dummy data to make Rector happy.
 
-Saying that, we no longer need to write tedious `getRuleDefinition()`. These methods can be finally dropped:
+In reality, this method is used only by Rector core rules for the [Find rule](https://getrector.com/find-rule) page.
+
+Saying that we no longer need to write tedious `getRuleDefinition()`. Now you can finally drop this method:
 
 ```diff
  use Rector\Rector\AbstractRector;
 -use Symplify\RuleDocGenerator\ValueObject\CodeSample\CodeSample;
 -use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
 
- final class SimpleRector extends AbstractRector
+ Final class SimpleRector extends AbstractRector
  {
 -    public function getRuleDefinition(): RuleDefinition
 -    {
@@ -163,4 +163,3 @@ See the [upgrade guide](https://github.com/rectorphp/rector/blob/main/UPGRADING.
 <br>
 
 Happy coding!
-

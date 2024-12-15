@@ -65,7 +65,7 @@ final readonly class RuleFilter
         // sort by score
         usort(
             $filteredRuleMetadatas,
-            fn(RuleMetadata $firstRuleMetadata, RuleMetadata $secondRuleMetadata): int => $secondRuleMetadata->getFilterScore() <=> $firstRuleMetadata->getFilterScore()
+            fn (RuleMetadata $firstRuleMetadata, RuleMetadata $secondRuleMetadata): int => $secondRuleMetadata->getFilterScore() <=> $firstRuleMetadata->getFilterScore()
         );
 
         return $filteredRuleMetadatas;

@@ -76,6 +76,11 @@ final readonly class RectorFinder
         return null;
     }
 
+    public function getRuleCount(): int
+    {
+        return count($this->findCore()) + count($this->findCommunity());
+    }
+
     /**
      * @param string[] $directories
      * @return array<class-string<RectorInterface>>
@@ -165,10 +170,5 @@ final readonly class RectorFinder
         }
 
         return $ruleMetadatas;
-    }
-
-    public function getRuleCount(): int
-    {
-        return count($this->findCore()) + count($this->findCommunity());
     }
 }

@@ -56,7 +56,7 @@ final class FindRuleStatsController extends Controller
      */
     private function getArrayFlattenKey(array $items, string $keyName): array
     {
-        $items = array_map(fn(array $item) => $item[$keyName], $items);
+        $items = array_map(fn (array $item) => $item[$keyName], $items);
 
         // remove empty ones
         return array_filter($items);

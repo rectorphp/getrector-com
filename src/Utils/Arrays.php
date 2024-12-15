@@ -16,6 +16,6 @@ final class Arrays
         arsort($itemsToValues);
 
         // at least twice
-        return array_filter($itemsToValues, fn(int $count): bool => $count > $requiredCount);
+        return array_filter($itemsToValues, fn (int $count): bool => $count > $requiredCount);
     }
 }
