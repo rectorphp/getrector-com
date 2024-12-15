@@ -63,24 +63,13 @@ In 2024, so far we've contributed:
 
 <br>
 
-## Launching Open-Source Scholarships
-
-As of this article and September 2024, we're starting 3 PHP open-source scholarships and **give monthly**:
-
-* [staabm](https://github.com/sponsors/staabm) - 800 $
-* [peterfox](https://github.com/sponsors/peterfox) - 500 $
-* [janedbal](https://github.com/sponsors/janedbal) - 300 $
-
-<br>
-
 Total of **18 663 $** to this day.
 
 <br>
 <br>
 
-
 Is your company building on top of open-source? Do you want to enjoy more tools in the future to help our IT economy?
-<br>
+
 Here is how [to join Plege](https://osspledge.com/join/).
 
 <br>

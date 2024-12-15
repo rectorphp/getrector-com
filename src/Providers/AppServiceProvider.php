@@ -21,20 +21,10 @@ final class AppServiceProvider extends ServiceProvider
     {
         $this->app->singleton(RectorSetsTreeProvider::class);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> b2713766 (gram)
         $this->app->singleton(
             SymfonyStyle::class,
             fn (): SymfonyStyle => new SymfonyStyle(new ArrayInput([]), new ConsoleOutput())
         );
-<<<<<<< HEAD
-=======
-        $this->app->singleton(SymfonyStyle::class, fn(): SymfonyStyle => new SymfonyStyle(new ArrayInput([]), new ConsoleOutput()));
->>>>>>> 05ade3e2 (bump to PHP 8.2)
-=======
->>>>>>> b2713766 (gram)
 
         $this->app->singleton(MarkdownDiffer::class, function (): MarkdownDiffer {
             // this is required to show full diffs from start to end
