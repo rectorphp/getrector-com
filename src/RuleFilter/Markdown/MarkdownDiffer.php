@@ -12,7 +12,7 @@ use SebastianBergmann\Diff\Differ;
  *
  * @see \App\Tests\RuleFilter\Markdown\MarkdownDifferTest
  */
-final class MarkdownDiffer
+final readonly class MarkdownDiffer
 {
     /**
      * @var string
@@ -27,7 +27,7 @@ final class MarkdownDiffer
     private const SPACE_AND_NEWLINE_REGEX = '#( ){1,}\n#';
 
     public function __construct(
-        private readonly Differ $differ,
+        private Differ $differ,
     ) {
     }
 

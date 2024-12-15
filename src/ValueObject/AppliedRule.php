@@ -7,12 +7,12 @@ namespace App\ValueObject;
 use App\Exception\ShouldNotHappenException;
 use Nette\Utils\Strings;
 
-final class AppliedRule
+final readonly class AppliedRule
 {
-    private readonly string $shortRectorClass;
+    private string $shortRectorClass;
 
     public function __construct(
-        private readonly string $rectorClass
+        private string $rectorClass
     ) {
         $shortRectorClassName = Strings::after($rectorClass, '\\', -1);
         if (! is_string($shortRectorClassName)) {

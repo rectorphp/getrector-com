@@ -8,7 +8,7 @@ use App\Controller\DocumentationController;
 use Illuminate\Contracts\Routing\UrlGenerator;
 use Illuminate\Routing\Controller;
 
-final class DocumentationMenuItemFactory
+final readonly class DocumentationMenuItemFactory
 {
     public function __construct(
         private UrlGenerator $urlGenerator

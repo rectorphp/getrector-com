@@ -16,7 +16,7 @@ use PhpParser\NodeVisitor\ParentConnectingVisitor;
 use PhpParser\Parser;
 use PhpParser\ParserFactory;
 
-final class SimplePhpParser
+final readonly class SimplePhpParser
 {
     private Parser $phpParser;
 

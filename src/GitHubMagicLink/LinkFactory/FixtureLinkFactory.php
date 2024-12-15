@@ -12,7 +12,7 @@ use Nette\Utils\Strings;
 /**
  * @see \App\GitHubMagicLink\Twig\FixtureLinkTwigExtension
  */
-final class FixtureLinkFactory
+final readonly class FixtureLinkFactory
 {
     /**
      * @var string
@@ -36,8 +36,8 @@ final class FixtureLinkFactory
     private const DOWNGRADE_PACKAGE_PREFIX = 'DowngradePhp';
 
     public function __construct(
-        private readonly FixtureBodyFactory $fixtureBodyFactory,
-        private readonly PullRequestDescriptionFactory $pullRequestDescriptionFactory
+        private FixtureBodyFactory $fixtureBodyFactory,
+        private PullRequestDescriptionFactory $pullRequestDescriptionFactory
     ) {
     }
 

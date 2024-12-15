@@ -21,7 +21,7 @@ use Throwable;
 /**
  * @see \App\Tests\DemoRunnerTest
  */
-final class DemoRunner
+final readonly class DemoRunner
 {
     /**
      * @var string
@@ -38,12 +38,12 @@ final class DemoRunner
      */
     private const EXIT_CODE_SUCCESS = 0;
 
-    private readonly string $demoDir;
+    private string $demoDir;
 
     public function __construct(
-        private readonly ErrorMessageNormalizer $errorMessageNormalizer,
-        private readonly Filesystem $filesystem,
-        private readonly RectorProcessFactory $rectorProcessFactory,
+        private ErrorMessageNormalizer $errorMessageNormalizer,
+        private Filesystem $filesystem,
+        private RectorProcessFactory $rectorProcessFactory,
     ) {
         $this->demoDir = __DIR__ . '/../storage/demo';
     }

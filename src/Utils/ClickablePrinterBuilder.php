@@ -29,7 +29,7 @@ use Webmozart\Assert\Assert;
  * @api used in bin
  * @see \App\Ast\PhpParser\ClickablePrinter
  */
-final class ClickablePrinterBuilder
+final readonly class ClickablePrinterBuilder
 {
     /**
      * @var string
@@ -42,9 +42,9 @@ final class ClickablePrinterBuilder
     private const ACTIVE_NODE_ID = 'activeNodeId';
 
     public function __construct(
-        private readonly SimplePhpParser $simplePhpParser,
-        private readonly BuilderFactory $builderFactory,
-        private readonly ClickablePrinterNodeFactory $clickablePrinterNodeFactory
+        private SimplePhpParser $simplePhpParser,
+        private BuilderFactory $builderFactory,
+        private ClickablePrinterNodeFactory $clickablePrinterNodeFactory
     ) {
     }
 

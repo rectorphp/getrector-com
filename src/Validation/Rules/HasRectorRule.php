@@ -24,7 +24,7 @@ final class HasRectorRule implements ValidationRule
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
         // dummy check for custom rule request
-        if (str_contains($value, AbstractRector::class)) {
+        if (str_contains((string) $value, AbstractRector::class)) {
             return;
         }
 

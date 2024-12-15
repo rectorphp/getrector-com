@@ -16,7 +16,7 @@ use PhpParser\NodeFinder;
 use PhpParser\Parser;
 use PhpParser\ParserFactory;
 
-final class ValidAndSafePhpSyntaxRule implements ValidationRule
+final readonly class ValidAndSafePhpSyntaxRule implements ValidationRule
 {
     /**
      * @see https://regex101.com/r/GzUnSz/1
