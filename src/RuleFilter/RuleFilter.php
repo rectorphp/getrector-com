@@ -65,7 +65,15 @@ final readonly class RuleFilter
         // sort by score
         usort(
             $filteredRuleMetadatas,
+<<<<<<< HEAD
+<<<<<<< HEAD
             fn (RuleMetadata $firstRuleMetadata, RuleMetadata $secondRuleMetadata): int => $secondRuleMetadata->getFilterScore() <=> $firstRuleMetadata->getFilterScore()
+=======
+            fn(RuleMetadata $firstRuleMetadata, RuleMetadata $secondRuleMetadata): int => $secondRuleMetadata->getFilterScore() <=> $firstRuleMetadata->getFilterScore()
+>>>>>>> 05ade3e2 (bump to PHP 8.2)
+=======
+            fn (RuleMetadata $firstRuleMetadata, RuleMetadata $secondRuleMetadata): int => $secondRuleMetadata->getFilterScore() <=> $firstRuleMetadata->getFilterScore()
+>>>>>>> b2713766 (gram)
         );
 
         return $filteredRuleMetadatas;
