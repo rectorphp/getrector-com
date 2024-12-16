@@ -21,6 +21,11 @@ final readonly class ThumbnailGenerator
      */
     private const THUMBNAIL_DIRECTORY = __DIR__ . '/../../storage/thumbnail/';
 
+    /**
+     * @var float
+     */
+    private const RESIZE_LOGO_RATIO = .22;
+
     public function __construct(
         private Imagine $imagine
     ) {
@@ -39,9 +44,13 @@ final readonly class ThumbnailGenerator
     public function addRectorLogo(ImageInterface $image): void
     {
         $rectorLogoImage = $this->imagine->open(__DIR__ . '/../../public/assets/images/new-logo/rector-square.png');
-        $rectorLogoImage->resize(new Box(716 * .75, 175 * .75));
 
-        $image->paste($rectorLogoImage, new Point(1400, 100));
+        $currentWidth = $rectorLogoImage->getSize()->getWidth();
+        $currentHeight = $rectorLogoImage->getSize()->getHeight();
+
+        $rectorLogoImage->resize(new Box($currentWidth * self::RESIZE_LOGO_RATIO, $currentHeight * self::RESIZE_LOGO_RATIO));
+
+        $image->paste($rectorLogoImage, new Point(1450, 50));
     }
 
     public function resolveImageFilePath(string $title): string
