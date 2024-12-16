@@ -10,7 +10,7 @@
     <meta property="og:type" content="article"/>
     <meta
         property="og:image"
-        content="{{ action(\App\Controller\Socials\PostThumbnailController::class, ['title' => $post->getClearTitle()]) }}"
+        content="{{ action(\App\Controller\Socials\PostThumbnailController::class, ['title' => $post->getClearTitle()]) }}?v=2"
     />
 
     <meta
