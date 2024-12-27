@@ -22,7 +22,7 @@
     <meta name="twitter:title" content="{{ $post->getClearTitle() }}"/>
     <meta
         name="twitter:image"
-        content="{{ action(\App\Controller\Socials\PostThumbnailController::class, ['title' => $post->getClearTitle()]) }}"
+        content="{{ action(\App\Controller\Socials\PostThumbnailController::class, ['title' => $post->getClearTitle()]) }}?v=3"
     />
     <meta name="twitter:description" content="{{ $post->getPerex() }}"/>
 
