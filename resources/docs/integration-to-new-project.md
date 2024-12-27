@@ -93,97 +93,13 @@ Again, we run Rector, apply changes, create pull-request, and go for merge. Slow
 
 <br>
 
-Every codebase is different, and sometimes, we come across a rule that is not safe to apply. We can skip it for now:
+### Skip what you don't need
 
-```diff
- <?php
+Every codebase is different, and sometimes, we come across a rule that is not safe to apply, or files we want to skip.
+Use [ignoring](/documentation/ignoring-rules-or-paths) for that.
 
- use Rector\Config\RectorConfig;
-+use Rector\Php54\Rector\FuncCall\RemoveReferenceFromCallRector;
+## Prepared sets, one level at a time
 
- return RectorConfig::configure()
-     ->withPaths([__DIR__ . '/src', __DIR__ . '/tests'])
-+    ->withSkip([RemoveReferenceFromCallRector::class])
-     ->withPhpSets(php54: true);
-```
+Rector provides dozens of [prepared sets](/documentation/set-lists). But the same way we don't read every book in library we visit for first time, we don't enable all prepared sets at once.
 
-This is an entirely valid upgrade process. We will deal with skips later once our codebase is upgraded to our PHP version and much more robust.
-
-Check [other ways to use `withSkip()`](/documentation/ignoring-rules-or-paths).
-
-## 4. Type Coverage Level
-
-What is a PHP 8.3 project without a single type declaration?
-
-A horse with Tesla bodywork.
-
-<br>
-
-Type coverage is one of the most influential metrics in a modern PHP project. We can have a high PHP version in `composer.json`, but our code can still be full of `mixed` types, giving us zero confidence. There is a PHPStan package - [`type-coverage`](https://github.com/TomasVotruba/type-coverage)- that helps raise the bar 1% at a time.
-
-How can we use Rector to help out with type coverage? We can add a prepared set:
-
-```diff
- <?php
-
- use Rector\Config\RectorConfig;
-
- return RectorConfig::configure()
-     ->withPaths([__DIR__ . '/src', __DIR__ . '/tests'])
-+    ->withPreparedSets(typeDeclarations: true);
-```
-
-Let's run Rector:
-
-```bash
-vendor/bin/rector --dry-run
-```
-
-Wow, over 90 % of files were changed. That's going to be a very long review. We can do better than that.
-
-## 5. One Level at a Time
-
-Instead of applying ~50 type declaration rules at once, we can apply them individually. This is much easier to review and explain to your team. But which one should we start with?
-
-We took the liberty of sorting the rules from the easy-pick to more complex ones. You can enable them yourself and go one level at a time:
-
-```diff
- <?php
-
- use Rector\Config\RectorConfig;
-
- return RectorConfig::configure()
-     ->withPaths([__DIR__ . '/src', __DIR__ . '/tests'])
--    ->withPreparedSets(typeDeclaration: true);
-+    ->withTypeCoverageLevel(1);
-```
-
-Now run Rector to see the changed files:
-
-```php
-vendor/bin/rector
-```
-
-Only five files? We can do that in a day. We create a pull request, get a review, and merge. The next day, we can continue with level 2. You get the idea.
-
-## 6. Dead Code Level
-
-Are you done with the type level and reached [99 % type coverage](https://github.com/tomasVotruba/type-coverage)? It's time to move on to dead code removal.
-
-Again, we could use the prepared dead-code set, but the number of changes would be huge. Instead, we make use of the dead-code level:
-
-```php
-<?php
-
-use Rector\Config\RectorConfig;
-
-return RectorConfig::configure()
-    ->withPaths([__DIR__ . '/src', __DIR__ . '/tests'])
-    ->withTypeCoverageLevel(40)
-    ->withDeadCodeLevel(1);
-```
-
-
-We increase it by 1, run Rector, create a pull request, get a review, and merge.
-
-Once we reach the highest dead code level, we can move on to [next prepared sets](/documentation/set-lists).
+Instead, **use [level methods](/documentation/levels) and take it step by step**. It more relaxing path to reach the goal.

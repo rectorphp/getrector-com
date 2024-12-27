@@ -26,6 +26,7 @@ final readonly class DocumentationMenuFactory
                 $this->documentationMenuItemFactory->createSection('integration-to-new-project', 'New Project', true),
                 $this->documentationMenuItemFactory->createSection('define-paths', 'Define Paths'),
                 $this->documentationMenuItemFactory->createSection('set-lists', 'Set Lists'),
+                $this->documentationMenuItemFactory->createSection('levels', 'Levels', true),
                 $this->documentationMenuItemFactory->createSection('composer-based-sets', 'Composer-Based Sets', true),
                 $this->documentationMenuItemFactory->createInternalLink(FindRuleController::class, 'Find Rules'),
                 $this->documentationMenuItemFactory->createSection(
