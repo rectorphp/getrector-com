@@ -36,9 +36,9 @@ final class PostRepository
         return $this->posts;
     }
 
-    public function findByTitle(string $title): ?Post
+    public function findByLowercasedTitle(string $lowercasedTitle): ?Post
     {
-        $filter = static fn (Post $post): bool => $post->getTitle() === $title;
+        $filter = static fn (Post $post): bool => strtolower($post->getTitle()) === $lowercasedTitle;
         return ArrayLookupFinder::first($this->posts, $filter);
     }
 

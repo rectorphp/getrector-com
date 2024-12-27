@@ -23,13 +23,13 @@ final class PostThumbnailController extends Controller
     ) {
     }
 
-    public function __invoke(string $title): BinaryFileResponse
+    public function __invoke(string $lowercasedTitle): BinaryFileResponse
     {
-        $imageFilePath = $this->thumbnailGenerator->resolveImageFilePath($title);
+        $imageFilePath = $this->thumbnailGenerator->resolveImageFilePath($lowercasedTitle);
 
         // on the fly
         if (! file_exists($imageFilePath)) {
-            $this->createImage($title, $imageFilePath);
+            $this->createImage($lowercasedTitle, $imageFilePath);
         }
 
         return response()->file($imageFilePath);
@@ -46,7 +46,7 @@ final class PostThumbnailController extends Controller
 
         $greenFont = $this->thumbnailGenerator->createFont(FontFile::INTER, '59a35e', 40);
 
-        $post = $this->postRepository->findByTitle($title);
+        $post = $this->postRepository->findByLowercasedTitle($title);
         if (! $post instanceof Post) {
             return;
         }

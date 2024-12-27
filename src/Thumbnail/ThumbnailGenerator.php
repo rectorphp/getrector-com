@@ -60,8 +60,6 @@ final readonly class ThumbnailGenerator
             FileSystem::createDir(self::THUMBNAIL_DIRECTORY);
         }
 
-        $filePath = self::THUMBNAIL_DIRECTORY . '/' . Strings::webalize($title) . '.png';
-
-        return strtolower($filePath);
+        return self::THUMBNAIL_DIRECTORY . '/' . Strings::webalize($title) . '.png';
     }
 }

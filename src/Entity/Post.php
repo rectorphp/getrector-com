@@ -42,6 +42,11 @@ final readonly class Post
         return str_replace('?', '', $clearTitle);
     }
 
+    public function getClearTitleLowercased(): string
+    {
+        return strtolower($this->getClearTitle());
+    }
+
     public function getPerex(): string
     {
         return $this->perex;
