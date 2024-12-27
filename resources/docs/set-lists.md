@@ -63,7 +63,7 @@ Do you want to migrate your annotations to native PHP 8.0 attributes?
  }
 ```
 
-The `->withAttributesSets()` method will automatically pick up those attributes present in your `/vendor`:
+Following method will automatically pick up attribute classes present in your `/vendor`, and upgrade annotations to their attribute equivalent:
 
 ```php
 <?php
