@@ -13,7 +13,20 @@ That way you can include group of rules that focus on certain topic, e.g. in thi
 
 ## PHP Sets
 
-How can you upgrade to PHP 7.3?
+The best practise is to use PHP version defined in `composer.json`. Rector will automatically pick it up with empty `->withPhpSets()` method:
+
+```php
+<?php
+
+use Rector\Config\RectorConfig;
+
+return RectorConfig::configure()
+    ->withPhpSets();
+```
+
+<br>
+
+**Are you on a legacy project** and want to upgrade set by set first? Use one by one from `PHP_53` up to `PHP_74`:
 
 ```php
 <?php
@@ -25,10 +38,11 @@ return RectorConfig::configure()
     ->withSets([SetList::PHP_73]);
 ```
 
-> If you're on PHP 8.x, you can use `withPhpSets()` instead, so for the `php83` set, you can define:
+> If you're on PHP 8+, you can use `->withPhpSets()` with named arguments:
+>
 > ```diff
-> -   ->withSets([SetList::PHP_83]);
-> +   ->withPhpSets(php83: true);
+> -   ->withSets([SetList::PHP_74]);
+> +   ->withPhpSets(php80: true);
 > ```
 
 That way you can use all the sets that are needed to upgrade your code to the desired PHP version in single line.
@@ -49,7 +63,18 @@ Do you want to migrate your annotations to native PHP 8.0 attributes?
  }
 ```
 
-You can pick the groups you need with `withAttributesSets()` method:
+The `->withAttributesSets()` method will automatically pick up those attributes present in your `/vendor`:
+
+```php
+<?php
+
+use Rector\Config\RectorConfig;
+
+return RectorConfig::configure()
+    ->withAttributesSets();
+```
+
+**If you're on a legacy project** and want to take it step by step, use named arguments to limit to specific groups:
 
 ```php
 <?php
