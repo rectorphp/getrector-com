@@ -45,10 +45,14 @@ final readonly class ThumbnailGenerator
     {
         $rectorLogoImage = $this->imagine->open(__DIR__ . '/../../public/assets/images/new-logo/rector-square.png');
 
-        $currentWidth = $rectorLogoImage->getSize()->getWidth();
-        $currentHeight = $rectorLogoImage->getSize()->getHeight();
+        $currentWidth = $rectorLogoImage->getSize()
+            ->getWidth();
+        $currentHeight = $rectorLogoImage->getSize()
+            ->getHeight();
 
-        $rectorLogoImage->resize(new Box($currentWidth * self::RESIZE_LOGO_RATIO, $currentHeight * self::RESIZE_LOGO_RATIO));
+        $rectorLogoImage->resize(
+            new Box($currentWidth * self::RESIZE_LOGO_RATIO, $currentHeight * self::RESIZE_LOGO_RATIO)
+        );
 
         $image->paste($rectorLogoImage, new Point(1450, 50));
     }

@@ -1,3 +1,5 @@
+## Prepared Sets
+
 You can use particular single rules, or whole list of rules, called "set lists":
 
 ```php
@@ -6,10 +8,21 @@ You can use particular single rules, or whole list of rules, called "set lists":
 use Rector\Config\RectorConfig;
 
 return RectorConfig::configure()
-    ->withPreparedSets(deadCode: true, codeQuality: true);
+    ->withPreparedSets(
+        deadCode: true,
+        codeQuality: true,
+        codingStyle: true,
+        naming: true,
+        privatization: true,
+        typeDeclarations: true,
+        rectorPreset: true,
+        // ...
+    );
 ```
 
 That way you can include group of rules that focus on certain topic, e.g. in this case on dead detection. It makes config small and clear.
+
+Try autocomplete in your IDE to see all available prepared sets.
 
 ## PHP Sets
 
