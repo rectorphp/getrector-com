@@ -1,4 +1,4 @@
-Core sets like [Twig, Symfony, or Doctrine](/composer-based-sets) are based on specific versions of installed packages in `/vendor`:
+Core sets like [Twig, Symfony, or Doctrine](/documentation/composer-based-sets) are based on specific versions of installed packages in `/vendor`:
 
 ```php
 use Rector\Config\RectorConfig;
