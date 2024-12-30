@@ -42,7 +42,7 @@ We took the liberty of sorting the rules from the easy-pick to more complex ones
  return RectorConfig::configure()
      ->withPaths([__DIR__ . '/src', __DIR__ . '/tests'])
 -    ->withPreparedSets(typeDeclaration: true);
-+    ->withTypeCoverageLevel(1);
++    ->withTypeCoverageLevel(0);
 ```
 
 Now run Rector to see the changed files:
@@ -51,7 +51,7 @@ Now run Rector to see the changed files:
 vendor/bin/rector
 ```
 
-Only five files? We can do that in a day. We create a pull request, get a review, and merge. The next day, we can continue with level 2. You get the idea.
+Only five files? We can do that in a day. We create a pull request, get a review, and merge. The next day, we can continue with level 1. You get the idea.
 
 ## Dead Code and Code Quality Level
 
@@ -66,9 +66,9 @@ use Rector\Config\RectorConfig;
 
 return RectorConfig::configure()
     ->withPaths([__DIR__ . '/src', __DIR__ . '/tests'])
-    ->withTypeCoverageLevel(1)
-    ->withDeadCodeLevel(1)
-    ->withCodeQualityLevel(1);
+    ->withTypeCoverageLevel(0)
+    ->withDeadCodeLevel(0)
+    ->withCodeQualityLevel(0);
 ```
 
 We increase it by 1, run Rector, create a pull request, get a review, and merge.
