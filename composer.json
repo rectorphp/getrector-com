@@ -20,7 +20,7 @@
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^3.2",
-        "driftingly/rector-laravel": "^2.0",
+        "driftingly/rector-laravel": "dev-main as 2.0",
         "nette/robot-loader": "^4.0",
         "phpstan/extension-installer": "^1.4",
         "phpstan/phpstan": "^2.0",

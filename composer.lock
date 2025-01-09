@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2d40e1717e327a44c3dcd0e7f8c95080",
+    "content-hash": "a00be2b426d2bc55b23a585b1cc790e8",
     "packages": [
         {
             "name": "brick/math",
@@ -6600,22 +6600,36 @@
         },
         {
             "name": "driftingly/rector-laravel",
-            "version": "2.0.0",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/driftingly/rector-laravel.git",
-                "reference": "7de906ae5772c2993ee6baf683d87c90a850ed96"
+                "reference": "915565b3676f08b64d9356e5925ee0067c2c8ce4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/driftingly/rector-laravel/zipball/7de906ae5772c2993ee6baf683d87c90a850ed96",
-                "reference": "7de906ae5772c2993ee6baf683d87c90a850ed96",
+                "url": "https://api.github.com/repos/driftingly/rector-laravel/zipball/915565b3676f08b64d9356e5925ee0067c2c8ce4",
+                "reference": "915565b3676f08b64d9356e5925ee0067c2c8ce4",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.2 || ^8.0",
-                "rector/rector": "^2.0"
+                "php": ">=8.2",
+                "rector/rector": "^2.0.0",
+                "symplify/rule-doc-generator-contracts": "^11.2",
+                "webmozart/assert": "^1.11"
             },
+            "require-dev": {
+                "nikic/php-parser": "^5.3",
+                "phpstan/extension-installer": "^1.3",
+                "phpstan/phpstan": "^2.0",
+                "phpstan/phpstan-deprecation-rules": "^2.0",
+                "phpstan/phpstan-strict-rules": "^2.0",
+                "phpstan/phpstan-webmozart-assert": "^2.0",
+                "phpunit/phpunit": "^10.5",
+                "symplify/rule-doc-generator": "^12.2",
+                "tightenco/duster": "^3.1"
+            },
+            "default-branch": true,
             "type": "rector-extension",
             "autoload": {
                 "psr-4": {
@@ -6629,9 +6643,9 @@
             "description": "Rector upgrades rules for Laravel Framework",
             "support": {
                 "issues": "https://github.com/driftingly/rector-laravel/issues",
-                "source": "https://github.com/driftingly/rector-laravel/tree/2.0.0"
+                "source": "https://github.com/driftingly/rector-laravel/tree/main"
             },
-            "time": "2024-12-12T22:16:05+00:00"
+            "time": "2025-01-09T19:28:43+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -8584,6 +8598,65 @@
             "time": "2024-12-12T15:36:04+00:00"
         },
         {
+            "name": "symplify/rule-doc-generator-contracts",
+            "version": "11.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symplify/rule-doc-generator-contracts.git",
+                "reference": "479cfcfd46047f80624aba931d9789e50475b5c6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symplify/rule-doc-generator-contracts/zipball/479cfcfd46047f80624aba931d9789e50475b5c6",
+                "reference": "479cfcfd46047f80624aba931d9789e50475b5c6",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1"
+            },
+            "require-dev": {
+                "php-parallel-lint/php-parallel-lint": "^1.3",
+                "phpstan/extension-installer": "^1.2",
+                "rector/rector": "^0.15.10",
+                "symplify/easy-ci": "^11.1",
+                "symplify/easy-coding-standard": "^11.1",
+                "symplify/easy-testing": "^11.1",
+                "symplify/phpstan-extensions": "^11.1",
+                "symplify/phpstan-rules": "11.2.3.72",
+                "tomasvotruba/unused-public": "^0.0.34"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "11.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symplify\\RuleDocGenerator\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Contracts for production code of RuleDocGenerator",
+            "support": {
+                "source": "https://github.com/symplify/rule-doc-generator-contracts/tree/11.2.0"
+            },
+            "funding": [
+                {
+                    "url": "https://www.paypal.me/rectorphp",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/tomasvotruba",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-03-18T22:02:54+00:00"
+        },
+        {
             "name": "theseer/tokenizer",
             "version": "1.2.3",
             "source": {
@@ -8684,6 +8757,12 @@
     ],
     "aliases": [
         {
+            "package": "driftingly/rector-laravel",
+            "version": "dev-main",
+            "alias": "2.0",
+            "alias_normalized": "2.0.0.0"
+        },
+        {
             "package": "rector/rector",
             "version": "dev-main",
             "alias": "2.0",
@@ -8692,13 +8771,14 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
-        "rector/rector": 20
+        "rector/rector": 20,
+        "driftingly/rector-laravel": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
         "php": "^8.2"
     },
-    "platform-dev": {},
+    "platform-dev": [],
     "plugin-api-version": "2.6.0"
 }
