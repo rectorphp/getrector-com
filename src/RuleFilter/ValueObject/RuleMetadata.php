@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\RuleFilter\ValueObject;
 
+use App\Enum\FindRule\GroupName;
 use App\Exception\ShouldNotHappenException;
 use App\RuleFilter\ConfiguredDiffSamplesFactory;
 use App\RuleFilter\Markdown\MarkdownDiffer;
@@ -144,6 +145,10 @@ final class RuleMetadata
 
     public function belongToSetGroup(string $setGroup): bool
     {
+        if ($this->isCommunityRule()) {
+            return $setGroup === GroupName::LARAVEL;
+        }
+
         foreach ($this->sets as $set) {
             if ($set->getGroupName() === $setGroup) {
                 return true;
@@ -151,5 +156,10 @@ final class RuleMetadata
         }
 
         return false;
+    }
+
+    private function isCommunityRule(): bool
+    {
+        return str_starts_with($this->ruleClass, 'RectorLaravel');
     }
 }

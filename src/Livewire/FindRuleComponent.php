@@ -55,7 +55,7 @@ final class FindRuleComponent extends Component
                 GroupName::CORE => 'Core',
                 // GroupName::ATTRIBUTES => 'Attributes',
                 GroupName::SYMFONY => 'Symfony',
-                'laravel' => 'Laravel (community)',
+                GroupName::LARAVEL => 'Laravel (community)',
                 GroupName::PHPUNIT => 'PHPUnit',
                 GroupName::DOCTRINE => 'Doctrine',
                 GroupName::TWIG => 'Twig',

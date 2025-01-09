@@ -37,4 +37,9 @@ final class GroupName
      * @var string
      */
     public const TWIG = SetGroup::TWIG;
+
+    /**
+     * @var string
+     */
+    public const LARAVEL = SetGroup::LARAVEL;
 }
