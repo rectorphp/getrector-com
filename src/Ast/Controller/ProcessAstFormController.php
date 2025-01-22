@@ -8,8 +8,9 @@ use App\Ast\Entity\AstRun;
 use App\Ast\Request\AstFormRequest;
 use App\Repository\AstRunRepository;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Routing\Controller;
 
-final class ProcessAstFormController
+final class ProcessAstFormController extends Controller
 {
     public function __construct(
         private readonly AstRunRepository $astRunRepository

@@ -7,10 +7,10 @@ namespace App\Ast\Controller;
 use App\Repository\AstRunRepository;
 use Illuminate\View\View;
 
-final class AstDetailController
+final readonly class AstDetailController
 {
     public function __construct(
-        private readonly AstRunRepository $astRunRepository
+        private AstRunRepository $astRunRepository
     ) {
     }
 

@@ -1,45 +1,46 @@
 @extends('base')
 
 @section('main')
-    <div id="ast_run_form" class="mt-2 mb-3" style="min-height: 35em">
-        <div class="row">
-            <div class="col-12 col-md-6">
-                <h3 class="mb-3">1. Write PHP code</h3>
+    <style>
+        .headline-kick {
+            font-size: 1.4em;
+            padding-right: .2em;
+            font-weight: 500;
+            font-family: Inter, sans-serif;
+        }
+    </style>
 
-                <p>
-                    Write PHP code you're interested to see in AST
-                </p>
+    <div class="mt-2 mb-3" style="min-height: 50em" id="simple_page">
+        <div class="col-12 col-md-6 pe-4" style="float:left;">
+            <form
+                action="{{ action(\App\Ast\Controller\ProcessAstFormController::class) }}"
+                method="post"
+            >
 
-                <form
-                    action="{{ action(\App\Ast\Controller\ProcessAstFormController::class) }}"
-                    method="post"
-                >
+            @csrf
 
-                    @csrf <!-- {{ csrf_field() }} -->
-
-                    @include('_snippets.form.form_textarea', [
-                        'label' => null,
-                        'inputName' => 'php_contents',
-                        'defaultValue' => $inputFormContents,
-                    ])
-
-                    <div class="mb-5 mt-0 pt-0">
-                        <button type="submit" id="ast_form_process" name="process"
-                                class="btn w-100 btn-lg btn-success m-auto">Show AST &nbsp;&nbsp; 👉
-                        </button>
-                    </div>
-                </form>
+            <div class="mb-2 mt-0 pt-0" style="float:right">
+                <button type="submit" id="ast_form_process" name="process" class="btn btn-success">👉
+                </button>
             </div>
 
-            <div class="col-12 col-md-6">
-                <h3 class="mb-3">2. Click</h3>
+            <p class="mt-3">
+                <span class="headline-kick">1. Write</span>
+                short PHP code you want to understand
+            </p>
 
-                @isset ($astRun)
-                    <p>Click on any part of the code</p>
+                @include('_snippets.form.form_textarea', [
+                    'label' => null,
+                    'inputName' => 'php_contents',
+                    'defaultValue' => $inputFormContents,
+                ])
 
-                    @livewire('ast-component', ['astRun' => $astRun])
-                @endisset
-            </div>
+
+            </form>
         </div>
+
+        @if ($astRun instanceof \App\Ast\Entity\AstRun)
+            @livewire('ast-component', ['astRun' => $astRun, 'inputFormContents' => $inputFormContents])
+        @endif
     </div>
 @endsection

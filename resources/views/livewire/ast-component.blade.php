@@ -1,31 +1,32 @@
-<div>
-    <div class="mb-5" style="min-height: 40em">
+<span>
+    <div class="col-12 col-md-6" style="float:right">
+        <p class="mt-3">
+            <span class="headline-kick">2. Click</span> on any part of the code
+            @if ($nodeId)
+                (<a href="#" wire:click="$dispatch('select_node', {nodeId: null})">show full tree</a>)
+            @endif
+        </p>
+
         <div id="clickable-nodes-code" class="mb-4">
-            <pre><code class="hljs">&lt;?php<br/><br/>{!! $matrixVision !!}</code></pre>
+            <pre><code class="hljs"  style="min-height: 19.6em">&lt;?php<br/><br/>{!! $matrixVision !!}</code></pre>
         </div>
+    </div>
 
-        <br>
+    <div class="clearfix"></div>
 
-        <p>Selected code is represented by following abstract syntax tree:</p>
+    <div class="col-12">
+        <p class="mt-3">
+            <span class="headline-kick">3. See</span>
+            Abstract Syntax Tree created by php-parser for
 
-        <div class="row">
-            <div class="col-12">
-                <pre><code class="language-php">{{ $simpleNodeDump }}</code></pre>
-            </div>
-        </div>
+            @if ($nodeId)
+                selected node:
+            @else
+                full file
+            @endif
+        </p>
 
-        <br>
-
-        @if ($targetNodeClass)
-            <p>
-                What class-string to put into <code>Rector::getNodeTypes()</code> method to hook
-                into?
-            </p>
-
-            <pre><code class="language-php">\{{ $targetNodeClass }}::class</code></pre>
-        @endif
-
-        <br>
+        <pre><code class="language-php" style="min-height: 10em">{{ $simpleNodeDump }}</code></pre>
     </div>
 
     <script>
@@ -38,6 +39,6 @@
                     });
                 });
             });
-        })
+        });
     </script>
-</div>
+</span>

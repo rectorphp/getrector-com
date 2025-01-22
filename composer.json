@@ -30,7 +30,7 @@
         "phpstan/extension-installer": "^1.4",
         "phpstan/phpstan": "^2.0",
         "phpstan/phpstan-webmozart-assert": "^2.0",
-        "phpunit/phpunit": "^11.5",
+        "phpunit/phpunit": "11.4.0",
         "rector/swiss-knife": "^1.0",
         "phpecs/phpecs": "^2.0",
         "tomasvotruba/class-leak": "^2.0"
