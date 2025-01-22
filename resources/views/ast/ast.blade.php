@@ -16,25 +16,24 @@
                 action="{{ action(\App\Ast\Controller\ProcessAstFormController::class) }}"
                 method="post"
             >
+                @csrf
 
-            @csrf
+                <p class="mt-3">
+                    <span class="headline-kick">1. Write</span>
+                    short PHP code you want to understand
+                </p>
 
-            <div class="mb-2 mt-0 pt-0" style="float:right">
-                <button type="submit" id="ast_form_process" name="process" class="btn btn-success">👉
-                </button>
-            </div>
-
-            <p class="mt-3">
-                <span class="headline-kick">1. Write</span>
-                short PHP code you want to understand
-            </p>
+                <div style="margin-left:24em; margin-top: 13.5em; z-index: 100; position: absolute">
+                    <button type="submit" id="ast_form_process" name="process" class="btn btn-success">
+                        Parse
+                    </button>
+                </div>
 
                 @include('_snippets.form.form_textarea', [
                     'label' => null,
                     'inputName' => 'php_contents',
                     'defaultValue' => $inputFormContents,
                 ])
-
 
             </form>
         </div>
@@ -43,4 +42,7 @@
             @livewire('ast-component', ['astRun' => $astRun, 'inputFormContents' => $inputFormContents])
         @endif
     </div>
+
+    <br>
+    <br>
 @endsection
