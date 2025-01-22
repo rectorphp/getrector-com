@@ -1,32 +1,45 @@
 @extends('base')
 
 @section('main')
-    <div id="ast_run_form" class="mt-4 mb-3" style="min-height: 35em">
-        <form
-                action="{{ action(\App\Ast\Controller\ProcessAstFormController::class) }}"
-                method="post"
-        >
+    <div id="ast_run_form" class="mt-2 mb-3" style="min-height: 35em">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <h3 class="mb-3">1. Write PHP code</h3>
 
-            @csrf <!-- {{ csrf_field() }} -->
+                <p>
+                    Write PHP code you're interested to see in AST
+                </p>
 
-            <p>
-                Fill in the PHP code to see its clickable abstract-syntax-tree:
-            </p>
+                <form
+                    action="{{ action(\App\Ast\Controller\ProcessAstFormController::class) }}"
+                    method="post"
+                >
 
-            @include('_snippets.form.form_textarea', [
-                'label' => 'PHP snippet to turn into AST',
-                'inputName' => 'php_contents',
-                'defaultValue' => "<?php\n\necho 'hey';",
-            ])
+                    @csrf <!-- {{ csrf_field() }} -->
 
-            <div class="row">
-                <div class="col-6 mt-4 mb-5">
-                    <button type="submit" id="ast_form_process" name="process"
-                            class="btn btn-lg btn-success m-auto">Show AST
-                    </button>
-                </div>
+                    @include('_snippets.form.form_textarea', [
+                        'label' => null,
+                        'inputName' => 'php_contents',
+                        'defaultValue' => $inputFormContents,
+                    ])
+
+                    <div class="mb-5 mt-0 pt-0">
+                        <button type="submit" id="ast_form_process" name="process"
+                                class="btn w-100 btn-lg btn-success m-auto">Show AST &nbsp;&nbsp; 👉
+                        </button>
+                    </div>
+                </form>
             </div>
 
-        </form>
+            <div class="col-12 col-md-6">
+                <h3 class="mb-3">2. Click</h3>
+
+                @isset ($astRun)
+                    <p>Click on any part of the code</p>
+
+                    @livewire('ast-component', ['astRun' => $astRun])
+                @endisset
+            </div>
+        </div>
     </div>
 @endsection

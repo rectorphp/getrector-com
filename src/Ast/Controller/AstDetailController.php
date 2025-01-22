@@ -4,19 +4,24 @@ declare(strict_types=1);
 
 namespace App\Ast\Controller;
 
-use App\Ast\Entity\AstRun;
-use Illuminate\Routing\Controller;
+use App\Repository\AstRunRepository;
 use Illuminate\View\View;
 
-final class AstDetailController extends Controller
+final class AstDetailController
 {
+    public function __construct(
+        private readonly AstRunRepository $astRunRepository
+    ) {
+    }
+
     public function __invoke(string $hash): View
     {
-        $astRun = AstRun::firstWhere('hash', $hash);
+        $astRun = $this->astRunRepository->findByHash($hash);
 
-        return \view('ast/ast_detail', [
+        return \view('ast/ast', [
             'page_title' => 'Play with AST',
             'astRun' => $astRun,
+            'inputFormContents' => $astRun->getContent(),
         ]);
     }
 }

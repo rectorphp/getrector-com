@@ -79,11 +79,15 @@ parameters:
             message: '#Cannot call method format\(\) on Carbon\\Carbon\|null#'
             path: src/Controller/Stats/FindRuleStatsController.php
 
+        # magic model methods
+        - '#Call to an undefined static method App\\Ast\\Entity\\AstRun::where#'
+
         -
             message: '#Call to an undefined method Rector\\Contract\\Rector\\RectorInterface\:\:getRuleDefinition\(\)#'
             path: src/FileSystem/RectorFinder.php
 
         -
+            path: src/Utils/ClickablePrinterBuilder.php
             identifier: argument.type
 
         # realpath usage

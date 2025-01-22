@@ -1,14 +1,5 @@
 <div>
-    <div class="float-end mt-0">
-        <a href="{{ action(\App\Ast\Controller\AstController::class) }}"
-           class="btn btn-outline-success" style="margin-top: -.7em">
-            ← Create new code
-        </a>
-    </div>
-
-    <div class="mt-4 mb-5" style="min-height: 30em">
-        <p>Click on code part to see its AST</p>
-
+    <div class="mb-5" style="min-height: 40em">
         <div id="clickable-nodes-code" class="mb-4">
             <pre><code class="hljs">&lt;?php<br/><br/>{!! $matrixVision !!}</code></pre>
         </div>
