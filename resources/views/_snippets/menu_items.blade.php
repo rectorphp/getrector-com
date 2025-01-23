@@ -33,16 +33,18 @@
        class="nav-link">Docs</a>
 </li>
 
-<li class="nav-item">
-    <a href="{{ action(\App\Ast\Controller\AstController::class) }}"
-       class="nav-link">AST</a>
+@if (!isset($includeFooterLinks))
+    <li class="nav-item">
+        <a href="{{ action(\App\Ast\Controller\AstController::class) }}"
+           class="nav-link">AST</a>
 
-    <div class="badge text-white bg-danger"
-         style="float:right; margin-top: -4.7em; margin-right: -.3em; font-size: .6em">NEW
-    </div>
-</li>
+        <div class="badge text-white bg-danger"
+             style="float:right; margin-top: -4.7em; margin-right: -.3em; font-size: .6em">NEW
+        </div>
+    </li>
+@endif
 
-@if (isset($includeFooterLinks))
+@isset ($includeFooterLinks)
     <li class="nav-item">
         <a href="{{ action(\App\Ast\Controller\AstController::class) }}"
            class="nav-link">Play with AST</a>
@@ -66,4 +68,4 @@
     <li class="nav-item">
         <a onclick="toggleTheme()" class="nav-link" id="theme_toggle" style="cursor: pointer">Dark/Light Theme</a>
     </li>
-@endif
+@endisset
