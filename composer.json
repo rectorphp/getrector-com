@@ -19,13 +19,8 @@
         "symplify/vendor-patches": "^11.3"
     },
     "require-dev": {
-<<<<<<< HEAD
-        "barryvdh/laravel-ide-helper": "^3.2",
-        "driftingly/rector-laravel": "dev-main as 2.0",
-=======
         "barryvdh/laravel-ide-helper": "^3.3",
-        "driftingly/rector-laravel": "^2.0",
->>>>>>> 87a55e07 ([ast] use single page display for ast display, to avoid jumpoing back and forth)
+        "driftingly/rector-laravel": "dev-main as 2.0.2",
         "nette/robot-loader": "^4.0",
         "phpstan/extension-installer": "^1.4",
         "phpstan/phpstan": "^2.0",
