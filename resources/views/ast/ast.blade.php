@@ -1,32 +1,48 @@
 @extends('base')
 
 @section('main')
-    <div id="ast_run_form" class="mt-4 mb-3" style="min-height: 35em">
-        <form
+    <style>
+        .headline-kick {
+            font-size: 1.4em;
+            padding-right: .2em;
+            font-weight: 500;
+            font-family: Inter, sans-serif;
+        }
+    </style>
+
+    <div class="mt-2 mb-3" style="min-height: 50em" id="simple_page">
+        <div class="col-12 col-md-6 pe-4" style="float:left;">
+            <form
                 action="{{ action(\App\Ast\Controller\ProcessAstFormController::class) }}"
                 method="post"
-        >
+            >
+                @csrf
 
-            @csrf <!-- {{ csrf_field() }} -->
+                <p class="mt-3">
+                    <span class="headline-kick">1. Write</span>
+                    short PHP code you want to understand
+                </p>
 
-            <p>
-                Fill in the PHP code to see its clickable abstract-syntax-tree:
-            </p>
-
-            @include('_snippets.form.form_textarea', [
-                'label' => 'PHP snippet to turn into AST',
-                'inputName' => 'php_contents',
-                'defaultValue' => "<?php\n\necho 'hey';",
-            ])
-
-            <div class="row">
-                <div class="col-6 mt-4 mb-5">
-                    <button type="submit" id="ast_form_process" name="process"
-                            class="btn btn-lg btn-success m-auto">Show AST
+                <div style="margin-left:24em; margin-top: 13.5em; z-index: 100; position: absolute">
+                    <button type="submit" id="ast_form_process" name="process" class="btn btn-success">
+                        Parse
                     </button>
                 </div>
-            </div>
 
-        </form>
+                @include('_snippets.form.form_textarea', [
+                    'label' => null,
+                    'inputName' => 'php_contents',
+                    'defaultValue' => $inputFormContents,
+                ])
+
+            </form>
+        </div>
+
+        @if ($astRun instanceof \App\Ast\Entity\AstRun)
+            @livewire('ast-component', ['astRun' => $astRun, 'inputFormContents' => $inputFormContents])
+        @endif
     </div>
+
+    <br>
+    <br>
 @endsection

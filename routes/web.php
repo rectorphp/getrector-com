@@ -75,6 +75,6 @@ Route::get('demo', DemoController::class);
 Route::post('process-demo', ProcessDemoFormController::class);
 
 // ast
-Route::get('ast', AstController::class);
 Route::get('ast/{hash}', AstDetailController::class);
+Route::get('ast', AstController::class);
 Route::post('process-ast', ProcessAstFormController::class);

@@ -19,57 +19,23 @@ parameters:
         - tests/bootstrap.php
 
     level: 8
-
-#    unused_public:
-#        template_paths:
-#            - resources/views
-
     reportUnmatchedIgnoredErrors: false
 
     ignoreErrors:
-        # in glob() we trust
-        - '#Method App\\Repository\\PostRepository\:\:findPostsFilePaths\(\) should return array<string> but returns array<int, string\|false>#'
-
         # float allowed
         - '#Parameter (.*?) of class Imagine\\Image\\Box constructor expects int, float given#'
 
-        # known values
-        -
-            message: '#Offset 1 on array\{string\} on left side of \?\? does not exist#'
-            paths:
-                 - src/Controller/
-                 - src/Ast/Controller/
-
         - '#Call to an undefined method Illuminate\\Contracts\\(.*?)|Illuminate\\#'
-
-        -
-            message: '#Method App\\FileSystem\\RectorFinder\:\:findRectorClasses\(\) should return array<class\-string<Rector\\Contract\\Rector\\RectorInterface>> but returns array<int, string>#'
-            path: src/FileSystem/RectorFinder.php
 
         # stmts vs nodes
         - '#Method App\\PhpParser\\SimplePhpParser\:\:parseString\(\) should return array<PhpParser\\Node\\Stmt> but returns array<PhpParser\\Node>#'
-
-        # parent laravel model configuration property
-        - '#Public property "App\\Ast\\Entity\\AstRun\:\:\$timestamps" is never used#'
 
         # make models pass without ide helper
         -
             path: src/Ast/Entity/AstRun.php
             message: '#Access to an undefined property App\\Ast\\Entity\\AstRun\:\:\$(content|hash)#'
         - '#PHPDoc tag @mixin contains unknown class App\\Ast\\Entity\\IdeHelperAstRun#'
-        - '#Call to an undefined static method App\\Ast\\Entity\\AstRun\:\:firstWhere\(\)#'
         - '#Parameter \#1 \$rectorClass of method App\\RuleFilter\\ValueObject\\RectorSet\:\:hasRule\(\) expects class\-string, string given#'
-
-        # inherited from php-parser
-        -
-            message: '#Parameter \#1 \$nodes of method PhpParser\\PrettyPrinterAbstract\:\:pCommaSeparatedMultiline\(\) expects array<PhpParser\\Node>, array<PhpParser\\Node\\Expr\\ArrayItem\|null> given#'
-            path: src/RuleFilter/PhpParser/Printer/RectorConfigStmtsPrinter.php
-
-
-        # livewire component
-        -
-            message: '#Variable \$step might not be defined#'
-            path: src/Livewire/StepByStepComponent.php
 
         # only type
         - '#Method App\\Thumbnail\\ThumbnailGenerator\:\:createFont\(\) should return Imagine\\Image\\AbstractFont but returns Imagine\\Image\\FontInterface#'
@@ -79,11 +45,15 @@ parameters:
             message: '#Cannot call method format\(\) on Carbon\\Carbon\|null#'
             path: src/Controller/Stats/FindRuleStatsController.php
 
+        # magic model methods
+        - '#Call to an undefined static method App\\Ast\\Entity\\AstRun::where#'
+
         -
             message: '#Call to an undefined method Rector\\Contract\\Rector\\RectorInterface\:\:getRuleDefinition\(\)#'
             path: src/FileSystem/RectorFinder.php
 
         -
+            path: src/Utils/ClickablePrinterBuilder.php
             identifier: argument.type
 
         # realpath usage
@@ -92,4 +62,5 @@ parameters:
 
         # enforce native
         -
+            path: src/FileSystem/RectorFinder.php
             identifier: varTag.nativeType

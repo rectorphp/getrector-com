@@ -1,5 +1,5 @@
 @php
-    /** @var string $label */
+    /** @var string|null $label */
     /** @var string $inputName */
     /** @var string $defaultValue */
 @endphp
@@ -13,7 +13,9 @@
 @enderror
 
 <div class="card mb-4">
-    <div class="card-header">{!! $label !!}</div>
+    @if ($label)
+        <div class="card-header">{!! $label !!}</div>
+    @endif
 
     <div class="card-body p-0">
         <textarea

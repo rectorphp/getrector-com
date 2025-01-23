@@ -33,6 +33,15 @@
        class="nav-link">Docs</a>
 </li>
 
+<li class="nav-item">
+    <a href="{{ action(\App\Ast\Controller\AstController::class) }}"
+       class="nav-link">AST</a>
+
+    <div class="badge text-white bg-danger"
+         style="float:right; margin-top: -4.7em; margin-right: -.3em; font-size: .6em">NEW
+    </div>
+</li>
+
 @if (isset($includeFooterLinks))
     <li class="nav-item">
         <a href="{{ action(\App\Ast\Controller\AstController::class) }}"

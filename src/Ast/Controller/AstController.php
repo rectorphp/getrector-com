@@ -13,6 +13,16 @@ final class AstController extends Controller
     {
         return \view('ast/ast', [
             'page_title' => 'Play with AST',
+
+            // not set yet
+            'astRun' => null,
+            'inputFormContents' => <<<'PHP'
+<?php
+
+if ($condition === 'demo') {
+    return true;
+}
+PHP
         ]);
     }
 }

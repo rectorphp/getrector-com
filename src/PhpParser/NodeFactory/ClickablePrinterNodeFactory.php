@@ -57,7 +57,7 @@ final class ClickablePrinterNodeFactory
         );
 
         $args = $builderFactory->args([
-            '<a href="#" wire:click="$dispatch(\'' . ComponentEvent::SELECT_NODE . '\', {
+            '<a href="#" wire:click.prevent="$dispatch(\'' . ComponentEvent::SELECT_NODE . '\', {
             nodeId: %s,
         })" %s>%s</a>',
             new Variable('nodeId'),
