@@ -12,7 +12,7 @@
         "nesbot/carbon": "^3.8",
         "nikic/php-parser": "^5.4",
         "rector/rector": "dev-main as 2.0",
-        "samsonasik/array-lookup": "^1.8",
+        "samsonasik/array-lookup": "^2.0",
         "symfony/filesystem": "^7.2",
         "symfony/uid": "^7.2",
         "symfony/yaml": "^7.2",
@@ -20,7 +20,7 @@
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^3.3",
-        "driftingly/rector-laravel": "dev-main as 2.0.2",
+        "driftingly/rector-laravel": "^2.0.2",
         "nette/robot-loader": "^4.0",
         "phpstan/extension-installer": "^1.4",
         "phpstan/phpstan": "^2.0",
