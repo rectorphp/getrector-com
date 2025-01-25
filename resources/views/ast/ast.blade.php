@@ -23,7 +23,7 @@
                     short PHP code you want to understand
                 </p>
 
-                <div style="margin-left:24em; margin-top: 13.5em; z-index: 100; position: absolute">
+                <div style="margin-left:1em; margin-top: 13.5em; z-index: 100; position: absolute">
                     <button type="submit" id="ast_form_process" name="process" class="btn btn-success">
                         Parse
                     </button>
