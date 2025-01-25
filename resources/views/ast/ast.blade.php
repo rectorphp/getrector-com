@@ -35,10 +35,11 @@
                     </button>
                 </div>
 
+                <br /><br />
+
             </form>
         </div>
 
-        <br /><br />
         @if ($astRun instanceof \App\Ast\Entity\AstRun)
             @livewire('ast-component', ['astRun' => $astRun, 'inputFormContents' => $inputFormContents])
         @endif
