@@ -11,7 +11,7 @@
     </style>
 
     <div class="mt-2 mb-3" style="min-height: 50em" id="simple_page">
-        <div class="col-12 col-md-6 pe-4" style="float:left;">
+        <div class="col-12 col-md-6 pe-4" style="float:left; position: relative">
             <form
                 action="{{ action(\App\Ast\Controller\ProcessAstFormController::class) }}"
                 method="post"
@@ -23,20 +23,17 @@
                     short PHP code you want to understand
                 </p>
 
-                @include('_snippets.form.form_textarea', [
-                    'label' => null,
-                    'inputName' => 'php_contents',
-                    'defaultValue' => $inputFormContents,
-                ])
-
-                <div style="margin-left:0em; margin-top: 0em; z-index: 100; position: absolute">
+                <div style="right: 3em; top: 17.5em; z-index: 100; position: absolute">
                     <button type="submit" id="ast_form_process" name="process" class="btn btn-success">
                         Parse
                     </button>
                 </div>
 
-                <br /><br />
-
+                @include('_snippets.form.form_textarea', [
+                    'label' => null,
+                    'inputName' => 'php_contents',
+                    'defaultValue' => $inputFormContents,
+                ])
             </form>
         </div>
 
