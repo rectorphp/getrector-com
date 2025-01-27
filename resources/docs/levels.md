@@ -53,9 +53,9 @@ vendor/bin/rector
 
 Only five files? We can do that in a day. We create a pull request, get a review, and merge. The next day, we can continue with level 1. You get the idea.
 
-## Dead Code and Code Quality Level
+## Dead Code, Code Quality and Coding Style Levels
 
-Are you done with the type level and reached [99 % type coverage](https://github.com/tomasVotruba/type-coverage)? It's time to move on to dead code removal and improve code quality.
+Are you done with the type level and reached [99 % type coverage](https://github.com/tomasVotruba/type-coverage)? It's time to move on to dead code removal and to improve code quality and coding style.
 
 Again, we avoid full-blown prepared set, and make use of level methods:
 
@@ -69,6 +69,7 @@ return RectorConfig::configure()
     ->withTypeCoverageLevel(0)
     ->withDeadCodeLevel(0)
     ->withCodeQualityLevel(0);
+    ->withCodingStyleLevel(0);
 ```
 
 We increase it by 1, run Rector, create a pull request, get a review, and merge.
