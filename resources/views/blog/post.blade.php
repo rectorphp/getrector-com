@@ -33,7 +33,7 @@
 
 @section('main')
     <!-- show only occasionally -->
-    @if (rand(0, 5) == 1)
+    @if (rand(0, 10) == 1)
         <div class="alert alert-info mt-3 mb-5" role="alert">
             Do you want to <strong>learn Rector in depth and fast</strong>?
 
