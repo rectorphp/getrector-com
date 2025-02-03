@@ -16,7 +16,7 @@ updated_message: |
 
 You might have noticed the warning on Rector run:
 
-<img src="/assets/images/blog/2020/moving_yaml_to_php_warning.png" class="img-thumbnail mt-3 mb-3">
+P<img src="/assets/images/blog/2020/moving_yaml_to_php_warning.png" class="img-thumbnail mt-3 mb-3">
 
 This happens when you're using `rector.yaml` config in your project.
 
