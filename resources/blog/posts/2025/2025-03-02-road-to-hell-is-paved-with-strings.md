@@ -2,14 +2,14 @@
 id: 76
 title: "Road to Hell is Paved with Strings"
 perex: |
-    In [7 Traits of Successful Upgrade Companies](/blog/7-traits-of-successful-upgrade-companies) we wrote about behavior patterns of companies who [make the impossible upgrade happen](/blog/success-story-of-automated-framework-migration-from-fuelphp-to-laravel-of-400k-lines-application).
+    In [7 Traits of Successful Upgrade Companies](/blog/7-traits-of-successful-upgrade-companies), we wrote about the behavior patterns of companies that [make the impossible upgrade happen](/blog/success-story-of-automated-framework-migration-from-fuelphp-to-laravel-of-400k-lines-application).
 
-    Today we look closely on an **anti-pattern that repeats in every framework**, in every custom solution and even in testing tools. A lot of CLI tools that should help us write better code also suffer from it. Framework are trying to get rid of it, but most drag mountain pile of history BC promise and so never do.
+    Today we look closely at an **anti-pattern that repeats in every framework**, in every custom solution, and even in testing tools. A lot of CLI tools that should help us write better code also suffer from it. Frameworks are trying to get rid of it, but most drag mountain piles of history BC promise and so never do.
 
-    In this post we'll look at spotting this anti-pattern, think about better way to achieve same result and share our strategy to get rid of it in our projects.
+    In this post, we'll look at spotting this anti-pattern, think about better ways to achieve the same result, and share our strategy to get rid of it in our projects.
 ---
 
-At first, here are 4 code examples we keep seeing in legacy project we're hired to upgrade. Maybe you'll know them:
+First, here are 4 code examples we keep seeing in legacy projects we're hired to upgrade. Maybe you'll know them:
 
 ```php
 return [
@@ -61,15 +61,15 @@ return [
 
 <br>
 
-First snippet is a custom code, but snippets **2-4 are coupled to a project you know**. They're coupled to a documentation you've read, on Stackoverflow or GPT.
+The first snippet is a custom code, but snippets **2-4 are coupled to a project you know**. They're coupled to a documentation you've read, on Stackoverflow or GPT.
 
-All the snippets **include tyop that would break** the functionality. Have you noticed them on first scan?
+All the snippets **include tyop that would break** the functionality. Have you noticed them on the first scan?
 
 <br>
 
 <blockquote class="blockquote text-center mt-5 mb-5">
 "If we have to read documentation to understand the configuration,<br>
-it sound more like hardware than software."
+it sounds more like hardware than software."
 </blockquote>
 
 <br>
@@ -77,14 +77,14 @@ it sound more like hardware than software."
 We have to know that:
 
 * "autowired" is a Symfony service configuration keyword
-* it can be located in `services` section under the service definition
+* it can be located in the `services` section under the service definition
 * it's not `autowire**t**` but `autowire**d**`
 
 <br>
 
 ## Why does this Matter?
 
-Imagine we have a flight company that handles flights between US and UK. We have quality control that checks all electronics on the plane works, that tires have good defined pressure, that the fuel is enough and so on. Everything is fully automated and we get any report on exceptional values across time. Sounds safe enough for you to fly? Also think about main business functions of airlines - to maximize profits, we have to cut costs to a minimum.
+Imagine we have a flight company that handles flights between the US and the UK. We have quality control that checks all electronics on the plane work, that tires have well-defined pressure, that the fuel is enough, and so on. Everything is fully automated and we get any report on exceptional values across time. Sounds safe enough for you to fly? Also, think about the main business functions of airlines - to maximize profits, we have to cut costs to a minimum.
 
 We have a fuel tank, **sealed tight with dozens of screws**. Should we check manually every screw?
 
@@ -98,48 +98,48 @@ What if they change the fuel for a more effective one, that accidentally speeds 
 
 ## Protect your Deep Work
 
-This is called [cognitive load](https://github.com/zakirullin/cognitive-load) and it's root of many fatal bugs in software. This is how it it works:
+This is called [cognitive load](https://github.com/zakirullin/cognitive-load) and it's the root of many fatal bugs in software. This is how it works:
 
 <img src="https://github.com/zakirullin/cognitive-load/raw/main/img/cognitiveloadv6.png" class="img-thumbnail mb-5" style="max-width: 30em">
 
 <br>
 
-There is a great book called [Don't Make Me Think](https://www.amazon.com/Dont-Make-Think-Revisited-Usability/dp/0321965515), that hits this problem in very entertaining way.
+There is a great book called [Don't Make Me Think](https://www.amazon.com/Dont-Make-Think-Revisited-Usability/dp/0321965515), that hits this problem in a very entertaining way.
 
 <br>
 
 ## "Too many Cooks spoil the Broth"
 
-Some teams are able to upgrade their projects from PHP 5.3 to 8.3 themselves. Other teams too, but it turns into a costly 3-year project with half-team full-time effort. And some other teams are unable to do it in timely matter and stuck with "if it works, don't touch it approach" that causes ever-growing loses in software business.
+Some teams can upgrade their project from PHP 5.3 to 8.3 themselves. Other teams too, but it turns into a costly 3-year project with half-team full-time effort. Some other teams are unable to do it in a timely matter and are stuck with the "if it works, don't touch it approach" that causes ever-growing losses in the software business.
 
-The latter teams have to deal with soo many edge cases, and WTFs per day, they're pushing their abilities to the limit just to keep projects running. There is a short road to burnout from there.
+The latter teams have to deal with so many edge cases, and WTFs per day, that they're pushing their abilities to the limit just to keep projects running. There is a short road to burnout from there.
 
 That's why it matters: the code must be readable and easy to understand, even to a fresh developer... or to a fresh GPT that reads the code for the first time too.
 
-## Enable Power of Static Analysis
+## Enable the Power of Static Analysis
 
-Another reason is power of static analysis - in PHP we have PHPStan, static analysis [for TWIG](https://github.com/twigstan/twigstan) or [for Blade](https://github.com/bladestan/bladestan), static analysis [for Behat](https://github.com/rectorphp/swiss-knife/#7-find-unused-behat-definitions-with-static-analysis---behastan) and more.
+Another reason is the power of static analysis - in PHP we have PHPStan, static analysis [for TWIG](https://github.com/twigstan/twigstan) or [for Blade](https://github.com/bladestan/bladestan), static analysis [for Behat](https://github.com/rectorphp/swiss-knife/#7-find-unused-behat-definitions-with-static-analysis---behastan) and more.
 
-This static analysis would warn us about 3 typos in the examples above. We'd know what we should fix it before merging the pull-request.
+This static analysis would warn us about 3 typos in the examples above. We'd know what we should fix before merging the pull request.
 
 <br>
 
-But what about other file formats than PHP? **That's the weak link.**
+But what about other file formats other than PHP? **That's the weak link.**
 
 `YAML`, `ini`, `XML`, `JSON`, `NEON` or Gherkin bellow. These all are parseable formats, they're **all parsed into strings**.
 
 ```yaml
-Feature: Reading code that looks like string,
+Feature: Reading code that looks like a string,
     but actually calls PHP method
 
   Scenario: Avoid thinking about code
-    Given am lazy human
+    Given am a lazy human
     Then I delegate everything to static analysis
 ```
 
-We have to change those into PHP format first. Sometimes it's one of formats the tool already handles.
+We have to change those into PHP format first. Sometimes it's one of the formats the tool already handles.
 
-Sometimes we have to come up with our own format like [in case of Behat PHP Config](https://x.com/VotrubaT/status/1882864670723412438/photo/1) - fortunatelly, it's pretty easy and straightforward with php-parser.
+Sometimes we have to come up with our own format like [in case of Behat PHP Config](https://x.com/VotrubaT/status/1882864670723412438/photo/1) - fortunately, it's pretty easy and straightforward with php-parser.
 
 <img src="https://pbs.twimg.com/media/GiFFTcjXwAA_c1Z?format=jpg&name=large" class="img-thumbnail" style="max-width: 40em">
 
@@ -167,7 +167,7 @@ No, it's not.
 
 ## Configuration Objects to the Rescue!
 
-I'll share few examples, so you have better idea about shape we want to get in. First, let's convert our 1st example to configuration object:
+I'll share a few examples, so you have a better idea about the shape we want to get in. First, let's convert our 1st example to a configuration object:
 
 ```php
 return AwsConfig::configure()
@@ -218,7 +218,7 @@ return ECSConfig::configure()
 
 <br>
 
-In 2021, Symfony 5.3 shows state of art [autogenarated-configs](https://symfony.com/blog/new-in-symfony-5-3-config-builder-classes):
+In 2021, Symfony 5.3 shows state of the art [autogenarated-configs](https://symfony.com/blog/new-in-symfony-5-3-config-builder-classes):
 
 ```php
 // config/packages/security.php
@@ -238,11 +238,11 @@ return static function (SecurityConfig $security): void {
 
 ## Automate and Forget
 
-Once we have PHP in place, we move to configuration object and get PHPStan with deprecated rules on board, we can forget **about the configuration syntax**. We can focus on the business logic and let the configuration be handled by the tool.
+Once we have PHP in place, we move to the configuration object and get PHPStan with deprecated rules on board, we can forget **about the configuration syntax**. We can focus on the business logic and let the configuration be handled by the tool.
 
 * Next time you use Symfony - [modernize configs](/blog/modernize-symfony-configs) to best shape the framework provides.
 * Upgrade your Laravel project to 11 and use [streamlines configs](https://github.com/laravel/laravel/blob/master/bootstrap/app.php).
-* Create a PHP wrapper for the tool that uses that old format and is error prone. Learn [php-parser](https://github.com/nikic/PHP-Parser).
+* Create a PHP wrapper for the tool that uses that old format and is error-prone. Learn [php-parser](https://github.com/nikic/PHP-Parser).
 
 <br>
 
