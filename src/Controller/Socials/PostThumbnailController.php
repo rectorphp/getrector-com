@@ -42,7 +42,6 @@ final class PostThumbnailController extends Controller
         $drawer = $image->draw();
 
         $blackFont = $this->thumbnailGenerator->createFont(FontFile::SOURCE_SANS_BOLD, '24292e', 100);
-        $drawer->text($title, $blackFont, new Point(130, 340), 0, 1800);
 
         $greenFont = $this->thumbnailGenerator->createFont(FontFile::INTER, '59a35e', 40);
 
@@ -50,6 +49,8 @@ final class PostThumbnailController extends Controller
         if (! $post instanceof Post) {
             return;
         }
+
+        $drawer->text($post->getTitle(), $blackFont, new Point(130, 340), 0, 1800);
 
         if ($post->getAuthor() === 'samsonasik') {
             $authorName = 'Abdul Malik Ikhsan';
