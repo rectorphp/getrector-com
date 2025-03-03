@@ -18,7 +18,7 @@ final class BlogController extends Controller
     public function __invoke(): View
     {
         return \view('blog/blog', [
-            'page_title' => 'Read about Rector',
+            'page_title' => 'Learn about Rector, Upgrades and Planning',
             'posts' => $this->postRepository->getPosts(),
         ]);
     }

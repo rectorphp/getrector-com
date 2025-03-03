@@ -50,7 +50,9 @@
             </time>
         </div>
 
-        <h1>{{ $post->getTitle() }}</h1>
+        <h1 style="text-wrap: balance">
+            {{ $post->getTitle() }}
+        </h1>
 
         @if ($post->getSinceRector())
             <div class="alert alert-warning">
