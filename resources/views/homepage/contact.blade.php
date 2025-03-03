@@ -79,8 +79,8 @@
                 <h3>Edukai, s.r.o.</h3>
 
                 <p>
-                    Dubova 4<br>
-                    460 01, Liberec
+                    Jagellonska 2427/19<br>
+                    Prague, 130 00<br>
                     Czech Republic
                 </p>
 
