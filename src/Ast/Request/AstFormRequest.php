@@ -29,12 +29,12 @@ final class AstFormRequest extends FormRequest
         $shortPhpContentsRule = app()
             ->make(ShortPhpContentsRule::class);
 
-        /** @var ValidAndSafePhpSyntaxRule $validPhpSyntaxRule */
-        $validPhpSyntaxRule = app()
+        /** @var ValidAndSafePhpSyntaxRule $validAndSafePhpSyntaxRule */
+        $validAndSafePhpSyntaxRule = app()
             ->make(ValidAndSafePhpSyntaxRule::class);
 
         return [
-            self::KEY_PHP_CONTENTS => ['required', 'string', $shortPhpContentsRule, $validPhpSyntaxRule],
+            self::KEY_PHP_CONTENTS => ['required', 'string', $shortPhpContentsRule, $validAndSafePhpSyntaxRule],
         ];
     }
 
