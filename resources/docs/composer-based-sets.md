@@ -4,10 +4,10 @@ Projects like Symfony, Doctrine, Twig or Laravel have lots of versions. Instead 
 use Rector\Config\RectorConfig;
 
 return RectorConfig::configure()
-    ->withComposerBased(doctrine: true, twig: true, symfony: true);
+    ->withComposerBased(twig: true, doctrine: true, phpunit: true, symfony: true);
 ```
 
-* Rector should look into installed `composer.json` version of `twig/twig`, `doctrine/*` and `symfony/*`
+* Rector should look into installed `composer.json` version of `twig/twig`, `doctrine/*`, `phpunit/phpunit` and `symfony/*`
 * then it picks all sets that are relevant to your specific installed versions
 * and run those
 
