@@ -8,11 +8,9 @@ perex: |
 
     Do you want to know the answer? Rector has a simple solution for you.
 
-updated_at: '2022-04'
+updated_at: '2025-03'
 updated_message: |
-    Since **Rector 0.12** a new `RectorConfig` is available with simpler and easier to use config methods.
-
-since_rector: 0.12
+    Since **Rector 2.0** a new `withAttributesSets()` configuration method is available.
 ---
 
 One package that added support for attributes is Doctrine:
@@ -30,23 +28,22 @@ Now, let's go to upgrade itself. It's effortless.
 
 ## Upgrade from Annotations to Attributes in 3 Steps
 
-### 1. Configure `rector.php` to include the packages you use:
+### 1. Configure `rector.php` to include all available attributes:
 
 ```php
-use Rector\Doctrine\Set\DoctrineSetList;
-use Rector\Symfony\Set\SymfonySetList;
-use Rector\Symfony\Set\SensiolabsSetList;
-use Rector\Nette\Set\NetteSetList;
 use Rector\Config\RectorConfig;
 
-return function (RectorConfig $rectorConfig): void {
-    $rectorConfig->sets([
-        DoctrineSetList::ANNOTATIONS_TO_ATTRIBUTES,
-        SymfonySetList::ANNOTATIONS_TO_ATTRIBUTES,
-        NetteSetList::ANNOTATIONS_TO_ATTRIBUTES,
-        SensiolabsSetList::FRAMEWORK_EXTRA_61,
-    ]);
-};
+return RectorConfig::configure()
+    ->withAttributesSets();
+```
+
+Or limit to specific group - this option is better when you're addin Rector to a new project:
+
+```php
+use Rector\Config\RectorConfig;
+
+return RectorConfig::configure()
+    ->withAttributesSets(symfony: true);
 ```
 
 <br>
