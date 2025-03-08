@@ -10,16 +10,11 @@ use Illuminate\Routing\Controller;
 
 final class BlogController extends Controller
 {
-    public function __construct(
-        private readonly PostRepository $postRepository,
-    ) {
-    }
-
-    public function __invoke(): View
+    public function __invoke(PostRepository $postRepository): View
     {
         return \view('blog/blog', [
             'page_title' => 'Learn about Rector, Upgrades and Planning',
-            'posts' => $this->postRepository->getPosts(),
+            'posts' => $postRepository->getPosts(),
         ]);
     }
 }
