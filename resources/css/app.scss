@@ -294,6 +294,44 @@ h4 {
     .text-body {
         font-size: 1.1em;
     }
+
+    .perex {
+        margin-top: 1em;
+        margin-bottom: 1em;
+        font-size: 1.4em;
+        padding: .7em 0;
+    }
+
+    .text-body {
+        font-size: 1.2em;
+    }
+
+    @media (max-width: 750px) {
+        h1 {
+            font-size: 1.5em;
+            line-height: 1.5em;
+        }
+
+        h2 {
+            font-size: 1.2em;
+            line-height: 1.4em;
+        }
+
+        .perex {
+            font-size: 1.1em;
+        }
+
+        .text-body {
+            font-size: 1.1em;
+        }
+    }
+}
+
+#blog {
+    h2 {
+        font-size: 1.4em;
+    }
+
 }
 
 #homepage {
@@ -450,17 +488,6 @@ label.required:before {
 
     h2 {
         margin-top: 1em;
-    }
-
-    .perex {
-        margin-top: 1em;
-        margin-bottom: 1em;
-        font-size: 1.4em;
-        padding: .7em 0;
-    }
-
-    .text-body {
-        font-size: 1.2em;
     }
 }
 

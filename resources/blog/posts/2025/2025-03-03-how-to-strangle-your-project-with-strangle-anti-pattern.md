@@ -22,7 +22,7 @@ Let's say we have an old CakePHP, CodeIgniter, Yii, or plain PHP project and you
 In practice, it can look something like:
 
 <div class="text-center mb-5">
-    <img src="https://accesto.com/blog/static/d20bbd2696d22557b2048fb00c8fc598/3c492/code-refactoring.png" style="max-width: 30em" class="img-thumbnail">
+    <img src="/assets/images/blog/2025/code-refactoring.png" class="img-thumbnail">
     <br>
     <small class="text-secondary">
         From <a href="https://accesto.com/blog/monolith-to-microservices/">Monolith to Microservices</a>

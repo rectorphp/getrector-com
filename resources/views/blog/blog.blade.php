@@ -2,13 +2,13 @@
 
 @section('main')
     <div id="blog">
-        <h1>{{ $page_title }}</h1>
+        <h1 style="text-wrap: balance">{{ $page_title }}</h1>
 
         @php /** @var \App\Entity\Post[] $posts */ @endphp
 
         @foreach ($posts as $post)
             <div class="mb-4">
-                <h2 style="font-size: 1.4em" class="mb-0">
+                <h2 class="mb-0">
                     <a href="{{ action(\App\Controller\Blog\PostController::class, [
                         'postSlug' => $post->getSlug(),
                     ]) }}">
