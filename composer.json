@@ -23,7 +23,7 @@
         "driftingly/rector-laravel": "^2.0.2",
         "nette/robot-loader": "^4.0",
         "phpstan/extension-installer": "^1.4",
-        "phpstan/phpstan": "^2.0",
+        "phpstan/phpstan": "^2.1.8",
         "phpstan/phpstan-webmozart-assert": "^2.0",
         "phpunit/phpunit": "11.4.0",
         "rector/swiss-knife": "^1.0",
