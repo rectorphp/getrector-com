@@ -140,12 +140,12 @@ final readonly class RectorFinder
                 continue;
             }
 
-            if ($rectorReflectionClass->is(DeprecatedInterface::class)) {
+            if ($rectorReflectionClass->isSubClassOf(DeprecatedInterface::class)) {
                 continue;
             }
 
             // no definition
-            if ($rectorReflectionClass->is(PostRectorInterface::class)) {
+            if ($rectorReflectionClass->isSubClassOf(PostRectorInterface::class)) {
                 continue;
             }
 
