@@ -54,9 +54,9 @@
         } else {
             theme.setAttribute('href', darkTheme);
             localStorage.setItem('theme', darkTheme);
-            localStorage.setItem('theme_toggle_text', 'Ligth Code Theme');
+            localStorage.setItem('theme_toggle_text', 'Light Code Theme');
 
-            theme_toggle.textContent = 'Ligth Code Theme';
+            theme_toggle.textContent = 'Light Code Theme';
         }
     }
 
