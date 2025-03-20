@@ -52,7 +52,7 @@ final class DemoControllerTest extends AbstractTestCase
 
         $testResponse = $this->post($postUrl, [
             FormKey::PHP_CONTENTS => '<?php',
-            FormKey::RUNNABLE_CONTENTS => '<?php return ' . RectorConfig::class . '::configure()->withPhpPolyfill();',
+            FormKey::RUNNABLE_CONTENTS => '<?php return ' . RectorConfig::class . '::configure()->withPhpSets();',
         ]);
 
         $this->assertTrue($testResponse->isRedirect());
@@ -67,7 +67,7 @@ final class DemoControllerTest extends AbstractTestCase
 
         $testResponse = $this->post($postUrl, [
             FormKey::PHP_CONTENTS => '<?php echo "test"; ?>',
-            FormKey::RUNNABLE_CONTENTS => '<?php str_starts_with("a", "b"); return ' . RectorConfig::class . '::configure()->withPhpPolyfill();',
+            FormKey::RUNNABLE_CONTENTS => '<?php str_starts_with("a", "b"); return ' . RectorConfig::class . '::configure()->withPhpSets();',
         ]);
 
         $testResponse->assertSessionHasNoErrors();
@@ -79,7 +79,7 @@ final class DemoControllerTest extends AbstractTestCase
 
         $testResponse = $this->post($postUrl, [
             FormKey::PHP_CONTENTS => '<?php echo "test"; ?>',
-            FormKey::RUNNABLE_CONTENTS => '<?php rand(0, 1); return ' . RectorConfig::class . '::configure()->withPhpPolyfill();',
+            FormKey::RUNNABLE_CONTENTS => '<?php rand(0, 1); return ' . RectorConfig::class . '::configure()->withPhpSets();',
         ]);
 
         $testResponse->assertSessionHasNoErrors();
@@ -91,7 +91,7 @@ final class DemoControllerTest extends AbstractTestCase
 
         $testResponse = $this->post($postUrl, [
             FormKey::PHP_CONTENTS => '<?php echo "test"; ?>',
-            FormKey::RUNNABLE_CONTENTS => '<?php new \PHPStan\Type\MixedType(); return ' . RectorConfig::class . '::configure()->withPhpPolyfill();',
+            FormKey::RUNNABLE_CONTENTS => '<?php new \PHPStan\Type\MixedType(); return ' . RectorConfig::class . '::configure()->withPhpSets();',
         ]);
 
         $testResponse->assertSessionHasNoErrors();
