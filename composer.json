@@ -79,6 +79,9 @@
     },
     "extra": {
         "patches": {
+            "rector/rector": [
+                "patches/rector-rector-vendor-rector-rector-phpunit-rules-codequality-rector-class-removedataproviderparamkeysrector-php.patch"
+            ],
             "illuminate/container": [
                 "https://raw.githubusercontent.com/rectorphp/vendor-patches/main/patches/illuminate-container-container-php.patch"
             ]

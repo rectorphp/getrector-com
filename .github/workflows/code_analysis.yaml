@@ -15,7 +15,7 @@ jobs:
                     # validate rule definitions, so they can be used in /find-rule
                     -
                         name: 'Validate rule definitions'
-                        run: php artisan app:validate-rule-definitions.php
+                        run: php artisan app:validate-rule-definitions
 
                     -
                         name: 'PHPStan'

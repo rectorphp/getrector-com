@@ -23,18 +23,18 @@ final class ValidateRuleDefinitionsCommand extends Command
         $communityRuleMetadatas = $rectorFinder->findCommunity();
         $this->info(sprintf('Found %d valid community Rector rules', count($communityRuleMetadatas)));
 
-//        foreach ($ruleMetadatas as $ruleMetadata) {
-//            $isValid = true;
-//            if ($ruleMetadata->getDescription() === '') {
-//                $isValid = false;
-//                $symfonyStyle->error(sprintf('Rule "%s" is missing description. Fill it first to enable rule search', $ruleMetadata->getRuleShortClass()));
-//            }
-//
-//            if ($ruleMetadata->getCodeSamples() === []) {
-//                $symfonyStyle->error(sprintf('Rule "%s" is missing code samples. Fill it first to enable rule search', $ruleMetadata->getRuleShortClass()));
-//                $isValid = false;
-//            }
-//        }
+        //        foreach ($ruleMetadatas as $ruleMetadata) {
+        //            $isValid = true;
+        //            if ($ruleMetadata->getDescription() === '') {
+        //                $isValid = false;
+        //                $symfonyStyle->error(sprintf('Rule "%s" is missing description. Fill it first to enable rule search', $ruleMetadata->getRuleShortClass()));
+        //            }
+        //
+        //            if ($ruleMetadata->getCodeSamples() === []) {
+        //                $symfonyStyle->error(sprintf('Rule "%s" is missing code samples. Fill it first to enable rule search', $ruleMetadata->getRuleShortClass()));
+        //                $isValid = false;
+        //            }
+        //        }
 
         return self::SUCCESS;
     }

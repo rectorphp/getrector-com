@@ -1,0 +1,11 @@
+--- /dev/null
++++ ../vendor/rector/rector-phpunit/rules/CodeQuality/Rector/Class_/RemoveDataProviderParamKeysRector.php
+@@ -68,7 +68,7 @@
+     public function provideData(): array
+     {
+         return [
+-            ['Tom'],
++            'name' => ['Tom'],
+         ];
+     }
+ }
