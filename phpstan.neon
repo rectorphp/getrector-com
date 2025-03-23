@@ -19,7 +19,8 @@ parameters:
         - tests/bootstrap.php
 
     level: 8
-    reportUnmatchedIgnoredErrors: false
+
+    # reportUnmatchedIgnoredErrors: false
 
     ignoreErrors:
         # float allowed
@@ -61,6 +62,10 @@ parameters:
             identifier: return.type
 
         # enforce native
+#        -
+#            path: src/FileSystem/RectorFinder.php
+#            identifier: varTag.nativeType
+
         -
-            path: src/FileSystem/RectorFinder.php
-            identifier: varTag.nativeType
+            message: '#Parameter \#3 \$rectorClasses of class App\\RuleFilter\\ValueObject\\RectorSet constructor expects array<class-string<Rector\\Contract\\Rector\\RectorInterface>>, array<int, array<class-string<Rector\\Contract\\Rector\\RectorInterface>, array<mixed>>|class-string<Rector\\Contract\\Rector\\RectorInterface>> given#'
+            path: src/Sets/RectorSetsTreeProvider.php

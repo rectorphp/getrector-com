@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\FileSystem;
 
+use Throwable;
+use App\Exception\InvalidRuleDescriptionException;
 use App\RuleFilter\ValueObject\RectorSet;
 use App\RuleFilter\ValueObject\RuleMetadata;
 use App\Sets\RectorSetsTreeProvider;
@@ -149,12 +151,24 @@ final readonly class RectorFinder
                 continue;
             }
 
-            $rector = $rectorReflectionClass->newInstanceWithoutConstructor();
+            try {
+                $rector = $rectorReflectionClass->newInstanceWithoutConstructor();
 
-            Assert::methodExists($rector, 'getRuleDefinition');
+                Assert::methodExists($rector, 'getRuleDefinition');
+                /** @var RectorInterface $rector */
+                $ruleDefinition = $rector->getRuleDefinition();
 
-            /** @var RectorInterface $rector */
-            $ruleDefinition = $rector->getRuleDefinition();
+            } catch (Throwable $throwable) {
+                throw new InvalidRuleDescriptionException(
+                    sprintf(
+                        'Rule "%s" has invalid code samples:%s"%s"',
+                        $rectorClass,
+                        PHP_EOL . PHP_EOL,
+                        $throwable->getMessage()
+                    )
+                );
+            }
+
             $ruleDefinition->setRuleClass($rectorClass);
 
             $currentRuleSets = $this->findRuleUsedSets($ruleDefinition, $rectorSets);
