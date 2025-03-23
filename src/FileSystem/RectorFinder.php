@@ -151,7 +151,6 @@ final readonly class RectorFinder
 
             $rector = $rectorReflectionClass->newInstanceWithoutConstructor();
 
-            // this is validated by bin/validate-rule-definitions.php
             Assert::methodExists($rector, 'getRuleDefinition');
 
             /** @var RectorInterface $rector */

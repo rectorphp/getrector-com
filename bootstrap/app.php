@@ -11,6 +11,9 @@ $application = Application::configure()
     ->withRouting(
         web: __DIR__.'/../routes/web.php',
     )
+    ->withCommands([
+        __DIR__ . '/../src/Console/Commands'
+    ])
     ->withMiddleware(function (Middleware $middleware) {
     })
     ->withExceptions(function (Exceptions $exceptions) {
