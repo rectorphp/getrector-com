@@ -2754,16 +2754,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "2.1.9",
+            "version": "2.1.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "0876262406b99b6e7909fbb213c1f245023a2362"
+                "reference": "051a3b6b9b80df4ba3a7f801a8b53ad7d8f1c15f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/0876262406b99b6e7909fbb213c1f245023a2362",
-                "reference": "0876262406b99b6e7909fbb213c1f245023a2362",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/051a3b6b9b80df4ba3a7f801a8b53ad7d8f1c15f",
+                "reference": "051a3b6b9b80df4ba3a7f801a8b53ad7d8f1c15f",
                 "shasum": ""
             },
             "require": {
@@ -2808,7 +2808,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-03-23T11:45:29+00:00"
+            "time": "2025-03-23T14:57:55+00:00"
         },
         {
             "name": "psr/clock",
@@ -3440,17 +3440,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "408ce49cdf60d5b6958c71f2a97d30c587589a68"
+                "reference": "ddb4dbf4c2e924fddb69b4631fc729c75e01b724"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/408ce49cdf60d5b6958c71f2a97d30c587589a68",
-                "reference": "408ce49cdf60d5b6958c71f2a97d30c587589a68",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/ddb4dbf4c2e924fddb69b4631fc729c75e01b724",
+                "reference": "ddb4dbf4c2e924fddb69b4631fc729c75e01b724",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.4|^8.0",
-                "phpstan/phpstan": "^2.1.8"
+                "phpstan/phpstan": "^2.1.9"
             },
             "conflict": {
                 "rector/rector-doctrine": "*",
@@ -3492,7 +3492,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-03-23T00:39:02+00:00"
+            "time": "2025-03-23T17:15:33+00:00"
         },
         {
             "name": "samsonasik/array-lookup",
