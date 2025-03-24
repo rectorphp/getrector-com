@@ -6,7 +6,7 @@
         "php": "^8.2",
         "imagine/imagine": "^1.5",
         "jajo/jsondb": "^3.0.1",
-        "laravel/framework": "^11.36",
+        "laravel/framework": "^12.3",
         "league/commonmark": "^2.6",
         "livewire/livewire": "^3.5",
         "nesbot/carbon": "^3.8",
