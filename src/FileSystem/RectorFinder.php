@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\FileSystem;
 
-use Throwable;
 use App\Exception\InvalidRuleDescriptionException;
 use App\RuleFilter\ValueObject\RectorSet;
 use App\RuleFilter\ValueObject\RuleMetadata;
@@ -15,6 +14,7 @@ use Rector\Contract\Rector\RectorInterface;
 use Rector\PostRector\Contract\Rector\PostRectorInterface;
 use ReflectionClass;
 use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
+use Throwable;
 use Webmozart\Assert\Assert;
 
 final readonly class RectorFinder

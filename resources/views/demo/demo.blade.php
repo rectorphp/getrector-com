@@ -30,11 +30,11 @@
                 'defaultValue' => $rectorRun->getContent()
             ])
 
-            <div class="clearfix mb-3" style="clear: both"></div>
+            <div class="clearfix pb-0 mb-0" style="clear: both"></div>
 
             @if ($rectorRun->isSuccessful() && $rectorRun->getAppliedRules())
                 <div class="row">
-                    <div class="pt-0 pb-4 col-12 col-sm-6">
+                    <div class="pt-0 pb-2 col-12 col-sm-6">
                         <p class="mb-2">Applied Rules:</p>
 
                         <ul class="list-noindent">
@@ -46,17 +46,19 @@
                                 </li>
                             @endforeach
                         </ul>
-                    </div>
-                    <div class="pt-0 pb-4 col-12 col-sm-6">
-                        <p class="mb-2">Is the result wrong?</p>
-                        <a href="{{ issueLink($rectorRun) }}" class="btn btn-danger">Create an
-                            issue</a>
+
+                    <p class="mt-4 mb-2">Not a change you expect?</p>
+
+                    <ul>
+                        <li>
+                            <a href="{{ issueLink($rectorRun) }}" class="text-danger">Create an issue</a> on GitHub
+                        </li>
 
                         @if ($rectorRun->canCreateFixture())
-                            <a href="{{ pullRequestLink($rectorRun) }}"
-                               class="btn btn-primary ms-3">Create
-                                a Test</a>
+                            <li>...or to speed up fix &ndash; <a href="{{ pullRequestLink($rectorRun) }}"  class="text-success">add a test fixture</a>
+                            </li>
                         @endif
+                    </ul>
                     </div>
                 </div>
             @endif
