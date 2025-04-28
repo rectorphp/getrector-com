@@ -20,6 +20,7 @@ final class CodebaseRenovationController extends Controller
         return \view('homepage/codebase_renovation', [
             'page_title' => 'Codebase Renovation',
             'renovationItems' => $this->renovationItemRepository->fetchAll(),
+            'codeMirror' => true,
         ]);
     }
 }

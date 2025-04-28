@@ -20,6 +20,7 @@ final class FindRuleController extends Controller
         return \view('homepage/find_rule', [
             'page_title' => 'Find the best Rule',
             'ruleCount' => $this->rectorFinder->getRuleCount(),
+            'codeMirror' => true,
         ]);
     }
 }

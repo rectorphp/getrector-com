@@ -14,7 +14,7 @@
         </p>
 
         <div class="row">
-            <div class="col-12 col-md-4 mt-4 mt-md-0">
+            <div class="col-12 col-md-6 mt-6 mt-md-0">
                 <h3>
                     <em class="fas fa-hand-pointer fa-2x fw-fw text-rector-green"></em>
                     &nbsp;
@@ -39,7 +39,7 @@
                 </div>
             </div>
 
-            <div class="col-12 col-md-4 mt-4 mt-md-0">
+            <div class="col-12 col-md-6 mt-6 mt-md-0">
                 <h3>
                     <em class="fas fa-magnifying-glass fa-2x fa-fw text-rector-green"></em>
                     &nbsp;
@@ -61,32 +61,6 @@
                             class="btn btn-success btn-lg mt-auto"
                     >
                         Find the Rule
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-4 mt-4 mt-md-0">
-                <h3>
-                    <em class="fas fa-bolt fa-2x fa-fw text-rector-green"></em>
-                    &nbsp;
-                    Live Custom Rules
-                </h3>
-
-                <img src="/assets/images/homepage/instant-speed.jpg" class="rounded-4 mb-3 mt-2"
-                     style="max-width: 100%;">
-
-                <p>
-                    Play around with AST nodes effortlessly! With Live Custom Rules, tweak nodes
-                    instantly and see the magic happen. Learning nodes has never been this fun and
-                    efficient.
-                </p>
-
-                <div class="text-center mt-5">
-                    <a
-                            href="{{ action(\App\Controller\Demo\CustomRuleController::class) }}"
-                            class="btn btn-success btn-lg mt-auto"
-                    >
-                        Create Custom Rule
                     </a>
                 </div>
             </div>

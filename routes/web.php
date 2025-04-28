@@ -10,8 +10,6 @@ use App\Controller\Blog\BlogController;
 use App\Controller\Blog\PostController;
 use App\Controller\CodebaseRenovationController;
 use App\Controller\ContactController;
-use App\Controller\Demo\CustomRuleController;
-use App\Controller\Demo\CustomRuleDetailController;
 use App\Controller\Demo\DemoController;
 use App\Controller\Demo\DemoDetailController;
 use App\Controller\Demo\ProcessCustomRuleFormController;
@@ -63,10 +61,8 @@ Route::get('/rule-thumbnail/{ruleSlug}.png', RuleThumbnailController::class)
 
 Route::get('stats/find-rule', FindRuleStatsController::class);
 
-Route::get('custom-rule/{uuid}', CustomRuleDetailController::class)
-    ->whereUuid('uuid');
-Route::get('custom-rule', CustomRuleController::class);
-Route::post('process-custom-rule', ProcessCustomRuleFormController::class);
+Route::redirect('custom-rule/{uuid}', 'demo');
+Route::redirect('custom-rule', 'demo');
 
 // demo
 Route::get('demo/{uuid}', DemoDetailController::class)
