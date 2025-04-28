@@ -15,6 +15,8 @@ final class BlogController extends Controller
         return \view('blog/blog', [
             'page_title' => 'Learn about Rector, Upgrades and Planning',
             'posts' => $postRepository->getPosts(),
+            'metaTitle' => 'Rector Blog: PHP Code Tips & Updates',
+            'metaDescription' => 'Read the latest PHP refactoring tips, Rector updates, and automation guides. Level up your coding skills with our expert blog posts.',
         ]);
     }
 }

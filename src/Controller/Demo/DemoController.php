@@ -20,6 +20,8 @@ final class DemoController extends Controller
             'page_title' => 'Try Rector Online',
             'rectorRun' => RectorRun::createEmpty(),
             'codeMirror' => true,
+            'metaTitle' => 'Try Rector: Free PHP Refactoring Demo',
+            'metaDescription' => 'Test Rector’s automated PHP refactoring tool for free. See instant code upgrades and improvements in action. Start your demo today!',
         ]);
     }
 }

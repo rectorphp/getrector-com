@@ -1,14 +1,25 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="{{ \App\Enum\Design::MAIN_TITLE }}" />
-<meta name="keywords" content="php, rector, instant upgrades, instant refactoring, upgrade symfony, upgrade php, upgrade cakephp, upgrade legacy, php migration, laravel shift alternative, php shift" />
 
-@php
-    $full_title = (isset($page_title) ? $page_title . ' | ' : '') . \App\Enum\Design::MAIN_TITLE;
-@endphp
+@isset ($metaDescription)
+    <meta name="description" content="{{ $metaDescription }}" />
+    <meta property="og:description" content="{{ $metaDescription }}" >
+@else
+    <meta name="description" content="{{ \App\Enum\Design::MAIN_TITLE }}" />
+@endisset
+    <meta name="keywords" content="php, rector, instant upgrades, instant refactoring, upgrade symfony, upgrade php, upgrade cakephp, upgrade legacy, php migration, laravel shift alternative, php shift" />
 
-<title>{{ $full_title }}</title>
+@isset ($metaTitle)
+    <title>{{ $metaTitle }}</title>
+    <meta property="og:title" content="{{ $metaTitle }}">
+@else
+    @php
+        $full_title = (isset($page_title) ? $page_title . ' | ' : '') . \App\Enum\Design::MAIN_TITLE;
+    @endphp
+    <title>{{ $full_title }}</title>
+    <meta property="og:title" content="{{ $full_title }}">
+@endisset
 
 <link rel="alternate" type="application/rss+xml" title="Rector Blog RSS" href="/rss.xml">
 
