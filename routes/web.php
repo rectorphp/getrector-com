@@ -12,13 +12,11 @@ use App\Controller\CodebaseRenovationController;
 use App\Controller\ContactController;
 use App\Controller\Demo\DemoController;
 use App\Controller\Demo\DemoDetailController;
-use App\Controller\Demo\ProcessCustomRuleFormController;
 use App\Controller\Demo\ProcessDemoFormController;
 use App\Controller\DocumentationController;
 use App\Controller\FindRuleController;
 use App\Controller\HireTeamController;
 use App\Controller\HomepageController;
-use App\Controller\InteractiveController;
 use App\Controller\RssController;
 use App\Controller\RuleDetailController;
 use App\Controller\Socials\PostThumbnailController;
@@ -41,7 +39,7 @@ Route::get('book', fn() => redirect()->to('https://leanpub.com/rector-the-power-
 Route::get('contact', ContactController::class);
 Route::get('hire-team', HireTeamController::class);
 
-Route::get('play-and-learn', InteractiveController::class);
+Route::redirect('play-and-learn', 'ast');
 
 Route::get('blog/{postSlug}', PostController::class);
 Route::get('/thumbnail/{title}.png', PostThumbnailController::class)
