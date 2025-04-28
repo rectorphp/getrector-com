@@ -13,12 +13,14 @@
 @isset ($metaTitle)
     <title>{{ $metaTitle }}</title>
     <meta property="og:title" content="{{ $metaTitle }}">
+    <meta property="twitter:title" content="{{ $metaTitle }}">
 @else
     @php
         $full_title = (isset($page_title) ? $page_title . ' | ' : '') . \App\Enum\Design::MAIN_TITLE;
     @endphp
     <title>{{ $full_title }}</title>
     <meta property="og:title" content="{{ $full_title }}">
+    <meta property="twitter:title" content="{{ $full_title }}">
 @endisset
 
 <link rel="alternate" type="application/rss+xml" title="Rector Blog RSS" href="/rss.xml">
@@ -32,9 +34,6 @@
 @else
     <!-- default social tags -->
     <meta property="twitter:card" content="summary">
-
-    <meta property="og:title" content="{{ $full_title }}">
-    <meta property="twitter:title" content="{{ $full_title }}">
 
     <meta property="og:image" content="{{ \App\Enum\Design::SOCIAL_RECTOR_LOGO }}">
     <meta name="twitter:image" content="{{ \App\Enum\Design::SOCIAL_RECTOR_LOGO }}">

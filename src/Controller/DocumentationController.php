@@ -25,7 +25,7 @@ final class DocumentationController extends Controller
             'section_markdown_contents' => $markdownContents,
             'documentation_menu_categories' => $this->documentationMenuFactory->create(),
             'metaTitle' => 'Rector Docs: PHP Refactoring Guide',
-            'metaDescription' => 'Explore Rector’s documentation for PHP code refactoring and upgrades. Learn how to automate and optimize your codebase with ease.'
+            'metaDescription' => 'Explore Rector’s documentation for PHP code refactoring and upgrades. Learn how to automate and optimize your codebase with ease.',
         ]);
     }
 }
