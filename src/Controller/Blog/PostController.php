@@ -22,6 +22,7 @@ final class PostController extends Controller
 
         return \view('blog/post', [
             'post' => $post,
+            'codeMirror' => true,
         ]);
     }
 }

@@ -30,6 +30,7 @@ final class DemoDetailController extends Controller
         return \view('demo/demo', [
             'page_title' => 'Try Rector Online',
             'rectorRun' => $rectorRun,
+            'codeMirror' => true,
         ]);
     }
 }
