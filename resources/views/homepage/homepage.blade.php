@@ -80,9 +80,6 @@
             <div class="col-12 col-md-8 text-center">
                 <img src="/assets/images/rector_chart.png" alt="Rector Chart"
                      class="img-fluid img-thumbnail">
-                <p class="text-smaller text-secondary">
-                    * Based on average data from 52 projects.
-                </p>
             </div>
 
             <div class="col-12 col-md-4 mt-4 mt-md-0">
@@ -111,48 +108,15 @@
         @include('_snippets/homepage_separator')
 
         <h2>
-            Rector <span class="text-rector-green">Empowers Your Project</span>
-        </h2>
-
-        @include('homepage/_parts/benefits')
-
-        <br>
-
-        <div class="text-center mt-5">
-            <a href="{{ action(\App\Controller\CodebaseRenovationController::class) }}"
-               class="btn btn-success btn-lg">
-                How do we Renovate Codebases?
-            </a>
-        </div>
-
-        @include('_snippets/homepage_separator')
-
-        <h2>
-            What Do Companies <span class="text-rector-green">Love&nbsp;About&nbsp;Rector</span>?
+            What do CTOs <span class="text-rector-green">Love&nbsp;about&nbsp;Rector</span>?
         </h2>
 
         @include('hire_team/references')
-
-        <br>
-
-        <div class="text-center mt-2 mt-md-5">
-            <a href="{{ action(\App\Controller\ContactController::class) }}"
-               class="btn btn-success btn-lg ms-3">
-                Contact us to Join them
-            </a>
-        </div>
 
         @include('_snippets/homepage_separator')
 
         <h2>FAQ</h2>
 
         @include('homepage/_parts/faq')
-
-        <div class="text-center mt-5">
-            <a href="{{ action(\App\Controller\HireTeamController::class) }}"
-               class="btn btn-success btn-lg">
-                Do you have more questions? Ask us
-            </a>
-        </div>
     </div>
 @endsection
