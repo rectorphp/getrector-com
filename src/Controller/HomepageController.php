@@ -19,7 +19,7 @@ final class HomepageController extends Controller
     {
         return \view('homepage/homepage', [
             'page_title' => "We'll Speed Up Your Development Process by 300%",
-            'last_5_posts' => $this->postRepository->fetchLast(5),
+            'recentPosts' => $this->postRepository->fetchLast(5),
             // seo
             'metaTitle' => 'Rector: Fast PHP Code Upgrades & Refactoring',
             'metaDescription' => 'Automate PHP code upgrades and refactoring with Rector. Save time, reduce errors, and modernize your codebase instantly. Try it now!',

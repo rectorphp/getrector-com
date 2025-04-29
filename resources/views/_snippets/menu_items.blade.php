@@ -47,11 +47,6 @@
     </li>
 
     <li class="nav-item">
-        <a href="{{ action(\App\Controller\CodebaseRenovationController::class) }}"
-           class="nav-link">Codebase Renovation</a>
-    </li>
-
-    <li class="nav-item">
         <a onclick="toggleTheme()" class="nav-link" id="theme_toggle" style="cursor: pointer">Dark/Light Theme</a>
     </li>
 @endisset
