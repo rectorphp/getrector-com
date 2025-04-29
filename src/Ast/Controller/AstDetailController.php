@@ -23,6 +23,7 @@ final readonly class AstDetailController
             'astRun' => $astRun,
             'inputFormContents' => $astRun->getContent(),
             'codeMirror' => true,
+            'livewireScripts' => true,
         ]);
     }
 }

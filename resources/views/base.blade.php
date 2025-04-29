@@ -33,7 +33,9 @@
 
         @include('_snippets/javascripts')
 
-        @livewireScripts
+        @isset ($livewireScripts)
+            @livewireScripts
+        @endisset
 
         <!-- 100% privacy-first analytics -->
         <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>

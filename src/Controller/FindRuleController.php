@@ -21,6 +21,7 @@ final class FindRuleController extends Controller
             'page_title' => 'Find the best Rule',
             'ruleCount' => $this->rectorFinder->getRuleCount(),
             'codeMirror' => true,
+            'livewireScripts' => true,
         ]);
     }
 }

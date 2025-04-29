@@ -15,6 +15,7 @@ final class AstController extends Controller
             'page_title' => 'Play with AST',
 
             'codeMirror' => true,
+            'livewireScripts' => true,
 
             // not set yet
             'astRun' => null,
