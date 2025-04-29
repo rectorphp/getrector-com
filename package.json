@@ -3,7 +3,6 @@
     "type": "module",
     "dependencies": {
         "ajv": "^8.0",
-        "bootstrap": "^5.3",
         "codemirror": "^5.0.1",
         "jquery": "^3.4.1",
         "tar": "^6.1.11"

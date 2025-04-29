@@ -1,4 +1,4 @@
-@import "bootstrap/scss/bootstrap";
+//@import "bootstrap/scss/bootstrap";
 
 html {
     font-family: 'Inter var', sans-serif;
@@ -45,7 +45,7 @@ a, a:hover, a:focus, button, button:focus {
     padding: .8rem 1.3rem;
     font-size: 1.3rem;
 
-    @include media-breakpoint-down(sm) {
+    @media (max-width: 575.98px) {
         padding: .5rem 1.1rem;
         font-size: 1.1rem;
     }
@@ -115,7 +115,7 @@ html, body {
 
     font-size: 1.13rem;
 
-    @include media-breakpoint-down(sm) {
+    @media (max-width: 575.98px) {
         font-size: .9em;
     }
 
@@ -150,11 +150,11 @@ h1 {
     font-size: 3rem;
     line-height: 3.8rem;
 
-    @include media-breakpoint-down(md) {
+    @media (max-width: 767.98px) {
         font-size: 2.4em;
     }
 
-    @include media-breakpoint-down(sm) {
+    @media (max-width: 575.98px) {
         font-size: 1.7em;
     }
 
@@ -166,12 +166,12 @@ h1 {
         font-weight: 800;
         text-align: center;
 
-        @include media-breakpoint-down(md) {
+        @media (max-width: 767.98px) {
             line-height: 1.3em;
             font-size: 3em;
         }
 
-        @include media-breakpoint-down(sm) {
+        @media (max-width: 575.98px) {
             font-size: 2.2em;
         }
     }
@@ -221,11 +221,11 @@ ul.list-nobullet {
         font-size: 1em;
     }
 
-    @include media-breakpoint-down(md) {
+    @media (max-width: 767.98px) {
         font-size: 1.3em;
     }
 
-    @include media-breakpoint-down(sm) {
+    @media (max-width: 575.98px) {
         font-size: 1.2em;
     }
 }
@@ -253,11 +253,11 @@ h4 {
 .blockquote {
     font-size: 1.4em;
 
-    @include media-breakpoint-down(md) {
+    @media (max-width: 767.98px) {
         font-size: 1.3em;
     }
 
-    @include media-breakpoint-down(sm) {
+    @media (max-width: 575.98px) {
         font-size: 1.1em;
     }
 }
@@ -553,7 +553,7 @@ label.required:before {
     }
 }
 
-@include media-breakpoint-down(sm) {
+@media (max-width: 575.98px) {
     .btn-lg {
         font-size: 1em;
     }
