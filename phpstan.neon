@@ -20,8 +20,6 @@ parameters:
 
     level: 8
 
-    # reportUnmatchedIgnoredErrors: false
-
     ignoreErrors:
         # float allowed
         - '#Parameter (.*?) of class Imagine\\Image\\Box constructor expects int, float given#'
@@ -60,11 +58,9 @@ parameters:
         # realpath usage
         -
             identifier: return.type
-
-        # enforce native
-#        -
-#            path: src/FileSystem/RectorFinder.php
-#            identifier: varTag.nativeType
+            paths:
+                - src/FileSystem/RectorFinder.php
+                - src/Repository/PostRepository.php
 
         -
             message: '#Parameter \#3 \$rectorClasses of class App\\RuleFilter\\ValueObject\\RectorSet constructor expects array<class-string<Rector\\Contract\\Rector\\RectorInterface>>, array<int, array<class-string<Rector\\Contract\\Rector\\RectorInterface>, array<mixed>>|class-string<Rector\\Contract\\Rector\\RectorInterface>> given#'
