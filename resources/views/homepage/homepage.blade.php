@@ -39,12 +39,12 @@
             </h3>
 
             <div id="company_logos" class="mt-3 mb-5">
-                <img src="assets/images/logo/logo_bigger/i6.png" class="img-fluid">
-                <img src="assets/images/logo/logo_bigger/curve.svg" class="img-fluid">
-                <img src="assets/images/logo/logo_bigger/gotphoto.png" class="img-fluid">
-                <img src="assets/images/logo/logo_bigger/ares_travel.svg" class="img-fluid">
-                <img src="assets/images/logo/logo_bigger/eonx.png" class="img-fluid p-3">
-                <img src="assets/images/logo/logo_bigger/spaceflow.png" class="img-fluid">
+                <img src="assets/images/logo/logo_bigger/i6.png" alt="i6 logo" class="img-fluid">
+                <img src="assets/images/logo/logo_bigger/curve.svg" alt="Curve logo" class="img-fluid">
+                <img src="assets/images/logo/logo_bigger/gotphoto.png" alt="GotPhoto logo" class="img-fluid">
+                <img src="assets/images/logo/logo_bigger/ares_travel.svg" alt="Ares Travel logo" class="img-fluid">
+                <img src="assets/images/logo/logo_bigger/eonx.png" alt="EONX logo" class="img-fluid p-3">
+                <img src="assets/images/logo/logo_bigger/spaceflow.png" alt="Spaceflow logo" class="img-fluid">
             </div>
         </div>
     </div>

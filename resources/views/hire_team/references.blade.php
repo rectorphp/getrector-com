@@ -4,7 +4,7 @@
             <div class="card-body company-quote-card-body" style="display: flex">
                 <div>
                     <img src="https://www.adamgleiss.com/images/face.jpg"
-                         class="rounded-circle img-face-smaller-left me-4" alt="">
+                         class="rounded-circle img-face-smaller-left me-4" alt="Adam Gleiss face">
                 </div>
 
                 <blockquote class="blockquote company-quote me-4">
@@ -25,7 +25,7 @@
             <div class="card-body company-quote-card-body" style="display: flex">
                 <div>
                     <img src="/assets/images/faces/nathan_page.jpg"
-                         class="rounded-circle img-face-smaller-left me-4" alt="">
+                         class="rounded-circle img-face-smaller-left me-4" alt="Nathan Page face">
                 </div>
 
                 <blockquote class="blockquote company-quote me-4">
