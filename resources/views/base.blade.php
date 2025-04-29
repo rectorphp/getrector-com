@@ -8,7 +8,7 @@
         <link rel="icon" type="image/x-icon" href="favicon.ico" />
 
         {{-- font import --}}
-        <link rel="preload" href="https://rsms.me/inter/inter.css" onload="this.rel='stylesheet'">
+        <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     </head>
 
     <body>
