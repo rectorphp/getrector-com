@@ -17,7 +17,7 @@ mkdir -p storage/framework/sessions
 mkdir -p storage/framework/views
 
 # create the manifest.json file
-npm build
+npm run build
 
 
 # since Laravel 11 ↓

@@ -9,8 +9,8 @@
 Install npm and dependencies:
 
 ```bash
-yarn install
-yarn run dev
+npm install
+npm run dev
 ```
 
 Install composer dependencies:

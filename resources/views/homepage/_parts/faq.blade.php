@@ -18,9 +18,7 @@
     <div class="col-12">
         <h3>We're in a hurry. Can you start today?</h3>
         <p>
-            We begin with a 3-week <a
-                    href="{{ action(\App\Controller\HireTeamController::class) }}">intro
-                analysis</a>, followed by an upgrade work.
+            We begin with a 3-week <a href="{{ action(\App\Controller\HireTeamController::class) }}">intro analysis</a>, followed by an upgrade work.
         </p>
     </div>
 

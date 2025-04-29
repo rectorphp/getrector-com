@@ -14,11 +14,18 @@
     <body>
         @include('_snippets/menu')
 
-        <div class="container mobile-margin-top">
+        @if (request()->route()->action['controller'] === \App\Controller\HomepageController::class)
+            {{-- special case for homepage, to allow full width white panels --}}
             @include('_snippets/flash_messages')
 
             @yield('main')
-        </div>
+        @else
+            <div class="container mobile-margin-top">
+                @include('_snippets/flash_messages')
+
+                @yield('main')
+            </div>
+        @endif
 
         @include('_snippets/layout/footer')
 

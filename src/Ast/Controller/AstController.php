@@ -14,6 +14,8 @@ final class AstController extends Controller
         return \view('ast/ast', [
             'page_title' => 'Play with AST',
 
+            'codeMirror' => true,
+
             // not set yet
             'astRun' => null,
             'inputFormContents' => <<<'PHP'

@@ -143,7 +143,7 @@ composer require symfony/console:^6.0
 
 This way, if any package will require `symfony/console:^6.0`, they will always match the current set of features.
 
-<em class="fas fa-fw fa-check text-success fa-2x"></em>
+✅
 
 For now, it's just an idea. Yet we already can see working ~~prototype~~ examples in the PHP world. PHPStan is using this release approach since 0.12. This week Rector and [ECS has joined](https://twitter.com/VotrubaT/status/1391445133405696014).
 
