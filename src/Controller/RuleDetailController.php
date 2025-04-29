@@ -29,6 +29,7 @@ final class RuleDetailController extends Controller
         return \view('homepage/rule_detail', [
             'page_title' => $ruleMetadata->getRuleShortClass(),
             'ruleMetadata' => $ruleMetadata,
+            'codeMirror' => true,
         ]);
     }
 }
