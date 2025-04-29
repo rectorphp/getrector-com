@@ -71,7 +71,7 @@ $services->set(FuncCallToStaticCallRector::class)
 
 <br>
 
-<em class="fas fa-fw fa-times text-danger fa-2x"></em>
+❌
 
 ## 2. Native `inline_service()` Function
 
@@ -106,7 +106,7 @@ This approach shuts us back to coding in the dark with Notepad.
 
 <br>
 
-<em class="fas fa-fw fa-times text-danger fa-2x"></em>
+❌
 
 ## 3. Best of Both Worlds - `inline_value_objects()`
 
@@ -158,7 +158,7 @@ And you're set!
 
 <br>
 
-<em class="fas fa-fw fa-check text-success fa-2x"></em>
+✅
 
 This way, **anyone can configure even the most complex Rector rules** without ever looking inside the Rector rule and scan for configuration values.
 

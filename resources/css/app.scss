@@ -1,15 +1,7 @@
 @import "bootstrap/scss/bootstrap";
-@import "@fortawesome/fontawesome-free/css/all.css";
-
-
-// setting the value of this variable to an empty data URL is the only working solution
-// to load the Bootswatch web fonts locally and avoid loading them from Google servers
-// see https://github.com/thomaspark/bootswatch/issues/55#issuecomment-298093182
-
-// @import url('https://rsms.me/inter/inter.css');
 
 html {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter var', sans-serif;
 }
 
 $black: #24292e;
@@ -22,6 +14,8 @@ body {
     display: flex;
     flex-direction: column;
     font-size: 110%;
+
+    background: hsl(48 33.3% 97.1% / 1)
 }
 
 a, a:hover, a:focus, button, button:focus {
@@ -29,6 +23,23 @@ a, a:hover, a:focus, button, button:focus {
     outline: none !important;
     box-shadow: none !important;
 }
+
+.navbar-dark .navbar-nav {
+    margin-top: .3em;
+    margin-bottom: .3em;
+
+    a.nav-link {
+        color: white;
+        text-decoration: none;
+
+        margin-right: 1em;
+    }
+
+    a {
+        font-size: 1.15em;
+    }
+}
+
 
 .bigger-buttons .btn {
     padding: .8rem 1.3rem;
@@ -73,7 +84,7 @@ a, a:hover, a:focus, button, button:focus {
 ============================*/
 
 h1, h2, h3 {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter var', sans-serif;
 }
 
 h3 {
@@ -126,7 +137,7 @@ html, body {
         }
     }
 
-    a {
+    a, a svg {
         color: #FFF;
 
         &:hover {
@@ -655,4 +666,10 @@ label.required:before {
 .anchor-link {
     margin-left: .1em;
     padding: .1em .3em;
+    opacity: .5;
+    text-decoration: none !important;
+
+    &:hover {
+        opacity: .8;
+    }
 }

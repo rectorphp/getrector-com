@@ -27,7 +27,7 @@
             <div class="row">
                 <div class="col-12 col-sm-6">
                     <h3 style="text-transform: uppercase; font-weight: 300;" class="mb-3">
-                        <em class="fas fa-lg fa-times-circle text-danger fa-fw"></em>
+                        @include('icons/error_cross', ['size' => 30])
                         Before
                     </h3>
 
@@ -38,7 +38,9 @@
                 </div>
                 <div class="col-12 col-sm-6">
                     <h3 style="text-transform: uppercase; font-weight: 300;" class="mb-3">
-                        <em class="fas fa-lg fa-check-circle text-success fa-fw"></em>
+                        <span class="text-success">
+                            @include('icons/success_check', ['size' => 30])
+                        </span>
                         After
                     </h3>
 

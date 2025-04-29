@@ -20,7 +20,7 @@ composer require symfony/console:2.8
 composer require rector/rector --dev
 ```
 
-<em class="fas fa-fw fa-times text-danger fa-2x"></em>
+❌
 
 That's where [prefixed version](/blog/2020/01/20/how-to-install-rector-despite-composer-conflicts) helps too.
 
@@ -29,7 +29,7 @@ composer require symfony/console:2.8
 composer require rector/rector-prefixed --dev
 ```
 
-<em class="fas fa-fw fa-check text-success fa-2x"></em>
+✅
 
 The ultimate problem with this setup is a terrible user experience [with hidden knowledge](@todo memory lock post). As a user, I don't want to think about different names for the same package. Would you install `symfony/console` or `symfony/console-prefixed` based on conflicts on install? No.
 
@@ -42,7 +42,7 @@ composer require symfony/console:2.8
 composer require rector/rector --dev
 ```
 
-<em class="fas fa-fw fa-check text-success fa-2x"></em>
+✅
 
 In April and May we've been working hard to make `rector/rector-prefixed` experience identical to `rector/rector`. It included:
 
