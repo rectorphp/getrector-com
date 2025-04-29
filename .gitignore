@@ -1,5 +1,5 @@
-vendor/
-package-lock.json
+# comopser
+/vendor
 
 .idea
 
