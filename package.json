@@ -1,11 +1,12 @@
 {
     "name": "getrector-com",
+    "type": "module",
     "dependencies": {
         "@fortawesome/fontawesome-free": "^6.2",
         "@fortawesome/free-brands-svg-icons": "^6.2",
         "@fortawesome/free-regular-svg-icons": "^6.2",
         "@fortawesome/free-solid-svg-icons": "^6.2",
-        "ajv": "^6.10.1",
+        "ajv": "^8.0",
         "bootstrap": "^5.3",
         "codemirror": "^5.0.1",
         "jquery": "^3.4.1",
@@ -13,15 +14,14 @@
     },
     "devDependencies": {
         "axios": "^1.1.2",
-        "bootstrap-sass": "^3.4.1",
         "bootswatch": "^3.4.1",
         "imports-loader": "^2.0",
-        "laravel-vite-plugin": "^0.7.2",
+        "laravel-vite-plugin": "^1.2",
         "lodash": "^4.17.19",
         "postcss": "^8.1.14",
         "sass": "^1.57.1",
         "sass-loader": "^11.0",
-        "vite": "^4.0.0"
+        "vite": "^6.3"
     },
     "scripts": {
         "dev": "vite",
@@ -31,6 +31,6 @@
     "private": true,
     "repository": {
         "type": "website",
-        "url": "https://github.com/rectorphp/getrector.com"
+        "url": "https://github.com/rectorphp/getrector-com"
     }
 }
