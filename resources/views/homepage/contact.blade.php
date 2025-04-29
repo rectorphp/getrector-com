@@ -34,13 +34,6 @@
                     <br>
                     <a href="mailto:tomas@getrector.com">tomas@getrector.com</a>
                 </div>
-
-                <div class="mt-3">
-                    <a href="https://github.com/tomasvotruba">
-                        <em class="fab fa-github fa-fw"></em>
-                        TomasVotruba
-                    </a>
-                </div>
             </div>
 
             <div class="col-12 col-sm-6">
@@ -49,20 +42,6 @@
 
                 <div class="mt-5">
                     <img src="/assets/images/faces/abdul.jpg" class="rounded-circle img-face shadow ms-4">
-                </div>
-
-                <div class="text-bigger">
-                    <a href="mailto:samsonasik@getrector.com">samsonasik@getrector.com</a>
-                </div>
-
-                <br>
-
-                <div>
-                    <a href="https://github.com/samsonasik">
-                        <em class="fab fa-github fa-fw"></em>
-                        Samsonasik
-                    </a>
-
                 </div>
             </div>
 
@@ -87,16 +66,6 @@
                 <p>
                     ID: 07536721<br>
                     VAT ID: CZ07536721
-                </p>
-            </div>
-            <div class="col-12 col-md-6">
-                <h3>Bank Details</h3>
-
-                <p>Account: 2201520677/2010</p>
-                <p>
-                    IBAN: CZ51 2010 0000 0022 0152 0677
-                    <br>
-                    BIC/SWIFT: FIOBCZPPXXX
                 </p>
             </div>
         </div>
