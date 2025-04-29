@@ -11,7 +11,7 @@
             <ul class="navbar-nav me-auto text-start text-md-center">
                 <li class="nav-item me-0 me-md-3 mb-1 mb-md-0" id="top_right_logo">
                     <a href="{{ action(\App\Controller\HomepageController::class) }}">
-                        <img src="/assets/images/new-logo/rector-with-name-white.png" alt="Rector logo">
+                        <img src="/assets/images/new-logo/rector-logo-white-homepage-title.png" alt="Rector logo">
                     </a>
                 </li>
 
