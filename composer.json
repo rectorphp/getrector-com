@@ -8,7 +8,7 @@
         "jajo/jsondb": "^3.0.1",
         "laravel/framework": "^12.3",
         "league/commonmark": "^2.6",
-        "livewire/livewire": "^3.5",
+        "livewire/livewire": "^3.6",
         "nesbot/carbon": "^3.8",
         "nikic/php-parser": "^5.4",
         "rector/rector": "dev-main as 2.0",
@@ -16,18 +16,18 @@
         "symfony/filesystem": "^7.2",
         "symfony/uid": "^7.2",
         "symfony/yaml": "^7.2",
-        "symplify/vendor-patches": "^11.3"
+        "symplify/vendor-patches": "^11.4"
     },
     "require-dev": {
-        "barryvdh/laravel-ide-helper": "^3.3",
+        "barryvdh/laravel-ide-helper": "^3.5",
         "driftingly/rector-laravel": "^2.0.2",
         "nette/robot-loader": "^4.0",
         "phpstan/extension-installer": "^1.4",
-        "phpstan/phpstan": "^2.1.8",
+        "phpstan/phpstan": "^2.1.13",
         "phpstan/phpstan-webmozart-assert": "^2.0",
-        "phpunit/phpunit": "11.4.0",
+        "phpunit/phpunit": "11.4",
         "rector/swiss-knife": "^1.0",
-        "phpecs/phpecs": "^2.0",
+        "phpecs/phpecs": "^2.1",
         "tomasvotruba/class-leak": "^2.0"
     },
     "autoload": {
