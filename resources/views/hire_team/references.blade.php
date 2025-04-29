@@ -1,10 +1,10 @@
 <div id="references">
     <div class="row mb-5">
-        <div class="card shadow border-danger ms-2 mt-4">
+        <div class="card shadow ms-2 mt-4">
             <div class="card-body company-quote-card-body" style="display: flex">
                 <div>
                     <img src="https://www.adamgleiss.com/images/face.jpg"
-                         class="rounded-circle img-face-smaller-left shadow-sm me-4" alt="">
+                         class="rounded-circle img-face-smaller-left me-4" alt="">
                 </div>
 
                 <blockquote class="blockquote company-quote me-4">
@@ -21,11 +21,11 @@
     </div>
 
     <div class="row mb-5">
-        <div class="card shadow border-primary  ms-2 mt-4">
+        <div class="card shadow ms-2 mt-4">
             <div class="card-body company-quote-card-body" style="display: flex">
                 <div>
                     <img src="/assets/images/faces/nathan_page.jpg"
-                         class="rounded-circle img-face-smaller-left shadow-sm me-4" alt="">
+                         class="rounded-circle img-face-smaller-left me-4" alt="">
                 </div>
 
                 <blockquote class="blockquote company-quote me-4">

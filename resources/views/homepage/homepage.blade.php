@@ -106,7 +106,7 @@
                         </p>
 
                         <p>
-                            How typical <a href="{{ action(\App\Controller\CodebaseRenovationController::class) }} ">codebase renovation</a> looks like?
+                            How does typical <a href="{{ action(\App\Controller\CodebaseRenovationController::class) }} ">codebase renovation</a> look like?
                         </p>
                     </div>
                 </div>
