@@ -22,6 +22,7 @@ final readonly class AstDetailController
             'page_title' => 'Play with AST',
             'astRun' => $astRun,
             'inputFormContents' => $astRun->getContent(),
+            'codeMirror' => true,
         ]);
     }
 }
