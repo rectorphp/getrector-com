@@ -5,7 +5,7 @@ set -e
 
 # install dependencies
 composer install
-yarn install
+npm install
 
 # create env file
 cp .env.dist .env
@@ -17,7 +17,7 @@ mkdir -p storage/framework/sessions
 mkdir -p storage/framework/views
 
 # create the manifest.json file
-yarn build
+npm build
 
 
 # since Laravel 11 ↓

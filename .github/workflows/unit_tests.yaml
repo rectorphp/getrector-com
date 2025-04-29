@@ -22,8 +22,8 @@ jobs:
             # for controller tests
             -   run: cp .env.prod .env
 
-            -   run: yarn install
-            -   run: yarn run build
+            -   run: npm install
+            -   run: npm run build
             -   run: php artisan migrate --force
 
             -   run: vendor/bin/phpunit
