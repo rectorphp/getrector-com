@@ -23,13 +23,14 @@ final readonly class DocumentationMenuFactory
     {
         return [
             'First Steps' => [
-                $this->documentationMenuItemFactory->createSection('integration-to-new-project', 'New Project', true),
+                $this->documentationMenuItemFactory->createSection('integration-to-new-project', 'New Project'),
                 $this->documentationMenuItemFactory->createSection('define-paths', 'Define Paths'),
                 $this->documentationMenuItemFactory->createSection('set-lists', 'Set Lists'),
-                $this->documentationMenuItemFactory->createSection('levels', 'Levels', true),
+                $this->documentationMenuItemFactory->createSection('levels', 'Levels'),
                 $this->documentationMenuItemFactory->createSection('attributes', 'PHP 8.0 Attributes', true),
                 $this->documentationMenuItemFactory->createSection('composer-based-sets', 'Composer-Based Sets', true),
                 $this->documentationMenuItemFactory->createInternalLink(FindRuleController::class, 'Find Rules'),
+                $this->documentationMenuItemFactory->createSection('run-single-rule', 'Run single rule', true),
                 $this->documentationMenuItemFactory->createSection(
                     'ignoring-rules-or-paths',
                     'Ignoring Rules or Paths'
@@ -69,7 +70,7 @@ final readonly class DocumentationMenuFactory
                 ),
                 $this->documentationMenuItemFactory->createSection('rules-overview', 'Rules Overview'),
                 $this->documentationMenuItemFactory->createSection('creating-a-node-visitor', 'Creating Node Visitor'),
-                $this->documentationMenuItemFactory->createSection('how-to-run-on-php-53', 'Run on PHP 5.3', true),
+                $this->documentationMenuItemFactory->createSection('how-to-run-on-php-53', 'Run on PHP 5.3'),
             ],
         ];
     }
