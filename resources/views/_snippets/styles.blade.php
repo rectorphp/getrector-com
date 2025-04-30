@@ -1,4 +1,5 @@
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" id="theme-link" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/atlas.min.css">
 
 @isset ($codeMirror)
     {{-- live code highligh in demo --}}
@@ -7,8 +8,7 @@
 
 {{-- code highligh posts --}}
 {{-- pick from https://highlightjs.org/demo --}}
-
-    <link rel="stylesheet" id="theme-link" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/atlas.min.css">
+@endisset
 
 <style>
     pre code.hljs {
@@ -62,6 +62,7 @@
     window.onload = loadTheme;
 </script>
 
+@isset ($codeMirror)
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/bash.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/php.min.js"></script>
