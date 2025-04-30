@@ -54,33 +54,35 @@
         list-style: none;
         padding: 0;
         margin: 0;
+        margin-top: 1em;
     }
 
     .mobile-menu li {
-        padding: 10px 20px;
+        padding: .8em 1.7em;
     }
 
     .mobile-menu a {
         color: #fff;
         text-decoration: none;
-        font-size: 16px;
+        font-size: 1.3em;
     }
 
     .mobile-menu a:hover {
         color: #ccc;
     }
 
-    .mobile-menu .logo img {
-        max-width: 150px;
+    .mobile-menu-logo img {
+        max-width: 10em;
+        margin-right: 1em;
     }
 
     /* Mobile styles */
     @media (max-width: 768px) {
         .hamburger {
             display: flex;
-            position: absolute;
-            top: 15px;
-            left: 15px;
+            /*position: absolute;*/
+            top: 20px;
+            left: 20px;
         }
 
         .navbar-toggler,
@@ -98,6 +100,7 @@
 
     /* Desktop styles: hide hamburger and mobile menu */
     @media (min-width: 769px) {
+        .mobile-menu-logo,
         .hamburger,
         .mobile-menu,
         #menu-toggle {
@@ -115,27 +118,24 @@
     <div class="container">
         <!-- CSS-only hamburger menu -->
         <input type="checkbox" id="menu-toggle">
-        <label for="menu-toggle" class="hamburger">
+        <label for="menu-toggle" class="hamburger mt-3 mb-3">
             <span></span>
             <span></span>
             <span></span>
         </label>
 
-        <!-- Original Bootstrap toggler (kept for desktop, hidden on mobile) -->
-        <button class="navbar-toggler ms-2 ms-md-0" type="button" data-toggle="collapse"
-                data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
-                aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <div class="mobile-menu-logo">
+            <a href="{{ action(\App\Controller\HomepageController::class) }}">
+                <img src="/assets/images/new-logo/rector-logo-white-homepage-title.png" alt="Rector logo">
+            </a>
+        </div>
 
         <!-- Mobile sliding menu -->
         <div class="mobile-menu">
+
+
             <ul>
-                <li class="logo" id="mobile_top_right_logo">
-                    <a href="{{ action(\App\Controller\HomepageController::class) }}">
-                        <img src="/assets/images/new-logo/rector-logo-white-homepage-title.png" alt="Rector logo">
-                    </a>
-                </li>
+
                 @include('_snippets/menu_items')
                 <li>
                     <a href="http://github.com/rectorphp/rector" class="nav-link">
