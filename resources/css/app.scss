@@ -155,7 +155,7 @@ h1 {
     }
 
     @media (max-width: 575.98px) {
-        font-size: 1.7em;
+        font-size: 1.8em;
     }
 
     &.main-title {
@@ -168,11 +168,11 @@ h1 {
 
         @media (max-width: 767.98px) {
             line-height: 1.3em;
-            font-size: 3em;
+            font-size: 2.8em;
         }
 
         @media (max-width: 575.98px) {
-            font-size: 2.2em;
+            font-size: 2em;
         }
     }
 }
@@ -330,7 +330,7 @@ h4 {
     }
 
     @media (max-width: 750px) {
-        h1 {
+        h1:not(.main-title) {
             font-size: 1.5em;
             line-height: 1.5em;
         }
@@ -534,10 +534,10 @@ label.required:before {
 
 #company_logos {
     img {
-        max-width: 16%;
+        max-width: 11em;
         opacity: 60%;
         transition-duration: .3s;
-        padding: 0 .7em;
+        padding: .5em 1.6em .5em 0;
 
         flex: 1 1 10%;
 

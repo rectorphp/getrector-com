@@ -33,18 +33,19 @@
     </div>
 
     <div style="background: #FFF" class="mb-5">
-        <div class="container">
-            <h3 class="mt-5">
+        <div class="container" style="max-width: 81em;">
+            <h3 class="mt-5 mb-4">
                 Trusted by engineers at
             </h3>
 
-            <div id="company_logos" class="mt-3 mb-5">
-                <img src="assets/images/logo/logo_bigger/i6.png" alt="i6 logo" class="img-fluid">
-                <img src="assets/images/logo/logo_bigger/curve.svg" alt="Curve logo" class="img-fluid">
-                <img src="assets/images/logo/logo_bigger/gotphoto.png" alt="GotPhoto logo" class="img-fluid">
-                <img src="assets/images/logo/logo_bigger/ares_travel.svg" alt="Ares Travel logo" class="img-fluid">
-                <img src="assets/images/logo/logo_bigger/eonx.png" alt="EONX logo" class="img-fluid p-3">
-                <img src="assets/images/logo/logo_bigger/spaceflow.png" alt="Spaceflow logo" class="img-fluid">
+            <div id="company_logos" class="mt-3 mb-5 text-center">
+                <img src="assets/images/logo/logo_bigger/curve.svg" alt="Curve logo" class="img-fluid pt-4 pb-4 pb-sm-2 pt-sm-2">
+                <img src="assets/images/logo/logo_bigger/i6.png" alt="i6 logo" class="img-fluid pt-4 pb-4 pb-sm-2 pt-sm-2">
+                <img src="assets/images/logo/logo_bigger/gotphoto.png" alt="GotPhoto logo" class="img-fluid pt-4 pb-4 pb-sm-2 pt-sm-2">
+                <img src="assets/images/logo/logo_bigger/ares_travel.svg" alt="Ares Travel logo" class="img-fluid pt-4 pb-4 pb-sm-2 pt-sm-2">
+                <img src="assets/images/logo/logo_bigger/media_trust.png" alt="Media Trust logo" class="img-fluid pt-4 pb-4 pb-sm-2 pt-sm-2">
+                <img src="assets/images/logo/logo_bigger/spaceflow.png" alt="Spaceflow logo" class="img-fluid pt-4 pb-4 pb-sm-2 pt-sm-2">
+                <img src="assets/images/logo/logo_bigger/eonx.png" alt="EONX logo" class="img-fluid pt-4 pb-4 pb-sm-2 pt-sm-2 p-3">
             </div>
         </div>
     </div>
