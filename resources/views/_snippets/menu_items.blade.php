@@ -46,7 +46,10 @@
            class="nav-link">Find rule</a>
     </li>
 
+    @isset ($codeMirror)
     <li class="nav-item">
         <a onclick="toggleTheme()" class="nav-link" id="theme_toggle" style="cursor: pointer">Dark/Light Theme</a>
     </li>
+    @endisset
+
 @endisset
