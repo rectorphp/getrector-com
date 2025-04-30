@@ -17,9 +17,7 @@
 
                 @include('_snippets/menu_items')
             </ul>
-        </div>
 
-        <div>
             <ul class="navbar-nav me-auto text-md-center">
                 <li class="nav-item">
                     <a href="http://github.com/rectorphp/rector" class="nav-link">
