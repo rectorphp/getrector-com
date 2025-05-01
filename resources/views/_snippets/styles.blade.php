@@ -1,4 +1,4 @@
-<link rel="preload" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600&display=swap" as="style" onload="this.rel='stylesheet'">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600&display=swap" as="style">
 
 <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/atlas.min.css" as="style" id="theme-link" onload="this.rel='stylesheet'">
 
