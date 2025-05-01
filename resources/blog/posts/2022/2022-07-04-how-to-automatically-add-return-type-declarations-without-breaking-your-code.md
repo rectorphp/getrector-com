@@ -165,7 +165,7 @@ Depending on what age your project is coming from, there is one requirement to m
 
 ## Try it Yourself
 
-Rector can handles some case above in the basic version. Add these rules to your code and see for yourself:
+Rector can handle some cases above in the basic version. Add these rules to your code and see for yourself:
 
 ```php
 <?php
