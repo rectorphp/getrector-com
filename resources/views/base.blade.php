@@ -10,7 +10,7 @@
         <link rel="icon" type="image/x-icon" href="favicon.ico" />
 
         {{-- font import --}}
-        <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+        <link rel="preload" href="https://rsms.me/inter/inter.css" as="style" onload="this.rel='stylesheet'">
     </head>
 
     <body>
