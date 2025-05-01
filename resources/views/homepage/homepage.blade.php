@@ -51,7 +51,7 @@
     <div class="container mobile-margin-top">
         <div id="homepage">
             <h2>
-                How does Rector <span class="text-rector-green">Improve your Business</span>?
+                How does Rector <span class="text-rector-green">Improve&nbsp;your&nbsp;Business</span>?
             </h2>
 
             <div class="text-medium">
@@ -89,7 +89,7 @@
 
             <h2>
                 <span class="text-rector-green">10x Faster and Cheaper</span> upgrades<br>
-                Build on Experience with <span class="text-rector-green">50+ projects</span>
+                with <span class="text-rector-green">50+&nbsp;projects&nbsp;Experience</span>
             </h2>
 
             <div class="row">
@@ -146,8 +146,6 @@
             <h2>
                 What do CTOs <span class="text-rector-green">Love&nbsp;about&nbsp;Rector</span>?
             </h2>
-
-            <br>
 
             @include('hire_team/references')
 
