@@ -33,10 +33,8 @@
     </div>
 
     <div style="background: #FFF" class="mb-5">
-        <div class="container" style="max-width: 81em;">
-            <h3 class="mt-5 mb-4">
-                Trusted by engineers at
-            </h3>
+        <div class="container" style="max-width: 78em;">
+            <h3 class="mt-5 mb-5 text-center">Trusted by engineers at</h3>
 
             <div id="company_logos" class="mt-3 mb-5 text-center">
                 <img src="assets/images/logo/logo_bigger/curve.svg" alt="Curve logo" class="img-fluid pt-4 pb-4 pb-sm-2 pt-sm-2">
