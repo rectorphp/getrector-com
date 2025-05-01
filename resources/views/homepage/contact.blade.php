@@ -6,7 +6,7 @@
 
         <div class="row">
             <div class="col-12 text-bigger mb-0 pb-0">
-                <img src="/assets/images/meeting.jpg" class="float-end rounded-3 border ms-5" style="max-width: 18em" alt="Meeting">
+                <img src="/assets/images/meeting.png" class="float-end rounded-3 border ms-5" style="max-width: 20em" alt="Meeting">
 
                 <p class="mb-5">Tell us your biggest problems that you struggle with.<br>
                     We won't judge you, we've seen a lot of legacy projects and&nbsp;are&nbsp;here to help.</p>

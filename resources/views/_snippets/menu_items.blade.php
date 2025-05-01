@@ -4,6 +4,11 @@
 </li>
 
 <li class="nav-item">
+    <a href="{{ action(\App\Controller\DocumentationController::class) }}"
+       class="nav-link">Docs</a>
+</li>
+
+<li class="nav-item">
     <a href="{{ action(\App\Controller\HireTeamController::class) }}"
        class="nav-link">Hire Team</a>
 </li>
@@ -14,19 +19,18 @@
 </li>
 
 <li class="nav-item">
-    <a href="{{ action(\App\Controller\ContactController::class) }}"
-       class="nav-link">Contact</a>
-</li>
-
-<li class="nav-item">
     <a href="{{ action(\App\Controller\Blog\BlogController::class) }}"
        class="nav-link">Blog</a>
 </li>
 
+
 <li class="nav-item">
-    <a href="{{ action(\App\Controller\DocumentationController::class) }}"
-       class="nav-link">Docs</a>
+    <a href="{{ action(\App\Controller\ContactController::class) }}"
+       class="nav-link">Contact</a>
 </li>
+
+
+
 
 @if (!isset($includeFooterLinks))
     <li class="nav-item">
