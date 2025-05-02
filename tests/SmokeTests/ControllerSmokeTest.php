@@ -17,7 +17,7 @@ final class ControllerSmokeTest extends AbstractTestCase
     {
         $testResponse = $this->get($url);
 
-        $testResponse->assertStatus($expectedStatusCode);
+        $this->assertSame($expectedStatusCode, $testResponse->getStatusCode(), (string) $testResponse->getContent());
     }
 
     public static function provideData(): Iterator
