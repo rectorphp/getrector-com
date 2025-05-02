@@ -34,5 +34,3 @@ It helps you to:
 <br>
 
 See [Swiss knife Github repository](https://github.com/rectorphp/swiss-knife) for full documentation.
-
-

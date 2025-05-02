@@ -17,6 +17,11 @@ jobs:
                         name: 'Validate rule definitions'
                         run: php artisan app:validate-rule-definitions
 
+                    # @see https://github.com/rectorphp/jack
+                    -
+                        name: 'Rector Jack'
+                        run: vendor/bin/jack breakpoint --limit 2 --ansi
+
                     -
                         name: 'PHPStan'
                         run: composer phpstan
