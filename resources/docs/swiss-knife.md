@@ -4,7 +4,7 @@ It can help you with various everyday tasks that are outside Rector's scope, but
 
 ### Install
 
-Swiss Knife package is scoped and downgraded, so it required PHP 7.2+ to run and can be installed on any old legacy project.
+Swiss Knife package is scoped and downgraded. It requires **PHP 7.2+** and can be installed on any old legacy project.
 
 Install with Composer:
 
