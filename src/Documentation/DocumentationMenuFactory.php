@@ -71,6 +71,13 @@ final readonly class DocumentationMenuFactory
                 $this->documentationMenuItemFactory->createSection('rules-overview', 'Rules Overview'),
                 $this->documentationMenuItemFactory->createSection('creating-a-node-visitor', 'Creating Node Visitor'),
                 $this->documentationMenuItemFactory->createSection('how-to-run-on-php-53', 'Run on PHP 5.3'),
+                $this->documentationMenuItemFactory->createSection(
+                    'https://leanpub.com/rector-the-power-of-automated-refactoring',
+                    'Learn Rector in Depth from Book'
+                ),
+            ],
+            'Rector Family Tools' => [
+                $this->documentationMenuItemFactory->createSection('swiss-knife', 'Swiss Knife', true),
             ],
         ];
     }

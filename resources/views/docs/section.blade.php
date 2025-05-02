@@ -11,9 +11,7 @@
 
             <ul class="mt-3">
                 <li>
-                    <a
-                        href="{{ action(\App\Controller\DocumentationController::class) }}"
-                    >Introduction</a>
+                    <a href="{{ action(\App\Controller\DocumentationController::class) }}">Introduction</a>
                 </li>
             </ul>
 
@@ -44,14 +42,6 @@
                     @endforeach
                 </ul>
             @endforeach
-
-            <ul>
-                <li>
-                    <a href="https://leanpub.com/rector-the-power-of-automated-refactoring">
-                        Learn Rector in Depth from Book
-                    </a>
-                </li>
-            </ul>
         </div>
 
         <div class="col-12 col-sm-9" id="documentation">

@@ -23,18 +23,6 @@ There 2 more tools that help out with specific sets:
 * [tomasvotruba/type-coverage](https://github.com/TomasVotruba/type-coverage) - works best with `withTypeCoverageLevel()`
 * [tomasvotruba/class-leak](https://github.com/TomasVotruba/class-leak) - works best with `withDeadCodeLevel()`
 
-## 3. Multi Tools
-
-Last but not least, in 2024 we shipped a home made tool that can help you with various tasks. We use it every project and it's a great help:
-
-* [rector/swiss-knife](https://github.com/rectorphp/swiss-knife)
-
-It helps with:
-
-* fixing PSR-4 namespace to match `composer.json` autoload
-* finalizing all classes excepts parents, entities marked with docblock, attributes or YAML-defined
-* detecting commented code or git conflicts
-
 <br>
 
 There is also [symplify/config-transformer](https://github.com/symplify/config-transformer) that helps with transforming YAML Symfony configs to PHP. There you can follow up with [Symfony rules for Rector](/rule-detail/string-extension-to-config-builder-rector) to reach config builders.

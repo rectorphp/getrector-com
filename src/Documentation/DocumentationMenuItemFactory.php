@@ -15,16 +15,17 @@ final readonly class DocumentationMenuItemFactory
     ) {
     }
 
-    public function createSection(string $slug, string $name, bool $isNew = false): DocumentationMenuItem
+    public function createSection(string $slugOrUrl, string $name, bool $isNew = false): DocumentationMenuItem
     {
-        return new DocumentationMenuItem(
-            $this->urlGenerator->action(DocumentationController::class, [
-                'section' => $slug,
-            ]),
-            $name,
-            $isNew
-        );
+        if (str_starts_with($slugOrUrl, 'https://')) {
+            $url = $slugOrUrl;
+        } else {
+            $url = $this->urlGenerator->action(DocumentationController::class, [
+                'section' => $slugOrUrl,
+            ]);
+        }
 
+        return new DocumentationMenuItem($url, $name, $isNew);
     }
 
     /**
