@@ -1,4 +1,4 @@
-In 2024 we shipped an in-house tool that we originally used only internally to help with upgrades.
+In 2024 we published an in-house tool that we used only internal for years.
 
 It can help you with various everyday tasks that are outside Rector's scope, but are connected with upgrades and code quality.
 
@@ -8,11 +8,21 @@ It can help you with various everyday tasks that are outside Rector's scope, but
 composer require rector/swiss-knife --dev
 ```
 
-It helps with:
+It helps you to:
 
-* fixing PSR-4 namespace to match `composer.json` autoload
-* finalizing all classes excepts parents, entities marked with docblock, attributes or YAML-defined
-* detecting commented code or git conflicts
+* **finalize all classes** except entities, mocked classes, classes with children, YAML-defined etc.
+* **privatize class constant**, that are never used outside the class
+* detect commented code creep
+* **convert random namespaces to PSR-4** - updates `composer.json`, class names and use imports
+* spot accidental git conflicts in CI
+* turn any JSON file to **nice and human-readable format**
+* search all PHP files with quick regex
+* generate [Symfony 5.3](https://symfony.com/blog/new-in-symfony-5-3-config-builder-classes) configs
+* split huge Symfony configs to per-package in `/packages/` folder
+* spot fake-traits
+
+...and more
+
 
 <br>
 
