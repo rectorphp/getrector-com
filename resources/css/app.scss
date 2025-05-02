@@ -420,21 +420,12 @@ label.required:before {
 }
 
 #references {
-    .company-logo {
-        max-width: 10em;
-        margin-right: 0;
-    }
-
     .company-quote {
-        font-size: 1.4em;
+        font-size: 1.3em;
 
         @media (max-width: 750px) {
             font-size: 1em;
         }
-    }
-
-    .company-quote-card-body {
-        padding: 1.5em 1em 0 2em;
     }
 
     h3 {
