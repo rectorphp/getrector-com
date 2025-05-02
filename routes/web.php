@@ -59,8 +59,9 @@ Route::get('/rule-thumbnail/{ruleSlug}.png', RuleThumbnailController::class)
 
 Route::get('stats/find-rule', FindRuleStatsController::class);
 
-Route::redirect('custom-rule/{uuid}', 'demo');
-Route::redirect('custom-rule', 'demo');
+Route::redirect('custom-rule/{anything}', '/demo')
+    ->where('anything', '.*');
+Route::redirect('custom-rule', '/demo');
 
 // demo
 Route::get('demo/{uuid}', DemoDetailController::class)
