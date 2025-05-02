@@ -22,8 +22,13 @@
 @section('main')
     <div id="filter">
         <div style="float: right" class="mt-0">
-            <a href="{{ url()->previous() }}">Back to rule search</a>
+            @if (url()->previous() && str_contains(url()->previous(), 'find-rule'))
+                <a href="{{ url()->previous() }}">Back to rule search</a>
+            @else
+                <a href="{{ action(\App\Controller\FindRuleController::class) }}">Find another rule</a>
+            @endif
         </div>
+
         <div class="clearfix"></div>
 
         <div class="mt-3 mb-5">
