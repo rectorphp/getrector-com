@@ -9,7 +9,7 @@ use Rector\Php55\Rector\String_\StringClassNameToClassConstantRector;
 
 return RectorConfig::configure()
     ->withPaths([__DIR__ . '/config', __DIR__ . '/src', __DIR__ . '/tests', __DIR__ . '/routes'])
-    ->withImportNames(removeUnusedImports: true)
+    ->withImportNames()
     ->withPreparedSets(
         deadCode: true,
         codeQuality: true,
