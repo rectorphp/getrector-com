@@ -1,4 +1,4 @@
-<h3>Featured</h3>
+<h3>Featured Posts</h3>
 
 @foreach ($recentPosts as $recentPost)
     @php /** @var \App\Entity\Post $recentPost */ @endphp

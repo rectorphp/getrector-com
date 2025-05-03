@@ -131,15 +131,14 @@
                 </div>
             </div>
 
-            <!--
-            @todo they write about us
-            * post
-            * rector talk at laracon https://www.youtube.com/watch?v=qGrsvcWdERc&ab_channel=LaraconEU
-            -->
-
             @include('_snippets/homepage_separator')
 
-            @include('homepage._parts.posts')
+            @if (count($upcomingTalks) > 0)
+                @include('homepage/_parts/upcoming_talks')
+                @include('_snippets/homepage_separator')
+            @endif
+
+            @include('homepage/_parts/posts')
 
             @include('_snippets/homepage_separator')
 
