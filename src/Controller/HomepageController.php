@@ -24,6 +24,7 @@ final class HomepageController extends Controller
             'recentPosts' => $this->postRepository->fetchLast(5),
 
             'references' => $this->loadReferences(),
+            'upcomingTalks' => $this->loadUpcomingTalks(),
 
             // seo
             'metaTitle' => 'Rector: Fast PHP Code Upgrades & Refactoring',
@@ -36,8 +37,19 @@ final class HomepageController extends Controller
      */
     private function loadReferences(): array
     {
-        $referencesFileContents = FileSystem::read(__DIR__ . '/../../resources/json-database/references.json');
+        $fileContents = FileSystem::read(__DIR__ . '/../../resources/json-database/references.json');
+        return Json::decode($fileContents, forceArrays: true);
+    }
 
-        return Json::decode($referencesFileContents, forceArrays: true);
+    /**
+     * @return mixed[]
+     */
+    private function loadUpcomingTalks(): array
+    {
+        $fileContents = FileSystem::read(__DIR__ . '/../../resources/json-database/upcoming_talks.json');
+        $upcomingTalks = Json::decode($fileContents, forceArrays: true);
+
+        // remove past talks
+        return array_filter($upcomingTalks, static fn (array $talk): bool => $talk['date'] > date('Y-m-d'));
     }
 }
