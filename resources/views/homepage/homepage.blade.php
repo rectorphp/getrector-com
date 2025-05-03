@@ -14,7 +14,8 @@
             </h1>
 
             <div class="text-bigger text-center">
-                <p>We help successful and growing companies to get the most out of the code they already have.</p>
+                <p>We help successful and growing companies to get the most out of the code they
+                    already have.</p>
 
                 <p>
                     <strong>Reduce maintenance cost</strong>, <strong>make feature delivery
@@ -37,13 +38,20 @@
             <h3 class="mt-5 mb-5 text-center">Trusted by engineers at</h3>
 
             <div id="company_logos" class="mt-3 mb-5 text-center">
-                <img src="assets/images/logo/logo_bigger/curve.svg" alt="Curve logo" class="img-fluid pt-4 pb-4 pb-sm-2 pt-sm-2">
-                <img src="assets/images/logo/logo_bigger/i6.png" alt="i6 logo" class="img-fluid pt-4 pb-4 pb-sm-2 pt-sm-2">
-                <img src="assets/images/logo/logo_bigger/gotphoto.png" alt="GotPhoto logo" class="img-fluid pt-4 pb-4 pb-sm-2 pt-sm-2">
-                <img src="assets/images/logo/logo_bigger/ares_travel.svg" alt="Ares Travel logo" class="img-fluid pt-4 pb-4 pb-sm-2 pt-sm-2">
-                <img src="assets/images/logo/logo_bigger/media_trust.png" alt="Media Trust logo" class="img-fluid pt-4 pb-4 pb-sm-2 pt-sm-2">
-                <img src="assets/images/logo/logo_bigger/spaceflow.png" alt="Spaceflow logo" class="img-fluid pt-4 pb-4 pb-sm-2 pt-sm-2">
-                <img src="assets/images/logo/logo_bigger/eonx.png" alt="EONX logo" class="img-fluid pt-4 pb-4 pb-sm-2 pt-sm-2 p-3">
+                <img src="assets/images/logo/logo_bigger/curve.svg" alt="Curve logo"
+                     class="img-fluid pt-4 pb-4 pb-sm-2 pt-sm-2">
+                <img src="assets/images/logo/logo_bigger/i6.png" alt="i6 logo"
+                     class="img-fluid pt-4 pb-4 pb-sm-2 pt-sm-2">
+                <img src="assets/images/logo/logo_bigger/gotphoto.png" alt="GotPhoto logo"
+                     class="img-fluid pt-4 pb-4 pb-sm-2 pt-sm-2">
+                <img src="assets/images/logo/logo_bigger/ares_travel.svg" alt="Ares Travel logo"
+                     class="img-fluid pt-4 pb-4 pb-sm-2 pt-sm-2">
+                <img src="assets/images/logo/logo_bigger/media_trust.png" alt="Media Trust logo"
+                     class="img-fluid pt-4 pb-4 pb-sm-2 pt-sm-2">
+                <img src="assets/images/logo/logo_bigger/spaceflow.png" alt="Spaceflow logo"
+                     class="img-fluid pt-4 pb-4 pb-sm-2 pt-sm-2">
+                <img src="assets/images/logo/logo_bigger/eonx.png" alt="EONX logo"
+                     class="img-fluid pt-4 pb-4 pb-sm-2 pt-sm-2 p-3">
             </div>
         </div>
     </div>
@@ -51,34 +59,39 @@
     <div class="container mobile-margin-top">
         <div id="homepage">
             <h2>
-                How does Rector <span class="text-rector-green">Improve&nbsp;your&nbsp;Business</span>?
+                How does Rector <span
+                    class="text-rector-green">Improve&nbsp;your&nbsp;Business</span>?
             </h2>
 
             <div class="text-medium">
                 <p>
-                    Rector is a PHP tool that you can run on any PHP project to get an instant upgrade
+                    Rector is a PHP tool that you can run on any PHP project to get an instant
+                    upgrade
                     or automated refactoring.
                 </p>
 
                 <p>
                     It helps you with:
 
-                    <ul>
-                        <li>PHP and framework upgrades,</li>
-                        <li>in-house framework migrations,</li>
-                        <li>improving your code quality to deliver features faster than competition</li>
-                    </ul>
+                <ul>
+                    <li>PHP and framework upgrades,</li>
+                    <li>in-house framework migrations,</li>
+                    <li>improving your code quality to deliver features faster than competition</li>
+                </ul>
                 </p>
 
                 <p>
                     In the hands of an expert, Rector massively reduces your work-time.<br>
-                    Where project upgrade PHP 8.0 to 8.4 would <strong>take 3 months</strong>, <strong>Rector is done in 3 days</strong>.
+                    Where project upgrade PHP 8.0 to 8.4 would <strong>take 3 months</strong>,
+                    <strong>Rector is done in 3 days</strong>.
                 </p>
 
                 <p>
-                    You can learn it yourself from <a href="{{ action(\App\Controller\DocumentationController::class) }}">documentation</a>,
+                    You can learn it yourself from <a
+                        href="{{ action(\App\Controller\DocumentationController::class) }}">documentation</a>,
                     or to save time and start upgrading today,
-                    <strong><a href="{{ action(\App\Controller\HireTeamController::class) }}">hire our upgrade team</a></strong>.
+                    <strong><a href="{{ action(\App\Controller\HireTeamController::class) }}">hire
+                            our upgrade team</a></strong>.
                 </p>
             </div>
 
@@ -104,12 +117,15 @@
                             90% of problems you'll face are&nbsp;new to you.
                         </p>
                         <p>
-                            We've already seen them and&nbsp;know exactly how to solve them cost-effectively
+                            We've already seen them and&nbsp;know exactly how to solve them
+                            cost-effectively
                             and quickly.
                         </p>
 
                         <p>
-                            How does typical <a href="{{ action(\App\Controller\CodebaseRenovationController::class) }} ">codebase renovation</a> look like?
+                            How does typical <a
+                                href="{{ action(\App\Controller\CodebaseRenovationController::class) }} ">codebase
+                                renovation</a> look like?
                         </p>
                     </div>
                 </div>
@@ -123,23 +139,7 @@
 
             @include('_snippets/homepage_separator')
 
-            <h3>Featured</h3>
-            @foreach ($recentPosts as $recentPost)
-                @php /** @var \App\Entity\Post $recentPost */ @endphp
-
-                <a href="{{ action(\App\Controller\Blog\PostController::class, ['postSlug' => $recentPost->getSlug() ]) }}">
-                    <li style="list-style: none; font-size: 1.25em; line-height: 1.9em">
-                        <div class="d-flex" style="justify-content: space-between">
-                            {{ $recentPost->getTitle() }}
-
-                            <div style="width:5em; justify-content: space-between; white-space: nowrap; color:#BBB;">
-                                {{ $recentPost->getDateTime()->format('M j, Y') }}
-                            </div>
-                        </div>
-                    </li>
-
-                </a>
-            @endforeach
+            @include('homepage._parts.posts')
 
             @include('_snippets/homepage_separator')
 
