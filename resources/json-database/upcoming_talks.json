@@ -1,0 +1,20 @@
+[
+    {
+        "title": "Mastering Automated Refactoring with custom Rector rules - Dave Liddament",
+        "date": "2025-05-20",
+        "location": "Chicago, Illinois, USA",
+        "url": "https://phptek.io/schedule"
+    },
+    {
+        "title": "Intro to Automated Refactoring with RectorPHP - Chris Abbey",
+        "date": "2025-05-22",
+        "location": "Chicago, Illinois, USA",
+        "url": "https://phptek.io/schedule"
+    },
+    {
+        "title": "Advanced Rector Shenanigans - Chris Abbey",
+        "date": "2025-05-22",
+        "location": "Chicago, Illinois, USA",
+        "url": "https://phptek.io/schedule"
+    }
+]

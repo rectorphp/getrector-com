@@ -42,7 +42,7 @@ final class HomepageController extends Controller
     }
 
     /**
-     * @return array{string, mixed}
+     * @return mixed[]
      */
     private function loadUpcomingTalks(): array
     {
