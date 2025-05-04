@@ -56,6 +56,14 @@ final class PostRepository
         return array_slice($this->posts, 0, $count);
     }
 
+    /**
+     * @return Post[]
+     */
+    public function fetchAll(): array
+    {
+        return $this->posts;
+    }
+
     private function createPosts(): void
     {
         $posts = [];

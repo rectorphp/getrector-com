@@ -15,17 +15,23 @@ final readonly class DocumentationMenuItemFactory
     ) {
     }
 
+    /**
+     * @param non-empty-string $slugOrUrl
+     */
     public function createSection(string $slugOrUrl, string $name, bool $isNew = false): DocumentationMenuItem
     {
-        if (str_starts_with($slugOrUrl, 'https://')) {
+        if (str_starts_with($slugOrUrl, 'https://') || str_starts_with($slugOrUrl, 'http://')) {
             $url = $slugOrUrl;
+            $slug = null;
         } else {
             $url = $this->urlGenerator->action(DocumentationController::class, [
                 'section' => $slugOrUrl,
             ]);
+
+            $slug = $slugOrUrl;
         }
 
-        return new DocumentationMenuItem($url, $name, $isNew);
+        return new DocumentationMenuItem($url, $name, $slug, $isNew);
     }
 
     /**
@@ -35,6 +41,6 @@ final readonly class DocumentationMenuItemFactory
     {
         $href = $this->urlGenerator->action($controllerClass);
 
-        return new DocumentationMenuItem($href, $label);
+        return new DocumentationMenuItem($href, $label, null);
     }
 }

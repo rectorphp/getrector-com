@@ -12,7 +12,7 @@ use App\Controller\FindRuleController;
 final readonly class DocumentationMenuFactory
 {
     public function __construct(
-        private DocumentationMenuItemFactory $documentationMenuItemFactory
+        private DocumentationMenuItemFactory $documentationMenuItemFactory,
     ) {
     }
 
@@ -68,7 +68,6 @@ final readonly class DocumentationMenuFactory
                     'writing-tests-for-custom-rule',
                     'Writing Tests For Custom Rule'
                 ),
-                $this->documentationMenuItemFactory->createSection('rules-overview', 'Rules Overview'),
                 $this->documentationMenuItemFactory->createSection('creating-a-node-visitor', 'Creating Node Visitor'),
                 $this->documentationMenuItemFactory->createSection('how-to-run-on-php-53', 'Run on PHP 5.3'),
                 $this->documentationMenuItemFactory->createSection(
