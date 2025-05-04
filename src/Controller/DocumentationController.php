@@ -8,6 +8,7 @@ use App\Documentation\DocumentationMenuFactory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Routing\Controller;
 use Nette\Utils\FileSystem;
+use Webmozart\Assert\Assert;
 
 final class DocumentationController extends Controller
 {
@@ -18,7 +19,10 @@ final class DocumentationController extends Controller
 
     public function __invoke(string $section = 'introduction'): View
     {
-        $markdownContents = FileSystem::read(__DIR__ . '/../../resources/docs/' . $section . '.md');
+        $documentationFile = __DIR__ . '/../../resources/docs/' . $section . '.md';
+        Assert::fileExists($documentationFile);
+
+        $markdownContents = FileSystem::read($documentationFile);
 
         return \view('docs/section', [
             'section_title' => $this->documentationMenuFactory->createSectionTitle($section),

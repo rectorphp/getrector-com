@@ -22,7 +22,7 @@ final class DocumentationMenuFactoryTest extends TestCase
             ->willReturn('/index.html');
 
         $this->documentationMenuFactory = new DocumentationMenuFactory(
-            new DocumentationMenuItemFactory($urlGenerator)
+            new DocumentationMenuItemFactory($urlGenerator),
         );
     }
 

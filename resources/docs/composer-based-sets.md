@@ -12,5 +12,3 @@ return RectorConfig::configure()
 * and run those
 
 If you upgrade to Doctrine 4, Twig 4, or Symfony 10 later, Rector will pick up sets for you.
-
-

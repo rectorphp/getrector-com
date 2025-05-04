@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Controller\Llm\LlmsTxtController;
 use App\Controller\Stats\FindRuleStatsController;
 use App\Ast\Controller\AstController;
 use App\Ast\Controller\AstDetailController;
@@ -24,6 +25,8 @@ use App\Controller\Socials\RuleThumbnailController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomepageController::class);
+
+Route::get('llms.txt', LlmsTxtController::class);
 
 // old pages redirect
 Route::redirect('/documentation/rules-overview', '/find-rule');
