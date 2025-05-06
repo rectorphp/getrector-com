@@ -35,6 +35,8 @@
 </li>
 
 @isset ($includeFooterLinks)
+    <br>
+
     <li class="nav-item">
         <a onclick="toggleTheme()" class="nav-link" id="theme_toggle" style="cursor: pointer">Dark/Light Theme</a>
     </li>
