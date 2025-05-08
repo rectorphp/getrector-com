@@ -13,6 +13,7 @@
                 class="form-control d-inline"
                 style="width: 18em"
                 wire:model.live.debounce.300ms="query"
+                autofocus="true"
             >
             <!-- @see https://livewire.laravel.com/docs/wire-model#customizing-the-debounce -->
 
