@@ -1,7 +1,7 @@
 <style>
     .faq-container {
         max-width: 50em;
-        margin:auto;
+        margin: auto;
     }
 
     .faq-item {
