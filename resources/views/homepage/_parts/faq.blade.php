@@ -1,52 +1,78 @@
-<div class="row" id="faq">
-    <div class="col-12">
-        <h3>Can you help with upgrade of PHP 5.3 code?</h3>
-        <p>Yes, we handle any code from PHP 5.3 onward. Open-source framework, internal one or spaghetti code.</p>
-    </div>
+<style>
+    .faq-container {
+        max-width: 50em;
+        margin:auto;
+    }
 
-    <br>
+    .faq-item {
+        border-bottom: 1px solid #ddd;
+    }
 
-    <div class="col-12">
-        <h3>What's the typical timeframe for an upgrade?</h3>
-        <p>
-            An average project upgrade is completed within 6-12 months. We approach each project individually and deliver the detailed estimate in the intro analysis.
-        </p>
-    </div>
+    .faq-question {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        font-weight: 300;
+        font-size: 1.7em;
+    }
 
-    <br>
+    .faq-answer {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        padding: 0;
+        color: #34495e;
+        transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.5s ease;
+    }
 
-    <div class="col-12">
-        <h3>We're in a hurry. Can you start today?</h3>
-        <p>
-            We begin with a 3-week <a href="{{ action(\App\Controller\HireTeamController::class) }}">intro analysis</a>, followed by an upgrade work.
-        </p>
-    </div>
+    .faq-answer.open {
+        max-height: 200px; /* Adjust based on content size */
+        opacity: 1;
+        padding: 10px 0;
+    }
 
-    <br>
+    .faq-toggle {
+        font-size: 1.5em;
+        font-weight: 200;
+        /*font-weight: bold;*/
+        transition: transform 0.5s ease;
+        color: #aaa;
+    }
 
-    <div class="col-12">
-        <h3>Can we continue developing new features during the upgrade?</h3>
-        <p>
-            Absolutely. Our upgrade process runs parallel to your ongoing development, ensuring no
-            slowdown in your business growth.
-        </p>
-    </div>
+    .faq-toggle::before {
+        content: '\2715'; /* Unicode for cross (×) */
+        display: inline-block;
+    }
 
-    <br>
+    .faq-toggle.open {
+        transform: rotate(45deg);
+    }
+</style>
 
-    <div class="col-12">
-        <h3>Will we need to re-hire your team for future upgrades?</h3>
-        <p>
-            No. Part of our work is to make your team self-sufficient. We get your code quality the
-            highest possible level, get Rector to your CI working for you and then, next upgrade
-            will be a matter of days on your own.
-        </p>
-    </div>
-
-    <br>
-
-    <div class="col-12">
-        <h3>We have a custom framework. Can you migrate it to an open-source one?</h3>
-        <p>Yes. We specialize in framework migration, mostly to Symfony or Laravel frameworks.</p>
-    </div>
+<div class="faq-container" id="faq">
+    @foreach($faqs as $faq)
+        <div class="faq-item">
+            <h3 class="faq-question">
+                <span>{!! $faq['question'] !!}</span>
+                <span class="faq-toggle"></span>
+            </h3>
+            <p class="faq-answer">
+                {{ $faq['answer'] }}
+            </p>
+        </div>
+    @endforeach
 </div>
+
+
+<script>
+    document.querySelectorAll('.faq-question').forEach(item => {
+        item.addEventListener('click', () => {
+            const answer = item.nextElementSibling;
+            const toggle = item.querySelector('.faq-toggle');
+
+            answer.classList.toggle('open');
+            toggle.classList.toggle('open');
+        });
+    });
+</script>

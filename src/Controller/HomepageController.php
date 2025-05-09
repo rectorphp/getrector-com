@@ -23,22 +23,16 @@ final class HomepageController extends Controller
             'page_title' => "We'll Speed Up Your Development Process by 300%",
             'recentPosts' => $this->postRepository->fetchLast(5),
 
-            'references' => $this->loadReferences(),
             'upcomingTalks' => $this->loadUpcomingTalks(),
 
             // seo
             'metaTitle' => 'Rector: Fast PHP Code Upgrades & Refactoring',
             'metaDescription' => 'Automate PHP code upgrades and refactoring with Rector. Save time, reduce errors, and modernize your codebase instantly. Try it now!',
-        ]);
-    }
 
-    /**
-     * @return array{string, mixed}
-     */
-    private function loadReferences(): array
-    {
-        $fileContents = FileSystem::read(__DIR__ . '/../../resources/json-database/references.json');
-        return Json::decode($fileContents, forceArrays: true);
+            // data
+            'references' => $this->loadJsonFileToArray(__DIR__ . '/../../resources/json-database/references.json'),
+            'faqs' => $this->loadJsonFileToArray(__DIR__ . '/../../resources/json-database/faqs.json'),
+        ]);
     }
 
     /**
@@ -51,5 +45,14 @@ final class HomepageController extends Controller
 
         // remove past talks
         return array_filter($upcomingTalks, static fn (array $talk): bool => $talk['date'] > date('Y-m-d'));
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    private function loadJsonFileToArray(string $filePath): array
+    {
+        $fileContents = FileSystem::read($filePath);
+        return Json::decode($fileContents, forceArrays: true);
     }
 }
