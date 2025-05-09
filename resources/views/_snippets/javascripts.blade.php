@@ -78,3 +78,23 @@
     </style>
 
 @endif
+
+
+<script>
+    // you've found an easter egg!
+
+    // press "f" to go to "/find-rule"
+    document.addEventListener('keydown', (event) => {
+        if ((event.key === 'f' || event.key === 'F') && !event.ctrlKey && !event.target.isContentEditable && event.target.tagName !== 'INPUT' && event.target.tagName !== 'TEXTAREA') {
+            window.location.href = '/find-rule';
+        }
+
+        if ((event.key === 'd' || event.key === 'D') && !event.ctrlKey && !event.target.isContentEditable && event.target.tagName !== 'INPUT' && event.target.tagName !== 'TEXTAREA') {
+            window.location.href = '/documentation';
+        }
+
+        if ((event.key === 'b' || event.key === 'B') && !event.ctrlKey && !event.target.isContentEditable && event.target.tagName !== 'INPUT' && event.target.tagName !== 'TEXTAREA') {
+            window.location.href = '/blog';
+        }
+    });
+</script>
