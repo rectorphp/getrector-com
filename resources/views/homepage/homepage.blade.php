@@ -139,7 +139,6 @@
             @endif
 
             @include('homepage/_parts/posts')
-
             @include('_snippets/homepage_separator')
 
             <h2>
@@ -147,7 +146,6 @@
             </h2>
 
             @include('hire_team/references')
-
             @include('_snippets/homepage_separator')
 
             <h2>FAQ</h2>
@@ -155,15 +153,4 @@
             @include('homepage/_parts/faq')
         </div>
     </div>
-
-    <script>
-        // you've found an easter egg!
-
-        // press "f" to go to "/find-rule"
-        document.addEventListener('keydown', (event) => {
-            if ((event.key === 'f' || event.key === 'F') && !event.ctrlKey && !event.target.isContentEditable && event.target.tagName !== 'INPUT' && event.target.tagName !== 'TEXTAREA') {
-                window.location.href = '/find-rule';
-            }
-        });
-    </script>
 @endsection
