@@ -1,0 +1,26 @@
+[
+    {
+        "question": "Can you help with upgrade of PHP 5.3 code?",
+        "answer": "Yes, we handle any code from PHP 5.3 onward. Open-source framework, internal one or spaghetti code."
+    },
+    {
+        "question": "What's the typical timeframe for an upgrade?",
+        "answer": "An average project upgrade is completed within 6-12 months. We approach each project individually and deliver the detailed estimate in the intro analysis."
+    },
+    {
+        "question": "We're in a hurry. Can you start today?",
+        "answer": "We begin with a 3-week intro analysis, followed by an upgrade work."
+    },
+    {
+        "question": "Can we continue developing new features during the upgrade?",
+        "answer": "Absolutely. Our upgrade process runs parallel to your ongoing development, ensuring no slowdown in your business growth."
+    },
+    {
+        "question": "Will we need to re-hire your team for future upgrades?",
+        "answer": "No. Part of our work is to make your team self-sufficient. We get your code quality the highest possible level, get Rector to your CI working for you and then, next upgrade will be a matter of days on your own."
+    },
+    {
+        "question": "We have a custom framework we want get rid off.<br>Can you migrate it to an open-source one?",
+        "answer": "Yes. We specialize in framework migration, mostly to Symfony or Laravel frameworks."
+    }
+]
