@@ -105,31 +105,7 @@
                 with <span class="text-rector-green">50+&nbsp;projects&nbsp;Experience</span>
             </h2>
 
-            <div class="row">
-                <div class="col-12 col-md-8 text-center">
-                    <img src="/assets/images/rector_chart.png" alt="Rector Chart"
-                         class="img-fluid img-thumbnail">
-                </div>
-
-                <div class="col-12 col-md-4 mt-4 mt-md-0">
-                    <div class="text-bigger">
-                        <p>
-                            90% of problems you'll face are&nbsp;new to you.
-                        </p>
-                        <p>
-                            We've already seen them and&nbsp;know exactly how to solve them
-                            cost-effectively
-                            and quickly.
-                        </p>
-
-                        <p>
-                            How does typical <a
-                                href="{{ action(\App\Controller\CodebaseRenovationController::class) }} ">codebase
-                                renovation</a> look like?
-                        </p>
-                    </div>
-                </div>
-            </div>
+            @include('homepage/_parts/graphs')
 
             @include('_snippets/homepage_separator')
 

@@ -44,7 +44,7 @@ final class HomepageController extends Controller
         $upcomingTalks = Json::decode($fileContents, forceArrays: true);
 
         // remove past talks
-        return array_filter($upcomingTalks, static fn (array $talk): bool => $talk['date'] > date('Y-m-d'));
+        return array_filter($upcomingTalks, static fn (array $talk): bool => $talk['date'] >= date('Y-m-d'));
     }
 
     /**
