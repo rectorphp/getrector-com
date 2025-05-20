@@ -1,6 +1,17 @@
 @extends('base')
 
 @section('main')
+    <style>
+        .in-short-card:hover {
+            transform: translateY(-3px);
+            transition: transform 0.2s ease-in-out;
+        }
+        .in-short-card svg {
+            margin-right: 0.5rem;
+            flex-shrink: 0;
+        }
+    </style>
+
     <div id="hire_team">
         <h1 class="main-title">{!! $page_title !!}</h1>
 
@@ -17,77 +28,23 @@
             </p>
 
             <p>
-                We build a long-term and <strong>reliable relationship with you</strong> &ndash; our
-                client.
-            </p>
-
-            <p>
                 Haphazard changes can quickly backfire and introduce regression bugs.
                 <br>
                 That's why we take small, safe, gradual steps to reach our goal.
+            <p>
 
-                <br><br>
-                Our cooperation has 2 phases.
+            </p>
+            Our cooperation has 2 phases.
             </p>
         </div>
 
         <hr class="project-border-line m-5">
 
+        <h2 id="intro_analysis">Phase 1: Intro Analysis</h2>
+
         <div class="col-12 col-sm-5 float-end pe-3 pe-md-0 mb-5 mb-md-2 ps-md-4">
             <img src="/assets/images/intro-analysis.jpg" class="rounded-3 mb-3" style="max-width: 100%">
-
-            <div class="card shadow">
-                <div class="card-header">
-                    <h3 class="card-title m-2 text-center">In short</h3>
-                </div>
-                <div class="card-body">
-
-                    <ul class="list-nobullet">
-                        <li>
-                            @include("icons/success_check")
-                            We sign NDA, so you're safe with repository share
-                        </li>
-                        <li>
-                            @include("icons/success_check")
-                            We deep dive into your codebase
-                        </li>
-
-                        <li>
-                            @include("icons/success_check")
-                            We run automated tools to find spots we'll have to address during the
-                            upgrade
-                        </li>
-
-                        <li>
-                            @include("icons/success_check")
-                            We highlight specific weak spots
-                        </li>
-
-                        <li>
-                            @include("icons/success_check")
-                            We deliver a plan detailing upgrade steps
-                        </li>
-
-                        <li class="mb-4">
-                            @include("icons/success_check")
-                            Every phase has a detailed scope and explain its role in the process
-                        </li>
-
-                        <li class="mb-4">
-                            @include('icons/calendar')
-                            <strong>Delivered in 3 weeks</strong>
-                        </li>
-
-                        <li class="mb-3">
-                            @include("icons/credit_card")
-                            One time charge of 6 000-8 000 €
-                        </li>
-                    </ul>
-                </div>
-            </div>
         </div>
-
-        <h2 id="intro_analysis">Phase 1: Intro Analysis</h2>
 
         <p>
             In the first meeting, you'll tell us about you problems, state of your project and your
@@ -106,14 +63,13 @@
 
         <p>
             After you <strong>share a Git repository</strong> with us, we measure project size and
-            comlexity, and give you intro analysis quota &ndash; a one-time charge that ranges 6&nbsp;000-8&nbsp;000
-            €.
+            comlexity, and give you intro analysis quota – a one-time charge that ranges 6 000-8 000
+            $.
         </p>
 
         <p>
             After we confirm the price, we send you an invoice. Upon the payment <strong>we start to
                 work on the intro analysis</strong>.
-
         </p>
 
         <p>
@@ -125,12 +81,54 @@
 
         <br>
 
+        <h3 class="card-title mb-3 fw-bold">In Short</h3>
+
+        <div class="row" style="font-size: 1.4em !important;">
+            <div class="col-md-4">
+                <div class="in-short-card p-3 bg-white rounded-3 shadow-sm">
+                    <span class="fs-6">We sign NDA for safe repository sharing</span>
+                </div>
+                <div class="in-short-card p-3 bg-white rounded-3 shadow-sm mt-3">
+                    <span class="fs-6">We deep dive into your codebase</span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="in-short-card p-3 bg-white rounded-3 shadow-sm">
+                    <span class="fs-6">Automated tools identify upgrade spots</span>
+                </div>
+                <div class="in-short-card p-3 bg-white rounded-3 shadow-sm mt-3">
+                    <span class="fs-6">We highlight specific weak spots</span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="in-short-card p-3 bg-white rounded-3 shadow-sm">
+                    <span class="fs-6">Detailed upgrade plan delivered</span>
+                </div>
+                <div class="in-short-card p-3 bg-white rounded-3 shadow-sm mt-3">
+                    <span class="fs-6">Each phase scoped with clear roles</span>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="in-short-card p-3 bg-white rounded-3 shadow-sm mt-3">
+                    @include("icons/success_check")
+                    <span class="fs-6"><strong>Delivered in 3 weeks</strong></span>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="in-short-card p-3 bg-white rounded-3 shadow-sm mt-3">
+                    @include("icons/credit_card")
+                    <span class="fs-6">One-time charge of 6,000-8,000 $</span>
+                </div>
+            </div>
+        </div>
+
         <div class="clearfix"></div>
 
+        <br>
 
         <hr class="project-border-line m-5">
 
-        <div class="text-left offset-1">
+        <div class="text-left">
             <p>
                 After we deliver the intro analysis in PDF, you can explore the plan with your team.
                 <br>
@@ -142,55 +140,17 @@
 
         <hr class="project-border-line m-5">
 
+        <br>
+
         <div class="clearfix"></div>
+
+
+
+        <h2 id="hands_on_upgrade">Phase 2: Hands-on Upgrade</h2>
 
         <div class="col-12 col-sm-5 float-end ps-0 pe-3 pe-md-0 mb-5 mb-md-2 ps-md-4">
             <img src="/assets/images/hands-on-upgrade.jpg" class="rounded-3 mb-3" style="max-width: 100%">
-
-            <div class="card shadow">
-                <div class="card-header">
-                    <h3 class="card-title m-2 text-center">In short</h3>
-                </div>
-
-                <div class="card-body">
-                    <ul class="list-nobullet">
-                        <li class="mb-4">
-                            @include('icons/star')
-                            <strong>We handle full project upgrade</strong>
-                        </li>
-                        <li>
-                            @include("icons/success_check")
-                            We improve your CI with advanced tooling
-                        </li>
-                        <li>
-                            @include("icons/success_check")
-                            We share our experience of 50+ project upgrades
-                        </li>
-                        <li>
-                            @include("icons/success_check")
-                            We handle upgrade and code-quality back and forth, as both are need to
-                            healthy project
-                        </li>
-                        <li class="mb-4">
-                            @include("icons/success_check")
-                            You learn smart tricks with tools you already use
-                        </li>
-
-                        <li class="mb-4">
-                            @include('icons/calendar')
-                            &nbsp;Typically 6-12 months
-                        </li>
-
-                        <li class="mt-4 mb-3">
-                            @include("icons/credit_card")
-                            Charged hourly, from 20-60 hours/week<br>and 140-160 €/hour
-                        </li>
-                    </ul>
-                </div>
-            </div>
         </div>
-
-        <h2 id="hands_on_upgrade">Phase 2: Hands-on Upgrade</h2>
 
         <p>
             In this phase, we provide <strong>20-80 hours/week of direct help</strong>, depending on
@@ -216,9 +176,48 @@
             We can schedule <strong>once-a-month meeting</strong> to discuss progress, blockers and
             address just in time direction of the upgrade.
         </p>
+
+        <h3 class="card-title mb-3 fw-bold">In Short</h3>
+
+        <div class="row" style="font-size: 1.4em">
+            <div class="col-md-4">
+                <div class="in-short-card p-3 bg-white rounded-3 shadow-sm">
+                    @include('icons/star')
+                    <span class="fs-6"><strong>Full project upgrade handled</strong></span>
+                </div>
+                <div class="in-short-card p-3 bg-white rounded-3 shadow-sm mt-3">
+                    @include("icons/success_check")
+                    <span class="fs-6">Advanced CI tooling improvements</span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="in-short-card p-3 bg-white rounded-3 shadow-sm">
+                    @include("icons/success_check")
+                    <span class="fs-6">50+ upgrades’ experience shared</span>
+                </div>
+                <div class="in-short-card p-3 bg-white rounded-3 shadow-sm mt-3">
+                    @include("icons/success_check")
+                    <span class="fs-6">Balanced upgrade and code quality</span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="in-short-card p-3 bg-white rounded-3 shadow-sm">
+                    @include("icons/success_check")
+                    <span class="fs-6">Learn tricks with your tools</span>
+                </div>
+                <div class="in-short-card p-3 bg-white rounded-3 shadow-sm mt-3">
+                    @include('icons/calendar')
+                    <span class="fs-6">Typically 6-12 months</span>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="in-short-card p-3 bg-white rounded-3 shadow-sm mt-3">
+                    @include("icons/credit_card")
+                    <span class="fs-6">Hourly billing, 20-60 hours/week at 140-160 $/hour</span>
+                </div>
+            </div>
+        </div>
     </div>
-
-
 
     <div class="clearfix" style="clear: both"></div>
 
