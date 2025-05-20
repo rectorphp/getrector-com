@@ -1,17 +1,6 @@
 @extends('base')
 
 @section('main')
-    <style>
-        .in-short-card:hover {
-            transform: translateY(-3px);
-            transition: transform 0.2s ease-in-out;
-        }
-        .in-short-card svg {
-            margin-right: 0.5rem;
-            flex-shrink: 0;
-        }
-    </style>
-
     <div id="hire_team">
         <h1 class="main-title">{!! $page_title !!}</h1>
 
@@ -85,39 +74,45 @@
 
         <div class="row" style="font-size: 1.4em !important;">
             <div class="col-md-4">
-                <div class="in-short-card p-3 bg-white rounded-3 shadow-sm">
+                <div class="p-3 bg-white rounded-3 shadow-sm">
+                    @include("icons/success_check")
                     <span class="fs-6">We sign NDA for safe repository sharing</span>
                 </div>
-                <div class="in-short-card p-3 bg-white rounded-3 shadow-sm mt-3">
+                <div class="p-3 bg-white rounded-3 shadow-sm mt-3">
+                    @include("icons/success_check")
                     <span class="fs-6">We deep dive into your codebase</span>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="in-short-card p-3 bg-white rounded-3 shadow-sm">
+                <div class="p-3 bg-white rounded-3 shadow-sm">
+                    @include("icons/success_check")
                     <span class="fs-6">Automated tools identify upgrade spots</span>
                 </div>
-                <div class="in-short-card p-3 bg-white rounded-3 shadow-sm mt-3">
+                <div class="p-3 bg-white rounded-3 shadow-sm mt-3">
+                    @include("icons/success_check")
                     <span class="fs-6">We highlight specific weak spots</span>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="in-short-card p-3 bg-white rounded-3 shadow-sm">
+                <div class="p-3 bg-white rounded-3 shadow-sm">
+                    @include("icons/success_check")
                     <span class="fs-6">Detailed upgrade plan delivered</span>
                 </div>
-                <div class="in-short-card p-3 bg-white rounded-3 shadow-sm mt-3">
+                <div class="p-3 bg-white rounded-3 shadow-sm mt-3">
+                    @include("icons/success_check")
                     <span class="fs-6">Each phase scoped with clear roles</span>
                 </div>
             </div>
             <div class="col-6">
-                <div class="in-short-card p-3 bg-white rounded-3 shadow-sm mt-3">
-                    @include("icons/success_check")
-                    <span class="fs-6"><strong>Delivered in 3 weeks</strong></span>
+                <div class="p-3 bg-white rounded-3 shadow-sm mt-3">
+                    @include("icons/credit_card")
+                    <span class="fs-6">One-time charge of 6,000-8,000 $</span>
                 </div>
             </div>
             <div class="col-6">
-                <div class="in-short-card p-3 bg-white rounded-3 shadow-sm mt-3">
-                    @include("icons/credit_card")
-                    <span class="fs-6">One-time charge of 6,000-8,000 $</span>
+                <div class="p-3 bg-white rounded-3 shadow-sm mt-3">
+                    @include('icons/calendar')
+                    <span class="fs-6"><strong>Delivered in 3 weeks</strong></span>
                 </div>
             </div>
         </div>
@@ -177,41 +172,43 @@
             address just in time direction of the upgrade.
         </p>
 
+        <br>
+
         <h3 class="card-title mb-3 fw-bold">In Short</h3>
 
         <div class="row" style="font-size: 1.4em">
             <div class="col-md-4">
-                <div class="in-short-card p-3 bg-white rounded-3 shadow-sm">
+                <div class="p-3 bg-white rounded-3 shadow-sm">
                     @include('icons/star')
                     <span class="fs-6"><strong>Full project upgrade handled</strong></span>
                 </div>
-                <div class="in-short-card p-3 bg-white rounded-3 shadow-sm mt-3">
+                <div class="p-3 bg-white rounded-3 shadow-sm mt-3">
                     @include("icons/success_check")
                     <span class="fs-6">Advanced CI tooling improvements</span>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="in-short-card p-3 bg-white rounded-3 shadow-sm">
+                <div class="p-3 bg-white rounded-3 shadow-sm">
                     @include("icons/success_check")
                     <span class="fs-6">50+ upgrades’ experience shared</span>
                 </div>
-                <div class="in-short-card p-3 bg-white rounded-3 shadow-sm mt-3">
+                <div class="p-3 bg-white rounded-3 shadow-sm mt-3">
                     @include("icons/success_check")
                     <span class="fs-6">Balanced upgrade and code quality</span>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="in-short-card p-3 bg-white rounded-3 shadow-sm">
+                <div class="p-3 bg-white rounded-3 shadow-sm">
                     @include("icons/success_check")
                     <span class="fs-6">Learn tricks with your tools</span>
                 </div>
-                <div class="in-short-card p-3 bg-white rounded-3 shadow-sm mt-3">
+                <div class="p-3 bg-white rounded-3 shadow-sm mt-3">
                     @include('icons/calendar')
                     <span class="fs-6">Typically 6-12 months</span>
                 </div>
             </div>
             <div class="col-12">
-                <div class="in-short-card p-3 bg-white rounded-3 shadow-sm mt-3">
+                <div class="p-3 bg-white rounded-3 shadow-sm mt-3">
                     @include("icons/credit_card")
                     <span class="fs-6">Hourly billing, 20-60 hours/week at 140-160 $/hour</span>
                 </div>
