@@ -63,15 +63,6 @@
                 </div>
             @endif
 
-        <div class="card border border-primary mb-3">
-            <div class="card-body">
-                <strong>Tips:</strong>
-                <p class="mt-2">To demonstrate specific PHP version, provide it, eg: on PHP 8.4, set</p>
-                <pre class="bg-light p-2 rounded"><code>   ->withPhpVersion(80400);</code></pre>
-            </div>
-        </div>
-
-
             @include('_snippets.form.form_textarea', [
                 'label' => 'Config&nbsp;&nbsp;<code>rector.php</code>',
                 'inputName' => 'runnable_contents',
