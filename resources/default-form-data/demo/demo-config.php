@@ -12,4 +12,4 @@ return RectorConfig::configure()
         TypedPropertyFromAssignsRector::class
     ])
     // demonstrate specific PHP version
-    ->withPhpVersion(PhpVersion::PHP_82);
+    ->withPhpVersion(PhpVersion::PHP_84);
