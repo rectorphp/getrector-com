@@ -14,9 +14,9 @@ return RectorConfig::configure()
         deadCode: true,
         codeQuality: true,
         codingStyle: true,
-        naming: true,
-        privatization: true,
         typeDeclarations: true,
+        privatization: true,
+        naming: true,
         rectorPreset: true,
     )
     ->withPhpSets()
