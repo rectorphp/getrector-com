@@ -20,7 +20,7 @@ jobs:
                     # @see https://github.com/rectorphp/jack
                     -
                         name: 'Rector Jack'
-                        run: vendor/bin/jack breakpoint --limit 2 --ansi
+                        run: vendor/bin/jack breakpoint --limit 2 --ansi --skip="phpunit/phpunit"
 
                     -
                         name: 'PHPStan'

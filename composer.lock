@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d6290415889f2c659422705d75fdeb62",
+    "content-hash": "2b1c766b3d41a1c741265245ebbd7be2",
     "packages": [
         {
             "name": "brick/math",
@@ -7378,16 +7378,16 @@
         },
         {
             "name": "rector/jack",
-            "version": "0.1.8",
+            "version": "0.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/jack.git",
-                "reference": "7e60faa0d79020420bceb6a3a9dae1f9be326bde"
+                "reference": "b840a376d19c3b4d693b400e8638e5f3246bd634"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/jack/zipball/7e60faa0d79020420bceb6a3a9dae1f9be326bde",
-                "reference": "7e60faa0d79020420bceb6a3a9dae1f9be326bde",
+                "url": "https://api.github.com/repos/rectorphp/jack/zipball/b840a376d19c3b4d693b400e8638e5f3246bd634",
+                "reference": "b840a376d19c3b4d693b400e8638e5f3246bd634",
                 "shasum": ""
             },
             "require": {
@@ -7409,7 +7409,7 @@
             "description": "Swiss knife in pocket of every upgrade architect",
             "support": {
                 "issues": "https://github.com/rectorphp/jack/issues",
-                "source": "https://github.com/rectorphp/jack/tree/0.1.8"
+                "source": "https://github.com/rectorphp/jack/tree/0.2.6"
             },
             "funding": [
                 {
@@ -7421,7 +7421,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-05-19T11:28:48+00:00"
+            "time": "2025-06-30T09:54:26+00:00"
         },
         {
             "name": "rector/swiss-knife",
