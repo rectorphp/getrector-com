@@ -10,10 +10,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 final class AstFormRequest extends FormRequest
 {
-    /**
-     * @var string
-     */
-    private const KEY_PHP_CONTENTS = 'php_contents';
+    private const string KEY_PHP_CONTENTS = 'php_contents';
 
     public function authorize(): bool
     {

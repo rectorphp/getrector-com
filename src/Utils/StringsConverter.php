@@ -10,9 +10,8 @@ final class StringsConverter
 {
     /**
      * @see https://regex101.com/r/5Lp2FX/1
-     * @var string
      */
-    private const CAMEL_CASE_BY_WORD_REGEX = '#([A-Z][A-Z0-9]*(?=$|[A-Z][a-z0-9])|[A-Za-z][a-z0-9]+)#';
+    private const string CAMEL_CASE_BY_WORD_REGEX = '#([A-Z][A-Z0-9]*(?=$|[A-Z][a-z0-9])|[A-Za-z][a-z0-9]+)#';
 
     public function camelCaseToGlue(string $input, string $glue): string
     {

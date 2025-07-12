@@ -6,5 +6,5 @@ namespace App\Thumbnail\Enum;
 
 final class Color
 {
-    public const GREY = '24292e';
+    public const string GREY = '24292e';
 }

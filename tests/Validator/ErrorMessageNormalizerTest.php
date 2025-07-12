@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Tests\Validator;
 
+use Override;
 use App\Tests\AbstractTestCase;
 use App\Utils\ErrorMessageNormalizer;
 use Iterator;
@@ -13,6 +14,7 @@ final class ErrorMessageNormalizerTest extends AbstractTestCase
 {
     private ErrorMessageNormalizer $errorMessageNormalizer;
 
+    #[Override]
     protected function setUp(): void
     {
         $this->errorMessageNormalizer = $this->make(ErrorMessageNormalizer::class);

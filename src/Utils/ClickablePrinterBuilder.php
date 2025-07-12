@@ -31,15 +31,9 @@ use Webmozart\Assert\Assert;
  */
 final readonly class ClickablePrinterBuilder
 {
-    /**
-     * @var string
-     */
-    private const CLASS_NAME = 'ClickablePrinter';
+    private const string CLASS_NAME = 'ClickablePrinter';
 
-    /**
-     * @var string
-     */
-    private const ACTIVE_NODE_ID = 'activeNodeId';
+    private const string ACTIVE_NODE_ID = 'activeNodeId';
 
     public function __construct(
         private SimplePhpParser $simplePhpParser,

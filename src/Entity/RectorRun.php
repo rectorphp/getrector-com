@@ -13,10 +13,7 @@ use Symfony\Component\Uid\Uuid;
 
 final class RectorRun extends AbstractRectorRun
 {
-    /**
-     * @var string
-     */
-    private const DEFAULT_FILE_NAME = 'demo_fixture';
+    private const string DEFAULT_FILE_NAME = 'demo_fixture';
 
     /**
      * @return AppliedRule[]

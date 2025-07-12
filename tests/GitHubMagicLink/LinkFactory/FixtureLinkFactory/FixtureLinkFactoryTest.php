@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Tests\GitHubMagicLink\LinkFactory\FixtureLinkFactory;
 
+use Override;
 use App\Entity\RectorRun;
 use App\GitHubMagicLink\LinkFactory\FixtureLinkFactory;
 use App\Tests\AbstractTestCase;
@@ -17,6 +18,7 @@ final class FixtureLinkFactoryTest extends AbstractTestCase
 {
     private FixtureLinkFactory $testFixtureLinkFactory;
 
+    #[Override]
     protected function setUp(): void
     {
         parent::setUp();

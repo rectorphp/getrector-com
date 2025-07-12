@@ -6,8 +6,5 @@ namespace App\Enum;
 
 final class Comment
 {
-    /**
-     * @var string
-     */
-    public const NO_CHANGE_CONTENT = '// no change';
+    public const string NO_CHANGE_CONTENT = '// no change';
 }

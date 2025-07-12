@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Tests;
 
+use Override;
 use App\DemoRunner;
 use App\Entity\RectorRun;
 
@@ -11,6 +12,7 @@ final class DemoRunnerTest extends AbstractTestCase
 {
     private DemoRunner $demoRunner;
 
+    #[Override]
     protected function setUp(): void
     {
         $this->demoRunner = $this->make(DemoRunner::class);

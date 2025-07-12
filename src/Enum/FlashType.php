@@ -6,8 +6,5 @@ namespace App\Enum;
 
 final class FlashType
 {
-    /**
-     * @var string
-     */
-    public const ERROR = 'danger';
+    public const string ERROR = 'danger';
 }

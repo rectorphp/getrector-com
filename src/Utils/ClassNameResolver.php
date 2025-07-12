@@ -10,27 +10,21 @@ use Nette\Utils\Strings;
 final class ClassNameResolver
 {
     /**
-     * @var string
      * @see https://regex101.com/r/tttAOn/1
      */
-    private const NAMESPACE_REGEX = '#\bnamespace\s+(?<namespace>[\w\\\\]+);#';
+    private const string NAMESPACE_REGEX = '#\bnamespace\s+(?<namespace>[\w\\\\]+);#';
 
     /**
-     * @var string
      * @see https://regex101.com/r/B7LvXE/1
      */
-    private const SHORT_CLASS_NAME_REGEX = '#\bclass\s+(?<short_class_name>[A-Z][A-Za-z]+)#';
+    private const string SHORT_CLASS_NAME_REGEX = '#\bclass\s+(?<short_class_name>[A-Z][A-Za-z]+)#';
 
     /**
      * @see https://regex101.com/r/13A0W9/1
-     * @var string
      */
-    private const CLASS_NAME_REGEX = '#class\s+(?<' . self::PART_CLASS_NAME . '>\w+)#';
+    private const string CLASS_NAME_REGEX = '#class\s+(?<' . self::PART_CLASS_NAME . '>\w+)#';
 
-    /**
-     * @var string
-     */
-    private const PART_CLASS_NAME = 'class_name';
+    private const string PART_CLASS_NAME = 'class_name';
 
     public static function resolveShortClassName(string $fileContents): ?string
     {

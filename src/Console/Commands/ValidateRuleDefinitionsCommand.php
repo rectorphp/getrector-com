@@ -9,7 +9,7 @@ use Illuminate\Console\Command;
 
 final class ValidateRuleDefinitionsCommand extends Command
 {
-    private const MIN_RULE_LIMIT = 655;
+    private const int MIN_RULE_LIMIT = 655;
 
     protected $signature = 'app:validate-rule-definitions';
 

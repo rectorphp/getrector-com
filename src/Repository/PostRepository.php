@@ -12,10 +12,7 @@ use Webmozart\Assert\Assert;
 
 final class PostRepository
 {
-    /**
-     * @var string
-     */
-    private const POST_DIRECTORY = __DIR__ . '/../../resources/blog/posts';
+    private const string POST_DIRECTORY = __DIR__ . '/../../resources/blog/posts';
 
     /**
      * @var Post[]

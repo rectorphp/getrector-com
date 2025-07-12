@@ -12,7 +12,7 @@ final class RectorFuleSearchLogger
      * Skip typical SQL injection attacks, as no value
      * @var string[]
      */
-    private const EXCLUDED_QUERIES = ['order by', 'select', ' and ', ' or ', ' limit ', 'when', 'waitfor delay'];
+    private const array EXCLUDED_QUERIES = ['order by', 'select', ' and ', ' or ', ' limit ', 'when', 'waitfor delay'];
 
     /**
      * Simple search logger, to see what is needed by the community

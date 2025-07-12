@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Tests\RuleFilter\PhpParser;
 
+use Override;
 use App\RuleFilter\PhpParser\NodeFactory\RectorConfigFactory;
 use App\RuleFilter\PhpParser\Printer\RectorConfigStmtsPrinter;
 use App\Tests\AbstractTestCase;
@@ -22,6 +23,7 @@ final class RectorConfigStmtsPrinterTest extends AbstractTestCase
 
     private RectorConfigStmtsPrinter $rectorConfigStmtsPrinter;
 
+    #[Override]
     protected function setUp(): void
     {
         $this->rectorConfigFactory = $this->make(RectorConfigFactory::class);

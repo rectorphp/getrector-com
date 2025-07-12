@@ -10,10 +10,8 @@ final class IssueBodyFactory
 {
     /**
      * Copied from original issue template https://github.com/rectorphp/rector/.github/ISSUE_TEMPLATE/1_Bug_report.md
-     *
-     * @var string
      */
-    private const ISSUE_BASIC_TABLE = '| Subject        | Details              |
+    private const string ISSUE_BASIC_TABLE = '| Subject        | Details              |
 | :------------- | :--------------------|
 | Rector version | last dev-main      |
 | Installed as   | composer dependency  |';

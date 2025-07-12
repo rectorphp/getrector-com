@@ -14,26 +14,19 @@ use Nette\Utils\Strings;
  */
 final readonly class FixtureLinkFactory
 {
-    /**
-     * @var string
-     */
-    private const BASE_URL = 'https://github.com/rectorphp/rector-src/new/main';
+    private const string BASE_URL = 'https://github.com/rectorphp/rector-src/new/main';
 
     /**
-     * @var string
      * @see https://regex101.com/r/ABk9gM/1
      */
-    private const PACKAGE_NAME_REGEX = '#^rules-tests\/(?<Package>[^\/]+)\/Rector#';
+    private const string PACKAGE_NAME_REGEX = '#^rules-tests\/(?<Package>[^\/]+)\/Rector#';
 
     /**
      * @var string[]
      */
-    private const RECTOR_PACKAGE_NAMES = ['Symfony', 'PHPUnit', 'Doctrine'];
+    private const array RECTOR_PACKAGE_NAMES = ['Symfony', 'PHPUnit', 'Doctrine'];
 
-    /**
-     * @var string
-     */
-    private const DOWNGRADE_PACKAGE_PREFIX = 'DowngradePhp';
+    private const string DOWNGRADE_PACKAGE_PREFIX = 'DowngradePhp';
 
     public function __construct(
         private FixtureBodyFactory $fixtureBodyFactory,
