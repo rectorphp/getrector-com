@@ -12,10 +12,7 @@ use Nette\Utils\Strings;
  */
 final class FixtureBodyFactory
 {
-    /**
-     * @var string
-     */
-    private const CHANGE_HALF_FIXTURE = <<<'CODE_SAMPLE'
+    private const string CHANGE_HALF_FIXTURE = <<<'CODE_SAMPLE'
 <?php
 
 __FIXTURE_NAMESPACE__
@@ -27,10 +24,9 @@ __FIXTURE_NAMESPACE__
 CODE_SAMPLE;
 
     /**
-     * @var string
      * @see https://regex101.com/r/wrs9yD/3
      */
-    private const CLASS_START_REGEX = '#\n(final |abstract )?class#s';
+    private const string CLASS_START_REGEX = '#\n(final |abstract )?class#s';
 
     public function create(RectorRun $rectorRun): string
     {

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Tests\GitHubMagicLink\LinkFactory\IssueLinkFactory;
 
+use Override;
 use App\GitHubMagicLink\LinkFactory\IssueLinkFactory;
 use App\Tests\AbstractTestCase;
 use App\Tests\Helpers\DummyRectorRunFactory;
@@ -12,6 +13,7 @@ final class IssueLinkFactoryTest extends AbstractTestCase
 {
     private IssueLinkFactory $gitHubIssueLinkFactory;
 
+    #[Override]
     protected function setUp(): void
     {
         $this->gitHubIssueLinkFactory = $this->make(IssueLinkFactory::class);

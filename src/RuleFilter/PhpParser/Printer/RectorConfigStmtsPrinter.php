@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\RuleFilter\PhpParser\Printer;
 
+use Override;
 use Nette\Utils\Strings;
 use PhpParser\Node\Expr\Array_;
 use PhpParser\Node\Stmt;
@@ -33,6 +34,7 @@ final class RectorConfigStmtsPrinter extends Standard
     /**
      * Print modern array with 1 item per line
      */
+    #[Override]
     protected function pExpr_Array(Array_ $array): string
     {
         return '[' . $this->pCommaSeparatedMultiline($array->items, true) . $this->nl . ']';

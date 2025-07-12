@@ -15,33 +15,28 @@ final class FileDiffCleaner
 {
     /**
      * @see https://regex101.com/r/59jq4J/1
-     * @var string
      */
-    private const DIFF_HEADER_ORIGINAL_REGEX = '#--- Original\n#s';
+    private const string DIFF_HEADER_ORIGINAL_REGEX = '#--- Original\n#s';
 
     /**
      * @see https://regex101.com/r/QMXRXr/1
-     * @var string
      */
-    private const DIFF_HEADER_NEW_REGEX = '#\+\+\+ New\n#s';
+    private const string DIFF_HEADER_NEW_REGEX = '#\+\+\+ New\n#s';
 
     /**
      * @see https://regex101.com/r/wtTr3f/1
-     * @var string
      */
-    private const NO_NEWLINE_REGEX = '#\\\\ No newline at end of file\n#m';
+    private const string NO_NEWLINE_REGEX = '#\\\\ No newline at end of file\n#m';
 
     /**
      * @see https://regex101.com/r/YqJtOP/1
-     * @var string
      */
-    private const SPACING_BRACKET_REGEX = '#\-}\n\+}#';
+    private const string SPACING_BRACKET_REGEX = '#\-}\n\+}#';
 
     /**
-     * @var string
      * @see https://regex101.com/r/pEset9/1
      */
-    private const DIFF_LINE_START_REGEX = '#^(\-|\+)#';
+    private const string DIFF_LINE_START_REGEX = '#^(\-|\+)#';
 
     public function clean(string $fileDiff): string
     {

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use Override;
 use App\RuleFilter\ConfiguredDiffSamplesFactory;
 use App\RuleFilter\Markdown\MarkdownDiffer;
 use App\Sets\RectorSetsTreeProvider;
@@ -17,6 +18,7 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 
 final class AppServiceProvider extends ServiceProvider
 {
+    #[Override]
     public function register(): void
     {
         $this->app->singleton(RectorSetsTreeProvider::class);

@@ -23,20 +23,11 @@ use Throwable;
  */
 final readonly class DemoRunner
 {
-    /**
-     * @var string
-     */
-    private const ANALYZED_FILE_NAME = 'rector_analyzed_file.php';
+    private const string ANALYZED_FILE_NAME = 'rector_analyzed_file.php';
 
-    /**
-     * @var string
-     */
-    private const CONFIG_NAME = 'rector.php';
+    private const string CONFIG_NAME = 'rector.php';
 
-    /**
-     * @var int
-     */
-    private const EXIT_CODE_SUCCESS = 0;
+    private const int EXIT_CODE_SUCCESS = 0;
 
     private string $demoDir;
 

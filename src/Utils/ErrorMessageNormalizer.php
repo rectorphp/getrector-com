@@ -10,9 +10,8 @@ final class ErrorMessageNormalizer
 {
     /**
      * @see https://regex101.com/r/8Q2WnL/2/
-     * @var string
      */
-    private const CLASS_NOT_FOUND_REGEX = '#(?<type>(Class|Interface|Trait)) \'(?<class_like_name>.*?)\' not found in \/project\/rector_analyzed_file\.php#';
+    private const string CLASS_NOT_FOUND_REGEX = '#(?<type>(Class|Interface|Trait)) \'(?<class_like_name>.*?)\' not found in \/project\/rector_analyzed_file\.php#';
 
     public function normalize(string $errorMessage): string
     {

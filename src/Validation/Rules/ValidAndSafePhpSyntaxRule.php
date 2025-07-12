@@ -20,9 +20,8 @@ final readonly class ValidAndSafePhpSyntaxRule implements ValidationRule
 {
     /**
      * @see https://regex101.com/r/GzUnSz/1
-     * @var string
      */
-    private const OPENING_PHP_TAG_REGEX = '#(\s+)?\<\?php#';
+    private const string OPENING_PHP_TAG_REGEX = '#(\s+)?\<\?php#';
 
     private Parser $phpParser;
 

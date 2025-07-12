@@ -20,7 +20,7 @@ final class ForbiddenFuncCallRule implements ValidationRule
     /**
      * @var string[]
      */
-    private const SAFE_IMPURE_FUNCTIONS = [
+    private const array SAFE_IMPURE_FUNCTIONS = [
         // randomize operations
         'mt_srand',
         'mt_rand',

@@ -9,13 +9,7 @@ namespace App\Enum;
  */
 final class Design
 {
-    /**
-     * @var string
-     */
-    public const MAIN_TITLE = 'Rector - Automated Way to Instantly Upgrade and Refactor any PHP code';
+    public const string MAIN_TITLE = 'Rector - Automated Way to Instantly Upgrade and Refactor any PHP code';
 
-    /**
-     * @var string
-     */
-    public const SOCIAL_RECTOR_LOGO = 'https://getrector.com/assets/images/new-logo/rector-square.png';
+    public const string SOCIAL_RECTOR_LOGO = 'https://getrector.com/assets/images/new-logo/rector-square.png';
 }

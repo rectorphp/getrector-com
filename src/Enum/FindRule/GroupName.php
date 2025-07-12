@@ -8,38 +8,17 @@ use Rector\Set\Enum\SetGroup;
 
 final class GroupName
 {
-    /**
-     * @var string
-     */
-    public const PHP = SetGroup::PHP;
+    public const string PHP = SetGroup::PHP;
 
-    /**
-     * @var string
-     */
-    public const CORE = SetGroup::CORE;
+    public const string CORE = SetGroup::CORE;
 
-    /**
-     * @var string
-     */
-    public const SYMFONY = SetGroup::SYMFONY;
+    public const string SYMFONY = SetGroup::SYMFONY;
 
-    /**
-     * @var string
-     */
-    public const PHPUNIT = SetGroup::PHPUNIT;
+    public const string PHPUNIT = SetGroup::PHPUNIT;
 
-    /**
-     * @var string
-     */
-    public const DOCTRINE = SetGroup::DOCTRINE;
+    public const string DOCTRINE = SetGroup::DOCTRINE;
 
-    /**
-     * @var string
-     */
-    public const TWIG = SetGroup::TWIG;
+    public const string TWIG = SetGroup::TWIG;
 
-    /**
-     * @var string
-     */
-    public const LARAVEL = SetGroup::LARAVEL;
+    public const string LARAVEL = SetGroup::LARAVEL;
 }

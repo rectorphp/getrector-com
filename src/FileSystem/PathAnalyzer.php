@@ -13,15 +13,13 @@ final class PathAnalyzer
 {
     /**
      * @see https://regex101.com/r/UD1dMk/1
-     * @var string
      */
-    private const DATE_REGEX = '(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})';
+    private const string DATE_REGEX = '(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})';
 
     /**
      * @see https://regex101.com/r/2TMMR2/1
-     * @var string
      */
-    private const NAME_REGEX = '(?<name>[\w\d-]*)';
+    private const string NAME_REGEX = '(?<name>[\w\d-]*)';
 
     public function detectDate(string $filePath): ?DateTimeInterface
     {

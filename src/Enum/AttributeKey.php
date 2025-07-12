@@ -6,8 +6,5 @@ namespace App\Enum;
 
 final class AttributeKey
 {
-    /**
-     * @var string
-     */
-    public const NODE_ID = 'node_id';
+    public const string NODE_ID = 'node_id';
 }

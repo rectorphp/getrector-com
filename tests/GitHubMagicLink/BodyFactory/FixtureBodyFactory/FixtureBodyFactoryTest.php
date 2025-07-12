@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Tests\GitHubMagicLink\BodyFactory\FixtureBodyFactory;
 
+use Override;
 use App\GitHubMagicLink\BodyFactory\FixtureBodyFactory;
 use App\Tests\AbstractTestCase;
 use App\Tests\Helpers\DummyRectorRunFactory;
@@ -12,6 +13,7 @@ final class FixtureBodyFactoryTest extends AbstractTestCase
 {
     private FixtureBodyFactory $fixtureBodyFactory;
 
+    #[Override]
     protected function setUp(): void
     {
         parent::setUp();

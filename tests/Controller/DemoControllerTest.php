@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Tests\Controller;
 
+use Override;
 use App\Controller\Demo\ProcessDemoFormController;
 use App\Enum\Request\FormKey;
 use App\Tests\AbstractTestCase;
@@ -15,6 +16,7 @@ use Webmozart\Assert\Assert;
 
 final class DemoControllerTest extends AbstractTestCase
 {
+    #[Override]
     protected function setUp(): void
     {
         parent::setUp();

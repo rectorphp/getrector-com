@@ -10,10 +10,7 @@ use App\ValueObject\AppliedRule;
 
 final readonly class IssueLinkFactory
 {
-    /**
-     * @var string
-     */
-    private const BASE_URL = 'https://github.com/rectorphp/rector/issues/new?labels=bug&template=1_Bug_report.md';
+    private const string BASE_URL = 'https://github.com/rectorphp/rector/issues/new?labels=bug&template=1_Bug_report.md';
 
     public function __construct(
         private IssueBodyFactory $issueBodyFactory

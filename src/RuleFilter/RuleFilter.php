@@ -11,10 +11,7 @@ use App\Sets\RectorSetsTreeProvider;
 
 final readonly class RuleFilter
 {
-    /**
-     * @var int
-     */
-    private const MAX_RESULTS = 10;
+    private const int MAX_RESULTS = 10;
 
     public function __construct(
         private MatchingScoreResolver $matchingScoreResolver,

@@ -10,10 +10,7 @@ use Illuminate\Translation\PotentiallyTranslatedString;
 
 final readonly class ShortPhpContentsRule implements ValidationRule
 {
-    /**
-     * @var int
-     */
-    private const INPUT_LINES_LIMIT = 100;
+    private const int INPUT_LINES_LIMIT = 100;
 
     public function __construct(
         private ShortPhpLines $shortPhpLines

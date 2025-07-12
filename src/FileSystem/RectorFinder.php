@@ -22,7 +22,7 @@ final readonly class RectorFinder
     /**
      * @var string[]
      */
-    private const CORE_DIRECTORIES = [
+    private const array CORE_DIRECTORIES = [
         __DIR__ . '/../../vendor/rector/rector/rules',
         __DIR__ . '/../../vendor/rector/rector/vendor/rector/rector-symfony/rules',
         __DIR__ . '/../../vendor/rector/rector/vendor/rector/rector-phpunit/rules',

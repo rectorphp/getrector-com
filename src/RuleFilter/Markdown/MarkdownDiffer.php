@@ -15,16 +15,14 @@ use SebastianBergmann\Diff\Differ;
 final readonly class MarkdownDiffer
 {
     /**
-     * @var string
      * @see https://regex101.com/r/LE9Xwo/1
      */
-    private const METADATA_REGEX = '#^(.*\n){1}#';
+    private const string METADATA_REGEX = '#^(.*\n){1}#';
 
     /**
-     * @var string
      * @see https://regex101.com/r/yf7u2L/1
      */
-    private const SPACE_AND_NEWLINE_REGEX = '#( ){1,}\n#';
+    private const string SPACE_AND_NEWLINE_REGEX = '#( ){1,}\n#';
 
     public function __construct(
         private Differ $differ,

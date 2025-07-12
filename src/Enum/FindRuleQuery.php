@@ -9,5 +9,5 @@ final class FindRuleQuery
     /**
      * @var string[]
      */
-    public const EXAMPLES = ['attributes', 'add return type strict', 'symfony rules'];
+    public const array EXAMPLES = ['attributes', 'add return type strict', 'symfony rules'];
 }
