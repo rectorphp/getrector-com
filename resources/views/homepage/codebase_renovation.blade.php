@@ -56,7 +56,7 @@
         @endforeach
 
         <div class="text-center mt-5">
-            <a href="{{ action(\App\Controller\HireTeamController::class) }}"
+            <a href="{{ action(\App\Controller\HireTeamController::class, [], false) }}"
                class="btn btn-success btn-lg">
                 Hire us to Renovate your Project
             </a>

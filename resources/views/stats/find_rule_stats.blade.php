@@ -5,7 +5,7 @@
         <h1>Node Finder Stats</h1>
 
         <p>
-            Anonymous search data from <a href="{{ action(\App\Controller\FindRuleController::class) }}">Find rule</a> page
+            Anonymous search data from <a href="{{ action(\App\Controller\FindRuleController::class, [], false) }}">Find rule</a> page
         </p>
 
         <div class="row">

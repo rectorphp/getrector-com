@@ -125,7 +125,7 @@
         </label>
 
         <div class="mobile-menu-logo">
-            <a href="{{ action(\App\Controller\HomepageController::class) }}">
+            <a href="{{ action(\App\Controller\HomepageController::class, [], false) }}">
                 <img src="/assets/images/new-logo/smaller/rector-logo-smaller-white.png" alt="Rector logo">
             </a>
         </div>
@@ -151,7 +151,7 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
             <ul class="navbar-nav me-auto text-start text-md-center">
                 <li class="nav-item me-0 me-md-3 mb-1 mb-md-0" id="top_right_logo">
-                    <a href="{{ action(\App\Controller\HomepageController::class) }}">
+                    <a href="{{ action(\App\Controller\HomepageController::class, [], false) }}">
                         <img src="/assets/images/new-logo/smaller/rector-logo-smaller-white.png" alt="Rector logo">
                     </a>
                 </li>

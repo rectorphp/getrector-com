@@ -11,7 +11,7 @@
 
             <ul class="mt-3">
                 <li>
-                    <a href="{{ action(\App\Controller\DocumentationController::class) }}">Introduction</a>
+                    <a href="{{ action(\App\Controller\DocumentationController::class, [], false) }}">Introduction</a>
                 </li>
             </ul>
 

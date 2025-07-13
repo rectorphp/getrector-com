@@ -7,7 +7,7 @@
 @section('main')
     <div id="rector_run_form" class="mt-4 mb-3">
         <form
-            action="{{ action(\App\Controller\Demo\ProcessCustomRuleFormController::class) }}"
+            action="{{ action(\App\Controller\Demo\ProcessCustomRuleFormController::class, [], false) }}"
             method="post"
             class="mb-5"
         >

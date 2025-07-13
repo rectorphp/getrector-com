@@ -223,7 +223,7 @@
     <br>
 
     <div class="text-center mt-2">
-        <a href="{{ action(\App\Controller\ContactController::class) }}"
+        <a href="{{ action(\App\Controller\ContactController::class, [], false) }}"
            class="btn btn-success btn-lg ms-3">
             Do you want to start today? Contact us
         </a>

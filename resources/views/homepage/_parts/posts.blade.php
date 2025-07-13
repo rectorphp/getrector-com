@@ -3,7 +3,7 @@
 @foreach ($recentPosts as $recentPost)
     @php /** @var \App\Entity\Post $recentPost */ @endphp
 
-    <a href="{{ action(\App\Controller\Blog\PostController::class, ['postSlug' => $recentPost->getSlug() ]) }}">
+    <a href="{{ action(\App\Controller\Blog\PostController::class, ['postSlug' => $recentPost->getSlug() ], false) }}">
         <li style="list-style: none; font-size: 1.25em; line-height: 1.9em">
             <div class="d-flex" style="justify-content: space-between">
                 {{ $recentPost->getTitle() }}

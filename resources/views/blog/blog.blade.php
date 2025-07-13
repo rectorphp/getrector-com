@@ -11,7 +11,7 @@
                 <h2 class="mb-0">
                     <a href="{{ action(\App\Controller\Blog\PostController::class, [
                         'postSlug' => $post->getSlug(),
-                    ]) }}">
+                    ], false) }}">
                         {{ $post->getTitle() }}
                     </a>
                 </h2>

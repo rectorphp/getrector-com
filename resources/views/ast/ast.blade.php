@@ -13,7 +13,7 @@
     <div class="mt-2 mb-3" style="min-height: 50em" id="simple_page">
         <div class="col-12 col-md-6 pe-4" style="float:left; position: relative">
             <form
-                action="{{ action(\App\Ast\Controller\ProcessAstFormController::class) }}"
+                action="{{ action(\App\Ast\Controller\ProcessAstFormController::class, [], false) }}"
                 method="post"
             >
                 @csrf

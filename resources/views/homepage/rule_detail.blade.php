@@ -25,7 +25,7 @@
             @if (url()->previous() && str_contains(url()->previous(), 'find-rule'))
                 <a href="{{ url()->previous() }}">Back to rule search</a>
             @else
-                <a href="{{ action(\App\Controller\FindRuleController::class) }}">Find another rule</a>
+                <a href="{{ action(\App\Controller\FindRuleController::class, [], false) }}">Find another rule</a>
             @endif
         </div>
 
@@ -88,7 +88,7 @@
                                 <a href="{{ action(\App\Controller\FindRuleController::class, [
                                         'rectorSet' => $rectorSet->getSlug(),
                                         'activeRectorSetGroup' => $rectorSet->getGroupName()
-                                    ]) }}"><span class="badge bg-set">{{ $rectorSet->getName()}}</span></a>
+                                    ], false) }}"><span class="badge bg-set">{{ $rectorSet->getName()}}</span></a>
                             @endforeach
                         </div>
                     @endif

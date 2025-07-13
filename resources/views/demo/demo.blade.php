@@ -9,7 +9,7 @@
 @section('main')
     <div id="rector_run_form" class="mt-4 mb-3">
         <form
-            action="{{ action(\App\Controller\Demo\ProcessDemoFormController::class) }}"
+            action="{{ action(\App\Controller\Demo\ProcessDemoFormController::class, [], false) }}"
             method="post"
             class="mb-5"
         >
@@ -40,7 +40,7 @@
                         <ul class="list-noindent">
                             @foreach ($rectorRun->getAppliedRules() as $appliedRule)
                                 <li>
-                                    <a href="{{ action(\App\Controller\RuleDetailController::class, ['slug' => $appliedRule->getSlug()]) }}">
+                                    <a href="{{ action(\App\Controller\RuleDetailController::class, ['slug' => $appliedRule->getSlug()], false) }}">
                                         {{ $appliedRule->getShortClass() }}
                                     </a>
                                 </li>

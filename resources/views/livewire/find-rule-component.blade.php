@@ -18,7 +18,7 @@
             <!-- @see https://livewire.laravel.com/docs/wire-model#customizing-the-debounce -->
 
             @if ($isFilterActive)
-                <a href="{{ action(\App\Controller\FindRuleController::class) }}" class="ms-2">Clear</a>
+                <a href="{{ action(\App\Controller\FindRuleController::class, [], false) }}" class="ms-2">Clear</a>
             @endif
         </div>
 
@@ -103,7 +103,7 @@
                     </div>
 
                     <h3 class="mb-4">
-                        <a href="{{ action(\App\Controller\RuleDetailController::class, ['slug' => $filteredRule->getSlug()]) }}">
+                        <a href="{{ action(\App\Controller\RuleDetailController::class, ['slug' => $filteredRule->getSlug()], false) }}">
                             {{ $filteredRule->getRuleShortClass() }}
                         </a>
                     </h3>
@@ -124,7 +124,7 @@
                                     <a href="{{ action(\App\Controller\FindRuleController::class, [
                                         'rectorSet' => $rectorSet->getSlug(),
                                         'activeRectorSetGroup' => $rectorSet->getGroupName()
-                                    ]) }}"><span class="badge bg-set">{{ $rectorSet->getName()}}</span></a>
+                                    ], false) }}"><span class="badge bg-set">{{ $rectorSet->getName()}}</span></a>
                                 @endforeach
                             </div>
                         @endif

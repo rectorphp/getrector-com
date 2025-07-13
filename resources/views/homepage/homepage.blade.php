@@ -25,9 +25,9 @@
             </div>
 
             <div class="text-center mt-5 mb-5 bigger-buttons">
-                <a href="{{ action(\App\Controller\HireTeamController::class) }}"
+                <a href="{{ action(\App\Controller\HireTeamController::class, [], false) }}"
                    class="btn btn-success me-3">Hire Upgrade Team</a>
-                <a href="{{ action(\App\Controller\Demo\DemoController::class) }}"
+                <a href="{{ action(\App\Controller\Demo\DemoController::class, [], false) }}"
                    class="btn btn-primary">Try It Online</a>
             </div>
         </div>
@@ -88,9 +88,9 @@
 
                 <p>
                     You can learn it yourself from <a
-                        href="{{ action(\App\Controller\DocumentationController::class) }}">documentation</a>,
+                        href="{{ action(\App\Controller\DocumentationController::class, [], false) }}">documentation</a>,
                     or to save time and start upgrading today,
-                    <strong><a href="{{ action(\App\Controller\HireTeamController::class) }}">hire
+                    <strong><a href="{{ action(\App\Controller\HireTeamController::class, [], false) }}">hire
                             our upgrade team</a></strong>.
                 </p>
             </div>

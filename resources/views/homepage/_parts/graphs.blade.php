@@ -98,7 +98,7 @@
 
             <p>
                 How does typical <a
-                    href="{{ action(\App\Controller\CodebaseRenovationController::class) }} ">codebase
+                    href="{{ action(\App\Controller\CodebaseRenovationController::class, [], false) }} ">codebase
                     renovation</a> look like?
             </p>
         </div>
