@@ -7,7 +7,7 @@
         @include('_snippets/layout/head')
         @include('_snippets/styles')
 
-        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 
         {{-- font import --}}
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css" as="style">
