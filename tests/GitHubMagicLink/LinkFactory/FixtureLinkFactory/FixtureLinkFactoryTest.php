@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Tests\GitHubMagicLink\LinkFactory\FixtureLinkFactory;
 
-use Override;
 use App\Entity\RectorRun;
 use App\GitHubMagicLink\LinkFactory\FixtureLinkFactory;
 use App\Tests\AbstractTestCase;
@@ -12,6 +11,7 @@ use App\Tests\Helpers\DowngradeArrayIsListFactory;
 use App\Tests\Helpers\DummyRectorRunFactory;
 use App\Tests\Helpers\StringToArrayRunFactory;
 use Iterator;
+use Override;
 use PHPUnit\Framework\Attributes\DataProvider;
 
 final class FixtureLinkFactoryTest extends AbstractTestCase

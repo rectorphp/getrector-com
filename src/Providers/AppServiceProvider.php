@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
-use Override;
 use App\RuleFilter\ConfiguredDiffSamplesFactory;
 use App\RuleFilter\Markdown\MarkdownDiffer;
 use App\Sets\RectorSetsTreeProvider;
 use Illuminate\Support\ServiceProvider;
+use Override;
 use ReflectionProperty;
 use SebastianBergmann\Diff\Differ;
 use SebastianBergmann\Diff\Output\UnifiedDiffOutputBuilder;

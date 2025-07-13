@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Tests\Validator;
 
-use Override;
 use App\Tests\AbstractTestCase;
 use App\Utils\ErrorMessageNormalizer;
 use Iterator;
+use Override;
 use PHPUnit\Framework\Attributes\DataProvider;
 
 final class ErrorMessageNormalizerTest extends AbstractTestCase
