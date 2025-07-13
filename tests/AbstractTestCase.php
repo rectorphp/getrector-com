@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Tests;
 
-use Override;
 use App\DependencyInjection\DependencyInjectionContainerFactory;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Testing\TestCase;
+use Override;
 
 abstract class AbstractTestCase extends TestCase
 {

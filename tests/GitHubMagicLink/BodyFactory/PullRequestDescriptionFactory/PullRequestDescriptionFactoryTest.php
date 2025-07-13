@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Tests\GitHubMagicLink\BodyFactory\PullRequestDescriptionFactory;
 
-use Override;
 use App\GitHubMagicLink\BodyFactory\PullRequestDescriptionFactory;
 use App\Tests\AbstractTestCase;
 use App\Tests\Helpers\DummyRectorRunFactory;
+use Override;
 
 final class PullRequestDescriptionFactoryTest extends AbstractTestCase
 {

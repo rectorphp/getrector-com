@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Tests\GitHubMagicLink\BodyFactory\IssueBodyFactory;
 
-use Override;
 use App\GitHubMagicLink\BodyFactory\IssueBodyFactory;
 use App\Tests\AbstractTestCase;
 use App\Tests\Helpers\DummyRectorRunFactory;
+use Override;
 
 final class IssueBodyFactoryTest extends AbstractTestCase
 {

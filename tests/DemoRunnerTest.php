@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Tests;
 
-use Override;
 use App\DemoRunner;
 use App\Entity\RectorRun;
+use Override;
 
 final class DemoRunnerTest extends AbstractTestCase
 {

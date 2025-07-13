@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Tests\GitHubMagicLink\LinkFactory\IssueLinkFactory;
 
-use Override;
 use App\GitHubMagicLink\LinkFactory\IssueLinkFactory;
 use App\Tests\AbstractTestCase;
 use App\Tests\Helpers\DummyRectorRunFactory;
+use Override;
 
 final class IssueLinkFactoryTest extends AbstractTestCase
 {

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\RuleFilter\PhpParser\Printer;
 
-use Override;
 use Nette\Utils\Strings;
+use Override;
 use PhpParser\Node\Expr\Array_;
 use PhpParser\Node\Stmt;
 use PhpParser\PrettyPrinter\Standard;
