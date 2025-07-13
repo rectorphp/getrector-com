@@ -19,6 +19,8 @@
         "symplify/vendor-patches": "^11.5"
     },
     "require-dev": {
+        "ext-sqlite3": "*",
+        "ext-pdo_sqlite": "*",
         "barryvdh/laravel-ide-helper": "^3.5.5",
         "driftingly/rector-laravel": "^2.0.5",
         "nette/robot-loader": "^4.0.3",
