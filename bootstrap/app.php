@@ -14,7 +14,12 @@ $application = Application::configure()
     ->withCommands([
         __DIR__ . '/../src/Console/Commands'
     ])
-    ->withMiddleware(function (Middleware $middleware) {
+    ->withMiddleware(callback: function (Middleware $middleware) {
+        if (env('APP_ENV') === 'dev') {
+            // Enable reverse proxy for trusted proxies in development environments.
+            // Set TRUSTED_PROXIES in your .env file as a comma-separated list of IPs.
+            $middleware->trustProxies(env('TRUSTED_PROXIES', '127.0.0.1,::1'));
+        }
     })
     ->withExceptions(function (Exceptions $exceptions) {
     })
