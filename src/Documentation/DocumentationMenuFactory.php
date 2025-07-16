@@ -56,6 +56,10 @@ final readonly class DocumentationMenuFactory
                     'Troubleshooting Parallel'
                 ),
                 $this->documentationMenuItemFactory->createSection(
+                    'troubleshooting-preload',
+                    'Troubleshooting Preload PHPParser and PHPStan PHPDoc Parser'
+                ),
+                $this->documentationMenuItemFactory->createSection(
                     'reporting-issue-with-rector',
                     'Reporting Issue With Rector'
                 ),
