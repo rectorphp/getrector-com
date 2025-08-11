@@ -148,6 +148,7 @@ final class RuleMetadata
         if ($this->isCommunityRule()) {
             return $setGroup === GroupName::LARAVEL;
         }
+
         return array_any($this->sets, fn($set): bool => $set->getGroupName() === $setGroup);
     }
 
