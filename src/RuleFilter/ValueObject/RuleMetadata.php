@@ -149,13 +149,7 @@ final class RuleMetadata
             return $setGroup === GroupName::LARAVEL;
         }
 
-        foreach ($this->sets as $set) {
-            if ($set->getGroupName() === $setGroup) {
-                return true;
-            }
-        }
-
-        return false;
+        return array_any($this->sets, fn($set): bool => $set->getGroupName() === $setGroup);
     }
 
     private function isCommunityRule(): bool
