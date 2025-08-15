@@ -85,15 +85,15 @@
 
     // press "f" to go to "/find-rule"
     document.addEventListener('keydown', (event) => {
-        if ((event.key === 'f' || event.key === 'F') && !event.ctrlKey && !event.target.isContentEditable && event.target.tagName !== 'INPUT' && event.target.tagName !== 'TEXTAREA') {
+        if ((event.key === 'f' || event.key === 'F') && !event.ctrlKey && !event.metaKey && !event.target.isContentEditable && event.target.tagName !== 'INPUT' && event.target.tagName !== 'TEXTAREA') {
             window.location.href = '/find-rule';
         }
 
-        if ((event.key === 'd' || event.key === 'D') && !event.ctrlKey && !event.target.isContentEditable && event.target.tagName !== 'INPUT' && event.target.tagName !== 'TEXTAREA') {
+        if ((event.key === 'd' || event.key === 'D') && !event.ctrlKey && !event.metaKey && !event.target.isContentEditable && event.target.tagName !== 'INPUT' && event.target.tagName !== 'TEXTAREA') {
             window.location.href = '/documentation';
         }
 
-        if ((event.key === 'b' || event.key === 'B') && !event.ctrlKey && !event.target.isContentEditable && event.target.tagName !== 'INPUT' && event.target.tagName !== 'TEXTAREA') {
+        if ((event.key === 'b' || event.key === 'B') && !event.ctrlKey && !event.metaKey && !event.target.isContentEditable && event.target.tagName !== 'INPUT' && event.target.tagName !== 'TEXTAREA') {
             window.location.href = '/blog';
         }
     });
