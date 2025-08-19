@@ -10,7 +10,7 @@
         "league/commonmark": "^2.7",
         "livewire/livewire": "^3.6.3",
         "nesbot/carbon": "^3.10.1",
-        "nikic/php-parser": "^5.5",
+        "nikic/php-parser": "^5.6.1",
         "rector/rector": "dev-main as 2.0",
         "samsonasik/array-lookup": "^2.0.3",
         "symfony/filesystem": "^7.3",
