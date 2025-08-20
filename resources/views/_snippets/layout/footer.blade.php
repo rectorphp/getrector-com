@@ -1,4 +1,4 @@
-<div id="footer">
+<div id="footer" class="mt-auto">
     <div class="container pt-1">
         <div class="row">
             <div class="col-6 col-md-4 mt-1">
