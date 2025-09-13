@@ -35,6 +35,15 @@ final readonly class RectorFinder
     }
 
     /**
+     * @api
+     * @return RuleMetadata[]
+     */
+    public function find(): array
+    {
+        return [...$this->findCore(), ...$this->findCommunity()];
+    }
+
+    /**
      * @api to be used
      * @return RuleMetadata[]
      */
