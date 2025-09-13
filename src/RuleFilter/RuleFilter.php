@@ -24,9 +24,9 @@ final readonly class RuleFilter
      */
     public function filter(array $ruleMetadatas, ?string $query, ?string $set, ?string $setGroup): array
     {
-        $ruleMetadatas = $this->filterByQuery($ruleMetadatas, $query);
-        $ruleMetadatas = $this->filterBySet($ruleMetadatas, $set);
         $ruleMetadatas = $this->filterBySetGroup($ruleMetadatas, $setGroup);
+        $ruleMetadatas = $this->filterBySet($ruleMetadatas, $set);
+        $ruleMetadatas = $this->filterByQuery($ruleMetadatas, $query);
 
         $maxResults = self::MAX_RESULTS;
         if ($setGroup || $set) {
