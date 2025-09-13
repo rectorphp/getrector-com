@@ -49,6 +49,7 @@ final class FindRuleComponent extends Component
             'queryExamples' => FindRuleQuery::EXAMPLES,
             'rectorSets' => $rectorSets,
             'activeRectorSetGroup' => $this->activeRectorSetGroup,
+            'rulesNotInSetCount' => $this->countRulesNotInSet(),
             'rectorSetGroups' => [
                 null => 'Any group',
                 GroupName::PHP => 'PHP',
@@ -96,5 +97,19 @@ final class FindRuleComponent extends Component
 
         // log only meaningful query, not a start of typing, to keep data clean
         $rectorFuleSearchLogger->log($this->query, $this->activeRectorSetGroup, $this->rectorSet);
+    }
+
+    private function countRulesNotInSet(): int
+    {
+        if ($this->activeRectorSetGroup === null) {
+            return 0;
+        }
+
+        /** @var RectorFinder $rectorFinder */
+        $rectorFinder = app(RectorFinder::class);
+        /** @var RuleFilter $ruleFilter */
+        $ruleFilter = app(RuleFilter::class);
+
+        return count($ruleFilter->filter($rectorFinder->find(), null, RuleFilter::NOT_IN_SET, $this->activeRectorSetGroup));
     }
 }

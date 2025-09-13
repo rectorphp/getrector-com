@@ -145,15 +145,28 @@ final class RuleMetadata
 
     public function belongToSetGroup(string $setGroup): bool
     {
-        if ($this->isCommunityRule()) {
-            return $setGroup === GroupName::LARAVEL;
+        if (array_any($this->sets, fn ($set): bool => $set->getGroupName() === $setGroup)) {
+            return true;
         }
 
-        return array_any($this->sets, fn($set): bool => $set->getGroupName() === $setGroup);
+        return $this->getInferredGroup() === $setGroup;
     }
 
-    private function isCommunityRule(): bool
+    /**
+     * Determine which group this rule belongs to based on its namespace,
+     * useful for orphaned rules not in any set
+     */
+    private function getInferredGroup(): ?string
     {
-        return str_starts_with($this->ruleClass, 'RectorLaravel');
+        return match (true) {
+            str_starts_with($this->ruleClass, 'RectorLaravel') => GroupName::LARAVEL,
+            str_contains($this->ruleClass, '\Symfony\\') => GroupName::SYMFONY,
+            str_contains($this->ruleClass, '\PHPUnit\\') => GroupName::PHPUNIT,
+            str_contains($this->ruleClass, '\Doctrine\\') => GroupName::DOCTRINE,
+            str_contains($this->ruleClass, '\Twig\\') => GroupName::TWIG,
+            str_starts_with($this->ruleClass, 'Rector\Php') => GroupName::PHP,
+            str_starts_with($this->ruleClass, 'Rector\\') => GroupName::CORE,
+            default => null,
+        };
     }
 }

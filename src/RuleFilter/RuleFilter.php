@@ -11,6 +11,8 @@ use App\Sets\RectorSetsTreeProvider;
 
 final readonly class RuleFilter
 {
+    public const string NOT_IN_SET = ':not-in-set';
+
     private const int MAX_RESULTS = 10;
 
     public function __construct(
@@ -92,6 +94,13 @@ final readonly class RuleFilter
     {
         if ($set === '' || $set === null) {
             return $ruleMetadatas;
+        }
+
+        if ($set === self::NOT_IN_SET) {
+            return array_filter(
+                $ruleMetadatas,
+                fn (RuleMetadata $ruleMetadata): bool => ! $ruleMetadata->isPartOfSets()
+            );
         }
 
         /** @var RectorSetsTreeProvider $rectorSetsTreeProvider */
