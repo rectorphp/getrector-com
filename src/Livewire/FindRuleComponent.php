@@ -83,12 +83,10 @@ final class FindRuleComponent extends Component
     {
         /** @var RectorFinder $rectorFinder */
         $rectorFinder = app(RectorFinder::class);
-        $ruleMetadatas = array_merge($rectorFinder->findCore(), $rectorFinder->findCommunity());
-
         /** @var RuleFilter $ruleFilter */
         $ruleFilter = app(RuleFilter::class);
 
-        return $ruleFilter->filter($ruleMetadatas, $this->query, $this->rectorSet, $this->activeRectorSetGroup);
+        return $ruleFilter->filter($rectorFinder->find(), $this->query, $this->rectorSet, $this->activeRectorSetGroup);
     }
 
     private function logRuleSearchIfUseful(): void
