@@ -49,6 +49,7 @@ final class FindRuleComponent extends Component
             'queryExamples' => FindRuleQuery::EXAMPLES,
             'rectorSets' => $rectorSets,
             'activeRectorSetGroup' => $this->activeRectorSetGroup,
+            'rulesNotInSetCount' => $this->countRulesNotInSet(),
             'rectorSetGroups' => [
                 null => 'Any group',
                 GroupName::PHP => 'PHP',
@@ -83,12 +84,10 @@ final class FindRuleComponent extends Component
     {
         /** @var RectorFinder $rectorFinder */
         $rectorFinder = app(RectorFinder::class);
-        $ruleMetadatas = array_merge($rectorFinder->findCore(), $rectorFinder->findCommunity());
-
         /** @var RuleFilter $ruleFilter */
         $ruleFilter = app(RuleFilter::class);
 
-        return $ruleFilter->filter($ruleMetadatas, $this->query, $this->rectorSet, $this->activeRectorSetGroup);
+        return $ruleFilter->filter($rectorFinder->find(), $this->query, $this->rectorSet, $this->activeRectorSetGroup);
     }
 
     private function logRuleSearchIfUseful(): void
@@ -98,5 +97,19 @@ final class FindRuleComponent extends Component
 
         // log only meaningful query, not a start of typing, to keep data clean
         $rectorFuleSearchLogger->log($this->query, $this->activeRectorSetGroup, $this->rectorSet);
+    }
+
+    private function countRulesNotInSet(): int
+    {
+        if ($this->activeRectorSetGroup === null) {
+            return 0;
+        }
+
+        /** @var RectorFinder $rectorFinder */
+        $rectorFinder = app(RectorFinder::class);
+        /** @var RuleFilter $ruleFilter */
+        $ruleFilter = app(RuleFilter::class);
+
+        return count($ruleFilter->filter($rectorFinder->find(), null, RuleFilter::NOT_IN_SET, $this->activeRectorSetGroup));
     }
 }

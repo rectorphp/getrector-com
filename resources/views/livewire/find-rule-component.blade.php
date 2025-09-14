@@ -56,6 +56,10 @@
                 @else
                     <option value="">All sets</option>
 
+                    <option value="{{ \App\RuleFilter\RuleFilter::NOT_IN_SET }}">
+                        Rules not in a set ({{ $rulesNotInSetCount }})
+                    </option>
+
                     @foreach ($rectorSets as $rectorSet)
                         <option value="{{ $rectorSet->getSlug() }}">
                             {{ $rectorSet->getName() }}
