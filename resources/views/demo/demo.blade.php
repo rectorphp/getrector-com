@@ -22,13 +22,18 @@
                 Run Rector on your code to see what it can do for you:
             </p>
 
-            @include('_snippets.form.form_diff')
-
-            @include('_snippets.form.form_textarea', [
-                'label' => 'PHP snippet to change',
-                'inputName' => 'php_contents',
-                'defaultValue' => $rectorRun->getContent()
-            ])
+            @if ($rectorRun->isSuccessful())
+                @include('_snippets.form.tabbed_code_and_diff', [
+                    'inputName' => 'php_contents',
+                    'rectorRun' => $rectorRun
+                ])
+            @else
+                @include('_snippets.form.form_textarea', [
+                    'label' => 'PHP snippet to change',
+                    'inputName' => 'php_contents',
+                    'defaultValue' => $rectorRun->getContent()
+                ])
+            @endif
 
             <div class="clearfix pb-0 mb-0" style="clear: both"></div>
 
