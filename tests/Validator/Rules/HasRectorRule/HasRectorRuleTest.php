@@ -34,6 +34,9 @@ final class HasRectorRuleTest extends TestCase
         );
     }
 
+    /**
+     * @return Iterator<array<int, string>>
+     */
     public static function provideValidData(): Iterator
     {
         yield [__DIR__ . '/Fixture/valid/simple_rule.php'];
@@ -53,6 +56,9 @@ final class HasRectorRuleTest extends TestCase
         );
     }
 
+    /**
+     * @return Iterator<array<int, string>>
+     */
     public static function provideInvalidData(): Iterator
     {
         yield [__DIR__ . '/Fixture/invalid/invalid_config.php'];

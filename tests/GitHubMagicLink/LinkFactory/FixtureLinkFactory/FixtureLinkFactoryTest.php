@@ -34,6 +34,9 @@ final class FixtureLinkFactoryTest extends AbstractTestCase
         $this->assertStringMatchesFormatFile($expectedLink, $testFixtureLink . PHP_EOL);
     }
 
+    /**
+     * @return Iterator<array<int, (RectorRun|string)>>
+     */
     public static function provideData(): Iterator
     {
         $rectorRun = DummyRectorRunFactory::create();
