@@ -5,7 +5,7 @@ perex: |
     As you know, we provide an [upgrade services](https://getrector.com/hire-team) to speed up the modernization of codebases. Part of this service is getting PHPStan to level 8 with no baseline (only edge cases).
 
     Level 6 is known for requesting more detailed types over `array`,
-     &nbsp;or `iterable` type hints. Bare `mixed` or `array` should be replaced with explicit key/value types, e.g., `string[]` or `array<int, SomeObject>`.
+      `iterable` or `Iterator` type hints. Bare `mixed` or `array` should be replaced with explicit key/value types, e.g., `string[]` or `array<int, SomeObject>`.
 
     At first, we did this work manually. Later, we made custom Rector rules that we kept private.
 
@@ -157,7 +157,24 @@ What if the method is private and is called only in a local class? We can now co
  }
 ```
 
-...and many more. Right now, the initial set contains [15 rules](https://github.com/rectorphp/rector-src/blob/main/src/Config/Level/TypeDeclarationDocblocksLevel.php). We plan to extend it further. Got an idea for an obvious rule that you keep doing manually and is not covered yet? Let us know.
+...and many more. Right now, the initial set contains **[15 rules](https://github.com/rectorphp/rector-src/blob/main/src/Config/Level/TypeDeclarationDocblocksLevel.php)**, and we plan to extend it further. Got an idea for an obvious rule that you keep doing manually and is not covered yet? Let us know.
+
+<br>
+
+## Smart override
+
+Rector is smart enough to spot on detailed types and override those dummy ones:
+
+```php
+ /**
+- * @return mixed[]
++ * @return string[]
+  */
+ function getNames(): array
+ {
+    return ['one', 'two']
+ }
+```
 
 <br>
 
@@ -201,4 +218,8 @@ return RectorConfig::configure()
 
 <br>
 
-We've put a lot of work into making rules balanced and reliable, but it's still in the early testing phase. Give it a go, let us know how slim your baseline got after a single Rector run!
+We've put a lot of work into making rules balanced and reliable, but it's still in the early testing phase. Give it a go, let us know how slim your baseline got after a single Rector run.
+
+<br>
+
+Happy coding!
