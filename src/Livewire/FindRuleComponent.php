@@ -110,6 +110,8 @@ final class FindRuleComponent extends Component
         /** @var RuleFilter $ruleFilter */
         $ruleFilter = app(RuleFilter::class);
 
-        return count($ruleFilter->filter($rectorFinder->find(), null, RuleFilter::NOT_IN_SET, $this->activeRectorSetGroup));
+        return count(
+            $ruleFilter->filter($rectorFinder->find(), null, RuleFilter::NOT_IN_SET, $this->activeRectorSetGroup)
+        );
     }
 }
