@@ -20,6 +20,9 @@ final class ControllerSmokeTest extends AbstractTestCase
         $this->assertSame($expectedStatusCode, $testResponse->getStatusCode(), (string) $testResponse->getContent());
     }
 
+    /**
+     * @return Iterator<(array<int, int>|array<int, string>)>
+     */
     public static function provideData(): Iterator
     {
         yield ['/', 200];

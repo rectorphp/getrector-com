@@ -27,6 +27,9 @@ final class ErrorMessageNormalizerTest extends AbstractTestCase
         $this->assertSame($expectedNormalizedMessage, $normalizedMessage);
     }
 
+    /**
+     * @return Iterator<array<int, string>>
+     */
     public static function provideDataForTest(): Iterator
     {
         yield ['message', 'message'];

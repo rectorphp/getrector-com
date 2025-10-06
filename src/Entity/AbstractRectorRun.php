@@ -18,7 +18,9 @@ abstract class AbstractRectorRun implements JsonSerializable
         protected readonly Uuid $uuid,
         protected readonly string $content,
         protected readonly string $runnablePhp,
-        /** @var array<string, mixed> */
+        /**
+         * @var array<string, mixed>
+         */
         protected array $jsonResult = [],
         protected string|null $fatalErrorMessage = null
     ) {

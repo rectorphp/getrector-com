@@ -51,6 +51,9 @@ final class RectorFuleSearchLogger
         }
 
         $lowerQuery = strtolower($query);
-        return array_any(self::EXCLUDED_QUERIES, fn($excludedQuery): bool => str_contains($lowerQuery, (string) $excludedQuery));
+        return array_any(
+            self::EXCLUDED_QUERIES,
+            fn ($excludedQuery): bool => str_contains($lowerQuery, (string) $excludedQuery)
+        );
     }
 }

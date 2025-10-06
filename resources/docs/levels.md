@@ -53,6 +53,22 @@ vendor/bin/rector
 
 Only five files? We can do that in a day. We create a pull request, get a review, and merge. The next day, we can continue with level 1. You get the idea.
 
+## Type Coverage and Type Coverage Docblocks Levels
+
+Rector offer ruleset to fill known type declarations.
+
+Since Rector 2.2, it also offers another ruleset to fill docblock `@param`, `@return` or `@var` types, where native type hints are not possible, e.g. `string[]`.
+
+```php
+<?php
+
+use Rector\Config\RectorConfig;
+
+return RectorConfig::configure()
+    ->withTypeCoverageLevel(0);
+    ->withTypeCoverageDocblockLevel(0);
+```
+
 ## Dead Code, Code Quality and Coding Style Levels
 
 Are you done with the type level and reached [99 % type coverage](https://github.com/tomasVotruba/type-coverage)? It's time to move on to dead code removal and to improve code quality and coding style.
@@ -65,8 +81,6 @@ Again, we avoid full-blown prepared set, and make use of level methods:
 use Rector\Config\RectorConfig;
 
 return RectorConfig::configure()
-    ->withPaths([__DIR__ . '/src', __DIR__ . '/tests'])
-    ->withTypeCoverageLevel(0)
     ->withDeadCodeLevel(0)
     ->withCodeQualityLevel(0)
     ->withCodingStyleLevel(0);

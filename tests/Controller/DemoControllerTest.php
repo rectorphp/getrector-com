@@ -150,6 +150,9 @@ CODE_SAMPLE
         $testResponse->assertSessionHasNoErrors();
     }
 
+    /**
+     * @return Iterator<(array<int, array<string, string>>|array<int, string>)>
+     */
     public static function provideTestFormSubmitData(): Iterator
     {
         // Send empty form

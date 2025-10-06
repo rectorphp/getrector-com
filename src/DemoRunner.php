@@ -55,7 +55,7 @@ final readonly class DemoRunner
     }
 
     /**
-     * @return mixed[]
+     * @return array<string, mixed>
      */
     private function processFilesContents(string $fileContent, string $rectorConfig): array
     {
