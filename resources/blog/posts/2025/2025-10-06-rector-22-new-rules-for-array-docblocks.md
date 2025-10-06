@@ -148,9 +148,9 @@ What if the method is private and is called only in a local class? We can now co
          $this->addTips([50, 150]);
      }
 
-     /**
-      * @param int[] $tips
-      */
++    /**
++     * @param int[] $tips
++     */
      private function addTips(array $tips): void
      {
      }
@@ -161,11 +161,11 @@ What if the method is private and is called only in a local class? We can now co
 
 <br>
 
-## Smart override
+## Smart Override
 
-Rector is smart enough to spot on detailed types and override those dummy ones:
+Rector is smart enough to keep detailed types, but override those dummy ones:
 
-```php
+```diff
  /**
 - * @return mixed[]
 + * @return string[]
@@ -204,6 +204,8 @@ And take it one level at a time:
 -    ->withTypeCoverageDocblockLevel(0);
 +    ->withTypeCoverageDocblockLevel(1);
 ```
+
+<br>
 
 In a rush or feeling lucky? Add full set:
 
