@@ -16,9 +16,12 @@ perex: |
 This feature is experimental. We look for your feedback in real projects. Found a glitch, or do you expect a different output? Let us known <a href="https://github.com/rectorphp/rector/issues">on GitHub</a>.
 </div>
 
-We designed these rules to avoid filling useless types like `mixed`, `mixed[]`, or `array`. If the Rector doesn't know better, it will skip these cases. We want to fill those types that humans would do to improve code readability and static analysis.
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">When you&#39;re proud that your project passes PHPStan on level 7...<br><br>...and then remove that single ignore line ↓ <a href="https://t.co/VNKYWEEZoa">pic.twitter.com/VNKYWEEZoa</a></p>&mdash; Tomas Votruba (@VotrubaT) <a href="https://twitter.com/VotrubaT/status/1973141678421848412?ref_src=twsrc%5Etfw">September 30, 2025</a></blockquote>
 
 <br>
+
+1573 errors... Rector should be able to help with that, right?
 
 Let's look at a few examples that are missing detailed types and that Rector can improve now:
 
@@ -158,6 +161,8 @@ What if the method is private and is called only in a local class? We can now co
 ```
 
 ...and many more. Right now, the initial set contains **[15 rules](https://github.com/rectorphp/rector-src/blob/main/src/Config/Level/TypeDeclarationDocblocksLevel.php)**, and we plan to extend it further. Got an idea for an obvious rule that you keep doing manually and is not covered yet? Let us know.
+
+We designed these rules to avoid filling useless types like `mixed`, `mixed[]`, or `array`. If the Rector doesn't know better, it will skip these cases. We want to fill those types they way humans would do to improve code readability and static analysis.
 
 <br>
 
