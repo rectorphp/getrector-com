@@ -51,7 +51,7 @@ final class FindRuleStatsController extends Controller
     }
 
     /**
-     * @param mixed[] $items
+     * @param mixed[][] $items
      * @return mixed[]
      */
     private function getArrayFlattenKey(array $items, string $keyName): array
