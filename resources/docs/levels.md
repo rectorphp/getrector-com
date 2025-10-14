@@ -65,7 +65,7 @@ Since Rector 2.2, it also offers another ruleset to fill docblock `@param`, `@re
 use Rector\Config\RectorConfig;
 
 return RectorConfig::configure()
-    ->withTypeCoverageLevel(0);
+    ->withTypeCoverageLevel(0)
     ->withTypeCoverageDocblockLevel(0);
 ```
 
