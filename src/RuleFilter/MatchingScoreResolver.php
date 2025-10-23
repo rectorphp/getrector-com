@@ -31,7 +31,7 @@ final class MatchingScoreResolver
 
         // resolv equery parts
         $queryParts = Strings::split($query, '#\s+#');
-        $queryParts = array_map('strtolower', $queryParts);
+        $queryParts = array_map(strtolower(...), $queryParts);
 
         $rectorClassNameParts = $this->resolveRectorClassNameParts($ruleMetadata);
 
@@ -67,7 +67,7 @@ final class MatchingScoreResolver
     {
         $rectorClassNameParts = Strings::split($ruleMetadata->getRuleShortClass(), '#(?=[A-Z])#');
         // lowercase all parts
-        $rectorClassNameParts = array_map('strtolower', $rectorClassNameParts);
+        $rectorClassNameParts = array_map(strtolower(...), $rectorClassNameParts);
 
         // remove empty parts
         return array_filter($rectorClassNameParts);

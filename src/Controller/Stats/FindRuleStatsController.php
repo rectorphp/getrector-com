@@ -96,7 +96,7 @@ final class FindRuleStatsController extends Controller
         $queries = array_diff($queries, FindRuleQuery::EXAMPLES);
 
         // lowercase to standardize similar searches
-        $queries = array_map('strtolower', $queries);
+        $queries = array_map(strtolower(...), $queries);
 
         $queriesToCount = Arrays::groupToCount($queries, 1);
 
