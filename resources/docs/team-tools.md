@@ -22,7 +22,3 @@ There 2 more tools that help out with specific sets:
 
 * [tomasvotruba/type-coverage](https://github.com/TomasVotruba/type-coverage) - works best with `withTypeCoverageLevel()`
 * [tomasvotruba/class-leak](https://github.com/TomasVotruba/class-leak) - works best with `withDeadCodeLevel()`
-
-<br>
-
-There is also [symplify/config-transformer](https://github.com/symplify/config-transformer) that helps with transforming YAML Symfony configs to PHP. There you can follow up with [Symfony rules for Rector](/rule-detail/string-extension-to-config-builder-rector) to reach config builders.
