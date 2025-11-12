@@ -22,6 +22,7 @@ return RectorConfig::configure()
     )
     ->withPhpSets()
     ->withAttributesSets()
+    ->withComposerBased(twig: true, doctrine: true, phpunit: true, symfony: true, netteUtils: true, laravel: true)
     ->withSkip([
         RenameForeachValueVariableToMatchMethodCallReturnTypeRector::class => [
             // metadata -> datum false positive

@@ -78,7 +78,7 @@ final class FindRuleStatsController extends Controller
                 continue;
             }
 
-            $items[] = Json::decode($fileLine, true);
+            $items[] = Json::decode($fileLine, forceArrays: true);
         }
 
         return $items;
