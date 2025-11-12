@@ -107,7 +107,7 @@ final readonly class DemoRunner
 
         // is valid json?
         try {
-            return Json::decode($output, true);
+            return Json::decode($output, forceArrays: true);
         } catch (JsonException $jsonException) {
             if ($jsonException->getMessage() === 'Syntax error') {
                 $errorMessage = 'Invalid json syntax in "vendor/bin/rector" process output: ' . PHP_EOL . PHP_EOL . $output;
