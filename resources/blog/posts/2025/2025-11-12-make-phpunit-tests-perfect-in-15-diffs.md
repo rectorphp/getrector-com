@@ -131,17 +131,6 @@ In prehistorical past, there was only `assertTrue()` and `assertFalse()`. Now, P
 
 <br>
 
-```diff
--->willReturnCallback(function (...$parameters) use ($matcher) {
--    match ($matcher->getInvocationCount()) {
--        1 => $this->assertSame([1], $parameters),
--    };
--});
-+ ->with(1, $parameters);
-```
-
-<br>
-
 Why mocks property for a whole tests, if it's used only once?
 
 ```diff
@@ -301,7 +290,19 @@ If you still fancy `array` for data providers, make sure they're neatly indented
 From `@testWith` to data provider method:
 
 ```diff
-+public function dataProviderSum()
+-/**
+- * @testWith    [0, 0, 0]
+- * @testWith    [0, 1, 1]
+- * @testWith    [1, 0, 1]
+- * @testWith    [1, 1, 3]
+- */
++#[DataProvider('dataProviderSum')]
+ public function testSum(int $a, int $b, int $expected)
+ {
+     $this->assertSame($expected, $a + $b);
+ }
+
++public static function dataProviderSum(): array
 +{
 +    return [
 +        [0, 0, 0],
@@ -310,19 +311,6 @@ From `@testWith` to data provider method:
 +        [1, 1, 3]
 +    ];
 +}
-+
- /**
-- * @testWith    [0, 0, 0]
-- * @testWith    [0, 1, 1]
-- * @testWith    [1, 0, 1]
-- * @testWith    [1, 1, 3]
-+ * @dataProvider dataProviderSum
-  */
--public function testSum(int $a, int $b, int $expected)
-+public function test(int $a, int $b, int $expected)
- {
-     $this->assertSame($expected, $a + $b);
- }
 ```
 
 <br>
