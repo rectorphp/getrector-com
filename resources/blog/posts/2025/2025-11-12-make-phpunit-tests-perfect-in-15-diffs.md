@@ -79,8 +79,12 @@ In prehistorical past, there was only `assertTrue()` and `assertFalse()`. Now, P
 <br>
 
 ```diff
--$this->assertTrue(property_exists(new Class, "property"));
-+$this->assertClassHasAttribute("property", "Class");
+  public function test()
+  {
+      $result = '...';
+-     $this->assertSame($result, 'expected');
++     $this->assertSame('expected', $result);
+ }
 ```
 
 <br>
