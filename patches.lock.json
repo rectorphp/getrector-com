@@ -1,0 +1,17 @@
+{
+    "_hash": "5738046bc8d7f0745f2c102ee76bd6b418279ff46d8de6ee318faf6cbf3bdcd9",
+    "patches": {
+        "illuminate/container": [
+            {
+                "package": "illuminate/container",
+                "description": "0",
+                "url": "https://raw.githubusercontent.com/rectorphp/vendor-patches/main/patches/illuminate-container-container-php.patch",
+                "sha256": "e54ed718c7b97573f23f1a4acbad94a51a1755d8b4f0d6a2b3c2dc7f1a74211d",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            }
+        ]
+    }
+}
