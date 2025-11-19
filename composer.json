@@ -16,7 +16,7 @@
         "symfony/filesystem": "^7.3",
         "symfony/uid": "^7.3.1",
         "symfony/yaml": "^7.3.1",
-        "symplify/vendor-patches": "^11.5"
+        "symplify/vendor-patches": "^12.0"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^3.6",
