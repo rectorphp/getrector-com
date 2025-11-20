@@ -82,7 +82,7 @@
 
                 <p>
                     In the hands of an expert, Rector massively reduces your work-time.<br>
-                    Where project upgrade PHP 8.0 to 8.4 would <strong>take 3 months</strong>,
+                    Where project upgrade PHP 8.0 to 8.5 would <strong>take 3 months</strong>,
                     <strong>Rector is done in 3 days</strong>.
                 </p>
 
