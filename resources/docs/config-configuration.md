@@ -225,6 +225,50 @@ return RectorConfig::configure()
 
 <br>
 
+## Empower Rector to change `public` and non-final elements
+
+By default, some Rector rules change types on `private` and `final` classes. Why? Because these classes and properties cannot be used by its children. Public and non-final elements can be used anywhere, e.g. adding a property type declaration can be risky.
+
+Read more in [Why Final Classes make Rector and PHPStan more powerful](https://tomasvotruba.com/blog/why-final-classes-make-rector-and-phpstan-more-powerful).
+
+If you feel confident in your codebase and want to make it even more reliable, you can empower Rector to run these rules on `public` and non-`final` elements as well:
+
+```php
+use Rector\Config\RectorConfig;
+
+return RectorConfig::configure()
+    ->withTreatClassesAsFinal();
+```
+
+<br>
+
+## Nicer Fluent Call output
+
+By default, php-parser prints new fluent calls in a single line:
+
+```php
+$some->select(...)->where(...)->getResult(...);
+```
+
+If you prefer per-line method call:
+
+```php
+$some->select(...)
+    ->where(...)
+    ->getResult(...);
+```
+
+You can enable it:
+
+```php
+use Rector\Config\RectorConfig;
+
+return RectorConnfig::configure()
+    ->withFluentCallNewLine();
+```
+
+<br>
+
 ## PHPStan integration
 
 Rector load `phpstan.neon` and `phpstan.neon.dist` by default if they exist in your project root. Extensions are ignored on purpose, as some of them run project code (e.g. Doctrine) and breaks idea of static analysis. Most extensions do not bring any value to Rector, as Rector works mostly with native type declaration.
