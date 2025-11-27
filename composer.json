@@ -13,9 +13,9 @@
         "nikic/php-parser": "^5.6.2",
         "rector/rector": "dev-main as 2.2",
         "samsonasik/array-lookup": "^2.0.3",
-        "symfony/filesystem": "^7.3",
+        "symfony/filesystem": "^8.0",
         "symfony/uid": "^7.3.1",
-        "symfony/yaml": "^7.3.1",
+        "symfony/yaml": "^8.0",
         "symplify/vendor-patches": "^12.0"
     },
     "require-dev": {
@@ -26,7 +26,7 @@
         "phpstan/extension-installer": "^1.4.3",
         "phpstan/phpstan": "^2.1.32",
         "phpstan/phpstan-webmozart-assert": "^2.0",
-        "phpunit/phpunit": "11.4",
+        "phpunit/phpunit": "12.4.4",
         "rector/jack": "^0.4",
         "rector/swiss-knife": "^2.3.3",
         "tomasvotruba/class-leak": "^2.0.5"
