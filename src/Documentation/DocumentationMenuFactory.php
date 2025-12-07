@@ -73,7 +73,7 @@ final readonly class DocumentationMenuFactory
                     'Writing Tests For Custom Rule'
                 ),
                 $this->documentationMenuItemFactory->createSection(
-                    'creating-a-node-visitor',
+                    'creating-node-visitor',
                     'Creating Node Visitor',
                     true
                 ),
