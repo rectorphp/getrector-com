@@ -10,7 +10,7 @@ use Webmozart\Assert\Assert;
 final readonly class DocumentationMenuItem
 {
     /**
-     * @param string $href The URL path for the documentation menu item. Must be a non-empty string starting with '/'
+     * @param string $href The URL path for the documentation menu item. Must be a non-empty string starting with '/', 'http://', or 'https://'
      * @param string $label The display text for the menu item. Must be a non-empty string
      * @param non-empty-string|null $slug The unique identifier for the documentation file. If null, indicates a menu item without content
      * @param bool $isNew Whether this menu item represents new documentation
@@ -22,7 +22,10 @@ final readonly class DocumentationMenuItem
         private bool $isNew = false,
     ) {
         Assert::notEmpty($href, 'Documentation href cannot be empty');
-        Assert::startsWith($href, '/', 'Documentation href must start with a forward slash');
+        Assert::true(
+            str_starts_with($href, '/') || str_starts_with($href, 'http://') || str_starts_with($href, 'https://'),
+            'Documentation href must start with a forward slash, http://, or https://'
+        );
         Assert::notEmpty($label, 'Documentation label cannot be empty');
     }
 
