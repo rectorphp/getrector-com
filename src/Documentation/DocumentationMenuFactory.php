@@ -72,7 +72,11 @@ final readonly class DocumentationMenuFactory
                     'writing-tests-for-custom-rule',
                     'Writing Tests For Custom Rule'
                 ),
-                $this->documentationMenuItemFactory->createSection('creating-a-node-visitor', 'Creating Node Visitor'),
+                $this->documentationMenuItemFactory->createSection(
+                    'creating-a-node-visitor',
+                    'Creating Node Visitor',
+                    true
+                ),
                 $this->documentationMenuItemFactory->createSection('how-to-run-on-php-53', 'Run on PHP 5.3'),
                 $this->documentationMenuItemFactory->createSection(
                     'https://leanpub.com/rector-the-power-of-automated-refactoring',
