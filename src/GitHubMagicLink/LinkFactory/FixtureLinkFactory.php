@@ -53,29 +53,43 @@ final readonly class FixtureLinkFactory
             return $link;
         }
 
-        if (! in_array($match['Package'], self::RECTOR_PACKAGE_NAMES, true)) {
-            if (str_starts_with((string) $match['Package'], self::DOWNGRADE_PACKAGE_PREFIX)) {
-                return str_replace('rector-src', 'rector-downgrade-php', $link);
-            }
+        $packageName = (string) $match['Package'];
+        
+        // Check if it's a downgrade package
+        if (str_starts_with($packageName, self::DOWNGRADE_PACKAGE_PREFIX)) {
+            return str_replace('rector-src', 'rector-downgrade-php', $link);
+        }
 
+        // Check if it's a known Rector package (e.g., Symfony, Symfony42, PHPUnit, Doctrine)
+        $isKnownPackage = false;
+        $basePackageName = null;
+        foreach (self::RECTOR_PACKAGE_NAMES as $knownPackage) {
+            if (str_starts_with($packageName, $knownPackage)) {
+                $isKnownPackage = true;
+                $basePackageName = $knownPackage;
+                break;
+            }
+        }
+
+        if (! $isKnownPackage) {
             return $link;
         }
 
         $expectedNamespace = $rectorRun->getExpectedRectorTestNamespace();
         $slashedexpectedNamespace = str_replace('\\', '/', $expectedNamespace);
         $slashedexpectedNamespace = str_replace(
-            'Rector/Tests/' . $match['Package'] . '/',
+            'Rector/Tests/' . $basePackageName . '/',
             '',
             $slashedexpectedNamespace
         );
         $slashedexpectedNamespace = Strings::before($slashedexpectedNamespace, '/', 1);
 
-        $package = strtolower($match['Package']);
+        $package = strtolower($basePackageName);
         if (is_dir(
             __DIR__ . '/../../../vendor/rector/rector/vendor/rector/rector-' . $package . '/rules/' . $slashedexpectedNamespace
         )) {
             $link = str_replace(
-                'rules-tests/' . $match['Package'] . '/Rector',
+                'rules-tests/' . $packageName . '/Rector',
                 'rules-tests/' . $slashedexpectedNamespace,
                 $link
             );
@@ -88,7 +102,7 @@ final readonly class FixtureLinkFactory
             return str_replace('rector-src', 'rector-' . $package, $link);
         }
 
-        $link = str_replace('rules-tests/' . $match['Package'] . '/Rector', 'tests/Rector', $link);
+        $link = str_replace('rules-tests/' . $packageName . '/Rector', 'tests/Rector', $link);
         return str_replace('rector-src', 'rector-' . $package, $link);
     }
 
