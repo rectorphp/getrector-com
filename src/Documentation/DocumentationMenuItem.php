@@ -51,8 +51,10 @@ final readonly class DocumentationMenuItem
 
     /**
      * Checks if the documentation file exists for this menu item.
+     * Throws an exception if the file does not exist when a slug is provided.
      * 
-     * @return bool True if the documentation file exists and is readable, false otherwise
+     * @return bool True if the documentation file exists, false if slug is null
+     * @throws \Webmozart\Assert\InvalidArgumentException If the file does not exist when slug is provided
      */
     public function hasDocumentation(): bool
     {
@@ -61,7 +63,9 @@ final readonly class DocumentationMenuItem
         }
 
         $documentationFilePath = $this->getDocumentationFilePath();
-        return file_exists($documentationFilePath) && is_readable($documentationFilePath);
+        Assert::fileExists($documentationFilePath, sprintf('Documentation file must exist at "%s"', $documentationFilePath));
+        
+        return true;
     }
 
     public function getMarkdownContents(): string
