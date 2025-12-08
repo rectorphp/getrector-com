@@ -1,6 +1,6 @@
-What is a PHP 8.3 project without a single type declaration?
-
-A horse with Tesla bodywork.
+> "What is a PHP 8.4 project without a single type declaration?"
+>
+> "A horse with Tesla bodywork."
 
 <br>
 
@@ -89,3 +89,21 @@ return RectorConfig::configure()
 We increase it by 1, run Rector, create a pull request, get a review, and merge.
 
 Once we reach the highest level, we can move on to [next prepared sets](/documentation/set-lists#content-prepared-sets).
+
+<br>
+
+## Leveling up PHP Upgrade
+
+One of the main Rector features &ndash; PHP upgrades &ndash; is also covered via levels:
+
+
+```php
+<?php
+
+use Rector\Config\RectorConfig;
+
+return RectorConfig::configure()
+  ->withPhpLevel(5);
+```
+
+This way you can handle enormous project upgrades effortlessly, step by step.
