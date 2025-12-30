@@ -18,11 +18,9 @@ jobs:
                         run: php artisan app:validate-rule-definitions
 
                     # @see https://github.com/rectorphp/jack
-                    # limit to 3 breakpoints for now, @see https://github.com/rectorphp/getrector-com/actions/runs/20596227217/job/59151352711#step:5:15
-                    # that can't upgrade to rector/jack 0.5.0 due to prefix build issue
                     -
                         name: 'Rector Jack'
-                        run: vendor/bin/jack breakpoint --limit 3 --ansi
+                        run: vendor/bin/jack breakpoint --limit 2
 
                     -
                         name: 'PHPStan'
