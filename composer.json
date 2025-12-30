@@ -27,7 +27,7 @@
         "phpstan/phpstan": "^2.1.33",
         "phpstan/phpstan-webmozart-assert": "^2.0",
         "phpunit/phpunit": "^12.5",
-        "rector/jack": "^0.5",
+        "rector/jack": "0.4.0",
         "rector/swiss-knife": "^2.3.3",
         "tomasvotruba/class-leak": "^2.1"
     },
