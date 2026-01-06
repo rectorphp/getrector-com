@@ -22,7 +22,7 @@ After that, if Rector processing works fine, that is an indication that you migh
 There are 3 options we can define for parallel processing:
 ```php
 public function parallel(
-    int $seconds = 120,
+    int $timeoutSeconds = 120,
     int $maxNumberOfProcess = 16,
     int $jobSize = 16
 ): void
@@ -37,7 +37,7 @@ return RectorConfig::configure()
 
 You can make it aligned with what you have at your disposal:
 
-- **timeout `$seconds`** can be increased if you find your codebase has a job size with classes that require more time to process, and then you need more time to process
+- **`$timeoutSeconds` can be increased** if you find your codebase has a job size with classes that require more time to process, and then you need more time to process
 
 
 - **`$maxNumberOfProcess` may be decreased** not to overload your system, and keeping some processes free and avoid side impacts of busy systems not being able to process files properly. For example: if you have four processes, you can use `$maxNumberOfProcess = 2` to keep two processes free and limit the system load.
