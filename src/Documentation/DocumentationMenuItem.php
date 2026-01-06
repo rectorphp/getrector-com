@@ -10,7 +10,10 @@ use Webmozart\Assert\Assert;
 final readonly class DocumentationMenuItem
 {
     /**
-     * @param non-empty-string|null $slug
+     * @param string $href The URL path for the documentation menu item. Must be a non-empty string starting with '/', 'http://', or 'https://'
+     * @param string $label The display text for the menu item. Must be a non-empty string
+     * @param non-empty-string|null $slug The unique identifier for the documentation file. If null, indicates a menu item without content
+     * @param bool $isNew Whether this menu item represents new documentation
      */
     public function __construct(
         private string $href,
@@ -18,6 +21,12 @@ final readonly class DocumentationMenuItem
         private ?string $slug,
         private bool $isNew = false,
     ) {
+        Assert::notEmpty($href, 'Documentation href cannot be empty');
+        Assert::true(
+            str_starts_with($href, '/') || str_starts_with($href, 'http://') || str_starts_with($href, 'https://'),
+            'Documentation href must start with a forward slash, http://, or https://'
+        );
+        Assert::notEmpty($label, 'Documentation label cannot be empty');
     }
 
     public function getHref(): string
@@ -43,12 +52,41 @@ final readonly class DocumentationMenuItem
         return $this->slug;
     }
 
+    /**
+     * Checks if the documentation file exists for this menu item.
+     * Throws an exception if the file does not exist when a slug is provided.
+     * 
+     * @return bool True if the documentation file exists, false if slug is null
+     * @throws \Webmozart\Assert\InvalidArgumentException If the file does not exist when slug is provided
+     */
+    public function hasDocumentation(): bool
+    {
+        if ($this->slug === null) {
+            return false;
+        }
+
+        $documentationFilePath = $this->getDocumentationFilePath();
+        Assert::fileExists($documentationFilePath, sprintf('Documentation file must exist at "%s"', $documentationFilePath));
+        
+        return true;
+    }
+
     public function getMarkdownContents(): string
     {
         Assert::notNull($this->slug);
-        $documentationFilePath = __DIR__ . '/../../resources/docs/' . $this->slug . '.md';
+        $documentationFilePath = $this->getDocumentationFilePath();
 
         Assert::fileExists($documentationFilePath);
         return FileSystem::read($documentationFilePath);
+    }
+
+    /**
+     * Gets the full path to the documentation file.
+     * 
+     * @return string The absolute path to the documentation file
+     */
+    private function getDocumentationFilePath(): string
+    {
+        return __DIR__ . '/../../resources/docs/' . $this->slug . '.md';
     }
 }
