@@ -263,6 +263,11 @@ h4 {
         border: 1px solid #eee;
         height: auto;
         font-size: 1em;
+        padding-right: 40px;
+    }
+
+    .CodeMirror-lines {
+        padding: 10px;
     }
 
     .card-header {
