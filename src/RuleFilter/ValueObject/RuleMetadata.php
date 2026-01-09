@@ -57,9 +57,7 @@ final class RuleMetadata
         if ($slug !== '') {
             $slug .= '-';
         }
-
-        $slug .= $lastSlug;
-        return $slug;
+        return $slug . $lastSlug;
     }
 
     public function getDescription(): string
