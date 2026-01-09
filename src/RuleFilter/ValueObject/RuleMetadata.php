@@ -30,7 +30,7 @@ final class RuleMetadata
         private array $codeSamples,
         private readonly array $sets,
         private readonly string $rectorRuleFilePath,
-        private readonly bool $sameNameInDifferntSet
+        private readonly bool $sameNameInDifferentSet
     ) {
         Assert::isAOf($ruleClass, RectorInterface::class);
         Assert::allIsAOf($sets, RectorSet::class);
@@ -48,7 +48,7 @@ final class RuleMetadata
             ->snake('-')
             ->toString();
 
-        if ($this->sameNameInDifferntSet === false) {
+        if ($this->sameNameInDifferentSet === false) {
             return $lastSlug;
         }
 
