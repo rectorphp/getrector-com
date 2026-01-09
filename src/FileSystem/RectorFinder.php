@@ -142,8 +142,8 @@ final readonly class RectorFinder
 
         $findRectorClasses = $this->findRectorClasses($directories);
 
-        foreach ($findRectorClasses as $rectorClass) {
-            $rectorReflectionClass = new ReflectionClass($rectorClass);
+        foreach ($findRectorClasses as $findRectorClass) {
+            $rectorReflectionClass = new ReflectionClass($findRectorClass);
             if ($rectorReflectionClass->isAbstract()) {
                 continue;
             }
@@ -173,14 +173,14 @@ final readonly class RectorFinder
                 throw new InvalidRuleDescriptionException(
                     sprintf(
                         'Rule "%s" has invalid code samples:%s"%s"',
-                        $rectorClass,
+                        $findRectorClass,
                         PHP_EOL . PHP_EOL,
                         $throwable->getMessage()
                     )
                 );
             }
 
-            $ruleDefinition->setRuleClass($rectorClass);
+            $ruleDefinition->setRuleClass($findRectorClass);
 
             $currentRuleSets = $this->findRuleUsedSets($ruleDefinition, $rectorSets);
 
@@ -203,9 +203,9 @@ final readonly class RectorFinder
     private function isDuplicatedLastName(array $findRectorClasses, string $lastName): bool
     {
         $count = 0;
-        foreach ($findRectorClasses as $rectorClass) {
-            if (\str_ends_with($rectorClass, '\\' . $lastName)) {
-                $count++;
+        foreach ($findRectorClasses as $findRectorClass) {
+            if (\str_ends_with($findRectorClass, '\\' . $lastName)) {
+                ++$count;
 
                 if ($count === 2) {
                     return true;
