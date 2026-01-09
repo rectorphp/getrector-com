@@ -43,9 +43,23 @@ final class RuleMetadata
     public function getSlug(): string
     {
         // turn "SomeRector" to "some-rector"
-        return str($this->getRuleShortClass())
+        $lastSlug = str($this->getRuleShortClass())
             ->snake('-')
             ->toString();
+
+        $currentSet = current($this->sets);
+
+        if ($currentSet === false) {
+            return $lastSlug;
+        }
+
+        $slug = $currentSet->getSlug();
+        if ($slug !== '') {
+            $slug .= '-';
+        }
+
+        $slug .= $lastSlug;
+        return $slug;
     }
 
     public function getDescription(): string
