@@ -57,6 +57,7 @@ final class RuleMetadata
         if ($slug !== '') {
             $slug .= '-';
         }
+
         return $slug . $lastSlug;
     }
 
