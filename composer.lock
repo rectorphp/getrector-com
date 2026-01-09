@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "79068ad7fb13192fc52b4fa83cf8af17",
+    "content-hash": "4bc0c9ca5362982a2c4581130508c5bd",
     "packages": [
         {
             "name": "brick/math",
@@ -3514,12 +3514,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "4d7c7b2be004d985f0633bee7bed8c9f1b4a3355"
+                "reference": "d1879c74af4df8882d52f11352fdfb40470ee447"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/4d7c7b2be004d985f0633bee7bed8c9f1b4a3355",
-                "reference": "4d7c7b2be004d985f0633bee7bed8c9f1b4a3355",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/d1879c74af4df8882d52f11352fdfb40470ee447",
+                "reference": "d1879c74af4df8882d52f11352fdfb40470ee447",
                 "shasum": ""
             },
             "require": {
@@ -3567,7 +3567,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-01-07T12:23:24+00:00"
+            "time": "2026-01-09T07:12:45+00:00"
         },
         {
             "name": "samsonasik/array-lookup",
