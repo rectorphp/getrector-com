@@ -140,8 +140,10 @@ final readonly class RectorFinder
 
         $ruleMetadatas = [];
 
-        foreach ($this->findRectorClasses($directories) as $rectorClass) {
-            $rectorReflectionClass = new ReflectionClass($rectorClass);
+        $findRectorClasses = $this->findRectorClasses($directories);
+
+        foreach ($findRectorClasses as $findRectorClass) {
+            $rectorReflectionClass = new ReflectionClass($findRectorClass);
             if ($rectorReflectionClass->isAbstract()) {
                 continue;
             }
@@ -171,14 +173,14 @@ final readonly class RectorFinder
                 throw new InvalidRuleDescriptionException(
                     sprintf(
                         'Rule "%s" has invalid code samples:%s"%s"',
-                        $rectorClass,
+                        $findRectorClass,
                         PHP_EOL . PHP_EOL,
                         $throwable->getMessage()
                     )
                 );
             }
 
-            $ruleDefinition->setRuleClass($rectorClass);
+            $ruleDefinition->setRuleClass($findRectorClass);
 
             $currentRuleSets = $this->findRuleUsedSets($ruleDefinition, $rectorSets);
 
@@ -187,10 +189,30 @@ final readonly class RectorFinder
                 $ruleDefinition->getDescription(),
                 $ruleDefinition->getCodeSamples(),
                 $currentRuleSets,
-                (string) $rectorReflectionClass->getFileName()
+                (string) $rectorReflectionClass->getFileName(),
+                $this->isDuplicatedLastName($findRectorClasses, $rectorReflectionClass->getShortName())
             );
         }
 
         return $ruleMetadatas;
+    }
+
+    /**
+     * @param array<class-string<RectorInterface>> $findRectorClasses
+     */
+    private function isDuplicatedLastName(array $findRectorClasses, string $lastName): bool
+    {
+        $count = 0;
+        foreach ($findRectorClasses as $findRectorClass) {
+            if (\str_ends_with($findRectorClass, '\\' . $lastName)) {
+                ++$count;
+
+                if ($count === 2) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 }
