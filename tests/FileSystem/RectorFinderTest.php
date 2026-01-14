@@ -23,9 +23,9 @@ final class RectorFinderTest extends TestCase
 
         $shortNames = [];
         $longNames = [];
-        foreach ($foundRectors as $ruleMetadata) {
-            $shortNames[] = $ruleMetadata->getRuleShortClass();
-            $longNames[] = $ruleMetadata->getRectorClass();
+        foreach ($foundRectors as $foundRector) {
+            $shortNames[] = $foundRector->getRuleShortClass();
+            $longNames[] = $foundRector->getRectorClass();
         }
 
         $uniqueShortNames = array_unique($shortNames);
