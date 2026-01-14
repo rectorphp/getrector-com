@@ -190,29 +190,9 @@ final readonly class RectorFinder
                 $ruleDefinition->getCodeSamples(),
                 $currentRuleSets,
                 (string) $rectorReflectionClass->getFileName(),
-                $this->isDuplicatedLastName($findRectorClasses, $rectorReflectionClass->getShortName())
             );
         }
 
         return $ruleMetadatas;
-    }
-
-    /**
-     * @param array<class-string<RectorInterface>> $findRectorClasses
-     */
-    private function isDuplicatedLastName(array $findRectorClasses, string $lastName): bool
-    {
-        $count = 0;
-        foreach ($findRectorClasses as $findRectorClass) {
-            if (\str_ends_with($findRectorClass, '\\' . $lastName)) {
-                ++$count;
-
-                if ($count === 2) {
-                    return true;
-                }
-            }
-        }
-
-        return false;
     }
 }

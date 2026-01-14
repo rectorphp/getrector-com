@@ -21,7 +21,6 @@ final class RuleFilterTest extends AbstractTestCase
             [],
             [],
             'some-rector.php',
-            false
         );
         $ruleMetadataCommunity = new RuleMetadata(
             MigrateToSimplifiedAttributeRector::class,
@@ -29,7 +28,6 @@ final class RuleFilterTest extends AbstractTestCase
             [],
             [],
             'some-rector.php',
-            false,
         );
 
         $ruleFilter = $this->make(RuleFilter::class);
