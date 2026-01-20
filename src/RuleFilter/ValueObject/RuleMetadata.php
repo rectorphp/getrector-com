@@ -27,7 +27,7 @@ final class RuleMetadata
     public function __construct(
         private readonly string $ruleClass,
         private readonly string $description,
-        private array $codeSamples,
+        private readonly array $codeSamples,
         private readonly array $sets,
         private readonly string $rectorRuleFilePath,
     ) {
