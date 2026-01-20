@@ -76,7 +76,7 @@ return RectorConfig::configure()
 
 ## PHP Version
 
-Rector reads the PHP version from `composer.json`. It's very rate to use different PHP version than one provided by `composer.json`, as it might use newer syntax and break your code. If you still need different version, you can override it manually:
+Rector reads the PHP version from `composer.json`. It's very rare to use different PHP version than one provided by `composer.json`, as it might use newer syntax and break your code. If you still need different version, you can override it manually:
 
 ```php
 use Rector\ValueObject\PhpVersion;
