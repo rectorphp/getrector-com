@@ -48,7 +48,7 @@ final readonly class PostFactory
         }
 
         Assert::keyExists($matches, 'content');
-        $htmlContent = $matches['content'];
+        $htmlContent = (string) $matches['content'];
 
         $updatedAt = isset($configuration['updated_at']) ? new DateTime($configuration['updated_at']) : null;
         $updatedMessage = $configuration['updated_message'] ?? null;
