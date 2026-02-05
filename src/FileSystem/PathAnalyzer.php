@@ -43,6 +43,6 @@ final class PathAnalyzer
 
         $dateAndNamePattern = sprintf('#%s-%s#', self::DATE_REGEX, self::NAME_REGEX);
         $match = (array) Strings::match($filePath, $dateAndNamePattern);
-        return $match['name'];
+        return (string) $match['name'];
     }
 }
