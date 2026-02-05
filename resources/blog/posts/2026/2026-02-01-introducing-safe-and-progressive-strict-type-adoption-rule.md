@@ -1,6 +1,6 @@
 ---
 id: 82
-title: "Introducing Safe and Progressive Strict Type Adoption"
+title: "Introducing Safe and Progressive Strict Type Adoption Rule"
 perex: |
     PHP's `declare(strict_types=1)` directive is a powerful tool for preventing subtle bugs.
     Yet most existing, mature projects don't use it consistently, if at all.
