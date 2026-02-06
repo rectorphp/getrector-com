@@ -6,6 +6,9 @@
     colors="true"
     bootstrap="vendor/autoload.php"
     cacheDirectory=".phpunit.cache"
+    displayDetailsOnPhpunitNotices="true"
+    failOnNotice="true"
+    failOnPhpunitNotice="true"
 >
     <testsuites>
         <testsuite name="main">
