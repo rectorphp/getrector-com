@@ -1,17 +1,17 @@
 ---
 id: 83
-title: "Upgrade to PHPUnit 12.5 in 7 diffs"
+title: "Upgrade to PHPUnit 12.5 in 7 Diffs"
 perex: |
-    PHPUnit 12 was released a year ago, but only PHPUnit 12.5 released in December 2025 includes valuable features that are worth the once a year ugprade.
+    PHPUnit 12 was released a year ago, but only PHPUnit 12.5 released in December 2025 includes valuable features that are worth it.
 
-    The most important change, that will affect your code, is that mocks are now much more strict. And there also stubs... a mock that does not nothing. How to spot them and separate them?
+    The most important change, that will affect your code, is that mocks are now much stricter. There are also stubs, a mock that does nothing. How do you spot them and separate them?
 
-    Are you curious how to get from 4000 notices to under 100 in 7 diffs? Read on.
+    Curious how to get from 4000 notices to under 100 in 7 diffs? Read on.
 ---
 
-What is difference between a mock and a stub? You didn't have to care untill PHPUnit 12.5, but now you do.
+What is the difference between a mock and a stub? You did not have to care until PHPUnit 12.5, but now you do.
 
-Why? Because PHPUnit now complains their miss-use verboselly. And there is no way to ignore it:
+Why? Because PHPUnit now complains about their misuse very verbosely. There is no way to ignore it:
 
 <img src="/assets/images/blog/2026/phpunit-notices-spam.png" class="img-thumbnail" style="max-width: 20em">
 
@@ -26,7 +26,7 @@ There is more precise definition in the PHPUnit docs, but in plain English:
 
 <br>
 
-* **a mock** is a fake class, that has expectations of being called or not being called,
+* **A mock** is a fake class that has expectations about being called or not being called,
 
 ```php
 $someMock = $this->createMock(SomeClass::class);
@@ -39,7 +39,7 @@ Here we expect the `someMethod` to be called. PHPUnit will crash with error othe
 
 <br>
 
-* **a stub** is also a fake class, but it doesn't do anything at all.
+* **A stub** is also a fake class, but it does not do anything at all.
 
 We can use it to make comply with constructor requirements:
 
@@ -60,13 +60,13 @@ $this->assertSame($request, $requestStack->getCurrentRequest());
 
 <br>
 
-This leads us to first simplest change we can do.
+This leads us to the first and simplest change we can make.
 
 <br>
 
-## 1. Use `createStub()` over `createMock()` in args
+## 1. Use `createStub()` instead of `createMock()` in arguments
 
-The first one are simple as:
+The first cases are as simple as:
 
 ```diff
  $someClass = new SomeClass(
@@ -86,7 +86,7 @@ Also variable assigns:
  $someClass = new SomeClass($someDependency);
 ```
 
-Or coalesce as argument:
+Or coalesce directly in the argument:
 
 ```diff
 -$someClass = new SomeClass(
@@ -117,9 +117,9 @@ But also property fetches without any expectations:
 
 ## 2. Inline once-used Mocks Property to a Variable
 
-This is not change in PHPUnit 12.5 per se, bit it helps with changes that come with it. During the upgrade, I've noticed some properties are used just once.
+This is not a change in PHPUnit 12.5 itself, but it helps with the changes that come with it. During the upgrade, I've noticed some properties are used just once.
 
-Properties are not variables for one reason: to be used across multiple methods. So lets fix that:
+Properties are not variables for one reason: to be used across multiple methods. Let us fix that:
 
 ```diff
 -private MockObject $someDependency;
@@ -143,7 +143,7 @@ We have less code to read for us and GPT, and also can move to `createStub()` wi
 
 <br>
 
-## 3. Remove never used isolated mocks, as well as dead
+## 3. Remove never used isolated mocks and dead code
 
 Speaking of dead code, the mocks to stub narrowign also surfaces another issue: never used mocks that live on their own island.
 
@@ -158,9 +158,9 @@ $this->createMock(SomeClass::class)
     ->willReturn(100);
 ```
 
-What is wrong with this code snippet, apart being a stub? It is never used. We created it, but we never assigned it to a variable, nor property feath, nor argument of a method call.
+What is wrong with this code snippet, apart from being a stub? It is never used. We created it, but we never assigned it to a variable, nor property feath, nor argument of a method call.
 
-It's a dead code. Remove it:
+It is dead code. Remove it:
 
 ```diff
 -$this->createMock(SomeClass::class)
@@ -171,7 +171,7 @@ It's a dead code. Remove it:
 
 <br>
 
-Beware, this can be a as complex as well defined and typed property... that is never used. Dead code, remove it:
+Beware, this can be as complex as a well defined and typed property... that is never used. Dead code, remove it:
 
 ```diff
 -private MockObject $mockProperty;
@@ -189,7 +189,7 @@ Beware, this can be a as complex as well defined and typed property... that is n
 
 ## 4. From `$this->any()` to explicit expectations
 
-PHPUnit now also deprecated used of `$this->any()` expectations. Wise choice, as its says "we expect 0, or 1 or any number of occurances". This code as well could be removed.
+PHPUnit now also deprecated used of `$this->any()` expectations. This is a wise choice, as it effectively says "we expect 0, 1, or any number of occurrences". This code as well could be removed.
 
 <br>
 
@@ -208,7 +208,7 @@ $someClass
     ->willReturn(100);
 ```
 
-Both will be most reported by PHPUnit as stubs. They have 0 expectations (amongs other numbers). So how do we fix that? Change we used before will not be enought (nor working):
+Both will be most reported by PHPUnit as stubs. They have 0 expectations (among other numbers). So how do we fix that? Change we used before is not enough and will not work here:
 
 ```diff
 -$someClass = $this->createMock(SomeClass::class);
@@ -220,7 +220,7 @@ Both will be most reported by PHPUnit as stubs. They have 0 expectations (amongs
 We have to be honest here, and it might require to understand the code.
 
 * Is it a dummy method defined in `setUp()` method, in case it will be called any further in the codebase?
-* Is it implicit `$this->any()`, just becaused we forgot to add explicit number?
+* Is it implicit `$this->any()`, just because we forgot to add explicit number?
 
 <br>
 
@@ -238,7 +238,7 @@ But what about the `setUp()` method? Do we have to now go through all the code a
 <br>
 
 
-## 5. Add `#[AllowMockObjectsWithoutExpectations]` for setUp() optionals
+## 5. Add `#[AllowMockObjectsWithoutExpectations]` for optional setUp mocks
 
 It's perfectly reasonable to use `setUp()` method to create mock properties that may or may not be used in one of the test method later:
 
@@ -267,8 +267,8 @@ public function testNotUsing()
 }
 ```
 
-Here we have one mocked object as a property with *any* expectations. Then 2 test methods. The 1st one is using mock as a mock.
-The 2nd test method is not, so it's a stub from its point of view.
+Here we have one mocked object as a property with *any* expectations. Then there are two test methods. The first one uses the mock as a mock.
+The second test method does not, so from its point of view it is a stub.
 
 (Also, another method can be using the property, but never calling the mocked method, so it's a stub as well).
 
@@ -293,14 +293,14 @@ This attribute will silence the notices about stubs in this test class.
 
 <br>
 
-We could use it on every case above, yes. But that would prevent us from obvious fixes and push the technical debt deeper under the rug with whole under our apparment.
+We could use it on every case above, yes. But that would prevent us from obvious fixes and push the technical debt deeper under the rug with a hole under our apartment.
 
 <br>
 
 
-## 6. Cover Vendor `*TestCase` and Data Providers
+## 6. Cover vendor `*TestCase` classes and data providers
 
-There are 2 more case where the `#[AllowMockObjectsWithoutExpectations]` attribute is needed and makes sense.
+There are two more cases where the `#[AllowMockObjectsWithoutExpectations]` attribute is needed and makes sense.
 
 <br>
 
@@ -318,7 +318,7 @@ We use a 3rd party test case class, that defines its "any" expectations for a re
 
 <br>
 
-The next is a test method that uses a data provider. The data provider usually tests edge-case values that may or may not trigger a method call:
+The next is a test method that uses a data provider. The data provider usually tests edge case values that may or may not trigger a method call:
 
 ```diff
  use PHPUnit\Framework\TestCase;
@@ -348,15 +348,15 @@ The next is a test method that uses a data provider. The data provider usually t
 
 <br>
 
-## 7. Move from Object mocking to... Objects
+## 7. Move from object mocking to real objects
 
 <blockquote class="blockquote">
 "The best mock is no mock at all"
 </blockquote>
 
-Before we event dived into PHPUnit upgrade, we first eliminated the obvious cases that don't need any mocking at all.
+Before we even started the PHPUnit upgrade, we first eliminated the obvious cases that don't need any mocking at all.
 
-We looked for plain objects, DTOs, value objects, entities and documents and replacted them will 100 % real, natively typed objects.
+We looked for plain objects, DTOs, value objects, entities and documents and replaced them with real, natively typed objects.
 
 <br>
 
@@ -387,7 +387,7 @@ It can be as simple as using a simple `Request` directly:
 
 <br>
 
-Simple as that. Same applies for entity/document objects. Instead of hard-to-read gettter mocks, use real objects with real values and types:
+Simple as that. Same applies for entity/document objects. Instead of hard-to-read getter mocks, use real objects with real values and types:
 
 ```diff
 -$user = $this->createMock(User::class);
@@ -410,12 +410,12 @@ Simple as that. Same applies for entity/document objects. Instead of hard-to-rea
 
 You can get the entity/document PHPStan spotter rule from `symplify/phpstan-rules` [here](https://github.com/symplify/phpstan-rules/blob/4b7aa41072850f9875b45272d263be3f4a183f40/src/Rules/Doctrine/NoDocumentMockingRule.php#L21).
 
-Also, give a go to experimental [Rector rule](https://github.com/rectorphp/rector-phpunit/pull/629) that manages to change these mocks to entities. It's a real time-saver.
+Also, give a go to experimental [Rector rule](https://github.com/rectorphp/rector-phpunit/pull/629) that manages to change these mocks to entities. It is a real time saver.
 
 
 <br>
 
-## Enjoy Automated Upgrade
+## Enjoy the Automated Upgrade
 
 We automated most of this work above, so you can let your agent handle the rest of the edge-cases. To get there, first enable the `phpunitCodeQuality` prepared set in your `rector.php`:
 
@@ -453,7 +453,7 @@ It will automatically pick up the PHPUnit version and apply [the 12.5 set](https
 
 <br>
 
-That's all folks. Hope you've enjoyed this manually-written post. I surelly did enjoy writing it.
+That's all folks. I hope you enjoyed this manually written post. I certainly enjoyed writing it.
 
 As always, if you have improvement or bug report, head to Rector on Github and let us know.
 
