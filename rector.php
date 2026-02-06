@@ -19,6 +19,7 @@ return RectorConfig::configure()
         privatization: true,
         naming: true,
         rectorPreset: true,
+        phpunitCodeQuality: true
     )
     ->withPhpSets()
     ->withAttributesSets()

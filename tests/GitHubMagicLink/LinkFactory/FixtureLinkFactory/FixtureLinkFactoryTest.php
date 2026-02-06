@@ -18,11 +18,9 @@ final class FixtureLinkFactoryTest extends AbstractTestCase
 {
     private FixtureLinkFactory $testFixtureLinkFactory;
 
-    #[Override]
     protected function setUp(): void
     {
         parent::setUp();
-
         $this->testFixtureLinkFactory = $this->make(FixtureLinkFactory::class);
     }
 

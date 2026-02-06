@@ -13,11 +13,9 @@ final class PullRequestDescriptionFactoryTest extends AbstractTestCase
 {
     private PullRequestDescriptionFactory $pullRequestDescriptionFactory;
 
-    #[Override]
     protected function setUp(): void
     {
         parent::setUp();
-
         $this->pullRequestDescriptionFactory = $this->make(PullRequestDescriptionFactory::class);
     }
 

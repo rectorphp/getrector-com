@@ -16,11 +16,9 @@ use Webmozart\Assert\Assert;
 
 final class DemoControllerTest extends AbstractTestCase
 {
-    #[Override]
     protected function setUp(): void
     {
         parent::setUp();
-
         $this->withoutMiddleware(ValidateCsrfToken::class);
     }
 

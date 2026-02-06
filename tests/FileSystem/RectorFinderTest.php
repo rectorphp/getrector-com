@@ -31,9 +31,9 @@ final class RectorFinderTest extends TestCase
         $uniqueShortNames = array_unique($shortNames);
         $uniqueLongNames = array_unique($longNames);
 
-        $this->assertSame(
+        $this->assertCount(
             count($uniqueShortNames),
-            count($uniqueLongNames),
+            $uniqueLongNames,
             'There are no duplicated short class names.'
         );
     }

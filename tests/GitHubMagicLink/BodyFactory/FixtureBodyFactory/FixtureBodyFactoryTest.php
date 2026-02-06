@@ -13,11 +13,9 @@ final class FixtureBodyFactoryTest extends AbstractTestCase
 {
     private FixtureBodyFactory $fixtureBodyFactory;
 
-    #[Override]
     protected function setUp(): void
     {
         parent::setUp();
-
         $this->fixtureBodyFactory = $this->make(FixtureBodyFactory::class);
     }
 
