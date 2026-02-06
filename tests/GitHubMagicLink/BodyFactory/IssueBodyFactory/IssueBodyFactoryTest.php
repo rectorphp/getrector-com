@@ -13,11 +13,9 @@ final class IssueBodyFactoryTest extends AbstractTestCase
 {
     private IssueBodyFactory $issueBodyFactory;
 
-    #[Override]
     protected function setUp(): void
     {
         parent::setUp();
-
         $this->issueBodyFactory = $this->make(IssueBodyFactory::class);
     }
 

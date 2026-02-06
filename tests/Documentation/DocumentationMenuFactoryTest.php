@@ -17,7 +17,7 @@ final class DocumentationMenuFactoryTest extends TestCase
     protected function setUp(): void
     {
         $urlGenerator = $this->createMock(UrlGenerator::class);
-        $urlGenerator->expects($this->any())
+        $urlGenerator
             ->method('action')
             ->willReturn('/index.html');
 
