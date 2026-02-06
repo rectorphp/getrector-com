@@ -8,8 +8,10 @@ use App\Documentation\DocumentationMenuFactory;
 use App\Documentation\DocumentationMenuItem;
 use App\Documentation\DocumentationMenuItemFactory;
 use Illuminate\Contracts\Routing\UrlGenerator;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\TestCase;
 
+#[AllowMockObjectsWithoutExpectations]
 final class DocumentationMenuFactoryTest extends TestCase
 {
     private DocumentationMenuFactory $documentationMenuFactory;
