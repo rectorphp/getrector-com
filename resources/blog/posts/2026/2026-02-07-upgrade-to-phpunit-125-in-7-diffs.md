@@ -449,7 +449,7 @@ And run Rector again:
 vendor/bin/rector
 ```
 
-It will automatically pick up the PHPUnit version and apply [the 12.5 set](https://github.com/rectorphp/rector-phpunit/blob/main/config/sets/phpunit120.php).
+It will automatically pick up the PHPUnit version and apply [the 12.0 set](https://github.com/rectorphp/rector-phpunit/blob/main/config/sets/phpunit120.php) and [the 12.5 set](https://github.com/rectorphp/rector-phpunit/blob/main/config/sets/phpunit125.php).
 
 <br>
 
