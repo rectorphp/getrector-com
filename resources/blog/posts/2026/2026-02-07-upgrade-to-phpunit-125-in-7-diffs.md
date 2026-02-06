@@ -7,6 +7,8 @@ perex: |
     The most important change, that will affect your code, is that mocks are now much stricter. There are also stubs, a mock that does nothing. How do you spot them and separate them?
 
     Curious how to get from 4000 notices to under 100 in 7 diffs? Read on.
+
+since_rector: 2.3.6
 ---
 
 What is the difference between a mock and a stub? You did not have to care until PHPUnit 12.5, but now you do.
