@@ -91,9 +91,9 @@ Also variable assigns:
 Or coalesce directly in the argument:
 
 ```diff
--$someClass = new SomeClass(
-     $someInput ?? $this->createMock(SomeDependency::class),
-     $someInput ?? $this->createStub(SomeDependency::class),
+ $someClass = new SomeClass(
+-    $someInput ?? $this->createMock(SomeDependency::class),
++    $someInput ?? $this->createStub(SomeDependency::class),
  );
 ```
 
