@@ -1,6 +1,6 @@
 Rector is working with PHP features of your project and uses only features, compatible with your code. That means it will not add attributes, unless you're at least on PHP 8.
 
-The best practise is to let pickup the PHP version from `composer.json`:
+The best practice is to let pickup the PHP version from `composer.json`:
 
 ```json
 {
@@ -12,7 +12,7 @@ The best practise is to let pickup the PHP version from `composer.json`:
 
 <br>
 
-If it's not there, Rector look into other places:
+If it's not there, Rector will look into other places:
 
 * PHP version defined in `rector.php`
 * `composer.json` require of PHP
