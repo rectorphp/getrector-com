@@ -75,10 +75,10 @@ final class HasRectorRule implements ValidationRule
             } catch (Throwable $e) {
                 $message = $e->getMessage();
                 if (str_starts_with($message, 'Call to undefined method')) {
-                    throw new ShouldNotHappenException('PHP config should have valid method name, you may have typo');
+                    throw new ShouldNotHappenException('PHP config should have valid method name, you may have typo', $e->getCode(), $e);
                 }
 
-                throw new ShouldNotHappenException('Expected config should return callable RectorConfig instance');
+                throw new ShouldNotHappenException('Expected config should return callable RectorConfig instance', $e->getCode(), $e);
             }
         }
 
