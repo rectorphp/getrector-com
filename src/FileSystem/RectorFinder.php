@@ -170,14 +170,12 @@ final readonly class RectorFinder
                 $ruleDefinition = $rector->getRuleDefinition();
 
             } catch (Throwable $throwable) {
-                throw new InvalidRuleDescriptionException(
-                    sprintf(
-                        'Rule "%s" has invalid code samples:%s"%s"',
-                        $findRectorClass,
-                        PHP_EOL . PHP_EOL,
-                        $throwable->getMessage()
-                    )
-                );
+                throw new InvalidRuleDescriptionException(sprintf(
+                    'Rule "%s" has invalid code samples:%s"%s"',
+                    $findRectorClass,
+                    PHP_EOL . PHP_EOL,
+                    $throwable->getMessage()
+                ), $throwable->getCode(), $throwable);
             }
 
             $ruleDefinition->setRuleClass($findRectorClass);

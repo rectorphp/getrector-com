@@ -111,7 +111,7 @@ final readonly class DemoRunner
         } catch (JsonException $jsonException) {
             if ($jsonException->getMessage() === 'Syntax error') {
                 $errorMessage = 'Invalid json syntax in "vendor/bin/rector" process output: ' . PHP_EOL . PHP_EOL . $output;
-                throw new ShouldNotHappenException($errorMessage);
+                throw new ShouldNotHappenException($errorMessage, $jsonException->getCode(), $jsonException);
             }
 
             throw $jsonException;
