@@ -18,7 +18,7 @@ final readonly class RectorSet
         private array $rectorClasses,
     ) {
         // only allowed, to keep BC
-        if (! in_array($name, ['phpunit/phpunit 11.0', 'doctrine/dbal 2.10'])) {
+        if (! in_array($name, ['phpunit/phpunit 11.0', 'doctrine/dbal 2.10'], true)) {
             Assert::notEmpty($rectorClasses, 'Set ' . $name . ' has no rules');
         }
     }
