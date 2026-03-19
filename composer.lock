@@ -2847,11 +2847,11 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "2.1.41",
+            "version": "2.1.42",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/a2eae8f20856b3afe74bf1f9726ce8c11438e300",
-                "reference": "a2eae8f20856b3afe74bf1f9726ce8c11438e300",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/1279e1ce86ba768f0780c9d889852b4e02ff40d0",
+                "reference": "1279e1ce86ba768f0780c9d889852b4e02ff40d0",
                 "shasum": ""
             },
             "require": {
@@ -2896,7 +2896,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-03-16T18:24:10+00:00"
+            "time": "2026-03-17T14:58:32+00:00"
         },
         {
             "name": "psr/clock",
@@ -3514,12 +3514,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "b72700646a3ccd67f46cf0d8af1566b6af6b7b14"
+                "reference": "b45c5255cbdc0ddbd1199306ba486a00d3374f58"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/b72700646a3ccd67f46cf0d8af1566b6af6b7b14",
-                "reference": "b72700646a3ccd67f46cf0d8af1566b6af6b7b14",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/b45c5255cbdc0ddbd1199306ba486a00d3374f58",
+                "reference": "b45c5255cbdc0ddbd1199306ba486a00d3374f58",
                 "shasum": ""
             },
             "require": {
@@ -3567,7 +3567,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-03-17T10:49:25+00:00"
+            "time": "2026-03-19T16:02:25+00:00"
         },
         {
             "name": "samsonasik/array-lookup",
