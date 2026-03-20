@@ -7,7 +7,7 @@ namespace App\Tests\Controller;
 use App\Controller\Demo\ProcessDemoFormController;
 use App\Enum\Request\FormKey;
 use App\Tests\AbstractTestCase;
-use Illuminate\Foundation\Http\Middleware\ValidateCsrfToken;
+use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
 use Iterator;
 use Override;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -19,7 +19,7 @@ final class DemoControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->withoutMiddleware(ValidateCsrfToken::class);
+        $this->withoutMiddleware(PreventRequestForgery::class);
     }
 
     /**
