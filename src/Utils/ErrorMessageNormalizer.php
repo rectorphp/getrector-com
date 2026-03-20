@@ -20,7 +20,7 @@ final class ErrorMessageNormalizer
             return $errorMessage;
         }
 
-        $type = ucfirst((string) $match['type']);
+        $type = ucfirst($match['type']);
         $classLikeName = $match['class_like_name'];
         $classCode = lcfirst($type) . ' ' . $classLikeName . ' {}';
 
