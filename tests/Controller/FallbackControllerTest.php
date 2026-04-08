@@ -7,12 +7,6 @@ use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
 
 class FallbackControllerTest extends AbstractTestCase
 {
-    protected function setUp(): void
-    {
-        parent::setUp();
-        $this->withoutMiddleware(PreventRequestForgery::class);
-    }
-
     public function testRedirectsRuleSlug(): void
     {
         $response = $this->get('/simplify-array-search-rector');
