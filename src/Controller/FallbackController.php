@@ -16,7 +16,7 @@ class FallbackController extends Controller
 
     public function __invoke(Request $request)
     {
-        $slug = $request->path();
+        $slug = str($request->path())->kebab();
         $ruleMetadata = $this->rectorFinder->findBySlug($slug);
 
         if (! $ruleMetadata instanceof RuleMetadata) {

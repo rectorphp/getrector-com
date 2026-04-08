@@ -26,4 +26,11 @@ class FallbackControllerTest extends AbstractTestCase
 
         $response->assertNotFound();
     }
+
+    public function testRedirectsWithPascalCaseSlug(): void
+    {
+        $response = $this->get('/SimplifyArraySearchRector');
+
+        $response->assertRedirect('/rule-detail/simplify-array-search-rector');
+    }
 }
