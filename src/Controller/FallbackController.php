@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\FileSystem\RectorFinder;
 use App\RuleFilter\ValueObject\RuleMetadata;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
@@ -14,7 +15,7 @@ class FallbackController extends Controller
     ) {
     }
 
-    public function __invoke(Request $request)
+    public function __invoke(Request $request): RedirectResponse
     {
         $slug = str($request->path())->kebab()->toString();
         $ruleMetadata = $this->rectorFinder->findBySlug($slug);
