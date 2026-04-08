@@ -23,7 +23,7 @@ class FallbackController extends Controller
             abort(404);
         }
 
-        return redirect()->action(RuleDetailController::class, [
+        return redirect(status: 301)->action(RuleDetailController::class, [
             'slug' => $ruleMetadata->getSlug(),
         ]);
     }

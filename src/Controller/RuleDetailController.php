@@ -28,7 +28,7 @@ final class RuleDetailController extends Controller
         }
 
         if ($kebab !== $slug) {
-            return redirect()->action(RuleDetailController::class, [
+            return redirect(status: 301)->action(RuleDetailController::class, [
                 'slug' => $kebab,
             ]);
         }
