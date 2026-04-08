@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\Controller;
+namespace App\Tests\Controller;
 
 use App\Tests\AbstractTestCase;
 use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
