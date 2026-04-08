@@ -28,4 +28,11 @@ class RuleDetailControllerTest extends AbstractTestCase
 
         $response->assertRedirect('/find-rule');
     }
+
+    public function testItRedirectsToKebabCaseSlugIfPascalCaseSlug(): void
+    {
+        $response = $this->get('/rule-detail/SimplifyArraySearchRector');
+
+        $response->assertRedirect('/rule-detail/simplify-array-search-rector');
+    }
 }
