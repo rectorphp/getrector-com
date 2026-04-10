@@ -167,7 +167,7 @@ use Rector\Config\RectorConfig;
 return RectorConfig::configure()
     ->withParallel(
         timeoutSeconds: 600,
-        maxNumberOfProcesses: 8,
+        maxNumberOfProcess: 8,
         jobSize: 20,
     );
 ```
