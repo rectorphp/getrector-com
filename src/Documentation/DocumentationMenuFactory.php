@@ -50,6 +50,7 @@ final readonly class DocumentationMenuFactory
             ],
             'Testing and CI' => [
                 $this->documentationMenuItemFactory->createSection('cache-in-ci', 'Cache in CI'),
+                $this->documentationMenuItemFactory->createSection('cache-meta-extension', 'Cache Meta Extension', true),
                 $this->documentationMenuItemFactory->createSection('debugging', 'Debugging'),
                 $this->documentationMenuItemFactory->createSection(
                     'troubleshooting-parallel',
