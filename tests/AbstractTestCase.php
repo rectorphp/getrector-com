@@ -11,6 +11,12 @@ use Override;
 
 abstract class AbstractTestCase extends TestCase
 {
+    protected function setup(): void
+    {
+        parent::setup();
+        $this->withoutVite();
+    }
+
     #[Override]
     public function createApplication(): Application
     {
