@@ -15,6 +15,7 @@ use App\Controller\Demo\DemoController;
 use App\Controller\Demo\DemoDetailController;
 use App\Controller\Demo\ProcessDemoFormController;
 use App\Controller\DocumentationController;
+use App\Controller\FallbackController;
 use App\Controller\FindRuleController;
 use App\Controller\HireTeamController;
 use App\Controller\HomepageController;
@@ -76,3 +77,5 @@ Route::post('process-demo', ProcessDemoFormController::class);
 Route::get('ast/{hash}', AstDetailController::class);
 Route::get('ast', AstController::class);
 Route::post('process-ast', ProcessAstFormController::class);
+
+Route::fallback(FallbackController::class);

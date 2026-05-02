@@ -19,11 +19,18 @@ final class RuleDetailController extends Controller
 
     public function __invoke(string $slug): View|RedirectResponse
     {
-        $ruleMetadata = $this->rectorFinder->findBySlug($slug);
+        $kebab = str($slug)->kebab()->toString();
+        $ruleMetadata = $this->rectorFinder->findBySlug($kebab);
 
         if (! $ruleMetadata instanceof RuleMetadata) {
             // nothing found, get back
             return redirect()->action(FindRuleController::class);
+        }
+
+        if ($kebab !== $slug) {
+            return redirect(status: 301)->action(RuleDetailController::class, [
+                'slug' => $kebab,
+            ]);
         }
 
         return \view('homepage/rule_detail', [
